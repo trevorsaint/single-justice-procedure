@@ -1,0 +1,52 @@
+// Synopsis
+// ==========================================================================
+
+$module: 'synopsis';
+
+.#{$module} {
+  border-top: em(1) solid $grey-2;
+  border-bottom: em(1) solid $grey-2;
+  padding-top: em(20);
+  padding-bottom: em(20);
+
+  &-item {
+    overflow: hidden;
+    padding-top: em(10);
+    padding-bottom: em(10);
+  }
+  
+  &-figure {
+    @include bold-48();
+
+    @include media(desktop) {
+      float: left;  
+    }
+    
+  }
+  
+  &-label {
+    display: block;
+    
+    @include media(desktop) {
+      overflow: hidden;  
+      padding-left: em(10);
+    }
+    
+  }
+  
+}
+
+/*
+  
+HTML Usage
+  
+<div class="synopsis">
+  
+  <div class="synopsis-item">
+    <span class="synopsis-figure">23</span> 
+    <span class="synopsis-label">cases awaiting court decision</span>
+  </div>
+  
+</div>
+
+*/

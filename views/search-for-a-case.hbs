@@ -1,0 +1,79 @@
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="/">Case tasks</a></li>
+      <li>Search for a case</li>
+    </ol>
+  </div>
+  
+  
+  <div class="grid-row">
+    
+    
+    <div class="column-two-thirds">
+    
+    
+      <h1 class="heading-xlarge">Search for a case</h1>
+      
+      
+      <form class="form">
+    
+        <div class="form-group form-group-related">   
+          <label class="form-label" for="case-number">Case number or defendant lastname</label>
+          <input class="form-control" id="case-number" type="text" value="Smith">
+        </div>
+        
+        <button class="button" type="submit">Search</button>
+        
+      </form>
+      
+      
+    </div>
+  
+  
+  </div>
+  
+  
+  <h3 class="heading-medium">50 cases found</h3>
+  
+  
+  <table class="table">
+    <caption class="visuallyhidden">A collection of defendant cases</caption>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Date of birth</th>
+        <th scope="col">File name</th>
+        <th scope="col">Status</th>
+        <th scope="col"><abbr title="Single Justice Procedure">SJP</abbr> notice served</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each searches}}
+      <tr>
+        <td><a href="/case-details/{{id}}">{{lastname}} {{firstname}}</a></td>
+        <td>{{date-of-birth}}</td>
+        <td>{{case-number}}</td>
+        <td>{{verdict}}</td>
+        <td>{{sjp-notice-served}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+  
+  
+  <div class="pager">
+      
+    <div class="pager-controls">
+      
+      <ul class="pager-items">
+        <li>1</li>
+        <li><a href="#">2</a></li>
+      </ul>
+      
+      <a class="pager-next" href="#">Next</a>
+      
+    </div>
+    
+    <div class="pager-summary">Showing 1 &ndash; 10 of 20 results</div>
+    
+  </div>

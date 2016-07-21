@@ -1,0 +1,67 @@
+// Summary
+// ==========================================================================
+
+$module: 'summary';
+
+.#{$module} {
+
+  &-heading {
+    float: left;
+    font-weight: 700;
+    padding-top: em(16);
+    width: 40%;
+    
+    &:nth-child(1) {
+      padding-top: 0;
+    }
+    
+  }
+  
+  &-content {
+    overflow: hidden;
+    padding-left: 20px;
+    padding-top: em(16);
+    
+    &:nth-child(2) {
+      padding-top: 0;
+    }
+    
+  }
+
+}
+
+/*
+  
+HTML Usage
+  
+<dl class="summary">
+  <dt class="summary-heading">Heading</dt>
+  <dd class="summary-content">Content</dd>
+</dl>
+
+*/
+
+
+
+// Downloads
+// ==========================================================================
+
+$module: 'file-download';
+
+.#{$module} {
+  
+  .icon {
+    float: left;
+    margin-right: 10px;
+  }
+  
+  &-content {
+    overflow: hidden;
+  }
+  
+  &-meta {
+    @include core-16;
+    display: block;
+  }
+  
+}

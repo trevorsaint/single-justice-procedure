@@ -1,0 +1,25 @@
+// Forms
+// ==========================================================================
+
+$module: 'form';
+
+.#{$module} {
+
+  &-group-last {
+    margin-bottom: $gutter;
+    
+    @include media(tablet) {
+      margin-bottom: $gutter*2;
+    }
+    
+  }
+
+  &-control-wide {
+    width: 100%;
+  }
+
+  &-control-textarea {
+    resize: vertical;
+  }
+  
+}

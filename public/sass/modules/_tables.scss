@@ -1,0 +1,14 @@
+// Tables
+// ==========================================================================
+
+$module: 'table';
+
+.#{$module} {
+  margin-bottom: em(40); 
+
+  .last {
+    padding-right: 0;
+    text-align: right;  
+  }
+ 
+}

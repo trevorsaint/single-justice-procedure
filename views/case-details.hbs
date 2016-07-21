@@ -1,0 +1,127 @@
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="/">Case tasks</a></li>
+      <li><a href="/search-for-a-case/">Search for a case</a></li>
+      <li>{{search.firstname}} {{search.lastname}}</li>
+    </ol>
+  </div>
+  
+  
+  <div class="grid-row">
+    
+    
+    <div class="column-two-thirds">
+      
+      
+      <h1 class="heading-xlarge">{{search.firstname}} {{search.lastname}} <span class="heading-secondary">{{search.reference}}</span></h1>
+  
+      
+      <dl class="summary">
+        <dt class="summary-heading">Date of birth</dt>
+        <dd class="summary-content">12 Jan 2016 (age {{search.age}})</dd>
+        <dt class="summary-heading">Address</dt>
+        <dd class="summary-content">{{search.address.address1}}, <br> {{search.address.town}}, <br> {{search.address.postcode}}</dd>
+        <dt class="summary-heading">Landline</dt>
+        <dd class="summary-content">{{search.landline}}</dd>
+      </dl>
+      
+      
+      <hr>
+      
+      
+      <dl class="summary">
+        <dt class="summary-heading">Prosecutor name</dt>
+        <dd class="summary-content">Transport for London</dd>
+        <dt class="summary-heading">Charge date</dt>
+        <dd class="summary-content">21 January 2016</dd>
+        <dt class="summary-heading">Notice served</dt>
+        <dd class="summary-content">2 February 2016</dd>
+        <dt class="summary-heading">Related documents</dt>
+        <dd class="summary-content">
+          
+          <ul class="list list-file-downloads">
+        
+            <li class="file-download">
+              <i class="icon icon-file-download"></i>
+              <div class="file-download-content">
+                <a href="#">SJP notice</a> 
+                <span class="file-download-meta"><abbr title="Portable Document Format">PDF</abbr>, 156KB</span>
+              </div>
+            </li>
+            
+            <li class="file-download">
+              <i class="icon icon-file-download"></i>
+              <div class="file-download-content">
+                <a href="#">Plea document</a> 
+                <span class="file-download-meta"><abbr title="Portable Document Format">PDF</abbr>, 204KB</span>
+              </div>
+            </li>
+            
+          </ul>
+        
+        </dd>
+        
+      </dl>
+      
+      
+      <hr>
+      
+      
+      <section aria-labelledby="offences">
+        
+          
+        <h2 class="heading-large" id="offences">Offences</h2>
+        
+        
+        <section>
+          
+          <h3 class="heading-small">Public service vehicle &ndash; Passenger used ticket issued for another person</h3>
+          
+          <p>On 1 February 2016</p>
+          
+          <details>
+        
+            <summary><span class="summary">View legal information</span></summary>
+          
+            <div class="panel panel-border-narrow">
+          
+              <h4 class="heading-small">Mitigation</h4>
+              <p>See plea document.</p>
+          
+              <h4 class="heading-small">Witness statement</h4>
+              <p>On 01/02/2016 At Grosvenor Place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers.</p>
+              
+              <h4 class="heading-small">Statement of facts</h4>
+              <p>I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.</p>
+          
+            </div>
+          
+          </details>
+        
+        </section>
+  
+        
+      </section>
+      
+      
+    </div>
+    
+    
+    <div class="column-third">
+      
+      <div class="related">
+    
+        <div class="related-section">
+          <h2 class="related-title">Related links</h2>
+          <ul class="related-links">
+            <li><a href="/send-other-documents">Upload case related documents</a></li>
+            <li><a href="/withdraw-case/{{search.id}}">Request to withdraw case</a></li>
+          </ul>
+        </div>
+      
+      </div>
+      
+    </div>
+    
+    
+  </div>

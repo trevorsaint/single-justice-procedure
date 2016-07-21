@@ -1,0 +1,39 @@
+// Downloads
+// ==========================================================================
+
+$module: 'file-download';
+
+.#{$module} {
+  
+  .icon {
+    float: left;
+    margin-right: 10px;
+  }
+  
+  &-content {
+    overflow: hidden;
+  }
+  
+  &-meta {
+    @include core-16;
+    display: block;
+  }
+  
+}
+
+/*
+  
+HTML Usage
+  
+<li class="file-download">
+
+  <i class="icon icon-file-download"></i>
+  
+  <div class="file-download-content">
+    <a href="#">SJP notice</a> 
+    <span class="file-download-meta"><abbr title="Portable Document Format">PDF</abbr>, 156KB</span>
+  </div>
+  
+</li>
+
+*/

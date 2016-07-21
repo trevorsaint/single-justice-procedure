@@ -1,0 +1,62 @@
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="/">Case tasks</a></li>
+      <li>Check data file uploads</li>
+    </ol>
+  </div>
+  
+  
+  <h1 class="heading-xlarge">Check data file uploads</h1>
+  
+  
+  <table class="table">
+    <caption class="visuallyhidden">A collection of data file uploads</caption>
+    <thead>
+      <tr>
+        <th scope="col">Uploaded</th>
+        <th scope="col">By</th>
+        <th scope="col">File name</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each uploads}}
+      <tr>
+        <td>{{uploaded}}</td>
+        <td>{{firstname}} {{lastname}}</td>
+        <td>{{filename}}</td>
+        <td>{{status}}</td>
+        <td>{{#if url}}<a href="{{url}}">Download</a>{{/if}}</td>
+      </tr>
+    {{/each}}
+    
+    {{#each searches}}
+      <tr>
+        <td>{{file.uploaded}}</td>
+        <td>{{lastname}} {{firstname}}</td>
+        <td>{{file.filename}}</td>
+        <td>{{file.status}}</td>
+        <td>{{#if file.url}}<a href="#">Download</a>{{/if}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+  
+  
+  <div class="pager">
+      
+    <div class="pager-controls">
+      
+      <ul class="pager-items">
+        <li>1</li>
+        <li><a href="#">2</a></li>
+      </ul>
+      
+      <a class="pager-next" href="#">Next</a>
+      
+    </div>
+    
+    <div class="pager-summary">Showing 1 &ndash; 10 of 20 results</div>
+    
+  </div>

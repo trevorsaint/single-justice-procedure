@@ -1,0 +1,32 @@
+// Persist information
+// ==========================================================================
+
+$module: 'persist-info';
+
+.#{$module} {
+  @include core-24;
+  background-color: $govuk-blue;
+  color: white;
+  padding: $gutter-half;
+  
+  &-reference {
+    color: lighten($govuk-blue, 60%);
+  }
+  
+  &-title {
+    margin-left: em(10);
+    font-weight: 700;
+  }
+  
+}
+
+/*
+  
+HTML Usage
+  
+<div class="persist-info">
+  <span class="persist-info-reference"></span>
+  <span class="persist-info-title"></span>
+</div>
+
+*/
