@@ -4,3 +4,4 @@ node_modules/
 dist/
 *.swp
 *.js.swp
+.DS_Store
