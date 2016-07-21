@@ -5,3 +5,4 @@ dist/
 *.swp
 *.js.swp
 .DS_Store
+files

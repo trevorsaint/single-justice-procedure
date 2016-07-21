@@ -2,10 +2,11 @@
  * Module dependencies
  */
 
-var express    = require('express');
-var exphbs     = require('express-handlebars');
-var app        = express();
-var routes     = require(__dirname + '/routes');
+var express = require('express');
+var exphbs  = require('express-handlebars');
+var app     = express();
+var routes  = require(__dirname + '/routes');
+var port    = (process.env.PORT || 3000);
 
 
 /*
@@ -57,6 +58,5 @@ app.use(function(req, res, next) {
  * App listen
  */
 
-app.listen(3000, function() {
-  console.log('Listening on port 3000...');
-});
+app.listen(port);
+console.log('Listening on port ' + port);
