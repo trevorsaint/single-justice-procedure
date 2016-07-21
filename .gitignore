@@ -1,1 +1,6 @@
-node_modules
+node_modules/
+.sass-cache
+.tmp/
+dist/
+*.swp
+*.js.swp
