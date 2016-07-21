@@ -1,6 +1,6 @@
 {
-  "name": "TfL",
-  "description": "Website template Transport for London",
+  "name": "tfl-prosecutor",
+  "description": "A service for Transport for London (TfL)",
   "version": "1.0.0",
   "private": "true",
   "main": "app.js",
@@ -11,10 +11,13 @@
     "Handlesbars",
     "Grunt"
   ],
+  
   "author": "Trevor Saint",
+  
   "engines": {
     "node": "4.4.6"
   },
+  
   "dependencies": {
     "express": "4.14.0",
     "body-parser": "*",
@@ -23,6 +26,7 @@
     "govuk_template_mustache": "^0.17.0",
     "govuk-elements-sass": "^1.1.4"
   },
+  
   "devDependencies": {
     "grunt": "0.4.5",
     "grunt-cli": "1.2.0",
@@ -34,7 +38,14 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-express-server": "^0.5.3"
   },
+  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trevorsaint/tfl-prosecutor.git"
+  },
+  
   "scripts": {
     "start": "node app.js"
   }
+  
 }
