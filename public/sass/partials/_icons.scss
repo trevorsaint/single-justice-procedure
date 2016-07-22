@@ -1,0 +1,26 @@
+// Icons
+// ==========================================================================
+
+$module: 'icon';
+
+.#{$module} {
+
+  &-tick {
+    @include icon(icon-tick, 27, 27);
+  }
+  
+  &-cross {
+    @include icon(icon-cross, 27, 27);
+  }
+  
+}
+
+/*
+  
+HTML Usage
+   
+<i class="icon icon-tick" role="presentation" aria-hidden="true"></i>
+
+<i class="icon icon-cross" role="presentation" aria-hidden="true"></i>
+
+*/

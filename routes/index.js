@@ -69,8 +69,14 @@ bind: function(app) {
     });
     
     
-    app.get('/withdraw-offence', function (req, res) {
-      res.render('withdraw-offence');
+    app.get('/withdraw-offence/:id', function (req, res) { 
+      
+      var entry = dataEngine.getSearchEntry(req.params.id);
+      
+      res.render('withdraw-offence', {
+        search:entry
+      });
+      
     });
     
     

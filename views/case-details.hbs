@@ -14,54 +14,71 @@
       
       
       <h1 class="heading-xlarge">{{search.firstname}} {{search.lastname}} <span class="heading-secondary">{{search.reference}}</span></h1>
-  
+
+
+      <section aria-labelledby="personal-details">
+
+        <h2 class="bold-medium" id="personal-details">Personal details</h2>
+        
+        <dl class="summary">
+          <dt class="summary-heading">Gender</dt>
+          <dd class="summary-content">{{search.gender}}</dd>
+          <dt class="summary-heading">Date of birth</dt>
+          <dd class="summary-content">12 Jan 2016 (age {{search.age}})</dd>
+          <dt class="summary-heading">Address</dt>
+          <dd class="summary-content">{{search.address.address1}}, <br> {{search.address.town}}, <br> {{search.address.postcode}}</dd>
+          <dt class="summary-heading">Email</dt>
+          <dd class="summary-content">{{#if search.email}}{{search.email}}{{else}}-{{/if}}</dd>
+          <dt class="summary-heading">Landline</dt>
+          <dd class="summary-content">{{#if search.landline}}{{search.landline}}{{else}}-{{/if}}</dd>
+          <dt class="summary-heading">Mobile</dt>
+          <dd class="summary-content">{{#if search.mobile}}{{search.mobile}}{{else}}-{{/if}}</dd>
+          <dt class="summary-heading">National Insurance number</dt>
+          <dd class="summary-content">{{#if search.national-insurance-number}}{{search.national-insurance-number}}{{else}}-{{/if}}</dd>
+        </dl>
       
-      <dl class="summary">
-        <dt class="summary-heading">Date of birth</dt>
-        <dd class="summary-content">12 Jan 2016 (age {{search.age}})</dd>
-        <dt class="summary-heading">Address</dt>
-        <dd class="summary-content">{{search.address.address1}}, <br> {{search.address.town}}, <br> {{search.address.postcode}}</dd>
-        <dt class="summary-heading">Landline</dt>
-        <dd class="summary-content">{{search.landline}}</dd>
-      </dl>
+      </section>
       
       
       <hr>
       
-      
-      <dl class="summary">
-        <dt class="summary-heading">Prosecutor name</dt>
-        <dd class="summary-content">Transport for London</dd>
-        <dt class="summary-heading">Charge date</dt>
-        <dd class="summary-content">21 January 2016</dd>
-        <dt class="summary-heading">Notice served</dt>
-        <dd class="summary-content">2 February 2016</dd>
-        <dt class="summary-heading">Related documents</dt>
-        <dd class="summary-content">
+
+      <section aria-labelledby="case-details">
+
+        <h2 class="bold-medium" id="case-details">Case details</h2>
+        
+        <dl class="summary">
+          <dt class="summary-heading">Prosecutor</dt>
+          <dd class="summary-content">Transport for London</dd>
+          <dt class="summary-heading">Charge date</dt>
+          <dd class="summary-content">21 January 2016</dd>
+          <dt class="summary-heading">Notice served</dt>
+          <dd class="summary-content">2 February 2016</dd>
+          <dt class="summary-heading">Documents</dt>
+          <dd class="summary-content">
+            
+            <ul class="list list-file-downloads">
+              
+              {{#each search.related-documents.document}}
+              <li class="file-download">
+                
+                <i class="icon icon-file-download"></i>
+                
+                <div class="file-download-content">
+                  <a href="{{file-path}}">{{title}}</a> 
+                  <span class="file-download-meta">{{file-type}}, {{file-size}}</span>
+                </div>
+                
+              </li>
+              {{/each}}
+              
+            </ul>
           
-          <ul class="list list-file-downloads">
-        
-            <li class="file-download">
-              <i class="icon icon-file-download"></i>
-              <div class="file-download-content">
-                <a href="#">SJP notice</a> 
-                <span class="file-download-meta"><abbr title="Portable Document Format">PDF</abbr>, 156KB</span>
-              </div>
-            </li>
-            
-            <li class="file-download">
-              <i class="icon icon-file-download"></i>
-              <div class="file-download-content">
-                <a href="#">Plea document</a> 
-                <span class="file-download-meta"><abbr title="Portable Document Format">PDF</abbr>, 204KB</span>
-              </div>
-            </li>
-            
-          </ul>
-        
-        </dd>
-        
-      </dl>
+          </dd>
+          
+        </dl>
+      
+      </section>
       
       
       <hr>
@@ -70,35 +87,27 @@
       <section aria-labelledby="offences">
         
           
-        <h2 class="heading-large" id="offences">Offences</h2>
+        <h2 class="bold-medium" id="offences">2 offences</h2>
         
         
+        {{#each search.offences.offence}}
         <section>
           
-          <h3 class="heading-small">Public service vehicle &ndash; Passenger used ticket issued for another person</h3>
+          <h3 class="heading-small">{{{title}}}</h3>
           
-          <p>On 1 February 2016</p>
+          <p class="font-xsmall">On {{date}}</p>
           
-          <details>
-        
-            <summary><span class="summary">View legal information</span></summary>
-          
-            <div class="panel panel-border-narrow">
-          
-              <h4 class="heading-small">Mitigation</h4>
-              <p>See plea document.</p>
-          
-              <h4 class="heading-small">Witness statement</h4>
-              <p>On 01/02/2016 At Grosvenor Place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers.</p>
+          <div class="panel panel-border-narrow">
               
-              <h4 class="heading-small">Statement of facts</h4>
-              <p>I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.</p>
-          
-            </div>
-          
-          </details>
+            <h4 class="bold-xsmall">Statement of facts</h4>
+            <p class="font-xsmall">{{{statement-of-facts}}}</p>
         
+          </div>
+          
+          <p><a href="/withdraw-offence/{{../search.id}}">Withdraw offence</a></p>
+          
         </section>
+        {{/each}}
   
         
       </section>
@@ -112,10 +121,10 @@
       <div class="related">
     
         <div class="related-section">
-          <h2 class="related-title">Related links</h2>
+          <h2 class="related-title">Tasks</h2>
           <ul class="related-links">
-            <li><a href="/send-other-documents">Upload case related documents</a></li>
-            <li><a href="/withdraw-case/{{search.id}}">Request to withdraw case</a></li>
+            <li><a href="/send-other-documents">Send documents to court</a></li>
+            <li><a href="/withdraw-case/{{search.id}}">Withdraw case</a></li>
           </ul>
         </div>
       

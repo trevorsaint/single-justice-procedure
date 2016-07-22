@@ -2164,20 +2164,14 @@ HTML Usage
 */
 .summary-heading {
   float: left;
-  font-weight: 700;
   padding-top: 0.84211em;
   width: 40%;
-}
-.summary-heading:nth-child(1) {
-  padding-top: 0;
+  color: #6f777b;
 }
 .summary-content {
   overflow: hidden;
   padding-left: 20px;
   padding-top: 0.84211em;
-}
-.summary-content:nth-child(2) {
-  padding-top: 0;
 }
 
 /*
@@ -2190,29 +2184,6 @@ HTML Usage
 </dl>
 
 */
-.file-download .icon {
-  float: left;
-  margin-right: 10px;
-}
-.file-download-content {
-  overflow: hidden;
-}
-.file-download-meta {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
-  font-weight: 400;
-  text-transform: none;
-  font-size-adjust: 0.5;
-  display: block;
-}
-@media (min-width: 641px) {
-  .file-download-meta {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-
 .synopsis {
   border-top: 0.05263em solid #bfc1c3;
   border-bottom: 0.05263em solid #bfc1c3;
@@ -2304,5 +2275,78 @@ HTML Usage
   </div>
   
 </li>
+
+*/
+.alert {
+  padding: 30px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+.alert-success {
+  background-color: #28a197;
+}
+.alert-fail {
+  background-color: #b10e1e;
+}
+.alert-center {
+  text-align: center;
+}
+.alert-message {
+  display: inline-block;
+  color: white;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+.alert .icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+.alert p {
+  margin: 0;
+}
+
+/*
+  
+HTML Usage
+  
+<div class="alert alert-success" role="alert">
+  
+  <div class="alert-message">
+    <p class="bold-small">You have successfully updated your profile</p>
+  </div>
+  
+</div>
+
+*/
+.icon-tick {
+  width: 27px;
+  height: 27px;
+  background-image: url("/public/images/icon-tick.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .icon-tick {
+    background-image: url("/public/images/icon-tick-2x.png");
+    background-size: 100%;
+  }
+}
+.icon-cross {
+  width: 27px;
+  height: 27px;
+  background-image: url("/public/images/icon-cross.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .icon-cross {
+    background-image: url("/public/images/icon-cross-2x.png");
+    background-size: 100%;
+  }
+}
+
+/*
+  
+HTML Usage
+   
+<i class="icon icon-tick" role="presentation" aria-hidden="true"></i>
+
+<i class="icon icon-cross" role="presentation" aria-hidden="true"></i>
 
 */

@@ -9,6 +9,9 @@
   <h1 class="heading-xlarge">Check data file uploads</h1>
   
   
+  <h3 class="heading-medium">20 files found</h3>
+  
+  
   <table class="table">
     <caption class="visuallyhidden">A collection of data file uploads</caption>
     <thead>
@@ -21,23 +24,13 @@
       </tr>
     </thead>
     <tbody>
-    {{#each uploads}}
-      <tr>
-        <td>{{uploaded}}</td>
-        <td>{{firstname}} {{lastname}}</td>
-        <td>{{filename}}</td>
-        <td>{{status}}</td>
-        <td>{{#if url}}<a href="{{url}}">Download</a>{{/if}}</td>
-      </tr>
-    {{/each}}
-    
     {{#each searches}}
       <tr>
         <td>{{file.uploaded}}</td>
         <td>{{lastname}} {{firstname}}</td>
         <td>{{file.filename}}</td>
         <td>{{file.status}}</td>
-        <td>{{#if file.url}}<a href="#">Download</a>{{/if}}</td>
+        <td>{{#if file.url}}<a href="#">Download</a>{{else}}&ndash;{{/if}}</td>
       </tr>
     {{/each}}
     </tbody>
@@ -57,6 +50,6 @@
       
     </div>
     
-    <div class="pager-summary">Showing 1 &ndash; 10 of 20 results</div>
+    <div class="pager-summary">Showing 1 &dash; 10 of 20 results</div>
     
   </div>
