@@ -2288,9 +2288,6 @@ HTML Usage
 .alert-fail {
   background-color: #b10e1e;
 }
-.alert-center {
-  text-align: center;
-}
 .alert-message {
   display: inline-block;
   color: white;

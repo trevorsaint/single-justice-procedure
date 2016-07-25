@@ -33,28 +33,27 @@
   </div>
   
   
-  <h3 class="heading-medium">50 cases found</h3>
+  <h3 class="heading-medium">20 cases found</h3>
   
-  
-  <table class="table">
-    <caption class="visuallyhidden">A collection of defendant cases</caption>
+  <table class="table table-font-xsmall">
+    <caption class="visuallyhidden">Defendant cases</caption>
     <thead>
       <tr>
         <th scope="col">Name</th>
+        <th scope="col">URN</th>
         <th scope="col">Date of birth</th>
-        <th scope="col">File name</th>
         <th scope="col">Status</th>
-        <th scope="col"><abbr title="Single Justice Procedure">SJP</abbr> notice served</th>
+        <th scope="col">Notice served</th>
       </tr>
     </thead>
     <tbody>
     {{#each searches}}
       <tr>
-        <td><a href="/case-details/{{id}}">{{lastname}} {{firstname}}</a></td>
+        <th scope="row"><a href="/case-details/{{id}}">{{lastname}} {{firstname}}</a></th>
+        <td>{{urn}}</td>
         <td>{{date-of-birth}}</td>
-        <td>{{case-number}}</td>
         <td>{{verdict}}</td>
-        <td>{{sjp-notice-served}}</td>
+        <td>{{notice-served}}</td>
       </tr>
     {{/each}}
     </tbody>
