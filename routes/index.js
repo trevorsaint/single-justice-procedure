@@ -80,6 +80,11 @@ bind: function(app) {
     });
     
     
+    app.get('/create-new-case', function (req, res) { 
+      res.render('create-new-case');
+    });
+    
+    
     app.get('/confirmation', function (req, res) {
       res.render('confirmation');
     });
