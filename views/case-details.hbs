@@ -21,18 +21,18 @@
         <h2 class="bold-medium" id="personal-details">Personal details</h2>
         
         <dl class="summary">
-          <dt class="summary-heading">Gender</dt>
-          <dd class="summary-content">{{search.gender}}</dd>
-          <dt class="summary-heading">Date of birth</dt>
-          <dd class="summary-content">12 Jan 2016 (age {{search.age}})</dd>
-          <dt class="summary-heading">Address</dt>
-          <dd class="summary-content">{{search.address.address1}}, <br> {{search.address.town}}, <br> {{search.address.postcode}}</dd>
-          <dt class="summary-heading">Email</dt>
-          <dd class="summary-content">{{#if search.email}}{{search.email}}{{else}}-{{/if}}</dd>
-          <dt class="summary-heading">Phone</dt>
-          <dd class="summary-content">{{#if search.phone}}{{search.phone}}{{else}}-{{/if}}</dd>
-          <dt class="summary-heading">National Insurance number</dt>
-          <dd class="summary-content">{{#if search.national-insurance-number}}{{search.national-insurance-number}}{{else}}-{{/if}}</dd>
+          <dt>Gender</dt>
+          <dd>{{search.gender}}</dd>
+          <dt>Date of birth</dt>
+          <dd>12 Jan 2016 (age {{search.age}})</dd>
+          <dt>Address</dt>
+          <dd>{{search.address.address1}}, <br> {{search.address.town}}, <br> {{search.address.postcode}}</dd>
+          <dt>Email</dt>
+          <dd>{{#if search.email}}<a href="mailto:{{search.email}}">{{search.email}}</a>{{else}}-{{/if}}</dd>
+          <dt>Phone</dt>
+          <dd>{{#if search.phone}}{{search.phone}}{{else}}-{{/if}}</dd>
+          <dt>National Insurance number</dt>
+          <dd>{{#if search.national-insurance-number}}{{search.national-insurance-number}}{{else}}-{{/if}}</dd>
         </dl>
       
       </section>
@@ -46,14 +46,14 @@
         <h2 class="bold-medium" id="case-details">Case details</h2>
         
         <dl class="summary">
-          <dt class="summary-heading">Prosecutor</dt>
-          <dd class="summary-content">Transport for London</dd>
-          <dt class="summary-heading">Charge date</dt>
-          <dd class="summary-content">21 January 2016</dd>
-          <dt class="summary-heading">Notice served</dt>
-          <dd class="summary-content">2 February 2016</dd>
-          <dt class="summary-heading">Documents</dt>
-          <dd class="summary-content">
+          <dt>Prosecutor</dt>
+          <dd>Transport for London</dd>
+          <dt>Charge date</dt>
+          <dd>21 January 2016</dd>
+          <dt>Notice served</dt>
+          <dd>2 February 2016</dd>
+          <dt>Documents</dt>
+          <dd>
             
             <ul class="list list-file-downloads">
               
@@ -119,16 +119,16 @@
         <h2 class="bold-medium" id="personal-details">Collection and payment terms imposed</h2>
         
         <dl class="summary">
-          <dt class="summary-heading">Collection order made</dt>
-          <dd class="summary-content">Yes</dd>
-          <dt class="summary-heading">Amount due</dt>
-          <dd class="summary-content">&pound;347.12</dd>
-          <dt class="summary-heading">Payment method</dt>
-          <dd class="summary-content">Direct to Court</dd>
-          <dt class="summary-heading">Lump sum amount</dt>
-          <dd class="summary-content">&pound;347.12</dd>
-          <dt class="summary-heading">Pay by date</dt>
-          <dd class="summary-content">24 July 2015</dd>
+          <dt>Collection order made</dt>
+          <dd>Yes</dd>
+          <dt>Amount due</dt>
+          <dd>&pound;347.12</dd>
+          <dt>Payment method</dt>
+          <dd>Direct to Court</dd>
+          <dt>Lump sum amount</dt>
+          <dd>&pound;347.12</dd>
+          <dt>Pay by date</dt>
+          <dd>24 July 2015</dd>
         </dl>
       
       </section>
@@ -142,11 +142,14 @@
       <div class="related">
     
         <div class="related-section">
+          
           <h2 class="related-title">Tasks</h2>
-          <ul class="related-links">
+          
+          <ul class="list">
             <li><a href="/send-other-documents">Send documents to court</a></li>
             <li><a href="/withdraw-case/{{search.id}}">Withdraw case</a></li>
           </ul>
+          
         </div>
       
       </div>

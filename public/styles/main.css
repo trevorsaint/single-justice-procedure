@@ -2026,12 +2026,6 @@ input[type=number] {
   margin-top: 0.36842em;
   margin-bottom: 0.63158em;
 }
-.related-links {
-  overflow: hidden;
-}
-.related-links li {
-  margin-bottom: 0.75em;
-}
 
 /*
   
@@ -2042,11 +2036,6 @@ HTML Usage
   <div class="related-section">
   
     <h2 class="related-title">Related links</h2>
-    
-    <ul class="related-links">
-      <li><a href="#">Link 1</a></li>
-      <li><a href="#">Link 2</a></li>
-    </ul>
     
   </div>
 
@@ -2162,15 +2151,15 @@ HTML Usage
 </div>
 
 */
-.summary-heading {
+.summary dt {
   float: left;
   padding-top: 0.84211em;
   width: 40%;
   color: #6f777b;
 }
-.summary-content {
+.summary dd {
   overflow: hidden;
-  padding-left: 20px;
+  padding-left: 1.05263em;
   padding-top: 0.84211em;
 }
 
@@ -2179,8 +2168,8 @@ HTML Usage
 HTML Usage
   
 <dl class="summary">
-  <dt class="summary-heading">Heading</dt>
-  <dd class="summary-content">Content</dd>
+  <dt>Heading</dt>
+  <dd>Content</dd>
 </dl>
 
 */

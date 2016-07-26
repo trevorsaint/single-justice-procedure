@@ -68,7 +68,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }
@@ -145,7 +145,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }
@@ -222,7 +222,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }
@@ -293,7 +293,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }
@@ -358,7 +358,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }
@@ -435,7 +435,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }
@@ -506,7 +506,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }
@@ -565,7 +565,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }
@@ -642,7 +642,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }
@@ -719,7 +719,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         },
         {
-          "title": "Public service vehicle &ndash; passenger passenger used expired ticket",
+          "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
         }

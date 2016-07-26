@@ -5,16 +5,16 @@ $module: 'summary';
 
 .#{$module} {
 
-  &-heading {
+  dt {
     float: left;
     padding-top: em(16);
     width: 40%;
     color: $secondary-text-colour;
   }
   
-  &-content {
+  dd {
     overflow: hidden;
-    padding-left: 20px;
+    padding-left: em(20);
     padding-top: em(16);
   }
 
@@ -25,8 +25,8 @@ $module: 'summary';
 HTML Usage
   
 <dl class="summary">
-  <dt class="summary-heading">Heading</dt>
-  <dd class="summary-content">Content</dd>
+  <dt>Heading</dt>
+  <dd>Content</dd>
 </dl>
 
 */

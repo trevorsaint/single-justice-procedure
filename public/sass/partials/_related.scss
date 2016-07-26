@@ -17,15 +17,6 @@ $module: 'related';
     margin-top: em(7);
     margin-bottom: em(12);
   }
-  
-  &-links {
-    overflow: hidden;
-    
-    li {
-      margin-bottom: em(12, 16);
-    }
-    
-  }
 
 }
 
@@ -38,11 +29,6 @@ HTML Usage
   <div class="related-section">
   
     <h2 class="related-title">Related links</h2>
-    
-    <ul class="related-links">
-      <li><a href="#">Link 1</a></li>
-      <li><a href="#">Link 2</a></li>
-    </ul>
     
   </div>
 
