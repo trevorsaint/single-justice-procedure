@@ -70,7 +70,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }
@@ -147,7 +147,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }
@@ -224,7 +224,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }
@@ -295,7 +295,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }
@@ -360,7 +360,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }
@@ -437,7 +437,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }
@@ -508,7 +508,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }
@@ -567,7 +567,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }
@@ -644,7 +644,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }
@@ -721,7 +721,7 @@ var search = [
         {
           "title": "Public service vehicle &ndash; passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket." 
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;" 
         }
       ]
     }

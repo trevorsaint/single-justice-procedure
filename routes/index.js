@@ -8,7 +8,16 @@ bind: function(app) {
     
     
     app.get('/', function (req, res) {
-      res.render('index');
+      
+      res.render('index', {
+        isSignedIn: true
+      });
+      
+    });
+    
+    
+    app.all('/case-tasks', function (req, res) {
+      res.render('case-tasks');
     });
     
     
