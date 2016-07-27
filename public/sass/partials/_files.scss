@@ -1,0 +1,47 @@
+// File
+// ==========================================================================
+
+$module: 'file';
+
+.#{$module} {
+  display: inline-block;
+  margin-right: em(20);
+  margin-top: em(5);
+  
+  .icon {
+    display: inline-block;
+    margin-right: em(10);
+  }
+  
+  &-details {
+    display: inline-block;
+  }
+  
+  &-meta {
+    @include core-16;
+    display: block;
+    
+    span {
+      display: block;
+    }
+    
+  }
+  
+}
+
+/*
+  
+HTML Usage
+  
+<div class="file">
+
+  <i class="icon icon-file-download"></i>
+            
+  <div class="file-details">
+    <a href="#">Cite notice</a>
+    <span class="file-meta">PDF, 156KB</span>
+  </div>
+
+</div>
+
+*/

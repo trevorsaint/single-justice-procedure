@@ -16,11 +16,13 @@
       <h1 class="heading-xlarge">{{search.firstname}} {{search.lastname}} <span class="heading-secondary">{{search.urn}}</span></h1>
 
 
-      <section aria-labelledby="personal-details">
+      <section class="section" aria-labelledby="personal-details">
 
-        <h2 class="bold-medium" id="personal-details">Personal details</h2>
+        <header class="section-header">
+          <h2 class="bold-medium" id="personal-details">Personal details</h2>
+        </header>
         
-        <dl class="summary">
+        <dl class="description description-inline">
           <dt>Gender</dt>
           <dd>{{search.gender}}</dd>
           <dt>Date of birth</dt>
@@ -40,40 +42,34 @@
       
       <hr>
       
+      
+      <section class="section" aria-labelledby="case-details">
 
-      <section aria-labelledby="case-details">
-
-        <h2 class="bold-medium" id="case-details">Case details</h2>
+        <header class="section-header">
+          <h2 class="bold-medium" id="case-details">Case details</h2>
+        </header>
         
-        <dl class="summary">
+        <dl class="description description-inline">
           <dt>Prosecutor</dt>
-          <dd>Transport for London</dd>
+          <dd>{{search.case-details.prosecutor}}</dd>
           <dt>Charge date</dt>
-          <dd>21 January 2016</dd>
+          <dd>{{search.case-details.charge-date}}</dd>
           <dt>Notice served</dt>
-          <dd>2 February 2016</dd>
+          <dd>{{search.case-details.notice-served}}</dd>
           <dt>Documents</dt>
           <dd>
-            
-            <ul class="list list-file-downloads">
-              
+            <ul>
               {{#each search.related-documents.document}}
-              <li class="file-download">
-                
+              <li class="file">
                 <i class="icon icon-file-download"></i>
-                
-                <div class="file-download-content">
+                <div class="file-details">
                   <a href="{{file-path}}">{{title}}</a> 
-                  <span class="file-download-meta">{{file-type}}, {{file-size}}</span>
+                  <span class="file-meta">{{file-type}}, {{file-size}}</span>
                 </div>
-                
               </li>
               {{/each}}
-              
             </ul>
-          
           </dd>
-          
         </dl>
       
       </section>
@@ -81,59 +77,62 @@
       
       <hr>
       
-      
-      <section aria-labelledby="offences">
         
-          
-        <h2 class="bold-medium" id="offences">2 offences</h2>
+      <section aria-labelledby="offences">
+    
+    
+        <header>
+          <h2 class="bold-medium" id="offences">2 offences</h2>
+        </header>
         
         
         {{#each search.offences.offence}}
-        <section>
+        <section class="section">
           
-          <h3 class="heading-small">{{id}}. {{{title}}}</h3>
+          <header>
+            <h3 class="bold-small">{{id}}. {{{title}}}</h3>
+            <p class="font-xsmall">On <time datetime="2016-02-01T00:00">{{date}}</time></p>
+          </header>
           
-          <p class="font-xsmall">On {{date}}</p>
+          <p><strong class="tag">{{plea}}</strong></p>
           
           <div class="panel panel-border-narrow">
-              
-            <h4 class="bold-xsmall">Statement of facts</h4>
-            <p class="font-xsmall">{{{statement-of-facts}}}</p>
-        
+            <p class="font-xsmall"><strong class="bold-xsmall">Statement of facts</strong> <br> {{{statement-of-facts}}}</p>
           </div>
+          
+          <table class="table table-font-xsmall">
+            <thead>
+              <tr>
+                <th colspan="2">Court decisions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Verdict</td>
+                <td>Guilty plea accepted</td>
+              </tr>
+              <tr>
+                <td>Fine</td>
+                <td>&pound;100</td>
+              </tr>
+              <tr>
+                <td>Compensation</td>
+                <td>&pound;3.50</td>
+              </tr>
+              <tr>
+                <td>Guilty plea <abbr title="Taken into Consideration">TIC</abbr></td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
           
           <p><a href="/withdraw-offence/{{../search.id}}">Withdraw offence</a></p>
           
         </section>
-        {{/each}}
-  
+        {{/each}}  
         
-      </section>
-      
-      
-      <hr>
-      
-      
-      <section aria-labelledby="personal-details">
-
-        <h2 class="bold-medium" id="personal-details">Collection and payment terms</h2>
         
-        <dl class="summary">
-          <dt>Collection order made</dt>
-          <dd>Yes</dd>
-          <dt>Amount due</dt>
-          <dd>&pound;347.12</dd>
-          <dt>Payment method</dt>
-          <dd>Direct to Court</dd>
-          <dt>Lump sum amount</dt>
-          <dd>&pound;347.12</dd>
-          <dt>Pay by date</dt>
-          <dd>24 July 2015</dd>
-          <dt>Notice sent to defendant</dt>
-          <dd>28 July 2015</dd>
-        </dl>
-      
-      </section>
+      </section>  
       
       
     </div>

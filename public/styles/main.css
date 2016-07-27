@@ -1981,7 +1981,7 @@ input[type=number] {
 }
 
 .table {
-  margin-bottom: 2.10526em;
+  margin-bottom: 1.05263em;
 }
 .table .last {
   padding-right: 0;
@@ -2001,17 +2001,6 @@ input[type=number] {
 }
 .form-control-textarea {
   resize: vertical;
-}
-
-.list-file-downloads {
-  margin-bottom: 0;
-}
-.list-file-downloads li {
-  margin-top: 0.84211em;
-  margin-bottom: 0;
-}
-.list-file-downloads li:first-child {
-  margin-top: 0;
 }
 
 .related {
@@ -2331,5 +2320,133 @@ HTML Usage
 <i class="icon icon-tick" role="presentation" aria-hidden="true"></i>
 
 <i class="icon icon-cross" role="presentation" aria-hidden="true"></i>
+
+*/
+.description {
+  margin-top: 1.05263em;
+}
+.description dt {
+  margin-bottom: 0.52632em;
+}
+.description dd {
+  margin-bottom: 0.52632em;
+}
+.description-inline dt {
+  float: left;
+  width: 40%;
+}
+.description-inline dd {
+  overflow: hidden;
+  padding-left: 20px;
+}
+.description-tint dt {
+  color: #6f777b;
+}
+
+/*
+  
+HTML Usage
+  
+<dl class="description">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+<dl class="description description-inline">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+<dl class="description description-tint">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+*/
+.file {
+  display: inline-block;
+  margin-right: 1.05263em;
+  margin-top: 0.26316em;
+}
+.file .icon {
+  display: inline-block;
+  margin-right: 0.52632em;
+}
+.file-details {
+  display: inline-block;
+}
+.file-meta {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.14286;
+  font-weight: 400;
+  text-transform: none;
+  font-size-adjust: 0.5;
+  display: block;
+}
+@media (min-width: 641px) {
+  .file-meta {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.file-meta span {
+  display: block;
+}
+
+/*
+  
+HTML Usage
+  
+<div class="file">
+
+  <i class="icon icon-file-download"></i>
+            
+  <div class="file-details">
+    <a href="#">Cite notice</a>
+    <span class="file-meta">PDF, 156KB</span>
+  </div>
+
+</div>
+
+*/
+.section {
+  overflow: hidden;
+  margin: 1.05263em 0;
+}
+
+.tag {
+  display: -moz-inline-stack;
+  display: inline-block;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.14286;
+  font-weight: 700;
+  text-transform: none;
+  font-size-adjust: 0.525;
+  border: 2px solid #0b0c0c;
+  color: #0b0c0c;
+  letter-spacing: 1px;
+  margin: 0 8px 0 0;
+  padding: 2px 5px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+@media (min-width: 641px) {
+  .tag {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/*
+  
+HTML Usage
+
+<p><strong class="tag">Pleaded guilty</strong></p>
+
+<p><strong class="tag">Not guilty</strong></p>
+
+<p><strong class="tag">No plea given</strong></p>
 
 */

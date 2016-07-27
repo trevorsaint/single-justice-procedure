@@ -1,0 +1,71 @@
+// Description lists
+// ==========================================================================
+
+
+$module: 'description';
+
+
+.#{$module} {
+  margin-top: em(20);
+  //margin-bottom: em(20);
+
+
+  // Global
+  dt {
+    margin-bottom: em(10);
+  }
+
+  dd {
+    margin-bottom: em(10);
+  }
+
+
+  // Inline
+  &-inline {
+    
+    dt {
+      float: left;
+      width: 40%;
+    }
+    
+    dd {
+      overflow: hidden;
+      padding-left: 20px;
+    }
+    
+  }
+  
+  
+  // Tint
+  &-tint {
+    
+    dt {
+      color: $grey-1;
+    }
+    
+  }
+
+
+}
+
+
+/*
+  
+HTML Usage
+  
+<dl class="description">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+<dl class="description description-inline">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+<dl class="description description-tint">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+*/

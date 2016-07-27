@@ -4,20 +4,6 @@
 $module: 'list';
 
 .#{$module} {
-  
-  &-file-downloads {
-    margin-bottom: 0;
-    
-    li {
-      margin-top: em(16);
-      margin-bottom: 0;
-      
-      &:first-child {
-        margin-top: 0;
-      }
-      
-    }
-    
-  }
+
 
 }
