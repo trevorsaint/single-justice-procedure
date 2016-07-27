@@ -2133,12 +2133,9 @@ HTML Usage
     line-height: 1.25;
   }
 }
-.persist-info-reference {
-  color: #d8eeff;
-}
 .persist-info-title {
-  margin-left: 0.52632em;
   font-weight: 700;
+  margin-left: 0.52632em;
 }
 
 /*

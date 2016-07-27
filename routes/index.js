@@ -96,7 +96,12 @@ bind: function(app) {
     
     app.get('/confirmation', function (req, res) {
       res.render('confirmation');
-    });
+    });   
+    
+    
+    app.get('/patterns', function (req, res) {
+      res.render('patterns');
+    });   
     
 
   }

@@ -24,7 +24,7 @@
           <dt>Gender</dt>
           <dd>{{search.gender}}</dd>
           <dt>Date of birth</dt>
-          <dd>12 Jan 2016 (age {{search.age}})</dd>
+          <dd>{{search.date-of-birth}} (age {{search.age}})</dd>
           <dt>Address</dt>
           <dd>{{search.address.address1}}, <br> {{search.address.town}}, <br> {{search.address.postcode}}</dd>
           <dt>Email</dt>
@@ -91,7 +91,7 @@
         {{#each search.offences.offence}}
         <section>
           
-          <h3 class="heading-small">{{{title}}}</h3>
+          <h3 class="heading-small">{{id}}. {{{title}}}</h3>
           
           <p class="font-xsmall">On {{date}}</p>
           
@@ -116,7 +116,7 @@
       
       <section aria-labelledby="personal-details">
 
-        <h2 class="bold-medium" id="personal-details">Collection and payment terms imposed</h2>
+        <h2 class="bold-medium" id="personal-details">Collection and payment terms</h2>
         
         <dl class="summary">
           <dt>Collection order made</dt>
@@ -129,6 +129,8 @@
           <dd>&pound;347.12</dd>
           <dt>Pay by date</dt>
           <dd>24 July 2015</dd>
+          <dt>Notice sent to defendant</dt>
+          <dd>28 July 2015</dd>
         </dl>
       
       </section>

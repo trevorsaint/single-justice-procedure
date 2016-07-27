@@ -9,13 +9,9 @@ $module: 'persist-info';
   color: white;
   padding: $gutter-half;
   
-  &-reference {
-    color: lighten($govuk-blue, 60%);
-  }
-  
   &-title {
-    margin-left: em(10);
     font-weight: 700;
+    margin-left: em(10);
   }
   
 }
