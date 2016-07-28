@@ -2342,6 +2342,20 @@ HTML Usage
 .description-tint dt {
   color: #6f777b;
 }
+.description-small dt {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.14286;
+  font-weight: 400;
+  text-transform: none;
+  font-size-adjust: 0.5;
+}
+@media (min-width: 641px) {
+  .description-small dt {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
 
 /*
   
@@ -2358,6 +2372,11 @@ HTML Usage
 </dl>
 
 <dl class="description description-tint">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+<dl class="description description-small">
   <dt>Heading</dt>
   <dd>Content</dd>
 </dl>

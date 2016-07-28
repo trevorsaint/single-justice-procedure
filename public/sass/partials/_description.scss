@@ -44,6 +44,16 @@ $module: 'description';
     }
     
   }
+  
+  
+  // Small
+  &-small {
+    
+    dt {
+      @include core-16;
+    }
+    
+  }
 
 
 }
@@ -64,6 +74,11 @@ HTML Usage
 </dl>
 
 <dl class="description description-tint">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+<dl class="description description-small">
   <dt>Heading</dt>
   <dd>Content</dd>
 </dl>
