@@ -9,11 +9,17 @@ $module: 'related';
   padding-top: em(5);
   
   &-section {
-    margin-bottom: em(20);
+    margin-top: em(20);
+    overflow: hidden;
+    
+    &:first-child {
+      margin-top: 0; 
+    }
+    
   }
     
   &-title {
-    @extend .heading-medium;
+    @include bold-24();
     margin-top: em(7);
     margin-bottom: em(12);
   }

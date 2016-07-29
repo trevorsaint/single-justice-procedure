@@ -571,7 +571,7 @@ main {
   }
 }
 
-.heading-medium, .related-title {
+.heading-medium {
   font-family: "nta", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.2;
@@ -582,13 +582,13 @@ main {
   margin-bottom: 0.5em;
 }
 @media (min-width: 641px) {
-  .heading-medium, .related-title {
+  .heading-medium {
     font-size: 24px;
     line-height: 1.25;
   }
 }
 @media (min-width: 641px) {
-  .heading-medium, .related-title {
+  .heading-medium {
     margin-top: 1.875em;
     margin-bottom: 0.83333em;
   }
@@ -2009,11 +2009,27 @@ input[type=number] {
   padding-top: 0.26316em;
 }
 .related-section {
-  margin-bottom: 1.05263em;
+  margin-top: 1.05263em;
+  overflow: hidden;
+}
+.related-section:first-child {
+  margin-top: 0;
 }
 .related-title {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: none;
+  font-size-adjust: 0.525;
   margin-top: 0.36842em;
   margin-bottom: 0.63158em;
+}
+@media (min-width: 641px) {
+  .related-title {
+    font-size: 24px;
+    line-height: 1.25;
+  }
 }
 
 /*
@@ -2382,11 +2398,6 @@ HTML Usage
 </dl>
 
 */
-.file {
-  display: inline-block;
-  margin-right: 1.05263em;
-  margin-top: 0.26316em;
-}
 .file .icon {
   display: inline-block;
   margin-right: 0.52632em;

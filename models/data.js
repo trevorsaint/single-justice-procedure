@@ -25,9 +25,12 @@ var search = [
     "compensation": "3.40",
     
     "case-details": {
+      "status": "Active (not ready for decision)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
     
     "file": {
@@ -66,21 +69,26 @@ var search = [
       ]
     },
     
+    "decision-made": false,
+    "decision-ready": false,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty"
+          "plea": "Awaiting plea"
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
+          "datetime": "2016-01-18",
           "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
-          "plea": "Pleaded guilty"
+          "plea": "Awaiting plea"
         }
       ]
     },
@@ -121,9 +129,12 @@ var search = [
     "compensation": "",
     
     "case-details": {
+      "status": "Active (ready for decision)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
     
     "file": {
@@ -162,12 +173,16 @@ var search = [
       ]
     },
     
+    "decision-made": false,
+    "decision-ready": true,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "plea": "Pleaded guilty"
         },
@@ -175,8 +190,9 @@ var search = [
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
+          "datetime": "2016-01-18",
           "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
-          "plea": "Pleaded guilty" 
+          "plea": "Pleaded guilty"
         }
       ]
     }
@@ -208,9 +224,12 @@ var search = [
     "compensation": "8.40",
     
     "case-details": {
+      "status": "Inactive (decisions made)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
 
     "file": {
@@ -249,21 +268,26 @@ var search = [
       ]
     },
     
+    "decision-made": true,
+    "decision-ready": false,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty"  
+          "plea": "Pleaded guilty"
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;",
-          "plea": "Pleaded guilty"  
+          "datetime": "2016-01-18",
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
+          "plea": "Pleaded guilty"
         }
       ]
     }
@@ -295,9 +319,12 @@ var search = [
     "compensation": "",
     
     "case-details": {
+      "status": "Active (not ready for decision)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
 
     "file": {
@@ -330,21 +357,26 @@ var search = [
       ]
     },
     
+    "decision-made": false,
+    "decision-ready": false,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty" 
+          "plea": "Pleaded guilty"
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;",
-          "plea": "Pleaded guilty"  
+          "datetime": "2016-01-18",
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
+          "plea": "Pleaded guilty"
         }
       ]
     }
@@ -376,9 +408,12 @@ var search = [
     "compensation": "",
     
     "case-details": {
+      "status": "Active (not ready for decision)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
 
     "file": {
@@ -405,21 +440,26 @@ var search = [
       ]
     },
     
+    "decision-made": false,
+    "decision-ready": false,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty" 
+          "plea": "Pleaded guilty"
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;",
-          "plea": "Pleaded guilty"  
+          "datetime": "2016-01-18",
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
+          "plea": "Pleaded guilty"
         }
       ]
     }
@@ -451,9 +491,12 @@ var search = [
     "compensation": "8.40",
     
     "case-details": {
+      "status": "Active (not ready for decision)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
 
     "file": {
@@ -492,21 +535,26 @@ var search = [
       ]
     },
     
+    "decision-made": false,
+    "decision-ready": false,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty" 
+          "plea": "Pleaded guilty"
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;",
-          "plea": "Pleaded guilty"  
+          "datetime": "2016-01-18",
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
+          "plea": "Pleaded guilty"
         }
       ]
     }
@@ -538,9 +586,12 @@ var search = [
     "compensation": "3.40",
     
     "case-details": {
+      "status": "Active (not ready for decision)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
 
     "file": {
@@ -573,21 +624,26 @@ var search = [
       ]
     },
     
+    "decision-made": false,
+    "decision-ready": false,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty" 
+          "plea": "Pleaded guilty"
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;",
-          "plea": "Pleaded guilty"  
+          "datetime": "2016-01-18",
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
+          "plea": "Pleaded guilty"
         }
       ]
     }
@@ -619,9 +675,12 @@ var search = [
     "compensation": "3.40",
     
     "case-details": {
+      "status": "Active (not ready for decision)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
 
     "file": {
@@ -642,21 +701,26 @@ var search = [
       ]
     },
     
+    "decision-made": false,
+    "decision-ready": false,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty"  
+          "plea": "Pleaded guilty"
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;",
-          "plea": "Pleaded guilty"  
+          "datetime": "2016-01-18",
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
+          "plea": "Pleaded guilty"
         }
       ]
     }
@@ -688,9 +752,12 @@ var search = [
     "compensation": "8.40",
     
     "case-details": {
+      "status": "Active (not ready for decision)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
 
     "file": {
@@ -729,21 +796,26 @@ var search = [
       ]
     },
     
+    "decision-made": false,
+    "decision-ready": false,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty" 
+          "plea": "Pleaded guilty"
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;",
-          "plea": "Pleaded guilty"  
+          "datetime": "2016-01-18",
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
+          "plea": "Pleaded guilty"
         }
       ]
     }
@@ -775,9 +847,12 @@ var search = [
     "compensation": "3.40",
     
     "case-details": {
+      "status": "Active (not ready for decision)",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "notice-served": "2 February 2016"
+      "charge-date-datetime": "2016-01-21",
+      "notice-served": "2 February 2016",
+      "notice-served-datetime": "2016-02-02",
     },
 
     "file": {
@@ -816,21 +891,26 @@ var search = [
       ]
     },
     
+    "decision-made": false,
+    "decision-ready": false,
+    
     "offences": {
       "offence": [
         {
           "id": 1,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
+          "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty"  
+          "plea": "Pleaded guilty"
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
-          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;",
-          "plea": "Pleaded guilty"  
+          "datetime": "2016-01-18",
+          "statement-of-facts": "On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format, serial number 011647030510, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. WHEN THIS WAS POINTED OUT, YOU SAID &ldquo;I FOUND IT&rdquo; When informed you were being reported you said &ldquo;OKAY&rdquo;", 
+          "plea": "Pleaded guilty"
         }
       ]
     }
