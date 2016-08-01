@@ -53,18 +53,6 @@ var search = [
           "file-type": "PDF",
           "file-size": "514KB",
           "file-path": "#"
-        },
-        {
-          "title": "Plea",
-          "file-type": "PDF",
-          "file-size": "204KB",
-          "file-path": "#"
-        },
-        {
-          "title": "Means",
-          "file-type": "PDF",
-          "file-size": "342KB",
-          "file-path": "#"
         }
       ]
     },
@@ -163,18 +151,12 @@ var search = [
           "file-type": "PDF",
           "file-size": "204KB",
           "file-path": "#"
-        },
-        {
-          "title": "Means",
-          "file-type": "PDF",
-          "file-size": "342KB",
-          "file-path": "#"
         }
       ]
     },
     
     "decision-made": false,
-    "decision-ready": true,
+    "decision-ready": false,
     
     "offences": {
       "offence": [
@@ -258,12 +240,6 @@ var search = [
           "file-type": "PDF",
           "file-size": "204KB",
           "file-path": "#"
-        },
-        {
-          "title": "Means",
-          "file-type": "PDF",
-          "file-size": "342KB",
-          "file-path": "#"
         }
       ]
     },
@@ -346,12 +322,6 @@ var search = [
           "title": "Cite notice",
           "file-type": "PDF",
           "file-size": "514KB",
-          "file-path": "#"
-        },
-        {
-          "title": "Plea",
-          "file-type": "PDF",
-          "file-size": "204KB",
           "file-path": "#"
         }
       ]
@@ -524,12 +494,6 @@ var search = [
           "title": "Plea",
           "file-type": "PDF",
           "file-size": "204KB",
-          "file-path": "#"
-        },
-        {
-          "title": "Means",
-          "file-type": "PDF",
-          "file-size": "342KB",
           "file-path": "#"
         }
       ]
@@ -786,12 +750,6 @@ var search = [
           "file-type": "PDF",
           "file-size": "204KB",
           "file-path": "#"
-        },
-        {
-          "title": "Means",
-          "file-type": "PDF",
-          "file-size": "342KB",
-          "file-path": "#"
         }
       ]
     },
@@ -880,12 +838,6 @@ var search = [
           "title": "Plea",
           "file-type": "PDF",
           "file-size": "204KB",
-          "file-path": "#"
-        },
-        {
-          "title": "Means",
-          "file-type": "PDF",
-          "file-size": "342KB",
           "file-path": "#"
         }
       ]
