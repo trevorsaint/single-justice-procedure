@@ -2123,8 +2123,8 @@ HTML Usage
 */
 .persist-info {
   font-family: "nta", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: 14px;
+  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
   font-size-adjust: 0.5;
@@ -2134,7 +2134,7 @@ HTML Usage
 }
 @media (min-width: 641px) {
   .persist-info {
-    font-size: 24px;
+    font-size: 16px;
     line-height: 1.25;
   }
 }
@@ -2148,8 +2148,36 @@ HTML Usage
 HTML Usage
   
 <div class="persist-info">
-  <span class="persist-info-reference"></span>
-  <span class="persist-info-title"></span>
+  <span class="persist-info-reference">29324692</span>
+  <span class="persist-info-title">Billy SMITH</span>
+</div>
+
+*/
+.digit-box {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.04167;
+  font-weight: 700;
+  text-transform: none;
+  font-size-adjust: 0.525;
+  background-color: #6f777b;
+  color: white;
+  display: inline-block;
+  padding: 15px;
+}
+@media (min-width: 641px) {
+  .digit-box {
+    font-size: 36px;
+    line-height: 1.11111;
+  }
+}
+
+/*
+  
+HTML Usage
+  
+<div class="digit-box">
+  <span class="digit-box-number">07700900753</span>
 </div>
 
 */

@@ -4,7 +4,7 @@
 $module: 'persist-info';
 
 .#{$module} {
-  @include core-24;
+  @include core-16;
   background-color: $govuk-blue;
   color: white;
   padding: $gutter-half;
@@ -21,8 +21,8 @@ $module: 'persist-info';
 HTML Usage
   
 <div class="persist-info">
-  <span class="persist-info-reference"></span>
-  <span class="persist-info-title"></span>
+  <span class="persist-info-reference">29324692</span>
+  <span class="persist-info-title">Billy SMITH</span>
 </div>
 
 */
