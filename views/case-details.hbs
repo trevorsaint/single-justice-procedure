@@ -7,17 +7,31 @@
   </div>
   
   
+  <div class="persist-info">
+    <span class="persist-info-reference">{{search.urn}}</span>
+    <span class="persist-info-title">{{search.firstname}} {{search.lastname}}</span>
+  </div>
+  
+  
   <div class="grid-row">
     
     <div class="column-two-thirds">
       
-      <h1 class="heading-xlarge">{{search.firstname}} {{search.lastname}} <span class="heading-secondary">{{search.urn}}</span></h1>
+      <h1 class="heading-large">{{search.firstname}} {{search.lastname}}</h1>
+      
+      
+      <ul class="list">
+        <li>{{search.address.address1}}, {{search.address.town}}, {{search.address.postcode}}</li>
+        <li>{{#if search.phone}}{{search.phone}}{{else}}-{{/if}}</li>
+        <li>{{search.date-of-birth}} (age {{search.age}})</li>
+      </ul>
+      
       
       <section aria-labelledby="case-details">
 
-        <h2 class="bold-medium" id="case-details">Case details</h2>
+        <h2 class="heading-medium" id="case-details">Case details</h2>
         
-        <dl class="description description-inline description-tint">
+        <dl class="description description-inline">
           <dt>Case status</dt>
           <dd>{{{search.case-details.status}}}</dd>
           <dt>Prosecutor</dt>
@@ -50,24 +64,6 @@
       
       <div class="related">
     
-        <div class="related-section">
-          
-          <h2 class="related-title">Personal details</h2>
-          
-          <dl class="description description-tint description-small">
-            <dt>Date of birth</dt>
-            <dd>{{search.date-of-birth}} (age {{search.age}})</dd>
-            <dt>Address</dt>
-            <dd>{{search.address.address1}}, {{search.address.town}}, <br> {{search.address.postcode}}</dd>
-            <dt>Contact</dt>
-            <dd>{{#if search.email}}<a href="mailto:{{search.email}}">{{search.email}}</a>{{else}}-{{/if}}</dd>
-            <dd>{{#if search.phone}}{{search.phone}}{{else}}-{{/if}}</dd>
-            <dt>National Insurance number</dt>
-            <dd>{{#if search.national-insurance-number}}{{search.national-insurance-number}}{{else}}-{{/if}}</dd>
-          </dl>
-
-        </div>
-        
         <div class="related-section">
           
           <h2 class="related-title">Related tasks</h2>
