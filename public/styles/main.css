@@ -2003,6 +2003,15 @@ input[type=number] {
   resize: vertical;
 }
 
+.list-inline li {
+  display: inline-block;
+  margin-right: 20px;
+}
+.list-file {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .related {
   border-top: 0.52632em solid #005ea5;
   margin-top: 1.57895em;
@@ -2210,11 +2219,14 @@ HTML Usage
   padding-bottom: 1.05263em;
 }
 .synopsis-item {
-  overflow: hidden;
   padding-top: 0.52632em;
   padding-bottom: 0.52632em;
 }
+.synopsis-item a {
+  text-decoration: none;
+}
 .synopsis-figure {
+  display: block;
   font-family: "nta", Arial, sans-serif;
   font-size: 32px;
   line-height: 1.09375;
@@ -2228,18 +2240,19 @@ HTML Usage
     line-height: 1.04167;
   }
 }
-@media (min-width: 769px) {
-  .synopsis-figure {
-    float: left;
-  }
-}
 .synopsis-label {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.14286;
+  font-weight: 700;
+  text-transform: none;
+  font-size-adjust: 0.525;
   display: block;
 }
-@media (min-width: 769px) {
+@media (min-width: 641px) {
   .synopsis-label {
-    overflow: hidden;
-    padding-left: 0.52632em;
+    font-size: 16px;
+    line-height: 1.25;
   }
 }
 
@@ -2251,7 +2264,7 @@ HTML Usage
   
   <div class="synopsis-item">
     <span class="synopsis-figure">23</span> 
-    <span class="synopsis-label">cases awaiting court decision</span>
+    <strong class="synopsis-label">cases awaiting court decision</strong>
   </div>
   
 </div>
@@ -2368,23 +2381,23 @@ HTML Usage
 */
 .description {
   margin-top: 1.05263em;
+  margin-bottom: 1.05263em;
 }
 .description dt {
-  margin-bottom: 0.52632em;
+  color: #6f777b;
 }
 .description dd {
   margin-bottom: 0.52632em;
 }
-.description-inline dt {
-  float: left;
-  width: 40%;
-}
-.description-inline dd {
-  overflow: hidden;
-  padding-left: 20px;
-}
-.description-tint dt {
-  color: #6f777b;
+@media (min-width: 641px) {
+  .description-inline dt {
+    float: left;
+    width: 40%;
+  }
+  .description-inline dd {
+    overflow: hidden;
+    padding-left: 20px;
+  }
 }
 .description-small dt {
   font-family: "nta", Arial, sans-serif;
@@ -2431,25 +2444,30 @@ HTML Usage
   margin-right: 0.52632em;
 }
 .file-details {
-  display: inline-block;
-}
-.file-meta {
   font-family: "nta", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
   font-size-adjust: 0.5;
-  display: block;
+  display: inline-block;
+  vertical-align: top;
 }
 @media (min-width: 641px) {
-  .file-meta {
+  .file-details {
     font-size: 16px;
     line-height: 1.25;
   }
 }
+.file-meta {
+  display: block;
+}
 .file-meta span {
   display: block;
+}
+.file-inline {
+  display: inline-block;
+  margin-right: 20px;
 }
 
 /*
@@ -2506,5 +2524,46 @@ HTML Usage
 <p><strong class="tag">Not guilty</strong></p>
 
 <p><strong class="tag">No plea given</strong></p>
+
+*/
+.example {
+  border: 0.05263em solid #bfc1c3;
+  margin-top: 0.78947em;
+  margin-bottom: 1.05263em;
+  padding: 1.57895em;
+  position: relative;
+}
+.example:before {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  font-size-adjust: 0.5;
+  background: #bfc1c3;
+  color: white;
+  content: 'Example';
+  padding: 0.52632em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-transform: uppercase;
+}
+@media (min-width: 641px) {
+  .example:before {
+    font-size: 14px;
+    line-height: 1.42857;
+  }
+}
+
+/*
+  
+HTML Usage
+  
+<div class="examle">
+
+  ... content
+
+</div>
 
 */

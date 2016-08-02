@@ -10,28 +10,23 @@ $module: 'synopsis';
   padding-bottom: em(20);
 
   &-item {
-    overflow: hidden;
     padding-top: em(10);
     padding-bottom: em(10);
+    
+    a {
+      text-decoration: none;
+    }
+    
   }
   
   &-figure {
+    display: block;
     @include bold-48();
-
-    @include media(desktop) {
-      float: left;  
-    }
-    
   }
   
   &-label {
+    @include bold-16;
     display: block;
-    
-    @include media(desktop) {
-      overflow: hidden;  
-      padding-left: em(10);
-    }
-    
   }
   
 }
@@ -44,7 +39,7 @@ HTML Usage
   
   <div class="synopsis-item">
     <span class="synopsis-figure">23</span> 
-    <span class="synopsis-label">cases awaiting court decision</span>
+    <strong class="synopsis-label">cases awaiting court decision</strong>
   </div>
   
 </div>

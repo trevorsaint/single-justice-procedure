@@ -4,9 +4,6 @@
 $module: 'file';
 
 .#{$module} {
-  //display: inline-block;
-  //margin-right: em(20);
-  //margin-top: em(5);
   
   .icon {
     display: inline-block;
@@ -14,11 +11,12 @@ $module: 'file';
   }
   
   &-details {
+    @include core-16;
     display: inline-block;
+    vertical-align: top;
   }
   
   &-meta {
-    @include core-16;
     display: block;
     
     span {
@@ -26,6 +24,13 @@ $module: 'file';
     }
     
   }
+  
+  
+  &-inline {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
   
 }
 

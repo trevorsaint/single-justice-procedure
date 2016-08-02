@@ -7,42 +7,35 @@ $module: 'description';
 
 .#{$module} {
   margin-top: em(20);
-  //margin-bottom: em(20);
+  margin-bottom: em(20);
 
 
-  // Global
   dt {
-    margin-bottom: em(10);
+    color: $grey-1;
   }
+
 
   dd {
     margin-bottom: em(10);
   }
 
 
-  // Inline
-  &-inline {
-    
-    dt {
-      float: left;
-      width: 40%;
+  @include media(tablet) {
+
+    &-inline {
+      
+      dt {
+        float: left;
+        width: 40%;
+      }
+      
+      dd {
+        overflow: hidden;
+        padding-left: 20px;
+      }
+      
     }
-    
-    dd {
-      overflow: hidden;
-      padding-left: 20px;
-    }
-    
-  }
   
-  
-  // Tint
-  &-tint {
-    
-    dt {
-      color: $grey-1;
-    }
-    
   }
   
   
