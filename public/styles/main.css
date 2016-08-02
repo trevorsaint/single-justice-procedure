@@ -2190,42 +2190,22 @@ HTML Usage
 </div>
 
 */
-.summary dt {
-  float: left;
-  padding-top: 0.84211em;
-  width: 40%;
-  color: #6f777b;
-}
-.summary dd {
-  overflow: hidden;
-  padding-left: 1.05263em;
-  padding-top: 0.84211em;
-}
-
-/*
-  
-HTML Usage
-  
-<dl class="summary">
-  <dt>Heading</dt>
-  <dd>Content</dd>
-</dl>
-
-*/
-.synopsis {
+.summary {
   border-top: 0.05263em solid #bfc1c3;
   border-bottom: 0.05263em solid #bfc1c3;
   padding-top: 1.05263em;
   padding-bottom: 1.05263em;
 }
-.synopsis-item {
+.summary-item {
   padding-top: 0.52632em;
   padding-bottom: 0.52632em;
 }
-.synopsis-item a {
+.summary-item a {
+  display: block;
+  overflow: hidden;
   text-decoration: none;
 }
-.synopsis-figure {
+.summary-figure {
   display: block;
   font-family: "nta", Arial, sans-serif;
   font-size: 32px;
@@ -2235,12 +2215,12 @@ HTML Usage
   font-size-adjust: 0.525;
 }
 @media (min-width: 641px) {
-  .synopsis-figure {
+  .summary-figure {
     font-size: 48px;
     line-height: 1.04167;
   }
 }
-.synopsis-label {
+.summary-label {
   font-family: "nta", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.14286;
@@ -2250,7 +2230,7 @@ HTML Usage
   display: block;
 }
 @media (min-width: 641px) {
-  .synopsis-label {
+  .summary-label {
     font-size: 16px;
     line-height: 1.25;
   }
@@ -2260,11 +2240,11 @@ HTML Usage
   
 HTML Usage
   
-<div class="synopsis">
+<div class="summary">
   
-  <div class="synopsis-item">
-    <span class="synopsis-figure">23</span> 
-    <strong class="synopsis-label">cases awaiting court decision</strong>
+  <div class="summary-item">
+    <span class="summary-figure">23</span> 
+    <strong class="summary-label">cases awaiting court decision</strong>
   </div>
   
 </div>

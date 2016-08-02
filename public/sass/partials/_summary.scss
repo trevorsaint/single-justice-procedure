@@ -4,29 +4,46 @@
 $module: 'summary';
 
 .#{$module} {
+  border-top: em(1) solid $grey-2;
+  border-bottom: em(1) solid $grey-2;
+  padding-top: em(20);
+  padding-bottom: em(20);
 
-  dt {
-    float: left;
-    padding-top: em(16);
-    width: 40%;
-    color: $secondary-text-colour;
+  &-item {
+    padding-top: em(10);
+    padding-bottom: em(10);
+    
+    a {
+      display: block;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    
   }
   
-  dd {
-    overflow: hidden;
-    padding-left: em(20);
-    padding-top: em(16);
+  &-figure {
+    display: block;
+    @include bold-48();
   }
-
+  
+  &-label {
+    @include bold-16;
+    display: block;
+  }
+  
 }
 
 /*
   
 HTML Usage
   
-<dl class="summary">
-  <dt>Heading</dt>
-  <dd>Content</dd>
-</dl>
+<div class="summary">
+  
+  <div class="summary-item">
+    <span class="summary-figure">23</span> 
+    <strong class="summary-label">cases awaiting court decision</strong>
+  </div>
+  
+</div>
 
 */
