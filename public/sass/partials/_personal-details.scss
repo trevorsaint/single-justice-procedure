@@ -1,0 +1,19 @@
+// Personal details
+// ==========================================================================
+
+$module: 'personal-details';
+
+.#{$module} {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+}
+
+/*
+  
+HTML Usage
+  
+<div class="personal-details">
+  ... content
+</div>
+
+*/

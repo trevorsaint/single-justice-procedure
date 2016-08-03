@@ -17,6 +17,7 @@ $module: 'alert';
   }
   
   &-message {
+    @include bold-16;
     display: inline-block;
     color: white;
     padding-left: 10px;
@@ -47,3 +48,48 @@ HTML Usage
 </div>
 
 */
+
+
+
+$module: 'banner';
+
+.#{$module} {
+  padding: $gutter;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  
+  &-message {
+    overflow: hidden;
+    color: white;
+
+    p {margin: 0;}
+    
+  }
+  
+  .icon {
+    float: left;
+    padding-right: 10px;
+  }
+  
+  &-confirmation {
+    background-color: $turquoise;
+  }
+  
+  &-active {
+    background-color: $green;
+  }
+  
+  &-pending {
+    background-color: $orange;
+  }
+  
+  &-locked {
+    background-color: $red;
+  }
+  
+  &-deregistered {
+    background-color: $grey-1
+  }
+  
+  
+}

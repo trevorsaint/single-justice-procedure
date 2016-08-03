@@ -2201,9 +2201,10 @@ HTML Usage
   padding-bottom: 0.52632em;
 }
 .summary-item a {
-  display: block;
+  display: inline-block;
   overflow: hidden;
   text-decoration: none;
+  vertical-align: top;
 }
 .summary-figure {
   display: block;
@@ -2301,10 +2302,22 @@ HTML Usage
   background-color: #b10e1e;
 }
 .alert-message {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.14286;
+  font-weight: 700;
+  text-transform: none;
+  font-size-adjust: 0.525;
   display: inline-block;
   color: white;
   padding-left: 10px;
   vertical-align: middle;
+}
+@media (min-width: 641px) {
+  .alert-message {
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 .alert .icon {
   display: inline-block;
@@ -2327,6 +2340,38 @@ HTML Usage
 </div>
 
 */
+.banner {
+  padding: 30px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+.banner-message {
+  overflow: hidden;
+  color: white;
+}
+.banner-message p {
+  margin: 0;
+}
+.banner .icon {
+  float: left;
+  padding-right: 10px;
+}
+.banner-confirmation {
+  background-color: #28a197;
+}
+.banner-active {
+  background-color: #006435;
+}
+.banner-pending {
+  background-color: #f47738;
+}
+.banner-locked {
+  background-color: #b10e1e;
+}
+.banner-deregistered {
+  background-color: #6f777b;
+}
+
 .icon-tick {
   width: 27px;
   height: 27px;
@@ -2360,11 +2405,14 @@ HTML Usage
 
 */
 .description {
-  margin-top: 1.05263em;
-  margin-bottom: 1.05263em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.description:last-child {
+  margin-bottom: 0;
 }
 .description dt {
-  color: #6f777b;
+  font-weight: bold;
 }
 .description dd {
   margin-bottom: 0.52632em;
@@ -2417,6 +2465,20 @@ HTML Usage
   <dt>Heading</dt>
   <dd>Content</dd>
 </dl>
+
+*/
+.personal-details {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/*
+  
+HTML Usage
+  
+<div class="personal-details">
+  ... content
+</div>
 
 */
 .file .icon {
@@ -2504,6 +2566,26 @@ HTML Usage
 <p><strong class="tag">Not guilty</strong></p>
 
 <p><strong class="tag">No plea given</strong></p>
+
+*/
+.figure {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.figure img {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  
+HTML Usage
+  
+<figure>
+
+  <img src="">
+
+</figure>
 
 */
 .example {

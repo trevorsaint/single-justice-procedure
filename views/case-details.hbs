@@ -7,81 +7,65 @@
   </div>
   
   
+  <div class="persist-info">
+    <span class="persist-info-reference">{{search.urn}}</span>
+    <span class="persist-info-title">{{search.firstname}} {{search.lastname}}</span>
+  </div>
+  
+  
   <div class="grid-row">
+    
     
     <div class="column-two-thirds">
       
-      <h1 class="heading-xlarge">{{search.firstname}} {{search.lastname}} <span class="heading-secondary">{{search.urn}}</span></h1>
-      
-      <div aria-labelledby="case-details">
 
-        <!--h2 class="bold-medium" id="case-details">Case details</h2-->
-        
-        <dl class="description description-inline description-tint">
-          <dt>Case status</dt>
-          <dd>{{{search.case-details.status}}}</dd>
-          <dt>Prosecutor</dt>
-          <dd>{{search.case-details.prosecutor}}</dd>
-          <dt>Charge date</dt>
-          <dd><time datetime="{{search.case-details.charge-date-datetime}}">{{search.case-details.charge-date}}</time></dd>
-          <dt>Notice served</dt>
-          <dd><time datetime="{{search.case-details.notice-served-datetime}}">{{search.case-details.notice-served}}</time></dd>
-          <dt>Documents</dt>
-          <dd>
-            <ul class="list list-inline">
-              {{#each search.related-documents.document}}
-              <li class="file">
-                <i class="icon icon-file-download"></i>
-                <div class="file-details">
-                  <a href="{{file-path}}">{{title}}</a> 
-                  <span class="file-meta">{{file-type}}, {{file-size}}</span>
-                </div>
-              </li>
-              {{/each}}
-            </ul>
-          </dd>
-        </dl>
-      
+      <div class="personal-details">
+        <div>Born {{search.date-of-birth}} (age {{search.age}})</div>
+        <div>{{search.address.address1}}, {{search.address.town}} {{search.address.postcode}}</div>
+        <div>{{search.phone}}</div>
+        {{#if search.email}}<div><a href="mailto:">{{search.email}}</a></div>{{/if}}
+        {{#if search.national-insurance-number}}<div>{{search.national-insurance-number}}</div>{{/if}}
       </div>
+
+    
+      <dl class="description description-inline">
+        <dt>Case status</dt>
+        <dd>{{{search.case-details.status}}}</dd>
+        <dt>Prosecutor</dt>
+        <dd>{{search.case-details.prosecutor}}</dd>
+        <dt>Notice served</dt>
+        <dd><time datetime="{{search.case-details.notice-served-datetime}}">{{search.case-details.notice-served}}</time></dd>
+        <dt>Documents</dt>
+        <dd>
+          <ul>
+            {{#each search.related-documents.document}}
+            <li class="file file-inline">
+              <i class="icon icon-file-download"></i>
+              <div class="file-details">
+                <a href="{{file-path}}">{{title}}</a> 
+                <span class="file-meta">{{file-type}}, {{file-size}}</span>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+        </dd>
+      </dl>
+      
+      
+      {{#if search.withdraw}}<a href="/withdraw-case/{{search.id}}">Withdraw case</a>{{/if}}
+      
       
     </div>
+    
     
     <div class="column-third">
       
-      <div class="related">
-    
-        <div class="related-section">
-          
-          <h2 class="related-title">Personal details</h2>
-          
-          <dl class="description description-tint description-small">
-            <dt>Date of birth</dt>
-            <dd>{{search.date-of-birth}} (age {{search.age}})</dd>
-            <dt>Address</dt>
-            <dd>{{search.address.address1}}, {{search.address.town}}, <br> {{search.address.postcode}}</dd>
-            <dt>Contact</dt>
-            <dd>{{#if search.email}}<a href="mailto:{{search.email}}">{{search.email}}</a>{{else}}-{{/if}}</dd>
-            <dd>{{#if search.phone}}{{search.phone}}{{else}}-{{/if}}</dd>
-            <dt>National Insurance number</dt>
-            <dd>{{#if search.national-insurance-number}}{{search.national-insurance-number}}{{else}}-{{/if}}</dd>
-          </dl>
-
-        </div>
-        
-        <div class="related-section">
-          
-          <!--h2 class="related-title">Related tasks</h2-->
-          
-          <ul class="list">
-            <li><a href="/send-other-documents">Send documents to court</a></li>
-            <li><a href="/withdraw-case/{{search.id}}">Withdraw case</a></li>
-          </ul>
-
-        </div>
-      
-      </div>
+      <figure class="figure">
+        <img src="http://placehold.it/610x160">
+      </figure>
       
     </div>
+    
     
   </div>
   
@@ -137,7 +121,7 @@
             </tbody>
           </table>{{/if}}
           
-          <p><a href="/withdraw-offence/{{../search.id}}">Withdraw offence</a></p>
+          {{#if ../search.withdraw}}<p><a href="/withdraw-offence/{{../search.id}}">Withdraw offence</a></p>{{/if}}
           
         </section>
         

@@ -14,9 +14,10 @@ $module: 'summary';
     padding-bottom: em(10);
     
     a {
-      display: block;
+      display: inline-block;
       overflow: hidden;
       text-decoration: none;
+      vertical-align: top;
     }
     
   }
