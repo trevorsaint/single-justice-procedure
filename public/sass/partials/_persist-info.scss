@@ -6,8 +6,7 @@ $module: 'persist-info';
 .#{$module} {
   @include core-16;
   background-color: $govuk-blue;
-  color: white;
-  //margin-bottom: $gutter; 
+  color: white; 
   padding: $gutter-half;
   
   &-title {

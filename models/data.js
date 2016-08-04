@@ -4,7 +4,7 @@ var search = [
     "id": 1,
     "firstname": "Billy",
     "lastname": "SMITH",
-    "date-of-birth": "11 Nov 1955",
+    "date-of-birth": "11 November 1955",
     "age": "60",
     "gender": "Male",
     "urn": "29324692",
@@ -69,6 +69,7 @@ var search = [
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+          "mitigation": "",
           "plea": "Awaiting plea"
         },
         {
@@ -76,7 +77,8 @@ var search = [
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Awaiting plea"
         }
       ]
@@ -97,7 +99,7 @@ var search = [
     "id": 2,
     "firstname": "Tegan",
     "lastname": "SMITH",
-    "date-of-birth": "19 Oct 1972",
+    "date-of-birth": "19 October 1972",
     "age": "43",
     "gender": "Male",
     "urn": "23410736",
@@ -118,7 +120,7 @@ var search = [
     "compensation": "",
     
     "case-details": {
-      "status": "Ready for SJP decision",
+      "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
@@ -167,6 +169,7 @@ var search = [
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+          "mitigation": "",
           "plea": "Pleaded guilty"
         },
         {
@@ -174,7 +177,8 @@ var search = [
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Pleaded guilty"
         }
       ]
@@ -256,14 +260,16 @@ var search = [
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-          "plea": "Pleaded guilty"
+          "mitigation": "",
+          "plea": "Pleaded guilty",
         },
         {
           "id": 2,
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Pleaded guilty"
         }
       ]
@@ -296,7 +302,7 @@ var search = [
     "compensation": "",
     
     "case-details": {
-      "status": "Ready for SJP decision",
+      "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
@@ -339,6 +345,7 @@ var search = [
           "date": "18 January 2016",
           "datetime": "2016-01-18",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+          "mitigation": "I picked up my partner&rdquo;s ticket instead of my own when I left my house",
           "plea": "Pleaded guilty"
         },
         {
@@ -346,7 +353,8 @@ var search = [
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Pleaded not guilty"
         },
         {
@@ -355,6 +363,7 @@ var search = [
           "date": "18 January 2016",
           "datetime": "2016-01-18",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.", 
+          "mitigation": "",
           "plea": "Pleaded guilty - court hearing requested"
         }
       ]
@@ -430,6 +439,7 @@ var search = [
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+          "mitigation": "",
           "plea": "Pleaded guilty"
         },
         {
@@ -437,7 +447,8 @@ var search = [
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Pleaded guilty"
         }
       ]
@@ -519,6 +530,7 @@ var search = [
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+          "mitigation": "",
           "plea": "Pleaded guilty"
         },
         {
@@ -526,7 +538,8 @@ var search = [
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Pleaded guilty"
         }
       ]
@@ -608,6 +621,7 @@ var search = [
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+          "mitigation": "",
           "plea": "Pleaded guilty"
         },
         {
@@ -615,7 +629,8 @@ var search = [
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Pleaded guilty"
         }
       ]
@@ -685,6 +700,7 @@ var search = [
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+          "mitigation": "",
           "plea": "Pleaded guilty"
         },
         {
@@ -692,7 +708,8 @@ var search = [
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Pleaded guilty"
         }
       ]
@@ -774,6 +791,7 @@ var search = [
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+          "mitigation": "",
           "plea": "Pleaded guilty"
         },
         {
@@ -781,7 +799,8 @@ var search = [
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Pleaded guilty"
         }
       ]
@@ -863,6 +882,7 @@ var search = [
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+          "mitigation": "",
           "plea": "Pleaded guilty"
         },
         {
@@ -870,7 +890,8 @@ var search = [
           "title": "Passenger used expired ticket",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50. During the course of this journey at about 4:05 PM you offered for the inspection of London Bus Inspector LB3563 a Student Photocard in oystercard format&hellip; <a href="#">More</a>', 
+          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
+          "mitigation": "",
           "plea": "Pleaded guilty"
         }
       ]

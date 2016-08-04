@@ -6,12 +6,6 @@ $module: 'description';
 
 
 .#{$module} {
-  margin-top: $gutter;
-  margin-bottom: $gutter;
-  
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   dt {
     font-weight: bold;

@@ -4,6 +4,7 @@
 $module: 'file';
 
 .#{$module} {
+  margin-top: 5px;
   
   .icon {
     display: inline-block;
@@ -25,12 +26,10 @@ $module: 'file';
     
   }
   
-  
   &-inline {
     display: inline-block;
     margin-right: 20px;
   }
-  
   
 }
 

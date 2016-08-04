@@ -2404,13 +2404,6 @@ HTML Usage
 <i class="icon icon-cross" role="presentation" aria-hidden="true"></i>
 
 */
-.description {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.description:last-child {
-  margin-bottom: 0;
-}
 .description dt {
   font-weight: bold;
 }
@@ -2467,11 +2460,6 @@ HTML Usage
 </dl>
 
 */
-.personal-details {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
 /*
   
 HTML Usage
@@ -2481,6 +2469,9 @@ HTML Usage
 </div>
 
 */
+.file {
+  margin-top: 5px;
+}
 .file .icon {
   display: inline-block;
   margin-right: 0.52632em;
@@ -2586,6 +2577,38 @@ HTML Usage
   <img src="">
 
 </figure>
+
+*/
+.block-mb-sm {
+  margin-bottom: 15px;
+}
+.block-mb-md {
+  margin-bottom: 15px;
+}
+@media (min-width: 641px) {
+  .block-mb-md {
+    margin-bottom: 30px;
+  }
+}
+.block-mt-sm {
+  margin-top: 15px;
+}
+.block-mt-md {
+  margin-top: 15px;
+}
+@media (min-width: 641px) {
+  .block-mt-md {
+    margin-top: 30px;
+  }
+}
+
+/*
+  
+HTML Usage
+  
+<div class="block block-mb-md">
+  ... content
+</div>
 
 */
 .example {

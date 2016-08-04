@@ -18,53 +18,74 @@
     
     <div class="column-two-thirds">
       
+      
+      <h1 class="heading-large">View case</h1>
+      
 
-      <div class="personal-details">
-        <div>Born {{search.date-of-birth}} (age {{search.age}})</div>
-        <div>{{search.address.address1}}, {{search.address.town}} {{search.address.postcode}}</div>
-        <div>{{search.phone}}</div>
-        {{#if search.email}}<div><a href="mailto:">{{search.email}}</a></div>{{/if}}
-        {{#if search.national-insurance-number}}<div>{{search.national-insurance-number}}</div>{{/if}}
+      <div class="block block-mb-md block-mt-md">
+
+        <div class="personal-details">
+          <div>{{search.age}} years old</div>
+          <div>Born {{search.date-of-birth}}</div>
+          <div>{{search.address.address1}}, {{search.address.town}} {{search.address.postcode}}</div>
+          <div>{{search.phone}}</div>
+          {{#if search.email}}<a href="mailto:">{{search.email}}</a>{{/if}}
+          {{#if search.national-insurance-number}}<div>NI number: {{search.national-insurance-number}}</div>{{/if}}
+        </div>
+      
       </div>
 
     
-      <dl class="description description-inline">
-        <dt>Case status</dt>
-        <dd>{{{search.case-details.status}}}</dd>
-        <dt>Prosecutor</dt>
-        <dd>{{search.case-details.prosecutor}}</dd>
-        <dt>Notice served</dt>
-        <dd><time datetime="{{search.case-details.notice-served-datetime}}">{{search.case-details.notice-served}}</time></dd>
-        <dt>Documents</dt>
-        <dd>
-          <ul>
-            {{#each search.related-documents.document}}
-            <li class="file file-inline">
-              <i class="icon icon-file-download"></i>
-              <div class="file-details">
-                <a href="{{file-path}}">{{title}}</a> 
-                <span class="file-meta">{{file-type}}, {{file-size}}</span>
-              </div>
-            </li>
-            {{/each}}
-          </ul>
-        </dd>
-      </dl>
+      <div class="block">
+    
+        <dl class="description description-inline">
+          <dt>Case status</dt>
+          <dd>{{{search.case-details.status}}}</dd>
+          <dt>Prosecutor</dt>
+          <dd>{{search.case-details.prosecutor}}</dd>
+          <dt>Notice served</dt>
+          <dd><time datetime="{{search.case-details.notice-served-datetime}}">{{search.case-details.notice-served}}</time></dd>
+          <dt>Documents</dt>
+          <dd>
+            <ul>
+              {{#each search.related-documents.document}}
+              <li class="file file-inline">
+                <i class="icon icon-file-download"></i>
+                <div class="file-details">
+                  <a href="{{file-path}}">{{title}}</a> 
+                  <span class="file-meta">{{file-type}}, {{file-size}}</span>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </dd>
+        </dl>
       
-      
-      {{#if search.withdraw}}<a href="/withdraw-case/{{search.id}}">Withdraw case</a>{{/if}}
-      
+      </div>
+
       
     </div>
     
     
+    {{#if search.withdraw}}
     <div class="column-third">
       
-      <figure class="figure">
-        <img src="http://placehold.it/610x160">
-      </figure>
+      <div class="related">
+  
+        <div class="related-section">
+        
+          <h2 class="related-title">Case actions</h2>
+          
+          <ul class="list">
+            <li><a href="/withdraw-case/{{search.id}}">Withdraw case</a></li>
+          </ul>
+          
+        </div>
+      
+      </div>
       
     </div>
+    {{/if}}
     
     
   </div>
@@ -92,8 +113,10 @@
           <p><strong class="tag">{{plea}}</strong></p>
           
           <div class="panel panel-border-narrow">
-            <p class="font-xsmall"><strong class="bold-xsmall">Statement of facts</strong> <br> {{{statement-of-facts}}}</p>
+            {{#if statement-of-facts}}<p class="font-xsmall"><strong class="bold-xsmall">Statement of facts</strong> <br> {{{statement-of-facts}}}</p>{{/if}}
+            {{#if mitigation}}<p class="font-xsmall"><strong class="bold-xsmall">Mitigation</strong> <br> {{{mitigation}}}</p>{{/if}}
           </div>
+          
           
           {{#if ../search.decision-made}}<table class="table table-font-xsmall">
             <thead>
@@ -115,7 +138,7 @@
                 <td>&pound;3.50</td>
               </tr>
               <tr>
-                <td>Guilty plea <abbr title="Taken into Consideration">TIC</abbr></td>
+                <td>Guilty plea taken into account?</td>
                 <td>Yes</td>
               </tr>
             </tbody>
