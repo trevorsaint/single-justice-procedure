@@ -67,11 +67,11 @@ bind: function(app) {
     });
 
 
-    app.get('/withdraw-case/:id', function (req, res) {
+    app.get('/withdraw-all-offences/:id', function (req, res) {
       
       var entry = dataEngine.getSearchEntry(req.params.id);
       
-      res.render('withdraw-case', {
+      res.render('withdraw-all-offences', {
         search:entry
       });
       

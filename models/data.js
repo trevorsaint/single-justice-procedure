@@ -160,6 +160,7 @@ var search = [
     
     "decision-made": false,
     "decision-ready": false,
+    "withdraw": true,
     
     "offences": {
       "offence": [
