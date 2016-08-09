@@ -26,7 +26,7 @@
 
         <div class="personal-details">
           <div>{{search.age}} years old</div>
-          <div>Born {{search.date-of-birth}}</div>
+          <div>Born {{search.date-of-birth-long}}</div>
           <div>{{search.address.address1}}, {{search.address.town}} {{search.address.postcode}}</div>
           <div>{{search.phone}}</div>
           {{#if search.email}}<a href="mailto:">{{search.email}}</a>{{/if}}
@@ -74,7 +74,7 @@
   
         <div class="related-section">
         
-          <h2 class="related-title">Related links</h2>
+          <h2 class="related-title">Case options</h2>
           
           <ul class="list">
             <li><a href="/withdraw-offence/{{search.id}}">Withdraw offence</a></li>
