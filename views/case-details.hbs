@@ -74,10 +74,10 @@
   
         <div class="related-section">
         
-          <h2 class="related-title">Case actions</h2>
+          <h2 class="related-title">Related links</h2>
           
           <ul class="list">
-            <li><a href="/withdraw-all-offences/{{search.id}}">Withdraw all offences</a></li>
+            <li><a href="/withdraw-offence/{{search.id}}">Withdraw offence</a></li>
           </ul>
           
         </div>
@@ -96,7 +96,7 @@
   
   <section aria-labelledby="offences">
     
-    <h2 class="bold-large" id="offences">2 offences</h2>
+    <h2 class="bold-large" id="offences">Offence</h2>
   
     {{#each search.offences.offence}}
     <div class="grid-row">
@@ -106,7 +106,7 @@
         <section>
           
           <header>
-            <h3 class="heading-small">{{id}}. {{{title}}}</h3>
+            <h3 class="heading-small">{{{title}}}</h3>
             <p class="font-xsmall">On <time datetime="{{datetime}}">{{date}}</time></p>
           </header>
           
@@ -143,8 +143,6 @@
               </tr>
             </tbody>
           </table>{{/if}}
-          
-          {{#if ../search.withdraw}}<p><a href="/withdraw-offence/{{../search.id}}">Withdraw offence</a></p>{{/if}}
           
         </section>
         
