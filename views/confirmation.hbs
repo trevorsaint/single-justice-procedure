@@ -1,4 +1,10 @@
-  <a href="/case-tasks" class="link-back">Back</a>
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="/case-tasks">Case tasks</a></li>
+      <li><a href="/case-details/{{search.id}}">{{search.firstname}} {{search.lastname}}</a></li>
+      <li>Withdraw offence</li>
+    </ol>
+  </div>
   
 
   <div class="alert alert-success" role="alert">
@@ -6,7 +12,10 @@
     <i class="icon icon-tick" role="presentation" aria-hidden="true"></i>
     
     <div class="alert-message">
-      <p class="bold-small">You have successfully updated your business details</p>
+      <p class="bold-small">Request sent to a legal adviser who will decide whether to withdraw this offence.</p>
     </div>
     
   </div>
+  
+  
+  <p><a href="/case-tasks">Go back to Case tasks</a></p>

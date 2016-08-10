@@ -94,8 +94,14 @@ bind: function(app) {
     });
     
     
-    app.get('/confirmation', function (req, res) {
-      res.render('confirmation');
+    app.get('/confirmation/:id', function (req, res) {
+      
+      var entry = dataEngine.getSearchEntry(req.params.id);
+      
+      res.render('confirmation', {
+        search:entry
+      });
+      
     });   
     
     
