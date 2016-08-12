@@ -2290,88 +2290,69 @@ HTML Usage
 </li>
 
 */
-.alert {
-  padding: 30px;
-  margin-bottom: 1em;
-  margin-top: 1em;
+.notification {
+  display: table;
+  margin-bottom: 30px;
+  padding: 15px;
 }
-.alert-success {
-  background-color: #28a197;
-}
-.alert-fail {
-  background-color: #b10e1e;
-}
-.alert-message {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
-  font-weight: 700;
-  text-transform: none;
-  font-size-adjust: 0.525;
-  display: inline-block;
-  color: white;
-  padding-left: 10px;
-  vertical-align: middle;
-}
-@media (min-width: 641px) {
-  .alert-message {
-    font-size: 16px;
-    line-height: 1.25;
+@media (min-width: 769px) {
+  .notification {
+    padding: 30px;
   }
 }
-.alert .icon {
-  display: inline-block;
-  vertical-align: middle;
+.notification-message {
+  color: white;
+  display: table-cell;
 }
-.alert p {
+.notification-message p {
   margin: 0;
+}
+.notification .icon {
+  display: table-cell;
+  vertical-align: top;
+}
+.notification .icon + .notification-message {
+  padding-left: 10px;
+}
+.notification-confirmation {
+  background-color: #28a197;
+}
+.notification-active {
+  background-color: #006435;
+}
+.notification-pending {
+  background-color: #f47738;
+}
+.notification-locked {
+  background-color: #b10e1e;
+}
+.notification-deregistered {
+  background-color: #6f777b;
 }
 
 /*
   
 HTML Usage
   
-<div class="alert alert-success" role="alert">
+<div class="notification notification-confirmation">
   
-  <div class="alert-message">
-    <p class="bold-small">You have successfully updated your profile</p>
+  <div class="notification-message">
+    <p class="bold-small">Accepted case management information</p>
+  </div>
+  
+</div>
+
+<div class="notification notification-confirmation">
+  
+  <i class="icon icon-tick-white"></i>
+  
+  <div class="notification-message">
+    <p class="bold-small">Accepted case management information</p>
   </div>
   
 </div>
 
 */
-.banner {
-  padding: 30px;
-  margin-bottom: 1em;
-  margin-top: 1em;
-}
-.banner-message {
-  overflow: hidden;
-  color: white;
-}
-.banner-message p {
-  margin: 0;
-}
-.banner .icon {
-  float: left;
-  padding-right: 10px;
-}
-.banner-confirmation {
-  background-color: #28a197;
-}
-.banner-active {
-  background-color: #006435;
-}
-.banner-pending {
-  background-color: #f47738;
-}
-.banner-locked {
-  background-color: #b10e1e;
-}
-.banner-deregistered {
-  background-color: #6f777b;
-}
-
 .icon-tick {
   width: 27px;
   height: 27px;
@@ -2394,6 +2375,28 @@ HTML Usage
     background-size: 100%;
   }
 }
+.icon-important-white {
+  width: 31px;
+  height: 31px;
+  background-image: url("/public/images/icon-important-white.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .icon-important-white {
+    background-image: url("/public/images/icon-important-white-2x.png");
+    background-size: 100%;
+  }
+}
+.icon-tick-white {
+  width: 31px;
+  height: 31px;
+  background-image: url("/public/images/icon-tick-white.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .icon-tick-white {
+    background-image: url("/public/images/icon-tick-white-2x.png");
+    background-size: 100%;
+  }
+}
 
 /*
   
@@ -2402,6 +2405,10 @@ HTML Usage
 <i class="icon icon-tick" role="presentation" aria-hidden="true"></i>
 
 <i class="icon icon-cross" role="presentation" aria-hidden="true"></i>
+
+<i class="icon icon-important-white" role="presentation" aria-hidden="true"></i>
+
+<i class="icon icon-tick-white" role="presentation" aria-hidden="true"></i>
 
 */
 .description dt {

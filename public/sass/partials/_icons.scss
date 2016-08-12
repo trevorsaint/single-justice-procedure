@@ -13,6 +13,14 @@ $module: 'icon';
     @include icon(icon-cross, 27, 27);
   }
   
+  &-important-white {
+    @include icon(icon-important-white, 31, 31);
+  }
+  
+  &-tick-white {
+    @include icon(icon-tick-white, 31, 31);
+  }
+  
 }
 
 /*
@@ -22,5 +30,9 @@ HTML Usage
 <i class="icon icon-tick" role="presentation" aria-hidden="true"></i>
 
 <i class="icon icon-cross" role="presentation" aria-hidden="true"></i>
+
+<i class="icon icon-important-white" role="presentation" aria-hidden="true"></i>
+
+<i class="icon icon-tick-white" role="presentation" aria-hidden="true"></i>
 
 */
