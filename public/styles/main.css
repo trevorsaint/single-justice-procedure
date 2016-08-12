@@ -2190,24 +2190,22 @@ HTML Usage
 </div>
 
 */
-.summary {
-  border-top: 0.05263em solid #bfc1c3;
-  border-bottom: 0.05263em solid #bfc1c3;
-  padding-top: 1.05263em;
-  padding-bottom: 1.05263em;
-}
 .summary-item {
-  padding-top: 0.52632em;
-  padding-bottom: 0.52632em;
+  overflow: hidden;
+}
+@media (max-width: 640px) {
+  .summary-item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 .summary-item a {
   display: inline-block;
   overflow: hidden;
   text-decoration: none;
-  vertical-align: top;
+  width: 100%;
 }
-.summary-figure {
-  display: block;
+.summary-item-number {
   font-family: "nta", Arial, sans-serif;
   font-size: 32px;
   line-height: 1.09375;
@@ -2216,38 +2214,40 @@ HTML Usage
   font-size-adjust: 0.525;
 }
 @media (min-width: 641px) {
-  .summary-figure {
+  .summary-item-number {
     font-size: 48px;
     line-height: 1.04167;
   }
 }
-.summary-label {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
-  font-weight: 700;
-  text-transform: none;
-  font-size-adjust: 0.525;
+.summary-item-label {
   display: block;
 }
 @media (min-width: 641px) {
-  .summary-label {
-    font-size: 16px;
-    line-height: 1.25;
+  .summary-item-inline .summary-item-number {
+    float: left;
+    margin-right: 10px;
   }
+}
+.summary-item-inline .summary-item-label {
+  overflow: hidden;
 }
 
 /*
   
 HTML Usage
   
-<div class="summary">
-  
-  <div class="summary-item">
-    <span class="summary-figure">23</span> 
-    <strong class="summary-label">cases awaiting court decision</strong>
-  </div>
-  
+<div class="summary-item">
+  <span class="summary-item-number">44</span>
+  <span class="summary-item-label">exhibits</span>        
+</div>
+
+OR
+
+<div class="summary-item summary-item-inline">
+  <a href="#">
+    <span class="summary-item-number">44</span>
+    <span class="summary-item-label">exhibits</span> 
+  </a>       
 </div>
 
 */

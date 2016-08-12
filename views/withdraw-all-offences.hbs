@@ -5,9 +5,15 @@
       <li>Withdraw all offences</li>
     </ol>
   </div>
+  
+
+  <div class="persist-info">
+    <span class="persist-info-reference">{{search.urn}}</span>
+    <span class="persist-info-title">{{search.firstname}} {{search.lastname}}</span>
+  </div>
       
       
-  <h1 class="heading-xlarge">Withdraw all offences</h1>
+  <h1 class="heading-large">Withdraw all offences</h1>
   
   
   <div class="text">
@@ -15,7 +21,7 @@
   </div>
   
 
-  <form class="form">
+  <form class="form" method="get" action="/confirmation/{{search.id}}">
 
     <div class="form-group form-group-related">
       <button class="button" type="submit">Yes &ndash; send request</button>
