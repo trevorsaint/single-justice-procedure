@@ -38,11 +38,11 @@ bind: function(app) {
     });
     
     
-    app.get('/view-court-results', function (req, res) {
+    app.get('/export-case-results-by-date', function (req, res) {
       
       var entry = dataEngine.getSearchEntry(req.params.id);
       
-      res.render('view-court-results', {
+      res.render('export-case-results-by-date', {
         searches:dataEngine.getSearchEntries()
       });
       
