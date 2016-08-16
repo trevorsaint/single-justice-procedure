@@ -21,10 +21,6 @@ $module: 'icon';
     @include icon(icon-tick-white, 31, 31);
   }
   
-  &-errors {
-    @include icon(icon-errors, 20, 20);
-  }
-  
 }
 
 /*
@@ -42,9 +38,3 @@ HTML Usage
 <i class="icon icon-errors" role="presentation" aria-hidden="true"></i>
 
 */
-
-
-.table .icon {
-  float: left;
-  margin-right: 5px;
-}

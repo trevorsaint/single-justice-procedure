@@ -1,0 +1,21 @@
+// Text
+// ==========================================================================
+
+$module: 'text';
+
+.#{$module} {
+
+  &-error {
+    color: $error-colour;
+    font-weight: bold;
+  }
+  
+}
+
+/*
+  
+HTML Usage
+   
+<span class="text-errors">Errors found</span>
+
+*/

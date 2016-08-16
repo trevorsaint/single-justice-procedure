@@ -31,8 +31,8 @@ bind: function(app) {
     });
     
     
-    app.get('/check-data-file-uploads', function (req, res) {
-      res.render('check-data-file-uploads', {
+    app.get('/check-uploads', function (req, res) {
+      res.render('check-uploads', {
         searches:dataEngine.getSearchEntries()
       });
     });
