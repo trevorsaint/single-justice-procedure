@@ -231,7 +231,7 @@ var search = [
     "file": {
       "uploaded": "9 May 2016",
       "filename": "case-123456789.csv",
-      "status": "Errors found",
+      "status": '<i class="icon icon-errors"></i> Errors found',
       "url": "#"
     },
     
@@ -326,7 +326,7 @@ var search = [
     "file": {
       "uploaded": "8 May 2016",
       "filename": "case-123456789.csv",
-      "status": "Errors found",
+      "status": '<i class="icon icon-errors"></i> Errors found',
       "url": "#"
     },
     
@@ -424,7 +424,7 @@ var search = [
     "file": {
       "uploaded": "8 May 2016",
       "filename": "case-123456789.csv",
-      "status": "Errors found",
+      "status": '<i class="icon icon-errors"></i> Errors found',
       "url": "#"
     },
     

@@ -2397,6 +2397,17 @@ HTML Usage
     background-size: 100%;
   }
 }
+.icon-errors {
+  width: 20px;
+  height: 20px;
+  background-image: url("/public/images/icon-errors.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .icon-errors {
+    background-image: url("/public/images/icon-errors-2x.png");
+    background-size: 100%;
+  }
+}
 
 /*
   
@@ -2410,7 +2421,14 @@ HTML Usage
 
 <i class="icon icon-tick-white" role="presentation" aria-hidden="true"></i>
 
+<i class="icon icon-errors" role="presentation" aria-hidden="true"></i>
+
 */
+.table .icon {
+  float: left;
+  margin-right: 5px;
+}
+
 .description dt {
   font-weight: bold;
 }
