@@ -7,7 +7,7 @@ bind: function(app) {
     var dataEngine = require('../models/data');
     
     
-    app.get('/', function (req, res) {
+    app.all('/', function (req, res) {
       
       res.render('index', {
         isSignedIn: true
@@ -21,7 +21,7 @@ bind: function(app) {
     });
     
     
-    app.get('/send-data-files', function (req, res) {
+    app.all('/send-data-files', function (req, res) {
       res.render('send-data-files');
     });
     
