@@ -105,8 +105,8 @@ bind: function(app) {
     });   
     
     
-    app.get('/patterns', function (req, res) {
-      res.render('patterns');
+    app.get('/report', function (req, res) {
+      res.render('report');
     });   
     
 

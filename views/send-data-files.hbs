@@ -7,6 +7,18 @@
     
     
   <h1 class="heading-xlarge">Send data files to court</h1>
+  
+  
+  <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+  
+    <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">Fix the following</h1>
+    
+    <ul class="error-summary-list">
+      <li><a href="#">Select header CSV</a></li>
+      <li><a href="#">Select offences CSV</a></li>
+    </ul>
+  
+  </div>
 
 
   <form class="form">
@@ -14,40 +26,52 @@
 
     <h2 class="heading-small">Select header <abbr title="Comma Separated Value">CSV</abbr></h2>
     
-    <div class="form-group">
+    <div class="form-group error">
+      
+      <!--span class="error-message">You need to upload a file</span-->
+      <!--span class="error-message">File didn&rsquo;t upload &ndash; try again</span-->
+      <!--span class="error-message">File name not valid &ndash; rename file</span-->
+      <!--span class="error-message">File type not valid &ndash; upload correct file</span-->
+      <span class="error-message">Files not a matching pair &ndash; fix and try again</span>
       
       <label class="button button-secondary">Upload
         <input class="hidden" type="file" accept=".csv">
       </label>
       
-      <div class="panel panel-border-narrow">
+      <!--div class="panel panel-border-narrow">
         
         <p class="font-xsmall">
           <span class="bold-xsmall">File selected</span> <br> 
           <span class="text-secondary">case_header_123456789.csv</span> <br> <a href="#">Remove</a>
         </p>
         
-      </div>
+      </div-->
       
     </div>
     
     
     <h2 class="heading-small">Select offences <abbr title="Comma Separated Value">CSV</abbr></h2>
     
-    <div class="form-group form-group-last">
+    <div class="form-group form-group-last error">
+      
+      <!--span class="error-message">You need to upload a file</span-->
+      <!--span class="error-message">File didn&rsquo;t upload &ndash; try again</span-->
+      <!--span class="error-message">File name not valid &ndash; rename file</span-->
+      <!--span class="error-message">File type not valid &ndash; upload correct file</span-->
+      <span class="error-message">Files not a matching pair &ndash; fix and try again</span>
       
       <label class="button button-secondary">Upload
         <input class="hidden" type="file" accept=".csv">
       </label>
       
-      <div class="panel panel-border-narrow">
+      <!--div class="panel panel-border-narrow">
         
         <p class="font-xsmall">
           <span class="bold-xsmall">File selected</span> <br> 
           <span class="text-secondary">case_offences_987654321.csv</span> <br> <a href="#">Remove</a>
         </p>
         
-      </div>
+      </div-->
       
     </div>
 

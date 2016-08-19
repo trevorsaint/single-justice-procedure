@@ -18,6 +18,7 @@
         <th scope="col">Uploaded</th>
         <th scope="col">By</th>
         <th scope="col">File name</th>
+        <th scope="col">File type</th>
         <th scope="col" colspan="2">Status</th>
       </tr>
     </thead>
@@ -27,8 +28,9 @@
         <td>{{file.uploaded}}</td>
         <td>{{lastname}} {{firstname}}</td>
         <td>{{file.filename}}</td>
+        <td>{{file.filetype}}</td>
         <td>{{{file.status}}}</td>
-        <td>{{#if file.url}}<a href="#">Download</a>{{else}}&ndash;{{/if}}</td>
+        <td>{{#if file.url}}<a href="/report">View report</a>{{else}}&ndash;{{/if}}</td>
       </tr>
     {{/each}}
     </tbody>

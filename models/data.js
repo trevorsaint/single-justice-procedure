@@ -36,7 +36,8 @@ var search = [
     
     "file": {
       "uploaded": "10 May 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "Zip",
       "status": "Being checked",
       "url": ""
     },
@@ -134,7 +135,8 @@ var search = [
     
     "file": {
       "uploaded": "9 May 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "Zip",
       "status": "Being checked",
       "url": ""
     },
@@ -230,7 +232,8 @@ var search = [
 
     "file": {
       "uploaded": "9 May 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "Zip",
       "status": '<span class="text-error">Errors found</span>',
       "url": "#"
     },
@@ -325,7 +328,8 @@ var search = [
 
     "file": {
       "uploaded": "8 May 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "Zip",
       "status": '<span class="text-error">Errors found</span>',
       "url": "#"
     },
@@ -423,7 +427,8 @@ var search = [
 
     "file": {
       "uploaded": "8 May 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "CSV",
       "status": '<span class="text-error">Errors found</span>',
       "url": "#"
     },
@@ -511,7 +516,8 @@ var search = [
 
     "file": {
       "uploaded": "15 April 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "CSV",
       "status": "Sent to court",
       "url": "#"
     },
@@ -606,7 +612,8 @@ var search = [
 
     "file": {
       "uploaded": "2 April 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "Zip",
       "status": "Sent to court",
       "url": "#"
     },
@@ -701,7 +708,8 @@ var search = [
 
     "file": {
       "uploaded": "2 March 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "CSV",
       "status": "Sent to court",
       "url": "#"
     },
@@ -782,7 +790,8 @@ var search = [
 
     "file": {
       "uploaded": "18 Feb 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "Zip",
       "status": "Sent to court",
       "url": "#"
     },
@@ -877,7 +886,8 @@ var search = [
 
     "file": {
       "uploaded": "16 Feb 2016",
-      "filename": "case-123456789.csv",
+      "filename": "case-123456789",
+      "filetype": "CSV",
       "status": "Sent to court",
       "url": "#"
     },
