@@ -1,10 +1,4 @@
-  <div class="breadcrumbs">
-    <ol>
-      <li><a href="/case-tasks">Case tasks</a></li>
-      <li><a href="/case-details/{{search.id}}">{{search.firstname}} {{search.lastname}}</a></li>
-      <li>Withdraw offence</li>
-    </ol>
-  </div>
+  {{>breadcrumb}}
   
   
   <div class="persist-info">
@@ -13,7 +7,7 @@
   </div>
   
   
-  <h1 class="heading-large">Withdraw offence</h1>
+  <h1 class="heading-large">{{pagetitle}}</h1>
   
   
   <div class="text">
@@ -21,7 +15,7 @@
   </div>
   
 
-  <form class="form" method="get" action="/confirmation/{{search.id}}">
+  <form class="form" method="get" action="/withdraw-offence-confirmation/{{search.id}}">
     
     <div class="form-group form-group-related">
       <button class="button" type="submit">Yes &ndash; send request</button>

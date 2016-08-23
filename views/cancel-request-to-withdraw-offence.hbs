@@ -1,0 +1,36 @@
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="/case-tasks">Case tasks</a></li>
+      <li><a href="/case-details/{{search.id}}">{{search.firstname}} {{search.lastname}}</a></li>
+      <li>Cancel withdrawal of offence</li>
+    </ol>
+  </div>
+  
+  
+  <div class="persist-info">
+    <span class="persist-info-reference">{{search.urn}}</span>
+    <span class="persist-info-title">{{search.firstname}} {{search.lastname}}</span>
+  </div>
+  
+  
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+    
+    <h1 class="heading-large">Cancel withdrawal of offence</h1>
+  
+    <p class="lede">A request to withdraw this offence was sent to a legal adivser on 1 August 2016. Do you want to cancel this request?</p>
+  
+    <form class="form" method="get" action="/cancel-withdrawal-offence-confirmation/{{search.id}}">
+      
+      <div class="form-group form-group-related">
+        <button class="button" type="submit">Yes &ndash; cancel request</button>
+      </div>
+      
+      <p><a href="/case-details-cancel-withdraw/{{search.id}}">Back</a></p>
+    
+    </form>
+    
+    </div>
+    
+  </div>

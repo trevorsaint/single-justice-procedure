@@ -1,0 +1,65 @@
+  {{>breadcrumb}}
+  
+  
+  <h1 class="heading-xlarge">{{{pagetitle}}}</h1>
+    
+    
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+      
+      <h3 class="heading-medium">5 cases missing notices</h3>
+      
+      <table class="table table-font-xsmall text">
+        <caption class="visuallyhidden">Cases missing SJP notices</caption>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Reference number</th>
+            <th scope="col">Date of birth</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each searches}}
+            {{#if missing-sjp}}
+            <tr>
+              <td>{{lastname}} {{firstname}}</td>
+              <td>{{urn}}</td>
+              <td>{{date-of-birth}}</td>
+            </tr>
+            {{/if}}
+          {{/each}}
+        </tbody>
+      </table>
+      
+    </div>
+    
+    
+    <div class="column-one-third">
+      
+      <h3 class="heading-medium">Send notices to court</h3>
+  
+      <p>Upload the SJP notices in a zip file.</p>
+      
+      <div class="panel panel-border-wide">
+        <p class="font-xsmall">If you only want to upload one document, you’ll still need to put it in a zip file.</p>
+      </div>
+      
+      <form class="form" method="" action="">
+          
+        <div class="form-group">
+        
+          <label class="button button-secondary">Upload
+            <input class="hidden" type="file">
+          </label>
+          
+        </div>
+        
+        <button class="button" type="submit">Send to court</button>
+      
+      </form>
+      
+    </div>
+    
+     
+  </div>

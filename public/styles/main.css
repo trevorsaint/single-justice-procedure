@@ -2056,55 +2056,98 @@ HTML Usage
 </div>
 
 */
-.pager {
-  margin-top: 0.3125em;
-  margin-bottom: 1.25em;
+.pagination {
+  position: relative;
+  min-height: 37px;
+  width: 100%;
 }
-@media (min-width: 641px) {
-  .pager {
-    margin-top: 0.26316em;
-    margin-bottom: 1.05263em;
-  }
-}
-.pager-items {
+.pagination-numbers {
   display: none;
 }
-@media (min-width: 641px) {
-  .pager-items {
-    display: inline;
+@media (min-width: 769px) {
+  .pagination-numbers {
+    display: block;
+    transform: translateY(-50%) translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
   }
-  .pager-items li {
-    display: inline;
-    margin: 0 0.26316em;
+  .pagination-numbers li {
+    display: inline-block;
   }
-  .pager-items li:first-child {
-    margin-left: 0;
-  }
-  .pager-items li:last-child {
-    margin-right: 0;
-  }
-}
-.pager-prev, .pager-next {
-  margin-right: 0.52632em;
-}
-@media (min-width: 641px) {
-  .pager-prev, .pager-next {
-    margin-right: 0;
+  .pagination-numbers a {
+    display: block;
+    padding: 3px 10px;
+    text-decoration: none;
   }
 }
-@media (min-width: 641px) {
-  .pager-prev {
-    margin-right: 0.52632em;
+.pagination-prev a, .pagination-next a {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  padding: 9px;
+  text-decoration: none;
+}
+.pagination-label {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+.pagination-label:before, .pagination-label:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 38px;
+  width: 22px;
+}
+.pagination-next {
+  float: right;
+  text-align: right;
+}
+.pagination-next a {
+  padding-right: 32px;
+}
+.pagination-next .pagination-label:after {
+  background-image: url("/public/images/pagination-next-arrow.png");
+  right: -32px;
+  transform: translateY(-50%);
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .pagination-next .pagination-label:after {
+    background-image: url("/public/images/pagination-next-arrow-2x.png");
+    background-size: 100%;
   }
 }
-@media (min-width: 641px) {
-  .pager-next {
-    margin-left: 0.52632em;
+.pagination-prev {
+  float: left;
+}
+.pagination-prev a {
+  padding-left: 32px;
+}
+.pagination-prev .pagination-label:before {
+  background-image: url("/public/images/pagination-previous-arrow.png");
+  left: -32px;
+  transform: translateY(-50%);
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .pagination-prev .pagination-label:before {
+    background-image: url("/public/images/pagination-previous-arrow-2x.png");
+    background-size: 100%;
   }
 }
+.pagination-title {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.14286;
+  font-weight: 400;
+  text-transform: none;
+  font-size-adjust: 0.5;
+  text-decoration: underline;
+}
 @media (min-width: 641px) {
-  .pager-controls {
-    float: right;
+  .pagination-title {
+    font-size: 16px;
+    line-height: 1.25;
   }
 }
 
@@ -2112,22 +2155,23 @@ HTML Usage
   
 HTML Usage
   
-<div class="pager">
-    
-  <div class="pager-controls">
-    
-    <ul class="pager-items">
-      <li>1</li>
-      <li><a href="#">2</a></li>
-    </ul>
-    
-    <a href="#" class="pager-next">Next</a>
-    
-  </div>
+<ul class="pagination">
+        
+  <li class="pagination-prev">
+    <a href="#" rel="prev" title="Navigate to previous part">
+      <span class="pagination-label">Previous</span>
+      <span class="pagination-title">Overview</span>
+    </a>
+  </li>
   
-  <div class="pager-summary">Showing 1 &ndash; 10 of 20 results</div>
+  <li class="pagination-next">
+    <a href="#" rel="next" title="Navigate to next part">
+      <span class="pagination-label">Next</span>
+      <span class="pagination-title">Give away business property or assets</span>
+    </a>
+  </li>
   
-</div>
+</ul>
 
 */
 .persist-info {

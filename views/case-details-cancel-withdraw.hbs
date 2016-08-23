@@ -34,7 +34,7 @@
     
         <dl class="description description-inline">
           <dt>Case status</dt>
-          <dd>{{{search.case-details.status}}}</dd>
+          <dd>Pending offence withdrawal</dd>
           <dt>Prosecutor</dt>
           <dd>{{search.case-details.prosecutor}}</dd>
           <dt>Notice served</dt>
@@ -62,27 +62,6 @@
     
     
     {{#if search.withdraw}}
-    <div class="column-third">
-      
-      <div class="related">
-  
-        <div class="related-section">
-        
-          <h2 class="related-title">Case options</h2>
-          
-          <ul class="list">
-            <li><a href="/withdraw-offence/{{search.id}}">Withdraw offence</a></li>
-          </ul>
-          
-        </div>
-      
-      </div>
-      
-    </div>
-    {{/if}}
-    
-    
-    {{#if search.cancel-withdrawal}}
     <div class="column-third">
       
       <div class="related">
@@ -125,7 +104,7 @@
             <p class="font-xsmall">On <time datetime="{{datetime}}">{{date}}</time></p>
           </header>
           
-          <p><strong class="tag">{{plea}}</strong>{{#if ../search.cancel-withdrawal}}<strong class="tag">Pending withdrawal</strong>{{/if}}</p>
+          <p><strong class="tag">{{plea}}</strong> <strong class="tag">Pending withdrawal</strong></p>
           
           <div class="panel panel-border-narrow">
             {{#if statement-of-facts}}<p class="font-xsmall"><strong class="bold-xsmall">Statement of facts</strong> <br> {{{statement-of-facts}}}</p>{{/if}}

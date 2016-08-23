@@ -1,12 +1,7 @@
-  <div class="breadcrumbs">
-    <ol>
-      <li><a href="/case-tasks">Case tasks</a></li>
-      <li>Search for a case</li>
-    </ol>
-  </div>
+  {{>breadcrumb}}
+  
     
-    
-  <h1 class="heading-xlarge">Search for a case</h1>
+  <h1 class="heading-xlarge">{{pagetitle}}</h1>
   
   
   <form class="form">
@@ -21,7 +16,7 @@
   </form>
   
   
-  <h3 class="heading-medium">20 cases found</h3>
+  <h3 class="heading-medium">40 cases found</h3>
   
   <table class="table table-font-xsmall">
     <caption class="visuallyhidden">Defendant cases</caption>
@@ -48,19 +43,25 @@
   </table>
   
   
-  <div class="pager">
-      
-    <div class="pager-controls">
-      
-      <ul class="pager-items">
-        <li>1</li>
-        <li><a href="#">2</a></li>
-      </ul>
-      
-      <a class="pager-next" href="#">Next</a>
-      
+  <div class="pagination">
+    
+    <div class="pagination-prev">
+      <a href="#" rel="prev" title="Navigate to previous part">
+        <span class="pagination-label">Previous</span>
+      </a>
     </div>
     
-    <div class="pager-summary">Showing 1 &ndash; 10 of 20 results</div>
+    <ul class="pagination-numbers">
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+    </ul>
+    
+    <div class="pagination-next">
+      <a href="#" rel="next" title="Navigate to next part">
+        <span class="pagination-label">Next</span>
+      </a>
+    </div>
     
   </div>

@@ -204,7 +204,7 @@ var search = [
     "date-of-birth-long": "11 October 1941",
     "age": "74",
     "gender": "Female",
-    "urn": "90142467",
+    "urn": "9012462",
     "address": {
       "address1": "92 Sloe Lane",
       "town": "Crouch",
@@ -232,10 +232,12 @@ var search = [
 
     "file": {
       "uploaded": "9 May 2016",
+      "ISO-8601": "2016-05-09",
       "filename": "case-123456789",
+      "document": true,
       "filetype": "Zip",
-      "status": '<span class="text-error">Errors found</span>',
-      "url": "#"
+      "status":   '<span class="text-error">Errors found</span>',
+      "url":      "/view-upload-report-errors/3",
     },
     
     "related-documents": {
@@ -328,10 +330,12 @@ var search = [
 
     "file": {
       "uploaded": "8 May 2016",
+      "ISO-8601": "2016-05-08",
       "filename": "case-123456789",
+      "document": true,
       "filetype": "Zip",
       "status": '<span class="text-error">Errors found</span>',
-      "url": "#"
+      "url": "/view-upload-report-errors/4"
     },
     
     "related-documents": {
@@ -367,25 +371,7 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "I picked up my partner&rdquo;s ticket instead of my own when I left my house",
           "plea": "Pleaded guilty"
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Pleaded not guilty"
-        },
-        {
-          "id": 3,
-          "title": "Abuse of an inspector",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.", 
-          "mitigation": "",
-          "plea": "Pleaded guilty - court hearing requested"
-        }*/
+        }
       ]
     }
     
@@ -427,10 +413,12 @@ var search = [
 
     "file": {
       "uploaded": "8 May 2016",
+      "ISO-8601": "2016-05-08",
       "filename": "case-123456789",
+      "document": false,
       "filetype": "CSV",
       "status": '<span class="text-error">Errors found</span>',
-      "url": "#"
+      "url": "/view-upload-report-errors/5"
     },
     
     "related-documents": {
@@ -488,7 +476,7 @@ var search = [
     "date-of-birth-long": "23 September 1967",
     "age": "48",
     "gender": "Female",
-    "urn": "2056139",
+    "urn": "2056135",
     "address": {
       "address1": "94 Overton Circle",
       "town": "Liverton",
@@ -506,7 +494,7 @@ var search = [
     "compensation": "8.40",
     
     "case-details": {
-      "status": "Awaiting plea",
+      "status": "Pending offence withdrawal",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
@@ -516,10 +504,12 @@ var search = [
 
     "file": {
       "uploaded": "15 April 2016",
+      "ISO-8601": "2016-04-15",
       "filename": "case-123456789",
+      "document": false,
       "filetype": "CSV",
       "status": "Sent to court",
-      "url": "#"
+      "url": "/view-upload-report-success/5"
     },
     
     "related-documents": {
@@ -550,6 +540,8 @@ var search = [
     
     "decision-made": false,
     "decision-ready": false,
+    "missing-sjp": true,
+    "cancel-withdrawal": true,
     
     "offences": {
       "offence": [
@@ -560,7 +552,7 @@ var search = [
           "datetime": "2016-02-01",
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
-          "plea": "Pleaded guilty"
+          "plea": "Awaiting plea"
         }/*,
         {
           "id": 2,
@@ -584,7 +576,7 @@ var search = [
     "date-of-birth-long": "28 January 1980",
     "age": "36",
     "gender": "Male",
-    "urn": "2056139",
+    "urn": "2056136",
     "address": {
       "address1": "75 Seafield Street",
       "town": "Llanteg",
@@ -612,10 +604,12 @@ var search = [
 
     "file": {
       "uploaded": "2 April 2016",
+      "ISO-8601": "2016-04-02",
       "filename": "case-123456789",
+      "document": true,
       "filetype": "Zip",
       "status": "Sent to court",
-      "url": "#"
+      "url": "/view-upload-report-success/7"
     },
     
     "related-documents": {
@@ -646,6 +640,7 @@ var search = [
     
     "decision-made": false,
     "decision-ready": false,
+    "missing-sjp": true,
     
     "offences": {
       "offence": [
@@ -680,7 +675,7 @@ var search = [
     "date-of-birth-long": "22 January 1973",
     "age": "43",
     "gender": "Male",
-    "urn": "2056139",
+    "urn": "2056137",
     "address": {
       "address1": "22 Spilman Street",
       "town": "Grantley",
@@ -708,10 +703,12 @@ var search = [
 
     "file": {
       "uploaded": "2 March 2016",
+      "ISO-8601": "2016-03-02",
       "filename": "case-123456789",
+      "document": false,
       "filetype": "CSV",
       "status": "Sent to court",
-      "url": "#"
+      "url": "/view-upload-report-success/8"
     },
     
     "related-documents": {
@@ -728,6 +725,7 @@ var search = [
     
     "decision-made": false,
     "decision-ready": false,
+    "missing-sjp": true,
     
     "offences": {
       "offence": [
@@ -762,7 +760,7 @@ var search = [
     "date-of-birth-long": "20 September 1978",
     "age": "37",
     "gender": "Female",
-    "urn": "2056139",
+    "urn": "2056138",
     "address": {
       "address1": "35 Ponteland Rd",
       "town": "Howend",
@@ -790,10 +788,12 @@ var search = [
 
     "file": {
       "uploaded": "18 Feb 2016",
+      "ISO-8601": "2016-02-18",
       "filename": "case-123456789",
+      "document": true,
       "filetype": "Zip",
       "status": "Sent to court",
-      "url": "#"
+      "url": "/view-upload-report-success/9"
     },
     
     "related-documents": {
@@ -824,6 +824,7 @@ var search = [
     
     "decision-made": false,
     "decision-ready": false,
+    "missing-sjp": true,
     
     "offences": {
       "offence": [
@@ -886,12 +887,14 @@ var search = [
 
     "file": {
       "uploaded": "16 Feb 2016",
+      "ISO-8601": "2016-02-16",
       "filename": "case-123456789",
+      "document": false,
       "filetype": "CSV",
       "status": "Sent to court",
-      "url": "#"
+      "url": "/view-upload-report-success/10"
     },
-    
+
     "related-documents": {
       "document": [
         {
@@ -920,6 +923,7 @@ var search = [
     
     "decision-made": false,
     "decision-ready": false,
+    "missing-sjp": true,
     
     "offences": {
       "offence": [

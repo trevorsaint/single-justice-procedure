@@ -1,43 +1,264 @@
-   <div class="breadcrumbs">
-    <ol>
-      <li><a href="/case-tasks">Case tasks</a></li>
-      <li>Fix CSV errors</li>
-    </ol>
-  </div>
+  {{>breadcrumb}}
+ 
+ 
+  <div class="grid-row">
  
   
-  <h1 class="heading-xlarge">Fix CSV errors</h1>
-  
-  
-  <ul class="list">
-    <li>File name: case-123456789</li>
-    <li>Uploaded on: 12 January 2016 </li>
-  </ul>
-  
+    <div class="column-two-thirds">
 
-  <h2 class="heading-medium">Remove cases from CSV</h2>
+      <h1 class="heading-xlarge">View upload report</h1>
+      
+      <dl class="description description-inline">
+        <dt>File type</dt>
+        <dd><abbr title="Comma Separated Values">CSV</abbr> (header)</dd>
+        <dt>Name</dt>
+        <dd>case-123456789</dd>
+        <dt>Uploaded on</dt>
+        <dd><time datetime="2016-01-12">12 January 2016</time></dd>
+      </dl>
+    
+    </div>
+    
+    
+    <div class="column-third">
+      
+      <div class="related">
   
-  <p class="text">Your file contains these cases which have already been sent to court previously.</p>
+        <div class="related-section">
+        
+          <h2 class="related-title">Related links</h2>
+          
+          <ul class="list">
+            <li><a href="/send-data-files">Send data files to court</a></li>
+          </ul>
+          
+        </div>
+      
+      </div>
+      
+    </div>
   
   
-  <table class="table">
+  </div>
+  
+  
+  <h2 class="heading-medium">Fix 3 errors</h2>
+
+
+  <p>Make these changes in your <abbr title="Comma Separated Values">CSV</abbr> file and <a href="/send-data-files">send again</a>.</p>
+
+  
+  <table class="table table-font-xsmall">
   
     <thead>
       <tr>
-        <th>Case number</th>
-        <th>Batch number</th>
+        <th>Row</th>
+        <th>Reference number</th>
+        <th>Column</th>
+        <th>Error</th>
       </tr>
     </thead> 
     
     <tbody>
       <tr>
-        <td>TFL2035119</td>
-        <td>000251</td>
+        <td>5</td>
+        <td>9012466</td>
+        <td>-</td>
+        <td><span class="text-error">Case already sent to court &ndash; remove</span></td>
       </tr>
       <tr>
-        <td>TFL2035119</td>
-        <td>000252</td>
+        <td>9</td>
+        <td>9012467</td>
+        <td>-</td>
+        <td><span class="text-error">Case duplicated in this <abbr title="Comma Separated Values">CSV</abbr> &ndash; remove one instance</span></td>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td>2053688</td>
+        <td>B</td>
+        <td><span class="text-error">Information is incorrect &ndash; check and fix</span></td>
       </tr>
     </tbody> 
     
   </table>
+  
+  
+  <div class="panel panel-border-wide">
+  
+    <p>70 other cases in your <abbr title="Comma Separated Values">CSV</abbr> file contained no errors.</p>
+  
+  </div>
+  
+  
+  <!--div class="grid-row">
+ 
+  
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">View upload report</h1>
+      
+      <dl class="description description-inline">
+        <dt>File type</dt>
+        <dd>Zip</dd>
+        <dt>Name</dt>
+        <dd>case-987654321</dd>
+        <dt>Uploaded on</dt>
+        <dd><time datetime="2016-03-24">24 March 2016</time></dd>
+      </dl>
+    
+    </div>
+    
+    
+    <div class="column-third">
+      
+      <div class="related">
+  
+        <div class="related-section">
+        
+          <h2 class="related-title">Related links</h2>
+          
+          <ul class="list">
+            <li><a href="/send-other-documents">Send documents to court</a></li>
+          </ul>
+          
+        </div>
+      
+      </div>
+      
+    </div>
+  
+  
+  </div>
+  
+  
+  <h2 class="heading-medium">Fix 3 errors</h2>
+
+
+  <p>Make these changes in your zip file and <a href="/send-other-documents">send again</a>.</p>
+
+  
+  <table class="table table-font-xsmall">
+  
+    <thead>
+      <tr>
+        <th>Document</th>
+        <th>Reference number</th>
+        <th>Error</th>
+      </tr>
+    </thead> 
+    
+    <tbody>
+      <tr>
+        <td>SJP notice</td>
+        <td>9012466</td>
+        <td><span class="text-error">Already sent to court &ndash; remove</span></td>
+      </tr>
+      <tr>
+        <td>Previous convictions</td>
+        <td>-</td>
+        <td><span class="text-error">Doesn&rsquo;t belong to an SJP case &ndash; remove</span></td>
+      </tr>
+      <tr>
+        <td>Witness statement</td>
+        <td>2053688</td>
+        <td><span class="text-error">Already sent to court &ndash; remove</span></td>
+      </tr>
+    </tbody> 
+    
+  </table>
+  
+  
+<hr>
+  
+  
+  <div class="grid-row">
+ 
+  
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">View upload report</h1>
+      
+      <dl class="description description-inline">
+        <dt>File type</dt>
+        <dd>CSV (header)</dd>
+        <dt>Name</dt>
+        <dd>case-123456789</dd>
+        <dt>Uploaded on</dt>
+        <dd><time datetime="2016-03-24">24 March 2016</time></dd>
+      </dl>
+    
+    </div>
+  
+  
+  </div>
+  
+  
+  <h2 class="heading-medium">104 cases successfully sent to court</h2>
+
+  
+  <table class="table table-font-xsmall">
+  
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Reference number</th>
+        <th>Date of birth</th>
+      </tr>
+    </thead> 
+    
+    <tbody>
+      <tr>
+        <td>SMITH Olivia</td>
+        <td>2056135</td>
+        <td><time datetime="2016-03-24">24 March 2016</time></td>
+      </tr>
+    </tbody> 
+    
+  </table>
+  
+  
+  
+  <div class="grid-row">
+ 
+  
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">View upload report</h1>
+      
+      <dl class="description description-inline">
+        <dt>File type</dt>
+        <dd>Zip</dd>
+        <dt>Name</dt>
+        <dd>case-123456789</dd>
+        <dt>Uploaded on</dt>
+        <dd><time datetime="2016-03-24">24 March 2016</time></dd>
+      </dl>
+    
+    </div>
+  
+  
+  </div>
+  
+  
+  <h2 class="heading-medium">3 documents successfully sent to court</h2>
+
+  
+  <table class="table table-font-xsmall">
+  
+    <thead>
+      <tr>
+        <th>Document</th>
+        <th>Name</th>
+        <th>Reference number</th>
+      </tr>
+    </thead> 
+    
+    <tbody>
+      <tr>
+        <td>SJP notice</td>
+        <td>SMITH Olivia</td>
+        <td>2056135</td>
+      </tr>
+    </tbody> 
+    
+  </table-->
