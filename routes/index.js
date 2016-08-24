@@ -19,6 +19,8 @@ bind: function(app) {
     app.all('/', function (req, res) {
       
       data = {
+        doctitle: 'Sign in',
+        pagetitle: 'Sign in',
         isSignedIn: true
       }
       
