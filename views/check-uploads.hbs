@@ -1,54 +1,92 @@
   {{>breadcrumb}}
-  
-  
+
   <h1 class="heading-xlarge">{{pagetitle}}</h1>
-  
-  
-  <h3 class="heading-medium">20 files found</h3>
-  
+
+  {{#if document}}
+    <h3 class="heading-medium">3 files found</h3>
+  {{else if csv}}
+    <h3 class="heading-medium">20 files found</h3>
+  {{/if}}
+
   <table class="table table-font-xsmall">
+
     <caption class="visuallyhidden">Data file uploads</caption>
+
     <thead>
       <tr>
         <th scope="col">Uploaded</th>
-        <th scope="col">By</th>
         <th scope="col">File name</th>
-        <th scope="col">File type</th>
         <th scope="col" colspan="2">Status</th>
       </tr>
     </thead>
+
     <tbody>
-    {{#each searches}}
-      <tr>
-        <td>{{file.uploaded}}</td>
-        <td>{{lastname}} {{firstname}}</td>
-        <td>{{file.filename}}</td>
-        <td>{{file.filetype}}</td>
-        <td>{{{file.status}}}</td>
-        <td>{{#if file.url}}<a href="{{file.url}}">View report</a>{{else}}&ndash;{{/if}}</td>
-      </tr>
-    {{/each}}
+
+    {{#if document}}
+
+      {{#each searches}}
+
+        {{#each files.file}}
+
+          {{#if document}}
+            <tr>
+              <td>{{uploaded}}</td>
+              <td>{{filename}}</td>
+              <td>{{{status}}}</td>
+              <td>{{#if url}}<a href="{{url}}">View report</a>{{else}}&ndash;{{/if}}</td>
+            </tr>
+          {{/if}}
+
+        {{/each}}
+
+      {{/each}}
+
+    {{else if csv}}
+
+      {{#each searches}}
+
+        {{#each files.file}}
+
+          {{#if csv}}
+            <tr>
+              <td>{{uploaded}}</td>
+              <td>{{filename}}</td>
+              <td>{{{status}}}</td>
+              <td>{{#if url}}<a href="{{url}}">View report</a>{{else}}&ndash;{{/if}}</td>
+            </tr>
+          {{/if}}
+
+        {{/each}}
+
+      {{/each}}
+
+    {{/if}}
+
     </tbody>
+
   </table>
 
-  
+  {{#if csv}}
+
   <div class="pagination">
-    
+
     <div class="pagination-prev">
       <a href="#" rel="prev" title="Navigate to previous part">
         <span class="pagination-label">Previous</span>
       </a>
     </div>
-    
+
     <ul class="pagination-numbers">
       <li><a href="#">1</a></li>
       <li><a href="#">2</a></li>
     </ul>
-    
+
     <div class="pagination-next">
       <a href="#" rel="next" title="Navigate to next part">
         <span class="pagination-label">Next</span>
       </a>
     </div>
-    
+
   </div>
+
+  {{/if}}

@@ -1,5 +1,5 @@
 var search = [
-  
+
   {
     "id": 1,
     "firstname": "Billy",
@@ -17,14 +17,12 @@ var search = [
     "email": "",
     "phone": "0208 123 456",
     "national-insurance-number": "",
-    
     "notice-served": "30 Apr 2015",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
     "cost": "230",
     "compensation": "3.40",
-    
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -33,15 +31,64 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-    
-    "file": {
-      "uploaded": "10 May 2016",
-      "filename": "case-123456789",
-      "filetype": "Zip",
-      "status": "Being checked",
-      "url": ""
+    "files": {
+      "file": [
+        {
+          "csv": true,
+          "uploaded": "10 May 2016",
+          "ISO-8601": "2016-05-10",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status": "Being checked",
+          "url": ""
+        },
+        {
+          "csv": true,
+          "uploaded": "10 May 2016",
+          "ISO-8601": "2016-05-10",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status":   '<span class="text-error">Errors found</span>',
+          "url":      "/view-upload-report-errors/1"
+        },
+        {
+          "csv": true,
+          "uploaded": "9 May 2016",
+          "ISO-8601": "2016-05-09",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status":   '<span class="text-error">Errors found</span>',
+          "url":      "/view-upload-report-errors/1"
+        },
+        {
+          "csv": true,
+          "uploaded": "9 May 2016",
+          "ISO-8601": "2016-05-09",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status":   'Sent to court',
+          "url":      "/view-upload-report-success/1"
+        },
+        {
+          "csv": true,
+          "uploaded": "9 May 2016",
+          "ISO-8601": "2016-05-09",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status":   'Sent to court',
+          "url":      "/view-upload-report-success/1"
+        },
+        {
+          "csv": true,
+          "uploaded": "9 May 2016",
+          "ISO-8601": "2016-05-09",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status":   'Sent to court',
+          "url":      "/view-upload-report-success/1"
+        }
+      ]
     },
-    
     "related-documents": {
       "document": [
         {
@@ -60,11 +107,9 @@ var search = [
         }
       ]
     },
-    
     "decision-made": false,
     "decision-ready": false,
     "withdraw": true,
-    
     "offences": {
       "offence": [
         {
@@ -75,19 +120,9 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
           "plea": "Awaiting plea"
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Awaiting plea"
-        }*/
+        }
       ]
     },
-    
     "collection": {
       "order-made": "Yes",
       "amount-due": "347.12",
@@ -96,9 +131,9 @@ var search = [
       "pay-by-date": "24 July 2015",
       "notice-sent": "28 July 2015"
     }
-    
+
   },
-  
+
   {
     "id": 2,
     "firstname": "Tegan",
@@ -116,14 +151,14 @@ var search = [
     "email": "tegan.smith@gmail.com",
     "phone": "078 2400 2563",
     "national-insurance-number": "ZK 89 01 41 A",
-    
+
     "notice-served": "18 Sep 2015",
     "hearing": "18 Nov 2015",
     "verdict": "Guilty",
     "decision": "Adjourned",
     "cost": "",
     "compensation": "",
-    
+
     "case-details": {
       "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
       "prosecutor": "Transport for London",
@@ -132,15 +167,21 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-    
-    "file": {
-      "uploaded": "9 May 2016",
-      "filename": "case-123456789",
-      "filetype": "Zip",
-      "status": "Being checked",
-      "url": ""
+
+    "files": {
+      "file": [
+        {
+          "csv": true,
+          "uploaded": "9 May 2016",
+          "ISO-8601": "2016-05-09",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status": "Being checked",
+          "url": ""
+        }
+      ]
     },
-    
+
     "related-documents": {
       "document": [
         {
@@ -166,11 +207,11 @@ var search = [
         }
       ]
     },
-    
+
     "decision-made": false,
     "decision-ready": false,
     "withdraw": true,
-    
+
     "offences": {
       "offence": [
         {
@@ -181,21 +222,12 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
           "plea": "Pleaded guilty"
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }*/
+        }
       ]
     }
-    
+
   },
-  
+
   {
     "id": 3,
     "firstname": "Za",
@@ -220,7 +252,7 @@ var search = [
     "decision": "Fine",
     "cost": "130",
     "compensation": "8.40",
-    
+
     "case-details": {
       "status": "Decision made",
       "prosecutor": "Transport for London",
@@ -230,16 +262,20 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
 
-    "file": {
-      "uploaded": "9 May 2016",
-      "ISO-8601": "2016-05-09",
-      "filename": "case-123456789",
-      "document": true,
-      "filetype": "Zip",
-      "status":   '<span class="text-error">Errors found</span>',
-      "url":      "/view-upload-report-errors/3",
+    "files": {
+      "file": [
+        {
+          "document": true,
+          "uploaded": "9 May 2016",
+          "ISO-8601": "2016-05-09",
+          "filename": "case-123456789",
+          "filetype": "Zip",
+          "status":   '<span class="text-error">Errors found</span>',
+          "url":      "/view-upload-report-errors/3"
+        }
+      ]
     },
-    
+
     "related-documents": {
       "document": [
         {
@@ -265,10 +301,10 @@ var search = [
         }
       ]
     },
-    
+
     "decision-made": true,
     "decision-ready": false,
-    
+
     "offences": {
       "offence": [
         {
@@ -279,21 +315,12 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
           "plea": "Pleaded guilty",
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }*/
+        }
       ]
     }
-    
+
   },
-  
+
   {
     "id": 4,
     "firstname": "Abbie",
@@ -311,14 +338,14 @@ var search = [
     "email": "abbie.smith@gmail.com",
     "phone": "079 5115 9062",
     "national-insurance-number": "ZK 71 11 43 D",
-    
+
     "notice-served": "4 Sep 2015",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Withdrawn",
     "cost": "",
     "compensation": "",
-    
+
     "case-details": {
       "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
       "prosecutor": "Transport for London",
@@ -328,16 +355,20 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
 
-    "file": {
-      "uploaded": "8 May 2016",
-      "ISO-8601": "2016-05-08",
-      "filename": "case-123456789",
-      "document": true,
-      "filetype": "Zip",
-      "status": '<span class="text-error">Errors found</span>',
-      "url": "/view-upload-report-errors/4"
+    "files": {
+      "file": [
+        {
+        "document": true,
+        "uploaded": "8 May 2016",
+        "ISO-8601": "2016-05-08",
+        "filename": "case-123456789",
+        "filetype": "Zip",
+        "status": "Being checked",
+        "url": ""
+        }
+      ]
     },
-    
+
     "related-documents": {
       "document": [
         {
@@ -356,11 +387,11 @@ var search = [
         }
       ]
     },
-    
+
     "decision-made": false,
     "decision-ready": false,
     "withdraw": true,
-    
+
     "offences": {
       "offence": [
         {
@@ -374,9 +405,9 @@ var search = [
         }
       ]
     }
-    
+
   },
-  
+
   {
     "id": 5,
     "firstname": "Leon",
@@ -401,7 +432,7 @@ var search = [
     "decision": "Adjourned",
     "cost": "",
     "compensation": "",
-    
+
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -411,16 +442,20 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
 
-    "file": {
-      "uploaded": "8 May 2016",
-      "ISO-8601": "2016-05-08",
-      "filename": "case-123456789",
-      "document": false,
-      "filetype": "CSV",
-      "status": '<span class="text-error">Errors found</span>',
-      "url": "/view-upload-report-errors/5"
+    "files": {
+      "file": [
+        {
+          "csv": true,
+          "uploaded": "8 May 2016",
+          "ISO-8601": "2016-05-08",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status": '<span class="text-error">Errors found</span>',
+          "url": "/view-upload-report-errors/5"
+        }
+      ]
     },
-    
+
     "related-documents": {
       "document": [
         {
@@ -439,10 +474,10 @@ var search = [
         }
       ]
     },
-    
+
     "decision-made": false,
     "decision-ready": false,
-    
+
     "offences": {
       "offence": [
         {
@@ -453,21 +488,12 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
           "plea": "Pleaded guilty"
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }*/
+        }
       ]
     }
-    
+
   },
-  
+
   {
     "id": 6,
     "firstname": "Olivia",
@@ -492,7 +518,7 @@ var search = [
     "decision": "Fine",
     "cost": "130",
     "compensation": "8.40",
-    
+
     "case-details": {
       "status": "Pending offence withdrawal",
       "prosecutor": "Transport for London",
@@ -502,16 +528,20 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
 
-    "file": {
-      "uploaded": "15 April 2016",
-      "ISO-8601": "2016-04-15",
-      "filename": "case-123456789",
-      "document": false,
-      "filetype": "CSV",
-      "status": "Sent to court",
-      "url": "/view-upload-report-success/5"
+    "files": {
+      "file": [
+        {
+          "csv": true,
+          "uploaded": "15 April 2016",
+          "ISO-8601": "2016-04-15",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status": "Sent to court",
+          "url": "/view-upload-report-success/5"
+        }
+      ]
     },
-    
+
     "related-documents": {
       "document": [
         {
@@ -537,12 +567,12 @@ var search = [
         }
       ]
     },
-    
+
     "decision-made": false,
     "decision-ready": false,
     "missing-sjp": true,
     "cancel-withdrawal": true,
-    
+
     "offences": {
       "offence": [
         {
@@ -553,21 +583,12 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
           "plea": "Awaiting plea"
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }*/
+        }
       ]
     }
-    
+
   },
-  
+
   {
     "id": 7,
     "firstname": "Joel",
@@ -592,7 +613,7 @@ var search = [
     "decision": "Fine",
     "cost": "230",
     "compensation": "3.40",
-    
+
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -602,16 +623,20 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
 
-    "file": {
-      "uploaded": "2 April 2016",
-      "ISO-8601": "2016-04-02",
-      "filename": "case-123456789",
-      "document": true,
-      "filetype": "Zip",
-      "status": "Sent to court",
-      "url": "/view-upload-report-success/7"
+    "files": {
+      "file": [
+        {
+          "document": true,
+          "uploaded": "2 April 2016",
+          "ISO-8601": "2016-04-02",
+          "filename": "case-123456789",
+          "filetype": "Zip",
+          "status": "Sent to court",
+          "url": "/view-upload-report-success/7"
+        }
+      ]
     },
-    
+
     "related-documents": {
       "document": [
         {
@@ -637,11 +662,11 @@ var search = [
         }
       ]
     },
-    
+
     "decision-made": false,
     "decision-ready": false,
     "missing-sjp": true,
-    
+
     "offences": {
       "offence": [
         {
@@ -652,21 +677,12 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
           "plea": "Pleaded guilty"
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }*/
+        }
       ]
     }
-    
+
   },
-  
+
   {
     "id": 8,
     "firstname": "Harrison",
@@ -691,7 +707,7 @@ var search = [
     "decision": "Fine",
     "cost": "230",
     "compensation": "3.40",
-    
+
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -701,16 +717,20 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
 
-    "file": {
-      "uploaded": "2 March 2016",
-      "ISO-8601": "2016-03-02",
-      "filename": "case-123456789",
-      "document": false,
-      "filetype": "CSV",
-      "status": "Sent to court",
-      "url": "/view-upload-report-success/8"
+    "files": {
+      "file": [
+        {
+          "csv": true,
+          "uploaded": "2 March 2016",
+          "ISO-8601": "2016-03-02",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status": "Sent to court",
+          "url": "/view-upload-report-success/8"
+        }
+      ]
     },
-    
+
     "related-documents": {
       "document": [
         {
@@ -722,11 +742,11 @@ var search = [
         }
       ]
     },
-    
+
     "decision-made": false,
     "decision-ready": false,
     "missing-sjp": true,
-    
+
     "offences": {
       "offence": [
         {
@@ -737,21 +757,12 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
           "plea": "Pleaded guilty"
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }*/
+        }
       ]
     }
-  
+
   },
-  
+
   {
     "id": 9,
     "firstname": "Kian",
@@ -776,7 +787,7 @@ var search = [
     "decision": "Fine",
     "cost": "130",
     "compensation": "8.40",
-    
+
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -786,16 +797,20 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
 
-    "file": {
-      "uploaded": "18 Feb 2016",
-      "ISO-8601": "2016-02-18",
-      "filename": "case-123456789",
-      "document": true,
-      "filetype": "Zip",
-      "status": "Sent to court",
-      "url": "/view-upload-report-success/9"
+    "related-documents": {
+      "document": [
+        {
+          "document": true,
+          "uploaded": "18 Feb 2016",
+          "ISO-8601": "2016-02-18",
+          "filename": "case-123456789",
+          "filetype": "Zip",
+          "status": "Sent to court",
+          "url": "/view-upload-report-success/9"
+        }
+      ]
     },
-    
+
     "related-documents": {
       "document": [
         {
@@ -821,11 +836,11 @@ var search = [
         }
       ]
     },
-    
+
     "decision-made": false,
     "decision-ready": false,
     "missing-sjp": true,
-    
+
     "offences": {
       "offence": [
         {
@@ -836,21 +851,12 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
           "plea": "Pleaded guilty"
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }*/
+        }
       ]
     }
-    
+
   },
-  
+
   {
     "id": 10,
     "firstname": "Naomi",
@@ -875,7 +881,7 @@ var search = [
     "decision": "Fine",
     "cost": "230",
     "compensation": "3.40",
-    
+
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -885,14 +891,18 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
 
-    "file": {
-      "uploaded": "16 Feb 2016",
-      "ISO-8601": "2016-02-16",
-      "filename": "case-123456789",
-      "document": false,
-      "filetype": "CSV",
-      "status": "Sent to court",
-      "url": "/view-upload-report-success/10"
+    "related-documents": {
+      "document": [
+        {
+          "csv": true,
+          "uploaded": "16 Feb 2016",
+          "ISO-8601": "2016-02-16",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status": "Sent to court",
+          "url": "/view-upload-report-success/10"
+        }
+      ]
     },
 
     "related-documents": {
@@ -920,11 +930,11 @@ var search = [
         }
       ]
     },
-    
+
     "decision-made": false,
     "decision-ready": false,
     "missing-sjp": true,
-    
+
     "offences": {
       "offence": [
         {
@@ -935,29 +945,20 @@ var search = [
           "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
           "mitigation": "",
           "plea": "Pleaded guilty"
-        }/*,
-        {
-          "id": 2,
-          "title": "Passenger used expired ticket",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'On Monday 15th February 2016 WATFORD RD/CAPITAL RING, HA1 you were on board a route 182 bus, garage code 154 with the intention of travelling from NORTHWICK PARK to SUDBURY COURT DRIVE a normal adult fare of &pound;1.50&hellip; <a href="#">More</a>', 
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }*/
+        }
       ]
     }
-    
+
   }
-  
+
 ];
 
 
 exports.getSearchEntries = function() {
   return search;
 }
- 
- 
+
+
 exports.getSearchEntry = function(id) {
   for(var i=0; i < search.length; i++) {
     if(search[i].id == id) return search[i];

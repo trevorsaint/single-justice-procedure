@@ -2237,6 +2237,18 @@ HTML Usage
 .summary-item {
   overflow: hidden;
 }
+.summary-item-container {
+  border-top: 1px solid #bfc1c3;
+  border-bottom: 1px solid #bfc1c3;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+@media (min-width: 641px) {
+  .summary-item-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
 @media (max-width: 640px) {
   .summary-item {
     padding-top: 5px;
@@ -2278,12 +2290,12 @@ HTML Usage
 }
 
 /*
-  
+
 HTML Usage
-  
+
 <div class="summary-item">
   <span class="summary-item-number">44</span>
-  <span class="summary-item-label">exhibits</span>        
+  <span class="summary-item-label">exhibits</span>
 </div>
 
 OR
@@ -2291,8 +2303,8 @@ OR
 <div class="summary-item summary-item-inline">
   <a href="#">
     <span class="summary-item-number">44</span>
-    <span class="summary-item-label">exhibits</span> 
-  </a>       
+    <span class="summary-item-label">exhibits</span>
+  </a>
 </div>
 
 */

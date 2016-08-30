@@ -1,98 +1,106 @@
   {{>breadcrumb}}
-  
-  
+
+
   <h1 class="heading-xlarge"><span class="heading-secondary">Transport for London</span> Case tasks</h1>
-  
-  <hr>
-  
-  <div class="summary-item-container" aria-labelledby="case-tasks-update">    
-    
+
+  <div class="summary-item-container" aria-labelledby="case-tasks-update">
+
     <h2 class="visuallyhidden" id="case-tasks-update">Case tasks update</h2>
-    
+
     <div class="grid-row">
-      
+
       <div class="column-third">
-        
+
         <div class="summary-item">
-          <a href="/check-uploads">
-            <span class="summary-item-number">24</span> 
-            <span class="summary-item-label">CSV errors in last upload</span>     
-          </a>   
+          <a href="/check-uploads/csv">
+            <span class="summary-item-number">24</span>
+            <span class="summary-item-label">CSV errors in last upload</span>
+          </a>
         </div>
-        
+
       </div>
-        
+
       <div class="column-third">
-        
+
+        <div class="summary-item">
+          <a href="/check-uploads/document">
+            <span class="summary-item-number">3</span>
+            <span class="summary-item-label">document errors in last upload</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="column-third">
+
         <div class="summary-item">
           <a href="/cases-missing-sjp-notices">
-            <span class="summary-item-number">5</span> 
+            <span class="summary-item-number">5</span>
             <span class="summary-item-label">cases missing SJP notices</span>
           </a>
         </div>
-        
+
       </div>
-      
-      <div class="column-third">
-        
-        <div class="summary-item">
-          <span class="summary-item-number">10</span> 
-          <span class="summary-item-label">cases pending withdrawal</span>
-        </div>
-        
-      </div>
-      
+
     </div>
-    
+
   </div>
-  
-  <hr>  
-  
+
   <div class="grid-row">
-    
+
     <div class="column-half" aria-labelledby="send-cases-to-court">
-      
+
       <h2 class="heading-medium" id="send-cases-to-court">Send cases to court</h2>
-  
+
       <ul class="list">
-        
+
         <li>
-          <a href="/send-data-files">Send data files</a> 
+          <a href="/send-data-files">Send data files</a>
           <p class="font-xsmall">Header and offences <abbr title="Comma Separated Value">CSV</abbr>s</p>
         </li>
-    
+
         <li>
-          <a href="/send-other-documents">Send other documents</a> 
+          <a href="/send-other-documents">Send other documents</a>
           <p class="font-xsmall"><abbr title="Single Justice Procedure">SJP</abbr> notices, previous convictions and witness statements</p>
         </li>
-        
+
         <li>
-          <a href="/check-uploads">Check uploads</a>
+          <a href="/check-uploads/csv">Check CSV uploads</a>
           <p class="font-xsmall">Fix errors or see what&rsquo;s been sent to court</p>
         </li>
-        
-      </ul>
-    
-    </div>
-    
-    <div class="column-half" aria-labelledby="check-cases">
-  
-      <h2 class="heading-medium" id="check-cases">Check cases or results</h2>
-      
-      <ul class="list list-tasks">
-        
+
         <li>
-          <a href="/search-for-a-case">Search</a> 
+          <a href="/check-uploads/document">Check document uploads</a>
+          <p class="font-xsmall">Fix errors or see what&rsquo;s been sent to court</p>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="column-half" aria-labelledby="check-cases">
+
+      <h2 class="heading-medium" id="check-cases">Check cases or results</h2>
+
+      <ul class="list list-tasks">
+
+        <li>
+          <a href="/search-for-a-case">Search</a>
           <p class="font-xsmall">View a case or withdraw an offence</p>
         </li>
-        
+
         <li>
           <a href="/export-case-results-by-date">Export case results by date</a>
           <p class="font-xsmall">Download results in a <abbr title="Comma Separated Value">CSV</abbr> file</p>
         </li>
-        
+
+        <li>
+          <a href="#">Cases pending withdrawal</a>
+          <p class="font-xsmall">View cases pending withdrawal by the court</p>
+        </li>
+
       </ul>
-      
+
     </div>
-  
+
   </div>

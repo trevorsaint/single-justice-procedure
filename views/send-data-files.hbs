@@ -1,111 +1,101 @@
   {{>breadcrumb}}
-    
-    
+
+
   <div class="grid-row">
-    
-    
+
+
     <div class="column-two-thirds">
-    
-    
+
+
       <h1 class="heading-xlarge">{{pagetitle}}</h1>
 
-      
+
       {{#error}}
       <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
-      
+
         <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">Fix the following</h1>
-        
+
         <ul class="error-summary-list">
-          
-          {{#unless select_header}}
-            <li><a href="#">Select header CSV</a></li>
-          {{/unless}}
-          
-          {{#unless select_offences}}
-            <li><a href="#">Select offences CSV</a></li>
+
+          {{#unless header}}
+            <li><a href="#error-header">Select header CSV</a></li>
           {{/unless}}
 
-          {{!--#unless send_to_court}}
-          <li><a href="#">Send to court</a></li>
-          {{/unless--}}
+          {{#unless offences}}
+            <li><a href="#error-offences">Select offences CSV</a></li>
+          {{/unless}}
 
         </ul>
-      
+
       </div>
       {{/error}}
-    
-    
+
+
       <form class="form" method="post">
-          
-    
-        <h2 class="heading-small">Select header <abbr title="Comma Separated Value">CSV</abbr></h2>
-        
+
+
         <div class="form-group{{#error}}{{#unless select_header}} error{{/unless}}{{/error}}">
-          
+
+          <h2 class="bold-small"{{#error}}{{#unless header}} id="error-header"{{/unless}}{{/error}}>Select header <abbr title="Comma Separated Value">CSV</abbr></h2>
+
           {{#error}}
-            {{#unless select_header}}<span class="error-message">You need to upload a file</span>{{/unless}}
+            {{#unless header}}<span class="error-message">You need to upload a file</span>{{/unless}}
             <!--span class="error-message">Wrong file type &ndash; select a <abbr title="Comma Separated Value">CSV</abbr> instead</span-->
             <!--span class="error-message">File names not a matching pair &ndash; fix and try again</span-->
           {{/error}}
-          
+
           <label class="button button-secondary">Upload
-            <input class="hidden" type="file" id="select_header" name="select_header" accept=".csv">
+            <input class="hidden" type="file" id="header" name="header" accept=".csv">
           </label>
-          
-          <!--div class="panel panel-border-narrow">
-            
+
+          <div class="panel panel-border-narrow js-hidden">
             <p class="font-xsmall">
-              <span class="bold-xsmall">File selected</span> <br> 
-              <span class="text-secondary">case_header_123456789.csv</span> <br> <a href="#">Remove</a>
+              <span class="bold-xsmall">File selected</span><br>
+              <span class="text-secondary" id="header-filename"></span><br>
+              <a class="remove" id="header-remove" href="#">Remove</a>
             </p>
-            
-          </div-->
-          
+          </div>
+
         </div>
-        
-        
-        <h2 class="heading-small">Select offences <abbr title="Comma Separated Value">CSV</abbr></h2>
-        
-        <div class="form-group form-group-last{{#error}}{{#unless select_offences}} error{{/unless}}{{/error}}">
-          
+
+        <div class="form-group form-group-last{{#error}}{{#unless offences}} error{{/unless}}{{/error}}">
+
+          <h2 class="bold-small"{{#error}}{{#unless offences}} id="error-offences"{{/unless}}{{/error}}>Select offences <abbr title="Comma Separated Value">CSV</abbr></h2>
+
           {{#error}}
-            {{#unless select_offences}}<span class="error-message">You need to upload a file</span>{{/unless}}
+            {{#unless offences}}<span class="error-message">You need to upload a file</span>{{/unless}}
             <!--span class="error-message">Wrong file type &ndash; select a <abbr title="Comma Separated Value">CSV</abbr> instead</span-->
             <!--span class="error-message">File names not a matching pair &ndash; fix and try again</span-->
           {{/error}}
-          
+
           <label class="button button-secondary">Upload
-            <input class="hidden" type="file" id="select_offences" name="select_offences" accept=".csv">
+            <input class="hidden" type="file" id="offences" name="offences" accept=".csv">
           </label>
-          
-          <!--div class="panel panel-border-narrow">
-            
+
+          <div class="panel panel-border-narrow js-hidden">
             <p class="font-xsmall">
-              <span class="bold-xsmall">File selected</span> <br> 
-              <span class="text-secondary">case_offences_987654321.csv</span> <br> <a href="#">Remove</a>
+              <span class="bold-xsmall">File selected</span><br>
+              <span class="text-secondary" id="offences-filename"></span><br>
+              <a class="remove" id="offences-remove" href="#">Remove</a>
             </p>
-            
-          </div-->
-          
+          </div>
+
         </div>
-    
-        
-        <div class="form-group{{!--#error}}{{#unless send_to_court}} error{{/unless}}{{/error--}}">
-    
-          {{!--#error}}
-            {{#unless send_to_court}}<span class="error-message">We&rsquo;re having technical problems &ndash; please try again in a few minutes</span>{{/unless}}
-          {{/error--}}
-          
+
+
+        <div class="form-group">
+
+          <!--span class="error-message">We&rsquo;re having technical problems &ndash; please try again in a few minutes</span-->
+
           <button class="button" type="submit" id="send" name="send" value="send">Send to court</button>
-        
+
         </div>
-      
-    
+
+
       </form>
-  
-  
+
+
     </div>
-  
-  
+
+
   </div>
-  

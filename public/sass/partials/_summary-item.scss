@@ -5,14 +5,25 @@ $module: 'summary-item';
 
 .#{$module} {
   overflow: hidden;
-  
-  
+
+  &-container {
+    border-top: 1px solid $grey-2;
+    border-bottom: 1px solid $grey-2;
+    padding-top: $gutter-half;
+    padding-bottom: $gutter-half;
+
+    @include media(tablet) {
+      padding-top: $gutter;
+      padding-bottom: $gutter;
+    }
+
+  }
+
   @include media(mobile) {
     padding-top: 5px;
     padding-bottom: 5px;
   }
-  
-  
+
   a {
     display: inline-block;
     overflow: hidden;
@@ -20,45 +31,41 @@ $module: 'summary-item';
     vertical-align: middle;
     width: 100%;
   }
-  
-  
+
   &-number {
     @include bold-48();
   }
-  
-  
+
   &-label {
     display: block;
-  }  
-  
-  
+  }
+
   &-inline {
-    
+
     .#{$module}-number {
-      
+
       @include media(tablet) {
         float: left;
         margin-right: 10px;
       }
-      
-    }  
-    
+
+    }
+
     .#{$module}-label {
       overflow: hidden;
-    } 
-    
+    }
+
   }
-  
-  
+
 }
 
 /*
-  
+
 HTML Usage
-  
+
 <div class="summary-item">
   <span class="summary-item-number">44</span>
-  <span class="summary-item-label">exhibits</span>        
+  <span class="summary-item-label">exhibits</span>
 </div>
 
 OR
@@ -66,8 +73,8 @@ OR
 <div class="summary-item summary-item-inline">
   <a href="#">
     <span class="summary-item-number">44</span>
-    <span class="summary-item-label">exhibits</span> 
-  </a>       
+    <span class="summary-item-label">exhibits</span>
+  </a>
 </div>
 
 */
