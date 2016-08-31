@@ -26,7 +26,7 @@
       </div>
       {{/error}}
 
-      <form class="form" method="post">
+      <form class="form" method="post"{{#if error}}action="/data-files-confirmation"{{/if}}>
 
         <div class="form-group{{#error}}{{#unless header}} error{{/unless}}{{/error}}">
 

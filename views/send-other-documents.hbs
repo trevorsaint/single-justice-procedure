@@ -39,7 +39,7 @@
 
       </div>
 
-      <form class="form" method="post">
+      <form class="form" method="post"{{#if error}}action="/documents-confirmation"{{/if}}>
 
         <div class="form-block">
           <div class="panel panel-border-wide text">
@@ -60,6 +60,14 @@
           <label class="button button-secondary">Upload
             <input class="hidden" type="file" id="documents" name="documents" accept=".zip">
           </label>
+
+          <div class="panel panel-border-narrow js-hidden">
+            <p class="font-xsmall">
+              <span class="bold-xsmall">File selected</span><br>
+              <span class="text-secondary" id="documents-filename"></span><br>
+              <a class="remove" id="documents-remove" href="#">Remove</a>
+            </p>
+          </div>
 
         </div>
 

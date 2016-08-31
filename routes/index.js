@@ -366,8 +366,34 @@ bind: function(app) {
     });
 
 
+
+    app.all('/data-files-confirmation', function (req, res) {
+
+      res.render('data-files-confirmation', {
+        doctitle: 'Confirmation',
+        pagetitle: 'Confirmation',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'send-data-files',
+        section2_name: 'Send data files to court'
+      });
+
+    });
+
+
     app.all('/documents-confirmation', function (req, res) {
-      res.render('documents-confirmation');
+
+      res.render('documents-confirmation', {
+        doctitle: 'Confirmation',
+        pagetitle: 'Confirmation',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'send-other-documents',
+        section2_name: 'Send documents to court'
+      });
+
     });
 
 

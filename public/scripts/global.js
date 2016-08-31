@@ -82,8 +82,51 @@ function offencesFileUpload() {
 }
 
 
+// documents file upload
+function documentsFileUpload() {
+
+ 'strict'
+
+ if ($('#documents').length > 0) {
+
+   var documents         = $('#documents');
+   var documentsRemove   = $('#documents-remove');
+   var documentsFilename = $('#documents-filename');
+   var documentsParent   = documents.parent().closest('.form-group');
+   var documentsPanel    = documents.parent().next('.panel');
+
+   // on change
+   $(documents).change(function(e) {
+
+     var documentsValue = $(this).val();
+
+     // add file name
+     if(documentsValue != '')  {
+       documentsPanel.removeClass('js-hidden');
+       documentsFilename.text(documentsValue);
+     }
+
+   });
+
+   // on click
+   $(documentsRemove).on('click', function(e) {
+
+     e.preventDefault();
+
+     documents.val(''); // reset file control
+     documentsFilename.text(''); // remove text
+     documentsPanel.addClass('js-hidden'); // hide panel
+
+   });
+
+ }
+
+}
+
+
 // document ready
 (function() {
   headerFileUpload();
   offencesFileUpload();
+  documentsFileUpload();
 })(jQuery);
