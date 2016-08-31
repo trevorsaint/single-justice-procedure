@@ -1,26 +1,22 @@
   {{>breadcrumb}}
-  
-  
+
   <div class="persist-info">
     <span class="persist-info-reference">{{search.urn}}</span>
     <span class="persist-info-title">{{search.firstname}} {{search.lastname}}</span>
   </div>
-  
-  
+
   <h1 class="heading-large">{{pagetitle}}</h1>
-  
-  
+
   <div class="text">
     <p class="lede">You can ask a legal adviser to withdraw this offence. Are you sure you want to do this?</p>
   </div>
   
-
   <form class="form" method="get" action="/withdraw-offence-confirmation/{{search.id}}">
-    
+
     <div class="form-group form-group-related">
       <button class="button" type="submit">Yes &ndash; send request</button>
     </div>
-    
+
     <p><a href="/case-details/{{search.id}}">Cancel</a></p>
-  
+
   </form>

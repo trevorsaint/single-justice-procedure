@@ -1,20 +1,15 @@
   {{>breadcrumb}}
-  
-  
+
   <div class="grid-row">
-    
-    
+
     <div class="column-two-thirds">
-  
-  
+
       <h1 class="heading-xlarge">{{pagetitle}}</h1>
-      
-      
+
       <form class="form">
-        
-        
+
         <div class="form-group">
-        
+
           <fieldset>
             <legend>
               <span class="form-label-bold">From</span>
@@ -35,12 +30,11 @@
               </div>
             </div>
           </fieldset>
-        
+
         </div>
-        
-        
+
         <div class="form-group">
-        
+
           <fieldset>
             <legend>
               <span class="form-label-bold">To</span>
@@ -61,69 +55,17 @@
               </div>
             </div>
           </fieldset>
-        
+
         </div>
-        
-        
+
         <button class="button" type="submit">Search</button>
-        
-      
+
       </form>
-      
-      
+
       <h3 class="heading-medium">20 case results found</h3>
-      
-      
-      <!--table class="table table-font-xsmall table-valign-top">
-        <caption class="visuallyhidden">Court results</caption>
-        <thead>
-          <th scope="col">Name</th>
-          <th scope="col">URN</th>
-          <th scope="col">Notice served</th>
-          <th scope="col">Hearing</th>
-          <th scope="col">Verdict</th>
-          <th scope="col">Decision</th>
-          <th scope="col">Cost</th>
-          <th scope="col">Compensation</th>
-        </thead>
-        <tbody>
-          {{#each searches}}
-          <tr>
-            <th scope="row"><a href="case-details/{{id}}">{{lastname}} {{firstname}}</a></th>
-            <td>{{urn}}</td>
-            <td>{{notice-served}}</td>
-            <td>{{#if hearing}}{{hearing}}{{else}}n/a{{/if}}</td>
-            <td>{{verdict}}</td>
-            <td>{{decision}}</td>
-            <td>{{#if cost}}&pound;{{cost}}{{else}}n/a{{/if}}</td>
-            <td>{{#if compensation}}&pound;{{compensation}}{{else}}n/a{{/if}}</td>
-          </tr>
-          {{/each}}
-        </tbody>   
-      </table>
-      
-      <div class="pager">
-          
-        <div class="pager-controls">
-          
-          <ul class="pager-items">
-            <li>1</li>
-            <li><a href="#">2</a></li>
-          </ul>
-          
-          <a class="pager-next" href="#">Next</a>
-          
-        </div>
-        
-        <div class="pager-summary">Showing 1 &ndash; 10 of 20 results</div>
-        
-      </div-->
-      
-      
+
       <p><a class="button button-secondary" href="#" role="button">Download results in CSV file</a></p>
-      
-  
+
     </div>
-  
-  
+
   </div>

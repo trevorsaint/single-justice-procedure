@@ -44,21 +44,12 @@ var search = [
         },
         {
           "csv": true,
-          "uploaded": "10 May 2016",
-          "ISO-8601": "2016-05-10",
-          "filename": "case-123456789",
-          "filetype": "CSV",
-          "status":   '<span class="text-error">Errors found</span>',
-          "url":      "/view-upload-report-errors/1"
-        },
-        {
-          "csv": true,
           "uploaded": "9 May 2016",
           "ISO-8601": "2016-05-09",
           "filename": "case-123456789",
           "filetype": "CSV",
           "status":   '<span class="text-error">Errors found</span>',
-          "url":      "/view-upload-report-errors/1"
+          "url":      "/check-csv-uploads/report/errors/1"
         },
         {
           "csv": true,
@@ -67,7 +58,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "CSV",
           "status":   'Sent to court',
-          "url":      "/view-upload-report-success/1"
+          "url":      "/check-csv-uploads/report/success/1"
         },
         {
           "csv": true,
@@ -76,7 +67,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "CSV",
           "status":   'Sent to court',
-          "url":      "/view-upload-report-success/1"
+          "url":      "/check-csv-uploads/report/success/1"
         },
         {
           "csv": true,
@@ -85,7 +76,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "CSV",
           "status":   'Sent to court',
-          "url":      "/view-upload-report-success/1"
+          "url":      "/check-csv-uploads/report/success/1"
         }
       ]
     },
@@ -110,6 +101,7 @@ var search = [
     "decision-made": false,
     "decision-ready": false,
     "withdraw": true,
+    "errortype1": true,
     "offences": {
       "offence": [
         {
@@ -172,6 +164,15 @@ var search = [
       "file": [
         {
           "csv": true,
+          "uploaded": "10 May 2016",
+          "ISO-8601": "2016-05-10",
+          "filename": "case-123456789",
+          "filetype": "CSV",
+          "status":   '<span class="text-error">Errors found</span>',
+          "url":      "/check-csv-uploads/report/errors/2"
+        },
+        {
+          "csv": true,
           "uploaded": "9 May 2016",
           "ISO-8601": "2016-05-09",
           "filename": "case-123456789",
@@ -211,6 +212,7 @@ var search = [
     "decision-made": false,
     "decision-ready": false,
     "withdraw": true,
+    "errortype2": true,
 
     "offences": {
       "offence": [
@@ -271,7 +273,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "Zip",
           "status":   '<span class="text-error">Errors found</span>',
-          "url":      "/view-upload-report-errors/3"
+          "url":      "/check-document-uploads/report/errors/3"
         }
       ]
     },
@@ -446,12 +448,13 @@ var search = [
       "file": [
         {
           "csv": true,
+          "errortype3": true,
           "uploaded": "8 May 2016",
           "ISO-8601": "2016-05-08",
           "filename": "case-123456789",
           "filetype": "CSV",
           "status": '<span class="text-error">Errors found</span>',
-          "url": "/view-upload-report-errors/5"
+          "url": "/check-csv-uploads/report/errors/5"
         }
       ]
     },
@@ -477,6 +480,7 @@ var search = [
 
     "decision-made": false,
     "decision-ready": false,
+    "errortype3": true,
 
     "offences": {
       "offence": [
@@ -537,7 +541,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "CSV",
           "status": "Sent to court",
-          "url": "/view-upload-report-success/5"
+          "url": "/check-csv-uploads/report/success/5"
         }
       ]
     },
@@ -632,7 +636,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "Zip",
           "status": "Sent to court",
-          "url": "/view-upload-report-success/7"
+          "url": "/check-document-uploads/report/success/7"
         }
       ]
     },
@@ -726,7 +730,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "CSV",
           "status": "Sent to court",
-          "url": "/view-upload-report-success/8"
+          "url": "/check-csv-uploads/report/success/8"
         }
       ]
     },
@@ -806,7 +810,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "Zip",
           "status": "Sent to court",
-          "url": "/view-upload-report-success/9"
+          "url": "/check-document-uploads/report/success/9"
         }
       ]
     },
@@ -900,7 +904,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "CSV",
           "status": "Sent to court",
-          "url": "/view-upload-report-success/10"
+          "url": "/check-csv-uploads/report/success/10"
         }
       ]
     },

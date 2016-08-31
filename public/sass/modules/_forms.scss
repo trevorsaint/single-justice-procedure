@@ -5,13 +5,40 @@ $module: 'form';
 
 .#{$module} {
 
+  &-currency {
+    display: block;
+    position: relative;
+
+    .#{$module}-control {
+      padding-left: em(34);
+    }
+
+    &:before {
+      @include core-19;
+      color: $grey-1;
+      content: "\00a3";
+      display: inline-block;
+      font-weight: bold;
+      position: absolute;
+      text-align: center;
+      vertical-align: middle;
+      left: em(12); top: 50%;
+
+      /* IE9 Support and above */
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+  }
+  
   &-group-last {
     margin-bottom: $gutter;
-    
+
     @include media(tablet) {
       margin-bottom: $gutter*2;
     }
-    
+
   }
 
   &-control-wide {
@@ -21,5 +48,5 @@ $module: 'form';
   &-control-textarea {
     resize: vertical;
   }
-  
+
 }

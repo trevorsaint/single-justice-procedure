@@ -1988,6 +1988,40 @@ input[type=number] {
   text-align: right;
 }
 
+.form-currency {
+  display: block;
+  position: relative;
+}
+.form-currency .form-control {
+  padding-left: 1.78947em;
+}
+.form-currency:before {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  font-size-adjust: 0.5;
+  color: #6f777b;
+  content: "\00a3";
+  display: inline-block;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  left: 0.63158em;
+  top: 50%;
+  /* IE9 Support and above */
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@media (min-width: 641px) {
+  .form-currency:before {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
+}
 .form-group-last {
   margin-bottom: 30px;
 }
@@ -2013,47 +2047,67 @@ input[type=number] {
 }
 
 .related {
-  border-top: 0.52632em solid #005ea5;
   margin-top: 1.57895em;
-  padding-top: 0.26316em;
+}
+.related-links {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.14286;
+  font-weight: 400;
+  text-transform: none;
+  font-size-adjust: 0.5;
+  margin-top: 0.3125em;
+  margin-bottom: 1.25em;
+}
+@media (min-width: 641px) {
+  .related-links {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.related-links li {
+  margin-bottom: 0.75em;
+}
+.related-meta {
+  margin-top: 0;
+  margin-bottom: 0.52632em;
+}
+.related-meta li {
+  border-top: 1px solid #bfc1c3;
+  margin-bottom: 0.52632em;
+  padding-top: 0.52632em;
+}
+.related-meta li:first-child {
+  border: 0;
+  padding-top: 0;
 }
 .related-section {
-  margin-top: 1.05263em;
   overflow: hidden;
 }
-.related-section:first-child {
-  margin-top: 0;
+.related-section:first-of-type {
+  border-top: 0.52632em solid #005ea5;
+  padding-top: 0.26316em;
 }
-.related-title {
+.related-heading {
   font-family: "nta", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.2;
   font-weight: 700;
   text-transform: none;
   font-size-adjust: 0.525;
-  margin-top: 0.36842em;
-  margin-bottom: 0.63158em;
+  margin-top: 0.20833em;
+  margin-bottom: 0.5em;
 }
 @media (min-width: 641px) {
-  .related-title {
+  .related-heading {
     font-size: 24px;
     line-height: 1.25;
   }
 }
 
 /*
-  
-HTML Usage
-  
-<div class="related">
-  
-  <div class="related-section">
-  
-    <h2 class="related-title">Related links</h2>
-    
-  </div>
 
-</div>
+HTML Usage
 
 */
 .pagination {
@@ -2477,16 +2531,18 @@ HTML Usage
   margin-bottom: 0.52632em;
 }
 @media (min-width: 641px) {
-  .description-inline dt {
+  .description dt {
+    box-sizing: border-box;
     float: left;
+    padding-right: 1.05263em;
+    margin-bottom: 0.52632em;
     width: 40%;
   }
-  .description-inline dd {
+  .description dd {
     overflow: hidden;
-    padding-left: 20px;
   }
 }
-.description-small dt {
+.description-meta {
   font-family: "nta", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.14286;
@@ -2495,32 +2551,37 @@ HTML Usage
   font-size-adjust: 0.5;
 }
 @media (min-width: 641px) {
-  .description-small dt {
+  .description-meta {
     font-size: 16px;
     line-height: 1.25;
   }
 }
+.description-meta dt {
+  font-weight: normal;
+  float: left;
+  margin-bottom: 0.3125em;
+  min-width: 120px;
+  padding-right: 10px;
+  width: auto;
+}
+.description-meta dt:after {
+  content: ':';
+}
+.description-meta dd {
+  margin-bottom: 0.3125em;
+  overflow: hidden;
+}
 
 /*
-  
+
 HTML Usage
-  
+
 <dl class="description">
   <dt>Heading</dt>
   <dd>Content</dd>
 </dl>
 
-<dl class="description description-inline">
-  <dt>Heading</dt>
-  <dd>Content</dd>
-</dl>
-
-<dl class="description description-tint">
-  <dt>Heading</dt>
-  <dd>Content</dd>
-</dl>
-
-<dl class="description description-small">
+<dl class="description description-meta">
   <dt>Heading</dt>
   <dd>Content</dd>
 </dl>

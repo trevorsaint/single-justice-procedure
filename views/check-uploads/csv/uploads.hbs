@@ -2,16 +2,10 @@
 
   <h1 class="heading-xlarge">{{pagetitle}}</h1>
 
-  {{#if document}}
-    <h3 class="heading-medium">3 files found</h3>
-  {{else if csv}}
-    <h3 class="heading-medium">20 files found</h3>
-  {{/if}}
+  <h3 class="heading-medium">20 files found</h3>
 
   <table class="table table-font-xsmall">
-
-    <caption class="visuallyhidden">Data file uploads</caption>
-
+    <caption class="visuallyhidden">CSV file uploads</caption>
     <thead>
       <tr>
         <th scope="col">Uploaded</th>
@@ -19,34 +13,9 @@
         <th scope="col" colspan="2">Status</th>
       </tr>
     </thead>
-
     <tbody>
-
-    {{#if document}}
-
       {{#each searches}}
-
         {{#each files.file}}
-
-          {{#if document}}
-            <tr>
-              <td>{{uploaded}}</td>
-              <td>{{filename}}</td>
-              <td>{{{status}}}</td>
-              <td>{{#if url}}<a href="{{url}}">View report</a>{{else}}&ndash;{{/if}}</td>
-            </tr>
-          {{/if}}
-
-        {{/each}}
-
-      {{/each}}
-
-    {{else if csv}}
-
-      {{#each searches}}
-
-        {{#each files.file}}
-
           {{#if csv}}
             <tr>
               <td>{{uploaded}}</td>
@@ -55,18 +24,10 @@
               <td>{{#if url}}<a href="{{url}}">View report</a>{{else}}&ndash;{{/if}}</td>
             </tr>
           {{/if}}
-
         {{/each}}
-
       {{/each}}
-
-    {{/if}}
-
     </tbody>
-
   </table>
-
-  {{#if csv}}
 
   <div class="pagination">
 
@@ -88,5 +49,3 @@
     </div>
 
   </div>
-
-  {{/if}}

@@ -1,9 +1,8 @@
   {{>breadcrumb}}
 
+  <h1 class="heading-xlarge"><span class="heading-secondary">{{apptitle}}</span> {{pagetitle}}</h1>
 
-  <h1 class="heading-xlarge"><span class="heading-secondary">Transport for London</span> Case tasks</h1>
-
-  <div class="summary-item-container" aria-labelledby="case-tasks-update">
+  <section class="summary-item-container" aria-labelledby="case-tasks-update">
 
     <h2 class="visuallyhidden" id="case-tasks-update">Case tasks update</h2>
 
@@ -12,7 +11,7 @@
       <div class="column-third">
 
         <div class="summary-item">
-          <a href="/check-uploads/csv">
+          <a href="/check-csv-uploads">
             <span class="summary-item-number">24</span>
             <span class="summary-item-label">CSV errors in last upload</span>
           </a>
@@ -23,7 +22,7 @@
       <div class="column-third">
 
         <div class="summary-item">
-          <a href="/check-uploads/document">
+          <a href="/check-document-uploads">
             <span class="summary-item-number">3</span>
             <span class="summary-item-label">document errors in last upload</span>
           </a>
@@ -44,11 +43,11 @@
 
     </div>
 
-  </div>
+  </section>
 
   <div class="grid-row">
 
-    <div class="column-half" aria-labelledby="send-cases-to-court">
+    <section class="column-half" aria-labelledby="send-cases-to-court">
 
       <h2 class="heading-medium" id="send-cases-to-court">Send cases to court</h2>
 
@@ -65,24 +64,24 @@
         </li>
 
         <li>
-          <a href="/check-uploads/csv">Check CSV uploads</a>
+          <a href="/check-csv-uploads">Check CSV uploads</a>
           <p class="font-xsmall">Fix errors or see what&rsquo;s been sent to court</p>
         </li>
 
         <li>
-          <a href="/check-uploads/document">Check document uploads</a>
+          <a href="/check-document-uploads">Check document uploads</a>
           <p class="font-xsmall">Fix errors or see what&rsquo;s been sent to court</p>
         </li>
 
       </ul>
 
-    </div>
+    </section>
 
-    <div class="column-half" aria-labelledby="check-cases">
+    <section class="column-half" aria-labelledby="check-cases-or-results">
 
-      <h2 class="heading-medium" id="check-cases">Check cases or results</h2>
+      <h2 class="heading-medium" id="check-cases-or-results">Check cases or results</h2>
 
-      <ul class="list list-tasks">
+      <ul class="list">
 
         <li>
           <a href="/search-for-a-case">Search</a>
@@ -101,6 +100,6 @@
 
       </ul>
 
-    </div>
+    </section>
 
   </div>

@@ -1,14 +1,10 @@
   {{>breadcrumb}}
 
-
   <div class="grid-row">
-
 
     <div class="column-two-thirds">
 
-
       <h1 class="heading-xlarge">{{pagetitle}}</h1>
-
 
       {{#error}}
       <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
@@ -30,11 +26,9 @@
       </div>
       {{/error}}
 
-
       <form class="form" method="post">
 
-
-        <div class="form-group{{#error}}{{#unless select_header}} error{{/unless}}{{/error}}">
+        <div class="form-group{{#error}}{{#unless header}} error{{/unless}}{{/error}}">
 
           <h2 class="bold-small"{{#error}}{{#unless header}} id="error-header"{{/unless}}{{/error}}>Select header <abbr title="Comma Separated Value">CSV</abbr></h2>
 
@@ -82,20 +76,13 @@
 
         </div>
 
-
         <div class="form-group">
-
           <!--span class="error-message">We&rsquo;re having technical problems &ndash; please try again in a few minutes</span-->
-
           <button class="button" type="submit" id="send" name="send" value="send">Send to court</button>
-
         </div>
-
 
       </form>
 
-
     </div>
-
 
   </div>

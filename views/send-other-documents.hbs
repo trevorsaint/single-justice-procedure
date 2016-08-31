@@ -1,74 +1,77 @@
   {{>breadcrumb}}
-  
-  
+
+
   <div class="grid-row">
-  
-  
+
+
     <div class="column-two-thirds">
-      
-      
+
+
       <h1 class="heading-xlarge">{{pagetitle}}</h1>
-      
-      
+
+
+      {{#error}}
       <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
-      
+
         <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">Fix the following</h1>
-        
+
         <ul class="error-summary-list">
-          <li><a href="#">Select file</a></li>
-          <!--li><a href="#">Send to court</a></li-->
+
+          {{#unless documents}}
+          <li><a href="#error-documents">Select file</a></li>
+          {{/unless}}
+
         </ul>
-      
+
       </div>
-    
-    
+      {{/error}}
+
+
       <div class="text">
-        
+
         <p>Put your documents in a zip file and then upload. You can include:</p>
-        
+
         <ul class="list list-bullet">
           <li><abbr title="Single Justice Procedure">SJP</abbr> notices</li>
           <li>previous convictions</li>
           <li>witness statements</li>
         </ul>
-        
+
       </div>
-      
-      
-      <div class="panel panel-border-wide">
-        <p>If you only want to upload one document, you&rsquo;ll still need to put it in a zip file.</p>
-      </div>
-      
-      
-      <h2 class="heading-small">Select file</h2>
-      
-      
-      <form class="form">
-          
-        <div class="form-group form-group-last error">
-          
-          <span class="error-message">You need to upload a file</span>
-          <!--span class="error-message">Wrong file type &ndash; select a zip file instead</span-->
-          <!--span class="error-message">Wrong file extension &ndash; change to .zip</span-->
-          
+
+      <form class="form" method="post">
+
+        <div class="form-block">
+          <div class="panel panel-border-wide text">
+            <p>If you only want to upload one document, you&rsquo;ll still need to put it in a zip file.</p>
+          </div>
+        </div>
+
+        <div class="form-group form-group-last{{#error}}{{#unless documents}} error{{/unless}}{{/error}}">
+
+          <h2 class="bold-small"{{#error}}{{#unless header}} id="error-documents"{{/unless}}{{/error}}>Select file</h2>
+
+          {{#error}}
+            {{#unless documents}}<span class="error-message">You need to upload a file</span>{{/unless}}
+            <!--span class="error-message">Wrong file type &ndash; select a zip file instead</span-->
+            <!--span class="error-message">Wrong file extension &ndash; change to .zip</span-->
+          {{/error}}
+
           <label class="button button-secondary">Upload
-            <input class="hidden" type="file" id="select_documents" name="select_documents" accept=".zip">
+            <input class="hidden" type="file" id="documents" name="documents" accept=".zip">
           </label>
-          
+
         </div>
-        
+
         <div class="form-group">
-    
           <!--span class="error-message">We&rsquo;re having technical problems &ndash; please try again in a few minutes</span-->
-          
-          <button class="button" type="submit">Send to court</button>
-        
+          <button class="button" type="submit" id="send" name="send" value="send">Send to court</button>
         </div>
-      
+
       </form>
-    
-    
+
+
     </div>
-  
-  
+
+
   </div>

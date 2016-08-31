@@ -1,20 +1,15 @@
   {{>breadcrumb}}
-  
-  
+
   <div class="persist-info">
     <span class="persist-info-reference">{{search.urn}}</span>
     <span class="persist-info-title">{{search.firstname}} {{search.lastname}}</span>
   </div>
-  
-  
+
   <div class="grid-row">
-    
-    
+
     <div class="column-two-thirds">
-      
-      
+
       <h1 class="heading-large">{{search.firstname}} {{search.lastname}} </h1>
-      
 
       <div class="block block-mb-md block-mt-md">
 
@@ -26,13 +21,12 @@
           {{#if search.email}}<a href="mailto:">{{search.email}}</a>{{/if}}
           {{#if search.national-insurance-number}}<div>NI number: {{search.national-insurance-number}}</div>{{/if}}
         </div>
-      
+
       </div>
 
-    
       <div class="block">
-    
-        <dl class="description description-inline">
+
+        <dl class="description">
           <dt>Case status</dt>
           <dd>{{{search.case-details.status}}}</dd>
           <dt>Prosecutor</dt>
@@ -46,7 +40,7 @@
               <li class="file file-inline">
                 <i class="icon icon-file-download"></i>
                 <div class="file-details">
-                  <a href="{{file-path}}">{{title}}</a> 
+                  <a href="{{file-path}}">{{title}}</a>
                   <span class="file-meta">{{file-type}}, {{file-size}}, {{file-pages}}</span>
                 </div>
               </li>
@@ -54,85 +48,78 @@
             </ul>
           </dd>
         </dl>
-      
+
       </div>
 
-      
     </div>
-    
-    
+
     {{#if search.withdraw}}
     <div class="column-third">
-      
+
       <div class="related">
-  
+
         <div class="related-section">
-        
-          <h2 class="related-title">Case options</h2>
-          
-          <ul class="list">
+
+          <h2 class="related-heading">Case options</h2>
+
+          <ul class="related-links">
             <li><a href="/withdraw-offence/{{search.id}}">Withdraw offence</a></li>
           </ul>
-          
+
         </div>
-      
+
       </div>
-      
+
     </div>
     {{/if}}
-    
-    
+
     {{#if search.cancel-withdrawal}}
     <div class="column-third">
-      
+
       <div class="related">
-  
+
         <div class="related-section">
-        
-          <h2 class="related-title">Case options</h2>
-          
-          <ul class="list">
+
+          <h2 class="related-heading">Case options</h2>
+
+          <ul class="related-links">
             <li><a href="/cancel-request-to-withdraw-offence/{{search.id}}">Cancel withdrawal of offence</a></li>
           </ul>
-          
+
         </div>
-      
+
       </div>
-      
+
     </div>
     {{/if}}
-    
-    
+
   </div>
-  
-  
+
   <hr>
-  
-  
+
   <section aria-labelledby="offences">
-    
+
     <h2 class="bold-large" id="offences">Offence</h2>
-  
+
     {{#each search.offences.offence}}
     <div class="grid-row">
-      
+
       <div class="column-two-thirds">
-        
+
         <section>
-          
+
           <header>
             <h3 class="heading-small">{{{title}}}</h3>
             <p class="font-xsmall">On <time datetime="{{datetime}}">{{date}}</time></p>
           </header>
-          
+
           <p><strong class="tag">{{plea}}</strong>{{#if ../search.cancel-withdrawal}}<strong class="tag">Pending withdrawal</strong>{{/if}}</p>
-          
+
           <div class="panel panel-border-narrow">
             {{#if statement-of-facts}}<p class="font-xsmall"><strong class="bold-xsmall">Statement of facts</strong> <br> {{{statement-of-facts}}}</p>{{/if}}
             {{#if mitigation}}<p class="font-xsmall"><strong class="bold-xsmall">Mitigation</strong> <br> {{{mitigation}}}</p>{{/if}}
           </div>
-          
-          
+
           {{#if ../search.decision-made}}<table class="table table-font-xsmall">
             <thead>
               <tr>
@@ -158,69 +145,68 @@
               </tr>
             </tbody>
           </table>{{/if}}
-          
+
         </section>
-        
+
       </div>
-      
+
       {{#if ../search.decision-ready}}<div class="column-third">
-        
+
         <aside>
-          
+
           <h3 class="heading-small">Make a decision</h3>
-          
+
           <form class="form">
-            
+
             <fieldset>
-  
+
               <legend class="visually-hidden">Make a decision</legend>
-          
+
               <div class="form-group">
-          
+
                 <label class="block-label" for="financial-penalty-{{id}}">
                   <input id="financial-penalty-{{id}}" type="radio" name="make-a-decision-{{id}}">
                   Financial penalty
                 </label>
-          
+
                 <label class="block-label" for="no-seperate-penalty-{{id}}">
                   <input id="no-seperate-penalty-{{id}}" type="radio" name="make-a-decision-{{id}}">
                   No seperate penalty
                 </label>
-          
+
                 <label class="block-label" for="refer-for-court-hearing-{{id}}">
                   <input id="refer-for-court-hearing-{{id}}" type="radio" name="make-a-decision-{{id}}">
                   Refer for court hearing
                 </label>
-                
+
                 <label class="block-label" for="widthdraw-{{id}}">
                   <input id="widthdraw-{{id}}" type="radio" name="make-a-decision-{{id}}">
                   Withdraw
                 </label>
-                
+
                 <label class="block-label" for="discharge-{{id}}">
                   <input id="discharge-{{id}}" type="radio" name="make-a-decision-{{id}}">
                   Discharge
                 </label>
-                
+
                 <label class="block-label" for="dismiss-{{id}}">
                   <input id="dismiss-{{id}}" type="radio" name="make-a-decision-{{id}}">
                   Dismiss
                 </label>
-          
+
               </div>
-          
+
             </fieldset>
-            
+
           </form>
-        
+
         </aside>
-        
+
       </div>{{/if}}
-      
+
     </div>
-    {{/each}} 
-  
+    {{/each}}
+
   </section>
-  
-  
+
   {{#if search.decision-ready}}<p><a class="button" href="#" role="button">Save and continue</a></p>{{/if}}

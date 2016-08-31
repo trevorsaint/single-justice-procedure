@@ -1,46 +1,40 @@
 module.exports = {
 
-
 bind: function(app) {
 
-
-    // Locals
+    // locals
     app.locals = {
       apptitle: 'Transport for London',
       baseurl: '/'
     }
 
 
-    // Datastore
+    // datastore
     var dataEngine = require('../models/data');
 
 
-    // Routing
+    // routing
     app.all('/', function (req, res) {
-
       data = {
         doctitle: 'Sign in',
         pagetitle: 'Sign in',
         isSignedIn: true
       }
-
       res.render('index', data);
-
     });
 
 
+    // case tasks
     app.all('/case-tasks', function (req, res) {
-
       data = {
         doctitle: 'Case tasks',
         pagetitle: 'Case tasks'
       }
-
       res.render('case-tasks', data);
-
     });
 
 
+    // send data files
     app.all('/send-data-files', function (req, res) {
 
       var doctitle = 'Send data files to court';
@@ -79,22 +73,42 @@ bind: function(app) {
 
     app.all('/send-other-documents', function (req, res) {
 
-      data = {
+      var doctitle = 'Send documents to court';
+      var pagetitle = 'Send documents to court';
+
+      var send         = req.body.send;
+      var documents    = req.body.documents;
+      var sendtocourt  = req.body.sendtocourt;
+      var error        = false;
+
+      if (send) {
+
+        if (!documents) {
+          error = true;
+        } else {
+          error = false;
+        }
+
+      }
+
+      res.render('send-other-documents', {
         doctitle: 'Send documents to court',
         pagetitle: 'Send documents to court',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks'
-      }
-
-      res.render('send-other-documents', data);
+        section_name: 'Case tasks',
+        send: send,
+        documents: documents,
+        error: error
+      });
 
     });
 
 
-    app.all('/check-uploads', function (req, res) {
+    // Document uploads and reporting
 
-      res.render('check-uploads', {
+    app.all('/check-document-uploads', function (req, res) {
+      res.render('check-uploads/document/uploads', {
         doctitle: 'Check document uploads',
         pagetitle: 'Check document uploads',
         breadcrumb: true,
@@ -102,38 +116,113 @@ bind: function(app) {
         section_name: 'Case tasks',
         searches:dataEngine.getSearchEntries()
       });
-
     });
-
-
-    app.all('/check-uploads/document', function (req, res) {
-
-      res.render('check-uploads', {
-        doctitle: 'Check document uploads',
-        pagetitle: 'Check document uploads',
+    app.all('/check-document-uploads/report/success/:id', function (req, res) {
+      var entry = dataEngine.getSearchEntry(req.params.id);
+      res.render('check-uploads/document/report/success', {
+        doctitle: 'View upload report',
+        pagetitle: 'View upload report',
         breadcrumb: true,
         section: 'case-tasks',
         section_name: 'Case tasks',
-        document: true,
-        searches:dataEngine.getSearchEntries()
+        section2: 'check-document-uploads',
+        section2_name: 'Check document uploads',
+        search:entry
       });
-
+    });
+    app.all('/check-document-uploads/report/errors/:id', function (req, res) {
+      var entry = dataEngine.getSearchEntry(req.params.id);
+      res.render('check-uploads/document/report/errors', {
+        doctitle: 'View upload report',
+        pagetitle: 'View upload report',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'check-document-uploads',
+        section2_name: 'Check document uploads',
+        search:entry
+      });
     });
 
+    // CSV uploads and reporting
 
-    app.all('/check-uploads/csv', function (req, res) {
-
-      res.render('check-uploads', {
+    app.all('/check-csv-uploads', function (req, res) {
+      res.render('check-uploads/csv/uploads', {
         doctitle: 'Check CSV uploads',
         pagetitle: 'Check CSV uploads',
         breadcrumb: true,
         section: 'case-tasks',
         section_name: 'Case tasks',
-        csv: true,
         searches:dataEngine.getSearchEntries()
       });
-
     });
+    app.all('/check-csv-uploads/report/success/:id', function (req, res) {
+      var entry = dataEngine.getSearchEntry(req.params.id);
+      res.render('check-uploads/csv/report/success', {
+        doctitle: 'View upload report',
+        pagetitle: 'View upload report',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'check-csv-uploads',
+        section2_name: 'Check CSV uploads',
+        search:entry
+      });
+    });
+    app.all('/check-csv-uploads/report/errors/:id', function (req, res) {
+      var entry = dataEngine.getSearchEntry(req.params.id);
+      res.render('check-uploads/csv/report/errors', {
+        doctitle: 'View upload report',
+        pagetitle: 'View upload report',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'check-csv-uploads',
+        section2_name: 'Check CSV uploads',
+        search:entry
+      });
+    });
+
+
+
+
+    app.all('/view-upload-report-success/:id', function (req, res) {
+
+      var entry = dataEngine.getSearchEntry(req.params.id);
+
+      res.render('view-upload-report-success', {
+        doctitle: 'View upload report',
+        pagetitle: 'View upload report',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'check-uploads',
+        section2_name: 'Check uploads',
+        search:entry
+      });
+    });
+
+    app.all('/view-upload-report-errors/:id', function (req, res) {
+
+      var entry = dataEngine.getSearchEntry(req.params.id);
+
+      res.render('view-upload-report-errors', {
+        doctitle: 'View upload report',
+        pagetitle: 'View upload report',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'check-uploads',
+        section2_name: 'Check uploads',
+        search:entry
+      });
+    });
+
+
+
+
+
+
 
 
     app.all('/export-case-results-by-date', function (req, res) {
@@ -300,37 +389,14 @@ bind: function(app) {
     });
 
 
-    app.all('/view-upload-report-success/:id', function (req, res) {
+    app.all('/experiments', function (req, res) {
 
-      var entry = dataEngine.getSearchEntry(req.params.id);
-
-      res.render('view-upload-report-success', {
-        doctitle: 'View upload report',
-        pagetitle: 'View upload report',
-        breadcrumb: true,
-        section: 'case-tasks',
-        section_name: 'Case tasks',
-        section2: 'check-uploads',
-        section2_name: 'Check uploads',
-        search:entry
+      res.render('experiments', {
+        doctitle: 'Experiments playground',
+        pagetitle: 'Experiments playground',
+        breadcrumb: true
       });
-    });
 
-
-    app.all('/view-upload-report-errors/:id', function (req, res) {
-
-      var entry = dataEngine.getSearchEntry(req.params.id);
-
-      res.render('view-upload-report-errors', {
-        doctitle: 'View upload report',
-        pagetitle: 'View upload report',
-        breadcrumb: true,
-        section: 'case-tasks',
-        section_name: 'Case tasks',
-        section2: 'check-uploads',
-        section2_name: 'Check uploads',
-        search:entry
-      });
     });
 
 
