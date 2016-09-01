@@ -1,0 +1,70 @@
+  {{>breadcrumb}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{pagetitle}}</h1>
+
+      <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+        <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">Fix the following</h1>
+
+        <ul class="error-summary-list">
+            <li><a href="#error-header">Select header CSV</a></li>
+            <li><a href="#error-offences">Select offences CSV</a></li>
+        </ul>
+
+      </div>
+
+      <form class="form" method="post">
+
+        <div class="form-group error">
+
+          <h2 class="bold-small" id="error-header">Select header <abbr title="Comma Separated Value">CSV</abbr></h2>
+
+          <span class="error-message">File names not a matching pair &ndash; fix and try again</span>
+
+          <label class="button button-secondary">Upload
+            <input class="hidden" type="file" id="header" name="header" accept=".csv">
+          </label>
+
+          <div class="panel panel-border-narrow">
+            <p class="font-xsmall">
+              <span class="bold-xsmall">File selected</span><br>
+              <span class="text-secondary" id="header-filename">nppcase_TfL_001001_header_20160823121510.csv</span><br>
+              <a class="remove" href="#">Remove</a>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="form-group form-group-last error">
+
+          <h2 class="bold-small" id="error-offences">Select offences <abbr title="Comma Separated Value">CSV</abbr></h2>
+
+          <span class="error-message">File names not a matching pair &ndash; fix and try again</span>
+
+          <label class="button button-secondary">Upload
+            <input class="hidden" type="file" id="offences" name="offences" accept=".csv">
+          </label>
+
+          <div class="panel panel-border-narrow">
+            <p class="font-xsmall">
+              <span class="bold-xsmall">File selected</span><br>
+              <span class="text-secondary" id="offences-filename">nppcase_TfL_001001_offence_20160823121621.csv</span><br>
+              <a class="remove" href="#">Remove</a>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <button class="button" type="submit" id="send" name="send" value="send">Send to court</button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>

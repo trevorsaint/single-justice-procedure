@@ -1,0 +1,74 @@
+  {{>breadcrumb}}
+
+
+  <div class="grid-row">
+
+
+    <div class="column-two-thirds">
+
+
+      <h1 class="heading-xlarge">{{pagetitle}}</h1>
+
+
+      <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+        <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">Fix the following</h1>
+
+        <ul class="error-summary-list">
+          <li><a href="#error-documents">Select file</a></li>
+        </ul>
+
+      </div>
+
+
+      <div class="text">
+
+        <p>Put your documents in a zip file and then upload. You can include:</p>
+
+        <ul class="list list-bullet">
+          <li><abbr title="Single Justice Procedure">SJP</abbr> notices</li>
+          <li>previous convictions</li>
+          <li>witness statements</li>
+        </ul>
+
+      </div>
+
+      <form class="form" method="post">
+
+        <div class="form-block">
+          <div class="panel panel-border-wide text">
+            <p>If you only want to upload one document, you&rsquo;ll still need to put it in a zip file.</p>
+          </div>
+        </div>
+
+        <div class="form-group form-group-last error">
+
+          <h2 class="bold-small" id="error-documents">Select file</h2>
+
+          <span class="error-message">You need to upload a file</span>
+
+          <label class="button button-secondary">Upload
+            <input class="hidden" type="file" id="documents" name="documents" accept=".zip">
+          </label>
+
+          <div class="panel panel-border-narrow js-hidden">
+            <p class="font-xsmall">
+              <span class="bold-xsmall">File selected</span><br>
+              <span class="text-secondary" id="documents-filename"></span><br>
+              <a class="remove" href="#">Remove</a>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <button class="button" type="submit" id="send" name="send" value="send">Send to court</button>
+        </div>
+
+      </form>
+
+
+    </div>
+
+
+  </div>

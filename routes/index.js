@@ -34,6 +34,101 @@ bind: function(app) {
     });
 
 
+
+
+
+
+
+
+    // errors for demo
+    app.all('/errors', function (req, res) {
+      res.render('errors/errors', {
+        doctitle: 'Errors',
+        pagetitle: 'Errors',
+        breadcrumb: true
+      });
+    });
+
+    // data file errors
+    app.all('/errors/data-files/you-need-to-upload-a-file', function (req, res) {
+      res.render('errors/data-files/you-need-to-upload-a-file',  {
+        doctitle: 'Send data files to court',
+        pagetitle: 'Send data files to court',
+        section: 'errors',
+        section_name: 'Errors',
+        breadcrumb: true
+      });
+    });
+    app.all('/errors/data-files/wrong-file-type', function (req, res) {
+      res.render('errors/data-files/wrong-file-type',  {
+        doctitle: 'Send data files to court',
+        pagetitle: 'Send data files to court',
+        section: 'errors',
+        section_name: 'Errors',
+        breadcrumb: true
+      });
+    });
+    app.all('/errors/data-files/file-names-not-a-matching-pair', function (req, res) {
+      res.render('errors/data-files/file-names-not-a-matching-pair',  {
+        doctitle: 'Send data files to court',
+        pagetitle: 'Send data files to court',
+        section: 'errors',
+        section_name: 'Errors',
+        breadcrumb: true
+      });
+    });
+    app.all('/errors/data-files/technical-problems', function (req, res) {
+      res.render('errors/data-files/technical-problems',  {
+        doctitle: 'Send data files to court',
+        pagetitle: 'Send data files to court',
+        section: 'errors',
+        section_name: 'Errors',
+        breadcrumb: true
+      });
+    });
+    // document errors
+    app.all('/errors/documents/you-need-to-upload-a-file', function (req, res) {
+      res.render('errors/documents/you-need-to-upload-a-file',  {
+        doctitle: 'Send documents to court',
+        pagetitle: 'Send documents to court',
+        section: 'errors',
+        section_name: 'Errors',
+        breadcrumb: true
+      });
+    });
+    app.all('/errors/documents/wrong-file-type', function (req, res) {
+      res.render('errors/documents/wrong-file-type',  {
+        doctitle: 'Send documents to court',
+        pagetitle: 'Send documents to court',
+        section: 'errors',
+        section_name: 'Errors',
+        breadcrumb: true
+      });
+    });
+    app.all('/errors/documents/wrong-file-extension', function (req, res) {
+      res.render('errors/documents/wrong-file-extension',  {
+        doctitle: 'Send documents to court',
+        pagetitle: 'Send documents to court',
+        section: 'errors',
+        section_name: 'Errors',
+        breadcrumb: true
+      });
+    });
+    app.all('/errors/documents/technical-problems', function (req, res) {
+      res.render('errors/documents/technical-problems',  {
+        doctitle: 'Send documents to court',
+        pagetitle: 'Send documents to court',
+        section: 'errors',
+        section_name: 'Errors',
+        breadcrumb: true
+      });
+    });
+
+
+
+
+
+
     // send data files
     app.all('/send-data-files', function (req, res) {
 
