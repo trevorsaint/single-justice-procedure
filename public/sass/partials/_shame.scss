@@ -15,12 +15,15 @@
   z-index: -1;
 
   &:hover + label,
-  &:focus + label {
+  &:focus + label,
+  &.focused + label {
     background-color: darken($grey-3, 5%);
   }
 
-  &:focus + label {
+  &:focus + label,
+  &.focused + label {
     outline: 3px solid $focus-colour;
+    overflow: hidden;
   }
 
 }

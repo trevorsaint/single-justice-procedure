@@ -4,14 +4,12 @@ bind: function(app) {
 
     // locals
     app.locals = {
-      apptitle: 'Transport for London',
+      apptitle: 'Criminal Justice Service',
       baseurl: '/'
     }
 
-
     // datastore
     var dataEngine = require('../models/data');
-
 
     // routing
     app.all('/', function (req, res) {
@@ -23,28 +21,24 @@ bind: function(app) {
       res.render('index', data);
     });
 
-
     // case tasks
     app.all('/case-tasks', function (req, res) {
       data = {
         doctitle: 'Case tasks',
-        pagetitle: 'Case tasks'
+        pagetitle: 'Case tasks',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
       }
       res.render('case-tasks', data);
     });
-
-
-
-
-
-
-
 
     // errors for demo
     app.all('/errors', function (req, res) {
       res.render('errors/errors', {
         doctitle: 'Errors',
         pagetitle: 'Errors',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
         breadcrumb: true
       });
     });
@@ -54,8 +48,10 @@ bind: function(app) {
       res.render('errors/data-files/you-need-to-upload-a-file',  {
         doctitle: 'Send data files to court',
         pagetitle: 'Send data files to court',
-        section: 'errors',
-        section_name: 'Errors',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'errors',
+        section2_name: 'Errors',
         breadcrumb: true
       });
     });
@@ -63,8 +59,10 @@ bind: function(app) {
       res.render('errors/data-files/wrong-file-type',  {
         doctitle: 'Send data files to court',
         pagetitle: 'Send data files to court',
-        section: 'errors',
-        section_name: 'Errors',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'errors',
+        section2_name: 'Errors',
         breadcrumb: true
       });
     });
@@ -100,8 +98,10 @@ bind: function(app) {
       res.render('errors/documents/wrong-file-type',  {
         doctitle: 'Send documents to court',
         pagetitle: 'Send documents to court',
-        section: 'errors',
-        section_name: 'Errors',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'errors',
+        section2_name: 'Errors',
         breadcrumb: true
       });
     });
@@ -109,8 +109,10 @@ bind: function(app) {
       res.render('errors/documents/wrong-file-extension',  {
         doctitle: 'Send documents to court',
         pagetitle: 'Send documents to court',
-        section: 'errors',
-        section_name: 'Errors',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'errors',
+        section2_name: 'Errors',
         breadcrumb: true
       });
     });
@@ -118,16 +120,13 @@ bind: function(app) {
       res.render('errors/documents/technical-problems',  {
         doctitle: 'Send documents to court',
         pagetitle: 'Send documents to court',
-        section: 'errors',
-        section_name: 'Errors',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        section2: 'errors',
+        section2_name: 'Errors',
         breadcrumb: true
       });
     });
-
-
-
-
-
 
     // send data files
     app.all('/send-data-files', function (req, res) {
@@ -164,7 +163,6 @@ bind: function(app) {
       });
 
     });
-
 
     app.all('/send-other-documents', function (req, res) {
 
@@ -278,9 +276,6 @@ bind: function(app) {
       });
     });
 
-
-
-
     app.all('/view-upload-report-success/:id', function (req, res) {
 
       var entry = dataEngine.getSearchEntry(req.params.id);
@@ -314,12 +309,6 @@ bind: function(app) {
     });
 
 
-
-
-
-
-
-
     app.all('/export-case-results-by-date', function (req, res) {
 
       var entry = dataEngine.getSearchEntry(req.params.id);
@@ -335,7 +324,6 @@ bind: function(app) {
 
     });
 
-
     app.all('/search-for-a-case', function (req, res) {
 
       res.render('search-for-a-case', {
@@ -348,7 +336,6 @@ bind: function(app) {
       });
 
     });
-
 
     app.all('/case-details-cancel-withdraw/:id', function (req, res) {
 
@@ -367,7 +354,6 @@ bind: function(app) {
 
     });
 
-
     app.all('/case-details/:id', function (req, res) {
 
       var entry = dataEngine.getSearchEntry(req.params.id);
@@ -385,7 +371,6 @@ bind: function(app) {
 
     });
 
-
     app.all('/withdraw-all-offences/:id', function (req, res) {
 
       var entry = dataEngine.getSearchEntry(req.params.id);
@@ -400,7 +385,6 @@ bind: function(app) {
       });
 
     });
-
 
     app.all('/withdraw-offence/:id', function (req, res) {
 
@@ -419,7 +403,6 @@ bind: function(app) {
 
     });
 
-
     app.all('/cancel-request-to-withdraw-offence/:id', function (req, res) {
 
       var entry = dataEngine.getSearchEntry(req.params.id);
@@ -429,7 +412,6 @@ bind: function(app) {
       });
 
     });
-
 
     app.all('/withdraw-offence-confirmation/:id', function (req, res) {
 
@@ -448,7 +430,6 @@ bind: function(app) {
 
     });
 
-
     app.all('/cases-missing-sjp-notices', function (req, res) {
       res.render('cases-missing-sjp-notices', {
         doctitle: 'Send missing SJP notices to court',
@@ -459,8 +440,6 @@ bind: function(app) {
         searches:dataEngine.getSearchEntries()
       });
     });
-
-
 
     app.all('/data-files-confirmation', function (req, res) {
 
@@ -476,7 +455,6 @@ bind: function(app) {
 
     });
 
-
     app.all('/documents-confirmation', function (req, res) {
 
       res.render('documents-confirmation', {
@@ -490,7 +468,6 @@ bind: function(app) {
       });
 
     });
-
 
     app.all('/cancel-withdrawal-offence-confirmation/:id', function (req, res) {
 
@@ -509,12 +486,13 @@ bind: function(app) {
 
     });
 
-
     app.all('/experiments', function (req, res) {
 
       res.render('experiments', {
         doctitle: 'Experiments playground',
         pagetitle: 'Experiments playground',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
         breadcrumb: true
       });
 

@@ -43,7 +43,22 @@ function fileUpload() {
 
 }
 
+
+function fileUploadFocus() {
+
+  'strict'
+
+  $('.form-control-file').on('focus', function() {
+    $(this).addClass('focused');
+  }).on('blur', function() {
+    $(this).removeClass('focused');
+  })
+
+}
+
+
 // document ready
 (function() {
   fileUpload();
+  fileUploadFocus();
 })(jQuery);

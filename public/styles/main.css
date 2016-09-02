@@ -2803,9 +2803,10 @@ HTML Usage
   position: absolute;
   z-index: -1;
 }
-.form-control-file:hover + label, .form-control-file:focus + label {
+.form-control-file:hover + label, .form-control-file:focus + label, .form-control-file.focused + label {
   background-color: #d0d3d6;
 }
-.form-control-file:focus + label {
+.form-control-file:focus + label, .form-control-file.focused + label {
   outline: 3px solid #ffbf47;
+  overflow: hidden;
 }
