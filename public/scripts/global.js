@@ -9,13 +9,25 @@ function fileUpload() {
     $('.form-control-file').each(function(index) {
 
       var $this   = $(this);
+      var $label  = $(this).next();
+
+      // add html for panel
+      $('<div class="panel panel-border-narrow js-hidden">' +
+          '<p class="font-xsmall">' +
+            '<span class="bold-xsmall">File selected</span><br>' +
+            '<span class="text-secondary filename"></span><br>' +
+            '<a class="remove" href="#">Remove</a>' +
+          '</p>' +
+        '</div>').insertAfter($label);
+
       var $parent = $this.closest('.form-group');
       var $panel  = $parent.find ('.panel');
       var $file   = $parent.find('.filename');
       var $remove = $parent.find('.remove');
 
+
       // add file
-      $this.change(function(e) {
+      $this.on('change', function(e) {
 
         var fileVal = $this.val();
 

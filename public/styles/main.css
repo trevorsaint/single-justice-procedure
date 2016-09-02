@@ -2795,7 +2795,11 @@ HTML Usage
   overflow: hidden;
 }
 
-.form-control-file {
+.form-control-file + label {
+  display: none;
+}
+
+.js-enabled .form-control-file {
   width: .1px;
   height: .1px;
   opacity: 0;
@@ -2803,10 +2807,13 @@ HTML Usage
   position: absolute;
   z-index: -1;
 }
-.form-control-file:hover + label, .form-control-file:focus + label, .form-control-file.focused + label {
+.js-enabled .form-control-file + label {
+  display: inline-block;
+}
+.js-enabled .form-control-file:hover + label, .js-enabled .form-control-file:focus + label, .js-enabled .form-control-file.focused + label {
   background-color: #d0d3d6;
 }
-.form-control-file:focus + label, .form-control-file.focused + label {
+.js-enabled .form-control-file:focus + label, .js-enabled .form-control-file.focused + label {
   outline: 3px solid #ffbf47;
   overflow: hidden;
 }
