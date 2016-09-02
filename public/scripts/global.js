@@ -1,132 +1,49 @@
-// header file upload
-function headerFileUpload() {
 
- 'strict'
+function fileUpload() {
 
- if ($('#header').length > 0) {
+  'strict'
 
-   var header         = $('#header');
-   var headerRemove   = $('#header-remove');
-   var headerFilename = $('#header-filename');
-   var headerParent   = header.parent().closest('.form-group');
-   var headerPanel    = header.parent().next('.panel');
+  if ($('.form-control-file').length > 0) {
 
-   // on change
-   $(header).change(function(e) {
+    // form file controls
+    $('.form-control-file').each(function(index) {
 
-     var headerValue = $(this).val();
+      var $this   = $(this);
+      var $parent = $this.closest('.form-group');
+      var $panel  = $parent.find ('.panel');
+      var $file   = $parent.find('.filename');
+      var $remove = $parent.find('.remove');
 
-     // add file name
-     if(headerValue != '')  {
-       headerPanel.removeClass('js-hidden');
-       headerFilename.text(headerValue);
-     }
+      // add file
+      $this.change(function(e) {
 
-   });
+        var fileVal = $this.val();
 
-   // on click
-   $(headerRemove).on('click', function(e) {
+        if (fileVal != '') {
+          $panel.removeClass('js-hidden');
+          $file.text(fileVal);
+        }
 
-     e.preventDefault();
+      });
 
-     header.val(''); // reset file control
-     headerFilename.text(''); // remove text
-     headerPanel.addClass('js-hidden'); // hide panel
+      // remove file
+      $remove.on('click', function(e) {
 
-   });
+        e.preventDefault();
 
- }
+        $this.val('');
+        $file.text('');
+        $panel.addClass('js-hidden');
 
-}
+      });
 
+    });
 
-// offences file upload
-function offencesFileUpload() {
-
- 'strict'
-
- if ($('#offences').length > 0) {
-
-   var offences         = $('#offences');
-   var offencesRemove   = $('#offences-remove');
-   var offencesFilename = $('#offences-filename');
-   var offencesParent   = offences.parent().closest('.form-group');
-   var offencesPanel    = offences.parent().next('.panel');
-
-   // on change
-   $(offences).change(function(e) {
-
-     var offencesValue = $(this).val();
-
-     // add file name
-     if(offencesValue != '')  {
-       offencesPanel.removeClass('js-hidden');
-       offencesFilename.text(offencesValue);
-     }
-
-   });
-
-   // on click
-   $(offencesRemove).on('click', function(e) {
-
-     e.preventDefault();
-
-     offences.val(''); // reset file control
-     offencesFilename.text(''); // remove text
-     offencesPanel.addClass('js-hidden'); // hide panel
-
-   });
-
- }
+  }
 
 }
-
-
-// documents file upload
-function documentsFileUpload() {
-
- 'strict'
-
- if ($('#documents').length > 0) {
-
-   var documents         = $('#documents');
-   var documentsRemove   = $('#documents-remove');
-   var documentsFilename = $('#documents-filename');
-   var documentsParent   = documents.parent().closest('.form-group');
-   var documentsPanel    = documents.parent().next('.panel');
-
-   // on change
-   $(documents).change(function(e) {
-
-     var documentsValue = $(this).val();
-
-     // add file name
-     if(documentsValue != '')  {
-       documentsPanel.removeClass('js-hidden');
-       documentsFilename.text(documentsValue);
-     }
-
-   });
-
-   // on click
-   $(documentsRemove).on('click', function(e) {
-
-     e.preventDefault();
-
-     documents.val(''); // reset file control
-     documentsFilename.text(''); // remove text
-     documentsPanel.addClass('js-hidden'); // hide panel
-
-   });
-
- }
-
-}
-
 
 // document ready
 (function() {
-  headerFileUpload();
-  offencesFileUpload();
-  documentsFileUpload();
+  fileUpload();
 })(jQuery);

@@ -2791,3 +2791,21 @@ HTML Usage
 </div>
 
 */
+:focus {
+  overflow: hidden;
+}
+
+.form-control-file {
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.form-control-file:hover + label, .form-control-file:focus + label {
+  background-color: #d0d3d6;
+}
+.form-control-file:focus + label {
+  outline: 3px solid #ffbf47;
+}

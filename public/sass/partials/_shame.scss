@@ -1,0 +1,26 @@
+// Shame
+// ==========================================================================
+
+:focus {
+  overflow: hidden; // removes additional white space on focused elements
+}
+
+// form file control (http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/)
+.form-control-file {
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+
+  &:hover + label,
+  &:focus + label {
+    background-color: darken($grey-3, 5%);
+  }
+
+  &:focus + label {
+    outline: 3px solid $focus-colour;
+  }
+
+}
