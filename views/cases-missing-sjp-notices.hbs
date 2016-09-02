@@ -36,20 +36,17 @@
 
       <h3 class="heading-medium">Send notices to court</h3>
 
-      <p>Upload the SJP notices in a zip file.</p>
+      <p>Upload the <abbr title="Single Justice Procedure">SJP</abbr> notices in a zip file.</p>
 
       <div class="panel panel-border-wide">
         <p class="font-xsmall">If you only want to upload one document, you&rsquo;ll still need to put it in a zip file.</p>
       </div>
 
-      <form class="form" method="" action="">
+      <form class="form" method="post" action="">
 
         <div class="form-group">
-
-          <label class="button button-secondary">Upload
-            <input class="hidden" type="file">
-          </label>
-
+          <input class="form-control-file" type="file" id="notices" name="notices" accept=".zip">
+          <label class="button button-secondary" for="notices">Upload</label>
         </div>
 
         <button class="button" type="submit">Send to court</button>

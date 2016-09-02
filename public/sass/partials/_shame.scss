@@ -22,6 +22,7 @@
 
     + label {
       display: inline-block;
+      width: auto; // prevent GOV setting width to 100% for mobile
     }
 
     &:hover + label,
@@ -38,4 +39,17 @@
 
   }
 
+}
+
+
+// http://mattsnider.com/css-string-truncation-with-ellipsis
+
+.filename {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+
+  text-overflow: ellipsis;
+   -o-text-overflow: ellipsis; // opera 9 & 10
 }
