@@ -75,15 +75,6 @@ bind: function(app) {
         breadcrumb: true
       });
     });
-    app.all('/errors/data-files/technical-problems', function (req, res) {
-      res.render('errors/data-files/technical-problems',  {
-        doctitle: 'Send data files to court',
-        pagetitle: 'Send data files to court',
-        section: 'errors',
-        section_name: 'Errors',
-        breadcrumb: true
-      });
-    });
     // document errors
     app.all('/errors/documents/you-need-to-upload-a-file', function (req, res) {
       res.render('errors/documents/you-need-to-upload-a-file',  {
@@ -107,17 +98,6 @@ bind: function(app) {
     });
     app.all('/errors/documents/wrong-file-extension', function (req, res) {
       res.render('errors/documents/wrong-file-extension',  {
-        doctitle: 'Send documents to court',
-        pagetitle: 'Send documents to court',
-        section: 'case-tasks',
-        section_name: 'Case tasks',
-        section2: 'errors',
-        section2_name: 'Errors',
-        breadcrumb: true
-      });
-    });
-    app.all('/errors/documents/technical-problems', function (req, res) {
-      res.render('errors/documents/technical-problems',  {
         doctitle: 'Send documents to court',
         pagetitle: 'Send documents to court',
         section: 'case-tasks',
@@ -197,9 +177,7 @@ bind: function(app) {
 
     });
 
-
-    // Document uploads and reporting
-
+    // document uploads and reporting
     app.all('/check-document-uploads', function (req, res) {
       res.render('check-uploads/document/uploads', {
         doctitle: 'Check document uploads',
@@ -238,7 +216,6 @@ bind: function(app) {
     });
 
     // CSV uploads and reporting
-
     app.all('/check-csv-uploads', function (req, res) {
       res.render('check-uploads/csv/uploads', {
         doctitle: 'Check CSV uploads',
@@ -498,8 +475,18 @@ bind: function(app) {
 
     });
 
+    app.all('/errors/technical-problems', function (req, res) {
+
+      res.render('errors/technical-problems', {
+        doctitle: 'We’re having technical problems',
+        pagetitle: 'We&rsquo;re having technical problems',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        breadcrumb: true
+      });
+
+    });
 
   }
-
 
 };
