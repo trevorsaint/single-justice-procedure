@@ -2,18 +2,30 @@
 
   <h1 class="heading-xlarge">{{pagetitle}}</h1>
 
-  <form class="form">
+  <div class="grid-row">
 
-    <div class="form-group form-group-related">
-      <label class="form-label" for="case-number">Case number or defendant&rsquo;s last name</label>
-      <input class="form-control" id="case-number" type="text" value="Smith">
+    <div class="column-two-thirds">
+
+      <form class="form" method="post" action="">
+
+        <div class="form-group">
+
+          <div class="form-search">
+            <label class="form-label" for="search">Enter case number or defendant&rsquo;s last name</label>
+            <input class="form-control form-control-wide" type="search" id="search" name="search" value="Smith"><button class="form-search-button" type="submit">Search</button>
+          </div>
+
+          <div class="panel panel-border-wide">
+           <p>40 cases found</p>
+          </div>
+
+        </div>
+
+      </form>
+
     </div>
 
-    <button class="button" type="submit">Search</button>
-
-  </form>
-
-  <h3 class="heading-medium">40 cases found</h3>
+  </div>
 
   <table class="table table-font-xsmall">
     <caption class="visuallyhidden">Defendant cases</caption>
@@ -38,7 +50,7 @@
     {{/each}}
     </tbody>
   </table>
-  
+
   <div class="pagination">
 
     <div class="pagination-prev">

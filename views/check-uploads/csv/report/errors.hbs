@@ -8,12 +8,16 @@
 
         <h1 class="heading-xlarge">{{pagetitle}}</h1>
 
-        <dl class="description description-meta">
+        <dl class="description description-meta mb-xl">
           <dt>Name</dt>
           <dd>case-123456789</dd>
-          <dt>Uploaded on</dt>
+          <dt>Uploaded</dt>
           <dd><time datetime="2016-01-12">12 January 2016</time></dd>
+          <dt>Status</dt>
+          <dd><span class="text-error">Rejected</span></dd>
         </dl>
+
+        <p>You&rsquo;ll need to fix errors in one or both of your <abbr title="Comma Separated Values">CSV</abbr> files and try again.</p>
 
       </div>
 
@@ -41,19 +45,16 @@
 
       <h2 class="heading-medium">Header &ndash; fix 3 errors</h2>
 
-      <p>Make these changes in your header <abbr title="Comma Separated Values">CSV</abbr> file and <a href="/send-data-files">send both files again</a>.</p>
-
       <table class="table table-font-xsmall">
-        <caption class="visuallyhidden">Errors in header csv file</caption>
+        <caption class="visuallyhidden">Errors in header CSV file</caption>
         <thead>
           <tr>
-            <th scope="col">Row</th>
+            <th class="table-cell-narrow" scope="col">Row</th>
             <th scope="col">Reference number</th>
             <th scope="col">Column</th>
             <th scope="col">Error</th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
             <td>5</td>
@@ -74,20 +75,13 @@
             <td><span class="text-error">Information is incorrect &ndash; check and fix</span></td>
           </tr>
         </tbody>
-
       </table>
-
-      <div class="panel panel-border-wide text">
-        <p class="font-xsmall">67 other cases has no errors but you&rsquo;ll need to include them again when you resend your <abbr title="Comma Separated Values">CSV</abbr> file.</p>
-      </div>
 
     </section>
 
     <section>
 
       <h2 class="heading-medium">Offences &ndash; fix 1 error</h2>
-
-      <p>Make these changes in your offences <abbr title="Comma Separated Values">CSV</abbr> file and <a href="/send-data-files">send both files again</a>.</p>
 
       <table class="table table-font-xsmall">
         <caption class="visuallyhidden">Errors in offences CSV file</caption>
@@ -111,9 +105,22 @@
 
       </table>
 
-      <div class="panel panel-border-wide text">
-        <p class="font-xsmall">69 other cases has no errors but you&rsquo;ll need to include them again when you resend your <abbr title="Comma Separated Values">CSV</abbr> file.</p>
-      </div>
+    </section>
+
+    <section>
+
+      <h3 class="heading-medium">After you&rsquo;ve fixed all errors</h3>
+
+      <p class="text">You now need to upload both header and offences <abbr title="Comma Separated Values">CSV</abbr>s again.</p>
+
+      <p>The CSVs must include:</p>
+
+      <ul class="list list-bullet">
+        <li>your corrected data</li>
+        <li>all the remaining original data which didn&rsquo;t contain errors</li>
+      </ul>
+
+      <p><a class="button" href="#">Upload CSVs again</a></p>
 
     </section>
 

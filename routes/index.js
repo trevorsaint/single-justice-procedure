@@ -4,7 +4,7 @@ bind: function(app) {
 
     // locals
     app.locals = {
-      apptitle: 'Criminal Justice Service',
+      apptitle: 'Criminal Justice Services',
       baseurl: '/'
     }
 
@@ -24,8 +24,8 @@ bind: function(app) {
     // case tasks
     app.all('/case-tasks', function (req, res) {
       data = {
-        doctitle: 'Case tasks',
-        pagetitle: 'Case tasks',
+        doctitle: 'Single Justice Procedure',
+        pagetitle: 'Single Justice Procedure',
         section: 'case-tasks',
         section_name: 'Case tasks',
       }
@@ -111,8 +111,8 @@ bind: function(app) {
     // send data files
     app.all('/send-data-files', function (req, res) {
 
-      var doctitle = 'Send data files to court';
-      var pagetitle = 'Send data files to court';
+      var doctitle = 'Upload CSVs';
+      var pagetitle = 'Upload CSVs';
 
       var send         = req.body.send;
       var header       = req.body.header;
@@ -131,8 +131,8 @@ bind: function(app) {
       }
 
       res.render('send-data-files',  {
-        doctitle: 'Send data files to court',
-        pagetitle: 'Send data files to court',
+        doctitle: 'Upload CSVs',
+        pagetitle: 'Upload CSVs',
         breadcrumb: true,
         section: 'case-tasks',
         section_name: 'Case tasks',
@@ -146,8 +146,8 @@ bind: function(app) {
 
     app.all('/send-other-documents', function (req, res) {
 
-      var doctitle = 'Send documents to court';
-      var pagetitle = 'Send documents to court';
+      var doctitle = 'Upload SJP notices and other documents';
+      var pagetitle = 'Upload SJP notices and other documents';
 
       var send         = req.body.send;
       var documents    = req.body.documents;
@@ -165,8 +165,8 @@ bind: function(app) {
       }
 
       res.render('send-other-documents', {
-        doctitle: 'Send documents to court',
-        pagetitle: 'Send documents to court',
+        doctitle: 'Upload SJP notices and other documents',
+        pagetitle: 'Upload SJP notices and other documents',
         breadcrumb: true,
         section: 'case-tasks',
         section_name: 'Case tasks',

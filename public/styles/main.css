@@ -1981,7 +1981,7 @@ input[type=number] {
 }
 
 .table {
-  margin-bottom: 1.05263em;
+  margin-bottom: 2.10526em;
 }
 .table .last {
   padding-right: 0;
@@ -2316,20 +2316,6 @@ HTML Usage
   vertical-align: middle;
   width: 100%;
 }
-.summary-item-number {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 32px;
-  line-height: 1.09375;
-  font-weight: 700;
-  text-transform: none;
-  font-size-adjust: 0.525;
-}
-@media (min-width: 641px) {
-  .summary-item-number {
-    font-size: 48px;
-    line-height: 1.04167;
-  }
-}
 .summary-item-label {
   display: block;
 }
@@ -2534,8 +2520,8 @@ HTML Usage
   .description dt {
     box-sizing: border-box;
     float: left;
-    padding-right: 1.05263em;
     margin-bottom: 0.52632em;
+    padding-right: 1.05263em;
     width: 40%;
   }
   .description dd {
@@ -2738,6 +2724,87 @@ HTML Usage
 </div>
 
 */
+.form-search {
+  position: relative;
+}
+.form-search + .panel {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.form-search .form-control {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% - 32px);
+}
+@media (min-width: 641px) {
+  .form-search .form-control {
+    width: calc(50% - 37px);
+  }
+}
+@media (min-width: 641px) {
+  .form-search .form-control-wide {
+    width: calc(100% - 37px);
+  }
+}
+.form-search .form-control:focus {
+  position: relative;
+}
+.form-search-button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #005ea5;
+  background-image: url("../images/icon-search-white.png");
+  border: 2px solid #005ea5;
+  cursor: pointer;
+  display: inline-block;
+  height: 32px;
+  overflow: hidden;
+  padding: 4px;
+  text-indent: -9999px;
+  vertical-align: middle;
+  width: 32px;
+}
+.form-search-button:focus, .form-search-button:hover {
+  background-color: #004f8c;
+  border-color: #004f8c;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .form-search-button {
+    background-image: url("../images/icon-search-white-2x.png");
+    background-size: 100%;
+  }
+}
+@media (min-width: 641px) {
+  .form-search-button {
+    height: 37px;
+    width: 37px;
+  }
+}
+.form-search-button:focus {
+  position: relative;
+}
+
+.error .form-search-button {
+  border-width: 4px;
+  height: 41px;
+  width: 41px;
+}
+
+/*
+
+HTML Usage
+
+<div class="form-search">
+  <label class="form-label" for="search">Enter part or all of a user&rsquo;s name or email address</label>
+  <input class="form-control" type="search" id="search" name="search" value="BGV"><button class="form-search-button" type="submit">Search</button>
+  <p class="form-search-clear"><a href="#">Clear search</a></p>
+</div>
+
+*/
 .text-error {
   color: #b10e1e;
   font-weight: bold;
@@ -2748,6 +2815,27 @@ HTML Usage
 HTML Usage
    
 <span class="text-errors">Errors found</span>
+
+*/
+.divider {
+  background-color: #bfc1c3;
+  border: 0;
+  display: block;
+  height: 0.05263em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 0;
+}
+.divider-border-dark {
+  background-color: #0b0c0c;
+}
+.divider-border-thick {
+  height: 0.26316em;
+}
+
+/*
+
+HTML Usage
 
 */
 .example {
@@ -2791,6 +2879,104 @@ HTML Usage
 </div>
 
 */
+.mt-xs {
+  margin-top: 5px;
+}
+
+.mt-s {
+  margin-top: 10px;
+}
+@media (min-width: 641px) {
+  .mt-s {
+    margin-top: 10px;
+  }
+}
+
+.mt-m {
+  margin-top: 15px;
+}
+@media (min-width: 641px) {
+  .mt-m {
+    margin-top: 20px;
+  }
+}
+
+.mt-l {
+  margin-top: 20px;
+}
+@media (min-width: 641px) {
+  .mt-l {
+    margin-top: 30px;
+  }
+}
+
+.mt-xl {
+  margin-top: 30px;
+}
+@media (min-width: 641px) {
+  .mt-xl {
+    margin-top: 45px;
+  }
+}
+
+.mt-xxl {
+  margin-top: 45px;
+}
+@media (min-width: 641px) {
+  .mt-xxl {
+    margin-top: 60px;
+  }
+}
+
+.mb-xs {
+  margin-bottom: 5px;
+}
+
+.mb-s {
+  margin-bottom: 10px;
+}
+@media (min-width: 641px) {
+  .mb-s {
+    margin-bottom: 10px;
+  }
+}
+
+.mb-m {
+  margin-bottom: 15px;
+}
+@media (min-width: 641px) {
+  .mb-m {
+    margin-bottom: 20px;
+  }
+}
+
+.mb-l {
+  margin-bottom: 20px;
+}
+@media (min-width: 641px) {
+  .mb-l {
+    margin-bottom: 30px;
+  }
+}
+
+.mb-xl {
+  margin-bottom: 30px;
+}
+@media (min-width: 641px) {
+  .mb-xl {
+    margin-bottom: 45px;
+  }
+}
+
+.mb-xxl {
+  margin-bottom: 45px;
+}
+@media (min-width: 641px) {
+  .mb-xxl {
+    margin-bottom: 60px;
+  }
+}
+
 :focus {
   overflow: hidden;
 }

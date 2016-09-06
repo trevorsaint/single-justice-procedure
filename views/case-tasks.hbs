@@ -1,110 +1,81 @@
-  {{>breadcrumb}}
+{{>breadcrumb}}
 
-  <h1 class="heading-xlarge"><span class="heading-secondary">Transport for London</span> {{pagetitle}}</h1>
 
-  <section class="summary-item-container" aria-labelledby="case-tasks-update">
+<div class="grid-row">
 
-    <h2 class="visuallyhidden" id="case-tasks-update">Case tasks update</h2>
+  <div class="column-two-thirds">
 
-    <div class="grid-row">
+    <h1 class="heading-xlarge"><span class="heading-secondary">Transport for London</span> Single Justice Procedure</h1>
 
-      <div class="column-third">
+    <h2 class="heading-medium">Search for a case</h2>
 
-        <div class="summary-item">
-          <a href="/check-csv-uploads">
-            <span class="summary-item-number">24</span>
-            <span class="summary-item-label">CSV errors in last upload</span>
-          </a>
+    <form class="form" method="post" action="">
+
+      <div class="form-group">
+
+        <div class="form-search">
+          <label class="visuallyhidden" for="search">Enter case number or defendant&rsquo;s last name</label>
+          <input class="form-control form-control-wide" type="search" id="search" name="search" placeholder="Enter case number or defendant&rsquo;s last name"><button class="form-search-button" type="submit">Search</button>
         </div>
 
       </div>
 
-      <div class="column-third">
-
-        <div class="summary-item">
-          <a href="/check-document-uploads">
-            <span class="summary-item-number">3</span>
-            <span class="summary-item-label">document errors in last upload</span>
-          </a>
-        </div>
-
-      </div>
-
-      <div class="column-third">
-
-        <div class="summary-item">
-          <a href="/cases-missing-sjp-notices">
-            <span class="summary-item-number">5</span>
-            <span class="summary-item-label">cases missing SJP notices</span>
-          </a>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <div class="grid-row">
-
-    <section class="column-half" aria-labelledby="send-cases-to-court">
-
-      <h2 class="heading-medium" id="send-cases-to-court">Send cases to court</h2>
-
-      <ul class="list">
-
-        <li>
-          <a href="/send-data-files">Send data files</a>
-          <p class="font-xsmall">Header and offences <abbr title="Comma Separated Value">CSV</abbr>s</p>
-        </li>
-
-        <li>
-          <a href="/send-other-documents">Send other documents</a>
-          <p class="font-xsmall"><abbr title="Single Justice Procedure">SJP</abbr> notices, previous convictions and witness statements</p>
-        </li>
-
-        <li>
-          <a href="/check-csv-uploads">Check CSV uploads</a>
-          <p class="font-xsmall">Fix errors or see what&rsquo;s been sent to court</p>
-        </li>
-
-        <li>
-          <a href="/check-document-uploads">Check document uploads</a>
-          <p class="font-xsmall">Fix errors or see what&rsquo;s been sent to court</p>
-        </li>
-
-      </ul>
-
-    </section>
-
-    <section class="column-half" aria-labelledby="check-cases-or-results">
-
-      <h2 class="heading-medium" id="check-cases-or-results">Check cases or results</h2>
-
-      <ul class="list">
-
-        <li>
-          <a href="/search-for-a-case">Search</a>
-          <p class="font-xsmall">View a case or withdraw an offence</p>
-        </li>
-
-        <li>
-          <a href="/export-case-results-by-date">Export case results by date</a>
-          <p class="font-xsmall">Download results in a <abbr title="Comma Separated Value">CSV</abbr> file</p>
-        </li>
-
-        <li>
-          <a href="#">Cases pending withdrawal</a>
-          <p class="font-xsmall">View cases pending withdrawal by the court</p>
-        </li>
-
-        <li>
-          <a href="/errors">Errors</a>
-          <p class="font-xsmall">Demonstration purposes only</p>
-        </li>
-
-      </ul>
-
-    </section>
+    </form>
 
   </div>
+
+</div>
+
+<div class="grid-row">
+
+  <div class="column-two-thirds" >
+
+    <h2 class="heading-medium">Send data files to court</h2>
+
+    <ul class="list">
+      <li><p ><a href="/send-data-files">Upload header and offence CSVs</a></p></li>
+      <li><p ><a href="/check-csv-uploads">Check CSV uploads</a></p></li>
+    </ul>
+
+    <h2 class="heading-medium">Send SJP notices and other documents</h2>
+
+    <ul class="list">
+      <li><p><a href="/send-other-documents">Upload SJP notices, previous convictions and witness statements</a></p></li>
+      <li><p><a href="/check-document-uploads">Check document uploads</a></p></li>
+    </ul>
+
+    <h2 class="heading-medium">Other tasks</h2>
+
+    <ul class="list">
+      <li><p><a href="/search-for-a-case">Withdraw an offence</a></p></li>
+      <li><p><a href="/export-case-results-by-date">Export case results by date</a></p></li>
+    </ul>
+
+  </div>
+
+  <div class="column-third" aria-labelledby="other-tasks">
+
+    <div class="summary-item mt-xl">
+      <a href="/check-csv-uploads">
+        <span class="summary-item-number bold-xxlarge">4</span>
+        <span class="summary-item-label font-xsmall">CSV errors in last upload</span>
+      </a>
+    </div>
+
+    <div class="summary-item mt-m">
+      <a href="/check-document-uploads">
+        <span class="summary-item-number bold-xxlarge">3</span>
+        <span class="summary-item-label font-xsmall">document errors in last upload</span>
+      </a>
+    </div>
+
+    <div class="summary-item mt-m">
+      <a href="/cases-missing-sjp-notices">
+        <span class="summary-item-number bold-xxlarge">5</span>
+        <span class="summary-item-label font-xsmall">cases missing SJP notices</span>
+      </a>
+    </div>
+
+  </div>
+
+</div>
