@@ -1,39 +1,35 @@
   {{>breadcrumb}}
 
-  {{#if search.errortype1}}
+  <div class="grid-row">
 
-    <div class="grid-row">
+    <div class="column-two-thirds">
 
-      <div class="column-two-thirds">
+      <h1 class="heading-xlarge">{{pagetitle}}</h1>
 
-        <h1 class="heading-xlarge">{{pagetitle}}</h1>
+      <dl class="description description-meta mb-xl">
+        <dt>Name</dt>
+        <dd>case-123456789</dd>
+        <dt>Uploaded</dt>
+        <dd><time datetime="2016-01-12">12 January 2016</time></dd>
+        <dt>Status</dt>
+        <dd><span class="text-error">Rejected</span></dd>
+      </dl>
 
-        <dl class="description description-meta mb-xl">
-          <dt>Name</dt>
-          <dd>case-123456789</dd>
-          <dt>Uploaded</dt>
-          <dd><time datetime="2016-01-12">12 January 2016</time></dd>
-          <dt>Status</dt>
-          <dd><span class="text-error">Rejected</span></dd>
-        </dl>
+      <p>You&rsquo;ll need to fix errors in one or both of your <abbr title="Comma Separated Values">CSV</abbr> files and try again.</p>
 
-        <p>You&rsquo;ll need to fix errors in one or both of your <abbr title="Comma Separated Values">CSV</abbr> files and try again.</p>
+    </div>
 
-      </div>
+    <div class="column-third">
 
-      <div class="column-third">
+      <div class="related">
 
-        <div class="related">
+        <div class="related-section">
 
-          <div class="related-section">
+          <h3 class="related-heading">Related links</h3>
 
-            <h3 class="related-heading">Related links</h3>
-
-            <ul class="related-links">
-              <li><a href="/send-data-files">Send data files to court</a></li>
-            </ul>
-
-          </div>
+          <ul class="related-links">
+            <li><a href="/send-data-files">Send data files to court</a></li>
+          </ul>
 
         </div>
 
@@ -41,9 +37,13 @@
 
     </div>
 
-    <section>
+  </div>
 
-      <h2 class="heading-medium">Header &ndash; fix 3 errors</h2>
+  {{#if search.errortype1}}
+
+    <section aria-labelledby="header-errors">
+
+      <h2 class="heading-medium" id="header-errors">Header &ndash; fix 3 errors</h2>
 
       <table class="table table-font-xsmall">
         <caption class="visuallyhidden">Errors in header CSV file</caption>
@@ -79,9 +79,9 @@
 
     </section>
 
-    <section>
+    <section aria-labelledby="offence-errors">
 
-      <h2 class="heading-medium">Offences &ndash; fix 1 error</h2>
+      <h2 class="heading-medium" id="offence-errors">Offences &ndash; fix 1 error</h2>
 
       <table class="table table-font-xsmall">
         <caption class="visuallyhidden">Errors in offences CSV file</caption>
@@ -107,65 +107,11 @@
 
     </section>
 
-    <section>
-
-      <h3 class="heading-medium">After you&rsquo;ve fixed all errors</h3>
-
-      <p class="text">You now need to upload both header and offences <abbr title="Comma Separated Values">CSV</abbr>s again.</p>
-
-      <p>The CSVs must include:</p>
-
-      <ul class="list list-bullet">
-        <li>your corrected data</li>
-        <li>all the remaining original data which didn&rsquo;t contain errors</li>
-      </ul>
-
-      <p><a class="button" href="#">Upload CSVs again</a></p>
-
-    </section>
-
   {{else search.errortype2}}
 
-    <div class="grid-row">
+    <section aria-labelledby="header-errors">
 
-      <div class="column-two-thirds">
-
-        <h1 class="heading-xlarge">{{pagetitle}}</h1>
-
-        <dl class="description description-meta">
-          <dt>Name</dt>
-          <dd>case-123456789</dd>
-          <dt>Uploaded on</dt>
-          <dd><time datetime="2016-01-12">12 January 2016</time></dd>
-        </dl>
-
-      </div>
-
-      <div class="column-third">
-
-        <div class="related">
-
-          <div class="related-section">
-
-            <h3 class="related-heading">Related links</h3>
-
-            <ul class="related-links">
-              <li><a href="/send-data-files">Send data files to court</a></li>
-            </ul>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <section>
-
-      <h2 class="heading-medium">Header &ndash; case numbers don&rsquo;t match</h2>
-
-      <p class="text">There are cases in the header <abbr title="Comma Separated Values">CSV</abbr> that don&rsquo;t have a matching case in offences <abbr title="Comma Separated Values">CSV</abbr>. Add these missing cases to the offences <abbr title="Comma Separated Values">CSV</abbr> file or remove them from the header <abbr title="Comma Separated Values">CSV</abbr> file and <a href="/send-data-files">send both files again</a>.</p>
+      <h2 class="heading-medium" id="header-errors">Header &ndash; case numbers don&rsquo;t match</h2>
 
       <table class="table table-font-xsmall">
         <caption class="visuallyhidden">Errors in header csv file</caption>
@@ -177,7 +123,6 @@
             <th scope="col">Error</th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
             <td>5</td>
@@ -198,53 +143,15 @@
             <td><span class="text-error">No matching case in offences <abbr title="Comma Separated Values">CSV</abbr></span></td>
           </tr>
         </tbody>
-
       </table>
 
     </section>
 
   {{else if search.errortype3}}
 
-    <div class="grid-row">
+    <section aria-labelledby="offence-errors">
 
-      <div class="column-two-thirds">
-
-        <h1 class="heading-xlarge">{{pagetitle}}</h1>
-
-        <dl class="description description-meta">
-          <dt>Name</dt>
-          <dd>case-123456789</dd>
-          <dt>Uploaded on</dt>
-          <dd><time datetime="2016-01-12">12 January 2016</time></dd>
-        </dl>
-
-      </div>
-
-      <div class="column-third">
-
-        <div class="related">
-
-          <div class="related-section">
-
-            <h3 class="related-heading">Related links</h3>
-
-            <ul class="related-links">
-              <li><a href="/send-data-files">Send data files to court</a></li>
-            </ul>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <section>
-
-      <h2 class="heading-medium">Offences &ndash; case numbers don&rsquo;t match</h2>
-
-      <p class="text">There are cases in the offences <abbr title="Comma Separated Values">CSV</abbr> that don&rsquo;t have a matching case in the header <abbr title="Comma Separated Values">CSV</abbr>. Add these missing cases to the header <abbr title="Comma Separated Values">CSV</abbr> file or remove them from the offences <abbr title="Comma Separated Values">CSV</abbr> file and <a href="/send-data-files">send both files again</a>.</p>
+      <h2 class="heading-medium" id="offence-errors">Offences &ndash; case numbers don&rsquo;t match</h2>
 
       <table class="table table-font-xsmall">
         <caption class="visuallyhidden">Errors in offences CSV file</caption>
@@ -256,7 +163,6 @@
             <th scope="col">Error</th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
             <td>5</td>
@@ -277,9 +183,25 @@
             <td><span class="text-error">No matching case in offences <abbr title="Comma Separated Values">CSV</abbr></span></td>
           </tr>
         </tbody>
-
       </table>
 
     </section>
 
   {{/if}}
+
+  <section aria-labelledby="after-fixed">
+
+    <h3 class="heading-medium" id="after-fixed">After you&rsquo;ve fixed all errors</h3>
+
+    <p class="text">You now need to upload both header and offences <abbr title="Comma Separated Values">CSV</abbr>s again.</p>
+
+    <p>The <abbr title="Comma Separated Values">CSV</abbr>s must include:</p>
+
+    <ul class="list list-bullet">
+      <li>your corrected data</li>
+      <li>all the remaining original data which didn&rsquo;t contain errors</li>
+    </ul>
+
+    <p><a class="button" href="#">Upload CSVs again</a></p>
+
+  </section>

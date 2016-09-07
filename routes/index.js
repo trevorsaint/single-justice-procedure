@@ -314,6 +314,19 @@ bind: function(app) {
 
     });
 
+    app.all('/withdraw-an-offence', function (req, res) {
+
+      res.render('withdraw-an-offence', {
+        doctitle: 'Withdraw an offence',
+        pagetitle: 'Withdraw an offence',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        searches:dataEngine.getSearchEntries()
+      });
+
+    });
+
     app.all('/case-details-cancel-withdraw/:id', function (req, res) {
 
       var entry = dataEngine.getSearchEntry(req.params.id);

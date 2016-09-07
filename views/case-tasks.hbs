@@ -9,13 +9,18 @@
 
     <h2 class="heading-medium">Search for a case</h2>
 
-    <form class="form" method="post" action="">
+    <form class="form" method="post" action="/search-for-a-case">
 
       <div class="form-group">
 
         <div class="form-search">
-          <label class="visuallyhidden" for="search">Enter case number or defendant&rsquo;s last name</label>
-          <input class="form-control form-control-wide" type="search" id="search" name="search" placeholder="Enter case number or defendant&rsquo;s last name"><button class="form-search-button" type="submit">Search</button>
+
+          <label for="search">
+            <span class="form-label">Enter reference number or defendant&rsquo;s last name</span>
+          </label>
+
+          <input class="form-control form-control-wide" type="search" id="search" name="search"><button class="form-search-button" type="submit">Search</button>
+
         </div>
 
       </div>
@@ -47,7 +52,7 @@
     <h2 class="heading-medium">Other tasks</h2>
 
     <ul class="list">
-      <li><p><a href="/search-for-a-case">Withdraw an offence</a></p></li>
+      <li><p><a href="/withdraw-an-offence">Withdraw an offence</a></p></li>
       <li><p><a href="/export-case-results-by-date">Export case results by date</a></p></li>
     </ul>
 
