@@ -4,7 +4,7 @@ bind: function(app) {
 
     // locals
     app.locals = {
-      apptitle: 'Criminal Justice Services',
+      apptitle: 'Prosecute SJP cases',
       baseurl: '/'
     }
 
