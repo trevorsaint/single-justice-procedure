@@ -1983,9 +1983,16 @@ input[type=number] {
 .table {
   margin-bottom: 2.10526em;
 }
-.table .last {
-  padding-right: 0;
-  text-align: right;
+@media (min-width: 641px) {
+  .table-error-log .table-cell-row {
+    width: 2.5em;
+  }
+  .table-error-log .table-cell-reference {
+    width: 9.375em;
+  }
+  .table-error-log .table-cell-column {
+    width: 6.25em;
+  }
 }
 
 .form-currency {

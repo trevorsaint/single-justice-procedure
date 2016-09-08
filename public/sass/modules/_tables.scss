@@ -6,9 +6,25 @@ $module: 'table';
 .#{$module} {
   margin-bottom: em(40);
 
-  .last {
-    padding-right: 0;
-    text-align: right;
+  // error log table
+  &-error-log {
+
+    @include media(tablet) {
+
+      .#{$module}-cell-row {
+        width: em(40,16);
+      }
+
+      .#{$module}-cell-reference {
+        width: em(150,16);
+      }
+
+      .#{$module}-cell-column {
+        width: em(100,16);
+      }
+
+    }
+
   }
 
 }
