@@ -1908,6 +1908,23 @@ input[type=number] {
     display: revert;
   }
 }
+.document-small:before, .document-small:after {
+  content: '';
+  display: table;
+}
+.document-small:after {
+  clear: both;
+}
+
+/*
+
+CSS Usage
+
+.element {
+  @extend %clearfix;
+}
+
+*/
 .button-secondary {
   background-color: #dee0e2;
   position: relative;
@@ -2355,14 +2372,36 @@ OR
 </div>
 
 */
-.file-download .icon {
+.document .icon {
   float: left;
-  margin-right: 10px;
+  margin-right: 0.52632em;
 }
-.file-download-content {
+.document-thumbnail {
+  background-image: url("/public/images/document-thumbnail.png");
+  border: 1px solid #bfc1c3;
+  float: left;
+  height: 140px;
+  margin-right: 0.78947em;
+  width: 99px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .document-thumbnail {
+    background-image: url("/public/images/document-thumbnail-2x.png");
+    background-size: 100%;
+  }
+}
+.document-thumbnail img {
+  max-width: 100%;
+  width: auto;
+}
+.document-title {
+  margin-top: 0;
+  margin-bottom: 0.52632em;
+}
+.document-content {
   overflow: hidden;
 }
-.file-download-meta {
+.document-meta {
   font-family: "nta", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.14286;
@@ -2372,26 +2411,54 @@ OR
   display: block;
 }
 @media (min-width: 641px) {
-  .file-download-meta {
+  .document-meta {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.document-meta-taken {
+  display: block;
+  margin-bottom: 0.3125em;
+}
+.document-meta-details {
+  display: block;
+}
+.document-small .document-title {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.14286;
+  font-weight: 400;
+  text-transform: none;
+  font-size-adjust: 0.5;
+  margin-bottom: 0.3125em;
+}
+@media (min-width: 641px) {
+  .document-small .document-title {
     font-size: 16px;
     line-height: 1.25;
   }
 }
 
 /*
-  
-HTML Usage
-  
-<li class="file-download">
 
-  <i class="icon icon-file-download"></i>
-  
-  <div class="file-download-content">
-    <a href="#">SJP notice</a> 
-    <span class="file-download-meta"><abbr title="Portable Document Format">PDF</abbr>, 156KB</span>
+HTML Usage
+
+<div class="document">
+
+  <div class="document-thumbnail"></div>
+
+  <div class="document-content">
+
+    <p class="document-title"><a href="#">Statement 1 from Linda THOMAS</a></p>
+
+    <div class="document-meta">
+      <span class="document-meta-taken">Taken: <time datetime="2016-04-13">13 April 2016</time></span>
+      <span class="document-meta-details"><abbr title="Portable Document Format">PDF</abbr>, 715kb, 18 pages</span>
+    </div>
+
   </div>
-  
-</li>
+
+</div>
 
 */
 .notification {
@@ -2517,25 +2584,45 @@ HTML Usage
 <i class="icon icon-errors" role="presentation" aria-hidden="true"></i>
 
 */
-.description dt {
-  font-weight: bold;
+.meta {
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
-.description dd {
-  margin-bottom: 0.52632em;
+.meta dt {
+  font-weight: 700;
+  width: auto;
 }
 @media (min-width: 641px) {
-  .description dt {
-    box-sizing: border-box;
+  .meta dt {
     float: left;
-    margin-bottom: 0.52632em;
-    padding-right: 1.05263em;
-    width: 40%;
   }
-  .description dd {
+  .meta dd {
     overflow: hidden;
   }
 }
-.description-meta {
+.meta-large dt {
+  margin-bottom: 0.26316em;
+}
+.meta-large dd {
+  margin-bottom: 1.05263em;
+}
+.meta-large dd .document {
+  margin-top: 10px;
+}
+@media (min-width: 641px) {
+  .meta-large dt {
+    margin-bottom: 1.05263em;
+    min-width: 160px;
+    padding-right: 0.52632em;
+  }
+  .meta-large dd {
+    margin-bottom: 1.05263em;
+  }
+  .meta-large dd .document:first-child {
+    margin-top: 0;
+  }
+}
+.meta-small {
   font-family: "nta", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.14286;
@@ -2544,39 +2631,50 @@ HTML Usage
   font-size-adjust: 0.5;
 }
 @media (min-width: 641px) {
-  .description-meta {
+  .meta-small {
     font-size: 16px;
     line-height: 1.25;
   }
 }
-.description-meta dt {
-  font-weight: normal;
-  float: left;
-  margin-bottom: 0.3125em;
-  min-width: 120px;
-  padding-right: 10px;
-  width: auto;
+.meta-small dd {
+  margin-bottom: 0.625em;
 }
-.description-meta dt:after {
-  content: ':';
-}
-.description-meta dd {
-  margin-bottom: 0.3125em;
-  overflow: hidden;
+@media (min-width: 641px) {
+  .meta-small dt {
+    margin-bottom: 0.625em;
+    min-width: 10em;
+    padding-right: 0.625em;
+  }
 }
 
 /*
 
 HTML Usage
 
-<dl class="description">
-  <dt>Heading</dt>
-  <dd>Content</dd>
+<dl class="meta meta-small">
+  <dt>Age</dt>
+  <dd>21</dd>
+  <dt>Date of birth</dt>
+  <dd><time datetime="1985-06-08">8 June 1985</time></dd>
+  <dt>Nationality</dt>
+  <dd>British <br> Self&ndash;defined as White British</dd>
+  <dt>Address</dt>
+  <dd>14 Tottenham Court Road, Fitzrovia, <br> London W1T 1JY</dd>
+  <dt>Email</dt>
+  <dd>peter.james@gmail.com</dd>
+  <dt>National Insurance</dt>
+  <dd>PC 12 34 56 78</dd>
 </dl>
 
-<dl class="description description-meta">
-  <dt>Heading</dt>
-  <dd>Content</dd>
+OR
+
+<dl class="meta meta-large">
+  <dt>Case status</dt>
+  <dd>Awaiting plea</dd>
+  <dt>Prosecutor</dt>
+  <dd>Transport for London</dd>
+  <dt>Notice served</dt>
+  <dd><time datetime="2016-02-02">2 February 2016</time></dd>
 </dl>
 
 */

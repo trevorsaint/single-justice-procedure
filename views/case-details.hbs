@@ -11,45 +11,39 @@
 
       <h1 class="heading-large">{{search.firstname}} {{search.lastname}} </h1>
 
-      <div class="block block-mb-md block-mt-md">
-
-        <div class="personal-details">
-          <div>{{search.age}} years old</div>
-          <div>Born {{search.date-of-birth-long}}</div>
-          <div>{{search.address.address1}}, {{search.address.town}} {{search.address.postcode}}</div>
-          <div>{{search.phone}}</div>
-          {{#if search.email}}<a href="mailto:">{{search.email}}</a>{{/if}}
-          {{#if search.national-insurance-number}}<div>NI number: {{search.national-insurance-number}}</div>{{/if}}
-        </div>
-
+      <div class="personal-details mb-l">
+        <div>{{search.age}} years old</div>
+        <div>Born {{search.date-of-birth-long}}</div>
+        <div>{{search.address.address1}}, {{search.address.town}} {{search.address.postcode}}</div>
+        <div>{{search.phone}}</div>
+        {{#if search.email}}<a href="mailto:">{{search.email}}</a>{{/if}}
+        {{#if search.national-insurance-number}}<div>NI number: {{search.national-insurance-number}}</div>{{/if}}
       </div>
 
-      <div class="block">
-
-        <dl class="description">
-          <dt>Case status</dt>
-          <dd>{{{search.case-details.status}}}</dd>
-          <dt>Prosecutor</dt>
-          <dd>{{search.case-details.prosecutor}}</dd>
-          <dt>Notice served</dt>
-          <dd><time datetime="{{search.case-details.notice-served-datetime}}">{{search.case-details.notice-served}}</time></dd>
-          <dt>Documents</dt>
-          <dd>
-            <ul>
-              {{#each search.related-documents.document}}
-              <li class="file file-inline">
-                <i class="icon icon-file-download"></i>
-                <div class="file-details">
-                  <a href="{{file-path}}">{{title}}</a>
-                  <span class="file-meta">{{file-type}}, {{file-size}}, {{file-pages}}</span>
-                </div>
-              </li>
-              {{/each}}
-            </ul>
-          </dd>
-        </dl>
-
-      </div>
+      <dl class="meta meta-large">
+        <dt>Case status</dt>
+        <dd>{{{search.case-details.status}}}</dd>
+        <dt>Prosecutor</dt>
+        <dd>{{search.case-details.prosecutor}}</dd>
+        <dt>Notice served</dt>
+        <dd><time datetime="{{search.case-details.notice-served-datetime}}">{{search.case-details.notice-served}}</time></dd>
+        <dt>Documents</dt>
+        <dd>
+          {{#each search.related-documents.document}}
+          <div class="document document-small">
+            <i class="icon icon-file-download"></i>
+            <div class="document-content">
+              <p class="document-title"><a href="#">{{title}}</a></p>
+              <div class="document-meta">
+                <span class="document-meta-details">
+                  {{file-type}}, {{file-size}}, {{file-pages}}
+                </span>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </dd>
+      </dl>
 
     </div>
 
