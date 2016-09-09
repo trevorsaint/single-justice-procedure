@@ -48,7 +48,7 @@ var search = [
           "ISO-8601": "2016-05-09",
           "filename": "case-123456789",
           "filetype": "CSV",
-          "status":   '<span class="text-error">Errors found</span>',
+          "status":   '<span class="text-error">Rejected &ndash; errors found</span>',
           "url":      "/check-csv-uploads/report/errors/1"
         },
         {
@@ -168,7 +168,7 @@ var search = [
           "ISO-8601": "2016-05-10",
           "filename": "case-123456789",
           "filetype": "CSV",
-          "status":   '<span class="text-error">Errors found</span>',
+          "status":   '<span class="text-error">Rejected &ndash; errors found</span>',
           "url":      "/check-csv-uploads/report/errors/2"
         },
         {
@@ -272,7 +272,7 @@ var search = [
           "ISO-8601": "2016-05-09",
           "filename": "case-123456789",
           "filetype": "Zip",
-          "status":   '<span class="text-error">Errors found</span>',
+          "status":   '<span class="text-error">Rejected &ndash; errors found</span>',
           "url":      "/check-document-uploads/report/errors/3"
         }
       ]
@@ -453,7 +453,7 @@ var search = [
           "ISO-8601": "2016-05-08",
           "filename": "case-123456789",
           "filetype": "CSV",
-          "status": '<span class="text-error">Errors found</span>',
+          "status": '<span class="text-error">Rejected &ndash; errors found</span>',
           "url": "/check-csv-uploads/report/errors/5"
         }
       ]
