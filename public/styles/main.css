@@ -1908,11 +1908,11 @@ input[type=number] {
     display: revert;
   }
 }
-.document-small:before, .document-small:after {
+.pagination:before, .document-small:before, .pagination:after, .document-small:after {
   content: '';
   display: table;
 }
-.document-small:after {
+.pagination:after, .document-small:after {
   clear: both;
 }
 
@@ -2136,7 +2136,6 @@ HTML Usage
 */
 .pagination {
   position: relative;
-  min-height: 37px;
   width: 100%;
 }
 .pagination-numbers {
@@ -2152,6 +2151,7 @@ HTML Usage
   }
   .pagination-numbers li {
     display: inline-block;
+    vertical-align: middle;
   }
   .pagination-numbers a {
     display: block;
@@ -2230,25 +2230,25 @@ HTML Usage
 }
 
 /*
-  
+
 HTML Usage
-  
+
 <ul class="pagination">
-        
+
   <li class="pagination-prev">
     <a href="#" rel="prev" title="Navigate to previous part">
       <span class="pagination-label">Previous</span>
       <span class="pagination-title">Overview</span>
     </a>
   </li>
-  
+
   <li class="pagination-next">
     <a href="#" rel="next" title="Navigate to next part">
       <span class="pagination-label">Next</span>
       <span class="pagination-title">Give away business property or assets</span>
     </a>
   </li>
-  
+
 </ul>
 
 */
