@@ -8,7 +8,8 @@
     <caption class="visuallyhidden">Document file uploads</caption>
     <thead>
       <tr>
-        <th scope="col">Uploaded</th>
+        <th scope="col">Date uploaded</th>
+        <th scope="col">At</th>
         <th scope="col">File name</th>
         <th scope="col" colspan="2">Status</th>
       </tr>
@@ -19,6 +20,7 @@
           {{#if document}}
             <tr>
               <td>{{uploaded}}</td>
+              <td>{{time}}</td>
               <td>{{filename}}</td>
               <td>{{{status}}}</td>
               <td>{{#if url}}<a href="{{url}}">View report</a>{{else}}&ndash;{{/if}}</td>
