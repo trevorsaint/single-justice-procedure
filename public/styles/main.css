@@ -2584,10 +2584,6 @@ HTML Usage
 <i class="icon icon-errors" role="presentation" aria-hidden="true"></i>
 
 */
-.meta {
-  margin-top: 5px;
-  margin-bottom: 20px;
-}
 .meta dt {
   font-weight: 700;
   width: auto;
@@ -2612,8 +2608,8 @@ HTML Usage
 @media (min-width: 641px) {
   .meta-large dt {
     margin-bottom: 1.05263em;
-    min-width: 160px;
     padding-right: 0.52632em;
+    width: 40%;
   }
   .meta-large dd {
     margin-bottom: 1.05263em;
@@ -2642,8 +2638,8 @@ HTML Usage
 @media (min-width: 641px) {
   .meta-small dt {
     margin-bottom: 0.625em;
-    min-width: 10em;
     padding-right: 0.625em;
+    width: 40%;
   }
 }
 

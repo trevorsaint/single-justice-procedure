@@ -5,10 +5,6 @@ $module: 'meta';
 
 .#{$module} {
 
-  // match paragraph spacing
-  margin-top: 5px;
-  margin-bottom: 20px;
-
   // shared
   dt {
     font-weight: 700;
@@ -48,8 +44,8 @@ $module: 'meta';
 
       dt {
         margin-bottom: em(20);
-        min-width: 160px;
         padding-right: em(10);
+        width: 40%;
       }
 
       dd {
@@ -82,8 +78,8 @@ $module: 'meta';
 
       dt {
         margin-bottom: em(10,16);
-        min-width: em(160,16);
         padding-right: em(10,16);
+        width: 40%;
       }
 
     }
