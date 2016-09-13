@@ -11,6 +11,10 @@ bind: function(app) {
     // datastore
     var dataEngine = require('../models/data');
 
+
+    // TfL prosecutor screens
+    // ======================
+
     // routing
     app.all('/', function (req, res) {
       data = {
@@ -499,6 +503,23 @@ bind: function(app) {
       });
 
     });
+
+
+    // TfL legal advisor screens
+    // =========================
+
+    app.all('/check-offence-decisions', function (req, res) {
+
+      res.render('check-offence-decisions', {
+        doctitle: 'Check offence decisions',
+        pagetitle: 'Check offence decisions',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks'
+      });
+
+    });
+
 
   }
 
