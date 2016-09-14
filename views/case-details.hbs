@@ -9,7 +9,7 @@
 
     <div class="column-two-thirds">
 
-      <h1 class="heading-large">{{search.firstname}} {{search.lastname}} </h1>
+      <h1 class="heading-large">{{search.firstname}} {{search.lastname}}</h1>
 
       <div class="personal-details mb-l">
         <div>{{search.age}} years old</div>
@@ -114,37 +114,161 @@
             {{#if mitigation}}<p class="font-xsmall"><strong class="bold-xsmall">Mitigation</strong> <br> {{{mitigation}}}</p>{{/if}}
           </div>
 
-          {{#if ../search.decision-made}}<table class="table table-font-xsmall">
-            <thead>
-              <tr>
-                <th colspan="2">Court decisions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Verdict</td>
-                <td>Guilty plea accepted</td>
-              </tr>
-              <tr>
-                <td>Fine</td>
-                <td>&pound;100</td>
-              </tr>
-              <tr>
-                <td>Compensation</td>
-                <td>&pound;3.50</td>
-              </tr>
-              <tr>
-                <td>Guilty plea taken into account?</td>
-                <td>Yes</td>
-              </tr>
-            </tbody>
-          </table>{{/if}}
+          {{#if ../search.decision-made1}}
+
+            <h3 class="heading-small">Court decisions</h3>
+
+            <table class="table table-font-xsmall">
+
+              <tbody>
+
+                <tr>
+                  <td>Verdict</td>
+                  <td>Guilty plea accepted</td>
+                </tr>
+
+                <tr>
+                  <td>Fine</td>
+                  <td>&pound;100</td>
+                </tr>
+
+                <tr>
+                  <td>Compensation</td>
+                  <td>&pound;3.50</td>
+                </tr>
+
+                <tr>
+                  <td>Costs</td>
+                  <td>&pound;30</td>
+                </tr>
+
+                <tr>
+                  <td>Victim surcharge</td>
+                  <td>&pound;10</td>
+                </tr>
+
+                <tr>
+                  <td>Guilty plea taken into account?</td>
+                  <td>Yes</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          {{/if}}
+
+          {{#if ../search.decision-made2}}
+
+            <h3 class="heading-small">Court decisions</h3>
+
+            <table class="table table-font-xsmall">
+
+              <tbody>
+
+                <tr>
+                  <td>Verdict</td>
+                  <td>Guilty plea accepted</td>
+                </tr>
+
+                <tr>
+                  <td>Fine</td>
+                  <td>&pound;100</td>
+                </tr>
+
+                <tr>
+                  <td rowspan="2" valign="top">Compensation</td>
+                  <td>&pound;0</td>
+                </tr>
+
+                <tr>
+                  <td>Reason for no compensation: <br> Limited means of the defendant</td>
+                </tr>
+
+                <tr>
+                  <td rowspan="2" valign="top">Costs</td>
+                  <td>&pound;0</td>
+                </tr>
+
+                <tr>
+                  <td>Reason for no costs: <br> Limited means of the defendant</td>
+                </tr>
+
+                <tr>
+                  <td rowspan="2" valign="top">Victim surcharge (reduced)</td>
+                  <td>&pound;0</td>
+                </tr>
+
+                <tr>
+                  <td>Reason for reduction: <br> Limited means of the defendant</td>
+                </tr>
+
+                <tr>
+                  <td>Guilty plea taken into account</td>
+                  <td>Yes</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          {{/if}}
+
+          {{#if ../search.decision-made3}}
+
+            <h3 class="heading-small">Court decisions</h3>
+
+            <table class="table table-font-xsmall">
+
+              <tbody>
+
+                <tr>
+                  <td>Verdict</td>
+                  <td>Guilty plea accepted</td>
+                </tr>
+
+                <tr>
+                  <td>Fine</td>
+                  <td>&pound;100</td>
+                </tr>
+
+                <tr>
+                  <td>Compensation</td>
+                  <td>&pound;0</td>
+                </tr>
+
+                <tr>
+                  <td>Limited means of defendant</td>
+                </tr>
+
+                <tr>
+                  <td>Costs</td>
+                  <td>&pound;0</td>
+                </tr>
+
+                <tr>
+                  <td>Victim surcharge</td>
+                  <td>&pound;0</td>
+                </tr>
+
+                <tr>
+                  <td>Guilty plea taken into account?</td>
+                  <td>Yes</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          {{/if}}
 
         </section>
 
       </div>
 
-      {{#if ../search.decision-ready}}<div class="column-third">
+      {{#if ../search.decision-ready}}
+
+      <div class="column-third">
 
         <aside>
 
@@ -196,7 +320,9 @@
 
         </aside>
 
-      </div>{{/if}}
+      </div>
+
+      {{/if}}
 
     </div>
     {{/each}}

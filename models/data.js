@@ -103,7 +103,7 @@ var search = [
         }
       ]
     },
-    "decision-made": false,
+    "decision-made1": true,
     "decision-ready": false,
     "withdraw": true,
     "errortype1": true,
@@ -148,14 +148,12 @@ var search = [
     "email": "tegan.smith@gmail.com",
     "phone": "078 2400 2563",
     "national-insurance-number": "ZK 89 01 41 A",
-
     "notice-served": "18 Sep 2015",
     "hearing": "18 Nov 2015",
     "verdict": "Guilty",
     "decision": "Adjourned",
     "cost": "",
     "compensation": "",
-
     "case-details": {
       "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
       "prosecutor": "Transport for London",
@@ -164,7 +162,6 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-
     "files": {
       "file": [
         {
@@ -189,7 +186,6 @@ var search = [
         }
       ]
     },
-
     "related-documents": {
       "document": [
         {
@@ -215,12 +211,10 @@ var search = [
         }
       ]
     },
-
-    "decision-made": false,
+    "decision-made2": true,
     "decision-ready": false,
     "withdraw": true,
     "errortype2": true,
-
     "offences": {
       "offence": [
         {
@@ -234,7 +228,6 @@ var search = [
         }
       ]
     }
-
   },
 
   {
@@ -679,7 +672,7 @@ var search = [
       ]
     },
 
-    "decision-made": false,
+    "decision-made": true,
     "decision-ready": false,
     "missing-sjp": true,
 
