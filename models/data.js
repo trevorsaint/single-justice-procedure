@@ -24,7 +24,7 @@ var search = [
     "cost": "230",
     "compensation": "3.40",
     "case-details": {
-      "status": "Awaiting plea",
+      "status": "Completed &ndash; decision sent to defendant",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
@@ -116,7 +116,7 @@ var search = [
           "datetime": "2016-02-01",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
           "mitigation": "",
-          "plea": "Awaiting plea"
+          "plea": "Pleaded Guilty"
         }
       ]
     },
@@ -155,7 +155,7 @@ var search = [
     "cost": "",
     "compensation": "",
     "case-details": {
-      "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
+      "status": 'Completed &ndash; decision sent to defendant',
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
