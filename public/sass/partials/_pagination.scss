@@ -5,6 +5,7 @@ $module: 'pagination';
 
 .#{$module} {
   @extend %clearfix;
+  margin-top: em(20);
   position: relative;
   width: 100%;
 

@@ -96,14 +96,14 @@
     <h2 class="bold-large" id="offences">Offence</h2>
 
     {{#each search.offences.offence}}
+    <section>
+
     <div class="grid-row">
 
       <div class="column-two-thirds">
 
-        <section>
-
           <header>
-            <h3 class="heading-small">{{{title}}}</h3>
+            <h3 class="heading-medium">{{{title}}}</h3>
             <p class="font-xsmall">On <time datetime="{{datetime}}">{{date}}</time></p>
           </header>
 
@@ -116,148 +116,111 @@
 
           {{#if ../search.decision-made1}}
 
-            <h3 class="heading-small">Court decision</h3>
+          <h3 class="heading-small">Court decision</h3>
 
-            <table class="table table-font-xsmall">
-
-              <tbody>
-
-                <tr>
-                  <td>Verdict</td>
-                  <td>Guilty plea accepted</td>
-                </tr>
-
-                <tr>
-                  <td>Fine</td>
-                  <td>&pound;100</td>
-                </tr>
-
-                <tr>
-                  <td>Compensation</td>
-                  <td>&pound;3.50</td>
-                </tr>
-
-                <tr>
-                  <td>Costs</td>
-                  <td>&pound;30</td>
-                </tr>
-
-                <tr>
-                  <td>Victim surcharge</td>
-                  <td>&pound;10</td>
-                </tr>
-
-                <tr>
-                  <td>Guilty plea taken into account?</td>
-                  <td>Yes</td>
-                </tr>
-
-              </tbody>
-
-            </table>
+          <table class="table table-summary table-font-xsmall">
+            <tbody>
+              <tr>
+                <td>Verdict</td>
+                <td>Guilty plea accepted</td>
+              </tr>
+              <tr>
+                <td>Fine</td>
+                <td>&pound;100</td>
+              </tr>
+              <tr>
+                <td>Compensation</td>
+                <td>&pound;3.50</td>
+              </tr>
+              <tr>
+                <td>Costs</td>
+                <td>&pound;30</td>
+              </tr>
+              <tr>
+                <td>Victim surcharge</td>
+                <td>&pound;10</td>
+              </tr>
+              <tr>
+                <td>Guilty plea taken into account?</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
 
           {{/if}}
 
           {{#if ../search.decision-made2}}
-
-            <h3 class="heading-small">Court decision</h3>
-
-            <table class="table table-font-xsmall">
-
-              <tbody>
-
-                <tr>
-                  <td>Verdict</td>
-                  <td>Guilty plea accepted</td>
-                </tr>
-
-                <tr>
-                  <td>Fine</td>
-                  <td>&pound;100</td>
-                </tr>
-
-                <tr>
-                  <td rowspan="2" valign="top">Compensation</td>
-                  <td>&pound;0</td>
-                </tr>
-
-                <tr>
-                  <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                </tr>
-
-                <tr>
-                  <td rowspan="2" valign="top">Costs</td>
-                  <td>&pound;0</td>
-                </tr>
-
-                <tr>
-                  <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                </tr>
-
-                <tr>
-                  <td rowspan="2" valign="top">Victim surcharge (reduced)</td>
-                  <td>&pound;0</td>
-                </tr>
-
-                <tr>
-                  <td>Reason for reduction <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                </tr>
-
-                <tr>
-                  <td>Guilty plea taken into account</td>
-                  <td>Yes</td>
-                </tr>
-
-              </tbody>
-
-            </table>
-
+          <h3 class="heading-small">Court decision</h3>
+          <table class="table table-font-xsmall">
+            <tbody>
+              <tr>
+                <td>Verdict</td>
+                <td>Guilty plea accepted</td>
+              </tr>
+              <tr>
+                <td>Fine</td>
+                <td>&pound;100</td>
+              </tr>
+              <tr>
+                <td rowspan="2" valign="top">Compensation</td>
+                <td>&pound;0</td>
+              </tr>
+              <tr>
+                <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+              </tr>
+              <tr>
+                <td rowspan="2" valign="top">Costs</td>
+                <td>&pound;0</td>
+              </tr>
+              <tr>
+                <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
+              </tr>
+              <tr>
+                <td rowspan="2" valign="top">Victim surcharge (reduced)</td>
+                <td>&pound;0</td>
+              </tr>
+              <tr>
+                <td>Reason for reduction <br> <span class="text-secondary">Limited means of the defendant</span></td>
+              </tr>
+              <tr>
+                <td>Guilty plea taken into account</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
           {{/if}}
 
           {{#if ../search.decision-made3}}
-
-            <h3 class="heading-small">Court decision</h3>
-
-            <table class="table table-font-xsmall">
-
-              <tbody>
-
-                <tr>
-                  <td>Verdict</td>
-                  <td>Guilty plea accepted</td>
-                </tr>
-
-                <tr>
-                  <td>Conditional discharge</td>
-                  <td>6 months</td>
-                </tr>
-
-                <tr>
-                  <td rowspan="2" valign="top">Compensation</td>
-                  <td>&pound;0</td>
-                </tr>
-
-                <tr>
-                  <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                </tr>
-
-              </tbody>
-
-            </table>
-
+          <h3 class="heading-small">Court decision</h3>
+          <table class="table table-font-xsmall">
+            <tbody>
+              <tr>
+                <td>Verdict</td>
+                <td>Guilty plea accepted</td>
+              </tr>
+              <tr>
+                <td>Conditional discharge</td>
+                <td>6 months</td>
+              </tr>
+              <tr>
+                <td rowspan="2" valign="top">Compensation</td>
+                <td>&pound;0</td>
+              </tr>
+              <tr>
+                <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+              </tr>
+            </tbody>
+          </table>
           {{/if}}
 
-        </section>
-
-      </div>
+        </div>
 
       {{#if ../search.decision-ready}}
-
       <div class="column-third">
 
         <aside>
 
-          <h3 class="heading-small">Make a decision</h3>
+          <h3 class="heading-medium">Make a decision</h3>
 
           <form class="form">
 
@@ -306,11 +269,62 @@
         </aside>
 
       </div>
-
       {{/if}}
 
-    </div>
+      </div>
+
+    </section>
     {{/each}}
+
+
+    <!-- collection and payment terms -->
+    <!--div class="grid-row">
+
+      <div class="column-two-thirds">
+
+        <section>
+
+          <h3 class="heading-medium">Collection and payment terms</h3>
+
+          <table class="table table-summary table-font-xsmall">
+            <tbody>
+              <tr>
+                <td valign="top">Collection order made</td>
+                <td>Yes <br> <span class="text-secondary">Notice sent to defendant 1 January 2018</span></td>
+              </tr>
+              <tr>
+                <td>Total to pay</td>
+                <td>&pound;210</td>
+              </tr>
+              <tr>
+                <td valign="top">Payment method</td>
+                <td>Direct to court <br> <span class="text-secondary">Lump sum and monthly instalments</span></td>
+              </tr>
+              <tr>
+                <td rowspan="2" valign="top">Lump sum</td>
+                <td>&pound;70</td>
+              </tr>
+              <tr>
+                <td>To be paid by <time datetime="">12 December 2017</time></td>
+              </tr>
+              <tr>
+                <td rowspan="2" valign="top">Instalments</td>
+                <td>&pound;10</td>
+              </tr>
+              <tr>
+                <td>Start date <time datetime="">1 January 2018</time></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </section>
+
+      </div>
+
+    </div-->
+    <!-- end collection and payment terms -->
+
+
 
   </section>
 

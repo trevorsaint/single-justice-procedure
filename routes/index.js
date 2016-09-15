@@ -504,6 +504,32 @@ bind: function(app) {
 
     });
 
+    app.all('/errors/you-cant-view-this-case', function (req, res) {
+
+      res.render('errors/you-cant-view-this-case', {
+        doctitle: "You can’t view this case",
+        pagetitle: 'You can&rsquo;t view this case',
+        leadtext: 'The case is no longer assigned to you.',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        breadcrumb: false
+      });
+
+    });
+
+    app.all('/errors/case-resulted', function (req, res) {
+
+      res.render('errors/case-resulted', {
+        doctitle: 'Case locked',
+        pagetitle: 'Case locked',
+        leadtext: 'Decision submitted for this case &ndash; no further changes are possible.',
+        section: 'case-tasks',
+        section_name: 'Case tasks',
+        breadcrumb: false
+      });
+
+    });
+
 
     // TfL legal advisor screens
     // =========================
