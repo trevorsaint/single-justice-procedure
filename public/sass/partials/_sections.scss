@@ -1,11 +1,29 @@
 // Sections
 // ==========================================================================
 
-
 $module: 'section';
 
+.#{$module} {
+
+  &-header {
+    position: relative;
+
+    &-change {
+      position: absolute;
+      top: 0; right: 0;
+    }
+
+  }
+
+}
+
+
+$module: 'heading';
 
 .#{$module} {
-  overflow: hidden;
-  margin: em(20) 0;
+
+  &-change {
+    font-weight: normal;
+  }
+
 }

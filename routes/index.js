@@ -357,7 +357,7 @@ bind: function(app) {
         pagetitle: 'Case details',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'search-for-a-case',
         section2_name: 'Search for a case',
         search:entry
@@ -539,6 +539,35 @@ bind: function(app) {
       res.render('check-offence-decisions', {
         doctitle: 'Check offence decisions',
         pagetitle: 'Check offence decisions',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks'
+      });
+
+    });
+
+
+    // TfL court admin screens
+    // =========================
+
+    app.all('/personal-details', function (req, res) {
+
+      res.render('personal-details', {
+        doctitle: 'Personal details',
+        pagetitle: 'Personal details',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Case tasks'
+      });
+
+    });
+
+
+    app.all('/income-and-employment', function (req, res) {
+
+      res.render('income-and-employment', {
+        doctitle: 'Add income and employment',
+        pagetitle: 'Add income and employment',
         breadcrumb: true,
         section: 'case-tasks',
         section_name: 'Case tasks'
