@@ -7,15 +7,15 @@ $module: 'text';
 
   &-error {
     color: $error-colour;
-    font-weight: bold;
+    font-weight: 700;
   }
-  
+
 }
 
 /*
-  
+
 HTML Usage
-   
+
 <span class="text-errors">Errors found</span>
 
 */

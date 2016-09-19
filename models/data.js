@@ -273,7 +273,7 @@ var search = [
           "time": "11:52am",
           "filename": "case-123456789",
           "filetype": "Zip",
-          "status":   '<span class="text-error">Rejected &ndash; errors found</span>',
+          "status":   '<span class="text-error">4 errors found</span>',
           "url":      "/check-document-uploads/report/errors/3"
         }
       ]
