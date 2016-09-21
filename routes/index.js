@@ -27,13 +27,14 @@ bind: function(app) {
 
     // case tasks
     app.all('/case-tasks', function (req, res) {
-      data = {
+
+      res.render('case-tasks', {
         doctitle: 'Single Justice Procedure',
         pagetitle: 'Single Justice Procedure',
         section: 'case-tasks',
-        section_name: 'Case tasks',
-      }
-      res.render('case-tasks', data);
+        section_name: 'Case tasks'
+      });
+
     });
 
     // errors for demo
@@ -53,7 +54,7 @@ bind: function(app) {
         doctitle: 'Send data files to court',
         pagetitle: 'Send data files to court',
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'errors',
         section2_name: 'Errors',
         breadcrumb: true
@@ -64,7 +65,7 @@ bind: function(app) {
         doctitle: 'Send data files to court',
         pagetitle: 'Send data files to court',
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'errors',
         section2_name: 'Errors',
         breadcrumb: true
@@ -94,7 +95,7 @@ bind: function(app) {
         doctitle: 'Send documents to court',
         pagetitle: 'Send documents to court',
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'errors',
         section2_name: 'Errors',
         breadcrumb: true
@@ -105,7 +106,7 @@ bind: function(app) {
         doctitle: 'Send documents to court',
         pagetitle: 'Send documents to court',
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'errors',
         section2_name: 'Errors',
         breadcrumb: true
@@ -139,7 +140,7 @@ bind: function(app) {
         pagetitle: 'Upload CSVs',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         send: send,
         header: header,
         offences: offences,
@@ -173,7 +174,7 @@ bind: function(app) {
         pagetitle: 'Upload SJP notices and other documents',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         send: send,
         documents: documents,
         error: error
@@ -188,7 +189,7 @@ bind: function(app) {
         pagetitle: 'Check document uploads',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         searches:dataEngine.getSearchEntries()
       });
     });
@@ -199,7 +200,7 @@ bind: function(app) {
         pagetitle: 'View upload report',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'check-document-uploads',
         section2_name: 'Check document uploads',
         search:entry
@@ -212,7 +213,7 @@ bind: function(app) {
         pagetitle: 'View upload report',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'check-document-uploads',
         section2_name: 'Check document uploads',
         search:entry
@@ -226,7 +227,7 @@ bind: function(app) {
         pagetitle: 'Check CSV uploads',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         searches:dataEngine.getSearchEntries()
       });
     });
@@ -250,7 +251,7 @@ bind: function(app) {
         pagetitle: 'View upload report',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'check-csv-uploads',
         section2_name: 'Check CSV uploads',
         search:entry
@@ -266,7 +267,7 @@ bind: function(app) {
         pagetitle: 'View upload report',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'check-uploads',
         section2_name: 'Check uploads',
         search:entry
@@ -282,7 +283,7 @@ bind: function(app) {
         pagetitle: 'View upload report',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'check-uploads',
         section2_name: 'Check uploads',
         search:entry
@@ -299,7 +300,7 @@ bind: function(app) {
         pagetitle: 'Export case results by date',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         searches:dataEngine.getSearchEntries()
       });
 
@@ -312,7 +313,7 @@ bind: function(app) {
         pagetitle: 'Search for a case',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         searches:dataEngine.getSearchEntries()
       });
 
@@ -325,7 +326,7 @@ bind: function(app) {
         pagetitle: 'Withdraw an offence',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         searches:dataEngine.getSearchEntries()
       });
 
@@ -340,7 +341,7 @@ bind: function(app) {
         pagetitle: 'Case details',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'search-for-a-case',
         section2_name: 'Search for a case',
         search:entry
@@ -374,7 +375,7 @@ bind: function(app) {
         pagetitle: 'Withdraw all offences',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         search:entry
       });
 
@@ -389,7 +390,7 @@ bind: function(app) {
         pagetitle: 'Withdraw offence',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'case-details/' + req.params.id,
         section2_name: 'Case details',
         search:entry
@@ -416,7 +417,7 @@ bind: function(app) {
         pagetitle: 'Withdraw offence confirmation',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'case-details/' + req.params.id,
         section2_name: 'Case details',
         search:entry
@@ -442,7 +443,7 @@ bind: function(app) {
         pagetitle: 'Confirmation',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'send-data-files',
         section2_name: 'Send data files to court'
       });
@@ -456,7 +457,7 @@ bind: function(app) {
         pagetitle: 'Confirmation',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'send-other-documents',
         section2_name: 'Send documents to court'
       });
@@ -472,7 +473,7 @@ bind: function(app) {
         pagetitle: 'Cancel offence withdrawal',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         section2: 'case-details/' + req.params.id,
         section2_name: 'Case details',
         search:entry
@@ -486,7 +487,7 @@ bind: function(app) {
         doctitle: 'Experiments playground',
         pagetitle: 'Experiments playground',
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         breadcrumb: true
       });
 
@@ -498,7 +499,7 @@ bind: function(app) {
         doctitle: 'We’re having technical problems',
         pagetitle: 'We&rsquo;re having technical problems',
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         breadcrumb: true
       });
 
@@ -511,7 +512,7 @@ bind: function(app) {
         pagetitle: 'You can&rsquo;t view this case',
         leadtext: 'The case is no longer assigned to you.',
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         breadcrumb: false
       });
 
@@ -524,7 +525,7 @@ bind: function(app) {
         pagetitle: 'Case locked',
         leadtext: 'Decision submitted for this case &ndash; no further changes are possible.',
         section: 'case-tasks',
-        section_name: 'Case tasks',
+        section_name: 'Single Justice Procedure',
         breadcrumb: false
       });
 
@@ -541,7 +542,7 @@ bind: function(app) {
         pagetitle: 'Check offence decisions',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks'
+        section_name: 'Single Justice Procedure',
       });
 
     });
@@ -550,27 +551,49 @@ bind: function(app) {
     // TfL court admin screens
     // =========================
 
-    app.all('/personal-details', function (req, res) {
+    app.all('/personal-details/:id', function (req, res) {
+
+      var entry = dataEngine.getSearchEntry(req.params.id);
 
       res.render('personal-details', {
         doctitle: 'Personal details',
         pagetitle: 'Personal details',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks'
+        section_name: 'Single Justice Procedure',
+        section2: 'case-details/' + req.params.id,
+        section2_name: 'Case details',
+        search:entry
       });
 
     });
 
 
-    app.all('/income-and-employment', function (req, res) {
+    app.all('/employment-and-income/:id', function (req, res) {
 
-      res.render('income-and-employment', {
-        doctitle: 'Add income and employment',
-        pagetitle: 'Add income and employment',
+      var entry = dataEngine.getSearchEntry(req.params.id);
+
+      res.render('employment-and-income', {
+        doctitle: 'Add employment and income',
+        pagetitle: 'Add employment and income',
         breadcrumb: true,
         section: 'case-tasks',
-        section_name: 'Case tasks'
+        section_name: 'Single Justice Procedure',
+        section2: 'case-details/' + req.params.id,
+        section2_name: 'Case details',
+        search:entry
+      });
+
+    });
+
+    app.all('/manage-documents', function (req, res) {
+
+      res.render('manage-documents', {
+        doctitle: 'Manage documents',
+        pagetitle: 'Manage documents',
+        breadcrumb: true,
+        section: 'case-tasks',
+        section_name: 'Single Justice Procedure',
       });
 
     });

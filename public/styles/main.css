@@ -2734,14 +2734,10 @@ HTML Usage
 .section-header {
   position: relative;
 }
-.section-header-change {
+.section-header a {
   position: absolute;
   top: 0;
   right: 0;
-}
-
-.heading-change {
-  font-weight: normal;
 }
 
 .tag {
@@ -2959,7 +2955,7 @@ HTML Usage
   .tabs-horizontal [role='tabpanel'] {
     border-top: 1px solid #bfc1c3;
     clear: both;
-    padding-top: 1.05263em;
+    padding-top: 1.57895em;
   }
   .tabs-vertical [role='presentation'] {
     margin-top: 0.26316em;

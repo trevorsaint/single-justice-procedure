@@ -8,22 +8,11 @@ $module: 'section';
   &-header {
     position: relative;
 
-    &-change {
+    a {
       position: absolute;
       top: 0; right: 0;
     }
 
-  }
-
-}
-
-
-$module: 'heading';
-
-.#{$module} {
-
-  &-change {
-    font-weight: normal;
   }
 
 }

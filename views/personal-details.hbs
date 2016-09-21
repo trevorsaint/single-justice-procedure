@@ -1,5 +1,7 @@
   {{>breadcrumb}}
 
+  {{#with search}}
+
   <div class="grid-row">
 
     <div class="column-two-thirds">
@@ -22,21 +24,21 @@
               <label for="title">
                 <span class="form-label">Title (optional)</span>
               </label>
-              <input class="form-control form-control-1-4" type="text" id="title" name="title">
+              <input class="form-control form-control-1-8" type="text" id="title" name="title"{{#if title}} value="{{title}}"{{/if}}>
             </div>
 
             <div class="form-group">
               <label for="firstname">
                 <span class="form-label">First name</span>
               </label>
-              <input class="form-control" type="text" id="firstname" name="firstname">
+              <input class="form-control" type="text" id="firstname" name="firstname"{{#if firstname}} value="{{firstname}}"{{/if}}>
             </div>
 
             <div class="form-group">
               <label for="lastname">
                 <span class="form-label">Last name</span>
               </label>
-              <input class="form-control" type="text" id="lastname" name="lastname">
+              <input class="form-control" type="text" id="lastname" name="lastname"{{#if lastname}} value="{{lastname}}"{{/if}}>
             </div>
 
             <div class="form-group">
@@ -71,6 +73,14 @@
 
             </div>
 
+            <div class="form-group">
+              <label for="lastname">
+                <span class="form-label">National Insurance number</span>
+                <span class="form-hint" id="national-insurance-number-hint">Find this on your payslip, P60 or tax return. <br> For example, VO 12 34 56 D.</span>
+              </label>
+              <input class="form-control" type="text" id="national-insurance-number" name="national-insurance-number"{{#if national-insurance-number}} value="{{national-insurance-number}}"{{/if}} aria-describedby="national-insurance-number-hint">
+            </div>
+
           </fieldset>
 
         </div>
@@ -87,28 +97,28 @@
               <label for="address-line-1">
                 <span class="form-label">Street</span>
               </label>
-              <input class="form-control" type="text" id="address-line-1">
+              <input class="form-control" type="text" id="address-line-1"{{#if address.address1}} value="{{address.address1}}"{{/if}}>
             </div>
 
             <div class="form-group">
               <label class="visuallyhidden" for="address-line-2">
                 <span class="form-label">Street</span>
               </label>
-              <input class="form-control" type="text" id="address-line-2">
+              <input class="form-control" type="text" id="address-line-2"{{#if address.address2}} value="{{address.address2}}"{{/if}}>
             </div>
 
             <div class="form-group">
               <label for="address-town">
                 <span class="form-label">Town or City</span>
               </label>
-              <input class="form-control form-control-1-4" type="text" id="address-town">
+              <input class="form-control form-control-1-4" type="text" id="address-town"{{#if address.town}} value="{{address.town}}"{{/if}}>
             </div>
 
             <div class="form-group">
               <label for="address-postcode">
                 <span class="form-label">Postcode</span>
               </label>
-              <input class="form-control form-control-1-8" type="text" id="address-postcode">
+              <input class="form-control form-control-1-4" type="text" id="address-postcode"{{#if address.postcode}} value="{{address.postcode}}"{{/if}}>
             </div>
 
           </fieldset>
@@ -128,21 +138,21 @@
               <label for="email">
                 <span class="form-label">Email</span>
               </label>
-              <input class="form-control" type="email" id="email" name="email">
+              <input class="form-control" type="email" id="email" name="email"{{#if email}} value="{{email}}"{{/if}}>
             </div>
 
             <div class="form-group">
               <label for="email">
                 <span class="form-label">Landline</span>
               </label>
-              <input class="form-control form-control-1-4" type="tel" id="landline" name="landline">
+              <input class="form-control form-control-1-4" type="tel" id="landline" name="landline"{{#if phone}} value="{{phone}}"{{/if}}>
             </div>
 
             <div class="form-group">
               <label for="email">
                 <span class="form-label">Mobile</span>
               </label>
-              <input class="form-control form-control-1-4" type="tel" id="mobile" name="mobile">
+              <input class="form-control form-control-1-4" type="tel" id="mobile" name="mobile"{{#if mobile}} value="{{mobile}}"{{/if}}>
             </div>
 
           </fieldset>
@@ -156,3 +166,5 @@
     </div>
 
   </div>
+
+  {{/with}}

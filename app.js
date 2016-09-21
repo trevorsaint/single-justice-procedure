@@ -5,14 +5,21 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
 var app     = express();
+
+var helpers = require('handlebars-helpers')();
+
+/*
+ * Helpers
+ */
+
+
 var routes  = require(__dirname + '/routes');
 var port    = (process.env.PORT || 3000);
-
 
 /*
  * Serve static assets
  */
-  
+
 app.use('/public', express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/models'));
 app.use(express.static(__dirname + '/views'));
@@ -29,12 +36,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 /*
- * Jade template engine
+ * Handlebars template engine
  */
 
-app.engine('hbs', exphbs({extname:'hbs', defaultLayout:'index.hbs'}));
-app.set('view engine', 'hbs');
+app.engine('hbs', exphbs({
+  defaultLayout:'index',
+  extname:'.hbs'
+}));
 
+app.set('view engine', 'hbs');
 
 /*
  * Routing

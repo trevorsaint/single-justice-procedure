@@ -1,174 +1,183 @@
   {{>breadcrumb}}
 
-  <div class="persist-info">
-    <span class="persist-info-reference">{{search.urn}}</span>
-    <span class="persist-info-title">{{search.firstname}} {{search.lastname}}</span>
-  </div>
+  {{#with search}}
 
-  <div class="grid-row">
+    <div class="persist-info">
+      <span class="persist-info-reference">{{urn}}</span>
+      <span class="persist-info-title">{{firstname}} {{lastname}}</span>
+    </div>
 
-    <div class="column-two-thirds">
+    <div class="grid-row">
 
-      <h1 class="heading-xlarge">Billy SMITH <span class="heading-secondary">21 years old</span></h1>
+      <div class="column-two-thirds">
 
-      <div class="tabs tabs-horizontal">
+        <h1 class="heading-xlarge">{{firstname}} {{lastname}} <span class="heading-secondary">{{age}} years old</span></h1>
 
-        <div class="tabs-header">
+        <div class="tabs tabs-horizontal">
 
-          <ul class="list">
-            <li><a href="#case-details">Case details</a></li>
-            <li><a href="#personal-details">Personal details</a></li>
-            <li><a href="#employment-and-income">Employment and income</a></li>
-          </ul>
+          <div class="tabs-header">
+
+            <ul class="list">
+              <li><a href="#case-details">Case details</a></li>
+              <li><a href="#personal-details">Personal details</a></li>
+              <li><a href="#employment-and-income">Employment and income</a></li>
+            </ul>
+
+          </div>
+
+          <div class="tabs-content">
+
+            <section id="case-details">
+
+              <h2 class="heading-medium">Case details</h2>
+
+              {{#with case-details}}
+              <dl class="meta meta-large">
+                <dt>Case status</dt>
+                <dd>{{{status}}}</dd>
+                <dt>Prosecutor</dt>
+                <dd>{{{prosecutor}}}</dd>
+                <dt>Notice served</dt>
+                <dd><time datetime="{{notice-served-datetime}}">{{{notice-served}}}</time></dd>
+                <dt>Documents <br> <a class="font-xsmall" href="/manage-documents">Manage documents</a></dt>
+                <dd>
+                  {{#each ../related-documents.document}}
+                  <div class="document document-small">
+                    <i class="icon icon-file-download"></i>
+                    <div class="document-content">
+                      <p class="document-title"><a href="#">{{{title}}}</a></p>
+                      <div class="document-meta">
+                        <span class="document-meta-details">
+                          {{{file-type}}}, {{{file-size}}}, {{{file-pages}}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
+                </dd>
+              </dl>
+              {{/with}}
+
+            </section>
+
+            <section id="personal-details">
+
+              <header class="section-header">
+                <h2 class="heading-medium">Personal details</h2>
+                <a class="font-small" href="/personal-details/{{id}}" title="Change personal details">Change <span class="visuallyhidden">personal details</span></a>
+              </header>
+
+              <dl class="meta meta-large">
+                <dt>Name</dt>
+                <dd>{{{firstname}}} {{lastname}}</dd>
+                <dt>Date of birth</dt>
+                <dd><time datetime="{{date-of-birth-iso}}">{{date-of-birth}}</time> (age {{age}})</dd>
+                <dt>Address</dt>
+                <dd>{{address.address1}}, <br> {{address.town}} {{address.postcode}}</dd>
+                <dt>Email</dt>
+                <dd>{{#if email}}{{email}}{{else}}<a href="/personal-details/{{id}}/#email">Add email</a>{{/if}}</dd>
+                <dt>Home telephone</dt>
+                <dd>{{#if phone}}{{phone}}{{else}}<a href="#">Add home telephone</a>{{/if}}</dd>
+                <dt>Mobile</dt>
+                <dd>{{#if mobile}}{{mobile}}{{else}}<a href="/personal-details/{{id}}/#mobile">Add mobile</a>{{/if}}</dd>
+                <dt>National Insurance number</dt>
+                <dd>{{#if national-insurance-number}}{{national-insurance-number}}{{else}}<a href="/personal-details/{{id}}/#national-insurance-number">Add National Insurance number</a>{{/if}}</dd>
+              </dl>
+
+            </section>
+
+            <section id="employment-and-income">
+
+              <header class="section-header">
+                <h2 class="heading-medium">Employment and income</h2>
+                <a class="font-small" href="/employment-and-income/{{id}}" title="Change employment and income">Change <span class="visuallyhidden">employment and income</span></a>
+              </header>
+
+
+              {{#with employment}}
+
+                <dl class="meta meta-large">
+
+                  <dt>Employment status</dt>
+                  <dd>{{#if status}}{{status}}{{else}}<a href="#">Add employment status</a>{{/if}}</dd>
+
+                  {{#compare status "===" "Employed"}}
+
+                    {{#if employer-name}}
+                      <dt>Employer name</dt>
+                      <dd>{{#if employer-name}}{{employer-name}}{{else}}<a href="#">Add employer name</a>{{/if}}</dd>
+                    {{/if}}
+
+                    <dt>Employer address</dt>
+                    <dd>{{#if employer-address}}{{employer-address.address1}}, <br> {{employer-address.town}} <br> {{employer-address.postcode}}{{else}}<a href="#">Add employer address</a>{{/if}}</dd>
+
+                    <dt>Employer telephone</dt>
+                    <dd>{{#if employer-phone}}{{employer-phone}}{{else}}<a href="#">Add employer telephone</a>{{/if}}</dd>
+
+                    <dt>Income</dt>
+                    <dd>{{#if income}}{{income}}{{else}}<a href="#">Add income</a>{{/if}}</dd>
+
+                  {{/compare}}
+
+                  <dt>Receiving benefits?</dt>
+                  <dd>{{#if receiving-benfits}}{{receiving-benfits}}{{else}}<a href="#">Add receiving benefits</a>{{/if}}</dd>
+
+                </dl>
+
+              {{/with}}
+
+              <!-- employed -->
+              <!--dl class="meta meta-large">
+                <dt>Employment status</dt>
+                <dd>Employed</dd>
+                <dt>Employer name and address</dt>
+                <dd>Barclays Bank, <br> 1 High Street, <br> Croydon <br> CR5 2TP</dd>
+                <dt>Employer telephone</dt>
+                <dd>0208 576 3924</dd>
+                <dt>Weekly income</dt>
+                <dd><a href="#">Add weekly income</a></dd>
+                <dt>Receiving benefits?</dt>
+                <dd>No</dd>
+              </dl-->
+
+              <!-- unemployed -->
+              <!--dl class="meta meta-large">
+                <dt>Employment status</dt>
+                <dd>Unemployed <br> (since 15 July 2016)</dd>
+                <dt>Receiving benefits?</dt>
+                <dd>Yes</dd>
+              </dl-->
+
+              <!-- unspecified -->
+              <!--dl class="meta meta-large">
+                <dt>Employment status</dt>
+                <dd><a href="#">Add employment status</a></dd>
+                <dt>Receiving benefits?</dt>
+                <dd>No</dd>
+              </dl-->
+
+            </section>
+
+          </div>
 
         </div>
 
-        <div class="tabs-content">
+      </div>
 
-          <section id="case-details">
+      <div class="column-third">
 
-            <h2 class="heading-medium">Case details</h2>
+        <div class="related">
 
-            <dl class="meta meta-large">
-              <dt>Case status</dt>
-              <dd>Awaiting plea</dd>
-              <dt>Prosecutor</dt>
-              <dd>{{search.case-details.prosecutor}}</dd>
-              <dt>Notice served</dt>
-              <dd><time datetime="{{search.case-details.notice-served-datetime}}">{{search.case-details.notice-served}}</time></dd>
-              <dt>Documents <br> <a href="#">Manage documents</a></dt>
-              <dd>
-                <div class="document document-small">
-                  <i class="icon icon-file-download"></i>
-                  <div class="document-content">
-                    <p class="document-title"><a href="#">SJP notice</a></p>
-                    <div class="document-meta">
-                      <span class="document-meta-details">
-                        PDF, 256KB, 3 pages
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="document document-small">
-                  <i class="icon icon-file-download"></i>
-                  <div class="document-content">
-                    <p class="document-title"><a href="#">Previous convictions</a></p>
-                    <div class="document-meta">
-                      <span class="document-meta-details">
-                        PDF, 458KB, 3 pages
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="document document-small">
-                  <i class="icon icon-file-download"></i>
-                  <div class="document-content">
-                    <p class="document-title"><a href="#">Statement of income and outgoings (MC100)</a></p>
-                    <div class="document-meta">
-                      <span class="document-meta-details">
-                        PDF, 514KB, 6 pages
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="document document-small">
-                  <i class="icon icon-file-download"></i>
-                  <div class="document-content">
-                    <p class="document-title"><a href="#">Witness statement</a></p>
-                    <div class="document-meta">
-                      <span class="document-meta-details">
-                        PDF, 256KB, 3 pages
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="document document-small">
-                  <i class="icon icon-file-download"></i>
-                  <div class="document-content">
-                    <p class="document-title"><a href="#">Miscellaneous document</a></p>
-                    <div class="document-meta">
-                      <span class="document-meta-details">
-                        PDF, 816KB, 17 pages
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="document document-small">
-                  <i class="icon icon-file-download"></i>
-                  <div class="document-content">
-                    <p class="document-title"><a href="#">Plea document</a></p>
-                    <div class="document-meta">
-                      <span class="document-meta-details">
-                        PDF, 376KB, 10 pages
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </dd>
-            </dl>
+          <div class="related-section">
 
-          </section>
+            <h3 class="related-heading">Case options</h3>
 
-          <section id="personal-details">
+            <ul class="related-links">
+              <li><a href="#">View defendant request to change details</a></li>
+              <li><a href="#">Send case back to Libra</a></li>
+            </ul>
 
-            <h2 class="heading-medium">Personal details</h2>
-
-            <dl class="meta meta-large">
-              <dt>Date of birth</dt>
-              <dd><time datetime="1985-06-08">8 June 1985</time> (age 21)</dd>
-              <dt>Address</dt>
-              <dd>14 Tottenham Court Road, Fitzrovia, <br> London W1T 1JY</dd>
-              <dt>Email</dt>
-              <dd><a href="#">Add email</a></dd>
-              <dt>Home telephone</dt>
-              <dd><a href="#">Add home telephone</a></dd>
-              <dt>Mobile</dt>
-              <dd><a href="#">Add mobile</a></dd>
-              <dt>National Insurance number</dt>
-              <dd><a href="#">Add National Insurance number</a></dd>
-            </dl>
-
-          </section>
-
-          <section id="employment-and-income">
-
-            <h2 class="heading-medium">Employment and income</h2>
-
-            <!-- employed -->
-            <dl class="meta meta-large">
-              <dt>Employment status</dt>
-              <dd>Employed</dd>
-              <dt>Employer name and address</dt>
-              <dd>Barclays Bank, <br> 1 High Street, <br> Croydon <br> CR5 2TP</dd>
-              <dt>Employer telephone</dt>
-              <dd>0208 576 3924</dd>
-              <dt>Weekly income</dt>
-              <dd><a href="#">Add weekly income</a></dd>
-              <dt>Receiving benefits?</dt>
-              <dd>No</dd>
-            </dl>
-
-            <hr>
-
-            <!-- unemployed -->
-            <dl class="meta meta-large">
-              <dt>Employment status</dt>
-              <dd>Unemployed <br> (since 15 July 2016)</dd>
-              <dt>Receiving benefits?</dt>
-              <dd>Yes</dd>
-            </dl>
-
-            <hr>
-
-            <!-- unspecified -->
-            <dl class="meta meta-large">
-              <dt>Employment status</dt>
-              <dd><a href="#">Add employment status</a></dd>
-              <dt>Receiving benefits?</dt>
-              <dd>No</dd>
-            </dl>
-
-          </section>
+          </div>
 
         </div>
 
@@ -176,149 +185,130 @@
 
     </div>
 
-    <div class="column-third">
+    <hr>
 
-      <div class="related">
+    <div class="grid-row">
 
-        <div class="related-section">
+      <div class="column-two-thirds">
 
-          <h3 class="related-heading">Case options</h3>
+        <section aria-labelledby="offences">
 
-          <ul class="related-links">
-            <li><a href="#">View defendant request to change details</a></li>
-            <li><a href="#">Send case back to Libra</a></li>
-          </ul>
+          <h2 class="bold-large" id="offences">Offence</h2>
 
-        </div>
+          {{#each offences.offence}}
+          <section aria-labelledby="offence{{id}}">
 
-      </div>
+            <h3 class="heading-medium" id="offence{{id}}">{{#if shownumber}}{{id}}. {{/if}}{{{title}}}</h3>
 
-    </div>
+            <p class="font-xsmall">On <time datetime="{{date-iso}}">{{date}}</time></p>
 
-  </div>
+            <p><strong class="tag">{{{plea}}}</strong></p>
 
-  <hr>
+            <div class="tabs tabs-horizontal">
 
-  <section aria-labelledby="offences">
+              <div class="tabs-header">
 
-    <h2 class="heading-large" id="offences">Offence</h2>
+                <ul class="list">
+                  <li><a href="#offence{{id}}-details">Details</a></li>
+                  <li><a href="#offence{{id}}-change-plea">Add or change plea</a></li>
+                  <li><a href="#offence{{id}}-decision">Decision</a></li>
+                </ul>
 
-    <section>
+              </div>
 
-      <h3 class="heading-medium">Passenger used ticket issued for another person</h3>
+              <div class="tabs-content">
 
-      <p class="font-xsmall">On <time datetime="01-02-2016">1 February 2016</time></p>
+                <section id="offence{{id}}-details">
 
-      <p><strong class="tag">Pleaded guilty &ndash; under SJP</strong></p>
-      <!--p><strong class="tag">Pleaded guilty &ndash; court hearing requested</strong></p-->
+                  <h3 class="heading-medium">Statement of facts</h3>
 
-      <div class="tabs tabs-horizontal">
+                  <p>{{{statement-of-facts}}}</p>
 
-        <div class="tabs-header">
+                </section>
 
-          <ul class="list">
-            <li><a href="#offence1-details">Details</a></li>
-            <li><a href="#offence1-change-plea">Add or change plea</a></li>
-            <li><a href="#offence1-decision">Decision</a></li>
-          </ul>
+                <section id="offence{{id}}-change-plea">
 
-        </div>
+                  <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
 
-        <div class="tabs-content">
+                  <form class="form" method="post" action="/">
 
-          <section id="offence1-details">
+                    <fieldset>
 
-            <div class="grid-row">
+                      <legend class="visually-hidden">Make a decision</legend>
 
-              <div class="column-two-thirds">
+                      <div class="form-group">
 
-                <h3 class="heading-medium">Statement of facts</h3>
+                        <label class="block-label" for="guilty-no-court">
+                          <input type="radio" id="guilty-no-court" name="make-a-decision">
+                          Guilty &ndash; I don't want to come to court
+                        </label>
 
-                <p>I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a class="link link-more" href="#">More</a></p>
+                        <label class="block-label" for="guilty-court">
+                          <input type="radio" id="guilty-court" name="make-a-decision">
+                          Guilty &ndash; I want to come to court
+                        </label>
+
+                        <label class="block-label" for="not-guilty">
+                          <input type="radio" id="not-guilty" name="make-a-decision">
+                          Not guilty &ndash; send me the date of my trial
+                        </label>
+
+                      </div>
+
+                      <button class="button" type="submit">Save</buton>
+
+                    </fieldset>
+
+                  </form>
+
+                </section>
+
+                <section id="offence{{id}}-decision">
+
+                  <h3 class="heading-medium">Court decision</h3>
+
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>Verdict</td>
+                        <td>Guilty plea accepted</td>
+                      </tr>
+                      <tr>
+                        <td>Fine</td>
+                        <td>&pound;100</td>
+                      </tr>
+                      <tr>
+                        <td>Compensation</td>
+                        <td>&pound;3.50</td>
+                      </tr>
+                      <tr>
+                        <td>Costs</td>
+                        <td>&pound;30</td>
+                      </tr>
+                      <tr>
+                        <td>Victim surcharge</td>
+                        <td>&pound;10</td>
+                      </tr>
+                      <tr>
+                        <td>Guilty plea taken into account?</td>
+                        <td>Yes</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </section>
 
               </div>
 
             </div>
 
           </section>
+          {{/each}}
 
-          <section id="offence1-change-plea">
-
-            <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
-
-            <form class="form">
-
-              <fieldset>
-
-                <legend class="visually-hidden">Make a decision</legend>
-
-                <div class="form-group">
-
-                  <label class="block-label" for="guilty-no-court">
-                    <input id="guilty-no-court" type="radio" name="make-a-decision">
-                    Guilty &ndash; I don't want to come to court
-                  </label>
-
-                  <label class="block-label" for="guilty-court">
-                    <input id="guilty-court" type="radio" name="make-a-decision">
-                    Guilty &ndash; I want to come to court
-                  </label>
-
-                  <label class="block-label" for="not-guilty">
-                    <input id="not-guilty" type="radio" name="make-a-decision">
-                    Not guilty &ndash; send me the date of my trial
-                  </label>
-
-                </div>
-
-                <button class="button" type="submit">Save</buton>
-
-              </fieldset>
-
-            </form>
-
-          </section>
-
-          <section id="offence1-decision">
-
-
-            <h3 class="heading-medium">Court decision</h3>
-
-            <table class="table table-summary table-font-xsmall">
-              <tbody>
-                <tr>
-                  <td>Verdict</td>
-                  <td>Guilty plea accepted</td>
-                </tr>
-                <tr>
-                  <td>Fine</td>
-                  <td>&pound;100</td>
-                </tr>
-                <tr>
-                  <td>Compensation</td>
-                  <td>&pound;3.50</td>
-                </tr>
-                <tr>
-                  <td>Costs</td>
-                  <td>&pound;30</td>
-                </tr>
-                <tr>
-                  <td>Victim surcharge</td>
-                  <td>&pound;10</td>
-                </tr>
-                <tr>
-                  <td>Guilty plea taken into account?</td>
-                  <td>Yes</td>
-                </tr>
-              </tbody>
-            </table>
-
-          </section>
-
-        </div>
+        </section>
 
       </div>
 
-    </section>
+    </div>
 
-  </section>
+  {{/with}}

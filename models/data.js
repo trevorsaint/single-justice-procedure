@@ -2,20 +2,24 @@ var search = [
 
   {
     "id": 1,
+    "title": "Mr",
     "firstname": "Billy",
     "lastname": "SMITH",
     "date-of-birth": "11 Nov 1955",
     "date-of-birth-long": "11 November 1955",
+    "date-of-birth-iso": "11-11-1955",
     "age": "60",
     "gender": "Male",
     "urn": "9012466",
     "address": {
       "address1": "7 Rock Road",
+      "address2": "",
       "town": "London",
       "postcode": "SE3 8YH"
     },
     "email": "",
     "phone": "0208 123 456",
+    "mobile": "",
     "national-insurance-number": "",
     "notice-served": "30 Apr 2015",
     "hearing": "",
@@ -24,12 +28,26 @@ var search = [
     "cost": "230",
     "compensation": "3.40",
     "case-details": {
-      "status": "Completed &ndash; decision sent to defendant",
+      "status": "Awaiting plea",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "employment": {
+      "status": "Employed",
+      "since-date": "",
+      "since-date-iso": "",
+      "employer-name": "Barclays Bank",
+      "employer-address": {
+        "address1": "1 High Street",
+        "town": "Croydon",
+        "postcode": "CR5 2TP"
+      },
+      "employer-phone": "",
+      "income": "",
+      "receiving-benfits": ""
     },
     "files": {
       "file": [
@@ -90,12 +108,19 @@ var search = [
         {
           "title": "SJP notice",
           "file-type": "PDF",
-          "file-size": "157KB",
-          "file-pages": "18 pages",
+          "file-size": "256KB",
+          "file-pages": "3 pages",
           "file-path": "#"
         },
         {
-          "title": "Previous convictions",
+          "title": "Plea document",
+          "file-type": "PDF",
+          "file-size": "376KB",
+          "file-pages": "10 pages",
+          "file-path": "#"
+        },
+        {
+          "title": "Statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "514KB",
           "file-pages": "6 pages",
@@ -111,12 +136,13 @@ var search = [
       "offence": [
         {
           "id": 1,
+          "shownumber": false,
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
-          "datetime": "2016-02-01",
+          "date-iso": "2016-02-01",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
           "mitigation": "",
-          "plea": "Pleaded Guilty"
+          "plea": "Awaiting plea"
         }
       ]
     },
@@ -128,15 +154,16 @@ var search = [
       "pay-by-date": "24 July 2015",
       "notice-sent": "28 July 2015"
     }
-
   },
 
   {
     "id": 2,
+    "title": "Miss",
     "firstname": "Tegan",
     "lastname": "SMITH",
     "date-of-birth": "19 Oct 1972",
     "date-of-birth-long": "19 October 1972",
+    "date-of-birth-iso": "19-10-1972",
     "age": "43",
     "gender": "Male",
     "urn": "9012467",
@@ -161,6 +188,12 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "employment": {
+      "status": "Unemployed",
+      "since-date": "(since 15 July 2016)",
+      "since-date-iso": "",
+      "receiving-benfits": "Yes"
     },
     "files": {
       "file": [
@@ -191,22 +224,22 @@ var search = [
         {
           "title": "SJP notice",
           "file-type": "PDF",
-          "file-size": "157KB",
-          "file-pages": "18 pages",
-          "file-path": "#"
-        },
-        {
-          "title": "Previous convictions",
-          "file-type": "PDF",
-          "file-size": "514KB",
-          "file-pages": "6 pages",
+          "file-size": "256KB",
+          "file-pages": "3 pages",
           "file-path": "#"
         },
         {
           "title": "Plea document",
           "file-type": "PDF",
-          "file-size": "204KB",
-          "file-pages": "12 pages",
+          "file-size": "376KB",
+          "file-pages": "10 pages",
+          "file-path": "#"
+        },
+        {
+          "title": "Statement of income and outgoings (MC100)",
+          "file-type": "PDF",
+          "file-size": "514KB",
+          "file-pages": "6 pages",
           "file-path": "#"
         }
       ]
@@ -232,10 +265,12 @@ var search = [
 
   {
     "id": 3,
+    "title": "Mrs",
     "firstname": "Za",
     "lastname": "SMITH",
     "date-of-birth": "11 Oct 1941",
     "date-of-birth-long": "11 October 1941",
+    "date-of-birth-iso": "11-10-1941",
     "age": "74",
     "gender": "Female",
     "urn": "9012462",
@@ -247,14 +282,12 @@ var search = [
     "email": "za.smith@gmail.com",
     "phone": "078 1825 3550",
     "national-insurance-number": "GK 69 85 94 D",
-
     "notice-served": "13 Jul 2015",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
     "cost": "130",
     "compensation": "8.40",
-
     "case-details": {
       "status": "Decision made",
       "prosecutor": "Transport for London",
@@ -263,7 +296,10 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-
+    "employment": {
+      "status": "",
+      "receiving-benfits": ""
+    },
     "files": {
       "file": [
         {
@@ -273,41 +309,59 @@ var search = [
           "time": "11:52am",
           "filename": "case-123456789",
           "filetype": "Zip",
-          "status":   '<span class="text-error">Rejected &ndash; errors found</span>',
+          "status":   '<span class="text-error">4 errors found</span>',
           "url":      "/check-document-uploads/report/errors/3"
         }
       ]
     },
-
     "related-documents": {
       "document": [
         {
           "title": "SJP notice",
           "file-type": "PDF",
-          "file-size": "157KB",
-          "file-pages": "18 pages",
+          "file-size": "256KB",
+          "file-pages": "3 pages",
           "file-path": "#"
         },
         {
           "title": "Previous convictions",
+          "file-type": "PDF",
+          "file-size": "458KB",
+          "file-pages": "9 pages",
+          "file-path": "#"
+        },
+        {
+          "title": "Statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "514KB",
           "file-pages": "6 pages",
           "file-path": "#"
         },
         {
-          "title": "Plea",
+          "title": "Witness statement",
           "file-type": "PDF",
-          "file-size": "204KB",
-          "file-pages": "12 pages",
+          "file-size": "256KB",
+          "file-pages": "2 pages",
+          "file-path": "#"
+        },
+        {
+          "title": "Miscellaneous document",
+          "file-type": "PDF",
+          "file-size": "817KB",
+          "file-pages": "17 pages",
+          "file-path": "#"
+        },
+        {
+          "title": "Plea document",
+          "file-type": "PDF",
+          "file-size": "376KB",
+          "file-pages": "10 pages",
           "file-path": "#"
         }
       ]
     },
-
     "decision-made3": true,
     "decision-ready": false,
-
     "offences": {
       "offence": [
         {
@@ -321,15 +375,16 @@ var search = [
         }
       ]
     }
-
   },
 
   {
     "id": 4,
+    "title": "Miss",
     "firstname": "Abbie",
     "lastname": "SMITH",
     "date-of-birth": "14 Mar 1982",
     "date-of-birth-long": "14 March 1982",
+    "date-of-birth-iso": "14-03-1982",
     "age": "34",
     "gender": "Female",
     "urn": "2053688",
@@ -341,14 +396,12 @@ var search = [
     "email": "abbie.smith@gmail.com",
     "phone": "079 5115 9062",
     "national-insurance-number": "ZK 71 11 43 D",
-
     "notice-served": "4 Sep 2015",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Withdrawn",
     "cost": "",
     "compensation": "",
-
     "case-details": {
       "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
       "prosecutor": "Transport for London",
@@ -357,7 +410,10 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-
+    "employment": {
+      "status": "",
+      "receiving-benfits": ""
+    },
     "files": {
       "file": [
         {
@@ -372,7 +428,6 @@ var search = [
         }
       ]
     },
-
     "related-documents": {
       "document": [
         {
@@ -391,11 +446,9 @@ var search = [
         }
       ]
     },
-
     "decision-made": false,
     "decision-ready": false,
     "withdraw": true,
-
     "offences": {
       "offence": [
         {
@@ -409,15 +462,16 @@ var search = [
         }
       ]
     }
-
   },
 
   {
     "id": 5,
+    "title": "Mr",
     "firstname": "Leon",
     "lastname": "SMITH",
     "date-of-birth": "31 Aug 1981",
     "date-of-birth-long": "31 August 1981",
+    "date-of-birth-iso": "31-08-1981",
     "age": "34",
     "gender": "Male",
     "urn": "2056139",
@@ -429,14 +483,12 @@ var search = [
     "email": "leon.smith@gmail.com",
     "phone": "077 8068 5313",
     "national-insurance-number": "TK 60 97 18 A",
-
     "notice-served": "18 Sep 2015",
     "hearing": "18 Nov 2015",
     "verdict": "Guilty",
     "decision": "Adjourned",
     "cost": "",
     "compensation": "",
-
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -445,7 +497,10 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-
+    "employment": {
+      "status": "",
+      "receiving-benfits": ""
+    },
     "files": {
       "file": [
         {
@@ -461,7 +516,6 @@ var search = [
         }
       ]
     },
-
     "related-documents": {
       "document": [
         {
@@ -480,11 +534,9 @@ var search = [
         }
       ]
     },
-
     "decision-made": false,
     "decision-ready": false,
     "errortype3": true,
-
     "offences": {
       "offence": [
         {
@@ -498,15 +550,16 @@ var search = [
         }
       ]
     }
-
   },
 
   {
     "id": 6,
+    "title": "Mrs",
     "firstname": "Olivia",
     "lastname": "SMITH",
     "date-of-birth": "23 Sep 1967",
     "date-of-birth-long": "23 September 1967",
+    "date-of-birth-iso": "23-09-1967",
     "age": "48",
     "gender": "Female",
     "urn": "2056135",
@@ -518,14 +571,12 @@ var search = [
     "email": "olivia.smith@gmail.com",
     "phone": "077 0494 5090",
     "national-insurance-number": "NY 80 08 89 A",
-
     "notice-served": "14 Jan 2015",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
     "cost": "130",
     "compensation": "8.40",
-
     "case-details": {
       "status": "Pending offence withdrawal",
       "prosecutor": "Transport for London",
@@ -534,7 +585,10 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-
+    "employment": {
+      "status": "",
+      "receiving-benfits": ""
+    },
     "files": {
       "file": [
         {
@@ -549,7 +603,6 @@ var search = [
         }
       ]
     },
-
     "related-documents": {
       "document": [
         {
@@ -575,12 +628,10 @@ var search = [
         }
       ]
     },
-
     "decision-made": false,
     "decision-ready": false,
     "missing-sjp": true,
     "cancel-withdrawal": true,
-
     "offences": {
       "offence": [
         {
@@ -594,15 +645,16 @@ var search = [
         }
       ]
     }
-
   },
 
   {
     "id": 7,
+    "title": "Mr",
     "firstname": "Joel",
     "lastname": "SMITH",
     "date-of-birth": "28 Jan 1980",
     "date-of-birth-long": "28 January 1980",
+    "date-of-birth-iso": "28-01-1980",
     "age": "36",
     "gender": "Male",
     "urn": "2056136",
@@ -614,14 +666,12 @@ var search = [
     "email": "joel.smith@gmail.com",
     "phone": "079 4115 6799",
     "national-insurance-number": "HS 12 20 51 D",
-
     "notice-served": "18 Sep 2015",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
     "cost": "230",
     "compensation": "3.40",
-
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -630,7 +680,10 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-
+    "employment": {
+      "status": "",
+      "receiving-benfits": ""
+    },
     "files": {
       "file": [
         {
@@ -645,7 +698,6 @@ var search = [
         }
       ]
     },
-
     "related-documents": {
       "document": [
         {
@@ -671,11 +723,9 @@ var search = [
         }
       ]
     },
-
     "decision-made": true,
     "decision-ready": false,
     "missing-sjp": true,
-
     "offences": {
       "offence": [
         {
@@ -689,15 +739,16 @@ var search = [
         }
       ]
     }
-
   },
 
   {
     "id": 8,
+    "title": "Mr",
     "firstname": "Harrison",
     "lastname": "SMITH",
     "date-of-birth": "22 Jan 1973",
     "date-of-birth-long": "22 January 1973",
+    "date-of-birth-iso": "22-01-1973",
     "age": "43",
     "gender": "Male",
     "urn": "2056137",
@@ -709,14 +760,12 @@ var search = [
     "email": "harrison.smith@gmail.com",
     "phone": "070 2908 3863",
     "national-insurance-number": "MJ 82 16 61 A",
-
     "notice-served": "18 Sep 2015",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
     "cost": "230",
     "compensation": "3.40",
-
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -725,7 +774,10 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-
+    "employment": {
+      "status": "",
+      "receiving-benfits": ""
+    },
     "files": {
       "file": [
         {
@@ -740,7 +792,6 @@ var search = [
         }
       ]
     },
-
     "related-documents": {
       "document": [
         {
@@ -752,11 +803,9 @@ var search = [
         }
       ]
     },
-
     "decision-made": false,
     "decision-ready": false,
     "missing-sjp": true,
-
     "offences": {
       "offence": [
         {
@@ -770,15 +819,16 @@ var search = [
         }
       ]
     }
-
   },
 
   {
     "id": 9,
+    "title": "Miss",
     "firstname": "Kian",
     "lastname": "SMITH",
     "date-of-birth": "20 Sep 1978",
     "date-of-birth-long": "20 September 1978",
+    "date-of-birth-iso": "20-09-1978",
     "age": "37",
     "gender": "Female",
     "urn": "2056138",
@@ -790,14 +840,12 @@ var search = [
     "email": "kian.smith@gmail.com",
     "phone": "070 1279 6913",
     "national-insurance-number": "LC 59 17 17 B",
-
     "notice-served": "14 Jan 2015",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
     "cost": "130",
     "compensation": "8.40",
-
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -806,8 +854,11 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-
-    "related-documents": {
+    "employment": {
+      "status": "",
+      "receiving-benfits": ""
+    },
+    "files": {
       "document": [
         {
           "document": true,
@@ -821,7 +872,6 @@ var search = [
         }
       ]
     },
-
     "related-documents": {
       "document": [
         {
@@ -847,11 +897,9 @@ var search = [
         }
       ]
     },
-
     "decision-made": false,
     "decision-ready": false,
     "missing-sjp": true,
-
     "offences": {
       "offence": [
         {
@@ -865,15 +913,16 @@ var search = [
         }
       ]
     }
-
   },
 
   {
     "id": 10,
+    "title": "Miss",
     "firstname": "Naomi",
     "lastname": "SMITH",
     "date-of-birth": "19 Oct 1995",
     "date-of-birth-long": "19 October 1995",
+    "date-of-birth-iso": "19-10-1995",
     "age": "20",
     "gender": "Female",
     "urn": "2056139",
@@ -885,14 +934,12 @@ var search = [
     "email": "naomi.smith@gmail.com",
     "phone": "070 6195 4223",
     "national-insurance-number": "LN 56 80 72",
-
     "notice-served": "14 Jan 2015",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
     "cost": "230",
     "compensation": "3.40",
-
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -901,8 +948,11 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
-
-    "related-documents": {
+    "employment": {
+      "status": "",
+      "receiving-benfits": ""
+    },
+    "files": {
       "document": [
         {
           "csv": true,
@@ -916,7 +966,6 @@ var search = [
         }
       ]
     },
-
     "related-documents": {
       "document": [
         {
@@ -942,11 +991,9 @@ var search = [
         }
       ]
     },
-
     "decision-made": false,
     "decision-ready": false,
     "missing-sjp": true,
-
     "offences": {
       "offence": [
         {
@@ -960,16 +1007,13 @@ var search = [
         }
       ]
     }
-
   }
 
 ];
 
-
 exports.getSearchEntries = function() {
   return search;
 }
-
 
 exports.getSearchEntry = function(id) {
   for(var i=0; i < search.length; i++) {
