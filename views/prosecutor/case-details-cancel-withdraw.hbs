@@ -1,0 +1,291 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  <div class="persist-info">
+    <span class="persist-info-reference">{{urn}}</span>
+    <span class="persist-info-title">{{firstname}} {{uppercase lastname}}</span>
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{firstname}} {{uppercase lastname}} <span class="heading-secondary">{{age}} years old</span></h1>
+
+      <div class="tabs tabs-horizontal">
+
+        <div class="tabs-header">
+
+          <ul class="list">
+            <li><a href="#case-details">Case details</a></li>
+            <li><a href="#personal-details">Personal details</a></li>
+          </ul>
+
+        </div>
+
+        <div class="tabs-content">
+
+          <section id="case-details">
+
+            <h2 class="heading-medium">Case details</h2>
+
+            {{#with case-details}}
+            <dl class="meta meta-large">
+              <dt>Case status</dt>
+              <dd>{{{status}}}</dd>
+              <dt>Prosecutor</dt>
+              <dd>{{{prosecutor}}}</dd>
+              <dt>Notice served</dt>
+              <dd><time datetime="{{notice-served-datetime}}">{{{notice-served}}}</time></dd>
+              <dt>Documents</dt>
+              <dd>
+                {{#each ../related-documents.document}}
+                <div class="document document-small">
+                  <i class="icon icon-file-download"></i>
+                  <div class="document-content">
+                    <p class="document-title"><a href="#">{{{title}}}</a></p>
+                    <div class="document-meta">
+                      <span class="document-meta-details">
+                        {{{file-type}}}, {{{file-size}}}, {{{file-pages}}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+              </dd>
+            </dl>
+            {{/with}}
+
+          </section>
+
+          <section id="personal-details">
+
+            <h2 class="heading-medium">Personal details</h2>
+
+            <dl class="meta meta-large">
+              <dt>Name</dt>
+              <dd>{{{firstname}}} {{uppercase lastname}}</dd>
+              <dt>Date of birth</dt>
+              <dd><time datetime="{{date-of-birth-iso}}">{{date-of-birth}}</time> (age {{age}})</dd>
+              <dt>Address</dt>
+              <dd>{{address.address1}}, <br> {{address.town}} {{address.postcode}}</dd>
+              <dt>Email</dt>
+              <dd>{{#if email}}{{email}}{{else}}&ndash;{{/if}}</dd>
+              <dt>Home telephone</dt>
+              <dd>{{#if phone}}{{phone}}{{else}}&ndash;{{/if}}</dd>
+              <dt>Mobile</dt>
+              <dd>{{#if mobile}}{{mobile}}{{else}}&ndash;{{/if}}</dd>
+              <dt>National Insurance number</dt>
+              <dd>{{#if national-insurance-number}}{{national-insurance-number}}{{else}}&ndash;{{/if}}</dd>
+            </dl>
+
+          </section>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {{#if withdraw}}
+     <div class="column-third">
+
+       <div class="related">
+
+         <div class="related-section">
+
+           <h2 class="related-heading">Case options</h2>
+
+           <ul class="related-links">
+             <li><a href="/prosecutor/withdraw-offence/{{id}}">Withdraw offence</a></li>
+           </ul>
+
+         </div>
+
+       </div>
+
+     </div>
+     {{/if}}
+
+     {{#if cancel-withdrawal}}
+     <div class="column-third">
+
+       <div class="related">
+
+         <div class="related-section">
+
+           <h2 class="related-heading">Case options</h2>
+
+           <ul class="related-links">
+             <li><a href="/prosecutor/cancel-request-to-withdraw-offence/{{id}}">Cancel withdrawal of offence</a></li>
+           </ul>
+
+         </div>
+
+       </div>
+
+     </div>
+   {{/if}}
+
+  </div>
+
+  <hr>
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <section aria-labelledby="offences">
+
+        <h2 class="bold-large" id="offences">Offence</h2>
+
+        {{#each offences.offence}}
+        <section aria-labelledby="offence{{id}}">
+
+          <h3 class="heading-medium" id="offence{{id}}">{{#if shownumber}}{{id}}. {{/if}}{{{title}}}</h3>
+
+          <p class="font-xsmall">On <time datetime="{{date-iso}}">{{date}}</time></p>
+
+          <p><strong class="tag">{{{plea}}}</strong>{{#if ../cancel-withdrawal}}<strong class="tag">Pending withdrawal</strong>{{/if}}</p>
+
+          <div class="tabs tabs-horizontal">
+
+            <div class="tabs-header">
+
+              <ul class="list">
+                <li><a href="#offence{{id}}-details">Details</a></li>
+                <li><a href="#offence{{id}}-decision">Decision</a></li>
+              </ul>
+
+            </div>
+
+            <div class="tabs-content">
+
+              <section id="offence{{id}}-details">
+
+                {{#if statement-of-facts}}
+                  <h3 class="heading-medium">Statement of facts</h3>
+                  <p>{{{statement-of-facts}}}</p>
+                {{/if}}
+
+                {{#if mitigation}}
+                  <h3 class="heading-medium">Mitigation</h3>
+                  <p>{{{mitigation}}}</p>
+                {{/if}}
+
+              </section>
+
+              <section id="offence{{id}}-decision">
+
+                <h3 class="heading-medium">Court decision</h3>
+
+                {{#is ../court-decision 1}}
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>Verdict</td>
+                        <td>Guilty plea accepted</td>
+                      </tr>
+                      <tr>
+                        <td>Fine</td>
+                        <td>&pound;100</td>
+                      </tr>
+                      <tr>
+                        <td>Compensation</td>
+                        <td>&pound;3.50</td>
+                      </tr>
+                      <tr>
+                        <td>Costs</td>
+                        <td>&pound;30</td>
+                      </tr>
+                      <tr>
+                        <td>Victim surcharge</td>
+                        <td>&pound;10</td>
+                      </tr>
+                      <tr>
+                        <td>Guilty plea taken into account?</td>
+                        <td>Yes</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                {{/is}}
+
+                {{#is ../court-decision 2}}
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>Verdict</td>
+                        <td>Guilty plea accepted</td>
+                      </tr>
+                      <tr>
+                        <td>Fine</td>
+                        <td>&pound;100</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2" valign="top">Compensation</td>
+                        <td>&pound;0</td>
+                      </tr>
+                      <tr>
+                        <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2" valign="top">Costs</td>
+                        <td>&pound;0</td>
+                      </tr>
+                      <tr>
+                        <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2" valign="top">Victim surcharge (reduced)</td>
+                        <td>&pound;0</td>
+                      </tr>
+                      <tr>
+                        <td>Reason for reduction <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                      </tr>
+                      <tr>
+                        <td>Guilty plea taken into account</td>
+                        <td>Yes</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                {{/is}}
+
+                {{#is ../court-decision 3}}
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>Verdict</td>
+                        <td>Guilty plea accepted</td>
+                      </tr>
+                      <tr>
+                        <td>Conditional discharge</td>
+                        <td>6 months</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2" valign="top">Compensation</td>
+                        <td>&pound;0</td>
+                      </tr>
+                      <tr>
+                        <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                {{/is}}
+
+              </section>
+
+            </div>
+
+          </div>
+
+        </section>
+        {{/each}}
+
+      </section>
+
+    </div>
+
+  </div>
+
+{{/with}}

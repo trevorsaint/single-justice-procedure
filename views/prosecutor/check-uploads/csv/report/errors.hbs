@@ -1,0 +1,256 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{pagetitle}}</h1>
+
+      <dl class="meta meta-small mb-xl">
+        <dt>Name</dt>
+        <dd>case-123456789</dd>
+        <dt>Uploaded</dt>
+        <dd><time datetime="2016-01-12">12 January 2016</time></dd>
+        <dt>Status</dt>
+        <dd><span class="text-error">Rejected &ndash; errors found</span></dd>
+      </dl>
+
+      <p>You&rsquo;ll need to fix errors in one or both of your <abbr title="Comma Separated Values">CSV</abbr> files and try again.</p>
+
+    </div>
+
+    <div class="column-third">
+
+      <div class="related">
+
+        <div class="related-section">
+
+          <h3 class="related-heading">Related links</h3>
+
+          <ul class="related-links">
+            <li><a href="/prosecutor/send-data-files">Send data files to court</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {{#is report-error 1}}
+    <section aria-labelledby="header-errors">
+
+      <h2 class="heading-medium" id="header-errors">Header &ndash; fix 6 errors</h2>
+
+      <table class="table table-error-log table-font-xsmall">
+        <caption class="visuallyhidden">Errors in header CSV file</caption>
+        <thead>
+          <tr>
+            <th class="table-cell-row" scope="col">Row</th>
+            <th class="table-cell-reference" scope="col">Reference number</th>
+            <th class="table-cell-column" scope="col">Column</th>
+            <th class="table-cell-error" scope="col">Error</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5</td>
+            <td>9012466</td>
+            <td>&ndash;</td>
+            <td><span class="text-error">Case already sent to court &ndash; remove</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>9012467</td>
+            <td>&ndash;</td>
+            <td><span class="text-error">Case duplicated in this <abbr title="Comma Separated Values">CSV</abbr> &ndash; remove one instance</span></td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>2053688</td>
+            <td>B</td>
+            <td><span class="text-error">Information is incorrect &ndash; check and fix</span></td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>2053689</td>
+            <td>B</td>
+            <td><span class="text-error">Not an <abbr title="Single Justice Procedure">SJP</abbr> case &ndash; fix or remove</span></td>
+          </tr>
+          <tr>
+            <td>32</td>
+            <td>2053690</td>
+            <td>B</td>
+            <td><span class="text-error">You must enter defendant&rsquo;s last name</span></td>
+          </tr>
+          <tr>
+            <td>44</td>
+            <td>2053691</td>
+            <td>D</td>
+            <td><span class="text-error">You must enter a date before 12 Sep 2016</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+    <section aria-labelledby="offence-errors">
+
+      <h2 class="heading-medium" id="offence-errors">Offences &ndash; fix 6 errors</h2>
+
+      <table class="table table-error-log table-font-xsmall">
+        <caption class="visuallyhidden">Errors in offences CSV file</caption>
+        <thead>
+          <tr>
+            <th class="table-cell-row" scope="col">Row</th>
+            <th class="table-cell-reference" scope="col">Reference number</th>
+            <th class="table-cell-column" scope="col">Column</th>
+            <th class="table-cell-error" scope="col">Error</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>38</td>
+            <td>2053700</td>
+            <td>B</td>
+            <td><span class="text-error">Information is incorrect &ndash; check and fix</span></td>
+          </tr>
+          <tr>
+            <td>48</td>
+            <td>2053701</td>
+            <td>C</td>
+            <td><span class="text-error">You must enter prosecutor case ID</span></td>
+          </tr>
+          <tr>
+            <td>48</td>
+            <td>2053702</td>
+            <td>C</td>
+            <td><span class="text-error">You must enter a single digit number</span></td>
+          </tr>
+          <tr>
+            <td>49</td>
+            <td>2053703</td>
+            <td>D</td>
+            <td><span class="text-error">CJS offence code must be entered</span></td>
+          </tr>
+          <tr>
+            <td>52</td>
+            <td>2053704</td>
+            <td>E</td>
+            <td><span class="text-error">You must enter the offence wording</span></td>
+          </tr>
+          <tr>
+            <td>55</td>
+            <td>2053705</td>
+            <td>F</td>
+            <td><span class="text-error">Date must be inside offence time limits</span></td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </section>
+  {{/is}}
+
+  {{#is report-error 2}}
+    <section aria-labelledby="header-errors">
+
+      <h2 class="heading-medium" id="header-errors">Header &ndash; case numbers don&rsquo;t match</h2>
+
+      <table class="table table-error-log table-font-xsmall">
+        <caption class="visuallyhidden">Errors in header csv file</caption>
+        <thead>
+          <tr>
+            <th class="table-cell-row" scope="col">Row</th>
+            <th class="table-cell-reference" scope="col">Reference number</th>
+            <th class="table-cell-column" scope="col">Column</th>
+            <th class="table-cell-error" scope="col">Error</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5</td>
+            <td>9012466</td>
+            <td>&ndash;</td>
+            <td><span class="text-error">No matching case in offences <abbr title="Comma Separated Values">CSV</abbr></span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>9012467</td>
+            <td>&ndash;</td>
+            <td><span class="text-error">No matching case in offences <abbr title="Comma Separated Values">CSV</abbr></span></td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>2053688</td>
+            <td>&ndash;</td>
+            <td><span class="text-error">No matching case in offences <abbr title="Comma Separated Values">CSV</abbr></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+  {{/is}}
+
+  {{#is report-error 3}}
+    <section aria-labelledby="offence-errors">
+
+      <h2 class="heading-medium" id="offence-errors">Offences &ndash; case numbers don&rsquo;t match</h2>
+
+      <table class="table table-error-log table-font-xsmall">
+        <caption class="visuallyhidden">Errors in offences CSV file</caption>
+        <thead>
+          <tr>
+            <th class="table-cell-row" scope="col">Row</th>
+            <th class="table-cell-reference" scope="col">Reference number</th>
+            <th class="table-cell-column" scope="col">Column</th>
+            <th class="table-cell-error" scope="col">Error</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5</td>
+            <td>9012466</td>
+            <td>&ndash;</td>
+            <td><span class="text-error">No matching case in offences <abbr title="Comma Separated Values">CSV</abbr></span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>9012467</td>
+            <td>&ndash;</td>
+            <td><span class="text-error">No matching case in offences <abbr title="Comma Separated Values">CSV</abbr></span></td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>2053688</td>
+            <td>&ndash;</td>
+            <td><span class="text-error">No matching case in offences <abbr title="Comma Separated Values">CSV</abbr></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+  {{/is}}
+
+  <section aria-labelledby="after-fixed">
+
+    <h3 class="heading-medium" id="after-fixed">After you&rsquo;ve fixed all errors</h3>
+
+    <p class="text">You now need to upload both header and offences <abbr title="Comma Separated Values">CSV</abbr>s again.</p>
+
+    <p>The <abbr title="Comma Separated Values">CSV</abbr>s must include:</p>
+
+    <ul class="list list-bullet">
+      <li>your corrected data</li>
+      <li>all the remaining original data which didn&rsquo;t contain errors</li>
+    </ul>
+
+    <p><a class="button" href="/prosecutor/send-data-files" role="button">Upload CSVs again</a></p>
+
+  </section>
+
+{{/with}}

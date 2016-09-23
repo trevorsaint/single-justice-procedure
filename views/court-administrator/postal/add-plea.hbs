@@ -1,0 +1,54 @@
+  {{>breadcrumb}}
+
+  {{#with search}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+      <h2 class="heading-large">Offence</h2>
+
+      <h2 class="font-medium">Public service vehicle &ndash; passenger failing to produce a ticket</h2>
+
+      <p class="font-xsmall">On <time datetime="2016-02-01">1 February 2016</time></p>
+
+      <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
+
+      <form class="form" method="post" action="/court-administrator/postal/personal-details/{{id}}">
+
+        <fieldset>
+
+          <legend class="visually-hidden">Make a decision</legend>
+
+          <div class="form-group">
+
+            <label class="block-label" for="guilty-no-court">
+              <input type="radio" id="guilty-no-court" name="make-a-decision">
+              Guilty &ndash; I don't want to come to court
+            </label>
+
+            <label class="block-label" for="guilty-court">
+              <input type="radio" id="guilty-court" name="make-a-decision">
+              Guilty &ndash; I want to come to court
+            </label>
+
+            <label class="block-label" for="not-guilty">
+              <input type="radio" id="not-guilty" name="make-a-decision">
+              Not guilty &ndash; send me the date of my trial
+            </label>
+
+          </div>
+
+          <button class="button" type="submit">Continue</buton>
+
+        </fieldset>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  {{/with}}

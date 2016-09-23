@@ -1,0 +1,66 @@
+{{>breadcrumb}}
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <h1 class="heading-xlarge"><span class="heading-secondary">{{apptitle}}</span> {{pagetitle}}</h1>
+
+    <h2 class="heading-medium">Search for a case</h2>
+
+    <form class="form" method="post" action="/court-administrator/search-for-a-case">
+
+      <div class="form-group">
+
+        <div class="form-search">
+
+          <label for="search">
+            <span class="form-label">Enter reference number or defendant&rsquo;s last name</span>
+          </label>
+
+          <input class="form-control form-control-wide" type="search" id="search" name="search"><button class="form-search-button" type="submit">Search</button>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <h2 class="heading-medium" id="manage-defendant-details">Manage defendant details</h2>
+
+    <ul class="list" aria-labelledby="manage-defendant-details">
+      <li><p ><a href="#">Deal with defendant requests to change details</a></p></li>
+      <li><p ><a href="#">Batch upload documents</a></p></li>
+    </ul>
+
+    <h2 class="heading-medium" id="transferring-cases-to-libra">Transferring cases to Libra</h2>
+
+    <ul class="list" aria-labelledby="transferring-cases-to-libra">
+      <li><p ><a href="#">Send cases back to Libra</a></p></li>
+      <li><p ><a href="#">View cases sent to Libra since last transfer</a></p></li>
+    </ul>
+
+    <h2 class="heading-medium" id="print-case-lists">Print case lists</h2>
+
+    <ul class="list" aria-labelledby="print-case-lists">
+      <li><p ><a href="#">Print guilty SJP cases awaiting decision</a></p></li>
+      <li><p ><a href="#">Print cases with 7 days left and no reply</a></p></li>
+    </ul>
+
+    <h2 class="heading-medium" id="other-tasks">Other tasks</h2>
+
+    <ul class="list" aria-labelledby="other-tasks">
+      <li><p ><a href="#">Create service performance report</a></p></li>
+    </ul>
+
+  </div>
+
+</div>

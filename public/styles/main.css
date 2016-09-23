@@ -2043,6 +2043,15 @@ CSS Usage
     line-height: 1.31579;
   }
 }
+.form-group-actions p {
+  margin-top: 0.52632em;
+}
+@media (min-width: 641px) {
+  .form-group-actions p {
+    margin: 0.52632em 0 0 1.05263em;
+    display: inline-block;
+  }
+}
 .form-group-last {
   margin-bottom: 30px;
 }

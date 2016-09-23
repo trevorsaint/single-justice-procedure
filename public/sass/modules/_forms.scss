@@ -31,7 +31,21 @@ $module: 'form';
     }
 
   }
-  
+
+  &-group-actions {
+
+    p {
+      margin-top: em(10);
+
+      @include media(tablet) {
+        margin: em(10) 0 0 em(20);
+        display: inline-block;
+      }
+
+    }
+
+  }
+
   &-group-last {
     margin-bottom: $gutter;
 
