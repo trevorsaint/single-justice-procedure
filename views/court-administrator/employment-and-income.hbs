@@ -1,157 +1,136 @@
-  {{>breadcrumb}}
+{{>breadcrumb}}
 
-  {{#with search}}
+{{#with search}}
 
-  <div class="grid-row">
+<div class="grid-row">
 
-    <div class="column-two-thirds">
+  <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">Add or change employment and income</h1>
+    <h1 class="heading-xlarge">Add or change employment and income</h1>
 
-      <form class="form" method="post" action="">
+    <form class="form" method="post" action="">
 
-        <h3 class="heading-medium">Is the defendant employed?</h3>
+      <h3 class="heading-medium">Is the defendant employed?</h3>
 
-        <fieldset class="inline">
+      <fieldset class="inline">
 
-          <legend class="visuallyhidden">Is the defendant employed?</legend>
+        <legend class="visuallyhidden">Is the defendant employed?</legend>
 
-          <label class="block-label" for="employed" data-target="is-employed">
-            <input id="employed" type="radio" name="radio-group" value="Yes"{{#compare employment.status "===" "Employed"}} checked{{/compare}}> Yes
-          </label>
+        <label class="block-label" for="employed" data-target="is-employed">
+          <input id="employed" type="radio" name="radio-group" value="Yes"{{#compare employment.status "===" "Employed"}} checked{{/compare}}> Yes
+        </label>
 
-          <label class="block-label" for="unemployed" data-target="not-employed">
-            <input id="unemployed" type="radio" name="radio-group" value="No"{{#compare employment.status "===" "Unemployed"}} checked{{/compare}}> No
-          </label>
+        <label class="block-label" for="unemployed" data-target="not-employed">
+          <input id="unemployed" type="radio" name="radio-group" value="No"{{#compare employment.status "===" "Unemployed"}} checked{{/compare}}> No
+        </label>
 
-          <label class="block-label" for="unknown">
-            <input id="unknown" type="radio" name="radio-group" value="Dont know"{{#compare employment.status "===" ""}} checked{{/compare}}> Don't know
-          </label>
+        <label class="block-label" for="unknown">
+          <input id="unknown" type="radio" name="radio-group" value="Dont know"{{#compare employment.status "===" ""}} checked{{/compare}}> Don't know
+        </label>
 
-        </fieldset>
+      </fieldset>
 
-        <div class="form-group">
+      <div class="form-group">
 
-          <div class="panel panel-border-narrow{{#compare employment.status "!=" "Employed"}} js-hidden{{/compare}}" id="is-employed">
+        <div class="panel panel-border-narrow{{#compare employment.status "!=" "Employed"}} js-hidden{{/compare}}" id="is-employed">
 
-            <h3 class="heading-medium">Employer details</h3>
+          <h3 class="heading-medium">Employer details</h3>
 
-            <div class="form-group">
-              <label for="employer-name">
-                <span class="form-label">Employer name</span>
-              </label>
-              <input class="form-control" type="text" id="employer-name"{{#if employment.employer-name}} value="{{employment.employer-name}}"{{/if}}>
-            </div>
-
-            <div class="form-group">
-
-              <fieldset>
-
-                <legend class="visuallyhidden">Address</legend>
-
-                <div class="form-group form-group-compound">
-                  <label for="address-line-1">
-                    <span class="form-label">Street</span>
-                  </label>
-                  <input class="form-control" type="text" id="address-line-1"{{#if employment.employer-address.address1}} value="{{employment.employer-address.address1}}"{{/if}}>
-                </div>
-
-                <div class="form-group">
-                  <label class="visuallyhidden" for="address-line-2">
-                    <span class="form-label">Street</span>
-                  </label>
-                  <input class="form-control" type="text" id="address-line-2"{{#if employment.employer-address.address2}} value="{{employment.employer-address.address2}}"{{/if}}>
-                </div>
-
-                <div class="form-group">
-                  <label for="address-town">
-                    <span class="form-label">Town or City</span>
-                  </label>
-                  <input class="form-control form-control-1-4" type="text" id="address-town"{{#if employment.employer-address.town}} value="{{employment.employer-address.town}}"{{/if}}>
-                </div>
-
-                <div class="form-group">
-                  <label for="address-postcode">
-                    <span class="form-label">Postcode</span>
-                  </label>
-                  <input class="form-control form-control-1-4" type="text" id="address-postcode"{{#if employment.employer-address.postcode}} value="{{employment.employer-address.postcode}}"{{/if}}>
-                </div>
-
-              </fieldset>
-
-            </div>
-
-            <div class="form-group">
-              <label for="employer-telephone">
-                <span class="form-label">Employer telephone</span>
-              </label>
-              <input class="form-control" type="tel" id="employer-telephone" {{#if employment.employer-phone}} value="{{employment.employer-phone}}"{{/if}}>
-            </div>
-
-            <h3 class="heading-medium">Pay</h3>
-
-            <div class="form-group">
-
-              <fieldset>
-
-                <legend>
-                  <span class="form-label">How often do they get paid?</span>
-                </legend>
-
-                <label class="block-label" for="weekly" data-target="paid-weekly">
-                  <input type="radio" id="weekly" name="radio-paid-group"{{#compare employment.pay.duration "===" "Weekly"}} checked{{/compare}}>
-                  Weekly
-                </label>
-
-                <div class="panel panel-border-narrow{{#compare employment.pay.duration "!=" "Weekly"}} js-hidden{{/compare}}" id="paid-weekly">
-                  <label class="form-label" for="weekly-net-pay">Weekly net pay (take home)</label>
-                  <div class="form-currency">
-                    <input class="form-control form-control-1-4" type="text" id="weekly-net-pay" name="weekly-net-pay"{{#compare employment.pay.duration "===" "Weekly"}} value="{{employment.pay.amount}}"{{/compare}}>
-                  </div>
-                </div>
-
-                <label class="block-label" for="fortnightly" data-target="paid-fortnightly">
-                  <input type="radio" id="fortnightly" name="radio-paid-group"{{#compare employment.pay-duration "===" "Fortnightly"}} checked{{/compare}}>
-                  Fortnightly
-                </label>
-
-                <div class="panel panel-border-narrow{{#compare employment.pay.duration "!=" "Fortnightly"}} js-hidden{{/compare}}" id="paid-fortnightly">
-                  <label class="form-label" for="fortnightly-net-pay">Fortnightly net pay (take home)</label>
-                  <div class="form-currency"><input class="form-control form-control-1-4" type="text" id="fortnightly-net-pay" name="fortnightly-net-pay"{{#compare employment.pay.duration "===" "Fortnightly"}} value="{{employment.pay.amount}}"{{/compare}}></div>
-                </div>
-
-                <label class="block-label" for="monthly" data-target="paid-monthly">
-                  <input type="radio" id="monthly" name="radio-paid-group"{{#compare employment.pay.duration "===" "Monthly"}} checked{{/compare}}>
-                  Monthly
-                </label>
-
-                <div class="panel panel-border-narrow{{#compare employment.pay.duration "!=" "Monthly"}} js-hidden{{/compare}}" id="paid-monthly">
-                  <label class="form-label" for="monthly-net-pay">Monthly net pay (take home)</label>
-                  <div class="form-currency">
-                    <input class="form-control form-control-1-4" type="text" id="monthly-net-pay" name="monthly-net-pay"{{#compare employment.pay.duration "===" "Monthly"}} value="{{employment.pay.amount}}"{{/compare}}>
-                  </div>
-                </div>
-
-              </fieldset>
-
-            </div>
-
+          <div class="form-group">
+            <label for="employer-name">
+              <span class="form-label">Employer name</span>
+            </label>
+            <input class="form-control" type="text" id="employer-name"{{#if employment.employer-name}} value="{{employment.employer-name}}"{{/if}}>
           </div>
 
           <div class="form-group">
 
-            <h3 class="heading-medium">Are they receiving benefits?</h3>
+            <fieldset>
 
-            <fieldset class="inline">
+              <legend class="visuallyhidden">Address</legend>
 
-              <legend class="visuallyhidden">Are they receiving benefits?</legend>
+              <div class="form-group form-group-compound">
+                <label for="address-line-1">
+                  <span class="form-label">Street</span>
+                </label>
+                <input class="form-control" type="text" id="address-line-1"{{#if employment.employer-address.address1}} value="{{employment.employer-address.address1}}"{{/if}}>
+              </div>
 
-              <label class="block-label" for="benefits-yes">
-                <input type="radio" id="benefits-yes" name="radio-benefits-group" value="Yes"{{#compare employment.receiving-benfits "===" "Yes"}} checked{{/compare}}>Yes</label>
+              <div class="form-group">
+                <label class="visuallyhidden" for="address-line-2">
+                  <span class="form-label">Street</span>
+                </label>
+                <input class="form-control" type="text" id="address-line-2"{{#if employment.employer-address.address2}} value="{{employment.employer-address.address2}}"{{/if}}>
+              </div>
 
-              <label class="block-label" for="benefits-no">
-                <input type="radio" id="benefits-no" name="radio-benefits-group" value="No"{{#compare employment.receiving-benfits "===" "No"}} checked{{/compare}}>No
+              <div class="form-group">
+                <label for="address-town">
+                  <span class="form-label">Town or City</span>
+                </label>
+                <input class="form-control form-control-1-4" type="text" id="address-town"{{#if employment.employer-address.town}} value="{{employment.employer-address.town}}"{{/if}}>
+              </div>
+
+              <div class="form-group">
+                <label for="address-postcode">
+                  <span class="form-label">Postcode</span>
+                </label>
+                <input class="form-control form-control-1-4" type="text" id="address-postcode"{{#if employment.employer-address.postcode}} value="{{employment.employer-address.postcode}}"{{/if}}>
+              </div>
+
+            </fieldset>
+
+          </div>
+
+          <div class="form-group">
+            <label for="employer-telephone">
+              <span class="form-label">Employer telephone</span>
+            </label>
+            <input class="form-control" type="tel" id="employer-telephone" {{#if employment.employer-phone}} value="{{employment.employer-phone}}"{{/if}}>
+          </div>
+
+          <h3 class="heading-medium">Pay</h3>
+
+          <div class="form-group">
+
+            <fieldset>
+
+              <legend>
+                <span class="form-label">How often do they get paid?</span>
+              </legend>
+
+              <label class="block-label" for="weekly" data-target="paid-weekly">
+                <input type="radio" id="weekly" name="radio-paid-group"{{#compare employment.pay.duration "===" "Weekly"}} checked{{/compare}}>
+                Weekly
               </label>
+
+              <div class="panel panel-border-narrow{{#compare employment.pay.duration "!=" "Weekly"}} js-hidden{{/compare}}" id="paid-weekly">
+                <label class="form-label" for="weekly-net-pay">Weekly net pay (take home)</label>
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="weekly-net-pay" name="weekly-net-pay"{{#compare employment.pay.duration "===" "Weekly"}} value="{{employment.pay.amount}}"{{/compare}}>
+                </div>
+              </div>
+
+              <label class="block-label" for="fortnightly" data-target="paid-fortnightly">
+                <input type="radio" id="fortnightly" name="radio-paid-group"{{#compare employment.pay-duration "===" "Fortnightly"}} checked{{/compare}}>
+                Fortnightly
+              </label>
+
+              <div class="panel panel-border-narrow{{#compare employment.pay.duration "!=" "Fortnightly"}} js-hidden{{/compare}}" id="paid-fortnightly">
+                <label class="form-label" for="fortnightly-net-pay">Fortnightly net pay (take home)</label>
+                <div class="form-currency"><input class="form-control form-control-1-4" type="text" id="fortnightly-net-pay" name="fortnightly-net-pay"{{#compare employment.pay.duration "===" "Fortnightly"}} value="{{employment.pay.amount}}"{{/compare}}></div>
+              </div>
+
+              <label class="block-label" for="monthly" data-target="paid-monthly">
+                <input type="radio" id="monthly" name="radio-paid-group"{{#compare employment.pay.duration "===" "Monthly"}} checked{{/compare}}>
+                Monthly
+              </label>
+
+              <div class="panel panel-border-narrow{{#compare employment.pay.duration "!=" "Monthly"}} js-hidden{{/compare}}" id="paid-monthly">
+                <label class="form-label" for="monthly-net-pay">Monthly net pay (take home)</label>
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="monthly-net-pay" name="monthly-net-pay"{{#compare employment.pay.duration "===" "Monthly"}} value="{{employment.pay.amount}}"{{/compare}}>
+                </div>
+              </div>
 
             </fieldset>
 
@@ -159,12 +138,33 @@
 
         </div>
 
-        <button class="button" type="submit">Save</button>
+        <div class="form-group">
 
-      </form>
+          <h3 class="heading-medium">Are they receiving benefits?</h3>
 
-    </div>
+          <fieldset class="inline">
+
+            <legend class="visuallyhidden">Are they receiving benefits?</legend>
+
+            <label class="block-label" for="benefits-yes">
+              <input type="radio" id="benefits-yes" name="radio-benefits-group" value="Yes"{{#compare employment.receiving-benfits "===" "Yes"}} checked{{/compare}}>Yes</label>
+
+            <label class="block-label" for="benefits-no">
+              <input type="radio" id="benefits-no" name="radio-benefits-group" value="No"{{#compare employment.receiving-benfits "===" "No"}} checked{{/compare}}>No
+            </label>
+
+          </fieldset>
+
+        </div>
+
+      </div>
+
+      <button class="button" type="submit">Save</button>
+
+    </form>
 
   </div>
 
-  {{/with}}
+</div>
+
+{{/with}}

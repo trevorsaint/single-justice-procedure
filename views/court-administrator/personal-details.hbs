@@ -1,170 +1,170 @@
-  {{>breadcrumb}}
+{{>breadcrumb}}
 
-  {{#with search}}
+{{#with search}}
 
-  <div class="grid-row">
+<div class="grid-row">
 
-    <div class="column-two-thirds">
+  <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">Add or change personal details</h1>
+    <h1 class="heading-xlarge">Add or change personal details</h1>
 
-      <p class="lede">Keep these personal details up to date.</p>
+    <p class="lede">Keep these personal details up to date.</p>
 
-      <form class="form" method="post" action="">
+    <form class="form" method="post" action="/court-administrator/case-details/{{id}}">
 
-        <h2 class="heading-medium">Personal details</h2>
+      <h2 class="heading-medium">Personal details</h2>
 
-        <div class="form-group">
+      <div class="form-group">
 
-          <fieldset>
+        <fieldset>
 
-            <legend class="visuallyhidden">Personal details</legend>
+          <legend class="visuallyhidden">Personal details</legend>
 
-            <div class="form-group">
-              <label for="title">
-                <span class="form-label">Title (optional)</span>
-              </label>
-              <input class="form-control form-control-1-8" type="text" id="title" name="title"{{#if title}} value="{{title}}"{{/if}}>
-            </div>
+          <div class="form-group">
+            <label for="title">
+              <span class="form-label">Title (optional)</span>
+            </label>
+            <input class="form-control form-control-1-8" type="text" id="title" name="title"{{#if title}} value="{{title}}"{{/if}}>
+          </div>
 
-            <div class="form-group">
-              <label for="firstname">
-                <span class="form-label">First name</span>
-              </label>
-              <input class="form-control" type="text" id="firstname" name="firstname"{{#if firstname}} value="{{firstname}}"{{/if}}>
-            </div>
+          <div class="form-group">
+            <label for="firstname">
+              <span class="form-label">First name</span>
+            </label>
+            <input class="form-control" type="text" id="firstname" name="firstname"{{#if firstname}} value="{{firstname}}"{{/if}}>
+          </div>
 
-            <div class="form-group">
-              <label for="lastname">
-                <span class="form-label">Last name</span>
-              </label>
-              <input class="form-control" type="text" id="lastname" name="lastname"{{#if lastname}} value="{{lastname}}"{{/if}}>
-            </div>
+          <div class="form-group">
+            <label for="lastname">
+              <span class="form-label">Last name</span>
+            </label>
+            <input class="form-control" type="text" id="lastname" name="lastname"{{#if lastname}} value="{{lastname}}"{{/if}}>
+          </div>
 
-            <div class="form-group">
+          <div class="form-group">
 
-              <fieldset>
+            <fieldset>
 
-                <legend>
-                  <span class="form-label">Date of birth</span>
-                  <span class="form-hint" id="dob-hint">For example, 31 3 1980</span>
-                </legend>
+              <legend>
+                <span class="form-label">Date of birth</span>
+                <span class="form-hint" id="dob-hint">For example, 31 3 1980</span>
+              </legend>
 
-                <div class="form-date">
+              <div class="form-date">
 
-                  <div class="form-group form-group-day">
-                    <label class="form-label" for="dob-day">Day</label>
-                    <input class="form-control" type="number" id="dob-day" aria-describedby="dob-hint">
-                  </div>
-
-                  <div class="form-group form-group-month">
-                    <label class="form-label" for="dob-month">Month</label>
-                    <input class="form-control" type="number" id="dob-month">
-                  </div>
-
-                  <div class="form-group form-group-year">
-                    <label class="form-label" for="dob-year">Year</label>
-                    <input class="form-control" type="number" id="dob-year">
-                  </div>
-
+                <div class="form-group form-group-day">
+                  <label class="form-label" for="dob-day">Day</label>
+                  <input class="form-control" type="number" id="dob-day" aria-describedby="dob-hint">
                 </div>
 
-              </fieldset>
+                <div class="form-group form-group-month">
+                  <label class="form-label" for="dob-month">Month</label>
+                  <input class="form-control" type="number" id="dob-month">
+                </div>
 
-            </div>
+                <div class="form-group form-group-year">
+                  <label class="form-label" for="dob-year">Year</label>
+                  <input class="form-control" type="number" id="dob-year">
+                </div>
 
-            <div class="form-group">
-              <label for="lastname">
-                <span class="form-label">National Insurance number</span>
-                <span class="form-hint" id="national-insurance-number-hint">Find this on your payslip, P60 or tax return. <br> For example, VO 12 34 56 D.</span>
-              </label>
-              <input class="form-control" type="text" id="national-insurance-number" name="national-insurance-number"{{#if national-insurance-number}} value="{{national-insurance-number}}"{{/if}} aria-describedby="national-insurance-number-hint">
-            </div>
+              </div>
 
-          </fieldset>
+            </fieldset>
 
-        </div>
+          </div>
 
-        <h2 class="heading-medium">Address</h2>
+          <div class="form-group">
+            <label for="lastname">
+              <span class="form-label">National Insurance number</span>
+              <span class="form-hint" id="national-insurance-number-hint">Find this on your payslip, P60 or tax return. <br> For example, VO 12 34 56 D.</span>
+            </label>
+            <input class="form-control" type="text" id="national-insurance-number" name="national-insurance-number"{{#if national-insurance-number}} value="{{national-insurance-number}}"{{/if}} aria-describedby="national-insurance-number-hint">
+          </div>
 
-        <div class="form-group">
+        </fieldset>
 
-          <fieldset>
+      </div>
 
-            <legend class="visuallyhidden">Adress</legend>
+      <h2 class="heading-medium">Address</h2>
 
-            <div class="form-group form-group-compound">
-              <label for="address-line-1">
-                <span class="form-label">Street</span>
-              </label>
-              <input class="form-control" type="text" id="address-line-1"{{#if address.address1}} value="{{address.address1}}"{{/if}}>
-            </div>
+      <div class="form-group">
 
-            <div class="form-group">
-              <label class="visuallyhidden" for="address-line-2">
-                <span class="form-label">Street</span>
-              </label>
-              <input class="form-control" type="text" id="address-line-2"{{#if address.address2}} value="{{address.address2}}"{{/if}}>
-            </div>
+        <fieldset>
 
-            <div class="form-group">
-              <label for="address-town">
-                <span class="form-label">Town or City</span>
-              </label>
-              <input class="form-control form-control-1-4" type="text" id="address-town"{{#if address.town}} value="{{address.town}}"{{/if}}>
-            </div>
+          <legend class="visuallyhidden">Adress</legend>
 
-            <div class="form-group">
-              <label for="address-postcode">
-                <span class="form-label">Postcode</span>
-              </label>
-              <input class="form-control form-control-1-4" type="text" id="address-postcode"{{#if address.postcode}} value="{{address.postcode}}"{{/if}}>
-            </div>
+          <div class="form-group form-group-compound">
+            <label for="address-line-1">
+              <span class="form-label">Street</span>
+            </label>
+            <input class="form-control" type="text" id="address-line-1"{{#if address.address1}} value="{{address.address1}}"{{/if}}>
+          </div>
 
-          </fieldset>
+          <div class="form-group">
+            <label class="visuallyhidden" for="address-line-2">
+              <span class="form-label">Street</span>
+            </label>
+            <input class="form-control" type="text" id="address-line-2"{{#if address.address2}} value="{{address.address2}}"{{/if}}>
+          </div>
 
-        </div>
+          <div class="form-group">
+            <label for="address-town">
+              <span class="form-label">Town or City</span>
+            </label>
+            <input class="form-control form-control-1-4" type="text" id="address-town"{{#if address.town}} value="{{address.town}}"{{/if}}>
+          </div>
 
-        <h2 class="heading-medium">Email and telephone</h2>
-        <p>You must enter either a landline or mobile number.</p>
+          <div class="form-group">
+            <label for="address-postcode">
+              <span class="form-label">Postcode</span>
+            </label>
+            <input class="form-control form-control-1-4" type="text" id="address-postcode"{{#if address.postcode}} value="{{address.postcode}}"{{/if}}>
+          </div>
 
-        <div class="form-group">
+        </fieldset>
 
-          <fieldset>
+      </div>
 
-            <legend class="visuallyhidden">Email and telephone</legend>
+      <h2 class="heading-medium">Email and telephone</h2>
+      <p>You must enter either a landline or mobile number.</p>
 
-            <div class="form-group">
-              <label for="email">
-                <span class="form-label">Email</span>
-              </label>
-              <input class="form-control" type="email" id="email" name="email"{{#if email}} value="{{email}}"{{/if}}>
-            </div>
+      <div class="form-group">
 
-            <div class="form-group">
-              <label for="email">
-                <span class="form-label">Landline</span>
-              </label>
-              <input class="form-control form-control-1-4" type="tel" id="landline" name="landline"{{#if phone}} value="{{phone}}"{{/if}}>
-            </div>
+        <fieldset>
 
-            <div class="form-group">
-              <label for="email">
-                <span class="form-label">Mobile</span>
-              </label>
-              <input class="form-control form-control-1-4" type="tel" id="mobile" name="mobile"{{#if mobile}} value="{{mobile}}"{{/if}}>
-            </div>
+          <legend class="visuallyhidden">Email and telephone</legend>
 
-          </fieldset>
+          <div class="form-group">
+            <label for="email">
+              <span class="form-label">Email</span>
+            </label>
+            <input class="form-control" type="email" id="email" name="email"{{#if email}} value="{{email}}"{{/if}}>
+          </div>
 
-        </div>
+          <div class="form-group">
+            <label for="email">
+              <span class="form-label">Landline</span>
+            </label>
+            <input class="form-control form-control-1-4" type="tel" id="landline" name="landline"{{#if phone}} value="{{phone}}"{{/if}}>
+          </div>
 
-        <button class="button" type="submit">Save</button>
+          <div class="form-group">
+            <label for="email">
+              <span class="form-label">Mobile</span>
+            </label>
+            <input class="form-control form-control-1-4" type="tel" id="mobile" name="mobile"{{#if mobile}} value="{{mobile}}"{{/if}}>
+          </div>
 
-      </form>
+        </fieldset>
 
-    </div>
+      </div>
+
+      <button class="button" type="submit">Save</button>
+
+    </form>
 
   </div>
 
-  {{/with}}
+</div>
+
+{{/with}}

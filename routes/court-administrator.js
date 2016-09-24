@@ -7,9 +7,10 @@ var dataEngine = require('../models/data-court-administrator');
 // baseurl and apptitle
 var baseurl  = '/court-administrator/';
 var apptitle = 'Court administrator';
+var entry;
 
 // routes
-router.all('/court-administrator', function(req, res) {
+router.all('/court-administrator', function(req, res, next) {
   res.render('court-administrator/index', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -20,7 +21,7 @@ router.all('/court-administrator', function(req, res) {
   });
 });
 
-router.all('/court-administrator/case-tasks', function(req, res) {
+router.all('/court-administrator/case-tasks', function(req, res, next) {
   res.render('court-administrator/case-tasks', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -33,7 +34,7 @@ router.all('/court-administrator/case-tasks', function(req, res) {
   });
 });
 
-router.all('/court-administrator/search-for-a-case', function(req, res) {
+router.all('/court-administrator/search-for-a-case', function(req, res, next) {
   res.render('court-administrator/search-for-a-case', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -41,14 +42,14 @@ router.all('/court-administrator/search-for-a-case', function(req, res) {
     pagetitle: 'Search for a case',
     section: 'case-tasks',
     section_name: 'Case tasks',
-    searches:dataEngine.getSearchEntries(),
     signedIn: true,
-    breadcrumb: true
+    breadcrumb: true,
+    searches:dataEngine.getSearchEntries()
   });
 });
 
 router.all('/court-administrator/case-details/:id', function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
+  entry = dataEngine.getSearchEntry(req.params.id);
   res.render('court-administrator/case-details', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -65,7 +66,7 @@ router.all('/court-administrator/case-details/:id', function(req, res) {
 });
 
 router.all('/court-administrator/personal-details/:id', function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
+  entry = dataEngine.getSearchEntry(req.params.id);
   res.render('court-administrator/personal-details', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -81,8 +82,8 @@ router.all('/court-administrator/personal-details/:id', function(req, res) {
   });
 });
 
-router.all('/court-administrator/employment-and-income/:id', function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
+router.all('/court-administrator/employment-and-income/:id', function(req, res, next) {
+  entry = dataEngine.getSearchEntry(req.params.id);
   res.render('court-administrator/employment-and-income', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -92,14 +93,14 @@ router.all('/court-administrator/employment-and-income/:id', function(req, res) 
     section_name: 'Case tasks',
     section2: 'case-details/' + req.params.id,
     section2_name: 'Case details',
-    search:entry,
     signedIn: true,
-    breadcrumb: true
+    breadcrumb: true,
+    search:entry
   });
 });
 
-router.all('/court-administrator/manage-documents/:id', function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
+router.all('/court-administrator/manage-documents/:id', function(req, res, next) {
+  entry = dataEngine.getSearchEntry(req.params.id);
   res.render('court-administrator/manage-documents', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -109,15 +110,15 @@ router.all('/court-administrator/manage-documents/:id', function(req, res) {
     section_name: 'Case tasks',
     section2: 'case-details/' + req.params.id,
     section2_name: 'Case details',
-    search:entry,
     signedIn: true,
-    breadcrumb: true
+    breadcrumb: true,
+    search:entry
   });
 });
 
 // step process
-router.all('/court-administrator/postal/add-plea/:id', function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
+router.all('/court-administrator/postal/add-plea/:id', function(req, res, next) {
+  entry = dataEngine.getSearchEntry(req.params.id);
   res.render('court-administrator/postal/add-plea', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -125,13 +126,14 @@ router.all('/court-administrator/postal/add-plea/:id', function(req, res) {
     pagetitle: 'Add plea',
     section: 'case-tasks',
     section_name: 'Case tasks',
-    search:entry,
     signedIn: true,
-    breadcrumb: true
+    breadcrumb: true,
+    search:entry
   });
 });
-router.all('/court-administrator/postal/personal-details/:id', function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
+
+router.all('/court-administrator/postal/personal-details/:id', function(req, res, next) {
+  entry = dataEngine.getSearchEntry(req.params.id);
   res.render('court-administrator/postal/personal-details', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -139,13 +141,14 @@ router.all('/court-administrator/postal/personal-details/:id', function(req, res
     pagetitle: 'Personal details',
     section: 'case-tasks',
     section_name: 'Case tasks',
-    search:entry,
     signedIn: true,
-    breadcrumb: true
+    breadcrumb: true,
+    search:entry
   });
 });
-router.all('/court-administrator/postal/employment-and-income/:id', function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
+
+router.all('/court-administrator/postal/employment-and-income/:id', function(req, res, next) {
+  entry = dataEngine.getSearchEntry(req.params.id);
   res.render('court-administrator/postal/employment-and-income', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -153,13 +156,14 @@ router.all('/court-administrator/postal/employment-and-income/:id', function(req
     pagetitle: 'Add employment and income',
     section: 'case-tasks',
     section_name: 'Case tasks',
-    search:entry,
     signedIn: true,
-    breadcrumb: true
+    breadcrumb: true,
+    search:entry
   });
 });
-router.all('/court-administrator/postal/manage-documents/:id', function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
+
+router.all('/court-administrator/postal/manage-documents/:id', function(req, res, next) {
+  entry = dataEngine.getSearchEntry(req.params.id);
   res.render('court-administrator/postal/manage-documents', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -167,9 +171,9 @@ router.all('/court-administrator/postal/manage-documents/:id', function(req, res
     pagetitle: 'Manage documents',
     section: 'case-tasks',
     section_name: 'Case tasks',
-    search:entry,
     signedIn: true,
-    breadcrumb: true
+    breadcrumb: true,
+    search:entry
   });
 });
 

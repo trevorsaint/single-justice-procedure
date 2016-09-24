@@ -4,9 +4,31 @@
 
 var express = require('express');
 var exphbs  = require('express-handlebars');
-var app     = express();
 var router  = express.Router();
+var form    = require('express-form');
 var port    = (process.env.PORT || 3000);
+var app     = express();
+
+/*
+ * Body parser
+ */
+
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+/*
+ * Session
+ */
+
+var session = require('express-session');
+
+app.use(session({
+  secret: '123456789',
+  resave: false,
+  saveUninitialized: true
+}));
 
 /*
  * Helpers
@@ -23,15 +45,6 @@ app.use(express.static(__dirname + '/models'));
 app.use(express.static(__dirname + '/views'));
 
 /*
- * Body parser
- */
-
-var bodyParser = require('body-parser');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-/*
  * Handlebars template engine
  */
 
@@ -46,10 +59,11 @@ app.set('view engine', 'hbs');
  * Routing
  */
 
-app.use(require('./routes/'));
+app.use(require('./routes'));
 app.use(require('./routes/court-administrator'));
 app.use(require('./routes/prosecutor'));
 app.use(require('./routes/legal-adviser'));
+
 
 /*
  * App listen
