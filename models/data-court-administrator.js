@@ -21,7 +21,7 @@ var search = [
     "phone": "",
     "mobile": "",
     "national-insurance-number": "",
-    "notice-served": "30 Apr 2015",
+    "notice-served": "30 Aug 2016",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
@@ -36,20 +36,20 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
     "employment": {
-      "status": "Employed",
-      "employer-name": "Infigo Media",
+      "status": "",
+      "employer-name": "",
       "employer-address": {
-        "address1": "5 Moorhens",
+        "address1": "",
         "address2": "",
-        "town": "Fleet",
-        "postcode": "GU51 5BU"
+        "town": "",
+        "postcode": ""
       },
-      "employer-phone": "",
+      "employer-telephone": "",
       "pay": {
-        "duration": "Fortnightly",
-        "amount": "12000"
+        "frequency": "",
+        "amount": ""
       },
-      "receiving-benfits": "No",
+      "receiving-benefits": "No",
     },
     "files": {
       "file": [
@@ -112,7 +112,10 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-path": "#"
+          "file-uploaded-date": "15 Jan 2016",
+          "file-uploaded-date-iso": "2016-01-15",
+          "file-path": "#",
+          "can-remove": false
         }
       ]
     },
@@ -190,7 +193,19 @@ var search = [
       "status": "Unemployed",
       "since-date": "(since 15 July 2016)",
       "since-date-iso": "",
-      "receiving-benfits": "Yes"
+      "employer-name": "",
+      "employer-address": {
+        "address1": "",
+        "address2": "",
+        "town": "",
+        "postcode": ""
+      },
+      "employer-telephone": "",
+      "pay": {
+        "duration": "",
+        "amount": ""
+      },
+      "receiving-benefits": "Yes",
     },
     "files": {
       "file": [
@@ -295,7 +310,7 @@ var search = [
     },
     "employment": {
       "status": "",
-      "receiving-benfits": ""
+      "receiving-benefits": ""
     },
     "files": {
       "file": [
@@ -401,8 +416,22 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
     "employment": {
-      "status": "",
-      "receiving-benfits": ""
+      "status": "Unemployed",
+      "since-date": "(since 15 July 2016)",
+      "since-date-iso": "",
+      "employer-name": "",
+      "employer-address": {
+        "address1": "",
+        "address2": "",
+        "town": "",
+        "postcode": ""
+      },
+      "employer-telephone": "",
+      "pay": {
+        "duration": "",
+        "amount": ""
+      },
+      "receiving-benefits": "Yes",
     },
     "files": {
       "file": [
@@ -488,8 +517,22 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
     "employment": {
-      "status": "",
-      "receiving-benfits": ""
+      "status": "Unemployed",
+      "since-date": "(since 15 July 2016)",
+      "since-date-iso": "",
+      "employer-name": "",
+      "employer-address": {
+        "address1": "",
+        "address2": "",
+        "town": "",
+        "postcode": ""
+      },
+      "employer-telephone": "",
+      "pay": {
+        "duration": "",
+        "amount": ""
+      },
+      "receiving-benefits": "Yes",
     },
     "files": {
       "file": [
@@ -576,8 +619,22 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
     "employment": {
-      "status": "",
-      "receiving-benfits": ""
+      "status": "Unemployed",
+      "since-date": "(since 15 July 2016)",
+      "since-date-iso": "",
+      "employer-name": "",
+      "employer-address": {
+        "address1": "",
+        "address2": "",
+        "town": "",
+        "postcode": ""
+      },
+      "employer-telephone": "",
+      "pay": {
+        "duration": "",
+        "amount": ""
+      },
+      "receiving-benefits": "Yes",
     },
     "files": {
       "file": [
@@ -671,8 +728,22 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
     "employment": {
-      "status": "",
-      "receiving-benfits": ""
+      "status": "Unemployed",
+      "since-date": "(since 15 July 2016)",
+      "since-date-iso": "",
+      "employer-name": "",
+      "employer-address": {
+        "address1": "",
+        "address2": "",
+        "town": "",
+        "postcode": ""
+      },
+      "employer-telephone": "",
+      "pay": {
+        "duration": "",
+        "amount": ""
+      },
+      "receiving-benefits": "Yes",
     },
     "files": {
       "file": [
@@ -765,8 +836,22 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
     "employment": {
-      "status": "",
-      "receiving-benfits": ""
+      "status": "Unemployed",
+      "since-date": "(since 15 July 2016)",
+      "since-date-iso": "",
+      "employer-name": "",
+      "employer-address": {
+        "address1": "",
+        "address2": "",
+        "town": "",
+        "postcode": ""
+      },
+      "employer-telephone": "",
+      "pay": {
+        "duration": "",
+        "amount": ""
+      },
+      "receiving-benefits": "Yes",
     },
     "files": {
       "file": [
@@ -845,8 +930,22 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
     "employment": {
-      "status": "",
-      "receiving-benfits": ""
+      "status": "Unemployed",
+      "since-date": "(since 15 July 2016)",
+      "since-date-iso": "",
+      "employer-name": "",
+      "employer-address": {
+        "address1": "",
+        "address2": "",
+        "town": "",
+        "postcode": ""
+      },
+      "employer-telephone": "",
+      "pay": {
+        "duration": "",
+        "amount": ""
+      },
+      "receiving-benefits": "Yes",
     },
     "files": {
       "document": [
@@ -939,8 +1038,22 @@ var search = [
       "notice-served-datetime": "2016-02-02",
     },
     "employment": {
-      "status": "",
-      "receiving-benfits": ""
+      "status": "Unemployed",
+      "since-date": "(since 15 July 2016)",
+      "since-date-iso": "",
+      "employer-name": "",
+      "employer-address": {
+        "address1": "",
+        "address2": "",
+        "town": "",
+        "postcode": ""
+      },
+      "employer-telephone": "",
+      "pay": {
+        "duration": "",
+        "amount": ""
+      },
+      "receiving-benefits": "Yes",
     },
     "files": {
       "document": [

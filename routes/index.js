@@ -10,8 +10,8 @@ router.all('/', function(req, res) {
   res.render('index', {
     baseurl: baseurl,
     apptitle: apptitle,
-    doctitle: 'Transport for London',
-    pagetitle: 'Transport for London',
+    doctitle: 'Main menu',
+    pagetitle: 'Main menu',
     breadcrumb: false,
     signedIn: false,
   });

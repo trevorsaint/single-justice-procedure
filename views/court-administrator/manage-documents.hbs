@@ -1,100 +1,76 @@
 {{>breadcrumb}}
 
-{{#with search}}
+  {{#with search}}
 
-<div class="grid-row">
+  <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
-  <div class="column-two-thirds">
+  <section aria-labelledby="uploaded-documents">
 
-    <h1 class="heading-xlarge">Manage documents</h1>
+    <h2 class="heading-medium" id="uploaded-documents">Documents already uploaded</h2>
 
-    <section aria-labelledby="uploaded-documents">
+    <table class="table table-font-xsmall">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Uploaded on</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each related-documents.document}}
+        <tr>
+          <td><a href="#">{{{title}}}</a></td>
+          <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
+          <td><time datetime="{{file-uploaded-date-iso}}">{{file-uploaded-date}}</time></td>
+          <td>{{#if can-remove}}<a href="#">Remove</a>{{/if}}</td>
+        </tr>
+        {{/each}}
 
-      <h2 class="heading-medium" id="uploaded-documents">Uploaded documents</h2>
+      </tbody>
+    </table>
 
-      <table class="table table-font-xsmall">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Uploaded on</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each related-documents.document}}
-          <tr>
-            <td>
-              <div class="document document-small">
-                <i class="icon icon-file-download"></i>
-                <div class="document-content">
-                  <p class="document-title"><a href="#">{{{title}}}</a></p>
-                  <div class="document-meta">
-                    <span class="document-meta-details">
-                      {{{file-type}}}, {{{file-size}}}, {{{file-pages}}}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td><time datetime="">15 Jan 2016</time></td>
-            <td><a href="#">Remove</a></td>
-          </tr>
-          {{/each}}
+  </section>
 
-        </tbody>
-      </table>
+  <section aria-labelledby="add-other-documents">
 
-    </section>
+    <h2 class="heading-medium" id="add-other-documents">Add more documents</h2>
 
-    <section aria-labelledby="add-other-documents">
+    <p>You can upload any of the following documents if available.</p>
 
-      <h2 class="heading-medium" id="add-other-documents">Add other documents</h2>
+    <form class="form" method="post">
 
-      <p>You can upload any of the following documents if available.</p>
+      <h2 class="heading-small">Select plea document</h2>
+      <div class="form-group">
+        <input class="form-control-file" type="file" id="plea-document" name="plea-document">
+        <label class="button button-secondary" for="plea-document">Browse&hellip;</label>
+      </div>
 
-      <form class="form" method="post" action="/">
+      <h2 class="heading-small">Select statement of income and outgoings (MC100)</h2>
+      <div class="form-group">
+        <input class="form-control-file" type="file" id="statement-income" name="statement-income">
+        <label class="button button-secondary" for="statement-income">Browse&hellip;</label>
+      </div>
 
-        <h2 class="heading-small">Select SJP notice</h2>
-        <div class="form-group">
-          <input class="form-control-file" type="file" id="sjp-notice" name="sjp-notice">
-          <label class="button button-secondary" for="sjp-notice">Browse&hellip;</label>
-        </div>
+      <h2 class="heading-small">Select mitigation document</h2>
+      <div class="form-group">
+        <input class="form-control-file" type="file" id="mitigation-document" name="mitigation-document">
+        <label class="button button-secondary" for="mitigation-document">Browse&hellip;</label>
+      </div>
 
-        <h2 class="heading-small">Select previous convictions</h2>
-        <div class="form-group">
-          <input class="form-control-file" type="file" id="previous-convictions" name="previous-convictions">
-          <label class="button button-secondary" for="previous-convictions">Browse&hellip;</label>
-        </div>
+      <h2 class="heading-small">Select other document</h2>
+      <div class="form-group form-group-last">
+        <input class="form-control-file" type="file" id="other-document" name="other-document">
+        <label class="button button-secondary" for="other-document">Browse&hellip;</label>
+      </div>
 
-        <h2 class="heading-small">Select statement of income and outgoings (MC100)</h2>
-        <div class="form-group">
-          <input class="form-control-file" type="file" id="statement-income" name="statement-income">
-          <label class="button button-secondary" for="statement-income">Browse&hellip;</label>
-        </div>
+      <div class="form-group form-group-actions">
+        <button class="button" type="submit">Upload</button>
+        <p><a href="/court-administrator/case-details/{{id}}">Done &ndash; go back to case</a></p>
+      </div>
 
-        <h2 class="heading-small">Select witness statement</h2>
-        <div class="form-group">
-          <input class="form-control-file" type="file" id="witness-statement" name="witness-statement">
-          <label class="button button-secondary" for="witness-statement">Browse&hellip;</label>
-        </div>
+    <form>
 
-        <h2 class="heading-small">Select plea document</h2>
-        <div class="form-group form-group-last">
-          <input class="form-control-file" type="file" id="plea-document" name="plea-document">
-          <label class="button button-secondary" for="plea-document">Browse&hellip;</label>
-        </div>
+  </section>
 
-        <div class="form-group form-group-actions">
-          <button class="button" type="submit">Upload</button>
-          <p><a href="#">Done &ndash; go back to case</a></p>
-        </div>
-
-      <form>
-
-    </section>
-
-  </div>
-
-</div>
-
-{{/with}}
+  {{/with}}

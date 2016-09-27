@@ -2,10 +2,13 @@
  * Module dependencies
  */
 
-var express = require('express');
-var exphbs  = require('express-handlebars');
+var express    = require('express');
+var exphbs     = require('express-handlebars');
+var form       = require('express-form');
+var bodyParser = require('body-parser');
+var session    = require('express-session');
+
 var router  = express.Router();
-var form    = require('express-form');
 var port    = (process.env.PORT || 3000);
 var app     = express();
 
@@ -13,16 +16,12 @@ var app     = express();
  * Body parser
  */
 
-var bodyParser = require('body-parser');
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /*
  * Session
  */
-
-var session = require('express-session');
 
 app.use(session({
   secret: '123456789',
@@ -34,7 +33,9 @@ app.use(session({
  * Helpers
  */
 
-var helpers = require('handlebars-helpers')();
+var helpers    = require('handlebars-helpers');
+var comparison = helpers.comparison();
+var string     = helpers.string();
 
 /*
  * Serve static assets

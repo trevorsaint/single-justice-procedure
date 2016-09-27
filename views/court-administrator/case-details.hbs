@@ -4,23 +4,36 @@
 
   <div class="persist-info">
     <span class="persist-info-reference">{{urn}}</span>
-    <span class="persist-info-title">{{firstname}} {{uppercase lastname}}</span>
+    <span class="persist-info-title">
+      {{#and ../sFirstname ../sLastname}}
+        {{../sFirstname}} {{uppercase ../sLastname}}
+      {{else}}
+        {{firstname}} {{uppercase lastname}}
+      {{/and}}
+    </span>
   </div>
 
   <div class="grid-row">
 
     <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">{{firstname}} {{uppercase lastname}} <span class="heading-secondary">{{age}} years old</span></h1>
+      <h1 class="heading-xlarge">
+        {{#and ../sFirstname ../sLastname}}
+          {{../sFirstname}} {{uppercase ../sLastname}}
+        {{else}}
+          {{firstname}} {{uppercase lastname}}
+        {{/and}}
+        <span class="heading-secondary">{{age}} years old</span>
+      </h1>
 
       <div class="tabs tabs-horizontal">
 
         <div class="tabs-header">
 
           <ul class="list">
-            <li><a href="#case-details">Case details</a></li>
-            <li><a href="#personal-details">Personal details</a></li>
-            <li><a href="#employment-and-income">Employment and income</a></li>
+            <li{{#is ../sCaseActiveTab "Case details"}} class="is-active"{{/is}}><a href="#case-details">Case details</a></li>
+            <li{{#is ../sCaseActiveTab "Personal details"}} class="is-active"{{/is}}><a href="#personal-details">Personal details</a></li>
+            <li{{#is ../sCaseActiveTab "Employment and income"}} class="is-active"{{/is}}><a href="#employment-and-income">Employment and income</a></li>
           </ul>
 
         </div>
@@ -65,20 +78,63 @@
             </header>
 
             <dl class="meta meta-large">
+
               <dt>Name</dt>
-              <dd>{{{firstname}}} {{uppercase lastname}}</dd>
+              <dd>
+                {{#and ../sFirstname ../sLastname}}
+                  {{../sFirstname}} {{uppercase ../sLastname}}
+                {{else}}
+                  {{firstname}} {{uppercase lastname}}
+                {{/and}}
+              </dd>
+
               <dt>Date of birth</dt>
               <dd><time datetime="{{date-of-birth-iso}}">{{date-of-birth}}</time> (age {{age}})</dd>
+
               <dt>Address</dt>
-              <dd>{{address.address1}}, <br> {{address.town}} {{address.postcode}}</dd>
+              <dd>
+                {{#if ../sAddress1}}{{../sAddress1}}, <br>{{else}}{{address.address1}}, <br>{{/if}}
+                {{#if ../sAddress2}}{{../sAddress2}}, <br>{{else}}{{#if address.address2}}{{address.address2}}, <br>{{/if}}{{/if}}
+                {{#if ../sTown}}{{../sTown}}{{else}}{{address.town}}{{/if}}
+                {{#if ../sPostcode}}{{../sPostcode}}{{else}}{{address.postcode}}{{/if}}
+              </dd>
+
               <dt>Email</dt>
-              <dd>{{#if email}}{{email}}{{else}}<a href="/court-administrator/personal-details/{{id}}/#email">Add email</a>{{/if}}</dd>
+              <dd>
+                {{#if ../sEmail}}
+                  {{../sEmail}}
+                {{else}}
+                  {{#if email}}{{email}}{{else}}<a href="/court-administrator/personal-details/{{id}}/#email">Add email</a>{{/if}}
+                {{/if}}
+              </dd>
+
               <dt>Home telephone</dt>
-              <dd>{{#if phone}}{{phone}}{{else}}<a href="#">Add home telephone</a>{{/if}}</dd>
+              <dd>
+                {{#if ../sPhone}}
+                  {{../sPhone}}
+                {{else}}
+                  {{#if phone}}{{phone}}{{else}}<a href="/court-administrator/personal-details/{{id}}/#phone">Add home telephone</a>{{/if}}
+                {{/if}}
+              </dd>
+
               <dt>Mobile</dt>
-              <dd>{{#if mobile}}{{mobile}}{{else}}<a href="/court-administrator/personal-details/{{id}}/#mobile">Add mobile</a>{{/if}}</dd>
+              <dd>
+                {{#if ../sMobile}}
+                  {{../sMobile}}
+                {{else}}
+                  {{#if mobile}}{{mobile}}{{else}}<a href="/court-administrator/personal-details/{{id}}/#mobile">Add mobile</a>{{/if}}
+                {{/if}}
+              </dd>
+
               <dt>National Insurance number</dt>
-              <dd>{{#if national-insurance-number}}{{national-insurance-number}}{{else}}<a href="/court-administrator/personal-details/{{id}}/#national-insurance-number">Add National Insurance number</a>{{/if}}</dd>
+              <dd>
+                {{#if ../sNationalInsurance}}
+                  {{../sNationalInsurance}}
+                {{else}}
+                  {{#if nationalinsurance}}{{nationalinsurance}}{{else}}<a href="/court-administrator/personal-details/{{id}}/#nationalinsurance">Add National Insurance number</a>{{/if}}
+                {{/if}}
+              </dd>
+
             </dl>
 
           </section>
@@ -96,28 +152,66 @@
               <dl class="meta meta-large">
 
                 <dt>Employment status</dt>
-                <dd>{{#if status}}{{status}}{{else}}<a href="#">Add employment status</a>{{/if}}</dd>
-
-                {{#compare status "===" "Employed"}}
-
-                  {{#if employer-name}}
-                    <dt>Employer name</dt>
-                    <dd>{{#if employer-name}}{{employer-name}}{{else}}<a href="#">Add employer name</a>{{/if}}</dd>
+                <dd>
+                  {{#if ../../sEmployment}}
+                    {{../../sEmployment}}
+                  {{else}}
+                    {{#if status}}{{status}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employed">Add employment status</a>{{/if}}
                   {{/if}}
+                </dd>
 
-                  <dt>Employer address</dt>
-                  <dd>{{#if employer-address}}{{employer-address.address1}}, <br> {{employer-address.town}} <br> {{employer-address.postcode}}{{else}}<a href="#">Add employer address</a>{{/if}}</dd>
+                {{#compare ../../sEmployment "===" "Employed"}}
+
+                  <dt>Employer name</dt>
+                  <dd>
+                    {{#if ../../sEmployerName}}
+                      {{../../sEmployerName}}
+                    {{else}}
+                      {{#if employer-name}}{{employer-name}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-name">Add employer name</a>{{/if}}
+                    {{/if}}
+                  </dd>
 
                   <dt>Employer telephone</dt>
-                  <dd>{{#if employer-phone}}{{employer-phone}}{{else}}<a href="#">Add employer telephone</a>{{/if}}</dd>
+                  <dd>
+                    {{#if ../../sEmployerAddress1}}
+                      {{#if ../../sEmployerAddress1}}{{../../sEmployerAddress1}}, <br>{{/if}}
+                      {{#if ../../sEmployerAddress2}}{{../../sEmployerAddress2}}, <br>{{/if}}
+                      {{#if ../../sEmployerTown}}{{../../sEmployerTown}}{{/if}}
+                      {{#if ../../sEmployerPostcode}}{{../../sEmployerPostcode}}{{/if}}
+                    {{else}}
+                      {{#if employer-address1}}
+                        {{#if employer-address.address1}}{{employer-address.address1}}, <br>{{/if}}
+                        {{#if employer-address.address2}}{{employer-address.address2}}, <br>{{/if}}
+                        {{#if employer-address.town}}{{employer-address.town}}{{/if}}
+                        {{#if employer-address.postcode}}{{employer-address.postcode}}{{/if}}
+                      {{else}}
+                        <a href="/court-administrator/employment-and-income/{{../id}}/#employer-address-1">Add employer address</a>
+                      {{/if}}
+                    {{/if}}
+                  </dd>
 
-                  <dt>Income</dt>
-                  <dd>{{#if income}}{{income}}{{else}}<a href="#">Add income</a>{{/if}}</dd>
+                  <dt>Employer address</dt>
+                  <dd>
+                    {{#if ../../sEmployerTelephone}}
+                      {{../../sEmployerTelephone}}
+                    {{else}}
+                      {{#if employer-telephone}}{{employer-telephone}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-telephone">Add employer telephone</a>{{/if}}
+                    {{/if}}
+                  </dd>
+
+                  <dt>Weekly income</dt>
+                  <dd>{{#if income}}{{income}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#weekly">Add income</a>{{/if}}</dd>
 
                 {{/compare}}
 
                 <dt>Receiving benefits?</dt>
-                <dd>{{#if receiving-benfits}}{{receiving-benfits}}{{else}}<a href="#">Add receiving benefits</a>{{/if}}</dd>
+                <dd>
+                  {{#if ../../sReceivingBenefits}}
+                    {{../../sReceivingBenefits}}
+                  {{else}}
+                    {{#if receiving-benefits}}{{receiving-benefits}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#receiving-benefits-yes">Add receiving benefits</a>{{/if}}
+                  {{/if}}
+                </dd>
 
               </dl>
 
@@ -169,16 +263,24 @@
 
           <p class="font-xsmall">On <time datetime="{{date-iso}}">{{date}}</time></p>
 
-          <p><strong class="tag">{{{plea}}}</strong></p>
+          <p><strong class="tag">
+          {{#if ../../sMakeDecision}}
+            {{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}Pleaded guilty &ndash; court hearing requested{{/contains}}
+            {{#contains ../../sMakeDecision "Pleaded guilty SJP"}}Pleaded guilty SJP{{/contains}}
+            {{#contains ../../sMakeDecision "Pleaded not guilty"}}Pleaded not guilty{{/contains}}
+          {{else}}
+            {{{plea}}}
+          {{/if}}
+          </strong></p>
 
           <div class="tabs tabs-horizontal">
 
             <div class="tabs-header">
 
               <ul class="list">
-                <li><a href="#offence{{id}}-details">Details</a></li>
-                <li><a href="#offence{{id}}-change-plea">Add or change plea</a></li>
-                <li><a href="#offence{{id}}-decision">Decision</a></li>
+                <li{{#is ../../sOffenceActiveTab "Details"}} class="is-active"{{/is}}><a href="#offence{{id}}-details">Details</a></li>
+                <li{{#is ../../sOffenceActiveTab "Add or change plea"}} class="is-active"{{/is}}><a href="#offence{{id}}-plea">Add or change plea</a></li>
+                <!--li><a href="#offence{{id}}-decision">Decision</a></li-->
               </ul>
 
             </div>
@@ -193,11 +295,11 @@
 
               </section>
 
-              <section id="offence{{id}}-change-plea">
+              <section id="offence{{id}}-plea">
 
                 <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
 
-                <form class="form" method="post" action="/">
+                <form class="form" method="post">
 
                   <fieldset>
 
@@ -206,17 +308,17 @@
                     <div class="form-group">
 
                       <label class="block-label" for="guilty-no-court">
-                        <input type="radio" id="guilty-no-court" name="make-a-decision">
+                        <input type="radio" id="guilty-no-court" name="makeDecision" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
                         Guilty &ndash; I don't want to come to court
                       </label>
 
                       <label class="block-label" for="guilty-court">
-                        <input type="radio" id="guilty-court" name="make-a-decision">
+                        <input type="radio" id="guilty-court" name="makeDecision" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
                         Guilty &ndash; I want to come to court
                       </label>
 
                       <label class="block-label" for="not-guilty">
-                        <input type="radio" id="not-guilty" name="make-a-decision">
+                        <input type="radio" id="not-guilty" name="makeDecision" value="Pleaded not guilty"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded not guilty"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded not guilty"}} checked="checked"{{/contains}}{{/if}}>
                         Not guilty &ndash; send me the date of my trial
                       </label>
 
@@ -230,7 +332,7 @@
 
               </section>
 
-              <section id="offence{{id}}-decision">
+              <!--section id="offence{{id}}-decision">
 
                 <h3 class="heading-medium">Court decision</h3>
 
@@ -263,7 +365,7 @@
                   </tbody>
                 </table>
 
-              </section>
+              </section-->
 
             </div>
 

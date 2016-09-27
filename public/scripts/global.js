@@ -168,6 +168,9 @@ function fileUpload() {
 
       });
 
+      // open if is-active class
+      $container.find('[role="presentation"].is-active [role="tab"]').trigger('click');
+
     });
 
   }

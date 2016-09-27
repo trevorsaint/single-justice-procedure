@@ -10,7 +10,7 @@
 
     <p class="lede">Keep these personal details up to date.</p>
 
-    <form class="form" method="post" action="/court-administrator/case-details/{{id}}">
+    <form class="form" method="post">
 
       <h2 class="heading-medium">Personal details</h2>
 
@@ -24,21 +24,21 @@
             <label for="title">
               <span class="form-label">Title (optional)</span>
             </label>
-            <input class="form-control form-control-1-8" type="text" id="title" name="title"{{#if title}} value="{{title}}"{{/if}}>
+            <input class="form-control form-control-1-8" type="text" id="title" name="title"{{#if ../sTitle}} value="{{../sTitle}}"{{else}} value="{{title}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="firstname">
               <span class="form-label">First name</span>
             </label>
-            <input class="form-control" type="text" id="firstname" name="firstname"{{#if firstname}} value="{{firstname}}"{{/if}}>
+            <input class="form-control" type="text" id="firstname" name="firstname"{{#if ../sFirstname}} value="{{../sFirstname}}"{{else}} value="{{firstname}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="lastname">
               <span class="form-label">Last name</span>
             </label>
-            <input class="form-control" type="text" id="lastname" name="lastname"{{#if lastname}} value="{{lastname}}"{{/if}}>
+            <input class="form-control" type="text" id="lastname" name="lastname"{{#if ../sLastname}} value="{{../sLastname}}"{{else}} value="{{lastname}}"{{/if}}>
           </div>
 
           <div class="form-group">
@@ -76,9 +76,9 @@
           <div class="form-group">
             <label for="lastname">
               <span class="form-label">National Insurance number</span>
-              <span class="form-hint" id="national-insurance-number-hint">Find this on your payslip, P60 or tax return. <br> For example, VO 12 34 56 D.</span>
+              <span class="form-hint" id="nationalinsurance-hint">Find this on your payslip, P60 or tax return. <br> For example, VO 12 34 56 D.</span>
             </label>
-            <input class="form-control" type="text" id="national-insurance-number" name="national-insurance-number"{{#if national-insurance-number}} value="{{national-insurance-number}}"{{/if}} aria-describedby="national-insurance-number-hint">
+            <input class="form-control" type="text" id="nationalinsurance" name="nationalinsurance"{{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{nationalinsurance}}"{{/if}} aria-describedby="nationalinsurance-hint">
           </div>
 
         </fieldset>
@@ -94,31 +94,31 @@
           <legend class="visuallyhidden">Adress</legend>
 
           <div class="form-group form-group-compound">
-            <label for="address-line-1">
+            <label for="address1">
               <span class="form-label">Street</span>
             </label>
-            <input class="form-control" type="text" id="address-line-1"{{#if address.address1}} value="{{address.address1}}"{{/if}}>
+            <input class="form-control" type="text" id="address1" name="address1" {{#if ../sAddress1}} value="{{../sAddress1}}"{{else}} value="{{address1}}"{{/if}}>
           </div>
 
           <div class="form-group">
-            <label class="visuallyhidden" for="address-line-2">
+            <label class="visuallyhidden" for="address2">
               <span class="form-label">Street</span>
             </label>
-            <input class="form-control" type="text" id="address-line-2"{{#if address.address2}} value="{{address.address2}}"{{/if}}>
+            <input class="form-control" type="text" id="address2" name="address2"{{#if ../sAddress2}} value="{{../sAddress2}}"{{else}} value="{{address2}}"{{/if}}>
           </div>
 
           <div class="form-group">
-            <label for="address-town">
+            <label for="town">
               <span class="form-label">Town or City</span>
             </label>
-            <input class="form-control form-control-1-4" type="text" id="address-town"{{#if address.town}} value="{{address.town}}"{{/if}}>
+            <input class="form-control form-control-1-4" type="text" id="town" name="town"{{#if ../sTown}} value="{{../sTown}}"{{else}} value="{{town}}"{{/if}}>
           </div>
 
           <div class="form-group">
-            <label for="address-postcode">
+            <label for="postcode">
               <span class="form-label">Postcode</span>
             </label>
-            <input class="form-control form-control-1-4" type="text" id="address-postcode"{{#if address.postcode}} value="{{address.postcode}}"{{/if}}>
+            <input class="form-control form-control-1-4" type="text" id="postcode" name="postcode"{{#if ../sPostcode}} value="{{../sPostcode}}"{{else}} value="{{postcode}}"{{/if}}>
           </div>
 
         </fieldset>
@@ -138,21 +138,21 @@
             <label for="email">
               <span class="form-label">Email</span>
             </label>
-            <input class="form-control" type="email" id="email" name="email"{{#if email}} value="{{email}}"{{/if}}>
+            <input class="form-control" type="email" id="email" name="email"{{#if ../sEmail}} value="{{../sEmail}}"{{else}} value="{{email}}"{{/if}}>
           </div>
 
           <div class="form-group">
-            <label for="email">
-              <span class="form-label">Landline</span>
+            <label for="phone">
+              <span class="form-label">Home telephone</span>
             </label>
-            <input class="form-control form-control-1-4" type="tel" id="landline" name="landline"{{#if phone}} value="{{phone}}"{{/if}}>
+            <input class="form-control form-control-1-4" type="tel" id="phone" name="phone"{{#if ../sPhone}} value="{{../sPhone}}"{{else}} value="{{phone}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="email">
               <span class="form-label">Mobile</span>
             </label>
-            <input class="form-control form-control-1-4" type="tel" id="mobile" name="mobile"{{#if mobile}} value="{{mobile}}"{{/if}}>
+            <input class="form-control form-control-1-4" type="tel" id="mobile" name="mobile"{{#if ../sMobile}} value="{{../sMobile}}"{{else}} value="{{mobile}}"{{/if}}>
           </div>
 
         </fieldset>
