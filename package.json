@@ -24,7 +24,11 @@
     "govuk_frontend_toolkit": "^4.9.1",
     "govuk_template_mustache": "^0.17.0",
     "handlebars": "^4.0.5",
-    "handlebars-helpers": "^0.7.5"
+    "handlebars-helpers": "^0.7.5",
+    "is-even": "^0.1.1",
+    "is-glob": "^2.0.1",
+    "is-number": "^2.1.0",
+    "is-odd": "^0.1.0"
   },
   "devDependencies": {
     "grunt": "0.4.5",
