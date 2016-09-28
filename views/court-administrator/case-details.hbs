@@ -23,7 +23,7 @@
         {{else}}
           {{firstname}} {{uppercase lastname}}
         {{/and}}
-        <span class="heading-secondary">{{age}} years old</span>
+        <span class="heading-secondary">{{date-of-birth-long}} ({{age}} years old)</span>
       </h1>
 
       <div class="tabs tabs-horizontal">
@@ -89,7 +89,7 @@
               </dd>
 
               <dt>Date of birth</dt>
-              <dd><time datetime="{{date-of-birth-iso}}">{{date-of-birth}}</time> (age {{age}})</dd>
+              <dd><time datetime="{{date-of-birth-iso}}">{{date-of-birth-long}} ({{age}} years old)</dd>
 
               <dt>Address</dt>
               <dd>
@@ -202,9 +202,9 @@
                   <dt>Weekly income</dt>
                   <dd>
                     {{#if ../../sPayAmount}}
-                      {{../../sPayAmount}}
+                      &pound;{{../../sPayAmount}}
                     {{else}}
-                      {{#if income}}{{income}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#weekly">Add income</a>{{/if}}
+                      {{#if income}}&pound;{{income}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#weekly">Add income</a>{{/if}}
                     {{/if}}
                   </dd>
 
@@ -241,7 +241,7 @@
 
           <ul class="related-links">
             <li><a href="/court-administrator/postal/add-plea/{{id}}">Add all details from postal reply</a></li>
-            <li><a href="#">Send case back to Libra</a></li>
+            <!--li><a href="#">Send case back to Libra</a></li-->
           </ul>
 
         </div>
@@ -314,12 +314,12 @@
                     <div class="form-group">
 
                       <label class="block-label" for="guilty-no-court">
-                        <input type="radio" id="guilty-no-court" name="makeDecision" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
-                        Guilty &ndash; I don't want to come to court
+                        <input type="radio" id="guilty-no-court" name="makeDecision" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
+                        Guilty &ndash; I don&rsquo;t want to come to court
                       </label>
 
                       <label class="block-label" for="guilty-court">
-                        <input type="radio" id="guilty-court" name="makeDecision" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
+                        <input type="radio" id="guilty-court" name="makeDecision" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
                         Guilty &ndash; I want to come to court
                       </label>
 

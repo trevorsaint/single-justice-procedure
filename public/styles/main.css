@@ -212,8 +212,15 @@ acronym[title] {
   text-decoration: none;
 }
 
+legend {
+  box-sizing: border-box;
+  max-width: 100%;
+  display: table;
+}
+
 #content {
   padding-bottom: 30px;
+  outline: none;
 }
 @media (min-width: 769px) {
   #content {
@@ -279,13 +286,25 @@ acronym[title] {
   }
 }
 
+.column-full {
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media (min-width: 641px) {
+  .column-full {
+    float: left;
+    width: 100%;
+  }
+}
+
 main {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 16px;
+  line-height: 1.25;
   -webkit-font-smoothing: antialiased;
 }
 @media (min-width: 641px) {
@@ -297,11 +316,10 @@ main {
 
 .font-xxlarge {
   font-family: "nta", Arial, sans-serif;
-  font-size: 53px;
-  line-height: 1.03774;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 53px;
+  line-height: 1.03774;
 }
 @media (min-width: 641px) {
   .font-xxlarge {
@@ -312,11 +330,10 @@ main {
 
 .font-xlarge {
   font-family: "nta", Arial, sans-serif;
-  font-size: 32px;
-  line-height: 1.09375;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 32px;
+  line-height: 1.09375;
 }
 @media (min-width: 641px) {
   .font-xlarge {
@@ -327,11 +344,10 @@ main {
 
 .font-large {
   font-family: "nta", Arial, sans-serif;
-  font-size: 24px;
-  line-height: 1.04167;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 24px;
+  line-height: 1.04167;
 }
 @media (min-width: 641px) {
   .font-large {
@@ -342,11 +358,10 @@ main {
 
 .font-medium {
   font-family: "nta", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.2;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 18px;
+  line-height: 1.2;
 }
 @media (min-width: 641px) {
   .font-medium {
@@ -357,11 +372,10 @@ main {
 
 .font-small {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 16px;
+  line-height: 1.25;
 }
 @media (min-width: 641px) {
   .font-small {
@@ -372,11 +386,10 @@ main {
 
 .font-xsmall {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
 }
 @media (min-width: 641px) {
   .font-xsmall {
@@ -387,11 +400,10 @@ main {
 
 .bold-xxlarge {
   font-family: "nta", Arial, sans-serif;
-  font-size: 53px;
-  line-height: 1.03774;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 53px;
+  line-height: 1.03774;
 }
 @media (min-width: 641px) {
   .bold-xxlarge {
@@ -402,11 +414,10 @@ main {
 
 .bold-xlarge {
   font-family: "nta", Arial, sans-serif;
-  font-size: 32px;
-  line-height: 1.09375;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 32px;
+  line-height: 1.09375;
 }
 @media (min-width: 641px) {
   .bold-xlarge {
@@ -417,11 +428,10 @@ main {
 
 .bold-large {
   font-family: "nta", Arial, sans-serif;
-  font-size: 24px;
-  line-height: 1.04167;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 24px;
+  line-height: 1.04167;
 }
 @media (min-width: 641px) {
   .bold-large {
@@ -432,11 +442,10 @@ main {
 
 .bold-medium {
   font-family: "nta", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.2;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 18px;
+  line-height: 1.2;
 }
 @media (min-width: 641px) {
   .bold-medium {
@@ -447,11 +456,10 @@ main {
 
 .bold-small {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 16px;
+  line-height: 1.25;
 }
 @media (min-width: 641px) {
   .bold-small {
@@ -462,11 +470,10 @@ main {
 
 .bold-xsmall {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 14px;
+  line-height: 1.14286;
 }
 @media (min-width: 641px) {
   .bold-xsmall {
@@ -477,11 +484,10 @@ main {
 
 .heading-xlarge {
   font-family: "nta", Arial, sans-serif;
-  font-size: 32px;
-  line-height: 1.09375;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 32px;
+  line-height: 1.09375;
   margin-top: 0.46875em;
   margin-bottom: 0.9375em;
 }
@@ -499,11 +505,10 @@ main {
 }
 .heading-xlarge .heading-secondary {
   font-family: "nta", Arial, sans-serif;
-  font-size: 20px;
-  line-height: 1.11111;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 20px;
+  line-height: 1.11111;
   display: block;
   padding-top: 8px;
   padding-bottom: 7px;
@@ -525,11 +530,10 @@ main {
 
 .heading-large {
   font-family: "nta", Arial, sans-serif;
-  font-size: 24px;
-  line-height: 1.04167;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 24px;
+  line-height: 1.04167;
   margin-top: 1.04167em;
   margin-bottom: 0.41667em;
 }
@@ -547,11 +551,10 @@ main {
 }
 .heading-large .heading-secondary {
   font-family: "nta", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.2;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 18px;
+  line-height: 1.2;
   display: block;
   padding-top: 9px;
   padding-bottom: 6px;
@@ -573,11 +576,10 @@ main {
 
 .heading-medium {
   font-family: "nta", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.2;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 18px;
+  line-height: 1.2;
   margin-top: 1.25em;
   margin-bottom: 0.5em;
 }
@@ -596,11 +598,10 @@ main {
 
 .heading-small {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 16px;
+  line-height: 1.25;
   margin-top: 0.625em;
   margin-bottom: 0.3125em;
 }
@@ -629,11 +630,10 @@ p {
 
 .lede {
   font-family: "nta", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.2;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 18px;
+  line-height: 1.2;
 }
 @media (min-width: 641px) {
   .lede {
@@ -672,11 +672,10 @@ p {
   display: inline-block;
   position: relative;
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
   margin-top: 15px;
   margin-bottom: 15px;
   padding-left: 14px;
@@ -856,11 +855,10 @@ hr {
 .button-start,
 .button-get-started {
   font-family: "nta", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.2;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 18px;
+  line-height: 1.2;
   background-image: url("/public/images/icon-pointer.png");
   background-repeat: no-repeat;
   background-position: 100% 50%;
@@ -1210,11 +1208,10 @@ table {
 table th,
 table td {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 16px;
+  line-height: 1.25;
   padding: 0.63158em 1.05263em 0.47368em 0;
   text-align: left;
   color: #0b0c0c;
@@ -1235,11 +1232,10 @@ table th.numeric {
 }
 table td.numeric {
   font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
   text-align: right;
 }
 @media (min-width: 641px) {
@@ -1251,11 +1247,10 @@ table td.numeric {
 
 .table-font-xsmall th {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 14px;
+  line-height: 1.14286;
 }
 @media (min-width: 641px) {
   .table-font-xsmall th {
@@ -1265,11 +1260,10 @@ table td.numeric {
 }
 .table-font-xsmall td {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
 }
 @media (min-width: 641px) {
   .table-font-xsmall td {
@@ -1410,11 +1404,10 @@ textarea {
 
 .form-label {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 16px;
+  line-height: 1.25;
 }
 @media (min-width: 641px) {
   .form-label {
@@ -1425,11 +1418,10 @@ textarea {
 
 .form-label-bold {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 16px;
+  line-height: 1.25;
 }
 @media (min-width: 641px) {
   .form-label-bold {
@@ -1453,11 +1445,10 @@ textarea {
 
 .form-hint {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 16px;
+  line-height: 1.25;
   display: block;
   color: #6f777b;
   font-weight: normal;
@@ -1482,11 +1473,10 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 16px;
+  line-height: 1.25;
   width: 100%;
   padding: 4px;
   background-color: #fff;
@@ -1685,11 +1675,10 @@ input[type=number] {
 
 .error-message {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 16px;
+  line-height: 1.25;
   display: block;
   clear: both;
   margin: 0;
@@ -1751,11 +1740,10 @@ input[type=number] {
 }
 .breadcrumbs li {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
   float: left;
   background-image: url("/public/images/separator.png");
   background-position: 0% 50%;
@@ -1800,11 +1788,10 @@ input[type=number] {
   margin: 0;
   color: #000;
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
 }
 @media (min-width: 641px) {
   .phase-banner-alpha p {
@@ -1818,11 +1805,10 @@ input[type=number] {
   margin: 0 8px 0 0;
   padding: 2px 5px 0;
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 14px;
+  line-height: 1.14286;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-decoration: none;
@@ -1854,11 +1840,10 @@ input[type=number] {
   margin: 0;
   color: #000;
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
 }
 @media (min-width: 641px) {
   .phase-banner-beta p {
@@ -1872,11 +1857,10 @@ input[type=number] {
   margin: 0 8px 0 0;
   padding: 2px 5px 0;
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 14px;
+  line-height: 1.14286;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-decoration: none;
@@ -2018,11 +2002,10 @@ CSS Usage
 }
 .form-currency:before {
   font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 16px;
+  line-height: 1.25;
   color: #6f777b;
   content: "\00a3";
   display: inline-block;
@@ -2081,11 +2064,10 @@ CSS Usage
 }
 .related-links {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
   margin-top: 0.3125em;
   margin-bottom: 1.25em;
 }
@@ -2120,11 +2102,10 @@ CSS Usage
 }
 .related-heading {
   font-family: "nta", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.2;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 18px;
+  line-height: 1.2;
   margin-top: 0.20833em;
   margin-bottom: 0.5em;
 }
@@ -2222,11 +2203,10 @@ HTML Usage
 }
 .pagination-title {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
   text-decoration: underline;
 }
 @media (min-width: 641px) {
@@ -2261,11 +2241,10 @@ HTML Usage
 */
 .persist-info {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
   background-color: #005ea5;
   color: white;
   padding: 15px;
@@ -2293,11 +2272,10 @@ HTML Usage
 */
 .digit-box {
   font-family: "nta", Arial, sans-serif;
-  font-size: 24px;
-  line-height: 1.04167;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 24px;
+  line-height: 1.04167;
   background-color: #6f777b;
   color: white;
   display: inline-block;
@@ -2410,11 +2388,10 @@ OR
 }
 .document-meta {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
   display: block;
 }
 @media (min-width: 641px) {
@@ -2432,11 +2409,10 @@ OR
 }
 .document-small .document-title {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
   margin-bottom: 0.3125em;
 }
 @media (min-width: 641px) {
@@ -2627,11 +2603,10 @@ HTML Usage
 }
 .meta-small {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
 }
 @media (min-width: 641px) {
   .meta-small {
@@ -2699,11 +2674,10 @@ HTML Usage
 }
 .file-details {
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 14px;
+  line-height: 1.14286;
   display: inline-block;
   vertical-align: top;
 }
@@ -2753,11 +2727,10 @@ HTML Usage
   display: -moz-inline-stack;
   display: inline-block;
   font-family: "nta", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.14286;
   font-weight: 700;
   text-transform: none;
-  font-size-adjust: 0.525;
+  font-size: 14px;
+  line-height: 1.14286;
   border: 2px solid #0b0c0c;
   color: #0b0c0c;
   letter-spacing: 1px;
@@ -3045,11 +3018,10 @@ HTML Usage
 }
 .example:before {
   font-family: "nta", Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  font-size-adjust: 0.5;
+  font-size: 12px;
+  line-height: 1.25;
   background: #bfc1c3;
   color: white;
   content: 'Example';

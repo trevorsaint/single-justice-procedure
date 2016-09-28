@@ -333,7 +333,7 @@ router.route('/court-administrator/postal/personal-details/:id')
     sAddress2 = req.session.address2 = req.body.address2;
     sTown     = req.session.town = req.body.town;
     sPostcode = req.session.postcode = req.body.postcode;
-    res.redirect('/court-administrator/employment-and-income/' + req.params.id);
+    res.redirect('/court-administrator/postal/employment-and-income/' + req.params.id);
   });
 
 router.route('/court-administrator/postal/employment-and-income/:id')
@@ -373,7 +373,7 @@ router.route('/court-administrator/postal/employment-and-income/:id')
     sPayWeeklyAmount = req.session.payWeeklyAmount = req.body.payWeeklyAmount;
     sPayFortnightlyAmount = req.session.payFortnightlyAmount = req.body.payFortnightlyAmount;
     sPayMonthlyAmount = req.session.payMonthlyAmount = req.body.payMonthlyAmount;
-    res.redirect('/court-administrator/manage-documents/' + req.params.id);
+    res.redirect('/court-administrator/postal/manage-documents/' + req.params.id);
   });
 
 router.route('/court-administrator/postal/manage-documents/:id')
