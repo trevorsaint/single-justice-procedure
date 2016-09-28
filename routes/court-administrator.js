@@ -377,7 +377,7 @@ router.route('/court-administrator/postal/employment-and-income/:id')
   });
 
 router.route('/court-administrator/postal/manage-documents/:id')
-  .get(function() {
+  .get(function(req, res) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/postal/manage-documents', {
       baseurl: baseurl,
@@ -393,8 +393,8 @@ router.route('/court-administrator/postal/manage-documents/:id')
       search:entry
     });
   })
-  .post(function() {
-    // do something
+  .post(function(req, res) {
+    res.redirect('/court-administrator/case-details/' + req.params.id);
   });
 
 module.exports = router

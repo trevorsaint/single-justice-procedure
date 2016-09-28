@@ -3,7 +3,7 @@ var router = express.Router();
 
 // baseurl and apptitle
 var baseurl  = '/';
-var apptitle = 'Transport for London';
+var apptitle = 'Single Justice Procedure';
 
 // routes
 router.all('/', function(req, res) {

@@ -49,7 +49,7 @@ var search = [
         "frequency": "",
         "amount": ""
       },
-      "receiving-benefits": "No",
+      "receiving-benefits": "",
     },
     "files": {
       "file": [
@@ -132,7 +132,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
           "date-iso": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "",
           "plea": "Awaiting plea",
           "court-decision": {
