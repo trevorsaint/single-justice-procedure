@@ -18,13 +18,16 @@
         </tr>
       </thead>
       <tbody>
+
         {{#each related-documents.document}}
-        <tr>
-          <td><a href="#">{{{title}}}</a></td>
-          <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
-          <td><time datetime="{{file-uploaded-date-iso}}">{{file-uploaded-date}}</time></td>
-          <td>{{#if can-remove}}<a href="#">Remove</a>{{/if}}</td>
-        </tr>
+          {{#is show true}}
+            <tr>
+              <td><a href="#">{{{title}}}</a></td>
+              <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
+              <td><time datetime="{{file-uploaded-date-iso}}">{{file-uploaded-date}}</time></td>
+              <td>{{#if can-remove}}<a href="#">Remove</a>{{/if}}</td>
+            </tr>
+          {{/is}}
         {{/each}}
 
       </tbody>
@@ -40,23 +43,15 @@
 
     <form class="form" method="post">
 
-      <h2 class="heading-small">Select plea document</h2>
-      <div class="form-group">
-        <input class="form-control-file" type="file" id="plea-document" name="plea-document">
-        <label class="button button-secondary" for="plea-document">Browse&hellip;</label>
-      </div>
-
-      <h2 class="heading-small">Select statement of income and outgoings (MC100)</h2>
-      <div class="form-group">
-        <input class="form-control-file" type="file" id="statement-income" name="statement-income">
-        <label class="button button-secondary" for="statement-income">Browse&hellip;</label>
-      </div>
-
-      <h2 class="heading-small">Select other document</h2>
-      <div class="form-group form-group-last">
-        <input class="form-control-file" type="file" id="other-document" name="other-document">
-        <label class="button button-secondary" for="other-document">Browse&hellip;</label>
-      </div>
+      {{#each related-documents.document}}
+        {{#is show false}}
+          <h2 class="heading-small">Select {{title}}</h2>
+          <div class="form-group">
+            <input class="form-control-file" type="file" id="{{id}}" name="{{id}}">
+            <label class="button button-secondary" for="{{id}}">Browse&hellip;</label>
+          </div>
+        {{/is}}
+      {{/each}}
 
       <div class="form-group form-group-actions">
         <button class="button" type="submit">Upload</button>
@@ -67,4 +62,4 @@
 
   </section>
 
-  {{/with}}
+{{/with}}
