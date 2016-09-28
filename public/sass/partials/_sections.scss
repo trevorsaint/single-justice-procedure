@@ -1,11 +1,18 @@
 // Sections
 // ==========================================================================
 
-
 $module: 'section';
 
-
 .#{$module} {
-  overflow: hidden;
-  margin: em(20) 0;
+
+  &-header {
+    position: relative;
+
+    a {
+      position: absolute;
+      top: 0; right: 0;
+    }
+
+  }
+
 }

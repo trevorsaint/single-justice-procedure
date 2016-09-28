@@ -1,5 +1,8 @@
-Prosecutor: Transport for London
-================================
+Single Justice Procedure (SJP)
+==============================
 
+A service for:
 
-A service for Transport for London (TfL).
+- Prosecutor
+- Court administrator
+- Legal adviser

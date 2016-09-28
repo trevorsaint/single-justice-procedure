@@ -1,0 +1,173 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <h1 class="heading-xlarge">Add or change personal details</h1>
+
+    <p class="lede">Keep these personal details up to date.</p>
+
+    <form class="form" method="post">
+
+      <h2 class="heading-medium">Personal details</h2>
+
+      <div class="form-group">
+
+        <fieldset>
+
+          <legend class="visuallyhidden">Personal details</legend>
+
+          <div class="form-group">
+            <label for="title">
+              <span class="form-label">Title (optional)</span>
+            </label>
+            <input class="form-control form-control-1-8" type="text" id="title" name="title"{{#if ../sTitle}} value="{{../sTitle}}"{{else}} value="{{title}}"{{/if}}>
+          </div>
+
+          <div class="form-group">
+            <label for="firstname">
+              <span class="form-label">First name</span>
+            </label>
+            <input class="form-control" type="text" id="firstname" name="firstname"{{#if ../sFirstname}} value="{{../sFirstname}}"{{else}} value="{{firstname}}"{{/if}}>
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">
+              <span class="form-label">Last name</span>
+            </label>
+            <input class="form-control" type="text" id="lastname" name="lastname"{{#if ../sLastname}} value="{{../sLastname}}"{{else}} value="{{lastname}}"{{/if}}>
+          </div>
+
+          <div class="form-group">
+
+            <fieldset>
+
+              <legend>
+                <span class="form-label">Date of birth</span>
+                <span class="form-hint" id="dob-hint">For example, 31 3 1980</span>
+              </legend>
+
+              <div class="form-date">
+
+                <div class="form-group form-group-day">
+                  <label class="form-label" for="dob-day">Day</label>
+                  <input class="form-control" type="number" id="dob-day" aria-describedby="dob-hint">
+                </div>
+
+                <div class="form-group form-group-month">
+                  <label class="form-label" for="dob-month">Month</label>
+                  <input class="form-control" type="number" id="dob-month">
+                </div>
+
+                <div class="form-group form-group-year">
+                  <label class="form-label" for="dob-year">Year</label>
+                  <input class="form-control" type="number" id="dob-year">
+                </div>
+
+              </div>
+
+            </fieldset>
+
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">
+              <span class="form-label">National Insurance number</span>
+              <span class="form-hint" id="nationalinsurance-hint">Find this on your payslip, P60 or tax return. <br> For example, VO 12 34 56 D.</span>
+            </label>
+            <input class="form-control" type="text" id="nationalinsurance" name="nationalinsurance"{{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{nationalinsurance}}"{{/if}} aria-describedby="nationalinsurance-hint">
+          </div>
+
+        </fieldset>
+
+      </div>
+
+      <h2 class="heading-medium">Address</h2>
+
+      <div class="form-group">
+
+        <fieldset>
+
+          <legend class="visuallyhidden">Adress</legend>
+
+          <div class="form-group form-group-compound">
+            <label for="address1">
+              <span class="form-label">Street</span>
+            </label>
+            <input class="form-control" type="text" id="address1" name="address1" {{#if ../sAddress1}} value="{{../sAddress1}}"{{else}} value="{{address1}}"{{/if}}>
+          </div>
+
+          <div class="form-group">
+            <label class="visuallyhidden" for="address2">
+              <span class="form-label">Street</span>
+            </label>
+            <input class="form-control" type="text" id="address2" name="address2"{{#if ../sAddress2}} value="{{../sAddress2}}"{{else}} value="{{address2}}"{{/if}}>
+          </div>
+
+          <div class="form-group">
+            <label for="town">
+              <span class="form-label">Town or City</span>
+            </label>
+            <input class="form-control form-control-1-4" type="text" id="town" name="town"{{#if ../sTown}} value="{{../sTown}}"{{else}} value="{{town}}"{{/if}}>
+          </div>
+
+          <div class="form-group">
+            <label for="postcode">
+              <span class="form-label">Postcode</span>
+            </label>
+            <input class="form-control form-control-1-4" type="text" id="postcode" name="postcode"{{#if ../sPostcode}} value="{{../sPostcode}}"{{else}} value="{{postcode}}"{{/if}}>
+          </div>
+
+        </fieldset>
+
+      </div>
+
+      <h2 class="heading-medium">Email and telephone</h2>
+
+      <div class="form-group">
+
+        <fieldset>
+
+          <legend class="visuallyhidden">Email and telephone</legend>
+
+          <div class="form-group">
+            <label for="email">
+              <span class="form-label">Email</span>
+            </label>
+            <input class="form-control" type="email" id="email" name="email"{{#if ../sEmail}} value="{{../sEmail}}"{{else}} value="{{email}}"{{/if}}>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">
+              <span class="form-label">Home telephone</span>
+            </label>
+            <input class="form-control form-control-1-4" type="tel" id="phone" name="phone"{{#if ../sPhone}} value="{{../sPhone}}"{{else}} value="{{phone}}"{{/if}}>
+          </div>
+
+          <div class="form-group">
+            <label for="email">
+              <span class="form-label">Mobile</span>
+            </label>
+            <input class="form-control form-control-1-4" type="tel" id="mobile" name="mobile"{{#if ../sMobile}} value="{{../sMobile}}"{{else}} value="{{mobile}}"{{/if}}>
+          </div>
+
+        </fieldset>
+
+      </div>
+
+      <div class="form-group">
+        <button class="button" type="submit">Save and continue</button>
+      </div>
+
+      <p><a href="/court-administrator/case-details/{{id}}">Cancel</a></p>
+
+    </form>
+
+  </div>
+
+</div>
+
+{{/with}}

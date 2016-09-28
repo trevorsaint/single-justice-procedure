@@ -25,63 +25,63 @@ module.exports = function (grunt) {
         }
 
       },
-      
-      
+
+
       copy: {
-        
+
         govuk: {
-          
+
           files: [
-            
+
             {
               expand: true,
               cwd: 'node_modules/govuk_template_mustache/assets/stylesheets',
               src: '**',
               dest: 'public/govuk/stylesheets/'
             },
-            
+
             {
               expand: true,
               cwd: 'node_modules/govuk_template_mustache/assets/images',
               src: '**',
               dest: 'public/govuk/images/'
             },
-            
+
             {
               expand: true,
               cwd: 'node_modules/govuk_frontend_toolkit/images',
               src: '**',
               dest: 'public/govuk/images'
             },
-            
+
             {
               expand: true,
               cwd: 'node_modules/govuk_frontend_toolkit/stylesheets',
               src: '**',
               dest: 'public/govuk/sass'
             },
-            
+
             {
               expand: true,
               cwd: 'node_modules/govuk-elements-sass/public/sass',
               src: '**',
               dest: 'public/govuk/sass'
             }
-            
+
           ]
-          
+
         }
-        
+
       },
-      
-      
+
+
       handlebars: {
-        
+
         files: [ 'views/**/*.hbs' ]
 
       },
-      
-      
+
+
       sass: {
 
         dist: {
@@ -91,7 +91,7 @@ module.exports = function (grunt) {
             style: 'expanded',
             sourcemap: 'none'
           },
-          
+
           files: {
             'public/styles/main.css' : 'public/sass/main.scss'
           }
@@ -100,9 +100,8 @@ module.exports = function (grunt) {
 
       },
 
-
       watch: {
-  
+
         express: {
           files: ['**/*.js'],
           tasks: ['express:dev'],
@@ -111,9 +110,9 @@ module.exports = function (grunt) {
             spawn: false
           }
         },
-        
+
         handlebars: {
-  
+
           files: ['views/**/*.hbs'],
           task: ['handlebars'],
 
@@ -121,9 +120,9 @@ module.exports = function (grunt) {
             livereload: true,
             spawn: false
           }
-  
+
         },
-        
+
         sass: {
           files: ['public/sass/**/*.scss'],
           tasks: ['sass'],
@@ -132,12 +131,11 @@ module.exports = function (grunt) {
             spawn: false
           }
         }
-        
+
       }
 
 
   });
-
 
   [
     'grunt-express-server',
@@ -149,13 +147,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks(task);
   });
 
-
   grunt.registerTask('default', [
-    'express:dev', 
+    'express:dev',
     'copy:govuk',
     'handlebars',
     'sass',
-    'watch'
+    'watch',
   ]);
 
 

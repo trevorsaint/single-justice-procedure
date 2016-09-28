@@ -1,0 +1,32 @@
+  {{>breadcrumb}}
+
+  <h1 class="heading-xlarge">{{pagetitle}}</h1>
+
+  <h3 class="heading-medium">3 files found</h3>
+
+  <table class="table table-font-xsmall">
+    <caption class="visuallyhidden">Document file uploads</caption>
+    <thead>
+      <tr>
+        <th scope="col">Date uploaded</th>
+        <th scope="col">At</th>
+        <th scope="col">File name</th>
+        <th scope="col" colspan="2">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each searches}}
+        {{#each files.file}}
+          {{#if document}}
+            <tr>
+              <td>{{uploaded}}</td>
+              <td>{{time}}</td>
+              <td>{{filename}}</td>
+              <td>{{{status}}}</td>
+              <td>{{#if url}}<a href="/prosecutor/{{url}}">View report</a>{{else}}&ndash;{{/if}}</td>
+            </tr>
+          {{/if}}
+        {{/each}}
+      {{/each}}
+    </tbody>
+  </table>

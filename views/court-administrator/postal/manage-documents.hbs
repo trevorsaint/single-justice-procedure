@@ -1,0 +1,76 @@
+{{>breadcrumb}}
+
+  {{#with search}}
+
+  <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+  <section aria-labelledby="uploaded-documents">
+
+    <h2 class="heading-medium" id="uploaded-documents">Documents already uploaded</h2>
+
+    <table class="table table-font-xsmall">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Uploaded on</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each related-documents.document}}
+        <tr>
+          <td><a href="#">{{{title}}}</a></td>
+          <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
+          <td><time datetime="{{file-uploaded-date-iso}}">{{file-uploaded-date}}</time></td>
+          <td>{{#if can-remove}}<a href="#">Remove</a>{{/if}}</td>
+        </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+
+  </section>
+
+  <section aria-labelledby="add-other-documents">
+
+    <h2 class="heading-medium" id="add-other-documents">Add more documents</h2>
+
+    <p>You can upload any of the following documents if available.</p>
+
+    <form class="form" method="post">
+
+      <h2 class="heading-small">Select plea document</h2>
+      <div class="form-group">
+        <input class="form-control-file" type="file" id="plea-document" name="plea-document">
+        <label class="button button-secondary" for="plea-document">Browse&hellip;</label>
+      </div>
+
+      <h2 class="heading-small">Select statement of income and outgoings (MC100)</h2>
+      <div class="form-group">
+        <input class="form-control-file" type="file" id="statement-income" name="statement-income">
+        <label class="button button-secondary" for="statement-income">Browse&hellip;</label>
+      </div>
+
+      <h2 class="heading-small">Select mitigation document</h2>
+      <div class="form-group">
+        <input class="form-control-file" type="file" id="mitigation-document" name="mitigation-document">
+        <label class="button button-secondary" for="mitigation-document">Browse&hellip;</label>
+      </div>
+
+      <h2 class="heading-small">Select other document</h2>
+      <div class="form-group form-group-last">
+        <input class="form-control-file" type="file" id="other-document" name="other-document">
+        <label class="button button-secondary" for="other-document">Browse&hellip;</label>
+      </div>
+
+      <div class="form-group form-group-actions">
+        <button class="button" type="submit">Upload</button>
+        <p><a href="/court-administrator/case-details/{{id}}">Done &ndash; go back to case</a></p>
+      </div>
+
+    <form>
+
+  </section>
+
+{{/with}}

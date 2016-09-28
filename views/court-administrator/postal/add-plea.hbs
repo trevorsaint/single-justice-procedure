@@ -1,0 +1,60 @@
+  {{>breadcrumb}}
+
+  {{#with search}}
+
+  {{makeDecision}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+      <h2 class="heading-large">Offence</h2>
+
+      <h2 class="font-medium">Public service vehicle &ndash; passenger failing to produce a ticket</h2>
+
+      <p class="font-xsmall">On <time datetime="2016-02-01">1 February 2016</time></p>
+
+      <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
+
+      <form class="form" method="post">
+
+        <fieldset>
+
+          <legend class="visually-hidden">Make a decision</legend>
+
+          <div class="form-group">
+
+            <label class="block-label" for="guilty-no-court">
+              <input type="radio" id="guilty-no-court" name="makeDecision" value="Pleaded guilty court hearing requested"{{#if ../sMakeDecision}}{{#contains ../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
+              Guilty &ndash; I don't want to come to court
+            </label>
+
+            <label class="block-label" for="guilty-court">
+              <input type="radio" id="guilty-court" name="makeDecision" value="Pleaded guilty SJP"{{#if ../sMakeDecision}}{{#contains ../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
+              Guilty &ndash; I want to come to court
+            </label>
+
+            <label class="block-label" for="not-guilty">
+              <input type="radio" id="not-guilty" name="makeDecision" value="Pleaded not guilty"{{#if ../sMakeDecision}}{{#contains ../sMakeDecision "Pleaded not guilty"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded not guilty"}} checked="checked"{{/contains}}{{/if}}>
+              Not guilty &ndash; send me the date of my trial
+            </label>
+
+          </div>
+
+          <div class="form-group">
+            <button class="button" type="submit">Save and continue</button>
+          </div>
+
+          <p><a href="/court-administrator/case-details/{{id}}">Cancel</a></p>
+
+        </fieldset>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  {{/with}}

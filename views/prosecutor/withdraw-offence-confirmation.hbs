@@ -1,0 +1,17 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  <div class="notification notification-confirmation" role="alert">
+
+    <i class="icon icon-tick-white" role="presentation" aria-hidden="true"></i>
+
+    <div class="notification-message">
+      <p class="bold-medium">Your request has been sent and will be dealt with by a legal adviser</p>
+    </div>
+
+  </div>
+
+  <p><a href="/prosecutor/case-details/{{id}}">Back to case</a></p>
+
+{{/with}}

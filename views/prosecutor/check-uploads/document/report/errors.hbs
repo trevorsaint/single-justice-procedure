@@ -1,0 +1,103 @@
+  {{>breadcrumb}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{pagetitle}}</h1>
+
+      <dl class="meta meta-small mb-xl">
+<<<<<<< HEAD:views/check-uploads/document/report/errors.hbs
+        <dt>Filename</dt>
+=======
+        <dt>File name</dt>
+>>>>>>> courtadmin:views/prosecutor/check-uploads/document/report/errors.hbs
+        <dd>case-123456789</dd>
+        <dt>Uploaded</dt>
+        <dd><time datetime="2016-05-09">9 May 2016</time></dd>
+        <dt>Status</dt>
+        <dd><span class="text-error">4 errors found</span></dd>
+      </dl>
+
+<<<<<<< HEAD:views/check-uploads/document/report/errors.hbs
+      <p class="text">97 documents have been successfuly sent to court. Fix errors in these remaining documents below.</p>
+=======
+      <p>97 documents have been successfuly sent to court. Fix errors in these remaining documents below.</p>
+>>>>>>> courtadmin:views/prosecutor/check-uploads/document/report/errors.hbs
+
+    </div>
+
+    <div class="column-third">
+
+      <div class="related">
+
+        <div class="related-section">
+
+          <h2 class="related-heading">Related links</h2>
+
+          <ul class="related-links">
+            <li><a href="/prosecutor/send-other-documents">Send documents to court</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <section>
+
+    <h2 class="heading-medium">Fix 4 documents</h2>
+
+    <table class="table table-font-xsmall">
+      <caption class="visuallyhidden">Errors in document uploads</caption>
+      <thead>
+        <tr>
+          <th scope="col">Document</th>
+          <th scope="col">Reference number</th>
+          <th scope="col">Error</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><abbr title="Single Justice Procedure">SJP</abbr> notice</td>
+          <td>9012466</td>
+          <td><span class="text-error">Already sent to court &ndash; remove</span></td>
+        </tr>
+        <tr>
+          <td>Previous convictions</td>
+          <td>&ndash;</td>
+          <td><span class="text-error">Doesn&rsquo;t belong to an <abbr title="Single Justice Procedure">SJP</abbr> case &ndash; remove</span></td>
+        </tr>
+        <tr>
+          <td>Witness statement</td>
+          <td>2053688</td>
+          <td><span class="text-error">Already sent to court &ndash; remove</span></td>
+        </tr>
+        <tr>
+          <td>Witness statement</td>
+          <td>2053679</td>
+          <td><span class="text-error">Wrong file type &ndash; must be a text file, word document or pdf</span></td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </section>
+
+  <section>
+
+    <h3 class="heading-medium">After you&rsquo;ve fixed these documents</h3>
+
+    <p class="text">If you have corrected documents to send to court, put them in a new zip file and upload again.</p>
+
+<<<<<<< HEAD:views/check-uploads/document/report/errors.hbs
+    <p><a class="button" href="#" role="button">Upload documents</a></p>
+=======
+    <p><a class="button" href="/prosecutor/send-other-documents" role="button">Upload documents</a></p>
+>>>>>>> courtadmin:views/prosecutor/check-uploads/document/report/errors.hbs
+
+  </section>
