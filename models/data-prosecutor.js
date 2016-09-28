@@ -314,11 +314,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "Zip",
           "status":   '<span class="text-error">4 errors found</span>',
-<<<<<<< HEAD:models/data.js
           "url":      "/check-document-uploads/report/errors/3"
-=======
-          "url":      "check-document-uploads/report/errors/3"
->>>>>>> courtadmin:models/data-prosecutor.js
         }
       ]
     },
