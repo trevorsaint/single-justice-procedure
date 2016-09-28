@@ -200,7 +200,13 @@
                   </dd>
 
                   <dt>Weekly income</dt>
-                  <dd>{{#if income}}{{income}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#weekly">Add income</a>{{/if}}</dd>
+                  <dd>
+                    {{#if ../../sPayAmount}}
+                      {{../../sPayAmount}}
+                    {{else}}
+                      {{#if income}}{{income}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#weekly">Add income</a>{{/if}}
+                    {{/if}}
+                  </dd>
 
                 {{/compare}}
 
