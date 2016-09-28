@@ -19,7 +19,6 @@
     "body-parser": "*",
     "express": "4.14.0",
     "handlebars": "^4.0.5",
-    "assemble": "~0.4.0",
     "express-handlebars": "3.0.0",
     "express-session": "^1.14.1",
     "govuk-elements-sass": "^1.1.4",
