@@ -59,6 +59,7 @@ app.set('view engine', 'hbs');
  * Routing
  */
 
+app.use(require('./routes/'));
 app.use(require('./routes/court-administrator'));
 app.use(require('./routes/prosecutor'));
 app.use(require('./routes/legal-adviser'));
