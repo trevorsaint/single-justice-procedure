@@ -34,7 +34,8 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-express-server": "^0.5.3"
+    "grunt-express-server": "^0.5.3",
+    "handlebars": "^4.0.5"
   },
   "repository": {
     "type": "git",
