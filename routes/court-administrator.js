@@ -51,6 +51,12 @@ router.use(function(req, res, next) {
   sCaseActiveTab    = req.session.caseActiveTab;
   sOffenceActiveTab = req.session.offenceActiveTab;
 
+  // documents
+  sDocumentNotice  = req.session.documentNotice;
+  sPleaDocument    = req.session.pleaDocument;
+  sStatementIncome = req.session.statementIncome;
+  sOtherDocument   = req.session.otherDocument;
+
   next();
 
 });
@@ -139,7 +145,11 @@ router.route('/court-administrator/case-details/:id')
       sReceivingBenefits: sReceivingBenefits,
       sMakeDecision: sMakeDecision,
       sCaseActiveTab: sCaseActiveTab,
-      sOffenceActiveTab: sOffenceActiveTab
+      sOffenceActiveTab: sOffenceActiveTab,
+      sDocumentNotice: sDocumentNotice,
+      sPleaDocument: sPleaDocument,
+      sStatementIncome: sStatementIncome,
+      sOtherDocument: sOtherDocument
     });
   })
   .post(function(req, res) {
@@ -261,11 +271,37 @@ router.route('/court-administrator/manage-documents/:id')
       section2_name: 'Case details',
       signedIn: true,
       breadcrumb: true,
-      search:entry
+      search:entry,
+      sDocumentNotice: sDocumentNotice,
+      sPleaDocument: sPleaDocument,
+      sStatementIncome: sStatementIncome,
+      sOtherDocument: sOtherDocument
     });
   })
   .post(function(req, res) {
-    res.redirect('/court-administrator/case-details/' + req.params.id);
+
+    sDocumentNotice  = req.body.documentNotice;
+    sPleaDocument    = req.body.pleaDocument;
+    sStatementIncome = req.body.statementIncome;
+    sOtherDocument   = req.body.otherDocument;
+
+    if (sDocumentNotice != '') {
+      sDocumentNotice  = req.session.documentNotice = true;
+    }
+
+    if (sPleaDocument != '') {
+      sPleaDocument  = req.session.pleaDocument = true;
+    }
+
+    if (sStatementIncome != '') {
+      sStatementIncome  = req.session.statementIncome = true;
+    }
+
+    if (sOtherDocument != '') {
+      sOtherDocument  = req.session.otherDocument = true;
+    }
+
+    res.redirect('/court-administrator/manage-documents/' + req.params.id);
   });
 
 // step process

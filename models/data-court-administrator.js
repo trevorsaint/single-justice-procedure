@@ -100,6 +100,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -112,6 +113,7 @@ var search = [
         {
           "show": false,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -124,6 +126,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -136,6 +139,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -264,6 +268,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -276,6 +281,7 @@ var search = [
         {
           "show": true,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -288,6 +294,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -300,6 +307,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -322,7 +330,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "",
           "plea": "Pleaded guilty"
         }
@@ -386,6 +394,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -398,6 +407,7 @@ var search = [
         {
           "show": true,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -410,6 +420,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -422,6 +433,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -442,7 +454,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "",
           "plea": "Pleaded guilty",
         }
@@ -520,6 +532,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -532,6 +545,7 @@ var search = [
         {
           "show": true,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -544,6 +558,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -556,6 +571,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -577,7 +593,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "I picked up my partner&rdquo;s ticket instead of my own when I left my house",
           "plea": "Pleaded guilty"
         }
@@ -656,6 +672,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -668,6 +685,7 @@ var search = [
         {
           "show": false,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -680,6 +698,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -692,6 +711,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -713,7 +733,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "",
           "plea": "Pleaded guilty"
         }
@@ -791,6 +811,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -803,6 +824,7 @@ var search = [
         {
           "show": false,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -815,6 +837,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -827,6 +850,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -849,7 +873,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "",
           "plea": "Awaiting plea"
         }
@@ -927,6 +951,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -939,6 +964,7 @@ var search = [
         {
           "show": false,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -951,6 +977,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -963,6 +990,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -984,7 +1012,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "",
           "plea": "Pleaded guilty"
         }
@@ -1062,6 +1090,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -1074,6 +1103,7 @@ var search = [
         {
           "show": false,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -1086,6 +1116,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -1098,6 +1129,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -1119,7 +1151,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "",
           "plea": "Pleaded guilty"
         }
@@ -1197,6 +1229,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -1209,6 +1242,7 @@ var search = [
         {
           "show": false,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -1221,6 +1255,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -1233,6 +1268,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -1254,7 +1290,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "",
           "plea": "Pleaded guilty"
         }
@@ -1332,6 +1368,7 @@ var search = [
         {
           "show": true,
           "id": "sjp-notice",
+          "name": "documentNotice",
           "title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -1344,6 +1381,7 @@ var search = [
         {
           "show": false,
           "id": "plea-document",
+          "name": "pleaDocument",
           "title": "plea document",
           "file-type": "PDF",
           "file-size": "560KB",
@@ -1356,6 +1394,7 @@ var search = [
         {
           "show": false,
           "id": "statement-income",
+          "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
           "file-type": "PDF",
           "file-size": "256KB",
@@ -1368,6 +1407,7 @@ var search = [
         {
           "show": false,
           "id": "other-document",
+          "name": "otherDocument",
           "title": "other document",
           "file-type": "PDF",
           "file-size": "458KB",
@@ -1389,7 +1429,7 @@ var search = [
           "title": "Passenger used ticket issued for another person",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
           "mitigation": "",
           "plea": "Pleaded guilty"
         }

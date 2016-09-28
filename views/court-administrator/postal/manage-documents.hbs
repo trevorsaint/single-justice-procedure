@@ -20,6 +20,7 @@
       <tbody>
 
         {{#each related-documents.document}}
+
           {{#is show true}}
             <tr>
               <td><a href="#">{{{title}}}</a></td>
@@ -47,7 +48,7 @@
         {{#is show false}}
           <h2 class="heading-small">Select {{title}}</h2>
           <div class="form-group">
-            <input class="form-control-file" type="file" id="{{id}}" name="{{id}}">
+            <input class="form-control-file" type="file" id="{{id}}" name="{{name}}">
             <label class="button button-secondary" for="{{id}}">Browse&hellip;</label>
           </div>
         {{/is}}
