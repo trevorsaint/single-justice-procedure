@@ -314,7 +314,7 @@ var search = [
           "filename": "case-123456789",
           "filetype": "Zip",
           "status":   '<span class="text-error">4 errors found</span>',
-          "url":      "/check-document-uploads/report/errors/3"
+          "url":      "check-document-uploads/report/errors/3"
         }
       ]
     },
