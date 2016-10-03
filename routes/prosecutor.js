@@ -51,6 +51,20 @@ router.all('/prosecutor/search-for-a-case', function(req, res) {
   });
 });
 
+router.all('/prosecutor/case-list', function(req, res) {
+  res.render('prosecutor/case-list', {
+    baseurl: baseurl,
+    apptitle: apptitle,
+    doctitle: 'Case list',
+    pagetitle: 'Case list',
+    section: 'home',
+    section_name: 'Home',
+    searches:dataEngine.getSearchEntries(),
+    signedIn: true,
+    breadcrumb: true
+  });
+});
+
 router.all('/prosecutor/case-details/:id', function(req, res) {
   var entry = dataEngine.getSearchEntry(req.params.id);
   res.render('prosecutor/case-details', {
