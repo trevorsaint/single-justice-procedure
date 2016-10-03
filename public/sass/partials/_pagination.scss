@@ -5,7 +5,7 @@ $module: 'pagination';
 
 .#{$module} {
   @extend %clearfix;
-  margin-top: em(20);
+  margin-top: $gutter;
   position: relative;
   width: 100%;
 
@@ -14,13 +14,24 @@ $module: 'pagination';
 
     @include media(desktop) {
       display: block;
-      transform: translateY(-50%) translateX(-50%);
       position: absolute;
+      transform: translateY(-50%) translateX(-50%);
       left: 50%; top: 50%;
 
       li {
+        background-color: $white;
         display: inline-block;
-        vertical-align: middle;
+
+        &.is-active {
+
+          a {
+            color: $black;
+            cursor: default;
+            pointer-events: none;
+          }
+
+        }
+
       }
 
       a {
@@ -39,9 +50,9 @@ $module: 'pagination';
     a {
       display: inline-block;
       overflow: hidden;
-      vertical-align: middle;
       padding: 9px;
       text-decoration: none;
+      vertical-align: middle;
     }
 
   }

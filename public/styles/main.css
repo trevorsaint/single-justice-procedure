@@ -2122,7 +2122,7 @@ HTML Usage
 
 */
 .pagination {
-  margin-top: 1.05263em;
+  margin-top: 30px;
   position: relative;
   width: 100%;
 }
@@ -2132,14 +2132,19 @@ HTML Usage
 @media (min-width: 769px) {
   .pagination-numbers {
     display: block;
-    transform: translateY(-50%) translateX(-50%);
     position: absolute;
+    transform: translateY(-50%) translateX(-50%);
     left: 50%;
     top: 50%;
   }
   .pagination-numbers li {
+    background-color: #fff;
     display: inline-block;
-    vertical-align: middle;
+  }
+  .pagination-numbers li.is-active a {
+    color: #0b0c0c;
+    cursor: default;
+    pointer-events: none;
   }
   .pagination-numbers a {
     display: block;
@@ -2150,9 +2155,9 @@ HTML Usage
 .pagination-prev a, .pagination-next a {
   display: inline-block;
   overflow: hidden;
-  vertical-align: middle;
   padding: 9px;
   text-decoration: none;
+  vertical-align: middle;
 }
 .pagination-label {
   display: block;
