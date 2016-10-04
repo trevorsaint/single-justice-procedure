@@ -406,4 +406,17 @@ router.all('/prosecutor/cancel-request-to-withdraw-offence/:id', function(req, r
   });
 });
 
+router.get('/prosecutor/*', function(req, res, next) {
+  res.render('404', {
+    baseurl: baseurl,
+    apptitle: apptitle,
+    doctitle: 'Page not found',
+    pagetitle: 'Page not found',
+    section: 'home',
+    section_name: 'Home',
+    signedIn: true,
+    breadcrumb: true
+  });
+});
+
 module.exports = router

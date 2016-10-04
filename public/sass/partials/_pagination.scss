@@ -6,6 +6,7 @@ $module: 'pagination';
 .#{$module} {
   @extend %clearfix;
   margin-top: $gutter;
+  margin-bottom: $gutter;
   position: relative;
   width: 100%;
 

@@ -62,7 +62,7 @@ router.use(function(req, res, next) {
 });
 
 router.route('/court-administrator')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     res.render('court-administrator/index', {
       baseurl: baseurl,
       apptitle: apptitle,
@@ -72,12 +72,12 @@ router.route('/court-administrator')
       breadcrumb: false
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
     res.redirect('/court-administrator/home');
   });
 
 router.route('/court-administrator/home')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     res.render('court-administrator/home', {
       baseurl: baseurl,
       apptitle: apptitle,
@@ -89,12 +89,12 @@ router.route('/court-administrator/home')
       breadcrumb: false
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
     res.redirect('/court-administrator/search-for-a-case');
   });
 
 router.route('/court-administrator/search-for-a-case')
-  .all(function(req, res) {
+  .all(function(req, res, next) {
     res.render('court-administrator/search-for-a-case', {
       baseurl: baseurl,
       apptitle: apptitle,
@@ -108,13 +108,13 @@ router.route('/court-administrator/search-for-a-case')
     });
   });
 
-router.route('/court-administrator/case-list')
-  .all(function(req, res) {
-    res.render('court-administrator/case-list', {
+router.route('/court-administrator/court-list')
+  .all(function(req, res, next) {
+    res.render('court-administrator/court-list', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Case list',
-      pagetitle: 'Case list',
+      doctitle: 'Court list',
+      pagetitle: 'Court list',
       section: 'home',
       section_name: 'Home',
       searches:dataEngine.getSearchEntries(),
@@ -124,7 +124,7 @@ router.route('/court-administrator/case-list')
   });
 
 router.route('/court-administrator/case-details/:id')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/case-details', {
       baseurl: baseurl,
@@ -167,7 +167,7 @@ router.route('/court-administrator/case-details/:id')
       sOtherDocument: sOtherDocument
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
     sCaseActiveTab = req.session.caseActiveTab = null;
     sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
@@ -175,7 +175,7 @@ router.route('/court-administrator/case-details/:id')
   });
 
 router.route('/court-administrator/personal-details/:id')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/personal-details', {
       baseurl: baseurl,
@@ -202,7 +202,7 @@ router.route('/court-administrator/personal-details/:id')
       sPostcode: sPostcode
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
     sTitle = req.session.title = req.body.title;
     sFirstname = req.session.firstname = req.body.firstname;
     sLastname = req.session.lastname = req.body.lastname;
@@ -219,7 +219,7 @@ router.route('/court-administrator/personal-details/:id')
   });
 
 router.route('/court-administrator/employment-and-income/:id')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/employment-and-income', {
       baseurl: baseurl,
@@ -245,7 +245,7 @@ router.route('/court-administrator/employment-and-income/:id')
       sReceivingBenefits: sReceivingBenefits
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
     sEmployment = req.session.employment = req.body.employment;
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sEmployerName = req.session.employerName = req.body.employerName;
@@ -273,7 +273,7 @@ router.route('/court-administrator/employment-and-income/:id')
   });
 
 router.route('/court-administrator/manage-documents/:id')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/manage-documents', {
       baseurl: baseurl,
@@ -293,7 +293,7 @@ router.route('/court-administrator/manage-documents/:id')
       sOtherDocument: sOtherDocument
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
 
     sDocumentNotice  = req.body.documentNotice;
     sPleaDocument    = req.body.pleaDocument;
@@ -321,7 +321,7 @@ router.route('/court-administrator/manage-documents/:id')
 
 // step process
 router.route('/court-administrator/postal/add-plea/:id')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/postal/add-plea', {
       baseurl: baseurl,
@@ -338,14 +338,14 @@ router.route('/court-administrator/postal/add-plea/:id')
       sMakeDecision: sMakeDecision
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
     sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
     res.redirect('/court-administrator/postal/personal-details/' + req.params.id);
   });
 
 router.route('/court-administrator/postal/personal-details/:id')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/postal/personal-details', {
       baseurl: baseurl,
@@ -372,7 +372,7 @@ router.route('/court-administrator/postal/personal-details/:id')
       sPostcode: sPostcode
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
     sTitle = req.session.title = req.body.title;
     sFirstname = req.session.firstname = req.body.firstname;
     sLastname = req.session.lastname = req.body.lastname;
@@ -388,7 +388,7 @@ router.route('/court-administrator/postal/personal-details/:id')
   });
 
 router.route('/court-administrator/postal/employment-and-income/:id')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/postal/employment-and-income', {
       baseurl: baseurl,
@@ -411,7 +411,7 @@ router.route('/court-administrator/postal/employment-and-income/:id')
       sReceivingBenefits: sReceivingBenefits
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
     sEmployment = req.session.employment = req.body.employment;
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sEmployerName = req.session.employerName = req.body.employerName;
@@ -428,7 +428,7 @@ router.route('/court-administrator/postal/employment-and-income/:id')
   });
 
 router.route('/court-administrator/postal/manage-documents/:id')
-  .get(function(req, res) {
+  .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/postal/manage-documents', {
       baseurl: baseurl,
@@ -444,8 +444,21 @@ router.route('/court-administrator/postal/manage-documents/:id')
       search:entry
     });
   })
-  .post(function(req, res) {
+  .post(function(req, res, next) {
     res.redirect('/court-administrator/case-details/' + req.params.id);
   });
+
+router.get('/court-administrator/*', function(req, res, next) {
+  res.render('404', {
+    baseurl: baseurl,
+    apptitle: apptitle,
+    doctitle: 'Page not found',
+    pagetitle: 'Page not found',
+    section: 'home',
+    section_name: 'Home',
+    signedIn: true,
+    breadcrumb: true
+  });
+});
 
 module.exports = router

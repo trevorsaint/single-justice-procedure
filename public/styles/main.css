@@ -1892,11 +1892,11 @@ input[type=number] {
     display: revert;
   }
 }
-.pagination:before, .document-small:before, .pagination:after, .document-small:after {
+.pagination:before, .document-small:before, .warning-banner:before, .pagination:after, .document-small:after, .warning-banner:after {
   content: '';
   display: table;
 }
-.pagination:after, .document-small:after {
+.pagination:after, .document-small:after, .warning-banner:after {
   clear: both;
 }
 
@@ -2123,6 +2123,7 @@ HTML Usage
 */
 .pagination {
   margin-top: 30px;
+  margin-bottom: 30px;
   position: relative;
   width: 100%;
 }
@@ -2512,6 +2513,50 @@ HTML Usage
 </div>
 
 */
+.warning-banner {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.14286;
+  background-color: #df3034;
+  color: #fff;
+  padding: 0.52632em;
+}
+@media (min-width: 641px) {
+  .warning-banner {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.warning-banner-message {
+  color: #fff;
+  display: table-cell;
+}
+.warning-banner-message p {
+  font-weight: 700;
+  margin: 0;
+}
+.warning-banner .icon {
+  display: table-cell;
+  vertical-align: top;
+}
+.warning-banner .icon + .warning-banner-message {
+  padding-left: 0.625em;
+}
+
+/*
+
+HTML Usage
+
+<div class="warning-banner" role="alert">
+  <i class="icon icon-alert" role="presentation" aria-hidden="true"></i>
+  <div class="warning-banner-message">
+    <p>Jo Cooper is working on this case &ndash; you must check with them before editing anything</p>
+  </div>
+</div>
+
+*/
 .icon-tick {
   width: 27px;
   height: 27px;
@@ -2535,8 +2580,8 @@ HTML Usage
   }
 }
 .icon-important-white {
-  width: 31px;
-  height: 31px;
+  width: 30px;
+  height: 30px;
   background-image: url("/public/images/icon-important-white.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
@@ -2546,8 +2591,8 @@ HTML Usage
   }
 }
 .icon-tick-white {
-  width: 31px;
-  height: 31px;
+  width: 30px;
+  height: 30px;
   background-image: url("/public/images/icon-tick-white.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
@@ -2556,11 +2601,55 @@ HTML Usage
     background-size: 100%;
   }
 }
+.icon-complete {
+  width: 12px;
+  height: 9px;
+  background-image: url("/public/images/icon-complete.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .icon-complete {
+    background-image: url("/public/images/icon-complete-2x.png");
+    background-size: 100%;
+  }
+}
+.icon-alert {
+  width: 20px;
+  height: 20px;
+  background-image: url("/public/images/icon-alert-white.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .icon-alert {
+    background-image: url("/public/images/icon-alert-white-2x.png");
+    background-size: 100%;
+  }
+}
+.icon-lock {
+  width: 30px;
+  height: 30px;
+  background-image: url("/public/images/icon-lock.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .icon-lock {
+    background-image: url("/public/images/icon-lock-2x.png");
+    background-size: 100%;
+  }
+}
+.icon-lock-white {
+  width: 30px;
+  height: 30px;
+  background-image: url("/public/images/icon-lock-white.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .icon-lock-white {
+    background-image: url("/public/images/icon-lock-white-2x.png");
+    background-size: 100%;
+  }
+}
 
 /*
-  
+
 HTML Usage
-   
+
 <i class="icon icon-tick" role="presentation" aria-hidden="true"></i>
 
 <i class="icon icon-cross" role="presentation" aria-hidden="true"></i>
@@ -2569,7 +2658,13 @@ HTML Usage
 
 <i class="icon icon-tick-white" role="presentation" aria-hidden="true"></i>
 
-<i class="icon icon-errors" role="presentation" aria-hidden="true"></i>
+<i class="icon icon-complete" role="presentation" aria-hidden="true"></i>
+
+<i class="icon icon-alert" role="presentation" aria-hidden="true"></i>
+
+<i class="icon icon-lock" role="presentation" aria-hidden="true"></i>
+
+<i class="icon icon-lock-white" role="presentation" aria-hidden="true"></i>
 
 */
 .meta dt {

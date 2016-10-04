@@ -4,12 +4,21 @@
 
 var express    = require('express');
 var exphbs     = require('express-handlebars');
-var bodyParser = require('body-parser');
 var session    = require('express-session');
+var bodyParser = require('body-parser');
 
 var router  = express.Router();
 var port    = (process.env.PORT || 3000);
 var app     = express();
+
+// baseurl and apptitle
+
+/*
+ * Baseurl and Apptitle
+ */
+
+var baseurl  = '/';
+var apptitle = 'Single Justice Procedure';
 
 /*
  * Body parser
@@ -63,20 +72,6 @@ app.use(require('./routes/'));
 app.use(require('./routes/court-administrator'));
 app.use(require('./routes/prosecutor'));
 app.use(require('./routes/legal-adviser'));
-
-/*
- * If page does not exist
- */
-
-app.use(function(req, res) {
-  res.statusCode = 404;
-  res.end('File not found');
-});
-
-app.use(function(req, res) {
-  res.statusCode = 500
-  res.end('Internal server error');
-});
 
 /*
  * App listen

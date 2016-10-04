@@ -64,4 +64,17 @@ router.all('/legal-adviser/case-details/:id', function(req, res) {
   });
 });
 
+router.get('/legal-adviser/*', function(req, res, next) {
+  res.render('404', {
+    baseurl: baseurl,
+    apptitle: apptitle,
+    doctitle: 'Page not found',
+    pagetitle: 'Page not found',
+    section: 'home',
+    section_name: 'Home',
+    signedIn: true,
+    breadcrumb: true
+  });
+});
+
 module.exports = router
