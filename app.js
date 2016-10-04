@@ -64,10 +64,23 @@ app.use(require('./routes/court-administrator'));
 app.use(require('./routes/prosecutor'));
 app.use(require('./routes/legal-adviser'));
 
+/*
+ * If page does not exist
+ */
+
+app.use(function(req, res) {
+  res.statusCode = 404;
+  res.end('File not found');
+});
+
+app.use(function(req, res) {
+  res.statusCode = 500
+  res.end('Internal server error');
+});
 
 /*
  * App listen
  */
 
 app.listen(port);
-console.log('Listening on port ' + port);
+console.log('App started on port ' + port);

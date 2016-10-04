@@ -204,7 +204,7 @@ var search = [
       "town": "Carnbo",
       "postcode": "KY13 4GX"
     },
-    "email": "tegan.Smith@gmail.com",
+    "email": "tegan.smith@gmail.com",
     "phone": "078 2400 2563",
     "national-insurance-number": "ZK 89 01 41 A",
     "notice-served": "18 Sep 2015",
@@ -354,7 +354,7 @@ var search = [
       "town": "Crouch",
       "postcode": "TN15 6GQ"
     },
-    "email": "za.Smith@gmail.com",
+    "email": "za.smith@gmail.com",
     "phone": "078 1825 3550",
     "national-insurance-number": "GK 69 85 94 D",
     "notice-served": "13 Jul 2015",
@@ -451,7 +451,7 @@ var search = [
       "offence": [
         {
           "id": 1,
-          "title": "Passenger used ticket issued for another person",
+          "title": "Having failed to pay rail fare gave false particulars",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
@@ -478,7 +478,7 @@ var search = [
       "town": "Stonham Aspal",
       "postcode": "IP14 0XB"
     },
-    "email": "abbie.Smith@gmail.com",
+    "email": "abbie.smith@gmail.com",
     "phone": "079 5115 9062",
     "national-insurance-number": "ZK 71 11 43 D",
     "notice-served": "4 Sep 2015",
@@ -590,7 +590,7 @@ var search = [
       "offence": [
         {
           "id": 1,
-          "title": "Passenger used ticket issued for another person",
+          "title": "Travel on railway without paying fare",
           "date": "18 January 2016",
           "datetime": "2016-01-18",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
@@ -617,7 +617,7 @@ var search = [
       "town": "Mearns",
       "postcode": "G77 7GA"
     },
-    "email": "leon.Smith@gmail.com",
+    "email": "leon.smith@gmail.com",
     "phone": "077 8068 5313",
     "national-insurance-number": "TK 60 97 18 A",
     "notice-served": "18 Sep 2015",
@@ -730,7 +730,7 @@ var search = [
       "offence": [
         {
           "id": 1,
-          "title": "Passenger used ticket issued for another person",
+          "title": "Passenger used expired ticket",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
@@ -757,7 +757,7 @@ var search = [
       "town": "Liverton",
       "postcode": "TQ12 1LQ"
     },
-    "email": "olivia.Smith@gmail.com",
+    "email": "olivia.smith@gmail.com",
     "phone": "077 0494 5090",
     "national-insurance-number": "NY 80 08 89 A",
     "notice-served": "14 Jan 2015",
@@ -870,7 +870,7 @@ var search = [
       "offence": [
         {
           "id": 1,
-          "title": "Passenger used ticket issued for another person",
+          "title": "Passenger used expired ticket",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
@@ -897,7 +897,7 @@ var search = [
       "town": "Llanteg",
       "postcode": "SA67 9EJ"
     },
-    "email": "joel.Smith@gmail.com",
+    "email": "joel.smith@gmail.com",
     "phone": "079 4115 6799",
     "national-insurance-number": "HS 12 20 51 D",
     "notice-served": "18 Sep 2015",
@@ -1009,7 +1009,7 @@ var search = [
       "offence": [
         {
           "id": 1,
-          "title": "Passenger used ticket issued for another person",
+          "title": "Passenger failing to pay fare",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
@@ -1036,7 +1036,7 @@ var search = [
       "town": "Grantley",
       "postcode": "HG4 2ET"
     },
-    "email": "harrison.Smith@gmail.com",
+    "email": "harrison.smith@gmail.com",
     "phone": "070 2908 3863",
     "national-insurance-number": "MJ 82 16 61 A",
     "notice-served": "18 Sep 2015",
@@ -1148,7 +1148,7 @@ var search = [
       "offence": [
         {
           "id": 1,
-          "title": "Passenger used ticket issued for another person",
+          "title": "Passenger failing to pay fare",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
@@ -1175,7 +1175,7 @@ var search = [
       "town": "Howend",
       "postcode": "MK45 0ZW"
     },
-    "email": "kian.Smith@gmail.com",
+    "email": "kian.smith@gmail.com",
     "phone": "070 1279 6913",
     "national-insurance-number": "LC 59 17 17 B",
     "notice-served": "14 Jan 2015",
@@ -1287,7 +1287,7 @@ var search = [
       "offence": [
         {
           "id": 1,
-          "title": "Passenger used ticket issued for another person",
+          "title": "Passenger used altered/defaced ticket",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
@@ -1314,7 +1314,7 @@ var search = [
       "town": "St Paul's Cray",
       "postcode": "BR5 1WH"
     },
-    "email": "naomi.Smith@gmail.com",
+    "email": "naomi.smith@gmail.com",
     "phone": "070 6195 4223",
     "national-insurance-number": "LN 56 80 72",
     "notice-served": "14 Jan 2015",
@@ -1426,7 +1426,7 @@ var search = [
       "offence": [
         {
           "id": 1,
-          "title": "Passenger used ticket issued for another person",
+          "title": "Passenger used altered/defaced ticket",
           "date": "1 February 2016",
           "datetime": "2016-02-01",
           "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',

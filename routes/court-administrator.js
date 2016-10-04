@@ -108,6 +108,21 @@ router.route('/court-administrator/search-for-a-case')
     });
   });
 
+router.route('/court-administrator/case-list')
+  .all(function(req, res) {
+    res.render('court-administrator/case-list', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Case list',
+      pagetitle: 'Case list',
+      section: 'home',
+      section_name: 'Home',
+      searches:dataEngine.getSearchEntries(),
+      signedIn: true,
+      breadcrumb: true
+    });
+  });
+
 router.route('/court-administrator/case-details/:id')
   .get(function(req, res) {
     entry = dataEngine.getSearchEntry(req.params.id);
