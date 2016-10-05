@@ -135,15 +135,6 @@
                 {{/if}}
               </dd>
 
-              <dt>National Insurance number</dt>
-              <dd>
-                {{#if ../sNationalInsurance}}
-                  {{../sNationalInsurance}}
-                {{else}}
-                  {{#if nationalinsurance}}{{nationalinsurance}}{{else}}<a href="/court-administrator/personal-details/{{id}}/#nationalinsurance">Add National Insurance number</a>{{/if}}
-                {{/if}}
-              </dd>
-
             </dl>
 
           </section>
@@ -159,6 +150,15 @@
             {{#with employment}}
 
               <dl class="meta meta-large">
+
+                <dt>National Insurance number</dt>
+                <dd>
+                  {{#if ../../sNationalInsurance}}
+                    {{../../sNationalInsurance}}
+                  {{else}}
+                    {{#if ../national-insurance-number}}{{../national-insurance-number}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#national-insurance">Add National Insurance number</a>{{/if}}
+                  {{/if}}
+                </dd>
 
                 <dt>Employment status</dt>
                 <dd>
@@ -176,7 +176,7 @@
                     {{#if ../../sEmployerName}}
                       {{../../sEmployerName}}
                     {{else}}
-                      {{#if employer-name}}{{employer-name}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-name">Add employer name</a>{{/if}}
+                      {{#if ../employer-name}}{{../employer-name}}{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-name">Add employer name</a>{{/if}}
                     {{/if}}
                   </dd>
 

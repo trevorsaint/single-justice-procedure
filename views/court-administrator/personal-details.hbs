@@ -73,14 +73,6 @@
 
           </div>
 
-          <div class="form-group">
-            <label for="lastname">
-              <span class="form-label">National Insurance number</span>
-              <span class="form-hint" id="nationalinsurance-hint">Find this on your payslip, P60 or tax return. <br> For example, VO 12 34 56 D.</span>
-            </label>
-            <input class="form-control" type="text" id="nationalinsurance" name="nationalinsurance"{{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{nationalinsurance}}"{{/if}} aria-describedby="nationalinsurance-hint">
-          </div>
-
         </fieldset>
 
       </div>
@@ -158,7 +150,7 @@
 
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group-related">
         <button class="button" type="submit">Save</button>
       </div>
 

@@ -10,25 +10,58 @@
 
     <form class="form" method="post">
 
-      <h3 class="heading-medium">Is the defendant employed?</h3>
+      <div class="form-group">
+        <label for="national-insurance">
+          <span class="form-label-bold">National Insurance number</span>
+          <span class="form-hint" id="national-insurance-hint">For example, VO 12 34 56 D</span>
+        </label>
+        <input class="form-control" type="text" id="national-insurance" name="nationalInsurance" aria-describedby="national-insurance-hint"{{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{national-insurance-number}}"{{/if}}>
+      </div>
+
+      <div class="form-group">
+
+        <fieldset class="inline">
+
+          <legend>
+            <span class="form-label-bold">Income and outgoings</span>
+            <span class="form-hint">Check the form &ndash; what type of figures has the defendant provided?</span>
+          </legend>
+
+          <label class="block-label" for="defendant-ticked-weekly">
+            <input type="radio" id="defendant-ticked-weekly" name="defendantTicked" value="Weekly">Weekly
+          </label>
+
+          <label class="block-label" for="defendant-ticked-fortnightly">
+            <input type="radio" id="defendant-ticked-fortnightly" name="defendantTicked" value="Fortnightly">Fortnightly
+          </label>
+
+          <label class="block-label" for="defendant-ticked-monthly">
+            <input type="radio" id="defendant-ticked-monthly" name="defendantTicked" value="Monthly">Monthly
+          </label>
+
+        </fieldset>
+
+      </div>
 
       <fieldset class="inline">
 
-        <legend class="visuallyhidden">Is the defendant employed?</legend>
+          <legend>
+            <span class="form-label-bold">Is the defendant employed?</span>
+          </legend>
 
-        <label class="block-label" for="employed" data-target="is-employed">
-          <input type="radio" id="employed" name="employment" value="Employed"{{#if ../sEmployment}}{{#contains ../sEmployment "Employed"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status "Employed"}} checked="checked"{{/contains}}{{/if}}> Yes
-        </label>
+          <label class="block-label" for="employed" data-target="is-employed">
+            <input type="radio" id="employed" name="employment" value="Employed"{{#if ../sEmployment}}{{#contains ../sEmployment "Employed"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status "Employed"}} checked="checked"{{/contains}}{{/if}}> Yes
+          </label>
 
-        <label class="block-label" for="unemployed">
-          <input type="radio" id="unemployed" name="employment" value="Unemployed"{{#if ../sEmployment}}{{#contains ../sEmployment "Unemployed"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status "Unemployed"}} checked="checked"{{/contains}}{{/if}}> No
-        </label>
+          <label class="block-label" for="unemployed">
+            <input type="radio" id="unemployed" name="employment" value="Unemployed"{{#if ../sEmployment}}{{#contains ../sEmployment "Unemployed"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status "Unemployed"}} checked="checked"{{/contains}}{{/if}}> No
+          </label>
 
-        <label class="block-label" for="unknown">
-          <input type="radio" id="unknown" name="employment" value="Don’t know"{{#if ../sEmployment}}{{#contains ../sEmployment "Don’t know"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status ""}} checked="checked"{{/contains}}{{/if}}> Don’t know
-        </label>
+          <label class="block-label" for="unknown">
+            <input type="radio" id="unknown" name="employment" value="Don’t know"{{#if ../sEmployment}}{{#contains ../sEmployment "Don’t know"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status ""}} checked="checked"{{/contains}}{{/if}}> Don’t know
+          </label>
 
-      </fieldset>
+        </fieldset>
 
       <div class="form-group">
 
@@ -140,29 +173,29 @@
 
         </div>
 
-        <div class="form-group">
+      </div>
 
-          <h3 class="heading-medium">Are they receiving benefits?</h3>
+      <div class="form-group form-group-last">
 
-          <fieldset class="inline">
+        <fieldset class="inline">
 
-            <legend class="visuallyhidden">Are they receiving benefits?</legend>
+          <legend>
+            <span class="form-label-bold">Are they receiving benefits?</span>
+          </legend>
 
-            <label class="block-label" for="receiving-benefits-yes">
-              <input type="radio" id="receiving-benefits-yes" name="receivingBenefits" value="Yes"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Yes"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "Yes"}} checked="checked"{{/contains}}{{/if}}>Yes
-            </label>
+          <label class="block-label" for="receiving-benefits-yes">
+            <input type="radio" id="receiving-benefits-yes" name="receivingBenefits" value="Yes"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Yes"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "Yes"}} checked="checked"{{/contains}}{{/if}}>Yes
+          </label>
 
-            <label class="block-label" for="receiving-benefits-no">
-              <input type="radio" id="receiving-benefits-no" name="receivingBenefits" value="No"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "No"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "No"}} checked="checked"{{/contains}}{{/if}}>No
-            </label>
+          <label class="block-label" for="receiving-benefits-no">
+            <input type="radio" id="receiving-benefits-no" name="receivingBenefits" value="No"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "No"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "No"}} checked="checked"{{/contains}}{{/if}}>No
+          </label>
 
-          </fieldset>
-
-        </div>
+        </fieldset>
 
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-group-related">
         <button class="button" type="submit">Save</button>
       </div>
 

@@ -16,7 +16,6 @@ router.use(function(req, res, next) {
   sTitle             = req.session.title;
   sFirstname         = req.session.firstname;
   sLastname          = req.session.lastname;
-  sNationalInsurance = req.session.nationalinsurance;
   sEmail             = req.session.email;
   sPhone             = req.session.phone;
   sMobile            = req.session.mobile;
@@ -26,6 +25,7 @@ router.use(function(req, res, next) {
   sPostcode          = req.session.postcode;
 
   // employment details
+  sNationalInsurance = req.session.nationalInsurance;
   sEmployment        = req.session.employment;
   sEmployerName      = req.session.employerName;
   sEmployerAddress1  = req.session.employerAddress1;
@@ -140,7 +140,6 @@ router.route('/court-administrator/case-details/:id')
       breadcrumb: true,
       sFirstname: sFirstname,
       sLastname: sLastname,
-      sNationalInsurance: sNationalInsurance,
       sEmail: sEmail,
       sPhone: sPhone,
       sMobile: sMobile,
@@ -148,6 +147,7 @@ router.route('/court-administrator/case-details/:id')
       sAddress2: sAddress2,
       sTown: sTown,
       sPostcode: sPostcode,
+      sNationalInsurance: sNationalInsurance,
       sEmployment: sEmployment,
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
@@ -192,7 +192,6 @@ router.route('/court-administrator/personal-details/:id')
       sTitle: sTitle,
       sFirstname: sFirstname,
       sLastname: sLastname,
-      sNationalInsurance: sNationalInsurance,
       sEmail: sEmail,
       sPhone: sPhone,
       sMobile: sMobile,
@@ -206,7 +205,6 @@ router.route('/court-administrator/personal-details/:id')
     sTitle = req.session.title = req.body.title;
     sFirstname = req.session.firstname = req.body.firstname;
     sLastname = req.session.lastname = req.body.lastname;
-    sNationalInsurance = req.session.nationalinsurance = req.body.nationalinsurance;
     sEmail = req.session.email = req.body.email;
     sPhone = req.session.phone = req.body.phone;
     sMobile = req.session.mobile = req.body.mobile;
@@ -233,6 +231,7 @@ router.route('/court-administrator/employment-and-income/:id')
       signedIn: true,
       breadcrumb: true,
       search:entry,
+      sNationalInsurance: sNationalInsurance,
       sEmployment: sEmployment,
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
@@ -246,6 +245,7 @@ router.route('/court-administrator/employment-and-income/:id')
     });
   })
   .post(function(req, res, next) {
+    sNationalInsurance = req.session.nationalInsurance = req.body.nationalInsurance;
     sEmployment = req.session.employment = req.body.employment;
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sEmployerName = req.session.employerName = req.body.employerName;
@@ -294,7 +294,6 @@ router.route('/court-administrator/manage-documents/:id')
     });
   })
   .post(function(req, res, next) {
-
     sDocumentNotice  = req.body.documentNotice;
     sPleaDocument    = req.body.pleaDocument;
     sStatementIncome = req.body.statementIncome;
@@ -362,7 +361,6 @@ router.route('/court-administrator/postal/personal-details/:id')
       sTitle: sTitle,
       sFirstname: sFirstname,
       sLastname: sLastname,
-      sNationalInsurance: sNationalInsurance,
       sEmail: sEmail,
       sPhone: sPhone,
       sMobile: sMobile,
@@ -376,7 +374,6 @@ router.route('/court-administrator/postal/personal-details/:id')
     sTitle = req.session.title = req.body.title;
     sFirstname = req.session.firstname = req.body.firstname;
     sLastname = req.session.lastname = req.body.lastname;
-    sNationalInsurance = req.session.nationalinsurance = req.body.nationalinsurance;
     sEmail = req.session.email = req.body.email;
     sPhone = req.session.phone = req.body.phone;
     sMobile = req.session.mobile = req.body.mobile;
@@ -400,6 +397,7 @@ router.route('/court-administrator/postal/employment-and-income/:id')
       signedIn: true,
       breadcrumb: true,
       search:entry,
+      sNationalInsurance: sNationalInsurance,
       sEmployment: sEmployment,
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
@@ -412,6 +410,7 @@ router.route('/court-administrator/postal/employment-and-income/:id')
     });
   })
   .post(function(req, res, next) {
+    sNationalInsurance = req.session.nationalInsurance = req.body.nationalInsurance;
     sEmployment = req.session.employment = req.body.employment;
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sEmployerName = req.session.employerName = req.body.employerName;
