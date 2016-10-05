@@ -13,12 +13,12 @@
     </span>
   </div>
 
-  <div class="warning-banner" role="alert">
+  <!--div class="warning-banner" role="alert">
     <i class="icon icon-alert" role="presentation" aria-hidden="true"></i>
     <div class="warning-banner-message">
       <p>This case is view&ndash;only as a legal adviser is making a decision on it &ndash; try again later if you need to edit.</p>
     </div>
-  </div>
+  </div-->
 
   <div class="grid-row">
 
@@ -251,6 +251,7 @@
           <ul class="related-links">
             <li><a href="/court-administrator/postal/add-plea/{{id}}">Add all details from postal reply</a></li>
             <!--li><a href="#">Send case back to Libra</a></li-->
+            <li><a href="/court-administrator/reopen-case/{{id}}">Reopen case</a></li>
           </ul>
 
         </div>
@@ -271,10 +272,10 @@
 
         <h2 class="bold-large" id="offences">Offence</h2>
 
-        {{#each offences.offence}}
-        <section aria-labelledby="offence{{id}}">
+        {{#with offence}}
+        <section aria-labelledby="offence">
 
-          <h3 class="heading-medium" id="offence{{id}}">{{#if shownumber}}{{id}}. {{/if}}{{{title}}}</h3>
+          <h3 class="heading-medium" id="offence">{{{title}}}</h3>
 
           <p class="font-xsmall">On <time datetime="{{date-iso}}">{{date}}</time></p>
 
@@ -293,15 +294,15 @@
             <div class="tabs-header">
 
               <ul class="list">
-                <li{{#is ../../sOffenceActiveTab "Details"}} class="is-active"{{/is}}><a href="#offence{{id}}-details">Details</a></li>
-                <li{{#is ../../sOffenceActiveTab "Add or change plea"}} class="is-active"{{/is}}><a href="#offence{{id}}-plea">Add or change plea</a></li>
+                <li{{#is ../../sOffenceActiveTab "Details"}} class="is-active"{{/is}}><a href="#offence-details">Details</a></li>
+                <li{{#is ../../sOffenceActiveTab "Add or change plea"}} class="is-active"{{/is}}><a href="#offence-plea">Add or change plea</a></li>
               </ul>
 
             </div>
 
             <div class="tabs-content">
 
-              <section id="offence{{id}}-details">
+              <section id="offence-details">
 
                 <h3 class="heading-medium">Statement of facts</h3>
 
@@ -309,7 +310,7 @@
 
               </section>
 
-              <section id="offence{{id}}-plea">
+              <section id="offence-plea">
 
                 <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
 
@@ -351,7 +352,7 @@
           </div>
 
         </section>
-        {{/each}}
+        {{/with}}
 
       </section>
 

@@ -113,8 +113,8 @@ router.route('/court-administrator/court-list')
     res.render('court-administrator/court-list', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Court list',
-      pagetitle: 'Court list',
+      doctitle: 'Single Justice Procedure court list',
+      pagetitle: 'Single Justice Procedure court list',
       section: 'home',
       section_name: 'Home',
       searches:dataEngine.getSearchEntries(),
@@ -446,6 +446,27 @@ router.route('/court-administrator/postal/manage-documents/:id')
   })
   .post(function(req, res, next) {
     res.redirect('/court-administrator/case-details/' + req.params.id);
+  });
+
+router.route('/court-administrator/reopen-this-case/:id')
+  .get(function(req, res, next) {
+    entry = dataEngine.getSearchEntry(req.params.id);
+    res.render('court-administrator/reopen-this-case', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Reopen case',
+      pagetitle: 'Reopen case',
+      section: 'home',
+      section_name: 'Home',
+      section2: 'case-details/' + req.params.id,
+      section2_name: 'Case details',
+      signedIn: true,
+      breadcrumb: true,
+      search:entry
+    });
+  })
+  .post(function(req, res, next) {
+    //res.redirect('/court-administrator/case-details/' + req.params.id);
   });
 
 router.get('/court-administrator/*', function(req, res, next) {
