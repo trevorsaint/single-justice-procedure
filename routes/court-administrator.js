@@ -14,6 +14,7 @@ router.use(function(req, res, next) {
 
   // general
   sHasSaved          = req.query.saved;
+  sReopenedCase      = req.session.reopenedCase;
 
   // personal details
   sTitle             = req.session.title;
@@ -175,7 +176,8 @@ router.route('/court-administrator/case-details/:id/')
       sStatementIncome: sStatementIncome,
       sOtherDocument: sOtherDocument,
       sHasSaved: sHasSaved,
-      sLibraAccountNumber: sLibraAccountNumber
+      sLibraAccountNumber: sLibraAccountNumber,
+      sReopenedCase: sReopenedCase
     });
   })
   .post(function(req, res, next) {
@@ -481,6 +483,7 @@ router.route('/court-administrator/reopen-case/:id/')
     });
   })
   .post(function(req, res, next) {
+    sReopenedCase       = req.session.reopenedCase = 'Yes';
     sLibraAccountNumber = req.session.libraAccountNumber = req.body.libraAccountNumber;
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });

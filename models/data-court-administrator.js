@@ -7,7 +7,7 @@ var search = [
     "lastname": "Smith",
     "date-of-birth": "4 Apr 1970",
     "date-of-birth-long": "4 April 1970",
-    "date-of-birth-iso": "04-04-1970",
+    "date-of-birth-iso": "1970-04-04",
     "age": "46",
     "gender": "Male",
     "urn": "9012466",
@@ -22,18 +22,13 @@ var search = [
     "mobile": "",
     "national-insurance-number": "",
     "notice-served": "30 Aug 2016",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "230",
-    "compensation": "3.40",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served-datetime": "2016-02-02"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
@@ -41,15 +36,7 @@ var search = [
       "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
-      "plea": "Awaiting plea",
-      "court-decision": {
-        "verdict": "Guilty plea accepted",
-        "fine": "100",
-        "compentation": "3.50",
-        "costs": "30",
-        "victim-surcharge": "10",
-        "guilty-plea-taken-into-account": "Yes"
-      }
+      "plea": "Awaiting plea"
     },
     "employment": {
       "status": "",
@@ -167,19 +154,6 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision": false,
-    "decision-made1": true,
-    "decision-ready": false,
-    "withdraw": true,
-    "errortype1": true,
-    "collection": {
-      "order-made": "Yes",
-      "amount-due": "347.12",
-      "payment-method": "Direct to Court",
-      "lump-sum-amount": "347.12",
-      "pay-by-date": "24 July 2015",
-      "notice-sent": "28 July 2015"
     }
   },
 
@@ -204,10 +178,6 @@ var search = [
     "national-insurance-number": "ZK 89 01 41 A",
     "notice-served": "18 Sep 2015",
     "hearing": "18 Nov 2015",
-    "verdict": "Guilty",
-    "decision": "Adjourned",
-    "cost": "",
-    "compensation": "",
     "case-details": {
       "status": 'Completed &ndash; decision sent to defendant',
       "prosecutor": "Transport for London",
@@ -215,6 +185,7 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+      "court-decision": 1
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
@@ -322,11 +293,7 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision-made2": true,
-    "decision-ready": false,
-    "withdraw": true,
-    "errortype2": true
+    }
   },
 
   {
@@ -336,7 +303,7 @@ var search = [
     "lastname": "Smith",
     "date-of-birth": "11 Oct 1941",
     "date-of-birth-long": "11 October 1941",
-    "date-of-birth-iso": "11-10-1941",
+    "date-of-birth-iso": "1941-10-11",
     "age": "74",
     "gender": "Female",
     "urn": "9012462",
@@ -349,11 +316,6 @@ var search = [
     "phone": "078 1825 3550",
     "national-insurance-number": "GK 69 85 94 D",
     "notice-served": "13 Jul 2015",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "130",
-    "compensation": "8.40",
     "case-details": {
       "status": "Decision made",
       "prosecutor": "Transport for London",
@@ -361,6 +323,7 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+      "court-decision": 2
     },
     "offence": {
       "title": "Having failed to pay rail fare gave false particulars",
@@ -443,9 +406,7 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision-made3": true,
-    "decision-ready": false
+    }
   },
 
   {
@@ -455,7 +416,7 @@ var search = [
     "lastname": "Smith",
     "date-of-birth": "14 Mar 1982",
     "date-of-birth-long": "14 March 1982",
-    "date-of-birth-iso": "14-03-1982",
+    "date-of-birth-iso": "1982-03-14",
     "age": "34",
     "gender": "Female",
     "urn": "2053688",
@@ -468,11 +429,6 @@ var search = [
     "phone": "079 5115 9062",
     "national-insurance-number": "ZK 71 11 43 D",
     "notice-served": "4 Sep 2015",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Withdrawn",
-    "cost": "",
-    "compensation": "",
     "case-details": {
       "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
       "prosecutor": "Transport for London",
@@ -486,7 +442,7 @@ var search = [
       "date": "18 January 2016",
       "date-iso": "2016-01-18",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
-      "mitigation": "I picked up my partner&rdquo;s ticket instead of my own when I left my house",
+      "mitigation": "I picked up my partner&rsquo;s ticket instead of my own when I left my house.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -576,10 +532,7 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision-made": false,
-    "decision-ready": false,
-    "withdraw": true
+    }
   },
 
   {
@@ -589,7 +542,7 @@ var search = [
     "lastname": "Smith",
     "date-of-birth": "31 Aug 1981",
     "date-of-birth-long": "31 August 1981",
-    "date-of-birth-iso": "31-08-1981",
+    "date-of-birth-iso": "1981-08-31",
     "age": "34",
     "gender": "Male",
     "urn": "2056139",
@@ -602,11 +555,6 @@ var search = [
     "phone": "077 8068 5313",
     "national-insurance-number": "TK 60 97 18 A",
     "notice-served": "18 Sep 2015",
-    "hearing": "18 Nov 2015",
-    "verdict": "Guilty",
-    "decision": "Adjourned",
-    "cost": "",
-    "compensation": "",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -711,10 +659,7 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision-made": false,
-    "decision-ready": false,
-    "errortype3": true
+    }
   },
 
   {
@@ -724,7 +669,7 @@ var search = [
     "lastname": "Smith",
     "date-of-birth": "23 Sep 1967",
     "date-of-birth-long": "23 September 1967",
-    "date-of-birth-iso": "23-09-1967",
+    "date-of-birth-iso": "1967-09-23",
     "age": "48",
     "gender": "Female",
     "urn": "2056135",
@@ -737,11 +682,6 @@ var search = [
     "phone": "077 0494 5090",
     "national-insurance-number": "NY 80 08 89 A",
     "notice-served": "14 Jan 2015",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "130",
-    "compensation": "8.40",
     "case-details": {
       "status": "Pending offence withdrawal",
       "prosecutor": "Transport for London",
@@ -845,11 +785,7 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision-made": false,
-    "decision-ready": false,
-    "missing-sjp": true,
-    "cancel-withdrawal": true
+    }
   },
 
   {
@@ -859,7 +795,7 @@ var search = [
     "lastname": "Smith",
     "date-of-birth": "28 Jan 1980",
     "date-of-birth-long": "28 January 1980",
-    "date-of-birth-iso": "28-01-1980",
+    "date-of-birth-iso": "1980-01-28",
     "age": "36",
     "gender": "Male",
     "urn": "2056136",
@@ -872,11 +808,6 @@ var search = [
     "phone": "079 4115 6799",
     "national-insurance-number": "HS 12 20 51 D",
     "notice-served": "18 Sep 2015",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "230",
-    "compensation": "3.40",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -980,10 +911,7 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision-made": true,
-    "decision-ready": false,
-    "missing-sjp": true
+    }
   },
 
   {
@@ -993,7 +921,7 @@ var search = [
     "lastname": "Smith",
     "date-of-birth": "22 Jan 1973",
     "date-of-birth-long": "22 January 1973",
-    "date-of-birth-iso": "22-01-1973",
+    "date-of-birth-iso": "1973-01-22",
     "age": "43",
     "gender": "Male",
     "urn": "2056137",
@@ -1006,11 +934,6 @@ var search = [
     "phone": "070 2908 3863",
     "national-insurance-number": "MJ 82 16 61 A",
     "notice-served": "18 Sep 2015",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "230",
-    "compensation": "3.40",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -1114,10 +1037,7 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision-made": false,
-    "decision-ready": false,
-    "missing-sjp": true
+    }
   },
 
   {
@@ -1127,7 +1047,7 @@ var search = [
     "lastname": "Smith",
     "date-of-birth": "20 Sep 1978",
     "date-of-birth-long": "20 September 1978",
-    "date-of-birth-iso": "20-09-1978",
+    "date-of-birth-iso": "1978-09-20",
     "age": "37",
     "gender": "Female",
     "urn": "2056138",
@@ -1140,11 +1060,6 @@ var search = [
     "phone": "070 1279 6913",
     "national-insurance-number": "LC 59 17 17 B",
     "notice-served": "14 Jan 2015",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "130",
-    "compensation": "8.40",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -1248,10 +1163,7 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision-made": false,
-    "decision-ready": false,
-    "missing-sjp": true
+    }
   },
 
   {
@@ -1261,7 +1173,7 @@ var search = [
     "lastname": "Smith",
     "date-of-birth": "19 Oct 1995",
     "date-of-birth-long": "19 October 1995",
-    "date-of-birth-iso": "19-10-1995",
+    "date-of-birth-iso": "1995-10-19",
     "age": "20",
     "gender": "Female",
     "urn": "2056139",
@@ -1274,11 +1186,6 @@ var search = [
     "phone": "070 6195 4223",
     "national-insurance-number": "LN 56 80 72",
     "notice-served": "14 Jan 2015",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "230",
-    "compensation": "3.40",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -1382,10 +1289,7 @@ var search = [
           "can-remove": true
         }
       ]
-    },
-    "decision-made": false,
-    "decision-ready": false,
-    "missing-sjp": true
+    }
   }
 
 ];
