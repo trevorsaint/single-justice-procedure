@@ -37,6 +37,14 @@ $module: 'icon';
     @include icon(icon-lock-white, 30, 30);
   }
 
+  &-banner-confirmation {
+    @include icon(icon-banner-confirmation, 20, 20);
+  }
+
+  &-banner-warning {
+    @include icon(icon-banner-warning, 20, 20);
+  }
+
 }
 
 /*

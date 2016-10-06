@@ -22,25 +22,25 @@
     <fieldset>
 
       <legend>
-        <span class="form-label-bold">Date order given to reopen this case</span>
-        <span class="form-hint" id="date-hint">For example, 31 3 2016</span>
+        <span class="form-label-bold">Date order made to reopen this case</span>
+        <span class="form-hint" id="date-order-hint">For example, 31 3 2016</span>
       </legend>
 
       <div class="form-date">
 
         <div class="form-group form-group-day">
-          <label class="form-label" for="dob-day">Day</label>
-          <input class="form-control" type="number" id="dob-day" aria-describedby="dob-hint">
+          <label class="form-label" for="date-order-day">Day</label>
+          <input class="form-control" type="number" id="date-order-day" aria-describedby="date-order-hint">
         </div>
 
         <div class="form-group form-group-month">
-          <label class="form-label" for="dob-month">Month</label>
-          <input class="form-control" type="number" id="dob-month">
+          <label class="form-label" for="date-order-month">Month</label>
+          <input class="form-control" type="number" id="date-order-month">
         </div>
 
         <div class="form-group form-group-year">
-          <label class="form-label" for="dob-year">Year</label>
-          <input class="form-control" type="number" id="dob-year">
+          <label class="form-label" for="date-order-year">Year</label>
+          <input class="form-control" type="number" id="date-order-year">
         </div>
 
       </div>
@@ -53,14 +53,14 @@
     <label for="libra-account-number">
       <span class="form-label-bold">Libra account number for this case</span>
     </label>
-    <input class="form-control form-control-1-2" type="text" id="libraa-ccount-number" name="libraAccountNumber">
+    <input class="form-control form-control-1-2" type="text" id="libra-ccount-number" name="libraAccountNumber">
   </div>
 
   <div class="form-group form-group-related">
     <button class="button" type="submit">Save</button>
   </div>
 
-  <p><a href="#">Cancel</a></p>
+  <p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
 
 </form>
 

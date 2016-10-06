@@ -23,20 +23,20 @@
         <fieldset class="inline">
 
           <legend>
-            <span class="form-label-bold">Income and outgoings</span>
-            <span class="form-hint">Check the form &ndash; what type of figures has the defendant provided?</span>
+            <span class="form-label-bold">Frequency of income and outgoings</span>
+            <span class="form-hint">Check the form to see what the defendant has ticked</span>
           </legend>
 
-          <label class="block-label" for="defendant-ticked-weekly">
-            <input type="radio" id="defendant-ticked-weekly" name="defendantTicked" value="Weekly">Weekly
+          <label class="block-label" for="frequency-income-weekly">
+            <input type="radio" id="frequency-income-weekly" name="frequencyIncome" value="Weekly"{{#if ../sFrequencyIncome}}{{#contains ../sFrequencyIncome "Weekly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.frequency-income "Weekly"}} checked="checked"{{/contains}}{{/if}}>Weekly
           </label>
 
-          <label class="block-label" for="defendant-ticked-fortnightly">
-            <input type="radio" id="defendant-ticked-fortnightly" name="defendantTicked" value="Fortnightly">Fortnightly
+          <label class="block-label" for="frequency-income-fortnightly">
+            <input type="radio" id="frequency-income-fortnightly" name="frequencyIncome" value="Fortnightly"{{#if ../sFrequencyIncome}}{{#contains ../sFrequencyIncome "Fortnightly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.frequency-income "Fortnightly"}} checked="checked"{{/contains}}{{/if}}>Fortnightly
           </label>
 
-          <label class="block-label" for="defendant-ticked-monthly">
-            <input type="radio" id="defendant-ticked-monthly" name="defendantTicked" value="Monthly">Monthly
+          <label class="block-label" for="frequency-income-monthly">
+            <input type="radio" id="dfrequency-income-monthly" name="frequencyIncome" value="Monthly"{{#if ../sFrequencyIncome}}{{#contains ../sFrequencyIncome "Monthly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.frequency-income "Monthly"}} checked="checked"{{/contains}}{{/if}}>Monthly
           </label>
 
         </fieldset>
@@ -199,7 +199,7 @@
         <button class="button" type="submit">Save</button>
       </div>
 
-      <p><a href="/court-administrator/case-details/{{id}}">Cancel</a></p>
+      <p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
 
     </form>
 

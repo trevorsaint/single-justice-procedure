@@ -12,6 +12,9 @@ var entry;
 // routes
 router.use(function(req, res, next) {
 
+  // general
+  sHasSaved          = req.query.saved;
+
   // personal details
   sTitle             = req.session.title;
   sFirstname         = req.session.firstname;
@@ -26,6 +29,7 @@ router.use(function(req, res, next) {
 
   // employment details
   sNationalInsurance = req.session.nationalInsurance;
+  sFrequencyIncome   = req.session.frequencyIncome;
   sEmployment        = req.session.employment;
   sEmployerName      = req.session.employerName;
   sEmployerAddress1  = req.session.employerAddress1;
@@ -57,10 +61,14 @@ router.use(function(req, res, next) {
   sStatementIncome = req.session.statementIncome;
   sOtherDocument   = req.session.otherDocument;
 
+  // reopen case
+  sLibraAccountNumber = req.session.libraAccountNumber;
+
   next();
 
 });
 
+// general routes
 router.route('/court-administrator')
   .get(function(req, res, next) {
     res.render('court-administrator/index', {
@@ -76,7 +84,7 @@ router.route('/court-administrator')
     res.redirect('/court-administrator/home');
   });
 
-router.route('/court-administrator/home')
+router.route('/court-administrator/home/')
   .get(function(req, res, next) {
     res.render('court-administrator/home', {
       baseurl: baseurl,
@@ -90,10 +98,10 @@ router.route('/court-administrator/home')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/court-administrator/search-for-a-case');
+    res.redirect('/court-administrator/search-for-a-case/');
   });
 
-router.route('/court-administrator/search-for-a-case')
+router.route('/court-administrator/search-for-a-case/')
   .all(function(req, res, next) {
     res.render('court-administrator/search-for-a-case', {
       baseurl: baseurl,
@@ -104,11 +112,11 @@ router.route('/court-administrator/search-for-a-case')
       section_name: 'Home',
       signedIn: true,
       breadcrumb: true,
-      searches:dataEngine.getSearchEntries()
+      searches: dataEngine.getSearchEntries()
     });
   });
 
-router.route('/court-administrator/court-list')
+router.route('/court-administrator/court-list/')
   .all(function(req, res, next) {
     res.render('court-administrator/court-list', {
       baseurl: baseurl,
@@ -123,7 +131,7 @@ router.route('/court-administrator/court-list')
     });
   });
 
-router.route('/court-administrator/case-details/:id')
+router.route('/court-administrator/case-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/case-details', {
@@ -148,6 +156,7 @@ router.route('/court-administrator/case-details/:id')
       sTown: sTown,
       sPostcode: sPostcode,
       sNationalInsurance: sNationalInsurance,
+      sFrequencyIncome: sFrequencyIncome,
       sEmployment: sEmployment,
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
@@ -164,17 +173,19 @@ router.route('/court-administrator/case-details/:id')
       sDocumentNotice: sDocumentNotice,
       sPleaDocument: sPleaDocument,
       sStatementIncome: sStatementIncome,
-      sOtherDocument: sOtherDocument
+      sOtherDocument: sOtherDocument,
+      sHasSaved: sHasSaved,
+      sLibraAccountNumber: sLibraAccountNumber
     });
   })
   .post(function(req, res, next) {
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
     sCaseActiveTab = req.session.caseActiveTab = null;
     sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
-    res.redirect('/court-administrator/case-details/' + req.params.id);
+    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
-router.route('/court-administrator/personal-details/:id')
+router.route('/court-administrator/personal-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/personal-details', {
@@ -212,11 +223,11 @@ router.route('/court-administrator/personal-details/:id')
     sAddress2 = req.session.address2 = req.body.address2;
     sTown     = req.session.town = req.body.town;
     sPostcode = req.session.postcode = req.body.postcode;
-    sCaseActiveTab: req.session.caseActiveTab = 'Personal details';
-    res.redirect('/court-administrator/case-details/' + req.params.id);
+    sCaseActiveTab = req.session.caseActiveTab = 'Personal details';
+    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
-router.route('/court-administrator/employment-and-income/:id')
+router.route('/court-administrator/employment-and-income/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/employment-and-income', {
@@ -232,6 +243,7 @@ router.route('/court-administrator/employment-and-income/:id')
       breadcrumb: true,
       search:entry,
       sNationalInsurance: sNationalInsurance,
+      sFrequencyIncome: sFrequencyIncome,
       sEmployment: sEmployment,
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
@@ -246,6 +258,7 @@ router.route('/court-administrator/employment-and-income/:id')
   })
   .post(function(req, res, next) {
     sNationalInsurance = req.session.nationalInsurance = req.body.nationalInsurance;
+    sFrequencyIncome   = req.session.frequencyIncome = req.body.frequencyIncome;
     sEmployment = req.session.employment = req.body.employment;
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sEmployerName = req.session.employerName = req.body.employerName;
@@ -255,7 +268,7 @@ router.route('/court-administrator/employment-and-income/:id')
     sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
     sEmployerTelephone = req.session.employerTelephone = req.body.employerTelephone;
     sPayFrequency = req.session.payFrequency = req.body.payFrequency;
-    sCaseActiveTab: req.session.caseActiveTab = 'Employment and income';
+    sCaseActiveTab = req.session.caseActiveTab = 'Employment and income';
 
     if(sPayFrequency === 'Weekly') {
       sPayAmount = req.session.payAmount = req.body.payWeeklyAmount;
@@ -269,10 +282,10 @@ router.route('/court-administrator/employment-and-income/:id')
       sPayAmount = req.session.payAmount = req.body.payMonthlyAmount;
     }
 
-    res.redirect('/court-administrator/case-details/' + req.params.id);
+    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
-router.route('/court-administrator/manage-documents/:id')
+router.route('/court-administrator/manage-documents/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/manage-documents', {
@@ -286,7 +299,7 @@ router.route('/court-administrator/manage-documents/:id')
       section2_name: 'Case details',
       signedIn: true,
       breadcrumb: true,
-      search:entry,
+      search: entry,
       sDocumentNotice: sDocumentNotice,
       sPleaDocument: sPleaDocument,
       sStatementIncome: sStatementIncome,
@@ -315,11 +328,11 @@ router.route('/court-administrator/manage-documents/:id')
       sOtherDocument  = req.session.otherDocument = true;
     }
 
-    res.redirect('/court-administrator/manage-documents/' + req.params.id);
+    res.redirect('/court-administrator/manage-documents/' + req.params.id + '/?saved=true');
   });
 
-// step process
-router.route('/court-administrator/postal/add-plea/:id')
+// step process routes
+router.route('/court-administrator/postal/add-plea/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/postal/add-plea', {
@@ -343,7 +356,7 @@ router.route('/court-administrator/postal/add-plea/:id')
     res.redirect('/court-administrator/postal/personal-details/' + req.params.id);
   });
 
-router.route('/court-administrator/postal/personal-details/:id')
+router.route('/court-administrator/postal/personal-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/postal/personal-details', {
@@ -384,7 +397,7 @@ router.route('/court-administrator/postal/personal-details/:id')
     res.redirect('/court-administrator/postal/employment-and-income/' + req.params.id);
   });
 
-router.route('/court-administrator/postal/employment-and-income/:id')
+router.route('/court-administrator/postal/employment-and-income/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/postal/employment-and-income', {
@@ -398,6 +411,7 @@ router.route('/court-administrator/postal/employment-and-income/:id')
       breadcrumb: true,
       search:entry,
       sNationalInsurance: sNationalInsurance,
+      sFrequencyIncome: sFrequencyIncome,
       sEmployment: sEmployment,
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
@@ -411,6 +425,7 @@ router.route('/court-administrator/postal/employment-and-income/:id')
   })
   .post(function(req, res, next) {
     sNationalInsurance = req.session.nationalInsurance = req.body.nationalInsurance;
+    sFrequencyIncome = req.session.frequencyIncome = req.body.frequencyIncome;
     sEmployment = req.session.employment = req.body.employment;
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sEmployerName = req.session.employerName = req.body.employerName;
@@ -426,7 +441,7 @@ router.route('/court-administrator/postal/employment-and-income/:id')
     res.redirect('/court-administrator/postal/manage-documents/' + req.params.id);
   });
 
-router.route('/court-administrator/postal/manage-documents/:id')
+router.route('/court-administrator/postal/manage-documents/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/postal/manage-documents', {
@@ -447,10 +462,10 @@ router.route('/court-administrator/postal/manage-documents/:id')
     res.redirect('/court-administrator/case-details/' + req.params.id);
   });
 
-router.route('/court-administrator/reopen-this-case/:id')
+router.route('/court-administrator/reopen-case/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/reopen-this-case', {
+    res.render('court-administrator/reopen-case', {
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Reopen case',
@@ -461,13 +476,16 @@ router.route('/court-administrator/reopen-this-case/:id')
       section2_name: 'Case details',
       signedIn: true,
       breadcrumb: true,
-      search:entry
+      search:entry,
+      sLibraAccountNumber: sLibraAccountNumber
     });
   })
   .post(function(req, res, next) {
-    //res.redirect('/court-administrator/case-details/' + req.params.id);
+    sLibraAccountNumber = req.session.libraAccountNumber = req.body.libraAccountNumber;
+    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
+// page not found route
 router.get('/court-administrator/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,
