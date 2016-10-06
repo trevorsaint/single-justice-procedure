@@ -374,8 +374,8 @@
             <div class="tabs-header">
               <ul class="list">
                 <li{{#is ../../sOffenceActiveTab "Details"}} class="is-active"{{/is}}><a href="#offence-details">Details</a></li>
-                {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}<li{{#is ../../sOffenceActiveTab "Add or change plea"}} class="is-active"{{/is}}><a href="#offence-plea">Add or change plea</a></li>{{/isnt}}
-                {{#if ../case-details.court-decision}}<li{{#is ../../sOffenceActiveTab "Decision"}} class="is-active"{{/is}}><a href="#offence-decision">Decision</a></li>{{/if}}
+                {{#if ../case-details.court-decision}}{{else}}<li{{#is ../../sOffenceActiveTab "Add or change plea"}} class="is-active"{{/is}}><a href="#offence-plea">Add or change plea</a></li>{{/if}}
+                {{#if ../case-details.court-decision}}<li class="is-active"><a href="#offence-decision">Decision</a></li>{{/if}}
               </ul>
             </div>
 

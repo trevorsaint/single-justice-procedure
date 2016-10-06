@@ -126,7 +126,7 @@ router.route('/court-administrator/court-list/')
       pagetitle: 'Single Justice Procedure court list',
       section: 'home',
       section_name: 'Home',
-      searches:dataEngine.getSearchEntries(),
+      searches: dataEngine.getSearchEntries(),
       signedIn: true,
       breadcrumb: true
     });
@@ -199,7 +199,7 @@ router.route('/court-administrator/personal-details/:id/')
       section_name: 'Home',
       section2: 'case-details/' + req.params.id,
       section2_name: 'Case details',
-      search:entry,
+      search: entry,
       signedIn: true,
       breadcrumb: true,
       sTitle: sTitle,
@@ -223,7 +223,7 @@ router.route('/court-administrator/personal-details/:id/')
     sMobile = req.session.mobile = req.body.mobile;
     sAddress1 = req.session.address1 = req.body.address1;
     sAddress2 = req.session.address2 = req.body.address2;
-    sTown     = req.session.town = req.body.town;
+    sTown = req.session.town = req.body.town;
     sPostcode = req.session.postcode = req.body.postcode;
     sCaseActiveTab = req.session.caseActiveTab = 'Personal details';
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
@@ -243,7 +243,7 @@ router.route('/court-administrator/employment-and-income/:id/')
       section2_name: 'Case details',
       signedIn: true,
       breadcrumb: true,
-      search:entry,
+      search: entry,
       sNationalInsurance: sNationalInsurance,
       sFrequencyIncome: sFrequencyIncome,
       sEmployment: sEmployment,
@@ -260,7 +260,7 @@ router.route('/court-administrator/employment-and-income/:id/')
   })
   .post(function(req, res, next) {
     sNationalInsurance = req.session.nationalInsurance = req.body.nationalInsurance;
-    sFrequencyIncome   = req.session.frequencyIncome = req.body.frequencyIncome;
+    sFrequencyIncome = req.session.frequencyIncome = req.body.frequencyIncome;
     sEmployment = req.session.employment = req.body.employment;
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sEmployerName = req.session.employerName = req.body.employerName;
@@ -315,19 +315,19 @@ router.route('/court-administrator/manage-documents/:id/')
     sOtherDocument   = req.body.otherDocument;
 
     if (sDocumentNotice != '') {
-      sDocumentNotice  = req.session.documentNotice = true;
+      sDocumentNotice = req.session.documentNotice = true;
     }
 
     if (sPleaDocument != '') {
-      sPleaDocument  = req.session.pleaDocument = true;
+      sPleaDocument = req.session.pleaDocument = true;
     }
 
     if (sStatementIncome != '') {
-      sStatementIncome  = req.session.statementIncome = true;
+      sStatementIncome = req.session.statementIncome = true;
     }
 
     if (sOtherDocument != '') {
-      sOtherDocument  = req.session.otherDocument = true;
+      sOtherDocument = req.session.otherDocument = true;
     }
 
     res.redirect('/court-administrator/manage-documents/' + req.params.id + '/?saved=true');
@@ -348,7 +348,7 @@ router.route('/court-administrator/postal/add-plea/:id/')
       section2_name: 'Case details',
       signedIn: true,
       breadcrumb: true,
-      search:entry,
+      search: entry,
       sMakeDecision: sMakeDecision
     });
   })
@@ -372,7 +372,7 @@ router.route('/court-administrator/postal/personal-details/:id/')
       section2_name: 'Case details',
       signedIn: true,
       breadcrumb: true,
-      search:entry,
+      search: entry,
       sTitle: sTitle,
       sFirstname: sFirstname,
       sLastname: sLastname,
@@ -394,7 +394,7 @@ router.route('/court-administrator/postal/personal-details/:id/')
     sMobile = req.session.mobile = req.body.mobile;
     sAddress1 = req.session.address1 = req.body.address1;
     sAddress2 = req.session.address2 = req.body.address2;
-    sTown     = req.session.town = req.body.town;
+    sTown = req.session.town = req.body.town;
     sPostcode = req.session.postcode = req.body.postcode;
     res.redirect('/court-administrator/postal/employment-and-income/' + req.params.id);
   });
@@ -409,9 +409,11 @@ router.route('/court-administrator/postal/employment-and-income/:id/')
       pagetitle: 'Add employment and income',
       section: 'home',
       section_name: 'Home',
+      section2: 'case-details/' + req.params.id,
+      section2_name: 'Case details',
       signedIn: true,
       breadcrumb: true,
-      search:entry,
+      search: entry,
       sNationalInsurance: sNationalInsurance,
       sFrequencyIncome: sFrequencyIncome,
       sEmployment: sEmployment,
@@ -457,7 +459,7 @@ router.route('/court-administrator/postal/manage-documents/:id/')
       section2_name: 'Case details',
       signedIn: true,
       breadcrumb: true,
-      search:entry
+      search: entry
     });
   })
   .post(function(req, res, next) {
@@ -478,12 +480,12 @@ router.route('/court-administrator/reopen-case/:id/')
       section2_name: 'Case details',
       signedIn: true,
       breadcrumb: true,
-      search:entry,
+      search: entry,
       sLibraAccountNumber: sLibraAccountNumber
     });
   })
   .post(function(req, res, next) {
-    sReopenedCase       = req.session.reopenedCase = 'Yes';
+    sReopenedCase = req.session.reopenedCase = 'Yes';
     sLibraAccountNumber = req.session.libraAccountNumber = req.body.libraAccountNumber;
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
