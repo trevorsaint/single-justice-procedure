@@ -41,7 +41,7 @@ router.all('/legal-adviser/search-for-a-case', function(req, res) {
     pagetitle: 'Search for a case',
     section: 'case-tasks',
     section_name: 'Case tasks',
-    searches:dataEngine.getSearchEntries(),
+    searches: dataEngine.getSearchEntries(),
     signedIn: true,
     breadcrumb: true
   });
@@ -58,7 +58,7 @@ router.all('/legal-adviser/case-details/:id', function(req, res) {
     section_name: 'Case tasks',
     section2: 'search-for-a-case',
     section2_name: 'Search for a case',
-    search:entry,
+    search: entry,
     signedIn: true,
     breadcrumb: true
   });
