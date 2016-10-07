@@ -267,7 +267,7 @@ var search = [
           "can-remove": true
         },
         {
-          "show": false,
+          "show": true,
           "id": "statement-income",
           "name": "statementIncome",
           "title": "statement of income and outgoings (MC100)",
@@ -277,6 +277,34 @@ var search = [
           "file-uploaded-date": "15 Jan 2016",
           "file-uploaded-date-iso": "2016-01-15",
           "file-path": "#",
+          "can-remove": true
+        },
+        {
+          "show": true,
+          "id": "witness-statement",
+          "name": "witnessStatement",
+          "title": "witness statement",
+          "file-type": "PDF",
+          "file-size": "856KB",
+          "file-pages": "12 pages",
+          "file-uploaded-date": "15 Jan 2016",
+          "file-uploaded-date-iso": "2016-01-15",
+          "file-path": "#",
+          "can-remove": true
+        },
+        {
+          "show": true,
+          "id": "orders",
+          "name": "orders",
+          "title": "orders",
+          "file-type": "PDF",
+          "file-size": "125KB",
+          "file-pages": "2 pages",
+          "file-uploaded-date": "7 Oct 2016",
+          "file-uploaded-date-iso": "2016-10-07",
+          "file-path": "#",
+          "printed-for-posting": "Printed for posting 7 Oct 2016",
+          "printed-for-posting-iso": "2016-10-07",
           "can-remove": true
         },
         {

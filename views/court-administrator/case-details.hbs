@@ -85,10 +85,10 @@
                   <div class="document document-small">
                     <i class="icon icon-file-download"></i>
                     <div class="document-content">
-                      <p class="document-title"><a href="#">{{{title}}}</a></p>
+                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
                       <div class="document-meta">
                         <span class="document-meta-details">
-                          {{{file-type}}}, {{{file-size}}}, {{{file-pages}}}
+                          {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
                         </span>
                       </div>
                     </div>
