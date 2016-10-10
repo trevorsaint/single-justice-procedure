@@ -132,18 +132,18 @@
 
     <hr>
 
-    <div class="grid-row">
+    <div aria-labelledby="offences">
 
-      <div class="column-two-thirds">
+      <h2 class="heading-large" id="offences">Offence</h2>
 
-        <section aria-labelledby="offences">
+      {{#with offence}}
+      <section aria-labelledby="offence">
 
-          <h2 class="bold-large" id="offences">Offence</h2>
+        <div class="grid-row">
 
-          {{#each offences.offence}}
-          <section aria-labelledby="offence{{id}}">
+          <div class="column-two-thirds">
 
-            <h3 class="heading-medium" id="offence{{id}}">{{#if shownumber}}{{id}}. {{/if}}{{{title}}}</h3>
+            <h3 class="font-medium" id="offence">{{{title}}}</h3>
 
             <p class="font-xsmall">On <time datetime="{{date-iso}}">{{date}}</time></p>
 
@@ -154,15 +154,15 @@
               <div class="tabs-header">
 
                 <ul class="list">
-                  <li><a href="#offence{{id}}-details">Details</a></li>
-                  <li><a href="#offence{{id}}-decision">Decision</a></li>
+                  <li><a href="#offence-details">Details</a></li>
+                  <li><a href="#offence-decision">Decision</a></li>
                 </ul>
 
               </div>
 
               <div class="tabs-content">
 
-                <section id="offence{{id}}-details">
+                <section id="offence-details">
 
                   {{#if statement-of-facts}}
                     <h3 class="heading-medium">Statement of facts</h3>
@@ -176,7 +176,7 @@
 
                 </section>
 
-                <section id="offence{{id}}-decision">
+                <section id="offence-decision">
 
                   <h3 class="heading-medium">Court decision</h3>
 
@@ -279,12 +279,12 @@
 
             </div>
 
-          </section>
-          {{/each}}
+          </div>
 
-        </section>
+        </div>
 
-      </div>
+      </section>
+      {{/with}}
 
     </div>
 

@@ -35,6 +35,22 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
+    "offence": {
+      "title": "Passenger used ticket issued for another person",
+      "date": "1 February 2016",
+      "date-iso": "2016-02-01",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "",
+      "plea": "Pleaded guilty",
+      "court-decision": {
+        "verdict": "Guilty plea accepted",
+        "fine": "100",
+        "compentation": "3.50",
+        "costs": "30",
+        "victim-surcharge": "10",
+        "guilty-plea-taken-into-account": "Yes"
+      }
+    },
     "employment": {
       "status": "Employed",
       "employer-name": "Infigo Media",
@@ -128,28 +144,6 @@ var search = [
     "decision-ready": false,
     "withdraw": true,
     "report-error": 1,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "shownumber": false,
-          "title": "Passenger used ticket issued for another person",
-          "date": "1 February 2016",
-          "date-iso": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "",
-          "plea": "Pleaded guilty",
-          "court-decision": {
-            "verdict": "Guilty plea accepted",
-            "fine": "100",
-            "compentation": "3.50",
-            "costs": "30",
-            "victim-surcharge": "10",
-            "guilty-plea-taken-into-account": "Yes"
-          }
-        }
-      ]
-    },
     "collection": {
       "order-made": "Yes",
       "amount-due": "347.12",
@@ -192,6 +186,14 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "offence": {
+      "title": "Passenger used ticket issued for another person",
+      "date": "1 February 2016",
+      "datetime": "2016-02-01",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "",
+      "plea": "Pleaded guilty"
     },
     "employment": {
       "status": "Unemployed",
@@ -251,20 +253,7 @@ var search = [
     "court-decision": 2,
     "decision-ready": false,
     "withdraw": true,
-    "report-error": 2,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "title": "Passenger used ticket issued for another person",
-          "date": "1 February 2016",
-          "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }
-      ]
-    }
+    "report-error": 2
   },
 
   {
@@ -299,6 +288,14 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "offence": {
+      "title": "Passenger used ticket issued for another person",
+      "date": "1 February 2016",
+      "datetime": "2016-02-01",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "",
+      "plea": "Pleaded guilty",
     },
     "employment": {
       "status": "",
@@ -358,20 +355,7 @@ var search = [
       ]
     },
     "court-decision": 3,
-    "decision-ready": false,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "title": "Passenger used ticket issued for another person",
-          "date": "1 February 2016",
-          "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "",
-          "plea": "Pleaded guilty",
-        }
-      ]
-    }
+    "decision-ready": false
   },
 
   {
@@ -406,6 +390,15 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "offence": {
+      "id": 1,
+      "title": "Passenger used ticket issued for another person",
+      "date": "18 January 2016",
+      "datetime": "2016-01-18",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "I picked up my partner&rsquo;s ticket instead of my own when I left my house.",
+      "plea": "Pleaded guilty"
     },
     "employment": {
       "status": "",
@@ -444,20 +437,7 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "withdraw": true,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "title": "Passenger used ticket issued for another person",
-          "date": "18 January 2016",
-          "datetime": "2016-01-18",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "I picked up my partner&rsquo;s ticket instead of my own when I left my house.",
-          "plea": "Pleaded guilty"
-        }
-      ]
-    }
+    "withdraw": true
   },
 
   {
@@ -492,6 +472,15 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "offence": {
+      "id": 1,
+      "title": "Passenger used ticket issued for another person",
+      "date": "1 February 2016",
+      "datetime": "2016-02-01",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "",
+      "plea": "Pleaded guilty"
     },
     "employment": {
       "status": "",
@@ -531,20 +520,7 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "report-error": 3,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "title": "Passenger used ticket issued for another person",
-          "date": "1 February 2016",
-          "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }
-      ]
-    }
+    "report-error": 3
   },
 
   {
@@ -579,6 +555,14 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "offence": {
+      "title": "Passenger used ticket issued for another person",
+      "date": "1 February 2016",
+      "datetime": "2016-02-01",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "",
+      "plea": "Awaiting plea"
     },
     "employment": {
       "status": "",
@@ -625,20 +609,7 @@ var search = [
     },
     "decision-ready": false,
     "missing-sjp": true,
-    "cancel-withdrawal": true,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "title": "Passenger used ticket issued for another person",
-          "date": "1 February 2016",
-          "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "",
-          "plea": "Awaiting plea"
-        }
-      ]
-    }
+    "cancel-withdrawal": true
   },
 
   {
@@ -673,6 +644,14 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "offence": {
+      "title": "Passenger used ticket issued for another person",
+      "date": "1 February 2016",
+      "datetime": "2016-02-01",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "",
+      "plea": "Pleaded guilty"
     },
     "employment": {
       "status": "",
@@ -718,20 +697,7 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "missing-sjp": true,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "title": "Passenger used ticket issued for another person",
-          "date": "1 February 2016",
-          "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }
-      ]
-    }
+    "missing-sjp": true
   },
 
   {
@@ -767,6 +733,14 @@ var search = [
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
     },
+    "offence": {
+      "title": "Passenger used ticket issued for another person",
+      "date": "1 February 2016",
+      "datetime": "2016-02-01",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "",
+      "plea": "Pleaded guilty"
+    },
     "employment": {
       "status": "",
       "receiving-benfits": ""
@@ -797,20 +771,7 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "missing-sjp": true,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "title": "Passenger used ticket issued for another person",
-          "date": "1 February 2016",
-          "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }
-      ]
-    }
+    "missing-sjp": true
   },
 
   {
@@ -845,6 +806,14 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "offence": {
+      "title": "Passenger used ticket issued for another person",
+      "date": "1 February 2016",
+      "datetime": "2016-02-01",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "",
+      "plea": "Pleaded guilty"
     },
     "employment": {
       "status": "",
@@ -890,20 +859,7 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "missing-sjp": true,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "title": "Passenger used ticket issued for another person",
-          "date": "1 February 2016",
-          "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }
-      ]
-    }
+    "missing-sjp": true
   },
 
   {
@@ -938,6 +894,14 @@ var search = [
       "charge-date-datetime": "2016-01-21",
       "notice-served": "2 February 2016",
       "notice-served-datetime": "2016-02-02",
+    },
+    "offence": {
+      "title": "Passenger used ticket issued for another person",
+      "date": "1 February 2016",
+      "datetime": "2016-02-01",
+      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
+      "mitigation": "",
+      "plea": "Pleaded guilty"
     },
     "employment": {
       "status": "",
@@ -983,20 +947,7 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "missing-sjp": true,
-    "offences": {
-      "offence": [
-        {
-          "id": 1,
-          "title": "Passenger used ticket issued for another person",
-          "date": "1 February 2016",
-          "datetime": "2016-02-01",
-          "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket&hellip; <a href="#">More</a>',
-          "mitigation": "",
-          "plea": "Pleaded guilty"
-        }
-      ]
-    }
+    "missing-sjp": true
   }
 
 ];
