@@ -41,7 +41,7 @@
         {{else}}
           {{firstname}} {{uppercase lastname}}
         {{/and}}
-        <span class="heading-secondary">{{date-of-birth-long}} ({{age}} years old)</span>
+        <span class="heading-secondary">{{moment dob format ="D MMMM YYYY" }} ({{age}} years old)</span>
       </h1>
 
       <div class="tabs tabs-horizontal">
@@ -119,7 +119,7 @@
               </dd>
 
               <dt>Date of birth</dt>
-              <dd><time datetime="{{date-of-birth-iso}}">{{date-of-birth-long}}</time> ({{age}} years old)</dd>
+              <dd><time datetime="{{moment dob format ="YYYY-MM-DD" }}">{{moment dob format ="D MMM YYYY" }}</time> ({{age}} years old)</dd>
 
               <dt>Address</dt>
               <dd>

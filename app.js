@@ -11,8 +11,6 @@ var router  = express.Router();
 var port    = (process.env.PORT || 3000);
 var app     = express();
 
-// baseurl and apptitle
-
 /*
  * Baseurl and Apptitle
  */
@@ -41,9 +39,10 @@ app.use(session({
  * Helpers
  */
 
-var helpers    = require('handlebars-helpers');
-var comparison = helpers.comparison();
-var string     = helpers.string();
+var helpers    = require('handlebars-helpers')();
+//var comparison = helpers.comparison();
+//var string     = helpers.string();
+
 
 /*
  * Serve static assets

@@ -54,17 +54,17 @@
 
                 <div class="form-group form-group-day">
                   <label class="form-label" for="dob-day">Day</label>
-                  <input class="form-control" type="number" id="dob-day" aria-describedby="dob-hint">
+                  <input class="form-control" type="number" id="dob-day" value="{{moment dob format="D"}}" aria-describedby="dob-hint">
                 </div>
 
                 <div class="form-group form-group-month">
                   <label class="form-label" for="dob-month">Month</label>
-                  <input class="form-control" type="number" id="dob-month">
+                  <input class="form-control" type="number" id="dob-month" value="{{moment dob format="M"}}">
                 </div>
 
                 <div class="form-group form-group-year">
                   <label class="form-label" for="dob-year">Year</label>
-                  <input class="form-control" type="number" id="dob-year">
+                  <input class="form-control" type="number" id="dob-year" value="{{moment dob format="YYYY"}}">
                 </div>
 
               </div>
@@ -89,28 +89,28 @@
             <label for="address1">
               <span class="form-label">Street</span>
             </label>
-            <input class="form-control" type="text" id="address1" name="address1" {{#if ../sAddress1}} value="{{../sAddress1}}"{{else}} value="{{address1}}"{{/if}}>
+            <input class="form-control" type="text" id="address1" name="address1" {{#if ../sAddress1}} value="{{../sAddress1}}"{{else}} value="{{address.address1}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label class="visuallyhidden" for="address2">
               <span class="form-label">Street</span>
             </label>
-            <input class="form-control" type="text" id="address2" name="address2"{{#if ../sAddress2}} value="{{../sAddress2}}"{{else}} value="{{address2}}"{{/if}}>
+            <input class="form-control" type="text" id="address2" name="address2"{{#if ../sAddress2}} value="{{../sAddress2}}"{{else}} value="{{address.address2}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="town">
               <span class="form-label">Town or City</span>
             </label>
-            <input class="form-control form-control-1-4" type="text" id="town" name="town"{{#if ../sTown}} value="{{../sTown}}"{{else}} value="{{town}}"{{/if}}>
+            <input class="form-control form-control-1-4" type="text" id="town" name="town"{{#if ../sTown}} value="{{../sTown}}"{{else}} value="{{address.town}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="postcode">
               <span class="form-label">Postcode</span>
             </label>
-            <input class="form-control form-control-1-4" type="text" id="postcode" name="postcode"{{#if ../sPostcode}} value="{{../sPostcode}}"{{else}} value="{{postcode}}"{{/if}}>
+            <input class="form-control form-control-1-4" type="text" id="postcode" name="postcode"{{#if ../sPostcode}} value="{{../sPostcode}}"{{else}} value="{{address.postcode}}"{{/if}}>
           </div>
 
         </fieldset>
