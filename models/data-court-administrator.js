@@ -19,19 +19,15 @@ var search = [
     "phone": "",
     "mobile": "",
     "national-insurance-number": "",
-    "notice-served": "30 Aug 2016",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02"
+      "notice-served": "30 April 2015",
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "18 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Awaiting plea"
@@ -107,8 +103,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -120,8 +115,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -133,8 +127,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -146,8 +139,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }
@@ -172,21 +164,17 @@ var search = [
     "email": "tegan.smith@gmail.com",
     "phone": "078 2400 2563",
     "national-insurance-number": "ZK 89 01 41 A",
-    "notice-served": "18 Sep 2015",
-    "hearing": "18 Nov 2015",
+    "hearing": "18 November 2015",
     "case-details": {
       "status": 'Completed &ndash; decision sent to defendant',
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "18 September 2015",
       "court-decision": 1
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
@@ -244,8 +232,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -257,8 +244,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -270,8 +256,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -283,8 +268,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "856KB",
           "file-pages": "12 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -296,8 +280,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "125KB",
           "file-pages": "2 pages",
-          "file-uploaded-date": "7 Oct 2016",
-          "file-uploaded-date-iso": "2016-10-07",
+          "file-uploaded-date": "07 October 2016",
           "file-path": "#",
           "printed-for-posting": "Printed for posting 7 Oct 2016",
           "printed-for-posting-iso": "2016-10-07",
@@ -311,8 +294,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }
@@ -337,20 +319,16 @@ var search = [
     "email": "za.smith@gmail.com",
     "phone": "078 1825 3550",
     "national-insurance-number": "GK 69 85 94 D",
-    "notice-served": "13 Jul 2015",
     "case-details": {
       "status": "Decision made",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "13 July 2015",
       "court-decision": 2
     },
     "offence": {
       "title": "Having failed to pay rail fare gave false particulars",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty",
@@ -383,8 +361,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -396,8 +373,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -409,8 +385,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -422,8 +397,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }
@@ -448,19 +422,15 @@ var search = [
     "email": "abbie.smith@gmail.com",
     "phone": "079 5115 9062",
     "national-insurance-number": "ZK 71 11 43 D",
-    "notice-served": "4 Sep 2015",
     "case-details": {
       "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "4 September",
     },
     "offence": {
       "title": "Travel on railway without paying fare",
       "date": "18 January 2016",
-      "date-iso": "2016-01-18",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "I picked up my partner&rsquo;s ticket instead of my own when I left my house.",
       "plea": "Pleaded guilty"
@@ -507,8 +477,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -520,8 +489,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -533,8 +501,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -546,8 +513,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }
@@ -572,19 +538,15 @@ var search = [
     "email": "leon.smith@gmail.com",
     "phone": "077 8068 5313",
     "national-insurance-number": "TK 60 97 18 A",
-    "notice-served": "18 Sep 2015",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "18 September",
     },
     "offence": {
       "title": "Passenger used expired ticket",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
@@ -632,8 +594,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -645,8 +606,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -658,8 +618,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -671,8 +630,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }
@@ -697,19 +655,15 @@ var search = [
     "email": "olivia.smith@gmail.com",
     "phone": "077 0494 5090",
     "national-insurance-number": "NY 80 08 89 A",
-    "notice-served": "14 Jan 2015",
     "case-details": {
       "status": "Pending offence withdrawal",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "14 January 2015",
     },
     "offence": {
       "title": "Passenger used expired ticket",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Awaiting plea"
@@ -756,8 +710,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -769,8 +722,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -782,8 +734,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -795,8 +746,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }
@@ -821,19 +771,15 @@ var search = [
     "email": "joel.smith@gmail.com",
     "phone": "079 4115 6799",
     "national-insurance-number": "HS 12 20 51 D",
-    "notice-served": "18 Sep 2015",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "18 September 2015"
     },
     "offence": {
       "title": "Passenger failing to pay fare",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
@@ -880,8 +826,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -893,8 +838,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -906,8 +850,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -919,8 +862,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }
@@ -945,19 +887,15 @@ var search = [
     "email": "harrison.smith@gmail.com",
     "phone": "070 2908 3863",
     "national-insurance-number": "MJ 82 16 61 A",
-    "notice-served": "18 Sep 2015",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "18 September 2015"
     },
     "offence": {
       "title": "Passenger failing to pay fare",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
@@ -1004,8 +942,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -1017,8 +954,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -1030,8 +966,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -1043,8 +978,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }
@@ -1057,9 +991,7 @@ var search = [
     "title": "Miss",
     "firstname": "Kian",
     "lastname": "Smith",
-    "date-of-birth": "20 Sep 1978",
-    "date-of-birth-long": "20 September 1978",
-    "date-of-birth-iso": "1978-09-20",
+    "dob": "20 September 1978",
     "age": "37",
     "gender": "Female",
     "urn": "2056138",
@@ -1071,19 +1003,15 @@ var search = [
     "email": "kian.smith@gmail.com",
     "phone": "070 1279 6913",
     "national-insurance-number": "LC 59 17 17 B",
-    "notice-served": "14 Jan 2015",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "14 January 2015"
     },
     "offence": {
       "title": "Passenger used altered/defaced ticket",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
@@ -1130,8 +1058,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -1143,8 +1070,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -1156,8 +1082,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -1169,8 +1094,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }
@@ -1195,19 +1119,15 @@ var search = [
     "email": "naomi.smith@gmail.com",
     "phone": "070 6195 4223",
     "national-insurance-number": "LN 56 80 72",
-    "notice-served": "14 Jan 2015",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "14 January 2015"
     },
     "offence": {
       "title": "Passenger used altered/defaced ticket",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
@@ -1234,8 +1154,7 @@ var search = [
       "document": [
         {
           "csv": true,
-          "uploaded": "16 Feb 2016",
-          "ISO-8601": "2016-02-16",
+          "uploaded": "16 February 2016",
           "time": "9:18am",
           "filename": "case-123456789",
           "filetype": "CSV",
@@ -1254,8 +1173,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": false
         },
@@ -1267,8 +1185,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -1280,8 +1197,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         },
@@ -1293,8 +1209,7 @@ var search = [
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
-          "file-uploaded-date": "15 Jan 2016",
-          "file-uploaded-date-iso": "2016-01-15",
+          "file-uploaded-date": "15 January 2016",
           "file-path": "#",
           "can-remove": true
         }

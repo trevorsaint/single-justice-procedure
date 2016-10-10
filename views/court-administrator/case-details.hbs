@@ -41,7 +41,7 @@
         {{else}}
           {{firstname}} {{uppercase lastname}}
         {{/and}}
-        <span class="heading-secondary">{{moment dob format ="D MMMM YYYY" }} ({{age}} years old)</span>
+        <span class="heading-secondary"><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMMM YYYY"}}</time> ({{age}} years old)</span>
       </h1>
 
       <div class="tabs tabs-horizontal">
@@ -77,7 +77,7 @@
               <dt>Prosecutor</dt>
               <dd>{{{prosecutor}}}</dd>
               <dt>Notice served</dt>
-              <dd><time datetime="{{notice-served-datetime}}">{{{notice-served}}}</time></dd>
+              <dd><time datetime="{{moment notice-served format="YYYY-MM-DD"}}">{{moment notice-served format="D MMMM YYYY"}}</time></dd>
               <dt>Documents <br> {{#isnt status 'Completed &ndash; decision sent to defendant'}}<a class="font-xsmall" href="/court-administrator/manage-documents/{{../id}}/">Manage documents</a>{{/isnt}}</dt>
               <dd>
                 {{#each ../related-documents.document}}
@@ -119,7 +119,7 @@
               </dd>
 
               <dt>Date of birth</dt>
-              <dd><time datetime="{{moment dob format ="YYYY-MM-DD" }}">{{moment dob format ="D MMM YYYY" }}</time> ({{age}} years old)</dd>
+              <dd><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)</dd>
 
               <dt>Address</dt>
               <dd>
@@ -355,7 +355,7 @@
 
           <h3 class="font-medium" id="offence">{{{title}}}</h3>
 
-          <p class="font-xsmall">On <time datetime="{{date-iso}}">{{date}}</time></p>
+          <p class="font-xsmall">On <time datetime="{{moment date format="YYYY-MM-DD"}}">{{moment date format="D MMMM YYYY"}}</time></p>
 
           <p>
             <strong class="tag">

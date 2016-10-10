@@ -19,17 +19,16 @@
       </thead>
       <tbody>
 
-        {{#each related-documents.document}}
-
-          {{#is show true}}
-            <tr>
-              <td><a href="#">{{{title}}}</a></td>
-              <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
-              <td><time datetime="{{file-uploaded-date-iso}}">{{file-uploaded-date}}</time></td>
-              <td>{{#if can-remove}}<a href="#">Remove</a>{{/if}}</td>
-            </tr>
-          {{/is}}
-        {{/each}}
+      {{#each related-documents.document}}
+        {{#is show true}}
+          <tr>
+            <td><a href="#">{{{title}}}</a></td>
+            <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
+            <td><time datetime="{{moment file-uploaded-date format="YYYY-MM-DD"}}">{{moment file-uploaded-date format="D MMM YYYY"}}</time></td>
+            <td>{{#if can-remove}}<a href="#">Remove</a>{{/if}}</td>
+          </tr>
+        {{/is}}
+      {{/each}}
 
       </tbody>
     </table>
