@@ -4,8 +4,6 @@
 
 <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
-<p class="lede">Review your information before making your plea.</p>
-
 <section class="confirm-answers" aria-labelledby="plea">
 
   <header class="confirm-answers-header">
@@ -13,12 +11,12 @@
     <a class="confirm-answers-action" href="#" title="Change plea">Change <span class="visuallyhidden">plea</span></a>
   </header>
 
-  <dl class="meta meta-large">
+  <p>You haven&rsquo;t added a plea yet.</p>
+
+  <!--dl class="meta meta-large">
     <dt>Defendant&rsquo;s plea</dt>
-    <dd>Guilty</dd>
-    <dt>Plead guilty in court</dt>
-    <dd>No</dd>
-  </dl>
+    <dd>Guilty &ndash; I want to come to court</dd>
+  </dl-->
 
 </section>
 
@@ -32,18 +30,66 @@
   </header>
 
   <dl class="meta meta-large">
+
     <dt>Name</dt>
-    <dd>Billy SMITH</dd>
+    <dd>
+      {{#and ../sFirstname ../sLastname}}
+        {{../sFirstname}} {{uppercase ../sLastname}}
+      {{else}}
+        {{firstname}} {{uppercase lastname}}
+      {{/and}}
+    </dd>
+
     <dt>Date of birth</dt>
-    <dd><time datetime="">4 April 1970</time> (46 years old)</dd>
+    <dd><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)</dd>
+
     <dt>Address</dt>
-    <dd>7 Rock Road, <br> London SE3 8YH</dd>
+    <dd>
+      {{#if ../sAddress1}}{{../sAddress1}}, <br>{{else}}{{address.address1}}, <br>{{/if}}
+      {{#if ../sAddress2}}{{../sAddress2}}, <br>{{else}}{{#if address.address2}}{{address.address2}}, <br>{{/if}}{{/if}}
+      {{#if ../sTown}}{{../sTown}}{{else}}{{address.town}}{{/if}}
+      {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
+    </dd>
+
     <dt>Email</dt>
-    <dd>&ndash;</dd>
+    <dd>
+      {{#if ../sEmail}}
+        {{../sEmail}}
+      {{else}}
+        {{#if email}}
+          {{email}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      {{/if}}
+    </dd>
+
     <dt>Home telephone</dt>
-    <dd>&ndash;</dd>
+    <dd>
+      {{#if ../sPhone}}
+        {{../sPhone}}
+      {{else}}
+        {{#if phone}}
+          {{phone}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      {{/if}}
+    </dd>
+
     <dt>Mobile</dt>
-    <dd>&ndash;</dd>
+    <dd>
+      {{#if ../sMobile}}
+        {{../sMobile}}
+      {{else}}
+        {{#if mobile}}
+          {{mobile}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      {{/if}}
+    </dd>
+
   </dl>
 
 </section>
@@ -79,13 +125,19 @@
     <a class="confirm-answers-action" href="#" title="Change uploaded documents">Change <span class="visuallyhidden">uploaded documents</span></a>
   </header>
 
-  <dl class="meta meta-large">
-    <dt>Document</dt>
+  <p>You haven&rsquo;t uploaded any documents yet.</p>
+
+  <!--dl class="meta meta-large">
+    <dt>Document 1</dt>
     <dd>SJP notice</dd>
-  </dl>
+    <dt>Document 2</dt>
+    <dd>Plea</dd>
+  </dl-->
 
 </section>
 
-<p><a class="button" href="#" role="button">Confirm and continue</a></p>
+<p><a class="button" href="/court-administrator/case-details/{{id}}/?saved=true" role="button">Confirm and back to case</a></p>
+
+<p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
 
 {{/with}}

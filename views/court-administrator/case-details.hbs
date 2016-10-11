@@ -126,7 +126,7 @@
                 {{#if ../sAddress1}}{{../sAddress1}}, <br>{{else}}{{address.address1}}, <br>{{/if}}
                 {{#if ../sAddress2}}{{../sAddress2}}, <br>{{else}}{{#if address.address2}}{{address.address2}}, <br>{{/if}}{{/if}}
                 {{#if ../sTown}}{{../sTown}}{{else}}{{address.town}}{{/if}}
-                {{#if ../sPostcode}}{{../sPostcode}}{{else}}{{address.postcode}}{{/if}}
+                {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
               </dd>
 
               <dt>Email</dt>
