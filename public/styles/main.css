@@ -2707,6 +2707,9 @@ HTML Usage
   font-weight: 700;
   width: auto;
 }
+header + .meta dt {
+  font-weight: 400;
+}
 @media (min-width: 641px) {
   .meta dt {
     float: left;
@@ -3328,4 +3331,21 @@ HTML Usage
   width: 100%;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
+}
+
+.confirm-answers {
+  margin-top: 2.10526em;
+  margin-bottom: 2.10526em;
+}
+.confirm-answers:last-of-type {
+  margin-bottom: 2.10526em;
+}
+.confirm-answers-header {
+  margin-bottom: 1.05263em;
+  position: relative;
+}
+.confirm-answers-action {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

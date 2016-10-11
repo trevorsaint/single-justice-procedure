@@ -2,8 +2,9 @@
 // ==========================================================================
 
 // GDS styles
-@import '../govuk/sass/govuk-elements'; 
+@import '../govuk/sass/govuk-elements';
 
-// TfL styles
+// Single Justice Procedure styles
 @import 'modules/manifest';
 @import 'partials/manifest';
+@import 'blocks/manifest';

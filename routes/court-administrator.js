@@ -466,6 +466,27 @@ router.route('/court-administrator/postal/manage-documents/:id/')
     res.redirect('/court-administrator/case-details/' + req.params.id);
   });
 
+  router.route('/court-administrator/postal/confirm-your-answers/:id/')
+    .get(function(req, res, next) {
+      entry = dataEngine.getSearchEntry(req.params.id);
+      res.render('court-administrator/postal/confirm-your-answers', {
+        baseurl: baseurl,
+        apptitle: apptitle,
+        doctitle: 'Confirm your answers',
+        pagetitle: 'Confirm your answers',
+        section: 'home',
+        section_name: 'Home',
+        section2: 'case-details/' + req.params.id,
+        section2_name: 'Case details',
+        signedIn: true,
+        breadcrumb: true,
+        search: entry
+      });
+    })
+    .post(function(req, res, next) {
+      // Do something
+    });
+
 router.route('/court-administrator/reopen-case/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);

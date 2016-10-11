@@ -1,0 +1,19 @@
+// Confirm answers
+// ==========================================================================
+
+$module: 'confirm-answers';
+
+.#{$module} {
+  margin-top: em(40);
+  margin-bottom: em(40);
+
+  &-header {
+    margin-bottom: em(20);
+    position: relative;
+  }
+
+  &-action {
+    position: absolute; top: 0; right: 0;
+  }
+
+}
