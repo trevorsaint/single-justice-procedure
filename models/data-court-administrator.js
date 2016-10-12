@@ -28,7 +28,7 @@ var search = [
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "2016-02-18",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Awaiting plea"
     },
     "employment": {
@@ -64,7 +64,7 @@ var search = [
           "time": "2:57pm",
           "filename": "case-123456789",
           "filetype": "CSV",
-          "status":   '<span class="text-error">Rejected &ndash; errors found</span>',
+          "status":   "<span class=\"text-error\">Rejected &ndash; errors found</span>",
           "url":      "check-csv-uploads/report/errors/1"
         },
         {
@@ -73,7 +73,7 @@ var search = [
           "time": "2:57pm",
           "filename": "case-123456789",
           "filetype": "CSV",
-          "status":   'Sent to court',
+          "status":   "Sent to court",
           "url":      "check-csv-uploads/report/success/1"
         },
         {
@@ -82,7 +82,7 @@ var search = [
           "time": "10:14am",
           "filename": "case-123456789",
           "filetype": "CSV",
-          "status":   'Sent to court',
+          "status":   "Sent to court",
           "url":      "check-csv-uploads/report/success/1"
         }
       ]
@@ -160,7 +160,7 @@ var search = [
     "national-insurance-number": "ZK 89 01 41 A",
     "hearing": "2015-11-18",
     "case-details": {
-      "status": 'Completed &ndash; decision sent to defendant',
+      "status": "Completed &ndash; decision sent to defendant",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-09-18",
@@ -169,7 +169,7 @@ var search = [
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "2016-02-01",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -199,7 +199,7 @@ var search = [
           "time": "10:57am",
           "filename": "case-123456789",
           "filetype": "CSV",
-          "status":   '<span class="text-error">Rejected &ndash; errors found</span>',
+          "status":   "<span class=\"text-error\">Rejected &ndash; errors found</span>",
           "url":      "check-csv-uploads/report/errors/2"
         },
         {
@@ -320,7 +320,7 @@ var search = [
     "offence": {
       "title": "Having failed to pay rail fare gave false particulars",
       "date": "2016-02-01",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Pleaded guilty",
     },
     "employment": {
@@ -351,7 +351,7 @@ var search = [
           "time": "11:52am",
           "filename": "case-123456789",
           "filetype": "Zip",
-          "status":   '<span class="text-error">4 errors found</span>',
+          "status":   "<span class=\"text-error\">4 errors found</span>",
           "url":      "check-document-uploads/report/errors/3"
         }
       ]
@@ -428,7 +428,7 @@ var search = [
     "phone": "079 5115 9062",
     "national-insurance-number": "ZK 71 11 43 D",
     "case-details": {
-      "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
+      "status": "Ready for <abbr title=\"Single Justice Procedure\">SJP</abbr> decision",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-09-04",
@@ -436,7 +436,7 @@ var search = [
     "offence": {
       "title": "Travel on railway without paying fare",
       "date": "2016-01-18",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "mitigation": "I picked up my partner&rsquo;s ticket instead of my own when I left my house.",
       "plea": "Pleaded guilty"
     },
@@ -551,7 +551,7 @@ var search = [
     "offence": {
       "title": "Passenger used expired ticket",
       "date": "2016-02-01",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -581,7 +581,7 @@ var search = [
           "time": "9:30am",
           "filename": "case-123456789",
           "filetype": "CSV",
-          "status": '<span class="text-error">Rejected &ndash; errors found</span>',
+          "status": "<span class=\"text-error\">Rejected &ndash; errors found</span>",
           "url": "check-csv-uploads/report/errors/5"
         }
       ]
@@ -666,7 +666,7 @@ var search = [
     "offence": {
       "title": "Passenger used expired ticket",
       "date": "2016-02-01",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Awaiting plea"
     },
     "employment": {
@@ -780,7 +780,7 @@ var search = [
     "offence": {
       "title": "Passenger failing to pay fare",
       "date": "2016-02-01",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -894,7 +894,7 @@ var search = [
     "offence": {
       "title": "Passenger failing to pay fare",
       "date": "2016-02-01",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -1008,7 +1008,7 @@ var search = [
     "offence": {
       "title": "Passenger used altered/defaced ticket",
       "date": "2016-02-01",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -1122,7 +1122,7 @@ var search = [
     "offence": {
       "title": "Passenger used altered/defaced ticket",
       "date": "2016-02-01",
-      "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Pleaded guilty"
     },
     "employment": {
