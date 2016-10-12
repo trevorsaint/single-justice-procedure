@@ -22,7 +22,7 @@
       {{#each related-documents.document}}
         {{#is show true}}
           <tr>
-            <td><a href="#">{{{title}}}</a></td>
+            <td><a href="#">{{capitalize title}}</a></td>
             <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
             <td><time datetime="{{moment file-uploaded-date format="YYYY-MM-DD"}}">{{moment file-uploaded-date format="D MMM YYYY"}}</time></td>
             <td>{{#if can-remove}}<a href="#">Remove</a>{{/if}}</td>
@@ -43,15 +43,36 @@
 
     <form class="form" method="post">
 
-      {{#each related-documents.document}}
-        {{#is show false}}
-          <h2 class="heading-small">Select {{title}}</h2>
-          <div class="form-group">
-            <input class="form-control-file" type="file" id="{{id}}" name="{{name}}">
-            <label class="button button-secondary" for="{{id}}">Browse&hellip;</label>
-          </div>
-        {{/is}}
-      {{/each}}
+      <fieldset>
+        <legend>
+          <span class="form-label-bold">Select plea document</span>
+        </legend>
+        <div class="form-group">
+          <input class="form-control-file" type="file" id="plea-document" name="pleaDocument">
+          <label class="button button-secondary" for="plea-document">Browse&hellip;</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          <span class="form-label-bold">Select statement of income and outgoings (MC100)</span>
+        </legend>
+        <div class="form-group">
+          <input class="form-control-file" type="file" id="statement-of-income" name="statementIncome">
+          <label class="button button-secondary" for="statement-of-income">Browse&hellip;</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          <span class="form-label-bold">Select other documents</span>
+          <span class="form-hint">For example, an email or a copy of a travelcard</span>
+        </legend>
+        <div class="form-group form-group-last">
+          <input class="form-control-file" type="file" id="other-documents" name="otherDocuments">
+          <label class="button button-secondary" for="other-documents">Browse&hellip;</label>
+        </div>
+      </fieldset>
 
       <div class="form-group form-group-actions">
         <button class="button" type="submit">Upload</button>

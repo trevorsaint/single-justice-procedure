@@ -27,16 +27,16 @@
             <span class="form-hint">Check the form to see what the defendant has ticked</span>
           </legend>
 
-          <label class="block-label" for="frequency-income-weekly">
-            <input type="radio" id="frequency-income-weekly" name="frequencyIncome" value="Weekly"{{#if ../sFrequencyIncome}}{{#contains ../sFrequencyIncome "Weekly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.frequency-income "Weekly"}} checked="checked"{{/contains}}{{/if}}>Weekly
+          <label class="block-label" for="pay-frequency-weekly">
+            <input type="radio" id="pay-frequency-weekly" name="payFrequency" value="Weekly"{{#if ../sPayFrequency}}{{#contains ../sPayFrequency "Weekly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.pay.frequency "Weekly"}} checked="checked"{{/contains}}{{/if}}>Weekly
           </label>
 
-          <label class="block-label" for="frequency-income-fortnightly">
-            <input type="radio" id="frequency-income-fortnightly" name="frequencyIncome" value="Fortnightly"{{#if ../sFrequencyIncome}}{{#contains ../sFrequencyIncome "Fortnightly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.frequency-income "Fortnightly"}} checked="checked"{{/contains}}{{/if}}>Fortnightly
+          <label class="block-label" for="pay-frequency-fortnightly">
+            <input type="radio" id="pay-frequency-fortnightly" name="payFrequency" value="Fortnightly"{{#if ../sPayFrequency}}{{#contains ../sPayFrequency "Fortnightly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.pay.frequency "Fortnightly"}} checked="checked"{{/contains}}{{/if}}>Fortnightly
           </label>
 
-          <label class="block-label" for="frequency-income-monthly">
-            <input type="radio" id="frequency-income-monthly" name="frequencyIncome" value="Monthly"{{#if ../sFrequencyIncome}}{{#contains ../sFrequencyIncome "Monthly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.frequency-income "Monthly"}} checked="checked"{{/contains}}{{/if}}>Monthly
+          <label class="block-label" for="pay-frequency-monthly">
+            <input type="radio" id="pay-frequency-monthly" name="payFrequency" value="Monthly"{{#if ../sPayFrequency}}{{#contains ../sPayFrequency "Monthly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.pay.frequency "Monthly"}} checked="checked"{{/contains}}{{/if}}>Monthly
           </label>
 
         </fieldset>
@@ -121,54 +121,13 @@
             <input class="form-control" type="tel" id="employer-telephone" name="employerTelephone"{{#if ../sEmployerTelephone}} value="{{../sEmployerTelephone}}"{{else}} value="{{employerTelephone}}"{{/if}}>
           </div>
 
-          <h3 class="heading-medium">Pay</h3>
-
           <div class="form-group">
-
-            <fieldset>
-
-              <legend>
-                <span class="form-label">How often do they get paid?</span>
-              </legend>
-
-              <label class="block-label" for="weekly" data-target="paid-weekly">
-                <input type="radio" id="weekly" name="payFrequency" value="Weekly"{{#if ../sPayFrequency}}{{#contains ../sPayFrequency "Weekly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.pay.frequency "Weekly"}} checked="checked"{{/contains}}{{/if}}>
-                Weekly
-              </label>
-
-              <div class="panel panel-border-narrow{{#if ../sPayFrequency}}{{#isnt ../sPayFrequency "Weekly"}} js-hidden{{/isnt}}{{else}}{{#isnt employment.pay.frequency "Weekly"}} js-hidden{{/isnt}}{{/if}}" id="paid-weekly">
-                <label class="form-label" for="pay-weekly-amount">Weekly net pay (take home)</label>
-                <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="pay-weekly-amount" name="payWeeklyAmount"{{#contains ../sPayFrequency "Weekly"}} value="{{../sPayAmount}}"{{/contains}}>
-                </div>
-              </div>
-
-              <label class="block-label" for="fortnightly" data-target="paid-fortnightly">
-                <input type="radio" id="fortnightly" name="payFrequency" value="Fortnightly"{{#if ../sPayFrequency}}{{#contains ../sPayFrequency "Fortnightly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.pay.frequency "Fortnightly"}} checked="checked"{{/contains}}{{/if}}>
-                Fortnightly
-              </label>
-
-              <div class="panel panel-border-narrow{{#if ../sPayFrequency}}{{#isnt ../sPayFrequency "Fortnightly"}} js-hidden{{/isnt}}{{else}}{{#isnt employment.pay.frequency "Fornightly"}} js-hidden{{/isnt}}{{/if}}" id="paid-fortnightly">
-                <label class="form-label" for="pay-fortnightly-amount">Fortnightly net pay (take home)</label>
-                <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="pay-fortnightly-amount" name="payFortnightlyAmount"{{#contains ../sPayFrequency "Fortnightly"}} value="{{../sPayAmount}}"{{/contains}}>
-                </div>
-              </div>
-
-              <label class="block-label" for="monthly" data-target="paid-monthly">
-                <input type="radio" id="monthly" name="payFrequency" value="Monthly"{{#if ../sPayFrequency}}{{#contains ../sPayFrequency "Monthly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.pay.frequency "Monthly"}} checked="checked"{{/contains}}{{/if}}>
-                Monthly
-              </label>
-
-              <div class="panel panel-border-narrow{{#if ../sPayFrequency}}{{#isnt ../sPayFrequency "Monthly"}} js-hidden{{/isnt}}{{else}}{{#isnt employment.pay.frequency "Monthly"}} js-hidden{{/isnt}}{{/if}}" id="paid-monthly">
-                <label class="form-label" for="pay-monthly-amount">Monthly net pay (take home)</label>
-                <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="pay-monthly-amount" name="payMonthlyAmount"{{#contains ../sPayFrequency "Monthly"}} value="{{../sPayAmount}}"{{/contains}}>
-                </div>
-              </div>
-
-            </fieldset>
-
+            <label for="pay-amount">
+              <span class="form-label">Net pay (take home pay)</span>
+            </label>
+            <div class="form-currency">
+              <input class="form-control form-control-1-4" type="text" id="pay-amount" name="payAmount"{{#if ../sPayAmount}} value="{{../sPayAmount}}"{{else}} value="{{employment.pay.amount}}"{{/if}}>
+            </div>
           </div>
 
         </div>
@@ -189,6 +148,10 @@
 
           <label class="block-label" for="receiving-benefits-no">
             <input type="radio" id="receiving-benefits-no" name="receivingBenefits" value="No"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "No"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "No"}} checked="checked"{{/contains}}{{/if}}>No
+          </label>
+
+          <label class="block-label" for="receiving-benefits-dont-know">
+            <input type="radio" id="receiving-benefits-dont-know" name="receivingBenefits" value="Don’t know"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Don’t know"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits ""}} checked="checked"{{/contains}}{{/if}}>Don&rsquo;t know
           </label>
 
         </fieldset>

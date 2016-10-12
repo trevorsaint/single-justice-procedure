@@ -2703,12 +2703,22 @@ HTML Usage
 <i class="icon icon-lock-white" role="presentation" aria-hidden="true"></i>
 
 */
+.meta {
+  /*
+  @at-root {
+
+    header + .meta {
+      dt {
+        font-weight: 400;
+      }
+    }
+
+  }
+  */
+}
 .meta dt {
   font-weight: 700;
   width: auto;
-}
-header + .meta dt {
-  font-weight: 400;
 }
 @media (min-width: 641px) {
   .meta dt {
@@ -3333,18 +3343,15 @@ HTML Usage
   -o-text-overflow: ellipsis;
 }
 
-.confirm-answers {
+.check-answers {
   margin-top: 2.10526em;
   margin-bottom: 2.10526em;
 }
-.confirm-answers:last-of-type {
-  margin-bottom: 2.10526em;
-}
-.confirm-answers-header {
+.check-answers-header {
   margin-bottom: 1.05263em;
   position: relative;
 }
-.confirm-answers-action {
+.check-answers-action {
   position: absolute;
   top: 0;
   right: 0;

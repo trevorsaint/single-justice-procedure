@@ -54,17 +54,17 @@
 
                 <div class="form-group form-group-day">
                   <label class="form-label" for="dob-day">Day</label>
-                  <input class="form-control" type="number" id="dob-day" value="{{moment dob format="D"}}" aria-describedby="dob-hint">
+                  <input class="form-control" type="number" id="dob-day" name="dobDay"{{#if ../sDob}} value="{{moment ../sDob format="D"}}"{{else}} value="{{moment dob format="D"}}"{{/if}} aria-describedby="dob-hint">
                 </div>
 
                 <div class="form-group form-group-month">
                   <label class="form-label" for="dob-month">Month</label>
-                  <input class="form-control" type="number" id="dob-month" value="{{moment dob format="M"}}">
+                  <input class="form-control" type="number" id="dob-month" name="dobMonth"{{#if ../sDob}} value="{{moment ../sDob format="M"}}"{{else}} value="{{moment dob format="M"}}"{{/if}}>
                 </div>
 
                 <div class="form-group form-group-year">
                   <label class="form-label" for="dob-year">Year</label>
-                  <input class="form-control" type="number" id="dob-year" value="{{moment dob format="YYYY"}}">
+                  <input class="form-control" type="number" id="dob-year" name="dobYear"{{#if ../sDob}} value="{{moment ../sDob format="YYYY"}}"{{else}} value="{{moment dob format="YYYY"}}"{{/if}}>
                 </div>
 
               </div>

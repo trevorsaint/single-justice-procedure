@@ -2,8 +2,6 @@
 
   {{#with search}}
 
-  {{makeDecision}}
-
   <div class="grid-row">
 
     <div class="column-two-thirds">
@@ -25,6 +23,11 @@
           <legend class="visually-hidden">Make a decision</legend>
 
           <div class="form-group">
+
+            <label class="block-label" for="no-plea-received">
+              <input type="radio" id="no-plea-received" name="makeDecision" value=""{{#if ../sMakeDecision}}{{#contains ../sMakeDecision ""}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Awaiting plea"}} checked="checked"{{/contains}}{{/if}}>
+              No plea received
+            </label>
 
             <label class="block-label" for="guilty-no-court">
               <input type="radio" id="guilty-no-court" name="makeDecision" value="Pleaded guilty court hearing requested"{{#if ../sMakeDecision}}{{#contains ../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>

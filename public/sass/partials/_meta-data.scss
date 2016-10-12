@@ -12,6 +12,7 @@ $module: 'meta';
   }
 
   // if meta is directly after a heading then use normal font weight for the dt
+  /*
   @at-root {
 
     header + .#{$module} {
@@ -21,6 +22,7 @@ $module: 'meta';
     }
 
   }
+  */
 
   @include media(tablet) {
 
