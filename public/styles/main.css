@@ -2703,19 +2703,6 @@ HTML Usage
 <i class="icon icon-lock-white" role="presentation" aria-hidden="true"></i>
 
 */
-.meta {
-  /*
-  @at-root {
-
-    header + .meta {
-      dt {
-        font-weight: 400;
-      }
-    }
-
-  }
-  */
-}
 .meta dt {
   font-weight: 700;
   width: auto;
@@ -2727,6 +2714,9 @@ HTML Usage
   .meta dd {
     overflow: hidden;
   }
+}
+.meta-light dt {
+  font-weight: 400;
 }
 .meta-large dt {
   margin-bottom: 0.26316em;

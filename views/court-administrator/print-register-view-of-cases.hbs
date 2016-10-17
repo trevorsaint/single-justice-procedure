@@ -1,0 +1,118 @@
+{{>breadcrumb}}
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <h1 class="heading-xlarge">{{pagetitle}}</h1>
+
+    <p class="lede">Search by date decision made</p>
+
+    <form class="form">
+
+      <div class="form-group">
+
+        <fieldset>
+          <legend>
+            <span class="form-label-bold">From</span>
+            <span class="form-hint" id="from-hint">For example, 13 6 2016</span>
+          </legend>
+          <div class="form-date">
+            <div class="form-group form-group-day">
+              <label class="form-label" for="from-day">Day</label>
+              <input class="form-control" id="from-day" name="from-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="from-hint">
+            </div>
+            <div class="form-group form-group-month">
+              <label class="form-label" for="from-month">Month</label>
+              <input class="form-control" id="from-month" name="from-month" type="number" pattern="[0-9]*" min="0" max="12">
+            </div>
+            <div class="form-group form-group-year">
+              <label class="form-label" for="from-year">Year</label>
+              <input class="form-control" id="from-year" name="from-year" type="number" pattern="[0-9]*" min="0" max="2016">
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <div class="form-group">
+
+        <fieldset>
+          <legend>
+            <span class="form-label-bold">To</span>
+            <span class="form-hint" id="to-hint">For example, 13 7 2016</span>
+          </legend>
+          <div class="form-date">
+            <div class="form-group form-group-day">
+              <label class="form-label" for="to-day">Day</label>
+              <input class="form-control" id="to-day" name="to-day" type="text" pattern="[0-9]*" min="0" max="31" aria-describedby="to-hint">
+            </div>
+            <div class="form-group form-group-month">
+              <label class="form-label" for="to-month">Month</label>
+              <input class="form-control" id="to-month" name="to-month" type="text" pattern="[0-9]*" min="0" max="12">
+            </div>
+            <div class="form-group form-group-year">
+              <label class="form-label" for="to-year">Year</label>
+              <input class="form-control" id="to-year" name="to-year" type="text" pattern="[0-9]*" min="0" max="2016">
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <div class="form-group form-group-related">
+        <button class="button" type="submit">Search</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<h3 class="heading-medium">2 cases found</h3>
+
+<div class="form-group">
+  <table class="table table-font-xsmall">
+    <caption class="visuallyhidden">Resulted cases for printing</caption>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Case reference number</th>
+        <th scope="col">Date of birth</th>
+        <td><a class="checkbox-selection" href="#">Select all</a></td>
+      </tr>
+    </thead>
+    <tbody>
+
+      {{#each searches}}
+
+        {{#is case-details.status 'Completed &ndash; decision sent to defendant'}}
+          <tr>
+            <th scope="row"><a href="/court-administrator/case-details/{{id}}/">{{uppercase lastname}} {{firstname}}</a></th>
+            <td>{{urn}}</td>
+            <td>{{moment dob format="D MMM YYYY"}}</td>
+            <td><label><input type="checkbox" id="checkbox1" name="checkbox1"> <span class="visuallyhidden">Select {{uppercase lastname}} {{firstname}}</span></label></td>
+          </tr>
+        {{/is}}
+
+        {{#is case-details.status 'Decision made'}}
+            <tr>
+              <th scope="row"><a href="/court-administrator/case-details/{{id}}/">{{uppercase lastname}} {{firstname}}</a></th>
+              <td>{{urn}}</td>
+              <td>{{moment dob format="D MMM YYYY"}}</td>
+              <td><label><input type="checkbox" id="checkbox1" name="checkbox1"> <span class="visuallyhidden">Select {{uppercase lastname}} {{firstname}}</span></label></td>
+            </tr>
+          {{/is}}
+
+      {{/each}}
+
+    </tbody>
+  </table>
+</div>
+
+<div class="form-group form-group-related">
+  <button class="button button-secondary" type="submit">Print selected</button>
+</div>
+
+<p><a href="#">Cancel</a></p>

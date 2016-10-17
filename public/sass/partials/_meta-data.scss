@@ -11,19 +11,6 @@ $module: 'meta';
     width: auto;
   }
 
-  // if meta is directly after a heading then use normal font weight for the dt
-  /*
-  @at-root {
-
-    header + .#{$module} {
-      dt {
-        font-weight: 400;
-      }
-    }
-
-  }
-  */
-
   @include media(tablet) {
 
     dt {
@@ -32,6 +19,15 @@ $module: 'meta';
 
     dd {
       overflow: hidden;
+    }
+
+  }
+
+  // light
+  &-light {
+
+    dt {
+      font-weight: 400;
     }
 
   }

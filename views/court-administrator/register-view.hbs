@@ -1,0 +1,150 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+<h1 class="heading-xlarge">
+  {{#and ../sFirstname ../sLastname}}
+    {{../sFirstname}} {{uppercase ../sLastname}}
+  {{else}}
+    {{firstname}} {{uppercase lastname}}
+  {{/and}}
+</h1>
+
+<section class="check-answers" aria-labelledby="personal-details">
+
+  <h2 class="heading-medium" id="personal-details">Personal details</h2>
+
+  <dl class="meta meta-light meta-large">
+
+    <dt>Date of birth</dt>
+    <dd>
+      {{#if ../sDob}}
+        <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMMM YYYY"}}</time>
+      {{else}}
+        <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMMM YYYY"}}</time>
+      {{/if}}
+    </dd>
+
+    <dt>Address</dt>
+    <dd>
+      {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
+      {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
+      {{#if ../sTown}}{{../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
+      {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
+    </dd>
+
+    <dt>Email</dt>
+    <dd>tegan.smith@gmail.com</dd>
+
+    <dt>Home telephone</dt>
+    <dd>078 2400 2563</dd>
+
+    <dt>Mobile</dt>
+    <dd>&ndash;</dd>
+
+    <dt>Gender</dt>
+    <dd>Female</dd>
+
+  </dl>
+
+</section>
+
+<hr>
+
+<section class="check-answers" aria-labelledby="case-details">
+
+  <h2 class="heading-medium" id="case-details">Case details</h2>
+
+  <dl class="meta meta-light meta-large">
+    <dt>Case number</dt>
+    <dd>9012467</dd>
+    <dt>Prosecutor</dt>
+    <dd>Transport for London</dd>
+    <dt>Informant</dt>
+    <dd>Trevor Saint</dd>
+    <dt>Notice served</dt>
+    <dd>18 September 2016</dd>
+  </dl>
+
+</section>
+
+<hr>
+
+<section class="check-answers" aria-labelledby="offence">
+
+  <h2 class="heading-large" id="offence">Offence</h2>
+
+  <h3 class="font-medium" id="offence">Passenger used ticket issued for another person</h3>
+
+  <p class="font-xsmall">On <time datetime="2016-02-01">1 February 2016</time></p>
+
+  <p><strong class="tag">Pleaded guilty</strong></p>
+
+  <h3 class="heading-medium">Details</h3>
+
+  <dl class="meta meta-light meta-large">
+    <dt>Offence reference number</dt>
+    <dd>687642</dd>
+    <dt>Date plea made</dt>
+    <dd>15 May 2016</dd>
+  </dl>
+
+  <h3 class="heading-medium">Statement of facts</h3>
+  <p class="text">I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied “I don’t have one as I am not really on this train, you’re seeing an illusion”. I had no choice but to issue him with a ticket.</p>
+
+
+  <h3 class="heading-medium">Decision</h3>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Made at</td>
+        <td>Lavender Hill Magistrates Court</td>
+      </tr>
+      <tr>
+        <td>On</td>
+        <td>1 June 2016</td>
+      </tr>
+      <tr valign="top">
+        <td>By</td>
+        <td>
+          <ul>
+            <li>Bill Wessle (magistrate)</li>
+            <li>Ifraz Mughal (legal adviser)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Verdict</td>
+        <td>Guilty plea accepted</td>
+      </tr>
+      <tr>
+        <td>Fine</td>
+        <td>&pound;100</td>
+      </tr>
+      <tr>
+        <td>Compensation</td>
+        <td>&pound;3.50</td>
+      </tr>
+      <tr>
+        <td>Costs</td>
+        <td>&pound;30</td>
+      </tr>
+      <tr>
+        <td>Victim surcharge</td>
+        <td>&pound;10</td>
+      </tr>
+      <tr>
+        <td>Guilty plea taken into account?</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+<p><a class="button" href="#" role="button">Print</a></p>
+
+<p><a href="#">Cancel<a></p>
+
+{{/with}}

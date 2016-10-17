@@ -66,7 +66,7 @@
               <dd>
               {{#is status 'Completed &ndash; decision sent to defendant'}}
                 {{#if ../../sLibraAccountNumber}}
-                  Reopened <br> (Libra account no: {{../../sLibraAccountNumber}})
+                  Reopened <time datetime="2016-10-12">12 October 2016</time> <br> (Libra account no: {{../../sLibraAccountNumber}})
                 {{else}}
                   {{{status}}}
                 {{/if}}
@@ -82,7 +82,7 @@
                 {{#is status 'Completed &ndash; decision sent to defendant'}}
                   Documents
                 {{else}}
-                  <a href="/court-administrator/manage-documents/{{../id}}/" title="Upload or change documents">Documents</a>
+                  <a href="/court-administrator/upload-documents/{{../id}}/" title="Upload or change documents">Upload documents</a>
                 {{/is}}
               </dt>
 
@@ -104,6 +104,8 @@
                 {{/each}}
               </dd>
             </dl>
+
+            {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}<p><a href="/court-administrator/register-view/{{../id}}/">Register version</a></p>{{/is}}
 
           </section>
           {{/with}}
@@ -185,6 +187,8 @@
               </dd>
 
             </dl>
+
+            {{#is case-details.status 'Completed &ndash; decision sent to defendant'}}<p><a href="/court-administrator/register-view/{{id}}/">Register version</a></p>{{/is}}
 
           </section>
 
@@ -313,8 +317,11 @@
                 </dd>
 
               </dl>
-            {{/with}}
+
+              {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}<p><a href="/court-administrator/register-view/{{../id}}/">Register version</a></p>{{/is}}
+
           </section>
+          {{/with}}
 
         </div>
 
@@ -339,6 +346,7 @@
 
             {{#contains case-details.status 'Completed'}}
               <li><a href="/court-administrator/reopen-case/{{id}}/">Log case reopened on Libra</a></li>
+              <li><a href="/court-administrator/register-view/{{id}}/">View register version</a></li>
             {{else}}
               <li><a href="#">Send case to court hearing</a></li>
             {{/contains}}

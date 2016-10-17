@@ -274,10 +274,10 @@ router.route('/court-administrator/employment-and-income/:id/')
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
-router.route('/court-administrator/manage-documents/:id/')
+router.route('/court-administrator/upload-documents/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/manage-documents', {
+    res.render('court-administrator/upload-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Upload documents',
@@ -317,7 +317,7 @@ router.route('/court-administrator/manage-documents/:id/')
       sOtherDocument = req.session.otherDocument = true;
     }
 
-    res.redirect('/court-administrator/manage-documents/' + req.params.id + '/?saved=true');
+    res.redirect('/court-administrator/upload-documents/' + req.params.id + '/?saved=true');
   });
 
 // step process routes
@@ -450,7 +450,7 @@ router.route('/court-administrator/postal/employment-and-income/:id/')
 
     // has the user come from check your answers
     if (!req.query.change) {
-      res.redirect('/court-administrator/postal/manage-documents/' + req.params.id);
+      res.redirect('/court-administrator/postal/upload-documents/' + req.params.id);
     }
     else {
       res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
@@ -458,10 +458,10 @@ router.route('/court-administrator/postal/employment-and-income/:id/')
 
   });
 
-router.route('/court-administrator/postal/manage-documents/:id/')
+router.route('/court-administrator/postal/upload-documents/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/postal/manage-documents', {
+    res.render('court-administrator/postal/upload-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Upload documents',
@@ -482,14 +482,58 @@ router.route('/court-administrator/postal/manage-documents/:id/')
     res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
   });
 
-  router.route('/court-administrator/postal/check-your-answers/:id/')
+router.route('/court-administrator/postal/check-your-answers/:id/')
+  .get(function(req, res, next) {
+    entry = dataEngine.getSearchEntry(req.params.id);
+    res.render('court-administrator/postal/check-your-answers', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Check your answers',
+      pagetitle: 'Check your answers',
+      section: 'home',
+      section_name: 'Home',
+      section2: 'case-details/' + req.params.id,
+      section2_name: 'Case details',
+      signedIn: true,
+      breadcrumb: true,
+      search: entry,
+      sMakeDecision: sMakeDecision,
+      sTitle: sTitle,
+      sFirstname: sFirstname,
+      sLastname: sLastname,
+      sDob: sDob,
+      sEmail: sEmail,
+      sPhone: sPhone,
+      sMobile: sMobile,
+      sAddress1: sAddress1,
+      sAddress2: sAddress2,
+      sTown: sTown,
+      sPostcode: sPostcode,
+      sNationalInsurance: sNationalInsurance,
+      sPayFrequency: sPayFrequency,
+      sPayAmount: sPayAmount,
+      sEmployment: sEmployment,
+      sEmployerName: sEmployerName,
+      sEmployerAddress1: sEmployerAddress1,
+      sEmployerAddress2: sEmployerAddress2,
+      sEmployerTown: sEmployerTown,
+      sEmployerPostcode: sEmployerPostcode,
+      sEmployerTelephone: sEmployerTelephone,
+      sReceivingBenefits: sReceivingBenefits
+    });
+  })
+  .post(function(req, res, next) {
+    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+  });
+
+  router.route('/court-administrator/register-view/:id/')
     .get(function(req, res, next) {
       entry = dataEngine.getSearchEntry(req.params.id);
-      res.render('court-administrator/postal/check-your-answers', {
+      res.render('court-administrator/register-view', {
         baseurl: baseurl,
         apptitle: apptitle,
-        doctitle: 'Check your answers',
-        pagetitle: 'Check your answers',
+        doctitle: 'Register view',
+        pagetitle: 'Register view',
         section: 'home',
         section_name: 'Home',
         section2: 'case-details/' + req.params.id,
@@ -523,8 +567,26 @@ router.route('/court-administrator/postal/manage-documents/:id/')
       });
     })
     .post(function(req, res, next) {
-      res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+      //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
     });
+
+    router.route('/court-administrator/print-register-view-of-cases/')
+      .get(function(req, res, next) {
+        res.render('court-administrator/print-register-view-of-cases', {
+          baseurl: baseurl,
+          apptitle: apptitle,
+          doctitle: 'Print register view of cases',
+          pagetitle: 'Print batch of cases in register view',
+          section: 'home',
+          section_name: 'Home',
+          signedIn: true,
+          breadcrumb: true,
+          searches: dataEngine.getSearchEntries()
+        });
+      })
+      .post(function(req, res, next) {
+        //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+      });
 
 router.route('/court-administrator/reopen-case/:id/')
   .get(function(req, res, next) {
@@ -550,7 +612,7 @@ router.route('/court-administrator/reopen-case/:id/')
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
-// page not found route
+// page not found
 router.get('/court-administrator/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,

@@ -12,14 +12,17 @@
   </header>
 
   {{#if ../sMakeDecision}}
-    {{../sMakeDecision}}
+    <dl class="meta meta-light meta-large">
+      <dt>Defendant&rsquo;s plea</dt>
+      <dd>{{{../sMakeDecision}}}</dd>
+    </dl>
   {{else}}
     {{#contains case-details.status "Awaiting plea"}}
         <p>No plea received.</p>
       {{else}}
         <dl class="meta meta-large">
           <dt>Defendant&rsquo;s plea</dt>
-          <dd>{{case-details.status}}</dd>
+          <dd>{{{case-details.status}}}</dd>
         </dl>
     {{/contains}}
   {{/if}}
@@ -35,7 +38,7 @@
     <a class="check-answers-action" href="/court-administrator/postal/personal-details/{{id}}/?change=true" title="Change personal details">Change <span class="visuallyhidden">personal details</span></a>
   </header>
 
-  <dl class="meta meta-large">
+  <dl class="meta meta-light meta-large">
 
     <dt>Name</dt>
     <dd>
@@ -59,7 +62,7 @@
     <dd>
       {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
       {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
-      {{#if ../sTown}}{{../sTown}}<br>{{else}}{{address.town}}{{/if}}
+      {{#if ../sTown}}{{../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
       {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
     </dd>
 
@@ -115,7 +118,7 @@
     <a class="check-answers-action" href="/court-administrator/postal/employment-and-income/{{id}}/?change=true" title="Change employment and income">Change <span class="visuallyhidden">employment and income</span></a>
   </header>
 
-  <dl class="meta meta-large">
+  <dl class="meta meta-light meta-large">
 
     <dt>National Insurance number</dt>
     <dd>
@@ -187,15 +190,15 @@
       <dt>Employer address</dt>
       <dd>
         {{#if ../sEmployerAddress1}}
-          {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}}, <br>{{/if}}
-          {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}}, <br>{{/if}}
-          {{#if ../sEmployerTown}}{{../sEmployerTown}}{{/if}}
+          {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
+          {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
+          {{#if ../sEmployerTown}}{{../sEmployerTown}} <br>{{/if}}
           {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
         {{else}}
           {{#if employer-address1}}
-            {{#if employer-address.address1}}{{employer-address.address1}}, <br>{{/if}}
-            {{#if employer-address.address2}}{{employer-address.address2}}, <br>{{/if}}
-            {{#if employer-address.town}}{{employer-address.town}}{{/if}}
+            {{#if employer-address.address1}}{{employer-address.address1}} <br>{{/if}}
+            {{#if employer-address.address2}}{{employer-address.address2}} <br>{{/if}}
+            {{#if employer-address.town}}{{employer-address.town}} <br>{{/if}}
             {{#if employer-address.postcode}}{{employer-address.postcode}}{{/if}}
           {{else}}
             &ndash;
@@ -241,7 +244,7 @@
 
   <header class="check-answers-header">
     <h2 class="bold-medium" id="uploaded-documents">Uploaded documents</h2>
-    <a class="check-answers-action" href="#" title="Change uploaded documents">Change <span class="visuallyhidden">uploaded documents</span></a>
+    <a class="check-answers-action" href="/court-administrator/postal/upload-documents/{{id}}/?change=true" title="Change uploaded documents">Change <span class="visuallyhidden">uploaded documents</span></a>
   </header>
 
   <p>You haven&rsquo;t uploaded any documents.</p>
