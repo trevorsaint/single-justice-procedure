@@ -3049,7 +3049,7 @@ HTML Usage
   .tabs [role='presentation'] {
     margin: 0;
   }
-  .tabs [role='tabpanel'] *:first-of-type {
+  .tabs [role='tabpanel'] > [class^="heading-"] {
     margin-top: 0;
   }
 }

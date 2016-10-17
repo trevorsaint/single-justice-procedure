@@ -48,7 +48,9 @@ router.use(function(req, res, next) {
   sReceivingBenefits = req.session.receivingBenefits;
 
   // plea
-  sMakeDecision = req.session.makeDecision;
+  sMakeDecision        = req.session.makeDecision;
+  sNeedInterpreter     = req.session.needInterpreter;
+  sInterpreterLanguage = req.session.interpreterLanguage;
 
   // other
   sCaseActiveTab    = req.session.caseActiveTab;
@@ -168,6 +170,8 @@ router.route('/court-administrator/case-details/:id/')
       sPayAmount: sPayAmount,
       sReceivingBenefits: sReceivingBenefits,
       sMakeDecision: sMakeDecision,
+      sNeedInterpreter: sNeedInterpreter,
+      sInterpreterLanguage: sInterpreterLanguage,
       sCaseActiveTab: sCaseActiveTab,
       sOffenceActiveTab: sOffenceActiveTab,
       sDocumentNotice: sDocumentNotice,
@@ -181,6 +185,25 @@ router.route('/court-administrator/case-details/:id/')
   })
   .post(function(req, res, next) {
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
+
+    if (sMakeDecision === 'Pleaded guilty SJP') {
+
+      sNeedInterpreter = req.session.needInterpreter = req.body.guiltyInterpreter;
+      sInterpreterLanguage = req.session.interpreterLanguage = req.body.guiltyInterpreterLanguage;
+
+    } else if (sMakeDecision === 'Pleaded not guilty') {
+
+      sNeedInterpreter = req.session.needInterpreter = req.body.notGuiltyInterpreter;
+      sInterpreterLanguage = req.session.interpreterLanguage = req.body.notGuiltyInterpreterLanguage;
+
+    } else {
+
+      // reset session
+      sNeedInterpreter = req.session.needInterpreter = null;
+      sInterpreterLanguage = req.session.interpreterLanguage = null;
+
+    }
+
     sCaseActiveTab = req.session.caseActiveTab = null;
     sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
@@ -336,19 +359,39 @@ router.route('/court-administrator/postal/add-plea/:id/')
       signedIn: true,
       breadcrumb: true,
       search: entry,
-      sMakeDecision: sMakeDecision
+      sMakeDecision: sMakeDecision,
+      sNeedInterpreter: sNeedInterpreter,
+      sInterpreterLanguage: sInterpreterLanguage
     });
   })
   .post(function(req, res, next) {
 
+    sMakeDecision = req.session.makeDecision = req.body.makeDecision;
+
+    if (sMakeDecision === 'Pleaded guilty SJP') {
+
+      sNeedInterpreter = req.session.needInterpreter = req.body.guiltyInterpreter;
+      sInterpreterLanguage = req.session.interpreterLanguage = req.body.guiltyInterpreterLanguage;
+
+    } else if (sMakeDecision === 'Pleaded not guilty') {
+
+      sNeedInterpreter = req.session.needInterpreter = req.body.notGuiltyInterpreter;
+      sInterpreterLanguage = req.session.interpreterLanguage = req.body.notGuiltyInterpreterLanguage;
+
+    } else {
+
+      // reset session
+      sNeedInterpreter = req.session.needInterpreter = null;
+      sInterpreterLanguage = req.session.interpreterLanguage = null;
+
+    }
+
     // has the user come from check your answers
     if (!req.query.change) {
-      sMakeDecision = req.session.makeDecision = req.body.makeDecision;
       sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
       res.redirect('/court-administrator/postal/personal-details/' + req.params.id);
     }
     else {
-      sMakeDecision = req.session.makeDecision = req.body.makeDecision;
       res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
     }
 
@@ -498,6 +541,8 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
       breadcrumb: true,
       search: entry,
       sMakeDecision: sMakeDecision,
+      sNeedInterpreter: sNeedInterpreter,
+      sInterpreterLanguage: sInterpreterLanguage,
       sTitle: sTitle,
       sFirstname: sFirstname,
       sLastname: sLastname,

@@ -15,6 +15,17 @@
     <dl class="meta meta-light meta-large">
       <dt>Defendant&rsquo;s plea</dt>
       <dd>{{{../sMakeDecision}}}</dd>
+
+      {{#if ../sNeedInterpreter}}
+        <dt>Does defendant need an interpreter?</dt>
+        <dd>{{{../sNeedInterpreter}}}</dd>
+      {{/if}}
+
+      {{#contains ../sNeedInterpreter "Yes"}}
+        <dt>Interpreter language</dt>
+        <dd>{{{../sInterpreterLanguage}}}</dd>
+      {{/contains}}
+
     </dl>
   {{else}}
     {{#contains case-details.status "Awaiting plea"}}

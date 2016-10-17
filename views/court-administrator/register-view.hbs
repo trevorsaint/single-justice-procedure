@@ -37,13 +37,33 @@
     <dd>tegan.smith@gmail.com</dd>
 
     <dt>Home telephone</dt>
-    <dd>078 2400 2563</dd>
+    <dd>
+      {{#if ../sPhone}}
+        {{../sPhone}}
+      {{else}}
+        {{#if phone}}
+          {{phone}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      {{/if}}
+    </dd>
 
     <dt>Mobile</dt>
-    <dd>&ndash;</dd>
+    <dd>
+      {{#if ../sMobile}}
+        {{../sMobile}}
+      {{else}}
+        {{#if mobile}}
+          {{mobile}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      {{/if}}
+    </dd>
 
     <dt>Gender</dt>
-    <dd>Female</dd>
+    <dd>{{gender}}</dd>
 
   </dl>
 
@@ -51,100 +71,106 @@
 
 <hr>
 
+{{#with case-details}}
 <section class="check-answers" aria-labelledby="case-details">
 
   <h2 class="heading-medium" id="case-details">Case details</h2>
 
   <dl class="meta meta-light meta-large">
     <dt>Case number</dt>
-    <dd>9012467</dd>
+    <dd>{{case-number}}</dd>
     <dt>Prosecutor</dt>
-    <dd>Transport for London</dd>
+    <dd>{{prosecutor}}</dd>
     <dt>Informant</dt>
-    <dd>Trevor Saint</dd>
+    <dd>{{informant}}</dd>
     <dt>Notice served</dt>
-    <dd>18 September 2016</dd>
+    <dd><time datetime="{{moment notice-served format="YYYY-MM-DD"}}">{{moment notice-served format="D MMMM YYYY"}}</time></dd>
   </dl>
 
 </section>
+{{/with}}
 
 <hr>
 
+{{#with offence}}
 <section class="check-answers" aria-labelledby="offence">
 
   <h2 class="heading-large" id="offence">Offence</h2>
 
-  <h3 class="font-medium" id="offence">Passenger used ticket issued for another person</h3>
+  <h3 class="font-medium" id="offence">{{title}}</h3>
 
-  <p class="font-xsmall">On <time datetime="2016-02-01">1 February 2016</time></p>
+  <p class="font-xsmall">On <time datetime="{{moment date format="YYYY-MM-DD"}}">{{moment date format="D MMMM YYYY"}}</time></p>
 
-  <p><strong class="tag">Pleaded guilty</strong></p>
+  <p><strong class="tag">{{plea}}</strong></p>
 
   <h3 class="heading-medium">Details</h3>
 
   <dl class="meta meta-light meta-large">
     <dt>Offence reference number</dt>
-    <dd>687642</dd>
+    <dd>{{reference-number}}</dd>
     <dt>Date plea made</dt>
-    <dd>15 May 2016</dd>
+    <dd><time datetime="{{moment plea-made-date format="YYYY-MM-DD"}}">{{moment plea-made-date format="D MMMM YYYY"}}</time></dd>
   </dl>
 
   <h3 class="heading-medium">Statement of facts</h3>
-  <p class="text">I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied “I don’t have one as I am not really on this train, you’re seeing an illusion”. I had no choice but to issue him with a ticket.</p>
+  <p class="text">{{{statement-of-facts}}}</p>
 
-
+  {{#with decision}}
   <h3 class="heading-medium">Decision</h3>
 
   <table class="table">
     <tbody>
       <tr>
         <td>Made at</td>
-        <td>Lavender Hill Magistrates Court</td>
+        <td>{{made-at}}</td>
       </tr>
       <tr>
         <td>On</td>
-        <td>1 June 2016</td>
+        <td><time datetime="{{moment on-date format="YYYY-MM-DD"}}">{{moment on-date format="D MMMM YYYY"}}</time></td>
       </tr>
       <tr valign="top">
         <td>By</td>
         <td>
           <ul>
-            <li>Bill Wessle (magistrate)</li>
-            <li>Ifraz Mughal (legal adviser)</li>
+            {{#each by}}
+            <li>{{firstname}} {{lastname}} ({{lowercase role}})</li>
+            {{/each}}
           </ul>
         </td>
       </tr>
       <tr>
         <td>Verdict</td>
-        <td>Guilty plea accepted</td>
+        <td>{{verdict}}</td>
       </tr>
       <tr>
         <td>Fine</td>
-        <td>&pound;100</td>
+        <td>&pound;{{fine}}</td>
       </tr>
       <tr>
         <td>Compensation</td>
-        <td>&pound;3.50</td>
+        <td>&pound;{{compensation}}</td>
       </tr>
       <tr>
         <td>Costs</td>
-        <td>&pound;30</td>
+        <td>&pound;{{costs}}</td>
       </tr>
       <tr>
         <td>Victim surcharge</td>
-        <td>&pound;10</td>
+        <td>&pound;{{victim-surcharge}}</td>
       </tr>
       <tr>
         <td>Guilty plea taken into account?</td>
-        <td>Yes</td>
+        <td>{{taken-into-account}}</td>
       </tr>
     </tbody>
   </table>
+  {{/with}}
 
 </section>
+{{/with}}
 
 <p><a class="button" href="#" role="button">Print</a></p>
 
-<p><a href="#">Cancel<a></p>
+<p><a href="/court-administrator/case-details/{{id}}/">Cancel<a></p>
 
 {{/with}}

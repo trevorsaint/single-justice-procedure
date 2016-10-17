@@ -160,17 +160,43 @@ var search = [
     "national-insurance-number": "ZK 89 01 41 A",
     "hearing": "2015-11-18",
     "case-details": {
+      "case-number": "9012467",
       "status": "Completed &ndash; decision sent to defendant",
       "prosecutor": "Transport for London",
+      "informant": "Trevor Saint",
       "charge-date": "2016-01-21",
       "notice-served": "2015-09-18",
       "court-decision": 1
     },
     "offence": {
+      "reference-number": "687642",
       "title": "Passenger used ticket issued for another person",
       "date": "2016-02-01",
       "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-      "plea": "Pleaded guilty"
+      "plea": "Pleaded guilty",
+      "plea-made-date": "2016-05-15",
+      "decision": {
+        "made-at": "Lavender Hill Magistrates Court",
+        "on-date": "2016-06-01",
+        "by": [
+          {
+            "firstname": "Bill",
+            "lastname": "Wessel",
+            "role": "Magistrate"
+          },
+          {
+            "firstname": "Ifraz",
+            "lastname": "Mughal",
+            "role": "Legal adviser"
+          }
+        ],
+        "verdict": "Guilty plea accepted",
+        "fine": "100",
+        "compensation": "3.50",
+        "costs": "30",
+        "victim-surcharge": "10",
+        "taken-into-account": "Yes"
+      }
     },
     "employment": {
       "status": "Unemployed",
