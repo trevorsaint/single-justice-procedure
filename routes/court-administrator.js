@@ -639,8 +639,8 @@ router.route('/court-administrator/reopen-case/:id/')
     res.render('court-administrator/reopen-case', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Log case reopened on Libra',
-      pagetitle: 'Log case reopened on Libra',
+      doctitle: 'Log case as reopened on Libra',
+      pagetitle: 'Log case as reopened on Libra',
       section: 'home',
       section_name: 'Home',
       section2: 'case-details/' + req.params.id,

@@ -6,7 +6,7 @@
 
   <section aria-labelledby="uploaded-documents">
 
-    <h2 class="heading-medium" id="uploaded-documents">Documents already uploaded</h2>
+    <h2 class="heading-medium" id="uploaded-documents">Already uploaded</h2>
 
     <table class="table table-font-xsmall">
       <thead>
@@ -39,9 +39,9 @@
 
     <h2 class="heading-medium" id="add-other-documents">Add more documents</h2>
 
-    <p>You can upload any of the following documents if available.</p>
+    <p>You can upload any of the following, if available.</p>
 
-    <form class="form" method="post">
+    <form class="form" method="post" enctype="multipart/form-data">
 
       <fieldset>
         <legend>
@@ -63,16 +63,20 @@
         </div>
       </fieldset>
 
-      <fieldset>
-        <legend>
-          <span class="form-label-bold">Select other documents</span>
-          <span class="form-hint">For example, an email or a copy of a travelcard</span>
-        </legend>
-        <div class="form-group form-group-last">
-          <input class="form-control-file" type="file" id="other-documents" name="otherDocuments">
-          <label class="button button-secondary" for="other-documents">Browse&hellip;</label>
-        </div>
-      </fieldset>
+      <div class="form-group form-group-last">
+
+        <!--fieldset-->
+          <legend>
+            <span class="form-label-bold">Select other documents</span>
+            <span class="form-hint">For example, an email or a copy of a travelcard</span>
+          </legend>
+          <div class="form-group form-group-related">
+            <input class="form-control-file" type="file" id="other-documents" name="otherDocuments" multiple="">
+            <label class="button button-secondary" for="other-documents">Browse&hellip;</label>
+          </div>
+        <!--/fieldset-->
+
+      </div>
 
       <div class="form-group form-group-actions">
         <button class="button" type="submit">Upload</button>

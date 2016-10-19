@@ -61,9 +61,10 @@
 
                 <div class="form-group">
                   <label for="guilty-language">
-                    <span class="form-label">Which language? (Including sign language)</span>
+                    <span class="form-label">Which language?</span>
+                    <span class="form-hint" id="guilty-language-hint">You can include sign language</span>
                   </label>
-                  <input class="form-control" id="guilty-language" type="text" name="guiltyInterpreterLanguage" value="{{#contains ../sMakeDecision "Pleaded guilty SJP"}}{{../sInterpreterLanguage}}{{/contains}}">
+                  <input class="form-control" id="guilty-language" type="text" name="guiltyInterpreterLanguage" value="{{#contains ../sMakeDecision "Pleaded guilty SJP"}}{{../sInterpreterLanguage}}{{/contains}}" aria-describedby="guilty-language-hint">
                 </div>
 
               </div>
@@ -101,9 +102,10 @@
 
                 <div class="form-group">
                   <label for="not-guilty-language">
-                    <span class="form-label">Which language? (Including sign language)</span>
+                    <span class="form-label">Which language?</span>
+                    <span class="form-hint" id="not-guilty-language-hint">You can include sign language</span>
                   </label>
-                  <input class="form-control" id="not-guilty-language" type="text" name="notGuiltyInterpreterLanguage" value="{{#contains ../sMakeDecision "Pleaded not guilty"}}{{../sInterpreterLanguage}}{{/contains}}">
+                  <input class="form-control" id="not-guilty-language" type="text" name="notGuiltyInterpreterLanguage" value="{{#contains ../sMakeDecision "Pleaded not guilty"}}{{../sInterpreterLanguage}}{{/contains}}" aria-describedby="not-guilty-language-hint">
                 </div>
 
               </div>

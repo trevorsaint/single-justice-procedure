@@ -8,6 +8,10 @@ $module: 'section';
   &-header {
     position: relative;
 
+    [class^='heading-'] {
+      margin-top: 0; // reset header top margin
+    }
+
     a {
       position: absolute;
       top: 0; right: 0;

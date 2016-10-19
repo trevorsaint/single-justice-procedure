@@ -1,3 +1,71 @@
+// calculate size of file
+function formatBytes(bytes, decimals, binaryUnits) {
+
+  'strict'
+
+  if(bytes == 0) {
+      return '0 Bytes';
+  }
+
+  var unitMultiple = (binaryUnits) ? 1024 : 1000;
+  var unitNames = (unitMultiple === 1024) ? // 1000 bytes in 1 Kilobyte (KB) or 1024 bytes for the binary version (KiB)
+      ['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']:
+      ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+  var unitChanges = Math.floor(Math.log(bytes) / Math.log(unitMultiple));
+
+  return parseFloat((bytes / Math.pow(unitMultiple, unitChanges)).toFixed(decimals || 0)) + ' ' + unitNames[unitChanges];
+
+}
+
+
+// get file extension
+function getFileExtension(filename) {
+
+  'strict'
+
+  var ext = /^.+\.([^.]+)$/.exec(filename);
+  return ext == null ? "" : ext[1];
+
+}
+
+
+// multiple file upload
+function file() {
+
+  'strict'
+
+  // on change
+  var $input     = $('#other-documents'); // file input
+  var $label     = $input.next(); // file label
+  var $panel     = $input.parent().find('.panel'); // panel
+
+  // on change
+  $(document).on('change', $input, function(e) {
+
+    $panel.remove();
+
+    $('<div class="panel panel-border-narrow"></div>').insertAfter($label);
+
+    var $files    = $input.get(0).files;
+    var $filesQty = $input.get(0).files.length;
+
+    for (var x = 0; x < $filesQty; x++) {
+
+      $('<p class="font-xsmall" id="file-upload-' + x + '">' +
+          '<span class="bold-xsmall">File selected</span><br>' +
+          '<span class="text-secondary filename">' + $files[x].name + ' - ' + formatBytes($files[x].size, 0) + ' - ' + getFileExtension($files[x].name).toUpperCase() + '</span><br>' +
+          '<a class="remove" href="#">Remove</a>' +
+        '</p>').appendTo($input.parent().find('.panel'));
+
+    }
+
+
+  });
+
+
+}
+
 
 function fileUpload() {
 
@@ -195,4 +263,5 @@ function fileUploadFocus() {
 (function() {
   fileUpload();
   fileUploadFocus();
+  //file();
 })(jQuery);

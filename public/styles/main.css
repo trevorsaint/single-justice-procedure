@@ -2856,6 +2856,9 @@ HTML Usage
 .section-header {
   position: relative;
 }
+.section-header [class^='heading-'] {
+  margin-top: 0;
+}
 .section-header a {
   position: absolute;
   top: 0;
