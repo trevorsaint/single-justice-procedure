@@ -8,7 +8,7 @@
 
     <p>List generated on <time datetime="{{moment now format="YYYY-MM-DDTHH:mm"}}">{{moment now format="dddd DD MMMM YYYY \at HH:mm a"}}</time>.</p>
 
-    <h2 class="heading-medium">Transport for London offences</h2>
+    <h2 class="heading-medium">Transport for London cases</h2>
 
   </div>
 
@@ -33,7 +33,6 @@
   <thead>
     <tr>
       <th scope="col">Name</th>
-      <th scope="col">Case reference number</th>
       <th scope="col">Offence</th>
     </tr>
   </thead>
@@ -42,14 +41,12 @@
       {{#contains case-details.status 'Awaiting plea'}}
         <tr>
           <td>{{uppercase lastname}} {{firstname}}</td>
-          <td>{{urn}}</td>
           <td>{{{offence.title}}}</td>
         </tr>
       {{/contains}}
       {{#contains case-details.status 'Ready'}}
         <tr>
           <td>{{uppercase lastname}} {{firstname}}</td>
-          <td>{{urn}}</td>
           <td>{{{offence.title}}}</td>
         </tr>
       {{/contains}}
