@@ -15,7 +15,7 @@
           <span class="form-label-bold">National Insurance number</span>
           <span class="form-hint" id="national-insurance-hint">For example, VO 12 34 56 D</span>
         </label>
-        <input class="form-control" type="text" id="national-insurance" name="nationalInsurance" aria-describedby="national-insurance-hint"{{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{national-insurance-number}}"{{/if}}>
+        <input class="form-control" type="text" id="national-insurance" name="nationalInsurance" aria-describedby="national-insurance-hint"{{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{personal-details.national-insurance-number}}"{{/if}}>
       </div>
 
       <div class="form-group">

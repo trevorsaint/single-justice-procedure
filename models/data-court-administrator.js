@@ -2,23 +2,25 @@ var search = [
 
   {
     "id": 1,
-    "title": "Mr",
-    "firstname": "Billy",
-    "lastname": "Smith",
-    "dob": "1970-04-04",
-    "age": "46",
-    "gender": "Male",
-    "urn": "9012466",
-    "address": {
-      "address1": "7 Rock Road",
-      "address2": "",
-      "town": "London",
-      "postcode": "SE3 8YH"
+    "personal-details": {
+      "title": "Mr",
+      "firstname": "Billy",
+      "lastname": "Smith",
+      "dob": "1970-04-04",
+      "age": "46",
+      "gender": "Male",
+      "urn": "9012466",
+      "address": {
+        "address1": "7 Rock Road",
+        "address2": "",
+        "town": "London",
+        "postcode": "SE3 8YH"
+      },
+      "email": "",
+      "phone": "",
+      "mobile": "",
+      "national-insurance-number": ""
     },
-    "email": "",
-    "phone": "",
-    "mobile": "",
-    "national-insurance-number": "",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -143,21 +145,23 @@ var search = [
 
   {
     "id": 2,
-    "title": "Miss",
-    "firstname": "Tegan",
-    "lastname": "Smith",
-    "dob": "1972-10-19",
-    "age": "43",
-    "gender": "Male",
-    "urn": "9012467",
-    "address": {
-      "address1": "29 Newport Road",
-      "town": "Carnbo",
-      "postcode": "KY13 4GX"
+    "personal-details": {
+      "title": "Miss",
+      "firstname": "Tegan",
+      "lastname": "Smith",
+      "dob": "1972-10-19",
+      "age": "43",
+      "gender": "Male",
+      "urn": "9012467",
+      "address": {
+        "address1": "29 Newport Road",
+        "town": "Carnbo",
+        "postcode": "KY13 4GX"
+      },
+      "email": "tegan.smith@gmail.com",
+      "phone": "078 2400 2563",
+      "national-insurance-number": "ZK 89 01 41 A"
     },
-    "email": "tegan.smith@gmail.com",
-    "phone": "078 2400 2563",
-    "national-insurance-number": "ZK 89 01 41 A",
     "hearing": "2015-11-18",
     "case-details": {
       "case-number": "9012467",
@@ -321,21 +325,23 @@ var search = [
 
   {
     "id": 3,
-    "title": "Mrs",
-    "firstname": "Za",
-    "lastname": "Smith",
-    "dob": "1941-10-11",
-    "age": "74",
-    "gender": "Female",
-    "urn": "9012462",
-    "address": {
-      "address1": "92 Sloe Lane",
-      "town": "Crouch",
-      "postcode": "TN15 6GQ"
+    "personal-details": {
+      "title": "Mrs",
+      "firstname": "Za",
+      "lastname": "Smith",
+      "dob": "1941-10-11",
+      "age": "74",
+      "gender": "Female",
+      "urn": "9012462",
+      "address": {
+        "address1": "92 Sloe Lane",
+        "town": "Crouch",
+        "postcode": "TN15 6GQ"
+      },
+      "email": "za.smith@gmail.com",
+      "phone": "078 1825 3550",
+      "national-insurance-number": "GK 69 85 94 D"
     },
-    "email": "za.smith@gmail.com",
-    "phone": "078 1825 3550",
-    "national-insurance-number": "GK 69 85 94 D",
     "case-details": {
       "status": "Decision made",
       "prosecutor": "Transport for London",
@@ -438,21 +444,23 @@ var search = [
 
   {
     "id": 4,
-    "title": "Miss",
-    "firstname": "Abbie",
-    "lastname": "Smith",
-    "dob": "1982-03-14",
-    "age": "34",
-    "gender": "Female",
-    "urn": "2053688",
-    "address": {
-      "address1": "78 Broomfield Place",
-      "town": "Stonham Aspal",
-      "postcode": "IP14 0XB"
+    "personal-details": {
+      "title": "Miss",
+      "firstname": "Abbie",
+      "lastname": "Smith",
+      "dob": "1982-03-14",
+      "age": "34",
+      "gender": "Female",
+      "urn": "2053688",
+      "address": {
+        "address1": "78 Broomfield Place",
+        "town": "Stonham Aspal",
+        "postcode": "IP14 0XB"
+      },
+      "email": "abbie.smith@gmail.com",
+      "phone": "079 5115 9062",
+      "national-insurance-number": "ZK 71 11 43 D"
     },
-    "email": "abbie.smith@gmail.com",
-    "phone": "079 5115 9062",
-    "national-insurance-number": "ZK 71 11 43 D",
     "case-details": {
       "status": "Ready for <abbr title=\"Single Justice Procedure\">SJP</abbr> decision",
       "prosecutor": "Transport for London",
@@ -553,21 +561,23 @@ var search = [
 
   {
     "id": 5,
-    "title": "Mr",
-    "firstname": "Leon",
-    "lastname": "Smith",
-    "dob": "1981-08-31",
-    "age": "34",
-    "gender": "Male",
-    "urn": "2056139",
-    "address": {
-      "address1": "91 Worthy Lane",
-      "town": "Mearns",
-      "postcode": "G77 7GA"
+    "personal-details": {
+      "title": "Mr",
+      "firstname": "Leon",
+      "lastname": "Smith",
+      "dob": "1981-08-31",
+      "age": "34",
+      "gender": "Male",
+      "urn": "2056139",
+      "address": {
+        "address1": "91 Worthy Lane",
+        "town": "Mearns",
+        "postcode": "G77 7GA"
+      },
+      "email": "leon.smith@gmail.com",
+      "phone": "077 8068 5313",
+      "national-insurance-number": "TK 60 97 18 A",
     },
-    "email": "leon.smith@gmail.com",
-    "phone": "077 8068 5313",
-    "national-insurance-number": "TK 60 97 18 A",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -668,21 +678,23 @@ var search = [
 
   {
     "id": 6,
-    "title": "Mrs",
-    "firstname": "Olivia",
-    "lastname": "Smith",
-    "dob": "1967-09-23",
-    "age": "48",
-    "gender": "Female",
-    "urn": "2056135",
-    "address": {
-      "address1": "94 Overton Circle",
-      "town": "Liverton",
-      "postcode": "TQ12 1LQ"
+    "personal-details": {
+      "title": "Mrs",
+      "firstname": "Olivia",
+      "lastname": "Smith",
+      "dob": "1967-09-23",
+      "age": "48",
+      "gender": "Female",
+      "urn": "2056135",
+      "address": {
+        "address1": "94 Overton Circle",
+        "town": "Liverton",
+        "postcode": "TQ12 1LQ"
+      },
+      "email": "olivia.smith@gmail.com",
+      "phone": "077 0494 5090",
+      "national-insurance-number": "NY 80 08 89 A"
     },
-    "email": "olivia.smith@gmail.com",
-    "phone": "077 0494 5090",
-    "national-insurance-number": "NY 80 08 89 A",
     "case-details": {
       "status": "Pending offence withdrawal",
       "prosecutor": "Transport for London",
@@ -782,21 +794,23 @@ var search = [
 
   {
     "id": 7,
-    "title": "Mr",
-    "firstname": "Joel",
-    "lastname": "Smith",
-    "dob": "1980-01-28",
-    "age": "36",
-    "gender": "Male",
-    "urn": "2056136",
-    "address": {
-      "address1": "75 Seafield Street",
-      "town": "Llanteg",
-      "postcode": "SA67 9EJ"
+    "personal-details": {
+      "title": "Mr",
+      "firstname": "Joel",
+      "lastname": "Smith",
+      "dob": "1980-01-28",
+      "age": "36",
+      "gender": "Male",
+      "urn": "2056136",
+      "address": {
+        "address1": "75 Seafield Street",
+        "town": "Llanteg",
+        "postcode": "SA67 9EJ"
+      },
+      "email": "joel.smith@gmail.com",
+      "phone": "079 4115 6799",
+      "national-insurance-number": "HS 12 20 51 D"
     },
-    "email": "joel.smith@gmail.com",
-    "phone": "079 4115 6799",
-    "national-insurance-number": "HS 12 20 51 D",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -896,21 +910,23 @@ var search = [
 
   {
     "id": 8,
-    "title": "Mr",
-    "firstname": "Harrison",
-    "lastname": "Smith",
-    "dob": "1973-01-22",
-    "age": "43",
-    "gender": "Male",
-    "urn": "2056137",
-    "address": {
-      "address1": "22 Spilman Street",
-      "town": "Grantley",
-      "postcode": "HG4 2ET"
+    "personal-details": {
+      "title": "Mr",
+      "firstname": "Harrison",
+      "lastname": "Smith",
+      "dob": "1973-01-22",
+      "age": "43",
+      "gender": "Male",
+      "urn": "2056137",
+      "address": {
+        "address1": "22 Spilman Street",
+        "town": "Grantley",
+        "postcode": "HG4 2ET"
+      },
+      "email": "harrison.smith@gmail.com",
+      "phone": "070 2908 3863",
+      "national-insurance-number": "MJ 82 16 61 A"
     },
-    "email": "harrison.smith@gmail.com",
-    "phone": "070 2908 3863",
-    "national-insurance-number": "MJ 82 16 61 A",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -1010,21 +1026,23 @@ var search = [
 
   {
     "id": 9,
-    "title": "Miss",
-    "firstname": "Kian",
-    "lastname": "Smith",
-    "dob": "1978-09-20",
-    "age": "37",
-    "gender": "Female",
-    "urn": "2056138",
-    "address": {
-      "address1": "35 Ponteland Rd",
-      "town": "Howend",
-      "postcode": "MK45 0ZW"
+    "personal-details": {
+      "title": "Miss",
+      "firstname": "Kian",
+      "lastname": "Smith",
+      "dob": "1978-09-20",
+      "age": "37",
+      "gender": "Female",
+      "urn": "2056138",
+      "address": {
+        "address1": "35 Ponteland Rd",
+        "town": "Howend",
+        "postcode": "MK45 0ZW"
+      },
+      "email": "kian.smith@gmail.com",
+      "phone": "070 1279 6913",
+      "national-insurance-number": "LC 59 17 17 B"
     },
-    "email": "kian.smith@gmail.com",
-    "phone": "070 1279 6913",
-    "national-insurance-number": "LC 59 17 17 B",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",
@@ -1124,21 +1142,23 @@ var search = [
 
   {
     "id": 10,
-    "title": "Miss",
-    "firstname": "Naomi",
-    "lastname": "Smith",
-    "dob": "1995-10-19",
-    "age": "20",
-    "gender": "Female",
-    "urn": "2056139",
-    "address": {
-      "address1": "50 Cloch Rd",
-      "town": "St Paul's Cray",
-      "postcode": "BR5 1WH"
+    "personal-details": {
+      "title": "Miss",
+      "firstname": "Naomi",
+      "lastname": "Smith",
+      "dob": "1995-10-19",
+      "age": "20",
+      "gender": "Female",
+      "urn": "2056139",
+      "address": {
+        "address1": "50 Cloch Rd",
+        "town": "St Paul's Cray",
+        "postcode": "BR5 1WH"
+      },
+      "email": "naomi.smith@gmail.com",
+      "phone": "070 6195 4223",
+      "national-insurance-number": "LN 56 80 72"
     },
-    "email": "naomi.smith@gmail.com",
-    "phone": "070 6195 4223",
-    "national-insurance-number": "LN 56 80 72",
     "case-details": {
       "status": "Awaiting plea",
       "prosecutor": "Transport for London",

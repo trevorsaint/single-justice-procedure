@@ -1,0 +1,235 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  <div class="persist-info">
+    <span class="persist-info-reference">{{urn}}</span>
+    <span class="persist-info-title">
+      {{firstname}} {{uppercase lastname}}
+    </span>
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+      <form class="form" method="post">
+
+        <section>
+
+          <h2 class="heading-large"><span class="heading-secondary">Financial penalty</span> Offence 1</h2>
+
+          <h3 class="font-medium">Passenger used ticket issued for another person</h3>
+          <p class="font-xsmall">On <time datetime="2016-02-18">18 February 2016</time></p>
+
+          <p><strong class="tag">Guilty plea &ndash; discount applied</strong></p>
+
+          <h3 class="heading-medium">Check fine and compensation</h3>
+
+          <div class="form-group">
+
+            <fieldset>
+
+              <legend>
+                <span class="form-label">Fine band applied</span>
+              </legend>
+
+              <label class="block-label" for="fine-band-b" data-target="band-b">
+                <input type="radio" id="fine-band-b" name="fineBand" value="Band B" checked="checked"> Band B
+              </label>
+
+              <div class="panel panel-border-narrow" id="band-b">
+
+                <div class="form-group form-group-related">
+                  <label for"fine">
+                    <span class="form-label">Fine</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="fine" name="fine" value="220.00">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for"compensation">
+                    <span class="form-label">Compensation</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="compensation" name="compensation" value="3.12">
+                  </div>
+                </div>
+
+              </div>
+
+              <p class="form-block">or switch to</p>
+
+              <label class="block-label" for="fine-band-a" data-target="band-a">
+                <input type="radio" id="fine-band-a" name="fineBand" value="Band A"> Band A
+              </label>
+
+              <div class="panel panel-border-narrow js-hidden" id="band-a">
+
+                <div class="form-group form-group-related">
+                  <label for"fine">
+                    <span class="form-label">Fine</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="fine" name="fine" value="440.00">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for"compensation">
+                    <span class="form-label">Compensation</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="compensation" name="compensation" value="3.12">
+                  </div>
+                </div>
+
+              </div>
+
+              <label class="block-label" for="fine-band-c" data-target="band-c">
+                <input type="radio" id="fine-band-c" name="fineBand" value="Band C"> Band C
+              </label>
+
+              <div class="panel panel-border-narrow js-hidden" id="band-c">
+
+                <div class="form-group form-group-related">
+                  <label for"fine">
+                    <span class="form-label">Fine</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="fine" name="fine" value="660.00">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for"compensation">
+                    <span class="form-label">Compensation</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="compensation" name="compensation" value="3.12">
+                  </div>
+                </div>
+
+              </div>
+
+            </fieldset>
+
+          </div>
+
+        </section>
+
+        <hr>
+
+        <section>
+
+          <h2 class="heading-large"><span class="heading-secondary">No separate penalty</span> Offence 2</h2>
+
+          <h3 class="font-medium">Having failed to pay rail fare gave false particulars</h3>
+          <p class="font-xsmall">On <time datetime="2016-02-16">16 February 2016</time></p>
+          <p><strong class="tag">Guilty plea &ndash; discount applied</strong></p>
+
+        </section>
+
+        <hr>
+
+        <section>
+
+          <h3 class="heading-large">Check costs and surcharge</h3>
+
+          <div class="form-group">
+            <label for="cost">
+              <span class="form-label">Costs</span>
+            </label>
+            <div class="form-currency">
+              <input class="form-control form-control-1-4" type="text" id="cost" name="cost" value="125.00">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cost">
+              <span class="form-label">Surcharge for victim fund</span>
+            </label>
+            <div class="form-currency">
+              <input class="form-control form-control-1-4" type="text" id="surcharge" name="surcharge" value="30.00">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="block-label" for="confirm">
+              <input type="checkbox" id="confirm" name="confirm"> Confirm a collection order will be issued
+            </label>
+          </div>
+
+          <div class="form-group">
+            <button class="button" type="submit">Save and continue</button>
+          </div>
+
+        </section>
+
+      </form>
+
+    </div>
+
+    <div class="column-third">
+
+      <div class="related">
+
+        <h3 class="bold-medium">Weekly income</h3>
+        <p>&pound;440 (assumed)</p>
+
+        <div class="related-section">
+          <h3 class="related-heading">Documents</h3>
+          <ul class="related-links">
+            <li>
+              <div class="document document-small">
+                <i class="icon icon-file-download"></i>
+                <div class="document-content">
+                  <p class="document-title"><a href="#">SJP notice</a></p>
+                  <div class="document-meta">
+                    <span class="document-meta-details">
+                      PDF, 256KB, 3 pages
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="document document-small">
+                <i class="icon icon-file-download"></i>
+                <div class="document-content">
+                  <p class="document-title"><a href="#">Previous convictions</a></p>
+                  <div class="document-meta">
+                    <span class="document-meta-details">
+                      PDF, 514KB, 2 pages
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="document document-small">
+                <i class="icon icon-file-download"></i>
+                <div class="document-content">
+                  <p class="document-title"><a href="#">Financial means</a></p>
+                  <div class="document-meta">
+                    <span class="document-meta-details">
+                      PDF, 200KB, 2 pages
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{{/with}}

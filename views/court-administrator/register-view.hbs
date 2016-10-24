@@ -6,7 +6,7 @@
   {{#and ../sFirstname ../sLastname}}
     {{../sFirstname}} {{uppercase ../sLastname}}
   {{else}}
-    {{firstname}} {{uppercase lastname}}
+    {{personal-details.firstname}} {{uppercase personal-details.lastname}}
   {{/and}}
 </h1>
 
@@ -21,28 +21,38 @@
       {{#if ../sDob}}
         <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMMM YYYY"}}</time>
       {{else}}
-        <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMMM YYYY"}}</time>
+        <time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMMM YYYY"}}</time>
       {{/if}}
     </dd>
 
     <dt>Address</dt>
     <dd>
-      {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
-      {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
-      {{#if ../sTown}}{{../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
-      {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
+      {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{personal-details.address.address1}}<br>{{/if}}
+      {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}<br>{{/if}}{{/if}}
+      {{#if ../sTown}}{{../sTown}}<br>{{else}}{{personal-details.address.town}}<br>{{/if}}
+      {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
     </dd>
 
     <dt>Email</dt>
-    <dd>tegan.smith@gmail.com</dd>
+    <dd>
+      {{#if ../sEmail}}
+        {{../sEmail}}
+      {{else}}
+        {{#if personal-details.email}}
+          {{personal-details.email}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      {{/if}}
+    </dd>
 
     <dt>Home telephone</dt>
     <dd>
       {{#if ../sPhone}}
         {{../sPhone}}
       {{else}}
-        {{#if phone}}
-          {{phone}}
+        {{#if personal-details.phone}}
+          {{personal-details.phone}}
         {{else}}
           &ndash;
         {{/if}}
@@ -54,8 +64,8 @@
       {{#if ../sMobile}}
         {{../sMobile}}
       {{else}}
-        {{#if mobile}}
-          {{mobile}}
+        {{#if personal-details.mobile}}
+          {{personal-details.mobile}}
         {{else}}
           &ndash;
         {{/if}}
@@ -63,7 +73,7 @@
     </dd>
 
     <dt>Gender</dt>
-    <dd>{{gender}}</dd>
+    <dd>{{personal-details.gender}}</dd>
 
   </dl>
 

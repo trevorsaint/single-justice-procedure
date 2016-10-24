@@ -24,21 +24,21 @@
             <label for="title">
               <span class="form-label">Title (optional)</span>
             </label>
-            <input class="form-control form-control-1-8" type="text" id="title" name="title"{{#if ../sTitle}} value="{{../sTitle}}"{{else}} value="{{title}}"{{/if}}>
+            <input class="form-control form-control-1-8" type="text" id="title" name="title"{{#if ../sTitle}} value="{{../sTitle}}"{{else}} value="{{personal-details.title}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="firstname">
               <span class="form-label">First name</span>
             </label>
-            <input class="form-control" type="text" id="firstname" name="firstname"{{#if ../sFirstname}} value="{{../sFirstname}}"{{else}} value="{{firstname}}"{{/if}}>
+            <input class="form-control" type="text" id="firstname" name="firstname"{{#if ../sFirstname}} value="{{../sFirstname}}"{{else}} value="{{personal-details.firstname}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="lastname">
               <span class="form-label">Last name</span>
             </label>
-            <input class="form-control" type="text" id="lastname" name="lastname"{{#if ../sLastname}} value="{{../sLastname}}"{{else}} value="{{lastname}}"{{/if}}>
+            <input class="form-control" type="text" id="lastname" name="lastname"{{#if ../sLastname}} value="{{../sLastname}}"{{else}} value="{{personal-details.lastname}}"{{/if}}>
           </div>
 
           <div class="form-group">
@@ -54,7 +54,7 @@
 
                 <div class="form-group form-group-day">
                   <label class="form-label" for="dob-day">Day</label>
-                  <input class="form-control" type="number" id="dob-day" name="dobDay"{{#if ../sDob}} value="{{moment ../sDob format="D"}}"{{else}} value="{{moment dob format="D"}}"{{/if}} aria-describedby="dob-hint">
+                  <input class="form-control" type="number" id="dob-day" name="dobDay"{{#if ../sDob}} value="{{moment ../sDob format="D"}}"{{else}} value="{{moment personal-details.dob format="D"}}"{{/if}} aria-describedby="dob-hint">
                 </div>
 
                 <div class="form-group form-group-month">
@@ -64,7 +64,7 @@
 
                 <div class="form-group form-group-year">
                   <label class="form-label" for="dob-year">Year</label>
-                  <input class="form-control" type="number" id="dob-year" name="dobYear"{{#if ../sDob}} value="{{moment ../sDob format="YYYY"}}"{{else}} value="{{moment dob format="YYYY"}}"{{/if}}>
+                  <input class="form-control" type="number" id="dob-year" name="dobYear"{{#if ../sDob}} value="{{moment ../sDob format="YYYY"}}"{{else}} value="{{moment personal-details.dob format="YYYY"}}"{{/if}}>
                 </div>
 
               </div>
@@ -89,28 +89,28 @@
             <label for="address1">
               <span class="form-label">Street</span>
             </label>
-            <input class="form-control" type="text" id="address1" name="address1" {{#if ../sAddress1}} value="{{../sAddress1}}"{{else}} value="{{address.address1}}"{{/if}}>
+            <input class="form-control" type="text" id="address1" name="address1" {{#if ../sAddress1}} value="{{../sAddress1}}"{{else}} value="{{personal-details.address.address1}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label class="visuallyhidden" for="address2">
               <span class="form-label">Street</span>
             </label>
-            <input class="form-control" type="text" id="address2" name="address2"{{#if ../sAddress2}} value="{{../sAddress2}}"{{else}} value="{{address.address2}}"{{/if}}>
+            <input class="form-control" type="text" id="address2" name="address2"{{#if ../sAddress2}} value="{{../sAddress2}}"{{else}} value="{{personal-details.address.address2}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="town">
               <span class="form-label">Town or City</span>
             </label>
-            <input class="form-control form-control-1-4" type="text" id="town" name="town"{{#if ../sTown}} value="{{../sTown}}"{{else}} value="{{address.town}}"{{/if}}>
+            <input class="form-control form-control-1-4" type="text" id="town" name="town"{{#if ../sTown}} value="{{../sTown}}"{{else}} value="{{personal-details.address.town}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="postcode">
               <span class="form-label">Postcode</span>
             </label>
-            <input class="form-control form-control-1-4" type="text" id="postcode" name="postcode"{{#if ../sPostcode}} value="{{../sPostcode}}"{{else}} value="{{address.postcode}}"{{/if}}>
+            <input class="form-control form-control-1-4" type="text" id="postcode" name="postcode"{{#if ../sPostcode}} value="{{../sPostcode}}"{{else}} value="{{personal-details.address.postcode}}"{{/if}}>
           </div>
 
         </fieldset>
@@ -129,14 +129,14 @@
             <label for="email">
               <span class="form-label">Email</span>
             </label>
-            <input class="form-control" type="email" id="email" name="email"{{#if ../sEmail}} value="{{../sEmail}}"{{else}} value="{{email}}"{{/if}}>
+            <input class="form-control" type="email" id="email" name="email"{{#if ../sEmail}} value="{{../sEmail}}"{{else}} value="{{personal-details.email}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label for="phone">
               <span class="form-label">Home telephone</span>
             </label>
-            <input class="form-control form-control-1-4" type="tel" id="phone" name="phone"{{#if ../sPhone}} value="{{../sPhone}}"{{else}} value="{{phone}}"{{/if}}>
+            <input class="form-control form-control-1-4" type="tel" id="phone" name="phone"{{#if ../sPhone}} value="{{../sPhone}}"{{else}} value="{{personal-details.phone}}"{{/if}}>
           </div>
 
           <div class="form-group">

@@ -56,7 +56,7 @@
       {{#and ../sFirstname ../sLastname}}
         {{../sFirstname}} {{uppercase ../sLastname}}
       {{else}}
-        {{firstname}} {{uppercase lastname}}
+        {{personal-details.firstname}} {{uppercase personal-details.lastname}}
       {{/and}}
     </dd>
 
@@ -65,16 +65,16 @@
       {{#if ../sDob}}
         <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMM YYYY"}}</time>
       {{else}}
-        <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time>
+        <time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time>
       {{/if}}
     </dd>
 
     <dt>Address</dt>
     <dd>
-      {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
-      {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
-      {{#if ../sTown}}{{../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
-      {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
+      {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{personal-details.address.address1}}<br>{{/if}}
+      {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}<br>{{/if}}{{/if}}
+      {{#if ../sTown}}{{../sTown}}<br>{{else}}{{personal-details.address.town}}<br>{{/if}}
+      {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
     </dd>
 
     <dt>Email</dt>
@@ -83,7 +83,7 @@
         {{../sEmail}}
       {{else}}
         {{#if email}}
-          {{email}}
+          {{personal-details.email}}
         {{else}}
           &ndash;
         {{/if}}
@@ -96,7 +96,7 @@
         {{../sPhone}}
       {{else}}
         {{#if phone}}
-          {{phone}}
+          {{personal-details.phone}}
         {{else}}
           &ndash;
         {{/if}}
@@ -109,7 +109,7 @@
         {{../sMobile}}
       {{else}}
         {{#if mobile}}
-          {{mobile}}
+          {{personal-details.mobile}}
         {{else}}
           &ndash;
         {{/if}}
@@ -136,8 +136,8 @@
       {{#if ../sNationalInsurance}}
         {{../sNationalInsurance}}
       {{else}}
-        {{#if national-insurance-number}}
-          {{national-insurance-number}}
+        {{#if personal-details.national-insurance-number}}
+          {{personal-details.national-insurance-number}}
         {{else}}
           &ndash;
         {{/if}}

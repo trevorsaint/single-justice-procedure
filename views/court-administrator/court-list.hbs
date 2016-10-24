@@ -40,13 +40,13 @@
     {{#each searches}}
       {{#contains case-details.status 'Awaiting plea'}}
         <tr>
-          <td>{{uppercase lastname}} {{firstname}}</td>
+          <td>{{uppercase personal-details.lastname}} {{personal-details.firstname}}</td>
           <td>{{{offence.title}}}</td>
         </tr>
       {{/contains}}
       {{#contains case-details.status 'Ready'}}
         <tr>
-          <td>{{uppercase lastname}} {{firstname}}</td>
+          <td>{{uppercase personal-details.lastname}} {{personal-details.firstname}}</td>
           <td>{{{offence.title}}}</td>
         </tr>
       {{/contains}}

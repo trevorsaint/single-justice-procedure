@@ -122,8 +122,8 @@ router.route('/court-administrator/court-list/')
     res.render('court-administrator/court-list', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Cases awaiting decision under Single Justice Procedure',
-      pagetitle: 'Cases awaiting decision under Single Justice Procedure',
+      doctitle: 'Cases awaiting decision under SJP',
+      pagetitle: 'Cases awaiting decision under SJP',
       section: 'home',
       section_name: 'Home',
       searches: dataEngine.getSearchEntries(),

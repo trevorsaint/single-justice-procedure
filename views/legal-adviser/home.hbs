@@ -6,48 +6,56 @@
 
     <h1 class="heading-xlarge"><span class="heading-secondary">{{apptitle}}</span> {{pagetitle}}</h1>
 
-    <h2 class="heading-medium">Search for a case</h2>
-
     <form class="form" method="post">
 
       <div class="form-group">
+        <label class="form-label-bold" for="court-location">Court location</label>
+        <select class="form-control" id="court-location" name="courtLocation">
+          <option value="cl-1">Court location 1</option>
+          <option value="cl-2">Court location 2</option>
+          <option value="cl-3">Court location 3</option>
+        </select>
+      </div>
 
-        <div class="form-search">
+      <div class="form-group">
+        <label class="form-label-bold" for="local-justice-area">Local justice area</label>
+        <select class="form-control" id="local-justice-area" name="localJusticeArea">
+          <option value="lja-1">Local justice area 1</option>
+          <option value="lja-2">Local justice area 2</option>
+          <option value="lja-3">Local justice area 3</option>
+        </select>
+      </div>
 
-          <label for="search">
-            <span class="form-label">Enter case reference number or defendant&rsquo;s last name</span>
+      <div class="form-group form-group-last">
+
+        <fieldset class="inline">
+
+          <legend>
+            <span class="form-label-bold">Are you working with a magistrate?</span>
+          </legend>
+
+          <label class="block-label" for="working-with-magistrate-yes" data-target="working-with-magistrate">
+            <input type="radio" id="working-with-magistrate-yes" name="workingWithMagistrate" value="Yes"> Yes
           </label>
 
-          <input class="form-control form-control-wide" type="search" id="search" name="search"><button class="form-search-button" type="submit">Search</button>
+          <label class="block-label" for="working-with-magistrate-no">
+            <input type="radio" id="working-with-magistrate-no" name="workingWithMagistrate" value="No"> No &ndash; i&rsquo;m working under delegated powers
+          </label>
 
-        </div>
+          <div class="panel panel-border-narrow js-hidden" id="working-with-magistrate">
+            <label class="form-label" for="magistrates-name">Magistrate&rsquo;s name</label>
+            <input class="form-control" type="text" id="magistrates-name" name="magistratesName">
+          </div>
+
+        </fieldset>
 
       </div>
 
+      <div class="form-group">
+        <button class="button" type="submit">Save and continue</button>
+      </div>
+
     </form>
-
-  </div>
-
-</div>
-
-<div class="grid-row">
-
-  <div class="column-two-thirds">
-
-    <h2 class="heading-medium" id="transferring-cases-to-libra">Transferring cases to Libra</h2>
-
-    <ul class="list" aria-labelledby="transferring-cases-to-libra">
-      <li><p><a href="#">Send cases back to Libra</a></p></li>
-      <li><p><a href="#">View cases sent to Libra since last transfer</a></p></li>
-    </ul>
-
-    <h2 class="heading-medium" id="other-tasks">Other tasks</h2>
-
-    <ul class="list" aria-labelledby="other-tasks">
-      <li><p><a href="/court-administrator/court-list">Print court list</a></p></li>
-      <li><p><a href="/court-administrator/print-register-view-of-cases">Print batch of cases in register view</a></p></li>
-      <li><p><a href="#">Create service performance report</a></p></li>
-    </ul>
 
   </div>
 
