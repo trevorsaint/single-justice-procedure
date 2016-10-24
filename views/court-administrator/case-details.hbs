@@ -100,8 +100,8 @@
 
               <dt>Name</dt>
               <dd>
-                {{#and ../sFirstname ../sLastname}}
-                  {{../sFirstname}} {{uppercase ../sLastname}}
+                {{#and ../../sFirstname ../../sLastname}}
+                  {{../../sFirstname}} {{uppercase ../../sLastname}}
                 {{else}}
                   {{firstname}} {{uppercase lastname}}
                 {{/and}}
@@ -109,8 +109,8 @@
 
               <dt>Date of birth</dt>
               <dd>
-                {{#if ../sDob}}
-                  <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMM YYYY"}}</time>
+                {{#if ../../sDob}}
+                  <time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../..sDob format="D MMM YYYY"}}</time>
                 {{else}}
                   <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)
                 {{/if}}
@@ -118,16 +118,16 @@
 
               <dt>Address</dt>
               <dd>
-                {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
-                {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
-                {{#if ../sTown}}{{../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
-                {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
+                {{#if ../../sAddress1}}{{../../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
+                {{#if ../../sAddress2}}{{../../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
+                {{#if ../../sTown}}{{../../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
+                {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
               </dd>
 
               <dt>Email</dt>
               <dd>
-                {{#if ../sEmail}}
-                  {{../sEmail}}
+                {{#if ../../sEmail}}
+                  {{../../sEmail}}
                 {{else}}
 
                   {{#if email}}
@@ -141,8 +141,8 @@
 
               <dt>Home telephone</dt>
               <dd>
-                {{#if ../sPhone}}
-                  {{../sPhone}}
+                {{#if ../../sPhone}}
+                  {{../../sPhone}}
                 {{else}}
                   {{#if phone}}
                     {{phone}}
@@ -154,8 +154,8 @@
 
               <dt>Mobile</dt>
               <dd>
-                {{#if ../sMobile}}
-                  {{../sMobile}}
+                {{#if ../../sMobile}}
+                  {{../../sMobile}}
                 {{else}}
                   {{#if mobile}}
                     {{mobile}}

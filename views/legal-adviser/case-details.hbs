@@ -24,7 +24,6 @@
           <ul class="list">
             <li><a href="#case-details">Case details</a></li>
             <li><a href="#personal-details">Personal details</a></li>
-            <li><a href="#documents">Documents</a></li>
           </ul>
         </div>
 
@@ -80,38 +79,6 @@
           </section>
           {{/with}}
 
-          {{#with related-documents}}
-          <section id="documents">
-
-            <header class="section-header">
-              <h2 class="heading-medium">Documents</h2>
-              <a class="font-small" href="#" title="Upload more documents">Upload more <span class="visuallyhidden">documents</span></a>
-            </header>
-
-            <dl class="meta meta-large">
-              <dt>Uploaded files</dt>
-              <dd>
-                {{#each document}}
-                  {{#is show true}}
-                  <div class="document document-small">
-                    <i class="icon icon-file-download"></i>
-                    <div class="document-content">
-                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
-                      <div class="document-meta">
-                        <span class="document-meta-details">
-                          {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  {{/is}}
-                {{/each}}
-              </dd>
-            </dl>
-
-          </section>
-          {{/with}}
-
         </div>
 
       </div>
@@ -121,6 +88,32 @@
     <div class="column-third">
 
       <div class="related">
+
+        <div class="related-section">
+
+          <h3 class="related-heading">Documents</h3>
+
+          <ul class="related-links">
+            {{#each related-documents.document}}
+              {{#is show true}}
+                <li>
+                  <div class="document document-small">
+                    <i class="icon icon-file-download"></i>
+                    <div class="document-content">
+                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
+                        <div class="document-meta">
+                          <span class="document-meta-details">
+                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              {{/is}}
+            {{/each}}
+          </ul>
+
+        </div>
 
         <div class="related-section">
 
@@ -162,7 +155,7 @@
             <div class="tabs-header">
               <ul class="list">
                 <li><a href="#offence-details">Details</a></li>
-                <li><a href="#offence-decision">Make a decision</a></li>
+                <li class="is-active"><a href="#offence-decision">Make a decision</a></li>
               </ul>
             </div>
 

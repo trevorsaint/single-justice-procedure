@@ -104,6 +104,30 @@ var search = [
           "can-remove": false
         },
         {
+          "show": true,
+          "id": "previous-convictions",
+          "name": "previousConvictions",
+          "title": "previous convictions",
+          "file-type": "PDF",
+          "file-size": "514KB",
+          "file-pages": "2 pages",
+          "file-uploaded-date": "2016-01-15",
+          "file-path": "#",
+          "can-remove": false
+        },
+        {
+          "show": true,
+          "id": "financial-means",
+          "name": "financialMeans",
+          "title": "financial means",
+          "file-type": "PDF",
+          "file-size": "200KB",
+          "file-pages": "2 pages",
+          "file-uploaded-date": "2016-01-15",
+          "file-path": "#",
+          "can-remove": false
+        },
+        {
           "show": false,
           "id": "plea-document",
           "name": "pleaDocument",
