@@ -3,10 +3,13 @@
 {{#with search}}
 
   <div class="persist-info">
-    <span class="persist-info-reference">{{personal-details.urn}}</span>
-    <span class="persist-info-title">
-      {{personal-details.firstname}} {{uppercase personal-details.lastname}}
-    </span>
+    <div class="persist-info-content">
+      <span class="persist-info-reference">{{personal-details.urn}}</span>
+      <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+    </div>
+    <ul class="persist-info-links">
+      <li><a href="#">End session</a></li>
+    </ul>
   </div>
 
   <div class="grid-row">
@@ -198,16 +201,6 @@
               {{/is}}
             {{/each}}
           </ul>
-        </div>
-
-        <div class="related-section">
-
-          <h3 class="related-heading">Case options</h3>
-
-          <ul class="related-links">
-            <li><a href="#">End session</a></li>
-          </ul>
-
         </div>
 
       </div>

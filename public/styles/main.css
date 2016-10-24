@@ -1892,12 +1892,16 @@ input[type=number] {
     display: revert;
   }
 }
-.pagination:before, .document-small:before, .banner:before, .pagination:after, .document-small:after, .banner:after {
+.pagination:before, .persist-info:before, .document-small:before, .banner:before, .pagination:after, .persist-info:after, .document-small:after, .banner:after {
   content: '';
   display: table;
 }
-.pagination:after, .document-small:after, .banner:after {
+.pagination:after, .persist-info:after, .document-small:after, .banner:after {
   clear: both;
+}
+
+b {
+  font-weight: bold;
 }
 
 /*
@@ -2252,8 +2256,8 @@ HTML Usage
   font-size: 14px;
   line-height: 1.14286;
   background-color: #005ea5;
-  color: white;
-  padding: 15px;
+  color: #fff;
+  padding: 0.3125em;
 }
 @media (min-width: 641px) {
   .persist-info {
@@ -2261,18 +2265,75 @@ HTML Usage
     line-height: 1.25;
   }
 }
-.persist-info-title {
+.persist-info a {
+  color: #fff;
+  display: block;
+  overflow: hidden;
+}
+.persist-info a:focus {
+  color: #0b0c0c;
+}
+.persist-info-links {
+  overflow: hidden;
+  padding: 0.52632em;
+}
+.persist-info-links li {
+  display: inline-block;
+  margin-left: 0.9375em;
+  vertical-align: middle;
+}
+.persist-info-links li:first-child {
+  margin-left: 0;
+}
+.persist-info-marker {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 12px;
+  line-height: 1.25;
+  display: inline-block;
   font-weight: 700;
-  margin-left: 0.52632em;
+  padding: 0.71429em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+@media (min-width: 641px) {
+  .persist-info-marker {
+    font-size: 14px;
+    line-height: 1.42857;
+  }
+}
+.persist-info-marker-sensitive {
+  background-color: #ffbf47;
+  color: #0b0c0c;
+}
+.persist-info-reference {
+  display: inline-block;
+  padding: 0.625em 0 0.625em 0.625em;
+  vertical-align: middle;
+}
+.persist-info-title {
+  display: inline-block;
+  padding: 0.625em 0 0.625em 0.625em;
+  vertical-align: middle;
+}
+@media (min-width: 769px) {
+  .persist-info-content {
+    float: left;
+  }
+  .persist-info-links {
+    margin-top: 0;
+    text-align: right;
+  }
 }
 
 /*
-  
+
 HTML Usage
-  
+
 <div class="persist-info">
-  <span class="persist-info-reference">29324692</span>
-  <span class="persist-info-title">Billy SMITH</span>
+  <span class="persist-info-reference">12AA3456716</span>
+  <span class="persist-info-title">Joseph BLOGGS</span>
 </div>
 
 */
