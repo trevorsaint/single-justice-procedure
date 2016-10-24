@@ -3,9 +3,9 @@
 {{#with search}}
 
   <div class="persist-info">
-    <span class="persist-info-reference">{{urn}}</span>
+    <span class="persist-info-reference">{{personal-details.urn}}</span>
     <span class="persist-info-title">
-      {{firstname}} {{uppercase lastname}}
+      {{personal-details.firstname}} {{uppercase personal-details.lastname}}
     </span>
   </div>
 
@@ -14,8 +14,8 @@
     <div class="column-two-thirds">
 
       <h1 class="heading-xlarge">
-        {{firstname}} {{uppercase lastname}}
-        <span class="heading-secondary"><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMMM YYYY"}}</time> ({{age}} years old)</span>
+        {{personal-details.firstname}} {{uppercase personal-details.lastname}}
+        <span class="heading-secondary"><time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMMM YYYY"}}</time> ({{personal-details.age}} years old)</span>
       </h1>
 
       <div class="tabs tabs-horizontal">
@@ -24,6 +24,7 @@
           <ul class="list">
             <li><a href="#case-details">Case details</a></li>
             <li><a href="#personal-details">Personal details</a></li>
+            <li><a href="#documents">Documents</a></li>
           </ul>
         </div>
 
@@ -41,9 +42,56 @@
               <dd>{{{prosecutor}}}</dd>
               <dt>Notice served</dt>
               <dd><time datetime="{{moment notice-served format="YYYY-MM-DD"}}">{{moment notice-served format="D MMMM YYYY"}}</time></dd>
-              <dt>Documents</dt>
+            </dl>
+
+          </section>
+          {{/with}}
+
+          {{#with personal-details}}
+          <section id="personal-details">
+
+            <header class="section-header">
+              <h2 class="heading-medium">Personal details</h2>
+              <a class="font-small" href="#" title="Change personal details">Change <span class="visuallyhidden">personal details</span></a>
+            </header>
+
+            <dl class="meta meta-large">
+
+              <dt>Name</dt>
+              <dd>{{firstname}} {{uppercase lastname}}</dd>
+
+              <dt>Date of birth</dt>
+              <dd><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)</dd>
+
+              <dt>Address</dt>
+              <dd>{{address.address1}}<br>{{#if address.address2}}{{address.address2}}<br>{{/if}}{{address.town}}<br>{{uppercase address.postcode}}</dd>
+
+              <dt>Email</dt>
+              <dd>{{#if email}}{{email}}{{else}}&ndash;{{/if}}</dd>
+
+              <dt>Home telephone</dt>
+              <dd>{{#if phone}}{{phone}}{{else}}&ndash;{{/if}}</dd>
+
+              <dt>Mobile</dt>
+              <dd>{{#if mobile}}{{mobile}}{{else}}&ndash;{{/if}}</dd>
+
+            </dl>
+
+          </section>
+          {{/with}}
+
+          {{#with related-documents}}
+          <section id="documents">
+
+            <header class="section-header">
+              <h2 class="heading-medium">Documents</h2>
+              <a class="font-small" href="#" title="Upload more documents">Upload more <span class="visuallyhidden">documents</span></a>
+            </header>
+
+            <dl class="meta meta-large">
+              <dt>Uploaded files</dt>
               <dd>
-                {{#each ../related-documents.document}}
+                {{#each document}}
                   {{#is show true}}
                   <div class="document document-small">
                     <i class="icon icon-file-download"></i>
@@ -63,41 +111,6 @@
 
           </section>
           {{/with}}
-
-          <section id="personal-details">
-
-            <header class="section-header">
-              <h2 class="heading-medium">Personal details</h2>
-              <a class="font-small" href="#" title="Change personal details">Change <span class="visuallyhidden">personal details</span></a>
-            </header>
-
-            <dl class="meta meta-large">
-
-              <dt>Name</dt>
-              <dd>{{firstname}} {{uppercase lastname}}</dd>
-
-              <dt>Date of birth</dt>
-              <dd><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)</dd>
-
-              <dt>Address</dt>
-              <dd>
-                {{address.address1}}<br>
-                {{address.town}}<br>
-                {{uppercase address.postcode}}
-              </dd>
-
-              <dt>Email</dt>
-              <dd>&ndash;</dd>
-
-              <dt>Home telephone</dt>
-              <dd>&ndash;</dd>
-
-              <dt>Mobile</dt>
-              <dd>&ndash;</dd>
-
-            </dl>
-
-          </section>
 
         </div>
 
@@ -142,7 +155,7 @@
 
           <p class="font-xsmall">On <time datetime="{{moment date format="YYYY-MM-DD"}}">{{moment date format="D MMMM YYYY"}}</time></p>
 
-          <p><strong class="tag">{{{plea}}}</strong></p>
+          <p><strong class="status-label">{{{plea}}}</strong></p>
 
           <div class="tabs tabs-horizontal">
 

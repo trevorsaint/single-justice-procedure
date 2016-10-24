@@ -2865,38 +2865,24 @@ HTML Usage
   right: 0;
 }
 
-.tag {
-  display: -moz-inline-stack;
+.status-label {
+  border: 0.10526em solid #0b0c0c;
   display: inline-block;
-  font-family: "nta", Arial, sans-serif;
-  font-weight: 700;
-  text-transform: none;
-  font-size: 14px;
-  line-height: 1.14286;
-  border: 2px solid #0b0c0c;
-  color: #0b0c0c;
-  letter-spacing: 1px;
-  margin: 0 8px 0 0;
-  padding: 2px 5px 0;
-  text-decoration: none;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.52632em;
   text-transform: uppercase;
-}
-@media (min-width: 641px) {
-  .tag {
-    font-size: 16px;
-    line-height: 1.25;
-  }
 }
 
 /*
-  
+
 HTML Usage
 
-<p><strong class="tag">Pleaded guilty</strong></p>
+<p><strong class="status-label">Pleaded guilty</strong></p>
 
-<p><strong class="tag">Not guilty</strong></p>
+<p><strong class="status-label">Not guilty</strong></p>
 
-<p><strong class="tag">No plea given</strong></p>
+<p><strong class="status-label">No plea given</strong></p>
 
 */
 .figure {

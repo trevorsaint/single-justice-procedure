@@ -1,0 +1,25 @@
+// Status label
+// ==========================================================================
+
+$module: 'status-label';
+
+.#{$module} {
+  border: em(2) solid $black;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  padding: em(10);
+  text-transform: uppercase;
+}
+
+/*
+
+HTML Usage
+
+<p><strong class="status-label">Pleaded guilty</strong></p>
+
+<p><strong class="status-label">Not guilty</strong></p>
+
+<p><strong class="status-label">No plea given</strong></p>
+
+*/
