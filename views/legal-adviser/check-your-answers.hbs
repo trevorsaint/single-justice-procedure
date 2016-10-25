@@ -1,0 +1,100 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+  <section class="check-answers" aria-labelledby="offences">
+
+    <header class="check-answers-header">
+      <h2 class="bold-medium" id="offences">Offences</h2>
+      <a class="check-answers-action" href="#" title="Change cost and surcharge">Change <span class="visuallyhidden">offences</span></a>
+    </header>
+
+    <dl class="meta meta-light meta-large">
+      <dt>Offence</dt>
+      <dd>Passenger used a ticket issued for another person</dd>
+      <dt>Plea</dt>
+      <dd>Guilty</dd>
+      <dt>Verdict</dt>
+      <dd>&ndash;</dd>
+      <dt>Result</dt>
+      <dd>Fine</dd>
+      <dt>Outcome</dt>
+      <dd>&pound;147.00</dd>
+      <dt>Compensation</dt>
+      <dd>&pound;3.12</dd>
+    </dl>
+
+  </section>
+
+  <hr>
+
+  <section class="check-answers" aria-labelledby="cost-and-surcharge">
+
+    <header class="check-answers-header">
+      <h2 class="bold-medium" id="cost-and-surcharge">Cost and surcharge</h2>
+      <a class="check-answers-action" href="#" title="Change cost and surcharge">Change <span class="visuallyhidden">cost and surcharge</span></a>
+    </header>
+
+    <dl class="meta meta-light meta-large">
+      <dt>Cost</dt>
+      <dd>&pound;125.00</dd>
+      <dt>Surcharge and victim fund</dt>
+      <dd>&pound;30.00</dd>
+    </dl>
+
+  </section>
+
+  <hr>
+
+  <section class="check-answers" aria-labelledby="collection-and-payment">
+
+    <header class="check-answers-header">
+      <h2 class="bold-medium" id="collection-and-payment">Collection and payment</h2>
+      <a class="check-answers-action" href="#" title="Change collection and payment">Change <span class="visuallyhidden">collection and payment</span></a>
+    </header>
+
+    <dl class="meta meta-light meta-large">
+      <dt>Total</dt>
+      <dd>&pound;305.12</dd>
+      <dt>Method</dt>
+      <dd>Dedcut from benefits</dd>
+      <dt>Reserved terms</dt>
+      <dd>Lump sum within 14 days</dd>
+      <dt>Collection order issued</dt>
+      <dd>Yes</dd>
+    </dl>
+
+  </section>
+
+  <hr>
+
+  <section class="check-answers" aria-labelledby="decision">
+
+    <h2 class="heading-medium">Decision</h2>
+
+    <div class="panel panel-border-narrow">
+      <p class="text">Only add if you have important information you couldn&rsquo;t enter elsewhere. The details you enter may be shown publicly, for example to the defendant.</p>
+    </div>
+
+    <form class="form" method="post">
+
+      <div class="form-group">
+        <label for="decision-notes">
+          <span class="form-label">Notes (optional)</span>
+        </label>
+        <textarea class="form-control form-control-textarea" id="notes" name="notes" rows="5" cols="60"></textarea>
+      </div>
+
+      <div class="form-group form-group-related">
+        <button class="button" type="submit">Save and continue</button>
+      </div>
+
+      <p><a href="#">Cancel</a></p>
+
+    <form>
+
+  </section>
+
+{{/with}}

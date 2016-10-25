@@ -1,0 +1,176 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  <div class="persist-info">
+    <div class="persist-info-content">
+      <span class="persist-info-reference">{{personal-details.urn}}</span>
+      <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+    </div>
+    <ul class="persist-info-links">
+      <li><a href="#">End session</a></li>
+    </ul>
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+      <form class="form" method="post">
+
+        <h3 class="heading-medium">Employer details</h3>
+
+        <div class="form-group">
+          <label for="employee-number">
+            <span class="form-label">Employee number (optional)</span>
+          </label>
+          <input class="form-control" type="text" id="employee-number" name="employeeNumber">
+        </div>
+
+        <div class="form-group">
+          <label for="employer-name">
+            <span class="form-label">Employer name</span>
+          </label>
+          <input class="form-control" type="text" id="employer-name" name="employerName">
+        </div>
+
+        <div class="form-group form-group-compound">
+          <label for="employer-address1">
+            <span class="form-label">Street</span>
+          </label>
+          <input class="form-control" type="text" id="employer-address1" name="employerAddress1">
+        </div>
+
+        <div class="form-group">
+          <label class="visuallyhidden" for="employer-address2">
+            <span class="form-label">Street</span>
+          </label>
+          <input class="form-control" type="text" id="employer-address2" name="employerAddress2">
+        </div>
+
+        <div class="form-group">
+          <label for="employer-town">
+            <span class="form-label">Town or City</span>
+          </label>
+          <input class="form-control form-control-1-4" type="text" id="employer-town" name="employerTown">
+        </div>
+
+        <div class="form-group">
+          <label for="employer-postcode">
+            <span class="form-label">Postcode</span>
+          </label>
+          <input class="form-control form-control-1-4"  type="text" id="employer-postcode" name="employerPostcode">
+        </div>
+
+        <h3 class="heading-medium">Reason for attaching to earnings</h3>
+
+        <div class="form-group">
+
+          <fieldset>
+
+            <legend class="visuallyhidden">Reason for attaching to earnings</legend>
+
+            <label class="block-label" for="compensation-ordered">
+              <input type="radio" id="compensation-ordered" name="reasonForAttachingToEarnings" value="Compensation ordered" checked="checked">
+              Compensation ordered
+            </label>
+
+            <p class="form-block">or</p>
+
+            <label class="block-label" for="known-defaulter">
+              <input id="known-defaulter" type="radio" name="reasonForAttachingToEarnings" value="Defendant is a know defaulter">
+              Defendant is a known defaulter
+            </label>
+
+            <label class="block-label" for="defendant-requested">
+              <input id="defendant-requested" type="radio" name="reasonForAttachingToEarnings" value="Defendant requested this">
+              Defendant requested this
+            </label>
+
+          </fieldset>
+
+        </div>
+
+        <h3 class="heading-medium">Set reserve terms</h3>
+
+        <div class="form-group form-group-last">
+
+          <fieldset>
+
+            <legend class="visuallyhidden">Set reserve terms</legend>
+
+            <label class="block-label" for="lumpsum-14-days">
+              <input type="radio" id="lumpsum-14-days" name="reserveTerms" value="Lump sum 14 days" checked="checked">
+              Lump sum 14 days
+            </label>
+
+            <p class="form-block">or</p>
+
+            <label class="block-label" for="lumpsum-28-days">
+              <input type="radio" id="lumpsum-28-days" name="reserveTerms" value="Lump sum 28 days">
+              Lump sum 28 days
+            </label>
+
+            <label class="block-label" for="lumpsum-plus-instalments">
+              <input type="radio" id="lumpsum-plus-instalments" name="reserveTerms" value="Lump sum plus instalments">
+              Lump sum plus instalments
+            </label>
+
+            <label class="block-label" for="instalments-only">
+              <input type="radio" id="instalments-only" name="reserveTerms" value="Instalments only">
+              Instalments only
+            </label>
+
+          </fieldset>
+
+        </div>
+
+        <div class="form-group form-group-related">
+          <button class="button" type="submit">Save and continue</button>
+        </div>
+
+        <p><a href="#">Cancel</a></p>
+
+      </form>
+
+    </div>
+
+    <div class="column-third">
+
+      <div class="related">
+
+        <h3 class="bold-medium">Weekly income</h3>
+        <p>&pound;440 (assumed)</p>
+
+        <div class="related-section">
+          <h3 class="related-heading">Documents</h3>
+          <ul class="related-links">
+            {{#each related-documents.document}}
+              {{#is show true}}
+                <li>
+                  <div class="document document-small">
+                    <i class="icon icon-file-download"></i>
+                    <div class="document-content">
+                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
+                        <div class="document-meta">
+                          <span class="document-meta-details">
+                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              {{/is}}
+            {{/each}}
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{{/with}}

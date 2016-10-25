@@ -91,6 +91,63 @@ router.route('/legal-adviser/case-details/:id/')
       res.redirect('/legal-adviser/');
     });
 
+    router.route('/legal-adviser/collection-and-payment-terms/:id')
+      .get(function(req, res, next) {
+        entry = dataEngine.getSearchEntry(req.params.id);
+        res.render('legal-adviser/collection-and-payment-terms', {
+          baseurl: baseurl,
+          apptitle: apptitle,
+          doctitle: 'Collection and payment terms',
+          pagetitle: 'Collection and payment terms',
+          section: 'home',
+          section_name: 'Home',
+          search: entry,
+          signedIn: true,
+          breadcrumb: true
+        });
+      })
+      .post(function(req, res, next) {
+        res.redirect('/legal-adviser/');
+      });
+
+      router.route('/legal-adviser/terms-for-attachment-to-earnings/:id')
+        .get(function(req, res, next) {
+          entry = dataEngine.getSearchEntry(req.params.id);
+          res.render('legal-adviser/terms-for-attachment-to-earnings', {
+            baseurl: baseurl,
+            apptitle: apptitle,
+            doctitle: 'Terms for attachment to earnings',
+            pagetitle: 'Terms for attachment to earnings',
+            section: 'home',
+            section_name: 'Home',
+            search: entry,
+            signedIn: true,
+            breadcrumb: true
+          });
+        })
+        .post(function(req, res, next) {
+          res.redirect('/legal-adviser/');
+        });
+
+        router.route('/legal-adviser/check-your-answers/:id')
+          .get(function(req, res, next) {
+            entry = dataEngine.getSearchEntry(req.params.id);
+            res.render('legal-adviser/check-your-answers', {
+              baseurl: baseurl,
+              apptitle: apptitle,
+              doctitle: 'Check your answers',
+              pagetitle: 'Check your answers',
+              section: 'home',
+              section_name: 'Home',
+              search: entry,
+              signedIn: true,
+              breadcrumb: true
+            });
+          })
+          .post(function(req, res, next) {
+            res.redirect('/legal-adviser/');
+          });
+
 router.get('/legal-adviser/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,

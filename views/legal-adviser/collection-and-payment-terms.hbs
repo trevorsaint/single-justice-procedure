@@ -1,0 +1,96 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  <div class="persist-info">
+    <div class="persist-info-content">
+      <span class="persist-info-reference">{{personal-details.urn}}</span>
+      <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+    </div>
+    <ul class="persist-info-links">
+      <li><a href="#">End session</a></li>
+    </ul>
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+      <form class="form" method="post">
+
+        <h2 class="heading-medium">Choose a collection payment method</h2>
+
+        <div class="form-group form-group-last">
+
+          <fieldset>
+
+            <legend class="visually-hidden">Choose a collection payment method</legend>
+
+            <label class="block-label" for="pay-direct-to-court">
+              <input type="radio" id="pay-direct-to-court" name="paymentTerms" value="Pay direct to court" checked="checked">
+              Pay direct to court
+            </label>
+
+            <p class="form-block">or</p>
+
+            <label class="block-label" for="deduct-from-benefits">
+              <input type="radio" id="deduct-from-benefits" name="paymentTerms" value="Deduct from benefits">
+              Deduct from benefits
+            </label>
+
+            <label class="block-label" for="attach-to-earnings">
+              <input type="radio" id="attach-to-earnings" name="paymentTerms" value="Attach to earnings">
+              Attach to earnings
+            </label>
+
+          </fieldset>
+
+        </div>
+
+        <div class="form-group">
+          <button class="button" type="submit">Save and continue</button>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="column-third">
+
+      <div class="related">
+
+        <h3 class="bold-medium">Weekly income</h3>
+        <p>&pound;440 (assumed)</p>
+
+        <div class="related-section">
+          <h3 class="related-heading">Documents</h3>
+          <ul class="related-links">
+            {{#each related-documents.document}}
+              {{#is show true}}
+                <li>
+                  <div class="document document-small">
+                    <i class="icon icon-file-download"></i>
+                    <div class="document-content">
+                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
+                        <div class="document-meta">
+                          <span class="document-meta-details">
+                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              {{/is}}
+            {{/each}}
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{{/with}}
