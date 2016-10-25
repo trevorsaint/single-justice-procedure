@@ -34,15 +34,16 @@ var search = [
       "plea": "Awaiting plea"
     },
     "employment": {
-      "status": "",
-      "employer-name": "",
+      "status": "Employed",
+      "employer-name": "Ministry of Justice",
+      "employee-number": "e902938480",
       "employer-address": {
-        "address1": "",
+        "address1": "102 Petty France",
         "address2": "",
-        "town": "",
-        "postcode": ""
+        "town": "London",
+        "postcode": "SW1H 9AJ"
       },
-      "employer-telephone": "",
+      "employer-telephone": "020 3334 3555",
       "pay": {
         "frequency": "",
         "amount": ""

@@ -26,42 +26,42 @@
           <label for="employee-number">
             <span class="form-label">Employee number (optional)</span>
           </label>
-          <input class="form-control" type="text" id="employee-number" name="employeeNumber">
+          <input class="form-control" type="text" id="employee-number" name="employeeNumber" value="{{uppercase employment.employee-number}}">
         </div>
 
         <div class="form-group">
           <label for="employer-name">
             <span class="form-label">Employer name</span>
           </label>
-          <input class="form-control" type="text" id="employer-name" name="employerName">
+          <input class="form-control" type="text" id="employer-name" name="employerName" value="{{employment.employer-name}}">
         </div>
 
         <div class="form-group form-group-compound">
           <label for="employer-address1">
             <span class="form-label">Street</span>
           </label>
-          <input class="form-control" type="text" id="employer-address1" name="employerAddress1">
+          <input class="form-control" type="text" id="employer-address1" name="employerAddress1" value="{{employment.employer-address.address1}}">
         </div>
 
         <div class="form-group">
           <label class="visuallyhidden" for="employer-address2">
             <span class="form-label">Street</span>
           </label>
-          <input class="form-control" type="text" id="employer-address2" name="employerAddress2">
+          <input class="form-control" type="text" id="employer-address2" name="employerAddress2" value="{{employment.employer-address.address2}}">
         </div>
 
         <div class="form-group">
           <label for="employer-town">
             <span class="form-label">Town or City</span>
           </label>
-          <input class="form-control form-control-1-4" type="text" id="employer-town" name="employerTown">
+          <input class="form-control form-control-1-4" type="text" id="employer-town" name="employerTown" value="{{employment.employer-address.town}}">
         </div>
 
         <div class="form-group">
           <label for="employer-postcode">
             <span class="form-label">Postcode</span>
           </label>
-          <input class="form-control form-control-1-4"  type="text" id="employer-postcode" name="employerPostcode">
+          <input class="form-control form-control-1-4"  type="text" id="employer-postcode" name="employerPostcode" value="{{uppercase employment.employer-address.postcode}}">
         </div>
 
         <h3 class="heading-medium">Reason for attaching to earnings</h3>
@@ -131,7 +131,7 @@
           <button class="button" type="submit">Save and continue</button>
         </div>
 
-        <p><a href="#">Cancel</a></p>
+        <p><a href="/legal-adviser/case-details/{{id}}/">Cancel</a><p>
 
       </form>
 

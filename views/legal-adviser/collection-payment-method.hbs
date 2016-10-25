@@ -29,19 +29,19 @@
             <legend class="visually-hidden">Choose a collection payment method</legend>
 
             <label class="block-label" for="pay-direct-to-court">
-              <input type="radio" id="pay-direct-to-court" name="paymentTerms" value="Pay direct to court" checked="checked">
+              <input type="radio" id="pay-direct-to-court" name="paymentMethod" value="Pay direct to court" checked="checked">
               Pay direct to court
             </label>
 
             <p class="form-block">or</p>
 
             <label class="block-label" for="deduct-from-benefits">
-              <input type="radio" id="deduct-from-benefits" name="paymentTerms" value="Deduct from benefits">
+              <input type="radio" id="deduct-from-benefits" name="paymentMethod" value="Deduct from benefits">
               Deduct from benefits
             </label>
 
             <label class="block-label" for="attach-to-earnings">
-              <input type="radio" id="attach-to-earnings" name="paymentTerms" value="Attach to earnings">
+              <input type="radio" id="attach-to-earnings" name="paymentMethod" value="Attach to earnings">
               Attach to earnings
             </label>
 
@@ -49,9 +49,11 @@
 
         </div>
 
-        <div class="form-group">
+        <div class="form-group form-group-related">
           <button class="button" type="submit">Save and continue</button>
         </div>
+
+        <p><a href="/legal-adviser/case-details/{{id}}/">Cancel</a><p>
 
       </form>
 
