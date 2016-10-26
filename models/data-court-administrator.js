@@ -18,8 +18,7 @@ var search = [
       },
       "email": "",
       "phone": "",
-      "mobile": "",
-      "national-insurance-number": ""
+      "mobile": ""
     },
     "case-details": {
       "status": "Awaiting plea",
@@ -35,6 +34,7 @@ var search = [
     },
     "employment": {
       "status": "",
+      "national-insurance-number": "",
       "employer-name": "",
       "employer-address": {
         "address1": "",
@@ -159,8 +159,7 @@ var search = [
         "postcode": "KY13 4GX"
       },
       "email": "tegan.smith@gmail.com",
-      "phone": "078 2400 2563",
-      "national-insurance-number": "ZK 89 01 41 A"
+      "phone": "078 2400 2563"
     },
     "hearing": "2015-11-18",
     "case-details": {
@@ -204,6 +203,7 @@ var search = [
     },
     "employment": {
       "status": "Unemployed",
+      "national-insurance-number": "ZK 89 01 41 A",
       "since-date": "(since 15 July 2016)",
       "since-date-iso": "",
       "employer-name": "",
@@ -339,8 +339,7 @@ var search = [
         "postcode": "TN15 6GQ"
       },
       "email": "za.smith@gmail.com",
-      "phone": "078 1825 3550",
-      "national-insurance-number": "GK 69 85 94 D"
+      "phone": "078 1825 3550"
     },
     "case-details": {
       "status": "Decision made",
@@ -357,6 +356,7 @@ var search = [
     },
     "employment": {
       "status": "",
+      "national-insurance-number": "",
       "since-date": "",
       "since-date-iso": "",
       "employer-name": "",
@@ -458,8 +458,7 @@ var search = [
         "postcode": "IP14 0XB"
       },
       "email": "abbie.smith@gmail.com",
-      "phone": "079 5115 9062",
-      "national-insurance-number": "ZK 71 11 43 D"
+      "phone": "079 5115 9062"
     },
     "case-details": {
       "status": "Ready for <abbr title=\"Single Justice Procedure\">SJP</abbr> decision",
@@ -476,6 +475,7 @@ var search = [
     },
     "employment": {
       "status": "Unemployed",
+      "national-insurance-number": "",
       "since-date": "(since 15 July 2016)",
       "since-date-iso": "",
       "employer-name": "",
@@ -575,8 +575,7 @@ var search = [
         "postcode": "G77 7GA"
       },
       "email": "leon.smith@gmail.com",
-      "phone": "077 8068 5313",
-      "national-insurance-number": "TK 60 97 18 A",
+      "phone": "077 8068 5313"
     },
     "case-details": {
       "status": "Awaiting plea",
@@ -592,6 +591,7 @@ var search = [
     },
     "employment": {
       "status": "Unemployed",
+      "national-insurance-number": "TK 60 97 18 A",
       "since-date": "(since 15 July 2016)",
       "since-date-iso": "",
       "employer-name": "",
@@ -692,8 +692,7 @@ var search = [
         "postcode": "TQ12 1LQ"
       },
       "email": "olivia.smith@gmail.com",
-      "phone": "077 0494 5090",
-      "national-insurance-number": "NY 80 08 89 A"
+      "phone": "077 0494 5090"
     },
     "case-details": {
       "status": "Pending offence withdrawal",
@@ -709,6 +708,7 @@ var search = [
     },
     "employment": {
       "status": "Unemployed",
+      "national-insurance-number": "NY 80 08 89 A",
       "since-date": "(since 15 July 2016)",
       "since-date-iso": "",
       "employer-name": "",
@@ -808,8 +808,7 @@ var search = [
         "postcode": "SA67 9EJ"
       },
       "email": "joel.smith@gmail.com",
-      "phone": "079 4115 6799",
-      "national-insurance-number": "HS 12 20 51 D"
+      "phone": "079 4115 6799"
     },
     "case-details": {
       "status": "Awaiting plea",
@@ -825,6 +824,7 @@ var search = [
     },
     "employment": {
       "status": "Unemployed",
+      "national-insurance-number": "HS 12 20 51 D",
       "since-date": "(since 15 July 2016)",
       "since-date-iso": "",
       "employer-name": "",
@@ -924,8 +924,7 @@ var search = [
         "postcode": "HG4 2ET"
       },
       "email": "harrison.smith@gmail.com",
-      "phone": "070 2908 3863",
-      "national-insurance-number": "MJ 82 16 61 A"
+      "phone": "070 2908 3863"
     },
     "case-details": {
       "status": "Awaiting plea",
@@ -941,6 +940,7 @@ var search = [
     },
     "employment": {
       "status": "Unemployed",
+      "national-insurance-number": "MJ 82 16 61 A",
       "since-date": "(since 15 July 2016)",
       "since-date-iso": "",
       "employer-name": "",
@@ -1040,8 +1040,7 @@ var search = [
         "postcode": "MK45 0ZW"
       },
       "email": "kian.smith@gmail.com",
-      "phone": "070 1279 6913",
-      "national-insurance-number": "LC 59 17 17 B"
+      "phone": "070 1279 6913"
     },
     "case-details": {
       "status": "Awaiting plea",
@@ -1057,6 +1056,7 @@ var search = [
     },
     "employment": {
       "status": "Unemployed",
+      "national-insurance-number": "LC 59 17 17 B",
       "since-date": "(since 15 July 2016)",
       "since-date-iso": "",
       "employer-name": "",
@@ -1156,8 +1156,7 @@ var search = [
         "postcode": "BR5 1WH"
       },
       "email": "naomi.smith@gmail.com",
-      "phone": "070 6195 4223",
-      "national-insurance-number": "LN 56 80 72"
+      "phone": "070 6195 4223"
     },
     "case-details": {
       "status": "Awaiting plea",
@@ -1173,6 +1172,7 @@ var search = [
     },
     "employment": {
       "status": "Unemployed",
+      "national-insurance-number": "LN 56 80 72",
       "since-date": "(since 15 July 2016)",
       "since-date-iso": "",
       "employer-name": "",

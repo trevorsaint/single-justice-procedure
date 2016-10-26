@@ -113,15 +113,186 @@
               Lump sum 28 days
             </label>
 
-            <label class="block-label" for="lumpsum-plus-instalments">
+            <label class="block-label" for="lumpsum-plus-instalments" data-target="lump-sum-plus-instalments">
               <input type="radio" id="lumpsum-plus-instalments" name="reserveTerms" value="Lump sum plus instalments">
               Lump sum plus instalments
             </label>
 
-            <label class="block-label" for="instalments-only">
+            <div class="panel panel-border-narrow js-hidden" id="lump-sum-plus-instalments">
+
+              <div class="form-group">
+                <label for="lump-sum-amount">
+                  <span class="form-label">Amount</span>
+                </label>
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="lump-sum-amount" name="lumpSumAmount" value="">
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <fieldset>
+
+                  <legend>
+                    <span class="form-label">To be paid within</span>
+                  </legend>
+
+                  <label class="block-label">
+                    <input type="radio" name="lumpSumAmountPaidWithin" value="14 days"> 14 days
+                  </label>
+
+                  <label class="block-label">
+                    <input type="radio" name="lumpSumAmountPaidWithin" value="28 days"> 28 days
+                  </label>
+
+                  <label class="block-label">
+                    <input type="radio" name="lumpSumAmountPaidWithin" value="Other"> Other
+                  </label>
+
+                </fieldset>
+
+              </div>
+
+              <div class="form-group">
+                <label for="lump-sum-instalment-amount">
+                  <span class="form-label">Instalment amount</span>
+                </label>
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="lump-sum-instalment-amount" name="lumpSumInstalmentAmount" value="">
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <fieldset>
+
+                  <legend>
+                    <span class="form-label">How often should instalments be made?</span>
+                  </legend>
+
+                  <label class="block-label">
+                    <input type="radio" name="lumpSumInstalmentsMade" value="Weekly"> Weekly
+                  </label>
+
+                  <label class="block-label">
+                    <input type="radio" name="lumpSumInstalmentsMade" value="Fortnightly"> Fortnightly
+                  </label>
+
+                  <label class="block-label">
+                    <input type="radio" name="lumpSumInstalmentsMade" value="Monthly"> Monthly
+                  </label>
+
+                </fieldset>
+
+              </div>
+
+              <div class="form-group">
+
+                <fieldset>
+
+                  <legend>
+                    <span class="form-label">Instalment start date</span>
+                    <span class="form-hint" id="lump-sum-instalment-start-date-hint">For example, 31 3 2017</span>
+                  </legend>
+
+                  <div class="form-date">
+
+                    <div class="form-group form-group-day">
+                      <label class="form-label" for="lump-sum-instalment-start-date-day">Day</label>
+                      <input class="form-control" type="text" id="lump-sum-instalment-start-date-day" name="lumpSumInstalmentStartDateDay" aria-describedby="lump-sum-instalment-start-date-hint">
+                    </div>
+
+                    <div class="form-group form-group-month">
+                      <label class="form-label" for="lump-sum-instalment-start-date-month">Month</label>
+                      <input class="form-control" type="text" id="lump-sum-instalment-start-date-month" name="lumpSumInstalmentStartDateMonth">
+                    </div>
+
+                    <div class="form-group form-group-year">
+                      <label class="form-label" for="lump-sum-instalment-start-date-year">Year</label>
+                      <input class="form-control" type="text" id="lump-sum-instalment-start-date-year" name="lumpSumInstalmentStartDateYear">
+                    </div>
+
+                  </div>
+
+                </fieldset>
+
+              </div>
+
+            </div>
+
+            <label class="block-label" for="instalments-only" data-target="lump-sum-instalments-only">
               <input type="radio" id="instalments-only" name="reserveTerms" value="Instalments only">
               Instalments only
             </label>
+
+            <div class="panel panel-border-narrow js-hidden" id="lump-sum-instalments-only">
+
+              <div class="form-group">
+                <label for="instalment-amount">
+                  <span class="form-label">Instalment amount</span>
+                </label>
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="instalment-amount" name="instalmentAmount" value="">
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <fieldset>
+
+                  <legend>
+                    <span class="form-label">How often should instalments be made?</span>
+                  </legend>
+
+                  <label class="block-label">
+                    <input type="radio" name="instalmentsMade" value="Weekly"> Weekly
+                  </label>
+
+                  <label class="block-label">
+                    <input type="radio" name="instalmentsMade" value="Fortnightly"> Fortnightly
+                  </label>
+
+                  <label class="block-label">
+                    <input type="radio" name="instalmentsMade" value="Monthly"> Monthly
+                  </label>
+
+                </fieldset>
+
+              </div>
+
+              <div class="form-group">
+
+                <fieldset>
+
+                  <legend>
+                    <span class="form-label">Instalment start date</span>
+                    <span class="form-hint" id="instalment-start-date-hint">For example, 31 3 2017</span>
+                  </legend>
+
+                  <div class="form-date">
+
+                    <div class="form-group form-group-day">
+                      <label class="form-label" for="instalment-start-date-day">Day</label>
+                      <input class="form-control" type="text" id="instalment-start-date-day" name="instalmentStartDateDay" aria-describedby="instalment-start-date-hint">
+                    </div>
+
+                    <div class="form-group form-group-month">
+                      <label class="form-label" for="instalment-start-date-month">Month</label>
+                      <input class="form-control" type="text" id="instalment-start-date-month" name="instalmentStartDateMonth">
+                    </div>
+
+                    <div class="form-group form-group-year">
+                      <label class="form-label" for="instalment-start-date-year">Year</label>
+                      <input class="form-control" type="text" id="instalment-start-date-year" name="instalmentStartDateYear">
+                    </div>
+
+                  </div>
+
+                </fieldset>
+
+              </div>
+
+            </div>
 
           </fieldset>
 

@@ -18,8 +18,7 @@ var search = [
       },
       "email": "",
       "phone": "",
-      "mobile": "",
-      "national-insurance-number": ""
+      "mobile": ""
     },
     "case-details": {
       "status": "Awaiting plea",
@@ -35,6 +34,7 @@ var search = [
     },
     "employment": {
       "status": "Employed",
+      "national-insurance-number": "",
       "employer-name": "Ministry of Justice",
       "employee-number": "e902938480",
       "employer-address": {
