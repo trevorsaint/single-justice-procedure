@@ -129,13 +129,11 @@
                 {{#if ../../sEmail}}
                   {{../../sEmail}}
                 {{else}}
-
                   {{#if email}}
                     {{email}}
                   {{else}}
                     {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/personal-details/{{../id}}/#email">Add email</a>{{/is}}
                   {{/if}}
-
                 {{/if}}
               </dd>
 

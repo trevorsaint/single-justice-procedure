@@ -30,11 +30,28 @@ var search = [
       "title": "Passenger used ticket issued for another person",
       "date": "2016-02-18",
       "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
-      "plea": "Awaiting plea"
+      "plea": "Awaiting plea",
+      "fine-band-applied": [
+        {
+          "band": "A",
+          "fine": "220.00",
+          "compensation": "3.12"
+        },
+        {
+          "band": "B",
+          "fine": "450.00",
+          "compensation": "3.12"
+        },
+        {
+          "band": "C",
+          "fine": "660.00",
+          "compensation": "3.12"
+        }
+      ]
     },
     "employment": {
       "status": "Employed",
-      "national-insurance-number": "",
+      "national-insurance-number": "LC 59 17 17 B",
       "employer-name": "Ministry of Justice",
       "employee-number": "e902938480",
       "employer-address": {

@@ -3193,6 +3193,10 @@ HTML Usage
   height: 0.26316em;
 }
 
+hr {
+  clear: both;
+}
+
 /*
 
 HTML Usage

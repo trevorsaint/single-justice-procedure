@@ -1,5 +1,8 @@
 {{>breadcrumb}}
 
+<p>Reason for deducting benefit: {{sReasonForDeductingFromBenefits}}</p>
+<p>Set reserved terms: {{sReserveTerms}}</p>
+
 {{#with search}}
 
   <div class="persist-info">
@@ -8,7 +11,7 @@
       <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
     </div>
     <ul class="persist-info-links">
-      <li><a href="#">End session</a></li>
+      <li><a href="/legal-adviser/end-session/">End session</a></li>
     </ul>
   </div>
 
@@ -39,7 +42,7 @@
             <legend class="visuallyhidden">Reason for deducting from benefits</legend>
 
             <label class="block-label" for="compensation-ordered">
-              <input type="radio" id="compensation-ordered" name="reasonForDeductingFromBenefits" value="Compensation ordered" checked="checked">
+              <input type="radio" id="compensation-ordered" name="reasonForDeductingFromBenefits" value="Compensation ordered">
               Compensation ordered
             </label>
 
@@ -67,20 +70,20 @@
 
             <legend class="visuallyhidden">Set reserve terms</legend>
 
-            <label class="block-label" for="lumpsum-14-days">
-              <input type="radio" id="lumpsum-14-days" name="reserveTerms" value="Lump sum 14 days" checked="checked">
+            <label class="block-label">
+              <input type="radio" name="reserveTerms" value="Lump sum 14 days" checked="checked">
               Lump sum 14 days
             </label>
 
             <p class="form-block">or</p>
 
-            <label class="block-label" for="lumpsum-28-days">
-              <input type="radio" id="lumpsum-28-days" name="reserveTerms" value="Lump sum 28 days">
+            <label class="block-label">
+              <input type="radio" name="reserveTerms" value="Lump sum 28 days">
               Lump sum 28 days
             </label>
 
-            <label class="block-label" for="lumpsum-plus-instalments" data-target="lump-sum-plus-instalments">
-              <input type="radio" id="lumpsum-plus-instalments" name="reserveTerms" value="Lump sum plus instalments">
+            <label class="block-label" data-target="lump-sum-plus-instalments">
+              <input type="radio" name="reserveTerms" value="Lump sum plus instalments">
               Lump sum plus instalments
             </label>
 
@@ -186,8 +189,8 @@
 
             </div>
 
-            <label class="block-label" for="instalments-only" data-target="lump-sum-instalments-only">
-              <input type="radio" id="instalments-only" name="reserveTerms" value="Instalments only">
+            <label class="block-label" data-target="lump-sum-instalments-only">
+              <input type="radio" name="reserveTerms" value="Instalments only">
               Instalments only
             </label>
 
@@ -268,7 +271,7 @@
           <button class="button" type="submit">Save and continue</button>
         </div>
 
-        <p><a href="/legal-adviser/case-details/{{id}}/">Cancel</a><p>
+        <p><a href="{{../sBack}}">Back</a><p>
 
       </form>
 

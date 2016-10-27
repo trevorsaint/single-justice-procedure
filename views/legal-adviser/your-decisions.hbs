@@ -8,7 +8,7 @@
       <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
     </div>
     <ul class="persist-info-links">
-      <li><a href="#">End session</a></li>
+      <li><a href="/legal-adviser/end-session/">End session</a></li>
     </ul>
   </div>
 
@@ -29,95 +29,99 @@
 
           <p><strong class="status-label">Guilty plea &ndash; discount applied</strong></p>
 
-          <h3 class="heading-medium">Check fine and compensation</h3>
+          <h3 class="heading-medium" id="check-fine-and-compensation">Check fine and compensation</h3>
 
-          <fieldset>
+          <div class="form-group">
 
-            <legend>
-              <span class="form-label">Fine band applied</span>
-            </legend>
+            <fieldset>
 
-            <label class="block-label" for="fine-band-b" data-target="band-b">
-              <input type="radio" id="fine-band-b" name="fineBand" value="Band B" checked="checked"> Band B
-            </label>
+              <legend>
+                <span class="form-label">Fine band applied</span>
+              </legend>
 
-            <div class="panel panel-border-narrow" id="band-b">
+              <label class="block-label" for="fine-band-b" data-target="band-b">
+                <input type="radio" id="fine-band-b" name="fineBandApplied" value="Band B"{{#if ../sFineBandApplied}}{{#contains ../sFineBandApplied "Band B"}} checked="checked"{{/contains}}{{else}} checked="checked"{{/if}}> Band B
+              </label>
 
-              <div class="form-group form-group-related">
-                <label for="fine-b">
-                  <span class="form-label">Fine</span>
-                </label>
-                <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="fine-b" name="fine-b" value="220.00">
+              <div class="panel panel-border-narrow{{#if ../sFineBandApplied}}{{#isnt ../sFineBandApplied "Band B"}} js-hidden{{/isnt}}{{/if}}" id="band-b">
+
+                <div class="form-group form-group-related">
+                  <label for="fine-b">
+                    <span class="form-label">Fine</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="fine-b" name="fineB" value="{{#if ../sFineB}}{{../sFineB}}{{else}}220.00{{/if}}">
+                  </div>
                 </div>
+
+                <div class="form-group">
+                  <label for="compensation-b">
+                    <span class="form-label">Compensation</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="compensation-b" name="compensationB" value="{{#if ../sCompensationB}}{{../sCompensationB}}{{else}}3.12{{/if}}">
+                  </div>
+                </div>
+
               </div>
 
-              <div class="form-group">
-                <label for="compensation-b">
-                  <span class="form-label">Compensation</span>
-                </label>
-                <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="compensation-b" name="compensation-b" value="3.12">
+              <p class="form-block">or switch to</p>
+
+              <label class="block-label" for="fine-band-a"data-target="band-a">
+                <input type="radio" id="fine-band-a" name="fineBandApplied" value="Band A"{{#contains ../sFineBandApplied "Band A"}} checked="checked"{{/contains}}> Band A
+              </label>
+
+              <div class="panel panel-border-narrow{{#isnt ../sFineBandApplied "Band A"}} js-hidden{{/isnt}}" id="band-a">
+
+                <div class="form-group form-group-related">
+                  <label for="fine-a">
+                    <span class="form-label">Fine</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="fine-a" name="fineA" value="{{#if ../sFineA}}{{../sFineA}}{{else}}440.00{{/if}}">
+                  </div>
                 </div>
+
+                <div class="form-group">
+                  <label for="compensation-a">
+                    <span class="form-label">Compensation</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="compensation-a" name="compensationA" value="{{#if ../sCompensationA}}{{../sCompensationA}}{{else}}3.12{{/if}}">
+                  </div>
+                </div>
+
               </div>
 
-            </div>
+              <label class="block-label" for="fine-band-c" data-target="band-c">
+                <input type="radio" id="fine-band-c" name="fineBandApplied" value="Band C"{{#contains ../sFineBandApplied "Band C"}} checked="checked"{{/contains}}> Band C
+              </label>
 
-            <p class="form-block">or switch to</p>
+              <div class="panel panel-border-narrow{{#isnt ../sFineBandApplied "Band C"}} js-hidden{{/isnt}}" id="band-c">
 
-            <label class="block-label" for="fine-band-a" data-target="band-a">
-              <input type="radio" id="fine-band-a" name="fineBand" value="Band A"> Band A
-            </label>
-
-            <div class="panel panel-border-narrow js-hidden" id="band-a">
-
-              <div class="form-group form-group-related">
-                <label for="fine-a">
-                  <span class="form-label">Fine</span>
-                </label>
-                <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="fine-a" name="fine-a" value="440.00">
+                <div class="form-group form-group-related">
+                  <label for="fine-c">
+                    <span class="form-label">Fine</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="fine-c" name="fineC" value="{{#if ../sFineC}}{{../sFineC}}{{else}}660.00{{/if}}">
+                  </div>
                 </div>
+
+                <div class="form-group">
+                  <label for="compensation-c">
+                    <span class="form-label">Compensation</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="compensation-c" name="compensationC" value="{{#if ../sCompensation}}{{../sCompensation}}{{else}}3.12{{/if}}">
+                  </div>
+                </div>
+
               </div>
 
-              <div class="form-group">
-                <label for="compensation-a">
-                  <span class="form-label">Compensation</span>
-                </label>
-                <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="compensation-a" name="compensation-a" value="3.12">
-                </div>
-              </div>
+            </fieldset>
 
-            </div>
-
-            <label class="block-label" for="fine-band-c" data-target="band-c">
-              <input type="radio" id="fine-band-c" name="fineBand" value="Band C"> Band C
-            </label>
-
-            <div class="panel panel-border-narrow js-hidden" id="band-c">
-
-              <div class="form-group form-group-related">
-                <label for="fine-c">
-                  <span class="form-label">Fine</span>
-                </label>
-                <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="fine-c" name="fine-c" value="660.00">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="compensation-c">
-                  <span class="form-label">Compensation</span>
-                </label>
-                <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="compensation-c" name="compensation-c" value="3.12">
-                </div>
-              </div>
-
-            </div>
-
-          </fieldset>
+          </div>
 
         </section>
 
@@ -146,14 +150,16 @@
           </div>
 
           <div class="form-group">
-            <label class="block-label" for="confirm">
-              <input type="checkbox" id="confirm" name="confirm" checked="checked"> Confirm a collection order will be issued
+            <label class="block-label" for="collection-order-confirmed">
+              <input type="checkbox" id="collection-order-confirmed" name="collectionOrderConfirmed" value="Yes"{{#contains ../sCollectionOrderConfirmed "Yes"}} checked="checked"{{else}}{{/contains}}> Confirm a collection order will be issued
             </label>
           </div>
 
-          <div class="form-group">
+          <div class="form-group form-group-related">
             <button class="button" type="submit">Save and continue</button>
           </div>
+
+          <p><a href="{{../sBack}}">Back</a></p>
 
         </section>
 

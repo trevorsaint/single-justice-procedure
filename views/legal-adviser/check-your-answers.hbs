@@ -1,5 +1,8 @@
 {{>breadcrumb}}
 
+<p>Reason for deducting benefit: {{sReasonForDeductingFromBenefits}}</p>
+<p>Set reserved terms: {{sReserveTerms}}</p>
+
 {{#with search}}
 
   <h1 class="heading-xlarge">{{../pagetitle}}</h1>
@@ -8,7 +11,6 @@
 
     <header class="check-answers-header">
       <h2 class="bold-medium" id="offences">Offences</h2>
-      <a class="check-answers-action" href="#" title="Change cost and surcharge">Change <span class="visuallyhidden">offences</span></a>
     </header>
 
     <dl class="meta meta-light meta-large">
@@ -16,25 +18,73 @@
       <dd>Passenger used a ticket issued for another person</dd>
       <dt>Plea</dt>
       <dd>Guilty</dd>
-      <dt>Verdict</dt>
-      <dd>&ndash;</dd>
-      <dt>Result</dt>
-      <dd>Fine</dd>
-      <dt>Outcome</dt>
-      <dd>&pound;147.00</dd>
-      <dt>Compensation</dt>
-      <dd>&pound;3.12</dd>
+    </dl>
+
+  </section>
+
+  <section class="check-answers" aria-labelledby="make-a-decision">
+
+    <header class="check-answers-header">
+      <h2 class="bold-medium" id="make-a-decision">Make a decision</h2>
+      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/#fine-band-b" title="Change your decisions">Change <span class="visuallyhidden">make a decision</span></a>
+    </header>
+
+    <dl class="meta meta-light meta-large">
+      <dt>Decision</dt>
+      <dd>
+        {{#if ../sMakeDecision}}
+          {{../sMakeDecision}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      </dd>
     </dl>
 
   </section>
 
   <hr aria-hidden="true">
 
+  <section class="check-answers" aria-labelledby="fine-and-compensation">
+
+    <header class="check-answers-header">
+      <h2 class="bold-medium" id="fine-and-compensation">Check fine and compensation</h2>
+      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/#fine-band-b" title="Change your decisions">Change <span class="visuallyhidden">your decisions</span></a>
+    </header>
+
+    <dl class="meta meta-light meta-large">
+      <dt>Find band applied</dt>
+      <dd>
+        {{#if ../sFineBandApplied}}
+          {{../sFineBandApplied}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      </dd>
+      <dt>Fine</dt>
+      <dd>
+        {{#if ../sFine}}
+          &pound;{{../sFine}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      </dd>
+      <dt>Compensation</dt>
+      <dd>
+        {{#if ../sCompensation}}
+          &pound;{{../sCompensation}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      </dd>
+    </dl>
+
+  </section>
+
   <section class="check-answers" aria-labelledby="cost-and-surcharge">
 
     <header class="check-answers-header">
       <h2 class="bold-medium" id="cost-and-surcharge">Cost and surcharge</h2>
-      <a class="check-answers-action" href="#" title="Change cost and surcharge">Change <span class="visuallyhidden">cost and surcharge</span></a>
+      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/#costs" title="Change cost and surcharge">Change <span class="visuallyhidden">cost and surcharge</span></a>
     </header>
 
     <dl class="meta meta-light meta-large">
@@ -42,6 +92,8 @@
       <dd>&pound;125.00</dd>
       <dt>Surcharge and victim fund</dt>
       <dd>&pound;30.00</dd>
+      <dt>Collection order issued</dt>
+      <dd>Yes</dd>
     </dl>
 
   </section>
@@ -49,6 +101,31 @@
   <hr aria-hidden="true">
 
   <section class="check-answers" aria-labelledby="collection-and-payment">
+
+    <header class="check-answers-header">
+      <h2 class="bold-medium" id="collection-and-payment">Collection and payment</h2>
+      <a class="check-answers-action" href="#" title="Change collection and payment">Change <span class="visuallyhidden">collection and payment</span></a>
+    </header>
+
+    <dl class="meta meta-light meta-large">
+      <dt>Payment method</dt>
+      <dd>
+        {{#if ../sPaymentMethod}}
+          {{../sPaymentMethod}}
+        {{else}}
+          &ndash;
+        {{/if}}
+      </dd>
+      <dt>Reason for deducting from benefits</dt>
+      <dd>Compensation ordered</dd>
+      <dt>Reserved terms</dt>
+      <dd>Lump sum 14 days</dd>
+    </dl>
+
+  </section>
+
+
+  <!--section class="check-answers" aria-labelledby="collection-and-payment">
 
     <header class="check-answers-header">
       <h2 class="bold-medium" id="collection-and-payment">Collection and payment</h2>
@@ -66,7 +143,7 @@
       <dd>Yes</dd>
     </dl>
 
-  </section>
+  </section-->
 
   <hr aria-hidden="true">
 
@@ -91,7 +168,7 @@
         <button class="button" type="submit">Save and continue</button>
       </div>
 
-      <p><a href="#">Cancel</a></p>
+      <p><a href="{{../sBack}}">Back</a></p>
 
     </form>
 

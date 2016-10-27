@@ -5,28 +5,53 @@
   <div class="persist-info">
     <div class="persist-info-content">
       <span class="persist-info-reference">{{personal-details.urn}}</span>
-      <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+      <span class="persist-info-title">
+        {{#and ../sFirstname ../sLastname}}
+          <b>{{../sFirstname}} {{uppercase ../sLastname}}</b>
+        {{else}}
+          <b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b>
+        {{/and}}
+      </span>
     </div>
     <ul class="persist-info-links">
-      <li><a href="#">End session</a></li>
+      <li><a href="/legal-adviser/end-session/">End session</a></li>
     </ul>
   </div>
+
+  {{#if ../sHasSaved}}
+  <div class="banner banner-confirmation" role="alert">
+    <i class="icon icon-banner-confirmation" role="presentation" aria-hidden="true"></i>
+    <div class="banner-message">
+      <p>Your changes have been saved</p>
+    </div>
+  </div>
+  {{/if}}
 
   <div class="grid-row">
 
     <div class="column-two-thirds">
 
       <h1 class="heading-xlarge">
-        {{personal-details.firstname}} {{uppercase personal-details.lastname}}
-        <span class="heading-secondary"><time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMMM YYYY"}}</time> ({{personal-details.age}} years old)</span>
+        {{#and ../sFirstname ../sLastname}}
+          {{../sFirstname}} {{uppercase ../sLastname}}
+        {{else}}
+          {{personal-details.firstname}} {{uppercase personal-details.lastname}}
+        {{/and}}
+        <span class="heading-secondary">
+          {{#if ../sDob}}
+            <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMM YYYY"}}</time>
+          {{else}}
+            <time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{age}} years old)
+          {{/if}}
+        </span>
       </h1>
 
       <div class="tabs tabs-horizontal">
 
         <div class="tabs-header">
           <ul class="list">
-            <li><a href="#case-details">Case details</a></li>
-            <li><a href="#personal-details">Personal details</a></li>
+            <li{{#is ../sActiveTab "Case details"}} class="is-active"{{/is}}><a href="#case-details">Case details</a></li>
+            <li{{#is ../sActiveTab "Personal details"}} class="is-active"{{/is}}><a href="#personal-details">Personal details</a></li>
           </ul>
         </div>
 
@@ -54,28 +79,75 @@
 
             <header class="section-header">
               <h2 class="heading-medium">Personal details</h2>
-              <a class="font-small" href="#" title="Change personal details">Change <span class="visuallyhidden">personal details</span></a>
+              <a class="font-small" href="/legal-adviser/personal-details/{{../id}}" title="Change personal details">Change <span class="visuallyhidden">personal details</span></a>
             </header>
 
             <dl class="meta meta-large">
 
               <dt>Name</dt>
-              <dd>{{firstname}} {{uppercase lastname}}</dd>
+              <dd>
+                {{#and ../../sFirstname ../../sLastname}}
+                  {{../../sFirstname}} {{uppercase ../../sLastname}}
+                {{else}}
+                  {{firstname}} {{uppercase lastname}}
+                {{/and}}
+              </dd>
 
               <dt>Date of birth</dt>
-              <dd><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)</dd>
+              <dd>
+                {{#if ../../sDob}}
+                  <time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>
+                {{else}}
+                  <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)
+                {{/if}}
+              </dd>
 
               <dt>Address</dt>
-              <dd>{{address.address1}}<br>{{#if address.address2}}{{address.address2}}<br>{{/if}}{{address.town}}<br>{{uppercase address.postcode}}</dd>
+              <dd>
+                {{#if ../../sAddress1}}{{../../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
+                {{#if ../../sAddress2}}{{../../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
+                {{#if ../../sTown}}{{../../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
+                {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
+              </dd>
 
               <dt>Email</dt>
-              <dd>{{#if email}}{{email}}{{else}}&ndash;{{/if}}</dd>
+              <dd>
+                {{#if ../../sEmail}}
+                  {{../../sEmail}}
+                {{else}}
+                  {{#if email}}
+                    {{email}}
+                  {{else}}
+                    <a href="/legal-adviser/personal-details/{{../id}}/#email">Add email</a>
+                  {{/if}}
+                {{/if}}
+              </dd>
 
               <dt>Home telephone</dt>
-              <dd>{{#if phone}}{{phone}}{{else}}&ndash;{{/if}}</dd>
+              <dd>
+                {{#if ../../sPhone}}
+                  {{../../sPhone}}
+                {{else}}
+                  {{#if phone}}
+                    {{phone}}
+                  {{else}}
+                    <a href="/legal-adviser/personal-details/{{../id}}/#phone">Add home telephone</a>
+                  {{/if}}
+                {{/if}}
+              </dd>
 
               <dt>Mobile</dt>
-              <dd>{{#if mobile}}{{mobile}}{{else}}&ndash;{{/if}}</dd>
+              <dd>
+                {{#if ../../sMobile}}
+                  {{../../sMobile}}
+                {{else}}
+                  {{#if mobile}}
+                    {{mobile}}
+                  {{else}}
+                    <a href="/legal-adviser/personal-details/{{../id}}/#mobile">Add mobile</a>
+                  {{/if}}
+                {{/if}}
+              </dd>
 
             </dl>
 
@@ -185,27 +257,27 @@
                     <div class="form-group">
 
                       <label class="block-label">
-                        <input type="radio" name="makeDecision" value="Financial penalty"> Financial penalty
+                        <input type="radio" name="makeDecision" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}> Financial penalty
                       </label>
 
                       <label class="block-label">
-                        <input type="radio" name="makeDecision" value="No separate penalty"> No separate penalty
+                        <input type="radio" name="makeDecision" value="No separate penalty"{{#contains ../../sMakeDecision "No separate penalty"}} checked="checked"{{/contains}}> No separate penalty
                       </label>
 
                       <label class="block-label">
-                        <input type="radio" name="makeDecision" value="Refer for court hearing"> Refer for court hearing
+                        <input type="radio" name="makeDecision" value="Refer for court hearing"{{#contains ../../sMakeDecision "Refer for court hearing"}} checked="checked"{{/contains}}> Refer for court hearing
                       </label>
 
                       <label class="block-label">
-                        <input type="radio" name="makeDecision" value="Withdraw"> Withdraw
+                        <input type="radio" name="makeDecision" value="Withdraw"{{#contains ../../sMakeDecision "Withdraw"}} checked="checked"{{/contains}}> Withdraw
                       </label>
 
                       <label class="block-label">
-                        <input type="radio" name="makeDecision" value="Discharge"> Discharge
+                        <input type="radio" name="makeDecision" value="Discharge"{{#contains ../../sMakeDecision "Discharge"}} checked="checked"{{/contains}}> Discharge
                       </label>
 
                       <label class="block-label">
-                        <input type="radio" name="makeDecision" value="Dismiss"> Dismiss
+                        <input type="radio" name="makeDecision" value="Dismiss"{{#contains ../../sMakeDecision "Dismiss"}} checked="checked"{{/contains}}> Dismiss
                       </label>
 
                     </div>
@@ -213,7 +285,7 @@
                   </fieldset>
 
                   <div class="form-group form-group-related">
-                    <button class="button" type="submit">Save</button>
+                    <button class="button" type="submit">Save and continue</button>
                   </div>
 
                 </form>

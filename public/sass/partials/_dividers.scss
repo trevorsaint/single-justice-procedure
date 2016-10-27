@@ -23,6 +23,10 @@ $module: 'divider';
 
 }
 
+hr {
+  clear: both; // needs to be added to GOV.UK
+}
+
 /*
 
 HTML Usage
