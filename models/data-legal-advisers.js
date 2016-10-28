@@ -31,23 +31,19 @@ var search = [
       "date": "2016-02-18",
       "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
       "plea": "Awaiting plea",
-      "fine-band-applied": [
-        {
-          "band": "A",
-          "fine": "220.00",
-          "compensation": "3.12"
-        },
-        {
-          "band": "B",
-          "fine": "450.00",
-          "compensation": "3.12"
-        },
-        {
-          "band": "C",
-          "fine": "660.00",
-          "compensation": "3.12"
-        }
-      ]
+      "decision": "Financial penalty",
+      "collection-order-confirmed": "true",
+      "reason-for-deducting-from-benefits": "Compensation ordered",
+      "reason-for-attaching-to-earnings": "Compensation ordered",
+      "payment-method": "Pay direct to court",
+      "reserve-terms": "Lump sum 14 days",
+      "defendant-pay": "Lump sum 14 days",
+      "reason-for-not-deducting-from-benefits": "No information from the defendant",
+      "fine-band-applied": "Band B",
+      "fine": "220.00",
+      "compensation": "3.12",
+      "cost": "125.00",
+      "surcharge": "30.00"
     },
     "employment": {
       "status": "Employed",

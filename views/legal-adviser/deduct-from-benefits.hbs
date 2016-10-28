@@ -1,8 +1,5 @@
 {{>breadcrumb}}
 
-<p>Reason for deducting benefit: {{sReasonForDeductingFromBenefits}}</p>
-<p>Set reserved terms: {{sReserveTerms}}</p>
-
 {{#with search}}
 
   <div class="persist-info">
@@ -30,7 +27,7 @@
             <span class="form-label">National Insurance number</span>
             <span class="form-hint" id="national-insurance-number-hint">For example, VO 12 34 56 D</span>
           </label>
-          <input class="form-control" type="text" id="national-insurance-number" name="nationalInsuranceNumber" value="{{employment.national-insurance-number}}" aria-describedby="defendants-national-insurance-number">
+          <input class="form-control" type="text" id="national-insurance-number" name="nationalInsuranceNumber" value="{{#if ../sNationalInsuranceNumber}}{{../sNationalInsuranceNumber}}{{else}}{{employment.national-insurance-number}}{{/if}}" aria-describedby="defendants-national-insurance-number">
         </div>
 
         <h3 class="heading-medium">Reason for deducting from benefits</h3>
@@ -41,20 +38,35 @@
 
             <legend class="visuallyhidden">Reason for deducting from benefits</legend>
 
-            <label class="block-label" for="compensation-ordered">
-              <input type="radio" id="compensation-ordered" name="reasonForDeductingFromBenefits" value="Compensation ordered">
+            <label class="block-label">
+              <input type="radio" name="reasonForDeductingFromBenefits" value="Compensation ordered"
+              {{#if ../sReasonForDeductingFromBenefits}}
+                {{#contains ../sReasonForDeductingFromBenefits "Compensation ordered"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.reason-for-deducting-from-benefits "Compensation ordered"}} checked="checked"{{/contains}}
+              {{/if}}>
               Compensation ordered
             </label>
 
             <p class="form-block">or</p>
 
-            <label class="block-label" for="known-defaulter">
-              <input id="known-defaulter" type="radio" name="reasonForDeductingFromBenefits" value="Defendant is a know defaulter">
+            <label class="block-label">
+              <input type="radio" name="reasonForDeductingFromBenefits" value="Defendant is a know defaulter"
+              {{#if ../sReasonForDeductingFromBenefits}}
+                {{#contains ../sReasonForDeductingFromBenefits "Defendant is a know defaulter"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.reason-for-deducting-from-benefits "Defendant is a know defaulter"}} checked="checked"{{/contains}}
+              {{/if}}>
               Defendant is a known defaulter
             </label>
 
-            <label class="block-label" for="defendant-requested">
-              <input id="defendant-requested" type="radio" name="reasonForDeductingFromBenefits" value="Defendant requested this">
+            <label class="block-label">
+              <input type="radio" name="reasonForDeductingFromBenefits" value="Defendant requested this"
+              {{#if ../sReasonForDeductingFromBenefits}}
+                {{#contains ../sReasonForDeductingFromBenefits "Defendant requested this"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.reason-for-deducting-from-benefits "Defendant requested this"}} checked="checked"{{/contains}}
+              {{/if}}>
               Defendant requested this
             </label>
 
@@ -71,30 +83,45 @@
             <legend class="visuallyhidden">Set reserve terms</legend>
 
             <label class="block-label">
-              <input type="radio" name="reserveTerms" value="Lump sum 14 days" checked="checked">
+              <input type="radio" name="reserveTerms" value="Lump sum 14 days" checked="checked"
+              {{#if ../sReserveTerms}}
+                {{#contains ../sReserveTerms "Lump sum 14 days"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.reserve-terms "Lump sum 14 days"}} checked="checked"{{/contains}}
+              {{/if}}>
               Lump sum 14 days
             </label>
 
             <p class="form-block">or</p>
 
             <label class="block-label">
-              <input type="radio" name="reserveTerms" value="Lump sum 28 days">
+              <input type="radio" name="reserveTerms" value="Lump sum 28 days"
+              {{#if ../sReserveTerms}}
+                {{#contains ../sReserveTerms "Lump sum 28 days"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.reserve-terms "Lump sum 28 days"}} checked="checked"{{/contains}}
+              {{/if}}>
               Lump sum 28 days
             </label>
 
             <label class="block-label" data-target="lump-sum-plus-instalments">
-              <input type="radio" name="reserveTerms" value="Lump sum plus instalments">
+              <input type="radio" name="reserveTerms" value="Lump sum plus instalments"
+              {{#if ../sReserveTerms}}
+                {{#contains ../sReserveTerms "Lump sum plus instalments"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.reserve-terms "Lump sum plus instalments"}} checked="checked"{{/contains}}
+              {{/if}}>
               Lump sum plus instalments
             </label>
 
-            <div class="panel panel-border-narrow js-hidden" id="lump-sum-plus-instalments">
+            <div class="panel panel-border-narrow{{#isnt ../sReserveTerms "Lump sum plus instalments"}} js-hidden{{/isnt}}" id="lump-sum-plus-instalments">
 
               <div class="form-group">
                 <label for="lump-sum-amount">
                   <span class="form-label">Amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="lump-sum-amount" name="lumpSumAmount" value="">
+                  <input class="form-control form-control-1-4" type="text" id="lump-sum-amount" name="lumpSumAmount"{{#if ../sLumpSumAmount}} value="{{../sLumpSumAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -107,15 +134,15 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumAmountPaidWithin" value="14 days"> 14 days
+                    <input type="radio" name="lumpSumPaidWithin" value="14 days"{{#contains ../sLumpSumPaidWithin "14 days"}} checked="checked"{{/contains}}> 14 days
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumAmountPaidWithin" value="28 days"> 28 days
+                    <input type="radio" name="lumpSumPaidWithin" value="28 days"{{#contains ../sLumpSumPaidWithin "28 days"}} checked="checked"{{/contains}}> 28 days
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumAmountPaidWithin" value="Other"> Other
+                    <input type="radio" name="lumpSumPaidWithin" value="Other"{{#contains ../sLumpSumPaidWithin "Other"}} checked="checked"{{/contains}}> Other
                   </label>
 
                 </fieldset>
@@ -127,7 +154,7 @@
                   <span class="form-label">Instalment amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="lump-sum-instalment-amount" name="lumpSumInstalmentAmount" value="">
+                  <input class="form-control form-control-1-4" type="text" id="lump-sum-instalment-amount" name="lumpSumInstalmentAmount"{{#if ../sLumpSumInstalmentAmount}} value="{{../sLumpSumInstalmentAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -140,15 +167,15 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumInstalmentsMade" value="Weekly"> Weekly
+                    <input type="radio" name="lumpSumInstalmentMade" value="Weekly"{{#contains ../sLumpSumInstalmentMade "Weekly"}} checked="checked"{{/contains}}> Weekly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumInstalmentsMade" value="Fortnightly"> Fortnightly
+                    <input type="radio" name="lumpSumInstalmentMade" value="Fortnightly"{{#contains ../sLumpSumInstalmentMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumInstalmentsMade" value="Monthly"> Monthly
+                    <input type="radio" name="lumpSumInstalmentMade" value="Monthly"{{#contains ../sLumpSumInstalmentMade "Monthly"}} checked="checked"{{/contains}}> Monthly
                   </label>
 
                 </fieldset>
@@ -189,19 +216,24 @@
 
             </div>
 
-            <label class="block-label" data-target="lump-sum-instalments-only">
-              <input type="radio" name="reserveTerms" value="Instalments only">
+            <label class="block-label" data-target="instalments-only">
+              <input type="radio" name="reserveTerms" value="Instalments only"
+              {{#if ../sReserveTerms}}
+                {{#contains ../sReserveTerms "Instalments only"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.reserve-terms "Instalments only"}} checked="checked"{{/contains}}
+              {{/if}}>
               Instalments only
             </label>
 
-            <div class="panel panel-border-narrow js-hidden" id="lump-sum-instalments-only">
+            <div class="panel panel-border-narrow{{#isnt ../sReserveTerms "Instalments only"}} js-hidden{{/isnt}}" id="instalments-only">
 
               <div class="form-group">
-                <label for="instalment-amount">
+                <label for="instalment-only-amount">
                   <span class="form-label">Instalment amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="instalment-amount" name="instalmentAmount" value="">
+                  <input class="form-control form-control-1-4" type="text" id="instalment-only-amount" name="instalmentOnlyAmount"{{#if ../sInstalmentOnlyAmount}} value="{{../sInstalmentOnlyAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -214,15 +246,15 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="instalmentsMade" value="Weekly"> Weekly
+                    <input type="radio" name="instalmentOnlyMade" value="Weekly"{{#contains ../sInstalmentOnlyMade "Weekly"}} checked="checked"{{/contains}}> Weekly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="instalmentsMade" value="Fortnightly"> Fortnightly
+                    <input type="radio" name="instalmentOnlyMade" value="Fortnightly"{{#contains ../sInstalmentOnlyMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="instalmentsMade" value="Monthly"> Monthly
+                    <input type="radio" name="instalmentOnlyMade" value="Monthly"{{#contains ../sInstalmentOnlyMade "Monthly"}} checked="checked"{{/contains}}> Monthly
                   </label>
 
                 </fieldset>
@@ -235,24 +267,24 @@
 
                   <legend>
                     <span class="form-label">Instalment start date</span>
-                    <span class="form-hint" id="instalment-start-date-hint">For example, 31 3 2017</span>
+                    <span class="form-hint" id="lump-sum-instalment-start-date-hint">For example, 31 3 2017</span>
                   </legend>
 
                   <div class="form-date">
 
                     <div class="form-group form-group-day">
-                      <label class="form-label" for="instalment-start-date-day">Day</label>
-                      <input class="form-control" type="text" id="instalment-start-date-day" name="instalmentStartDateDay" aria-describedby="instalment-start-date-hint">
+                      <label class="form-label" for="lump-sum-instalment-start-date-day">Day</label>
+                      <input class="form-control" type="text" id="lump-sum-instalment-start-date-day" name="lumpSumInstalmentStartDateDay" aria-describedby="lump-sum-instalment-start-date-hint">
                     </div>
 
                     <div class="form-group form-group-month">
-                      <label class="form-label" for="instalment-start-date-month">Month</label>
-                      <input class="form-control" type="text" id="instalment-start-date-month" name="instalmentStartDateMonth">
+                      <label class="form-label" for="lump-sum-instalment-start-date-month">Month</label>
+                      <input class="form-control" type="text" id="lump-sum-instalment-start-date-month" name="lumpSumInstalmentStartDateMonth">
                     </div>
 
                     <div class="form-group form-group-year">
-                      <label class="form-label" for="instalment-start-date-year">Year</label>
-                      <input class="form-control" type="text" id="instalment-start-date-year" name="instalmentStartDateYear">
+                      <label class="form-label" for="lump-sum-instalment-start-date-year">Year</label>
+                      <input class="form-control" type="text" id="lump-sum-instalment-start-date-year" name="lumpSumInstalmentStartDateYear">
                     </div>
 
                   </div>

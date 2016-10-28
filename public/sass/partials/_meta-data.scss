@@ -53,7 +53,7 @@ $module: 'meta';
 
       dt {
         margin-bottom: em(20);
-        padding-right: em(10);
+        padding-right: $gutter;
         width: 40%;
       }
 

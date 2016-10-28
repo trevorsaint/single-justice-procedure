@@ -2791,7 +2791,7 @@ HTML Usage
 @media (min-width: 641px) {
   .meta-large dt {
     margin-bottom: 1.05263em;
-    padding-right: 0.52632em;
+    padding-right: 30px;
     width: 40%;
   }
   .meta-large dd {

@@ -1,9 +1,16 @@
 {{>breadcrumb}}
 
-<p>Reason for deducting benefit: {{sReasonForDeductingFromBenefits}}</p>
-<p>Set reserved terms: {{sReserveTerms}}</p>
-
 {{#with search}}
+
+<div class="persist-info">
+  <div class="persist-info-content">
+    <span class="persist-info-reference">{{personal-details.urn}}</span>
+    <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+  </div>
+  <ul class="persist-info-links">
+    <li><a href="/legal-adviser/end-session/">End session</a></li>
+  </ul>
+</div>
 
   <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
@@ -26,7 +33,7 @@
 
     <header class="check-answers-header">
       <h2 class="bold-medium" id="make-a-decision">Make a decision</h2>
-      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/#fine-band-b" title="Change your decisions">Change <span class="visuallyhidden">make a decision</span></a>
+      <a class="check-answers-action" href="/legal-adviser/case-details/{{id}}/?change=true/#offence-decision" title="Change make a decision">Change <span class="visually-hidden">make a decision</span></a>
     </header>
 
     <dl class="meta meta-light meta-large">
@@ -35,7 +42,11 @@
         {{#if ../sMakeDecision}}
           {{../sMakeDecision}}
         {{else}}
-          &ndash;
+          {{#if offence.decision}}
+            {{offence.decision}}
+          {{else}}
+            &ndash;
+          {{/if}}
         {{/if}}
       </dd>
     </dl>
@@ -47,33 +58,48 @@
   <section class="check-answers" aria-labelledby="fine-and-compensation">
 
     <header class="check-answers-header">
-      <h2 class="bold-medium" id="fine-and-compensation">Check fine and compensation</h2>
-      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/#fine-band-b" title="Change your decisions">Change <span class="visuallyhidden">your decisions</span></a>
+      <h2 class="bold-medium" id="fine-and-compensation">Fine and compensation</h2>
+      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change <span class="visually-hidden">fine and compensation</span></a>
     </header>
 
     <dl class="meta meta-light meta-large">
+
       <dt>Find band applied</dt>
       <dd>
-        {{#if ../sFineBandApplied}}
-          {{../sFineBandApplied}}
+      {{#if ../sFineBandApplied}}
+        {{../sFineBandApplied}}
+      {{else}}
+        {{#if offence.fine-band-applied}}
+          {{offence.fine-band-applied}}
         {{else}}
           &ndash;
         {{/if}}
+      {{/if}}
       </dd>
+
       <dt>Fine</dt>
       <dd>
         {{#if ../sFine}}
-          &pound;{{../sFine}}
+          {{../sFine}}
         {{else}}
-          &ndash;
+          {{#if offence.fine}}
+            {{offence.fine}}
+          {{else}}
+            &ndash;
+          {{/if}}
         {{/if}}
       </dd>
+
       <dt>Compensation</dt>
       <dd>
         {{#if ../sCompensation}}
-          &pound;{{../sCompensation}}
+          {{../sCompensation}}
         {{else}}
-          &ndash;
+          {{#if offence.compensation}}
+            {{offence.compensation}}
+          {{else}}
+            &ndash;
+          {{/if}}
         {{/if}}
       </dd>
     </dl>
@@ -84,16 +110,38 @@
 
     <header class="check-answers-header">
       <h2 class="bold-medium" id="cost-and-surcharge">Cost and surcharge</h2>
-      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/#costs" title="Change cost and surcharge">Change <span class="visuallyhidden">cost and surcharge</span></a>
+      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/?change=true/#costs-and-surcharge" title="Change cost and surcharge">Change <span class="visually-hidden">cost and surcharge</span></a>
     </header>
 
     <dl class="meta meta-light meta-large">
+
       <dt>Cost</dt>
-      <dd>&pound;125.00</dd>
+      <dd>
+        {{#if ../sCost}}
+          &pound;{{../sCost}}
+        {{else}}
+          &pound;{{offence.cost}}
+        {{/if}}
+      </dd>
+
       <dt>Surcharge and victim fund</dt>
-      <dd>&pound;30.00</dd>
+      <dd>
+        {{#if ../sSurcharge}}
+          &pound;{{../sSurcharge}}
+        {{else}}
+          &pound;{{offence.surcharge}}
+        {{/if}}
+      </dd>
+
       <dt>Collection order issued</dt>
-      <dd>Yes</dd>
+      <dd>
+      {{#if ../sCollectionOrderConfirmed}}
+        {{#contains ../sCollectionOrderConfirmed "true"}}Yes{{else}}No{{/contains}}
+      {{else}}
+        {{#contains offence.collection-order-confirmed "true"}}Yes{{else}}No{{/contains}}
+      {{/if}}
+    </dd>
+
     </dl>
 
   </section>
@@ -104,46 +152,159 @@
 
     <header class="check-answers-header">
       <h2 class="bold-medium" id="collection-and-payment">Collection and payment</h2>
-      <a class="check-answers-action" href="#" title="Change collection and payment">Change <span class="visuallyhidden">collection and payment</span></a>
+      <a class="check-answers-action" href="/legal-adviser/collection-payment/{{id}}/?change=true/#collection-payment" title="Change collection and payment">Change <span class="visually-hidden">collection and payment</span></a>
     </header>
 
-    <dl class="meta meta-light meta-large">
-      <dt>Payment method</dt>
-      <dd>
-        {{#if ../sPaymentMethod}}
-          {{../sPaymentMethod}}
-        {{else}}
-          &ndash;
-        {{/if}}
-      </dd>
-      <dt>Reason for deducting from benefits</dt>
-      <dd>Compensation ordered</dd>
-      <dt>Reserved terms</dt>
-      <dd>Lump sum 14 days</dd>
-    </dl>
+
+    {{#is ../sPaymentMethod "Pay direct to court"}}
+
+      <dl class="meta meta-light meta-large">
+
+        <dt>Payment method</dt>
+        <dd>
+          {{#if ../sPaymentMethod}}
+            {{../sPaymentMethod}}
+          {{else}}
+            {{offence.payment-method}}
+          {{/if}}
+        </dd>
+
+        <dt>Reason you didn&rsquo;t deduct from benefits?</dt>
+        <dd>
+          {{#if ../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}
+            {{../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}
+          {{else}}
+            {{offence.reason-for-not-deducting-from-benefits}}
+          {{/if}}
+        </dd>
+
+        <dt>How should defendant pay the court?</dt>
+        <dd>
+          {{#if ../sDefendantPay}}
+            {{../sDefendantPay}}
+          {{else}}
+            {{offence.defendant-pay}}
+          {{/if}}
+        </dd>
+
+      </dl>
+
+    {{/is}}
+
+
+    {{#is ../sPaymentMethod "Deduct from benefits"}}
+
+      <dl class="meta meta-light meta-large">
+
+        <dt>Payment method</dt>
+        <dd>Deduct from benefits</dd>
+
+        <dt>National Insurance number</dt>
+        <dd>
+          {{#if ../sNationalInsuranceNumber}}
+            {{../sNationalInsuranceNumber}}
+          {{else}}
+            {{employment.national-insurance-number}}
+          {{/if}}
+        </dd>
+
+        <dt>Reason for deducting from benefits</dt>
+        <dd>
+          {{#if ../sReserveTerms}}
+            {{../sReserveTerms}}
+          {{else}}
+            {{offence.reserve-terms}}
+          {{/if}}
+        </dd>
+
+        {{#is ../sReserveTerms "Lump sum plus instalments"}}
+          <dt>Amount to be paid</dt>
+          <dd>&pound;200.00 (within 14 days)</dd>
+          <dt>Instalment amount</dt>
+          <dd>&pound;50.00 (weekly) starting on 16 December 2017</dd>
+        {{/is}}
+
+        {{#is ../sReserveTerms "Instalments only"}}
+          <dt>Instalment amount</dt>
+          <dd>&pound;50.00 (weekly) starting on 16 December 2017</dd>
+        {{/is}}
+
+      </dl>
+
+    {{/is}}
+
+
+    {{#is ../sPaymentMethod "Attach to earnings"}}
+
+      <dl class="meta meta-light meta-large">
+
+        <dt>Payment method</dt>
+        <dd>
+          {{#if ../sPaymentMethod}}
+            {{../sPaymentMethod}}
+          {{else}}
+            {{offence.paymentMethod}}
+          {{/if}}
+        </dd>
+
+        <dt>Employee number</dt>
+        <dd>
+          {{#if ../sEmployeeNumber}}
+            {{../sEmployeeNumber}}
+          {{else}}
+            {{employment.employee-number}}
+          {{/if}}
+        </dd>
+
+        <dt>Employer name</dt>
+        <dd>
+          {{#if ../sEmployerName}}
+            {{../sEmployerName}}
+          {{else}}
+            {{employment.employer-name}}
+          {{/if}}
+        </dd>
+
+        <dt>Employer address</dt>
+        <dd>
+          {{#if ../sEmployerAddress1}}
+            {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
+            {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
+            {{#if ../sEmployerTown}}{{../sEmployerTown}}<br> {{/if}}
+            {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
+          {{else}}
+            {{#if employment.employer-address.address1}}{{employment.employer-address.address1}}<br>{{/if}}
+            {{#if employment.employer-address.address2}}{{employment.employer-address.address2}}<br>{{/if}}
+            {{#if employment.employer-address.town}}{{employment.employer-address.town}}<br>{{/if}}
+            {{#if employment.employer-address.postcode}}{{employment.employer-address.postcode}}{{/if}}
+          {{/if}}
+        </dd>
+
+        <dt>Reason for attaching to earnings</dt>
+        <dd>
+          {{#if ../reasonForAttachingToEarnings}}
+            {{../reasonForAttachingToEarnings}}
+          {{else}}
+            {{offence.reason-for-attaching-to-earnings}}
+          {{/if}}
+        </dd>
+
+        <dt>Reserve terms</dt>
+        <dd>
+          {{#if ../sReservedTerms}}
+            {{../sReservedTerms}}
+          {{else}}
+            {{offence.reserve-terms}}
+          {{/if}}
+        </dd>
+
+      </dl>
+
+    {{/is}}
+
+
 
   </section>
-
-
-  <!--section class="check-answers" aria-labelledby="collection-and-payment">
-
-    <header class="check-answers-header">
-      <h2 class="bold-medium" id="collection-and-payment">Collection and payment</h2>
-      <a class="check-answers-action" href="#" title="Change collection and payment">Change <span class="visuallyhidden">collection and payment</span></a>
-    </header>
-
-    <dl class="meta meta-light meta-large">
-      <dt>Total</dt>
-      <dd>&pound;305.12</dd>
-      <dt>Method</dt>
-      <dd>Dedcut from benefits</dd>
-      <dt>Reserved terms</dt>
-      <dd>Lump sum within 14 days</dd>
-      <dt>Collection order issued</dt>
-      <dd>Yes</dd>
-    </dl>
-
-  </section-->
 
   <hr aria-hidden="true">
 

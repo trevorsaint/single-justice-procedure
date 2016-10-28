@@ -22,14 +22,14 @@ router.use(function(req, res, next) {
   sPaymentMethod            = req.session.paymentMethod;
   sFineBandApplied          = req.session.fineBandApplied;
   sCollectionOrderConfirmed = req.session.collectionOrderConfirmed;
-
   sFineA                    = req.session.fineA;
   sFineB                    = req.session.fineB;
   sFineC                    = req.session.fineC;
-
   sCompensationA            = req.session.compensationA;
   sCompensationB            = req.session.compensationB;
   sCompensationC            = req.session.compensationC;
+  sCost                     = req.session.cost;
+  sSurcharge                = req.session.surcharge;
 
   // personal details
   sTitle                    = req.session.title;
@@ -44,9 +44,38 @@ router.use(function(req, res, next) {
   sTown                     = req.session.town;
   sPostcode                 = req.session.postcode;
 
+  // pay direct to court
+  sReasonForNotDeductFromBenefitsOrAttachToEarnings = req.session.reasonForNotDeductFromBenefitsOrAttachToEarnings;
+  sDefendantPay                                     = req.session.defendantPay;
+
   // deduct from benefits
-  sReasonForDeductingFromBenefits = req.session.reasonForDeductingFromBenefits;
-  sReserveTerms                   = req.session.reserveTerms;
+  sNationalInsuranceNumber          = req.session.nationalInsuranceNumber;
+  sReasonForDeductingFromBenefits   = req.session.reasonForDeductingFromBenefits;
+  sReserveTerms                     = req.session.reserveTerms;
+
+  sLumpSumAmount                    = req.session.lumpSumAmount;
+  sLumpSumPaidWithin                = req.session.lumpSumPaidWithin;
+  sLumpSumInstalmentAmount          = req.session.lumpSumInstalmentAmount;
+  sLumpSumInstalmentMade            = req.session.lumpSumInstalmentMade;
+  sLumpSumInstalmentStartDateDay    = req.session.lumpSumInstalmentStartDateDay;
+  sLumpSumInstalmentStartDateMonth  = req.session.lumpSumInstalmentStartDateMonth;
+  sLumpSumInstalmentStartDateYear   = req.session.lumpSumInstalmentStartDateYear;
+
+  sInstalmentOnlyAmount          = req.session.instalmentOnlyAmount;
+  sInstalmentOnlyMade            = req.session.instalmentOnlyMade;
+  sInstalmentOnlyStartDateDay    = req.session.instalmentOnlyStartDateDay;
+  sInstalmentOnlyStartDateMonth  = req.session.instalmentOnlyStartDateMonth;
+  sInstalmentOnlyStartDateYear   = req.session.instalmentOnlyStartDateYear;
+
+  // attach to earnings
+  sEmployeeNumber                 = req.session.employeeNumber;
+  sEmployerName                   = req.session.employerName;
+  sReasonForAttachingToEarnings   = req.session.reasonForAttachingToEarnings;
+  sEmployerName                   = req.session.employerName;
+  sEmployerAddress1               = req.session.employerAddress1;
+  sEmployerAddress2               = req.session.employerAddress2;
+  sEmployerTown                   = req.session.employerTown;
+  sEmployerPostcode               = req.session.employerPostcode;
 
   next();
 
@@ -116,7 +145,7 @@ router.route('/legal-adviser/case-details/:id/')
       sAddress2: sAddress2,
       sTown: sTown,
       sPostcode: sPostcode,
-      sNationalInsurance: sNationalInsurance,
+      sNationalInsuranceNumber: sNationalInsuranceNumber,
       sHasSaved: sHasSaved,
       sMakeDecision: sMakeDecision,
       sBack: sBack,
@@ -125,7 +154,15 @@ router.route('/legal-adviser/case-details/:id/')
   })
   .post(function(req, res, next) {
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
-    res.redirect('/legal-adviser/your-decisions/' + req.params.id);
+
+    // has the user come from check your answers
+    if (!req.query.change) {
+      res.redirect('/legal-adviser/your-decisions/' + req.params.id);
+    }
+    else {
+      res.redirect('/legal-adviser/check-your-answers/' + req.params.id + '#offence-decision');
+    }
+
   });
 
 router.route('/legal-adviser/your-decisions/:id')
@@ -152,13 +189,17 @@ router.route('/legal-adviser/your-decisions/:id')
       sCompensationA: sCompensationA,
       sCompensationB: sCompensationB,
       sCompensationC: sCompensationC,
-      sCollectionOrderConfirmed: sCollectionOrderConfirmed
+      sCollectionOrderConfirmed: sCollectionOrderConfirmed,
+      sCost: sCost,
+      sSurcharge: sSurcharge
     });
   })
   .post(function(req, res, next) {
 
     sFineBandApplied = req.session.fineBandApplied = req.body.fineBandApplied;
-    sCollectionOrderConfirmed = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed;
+    sCost = req.session.cost = req.body.cost;
+    sSurcharge = req.session.surcharge = req.body.surcharge;
+    sCollectionOrderConfirmed = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed ? "true" : "false";
 
     if (sFineBandApplied === "Band A") {
       sFineA = req.session.fineA = req.body.fineA;
@@ -184,17 +225,24 @@ router.route('/legal-adviser/your-decisions/:id')
       sCompensationA = req.session.compensationA = null;
     }
 
-    res.redirect('/legal-adviser/collection-payment-method/' + req.params.id);
+    // has the user come from check your answers
+    if (!req.query.change) {
+      res.redirect('/legal-adviser/collection-payment/' + req.params.id);
+    }
+    else {
+      res.redirect('/legal-adviser/check-your-answers/' + req.params.id + '#fine-and-compensation');
+    }
+
   });
 
-router.route('/legal-adviser/collection-payment-method/:id')
+router.route('/legal-adviser/collection-payment/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/collection-payment-method', {
+    res.render('legal-adviser/collection-payment', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Collection payment method',
-      pagetitle: 'Collection payment method',
+      doctitle: 'Collection payment',
+      pagetitle: 'Collection payment',
       section: 'home',
       section_name: 'Home',
       section2: 'case-details/' + req.params.id,
@@ -202,6 +250,7 @@ router.route('/legal-adviser/collection-payment-method/:id')
       search: entry,
       signedIn: true,
       breadcrumb: true,
+      sPaymentMethod: sPaymentMethod,
       sBack: sBack
     });
   })
@@ -234,10 +283,12 @@ router.route('/legal-adviser/collection-payment-method/:id')
         signedIn: true,
         breadcrumb: true,
         sPaymentMethod: sPaymentMethod,
+        sDefendantPay: sDefendantPay,
         sBack: sBack
       });
     })
     .post(function(req, res, next) {
+      sDefendantPay = req.session.defendantPay = req.body.defendantPay;
       res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
     });
 
@@ -256,10 +307,24 @@ router.route('/legal-adviser/attach-to-earnings/:id')
       search: entry,
       signedIn: true,
       breadcrumb: true,
-      sBack: sBack
+      sBack: sBack,
+      sEmployeeNumber: sEmployeeNumber,
+      sEmployerName: sEmployerName,
+      sEmployerAddress1: sEmployerAddress1,
+      sEmployerAddress2: sEmployerAddress2,
+      sEmployerTown: sEmployerTown,
+      sEmployerPostcode: sEmployerPostcode,
+      sReasonForAttachingToEarnings: sReasonForAttachingToEarnings
     });
   })
   .post(function(req, res, next) {
+    sEmployeeNumber = req.session.employeeNumber = req.body.employeeNumber;
+    sEmployerName = req.session.employerName = req.body.employerName;
+    sEmployerAddress1 = req.session.employerAddress1 = req.body.employerAddress1;
+    sEmployerAddress2 = req.session.employerAddress2 = req.body.employerAddress2;
+    sEmployerTown = req.session.employerTown = req.body.employerTown;
+    sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
+    sReasonForAttachingToEarnings = req.session.reasonForAttachingToEarnings = req.body.reasonForAttachingToEarnings;
     res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
   });
 
@@ -280,12 +345,45 @@ router.route('/legal-adviser/attach-to-earnings/:id')
         breadcrumb: true,
         sReasonForDeductingFromBenefits: sReasonForDeductingFromBenefits,
         sReserveTerms: sReserveTerms,
-        sBack: sBack
+        sNationalInsuranceNumber: sNationalInsuranceNumber,
+        sBack: sBack,
+        sReasonForDeductingFromBenefits: sReasonForDeductingFromBenefits,
+        sLumpSumAmount: sLumpSumAmount,
+        sLumpSumPaidWithin: sLumpSumPaidWithin,
+        sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
+        sLumpSumInstalmentMade: sLumpSumInstalmentMade,
+        sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
+        sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
+        sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+        sInstalmentOnlyAmount: sInstalmentOnlyAmount,
+        sInstalmentOnlyMade: sInstalmentOnlyMade,
+        sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
+        sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
+        sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear
       });
     })
     .post(function(req, res, next) {
+      sNationalInsuranceNumber = req.session.nationalInsuranceNumber = req.body.nationalInsuranceNumber;
       sReasonForDeductingFromBenefits = req.session.reasonForDeductingFromBenefits = req.body.reasonForDeductingFromBenefits;
       sReserveTerms = req.session.reserveTerms = req.body.reserveTerms;
+
+      if (sReserveTerms === "Lump sum plus instalments") {
+        sLumpSumAmount = req.session.lumpSumAmount = req.body.lumpSumAmount;
+        sLumpSumPaidWithin = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+        sLumpSumInstalmentAmount = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
+        sLumpSumInstalmentMade = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
+        sLumpSumInstalmentStartDateDay = req.session.lumpSumInstalmentStartDateDay = req.body.lumpSumInstalmentStartDateDay;
+        sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = req.body.lumpSumInstalmentStartDateMonth;
+        sLumpSumInstalmentStartDateYear = req.session.lumpSumInstalmentStartDateYear = req.body.lumpSumInstalmentStartDateYear;
+      } else if (sReserveTerms === "Instalments only") {
+        sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+        sInstalmentOnlyAmount = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
+        sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+        sInstalmentOnlyStartDateDay = req.session.instalmentOnlyStartDateDay = req.body.instalmentOnlyStartDateDay;
+        sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = req.body.instalmentOnlyStartDateMonth;
+        sInstalmentOnlyStartDateYear = req.session.instalmentOnlyStartDateYear = req.body.instalmentOnlyStartDateYear;
+      }
+
       res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
     });
 
@@ -302,6 +400,7 @@ router.route('/legal-adviser/check-your-answers/:id')
       search: entry,
       signedIn: true,
       breadcrumb: true,
+      sNationalInsuranceNumber: sNationalInsuranceNumber,
       sMakeDecision: sMakeDecision,
       sPaymentMethod: sPaymentMethod,
       sFineBandApplied: sFineBandApplied,
@@ -313,7 +412,30 @@ router.route('/legal-adviser/check-your-answers/:id')
       sCompensationC: sCompensationC,
       sCollectionOrderConfirmed: sCollectionOrderConfirmed,
       sReasonForDeductingFromBenefits: sReasonForDeductingFromBenefits,
+      sReasonForAttachingToEarnings: sReasonForAttachingToEarnings,
       sReserveTerms: sReserveTerms,
+      sCost: sCost,
+      sPaymentMethod: sPaymentMethod,
+      sDefendantPay: sDefendantPay,
+      sSurcharge: sSurcharge,
+      sEmployeeNumber: sEmployeeNumber,
+      sEmployerName: sEmployerName,
+      sEmployerAddress1: sEmployerAddress1,
+      sEmployerAddress2: sEmployerAddress2,
+      sEmployerTown: sEmployerTown,
+      sEmployerPostcode: sEmployerPostcode,
+      sInstalmentOnlyAmount: sInstalmentOnlyAmount,
+      sInstalmentOnlyMade: sInstalmentOnlyMade,
+      sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
+      sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
+      sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+      sLumpSumAmount: sLumpSumAmount,
+      sLumpSumPaidWithin: sLumpSumPaidWithin,
+      sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
+      sLumpSumInstalmentMade: sLumpSumInstalmentMade,
+      sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
+      sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
+      sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
       sBack: sBack
     });
   })

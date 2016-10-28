@@ -103,7 +103,7 @@ module.exports = function (grunt) {
       watch: {
 
         express: {
-          files: ['**/*.js'],
+          files: ['routes/**/*.js', 'models/**/*.js'],
           tasks: ['express:dev'],
           options: {
             livereload: true,
