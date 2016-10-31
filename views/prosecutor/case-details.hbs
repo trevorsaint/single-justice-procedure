@@ -32,7 +32,7 @@
               <h2 class="heading-medium">Case details</h2>
 
               {{#with case-details}}
-              <dl class="meta meta-large">
+              <dl class="meta meta-inline meta-boldterms">
                 <dt>Case status</dt>
                 <dd>{{{status}}}</dd>
                 <dt>Prosecutor</dt>
@@ -64,7 +64,7 @@
 
               <h2 class="heading-medium">Personal details</h2>
 
-              <dl class="meta meta-large">
+              <dl class="meta meta-inline meta-boldterms">
                 <dt>Name</dt>
                 <dd>{{{firstname}}} {{uppercase lastname}}</dd>
                 <dt>Date of birth</dt>
@@ -88,7 +88,7 @@
               <h2 class="heading-medium">Documents</h2>
 
               {{#with case-details}}
-              <dl class="meta meta-large">
+              <dl class="meta meta-inline meta-boldterms">
                 <dt>Uploaded files</dt>
                 <dd>
                   {{#each ../related-documents.document}}

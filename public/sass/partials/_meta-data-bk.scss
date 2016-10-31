@@ -4,76 +4,96 @@
 $module: 'meta';
 
 .#{$module} {
-  margin-top: em(20);
 
+  // shared
   dt {
-    margin-bottom: em(5);
+    font-weight: 700;
+    width: auto;
   }
 
-  dd {
-    margin-bottom: em(20);
+  @include media(tablet) {
 
-    // may contain document downloads
-    .document {
-      margin-top: em(20);
+    dt {
+      float: left;
+    }
 
-      &:first-child {
-        margin-top: 0;
-      }
-
+    dd {
+      overflow: hidden;
     }
 
   }
 
+  // light
+  &-light {
 
-  // inline
-  &-inline {
-    overflow: hidden;
+    dt {
+      font-weight: 400;
+    }
+
+  }
+
+  // large
+  &-large {
+
+    dt {
+      margin-bottom: em(5);
+    }
+
+    dd {
+      margin-bottom: em(20);
+
+      // may contain document downloads
+      .document {
+        margin-top: 10px;
+      }
+
+    }
 
     @include media(tablet) {
 
-      dt, dd {
-        float: left;
-        width: 50%;
+      dt {
+        margin-bottom: em(20);
+        padding-right: $gutter;
+        width: 40%;
       }
 
-      dt {
-        clear: both;
+      dd {
         margin-bottom: em(20);
-        width: 50%;
+
+        // may contain document downloads
+        .document {
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+        }
+
       }
 
     }
 
   }
-
 
   // small
   &-small {
     @include core-16;
 
-    dt {
-      margin-bottom: em(10,16);
-      width: 30%;
-    }
-
     dd {
       margin-bottom: em(10,16);
-      width: 70%;
+    }
+
+    @include media(tablet) {
+
+      dt {
+        margin-bottom: em(10,16);
+        padding-right: em(10,16);
+        width: 40%;
+      }
+
     }
 
   }
-
-
-  // bold terms
-  &-boldterms {
-
-    dt {
-      font-weight: 700;
-    }
-
-  }
-
 
 }
 
@@ -81,7 +101,7 @@ $module: 'meta';
 
 HTML Usage
 
-<dl class="meta meta-inline meta-boldterms">
+<dl class="meta meta-small">
   <dt>Age</dt>
   <dd>21</dd>
   <dt>Date of birth</dt>
@@ -98,7 +118,7 @@ HTML Usage
 
 OR
 
-<dl class="meta meta-small">
+<dl class="meta meta-large">
   <dt>Case status</dt>
   <dd>Awaiting plea</dd>
   <dt>Prosecutor</dt>

@@ -2764,41 +2764,33 @@ HTML Usage
 <i class="icon icon-lock-white" role="presentation" aria-hidden="true"></i>
 
 */
+.meta {
+  margin-top: 1.05263em;
+}
 .meta dt {
-  font-weight: 700;
-  width: auto;
-}
-@media (min-width: 641px) {
-  .meta dt {
-    float: left;
-  }
-  .meta dd {
-    overflow: hidden;
-  }
-}
-.meta-light dt {
-  font-weight: 400;
-}
-.meta-large dt {
   margin-bottom: 0.26316em;
 }
-.meta-large dd {
+.meta dd {
   margin-bottom: 1.05263em;
 }
-.meta-large dd .document {
-  margin-top: 10px;
+.meta dd .document {
+  margin-top: 1.05263em;
+}
+.meta dd .document:first-child {
+  margin-top: 0;
+}
+.meta-inline {
+  overflow: hidden;
 }
 @media (min-width: 641px) {
-  .meta-large dt {
-    margin-bottom: 1.05263em;
-    padding-right: 30px;
-    width: 40%;
+  .meta-inline dt, .meta-inline dd {
+    float: left;
+    width: 50%;
   }
-  .meta-large dd {
+  .meta-inline dt {
+    clear: both;
     margin-bottom: 1.05263em;
-  }
-  .meta-large dd .document:first-child {
-    margin-top: 0;
+    width: 50%;
   }
 }
 .meta-small {
@@ -2814,22 +2806,23 @@ HTML Usage
     line-height: 1.25;
   }
 }
+.meta-small dt {
+  margin-bottom: 0.625em;
+  width: 30%;
+}
 .meta-small dd {
   margin-bottom: 0.625em;
+  width: 70%;
 }
-@media (min-width: 641px) {
-  .meta-small dt {
-    margin-bottom: 0.625em;
-    padding-right: 0.625em;
-    width: 40%;
-  }
+.meta-boldterms dt {
+  font-weight: 700;
 }
 
 /*
 
 HTML Usage
 
-<dl class="meta meta-small">
+<dl class="meta meta-inline meta-boldterms">
   <dt>Age</dt>
   <dd>21</dd>
   <dt>Date of birth</dt>
@@ -2846,7 +2839,7 @@ HTML Usage
 
 OR
 
-<dl class="meta meta-large">
+<dl class="meta meta-small">
   <dt>Case status</dt>
   <dd>Awaiting plea</dd>
   <dt>Prosecutor</dt>

@@ -85,6 +85,20 @@ router.route('/court-administrator')
     res.redirect('/court-administrator/home');
   });
 
+router.route('/court-administrator/styles')
+  .get(function(req, res, next) {
+    res.render('court-administrator/styles', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Styles',
+      pagetitle: 'Styles',
+      section: 'home',
+      section_name: 'Home',
+      signedIn: false,
+      breadcrumb: true
+    });
+  });
+
 router.route('/court-administrator/home/')
   .get(function(req, res, next) {
     res.render('court-administrator/home', {
