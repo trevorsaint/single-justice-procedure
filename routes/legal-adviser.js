@@ -154,15 +154,7 @@ router.route('/legal-adviser/case-details/:id/')
   })
   .post(function(req, res, next) {
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
-
-    // has the user come from check your answers
-    if (!req.query.change) {
-      res.redirect('/legal-adviser/your-decisions/' + req.params.id);
-    }
-    else {
-      res.redirect('/legal-adviser/check-your-answers/' + req.params.id + '#offence-decision');
-    }
-
+    res.redirect('/legal-adviser/your-decisions/' + req.params.id);
   });
 
 router.route('/legal-adviser/your-decisions/:id')
