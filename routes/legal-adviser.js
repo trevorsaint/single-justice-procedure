@@ -163,8 +163,8 @@ router.route('/legal-adviser/your-decisions/:id')
     res.render('legal-adviser/your-decisions', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Your decisions',
-      pagetitle: 'Your decisions',
+      doctitle: 'Continue decisions',
+      pagetitle: 'Continue decisions',
       section: 'home',
       section_name: 'Home',
       section2: 'case-details/' + req.params.id,
@@ -232,8 +232,8 @@ router.route('/legal-adviser/collection-payment/:id')
     res.render('legal-adviser/collection-payment', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Collection payment',
-      pagetitle: 'Collection payment',
+      doctitle: 'Payment method',
+      pagetitle: 'Payment method',
       section: 'home',
       section_name: 'Home',
       section2: 'case-details/' + req.params.id,
@@ -289,8 +289,8 @@ router.route('/legal-adviser/attach-to-earnings/:id')
     res.render('legal-adviser/attach-to-earnings', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Attachment to earnings',
-      pagetitle: 'Attachment to earnings',
+      doctitle: 'Attach to earnings',
+      pagetitle: 'Attach to earnings',
       section: 'home',
       section_name: 'Home',
       section2: 'case-details/' + req.params.id,

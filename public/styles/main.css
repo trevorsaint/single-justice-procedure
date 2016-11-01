@@ -2920,12 +2920,23 @@ HTML Usage
 }
 
 .status-label {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.14286;
   border: 0.10526em solid #0b0c0c;
   display: inline-block;
   font-weight: bold;
   line-height: 1;
-  padding: 0.52632em;
+  padding: 0.3125em 0.625em;
   text-transform: uppercase;
+}
+@media (min-width: 641px) {
+  .status-label {
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 
 /*

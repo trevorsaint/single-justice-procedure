@@ -17,7 +17,8 @@
   <section class="check-answers" aria-labelledby="offences">
 
     <header class="check-answers-header">
-      <h2 class="bold-medium" id="offences">Offences</h2>
+      <h2 class="bold-medium" id="offences">Offence decisions</h2>
+      <a class="check-answers-action" href="/legal-adviser/case-details/{{id}}/#offence-decision" title="Change make a decision">Change <span class="visually-hidden">make a decision</span></a>
     </header>
 
     <dl class="meta meta-inline">
@@ -25,18 +26,6 @@
       <dd>Passenger used a ticket issued for another person</dd>
       <dt>Plea</dt>
       <dd>Guilty</dd>
-    </dl>
-
-  </section>
-
-  <section class="check-answers" aria-labelledby="make-a-decision">
-
-    <header class="check-answers-header">
-      <h2 class="bold-medium" id="make-a-decision">Make a decision</h2>
-      <a class="check-answers-action" href="/legal-adviser/case-details/{{id}}/#offence-decision" title="Change make a decision">Change <span class="visually-hidden">make a decision</span></a>
-    </header>
-
-    <dl class="meta meta-inline">
       <dt>Decision</dt>
       <dd>
         {{#if ../sMakeDecision}}
@@ -52,8 +41,6 @@
     </dl>
 
   </section>
-
-  <hr aria-hidden="true">
 
   <section class="check-answers" aria-labelledby="fine-and-compensation">
 
@@ -113,6 +100,8 @@
     </dl>
 
   </section>
+
+  <hr aria-hidden="true">
 
   <section class="check-answers" aria-labelledby="cost-and-surcharge">
 
