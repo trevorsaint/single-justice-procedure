@@ -79,8 +79,12 @@
 
       <dt>Fine</dt>
       <dd>
-        {{#if ../sFine}}
-          {{../sFine}}
+        {{#if ../sFineA}}
+          {{../sFineA}}
+        {{else if ../sFineB}}
+          {{../sFineB}}
+        {{else if ../sFineC}}
+          {{../sFineC}}
         {{else}}
           {{#if offence.fine}}
             {{offence.fine}}
@@ -92,8 +96,12 @@
 
       <dt>Compensation</dt>
       <dd>
-        {{#if ../sCompensation}}
-          {{../sCompensation}}
+        {{#if ../sCompensationA}}
+          {{../sCompensationA}}
+        {{else if ../sCompensationB}}
+          {{../sCompensationB}}
+        {{else if ../sCompensationC}}
+          {{../sCompensationC}}
         {{else}}
           {{#if offence.compensation}}
             {{offence.compensation}}

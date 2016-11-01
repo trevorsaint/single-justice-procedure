@@ -40,46 +40,18 @@
                 <span class="form-label">Fine band applied</span>
               </legend>
 
-              <label class="block-label" for="fine-band-b" data-target="band-b">
-                <input type="radio" id="fine-band-b" name="fineBandApplied" value="Band B"{{#if ../sFineBandApplied}}{{#contains ../sFineBandApplied "Band B"}} checked="checked"{{/contains}}{{else}} checked="checked"{{/if}}> Band B
-              </label>
-
-              <div class="panel panel-border-narrow{{#if ../sFineBandApplied}}{{#isnt ../sFineBandApplied "Band B"}} js-hidden{{/isnt}}{{/if}}" id="band-b">
-
-                <div class="form-group form-group-related">
-                  <label for="fine-b">
-                    <span class="form-label">Fine</span>
-                  </label>
-                  <div class="form-currency">
-                    <input class="form-control form-control-1-4" type="text" id="fine-b" name="fineB" value="{{#if ../sFineB}}{{../sFineB}}{{else}}220.00{{/if}}">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="compensation-b">
-                    <span class="form-label">Compensation</span>
-                  </label>
-                  <div class="form-currency">
-                    <input class="form-control form-control-1-4" type="text" id="compensation-b" name="compensationB" value="{{#if ../sCompensationB}}{{../sCompensationB}}{{else}}3.12{{/if}}">
-                  </div>
-                </div>
-
-              </div>
-
-              <p class="form-block">or switch to</p>
-
               <label class="block-label" for="fine-band-a"data-target="band-a">
-                <input type="radio" id="fine-band-a" name="fineBandApplied" value="Band A"{{#contains ../sFineBandApplied "Band A"}} checked="checked"{{/contains}}> Band A
+                <input type="radio" id="fine-band-a" name="fineBandApplied" value="Band A"{{#contains ../sFineBandApplied "Band A"}}{{else}} checked="checked"{{/contains}}> Band A
               </label>
 
-              <div class="panel panel-border-narrow{{#isnt ../sFineBandApplied "Band A"}} js-hidden{{/isnt}}" id="band-a">
+              <div class="panel panel-border-narrow{{#if ../sFineBandApplied}}{{#isnt ../sFineBandApplied "Band A"}} js-hidden{{/isnt}}{{/if}}" id="band-a">
 
                 <div class="form-group form-group-related">
                   <label for="fine-a">
                     <span class="form-label">Fine</span>
                   </label>
                   <div class="form-currency">
-                    <input class="form-control form-control-1-4" type="text" id="fine-a" name="fineA" value="{{#if ../sFineA}}{{../sFineA}}{{else}}440.00{{/if}}">
+                    <input class="form-control form-control-1-4" type="text" id="fine-a" name="fineA" value="{{#if ../sFineA}}{{../sFineA}}{{else}}220.00{{/if}}">
                   </div>
                 </div>
 
@@ -89,6 +61,34 @@
                   </label>
                   <div class="form-currency">
                     <input class="form-control form-control-1-4" type="text" id="compensation-a" name="compensationA" value="{{#if ../sCompensationA}}{{../sCompensationA}}{{else}}3.12{{/if}}">
+                  </div>
+                </div>
+
+              </div>
+
+              <p class="form-block">or switch to</p>
+
+              <label class="block-label" for="fine-band-b" data-target="band-b">
+                <input type="radio" id="fine-band-b" name="fineBandApplied" value="Band B"{{#if ../sFineBandApplied}}{{#contains ../sFineBandApplied "Band B"}} checked="checked"{{/contains}}{{/if}}> Band B
+              </label>
+
+              <div class="panel panel-border-narrow{{#isnt ../sFineBandApplied "Band B"}} js-hidden{{/isnt}}" id="band-b">
+
+                <div class="form-group form-group-related">
+                  <label for="fine-b">
+                    <span class="form-label">Fine</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="fine-b" name="fineB" value="{{#if ../sFineB}}{{../sFineB}}{{else}}440.00{{/if}}">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="compensation-b">
+                    <span class="form-label">Compensation</span>
+                  </label>
+                  <div class="form-currency">
+                    <input class="form-control form-control-1-4" type="text" id="compensation-b" name="compensationB" value="{{#if ../sCompensationB}}{{../sCompensationB}}{{else}}3.12{{/if}}">
                   </div>
                 </div>
 

@@ -200,7 +200,6 @@ router.route('/legal-adviser/your-decisions/:id')
       sFineC = req.session.fineC = null;
       sCompensationB = req.session.compensationB = null;
       sCompensationC = req.session.compensationC = null;
-
     } else if (sFineBandApplied === "Band B") {
       sFineB = req.session.fineB = req.body.fineB;
       sCompensationB = req.session.compensationB = req.body.compensationB;

@@ -39,7 +39,7 @@ var search = [
       "reserve-terms": "Lump sum 14 days",
       "defendant-pay": "Lump sum 14 days",
       "reason-for-not-deducting-from-benefits": "No information from the defendant",
-      "fine-band-applied": "Band B",
+      "fine-band-applied": "Band A",
       "fine": "220.00",
       "compensation": "3.12",
       "cost": "125.00",
