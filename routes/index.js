@@ -7,6 +7,7 @@ var apptitle = 'Single Justice Procedure';
 
 // routes
 router.all('/', function(req, res) {
+  req.session.destroy(); // kill all sessions to begin with
   res.render('index', {
     baseurl: baseurl,
     apptitle: apptitle,
