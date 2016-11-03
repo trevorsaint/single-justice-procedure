@@ -34,13 +34,16 @@ $module: 'meta';
 
       dt, dd {
         float: left;
-        width: 50%;
       }
 
       dt {
         clear: both;
         margin-bottom: em(20);
-        width: 50%;
+        width: 40%;
+      }
+
+      dd {
+        width: 60%;
       }
 
     }

@@ -26,4 +26,27 @@ $module: 'table';
 
   }
 
+  // summary table
+  &-summary {
+
+    &-title {
+      width: 40%;
+    }
+
+    .#{$module}-cell-action {
+      text-align: right;
+      padding-right: 0;
+    }
+
+    .#{$module}-row-noborder {
+
+      th, td {
+        border: 0;
+      }
+
+    }
+
+  }
+
+
 }

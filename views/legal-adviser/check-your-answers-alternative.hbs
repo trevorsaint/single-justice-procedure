@@ -14,98 +14,7 @@
 
   <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
-  <!-- offence 1 -->
-  <h2 class="heading-medium">1. Passenger used ticket issued for another person</h2>
-  <p><strong class="status-label">Pleaded guilty SJP</strong></p>
-  <table class="table table-summary">
-    <tbody>
-      <tr>
-        <td class="table-summary-title">Decision</td>
-        <td>Financial penalty</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Fine band applied</td>
-        <td>Band A</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Fine</td>
-        <td>&pound;220.00</td>
-        <td></td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Compensation</td>
-        <td>&pound;3.50</td>
-        <td></td>
-      </tr>
-
-    </tbody>
-
-  </table>
-  <!-- end offence 1 -->
-
-
-  <hr class="divider divider-border-dark"></hr>
-
-
-  <!-- offence 2 -->
-  <h2 class="heading-medium">2. Fare evasion</h2>
-  <p><strong class="status-label">Pleaded not guilty</strong></p>
-  <table class="table table-summary">
-
-    <tbody>
-
-      <tr>
-        <td class="table-summary-title">Decision</td>
-        <td>Offence withdrawn</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Reason</td>
-        <td>Offence submitted in error</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
-      </tr>
-
-    </tbody>
-
-  </table>
-  <!-- end offence 2 -->
-
-
-  <hr class="divider divider-border-dark">
-
-
-  <!-- costs and surcharge -->
-  <h2 class="heading-medium">Costs and surcharge</h2>
-  <table class="table table-summary">
-    <tbody>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Costs</td>
-        <td>&pound;125.00</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
-      </tr>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Surcharge and victim fund</td>
-        <td colspan="2">&pound;30.00</td>
-      </tr>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Collection order issued</td>
-        <td colspan="2">Yes</td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- end costs and surcharge -->
-
-
-  <hr class="divider divider-border-dark">
-
-
-  <!--section class="check-answers" aria-labelledby="offences">
+  <section class="check-answers" aria-labelledby="offences">
 
     <header class="check-answers-header">
       <h2 class="bold-medium" id="offences">Offence decisions</h2>
@@ -131,9 +40,9 @@
       </dd>
     </dl>
 
-  </section-->
+  </section>
 
-  <!--section class="check-answers" aria-labelledby="fine-and-compensation">
+  <section class="check-answers" aria-labelledby="fine-and-compensation">
 
     <header class="check-answers-header">
       <h2 class="bold-medium" id="fine-and-compensation">Fine and compensation</h2>
@@ -192,18 +101,18 @@
 
   </section>
 
-  <hr aria-hidden="true"-->
+  <hr aria-hidden="true">
 
-  <!--section class="check-answers" aria-labelledby="cost-and-surcharge">
+  <section class="check-answers" aria-labelledby="cost-and-surcharge">
 
     <header class="check-answers-header">
-      <h2 class="bold-medium" id="cost-and-surcharge">Costs and surcharge</h2>
+      <h2 class="bold-medium" id="cost-and-surcharge">Cost and surcharge</h2>
       <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/?change=true/#costs-and-surcharge" title="Change cost and surcharge">Change <span class="visually-hidden">cost and surcharge</span></a>
     </header>
 
     <dl class="meta meta-inline">
 
-      <dt>Costs</dt>
+      <dt>Cost</dt>
       <dd>
         {{#if ../sCost}}
           &pound;{{../sCost}}
@@ -394,25 +303,27 @@
 
   </section>
 
-  <hr aria-hidden="true"-->
+  <hr aria-hidden="true">
 
   <section class="check-answers" aria-labelledby="decision">
 
-    <h2 class="heading-medium" id="decision">Add a note (optional)</h2>
+    <h2 class="heading-medium" id="decision">Decision</h2>
 
-    <p class="text">Only add if you have important information you couldn&rsquo;t enter elsewhere. The details you enter may be shown publicly, for example to the defendant.</p>
+    <div class="panel panel-border-narrow">
+      <p class="text">Only add if you have important information you couldn&rsquo;t enter elsewhere. The details you enter may be shown publicly, for example to the defendant.</p>
+    </div>
 
     <form class="form" method="post">
 
       <div class="form-group">
-        <label for="notes" class="visually-hidden">
+        <label for="notes">
           <span class="form-label">Notes (optional)</span>
         </label>
         <textarea class="form-control form-control-textarea" id="notes" name="notes" rows="5" cols="60"></textarea>
       </div>
 
       <div class="form-group form-group-related">
-        <button class="button" type="submit">Confirm and submit</button>
+        <button class="button" type="submit">Save and continue</button>
       </div>
 
       <p><a href="{{../sBack}}">Back</a></p>

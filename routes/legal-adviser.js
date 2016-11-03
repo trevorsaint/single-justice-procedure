@@ -384,8 +384,8 @@ router.route('/legal-adviser/check-your-answers/:id')
     res.render('legal-adviser/check-your-answers', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Check your answers',
-      pagetitle: 'Check your answers',
+      doctitle: 'Check your decisions',
+      pagetitle: 'Check your decisions',
       section: 'home',
       section_name: 'Home',
       search: entry,

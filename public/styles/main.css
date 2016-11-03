@@ -1996,6 +1996,16 @@ CSS Usage
     width: 6.25em;
   }
 }
+.table-summary-title {
+  width: 40%;
+}
+.table-summary .table-cell-action {
+  text-align: right;
+  padding-right: 0;
+}
+.table-summary .table-row-noborder th, .table-summary .table-row-noborder td {
+  border: 0;
+}
 
 .form-currency {
   display: block;
@@ -2785,12 +2795,14 @@ HTML Usage
 @media (min-width: 641px) {
   .meta-inline dt, .meta-inline dd {
     float: left;
-    width: 50%;
   }
   .meta-inline dt {
     clear: both;
     margin-bottom: 1.05263em;
-    width: 50%;
+    width: 40%;
+  }
+  .meta-inline dd {
+    width: 60%;
   }
 }
 .meta-small {

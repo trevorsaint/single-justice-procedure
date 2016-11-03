@@ -158,62 +158,14 @@
 
       </div>
 
-    </div>
+        <hr aria-hidden="true">
 
-    <div class="column-third">
+        <h2 class="heading-large" id="offences">2 offences</h2>
 
-      <!--figure class="figure">
-        <img src="/public/images/logo-tfl.png" alt="Transport for London" title="Transport for London">
-      </figure-->
+        {{#with offence}}
+        <section aria-labelledby="offence">
 
-      <div class="related">
-
-        <div class="related-section">
-
-          <h3 class="related-heading">Documents</h3>
-
-          <ul class="related-links">
-            {{#each related-documents.document}}
-              {{#is show true}}
-                <li>
-                  <div class="document document-small">
-                    <i class="icon icon-file-download"></i>
-                    <div class="document-content">
-                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
-                        <div class="document-meta">
-                          <span class="document-meta-details">
-                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              {{/is}}
-            {{/each}}
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <hr aria-hidden="true">
-
-  <div aria-labelledby="offences">
-
-    <h2 class="heading-large" id="offences">Offence</h2>
-
-    {{#with offence}}
-    <section aria-labelledby="offence">
-
-      <div class="grid-row">
-
-        <div class="column-two-thirds">
-
-          <h3 class="font-medium" id="offence">{{{title}}}</h3>
+          <h3 class="heading-medium" id="offence">1. {{{title}}}</h3>
 
           <p class="font-xsmall">On <time datetime="{{moment date format="YYYY-MM-DD"}}">{{moment date format="D MMMM YYYY"}}</time></p>
 
@@ -233,12 +185,12 @@
               <section id="offence-details">
 
                 {{#if statement-of-facts}}
-                  <h3 class="heading-medium">Statement of facts</h3>
+                  <h3 class="heading-small">Statement of facts</h3>
                   <p>{{{statement-of-facts}}}</p>
                 {{/if}}
 
                 {{#if mitigation}}
-                  <h3 class="heading-medium">Mitigation</h3>
+                  <h3 class="heading-small">Mitigation</h3>
                   <p>{{{mitigation}}}</p>
                 {{/if}}
 
@@ -296,12 +248,139 @@
 
           </div>
 
+        </section>
+        {{/with}}
+
+        <hr>
+
+        {{#with offence}}
+        <section aria-labelledby="offence">
+
+          <h3 class="heading-medium" id="offence">2. {{{title}}}</h3>
+
+          <p class="font-xsmall">On <time datetime="{{moment date format="YYYY-MM-DD"}}">{{moment date format="D MMMM YYYY"}}</time></p>
+
+          <p><strong class="status-label">{{{plea}}}</strong></p>
+
+          <div class="tabs tabs-horizontal">
+
+            <div class="tabs-header">
+              <ul class="list">
+                <li><a href="#offence-details">Details</a></li>
+                <li><a href="#offence-decision">Make a decision</a></li>
+              </ul>
+            </div>
+
+            <div class="tabs-content">
+
+              <section id="offence-details">
+
+                {{#if statement-of-facts}}
+                  <h3 class="heading-small">Statement of facts</h3>
+                  <p>{{{statement-of-facts}}}</p>
+                {{/if}}
+
+                {{#if mitigation}}
+                  <h3 class="heading-small">Mitigation</h3>
+                  <p>{{{mitigation}}}</p>
+                {{/if}}
+
+              </section>
+
+              <section id="offence-decision">
+
+                <h3 class="heading-medium">Make a decision</h3>
+
+                <form class="form" method="post">
+
+                  <fieldset>
+
+                    <legend class="visually-hidden">Make a decision</legend>
+
+                    <div class="form-group">
+
+                      <label class="block-label">
+                        <input type="radio" name="makeDecision" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}> Financial penalty
+                      </label>
+
+                      <!--label class="block-label">
+                        <input type="radio" name="makeDecision" value="No separate penalty"{{#contains ../../sMakeDecision "No separate penalty"}} checked="checked"{{/contains}}> No separate penalty
+                      </label-->
+
+                      <label class="block-label">
+                        <input type="radio" name="makeDecision" value="Refer for court hearing"{{#contains ../../sMakeDecision "Refer for court hearing"}} checked="checked"{{/contains}}> Refer for court hearing
+                      </label>
+
+                      <label class="block-label">
+                        <input type="radio" name="makeDecision" value="Withdraw"{{#contains ../../sMakeDecision "Withdraw"}} checked="checked"{{/contains}}> Withdraw
+                      </label>
+
+                      <label class="block-label">
+                        <input type="radio" name="makeDecision" value="Discharge"{{#contains ../../sMakeDecision "Discharge"}} checked="checked"{{/contains}}> Discharge
+                      </label>
+
+                      <label class="block-label">
+                        <input type="radio" name="makeDecision" value="Dismiss"{{#contains ../../sMakeDecision "Dismiss"}} checked="checked"{{/contains}}> Dismiss
+                      </label>
+
+                    </div>
+
+                  </fieldset>
+
+                  <div class="form-group form-group-related">
+                    <button class="button" type="submit">Save and continue</button>
+                  </div>
+
+                </form>
+
+              </section>
+
+            </div>
+
+          </div>
+
+        </section>
+        {{/with}}
+
+    </div>
+
+    <div class="column-third">
+
+      <!--figure class="figure">
+        <img src="/public/images/logo-tfl.png" alt="Transport for London" title="Transport for London">
+      </figure-->
+
+      <div class="related">
+
+        <div class="related-section">
+
+          <h3 class="related-heading">Documents</h3>
+
+          <ul class="related-links">
+            {{#each related-documents.document}}
+              {{#is show true}}
+                <li>
+                  <div class="document document-small">
+                    <i class="icon icon-file-download"></i>
+                    <div class="document-content">
+                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
+                        <div class="document-meta">
+                          <span class="document-meta-details">
+                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              {{/is}}
+            {{/each}}
+          </ul>
+
         </div>
 
       </div>
 
-    </section>
-    {{/with}}
+    </div>
 
   </div>
 
