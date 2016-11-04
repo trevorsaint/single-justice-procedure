@@ -2527,6 +2527,7 @@ HTML Usage
 .notification {
   display: table;
   margin-bottom: 30px;
+  margin-top: 30px;
   padding: 15px;
 }
 @media (min-width: 769px) {
@@ -2565,25 +2566,25 @@ HTML Usage
 }
 
 /*
-  
+
 HTML Usage
-  
+
 <div class="notification notification-confirmation">
-  
+
   <div class="notification-message">
     <p class="bold-small">Accepted case management information</p>
   </div>
-  
+
 </div>
 
 <div class="notification notification-confirmation">
-  
+
   <i class="icon icon-tick-white"></i>
-  
+
   <div class="notification-message">
     <p class="bold-small">Accepted case management information</p>
   </div>
-  
+
 </div>
 
 */

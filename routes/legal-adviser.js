@@ -459,7 +459,25 @@ router.route('/legal-adviser/check-your-answers/:id')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/legal-adviser/');
+    res.redirect('/legal-adviser/confirmation/' + req.params.id);
+  });
+
+router.route('/legal-adviser/confirmation/:id/')
+  .get(function(req, res, next) {
+    entry = dataEngine.getSearchEntry(req.params.id);
+    res.render('legal-adviser/confirmation', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Confirmation',
+      pagetitle: 'Confirmation',
+      section: 'home',
+      section_name: 'Home',
+      section2: 'case-details/' + req.params.id,
+      section2_name: 'Case details',
+      search: entry,
+      signedIn: true,
+      breadcrumb: true
+    });
   });
 
   router.route('/legal-adviser/personal-details/:id/')
