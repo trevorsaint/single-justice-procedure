@@ -29,6 +29,10 @@ $module: 'table';
   // summary table
   &-summary {
 
+    th, td {
+      vertical-align: top; // accounts for multi-line content
+    }
+
     &-title {
       width: 40%;
     }

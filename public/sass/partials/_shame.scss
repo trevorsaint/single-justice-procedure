@@ -53,3 +53,18 @@
   text-overflow: ellipsis;
    -o-text-overflow: ellipsis; // opera 9 & 10
 }
+
+
+// GDS override hack
+fieldset.inline {
+
+  .panel {
+    margin-top: 10px;
+
+    &:last-child {
+      margin-bottom: 15px;
+    }
+
+  }
+
+}

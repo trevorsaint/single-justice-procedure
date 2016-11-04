@@ -154,13 +154,13 @@ router.route('/legal-adviser/case-details/:id/')
   })
   .post(function(req, res, next) {
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
-    res.redirect('/legal-adviser/your-decisions/' + req.params.id);
+    res.redirect('/legal-adviser/continue-decisions/' + req.params.id);
   });
 
-router.route('/legal-adviser/your-decisions/:id')
+router.route('/legal-adviser/continue-decisions/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/your-decisions', {
+    res.render('legal-adviser/continue-decisions', {
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Continue decisions',
@@ -218,7 +218,7 @@ router.route('/legal-adviser/your-decisions/:id')
 
     // has the user come from check your answers
     if (!req.query.change) {
-      res.redirect('/legal-adviser/collection-payment/' + req.params.id);
+      res.redirect('/legal-adviser/payment-method/' + req.params.id);
     }
     else {
       res.redirect('/legal-adviser/check-your-answers/' + req.params.id + '#fine-and-compensation');
@@ -226,10 +226,10 @@ router.route('/legal-adviser/your-decisions/:id')
 
   });
 
-router.route('/legal-adviser/collection-payment/:id')
+router.route('/legal-adviser/payment-method/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/collection-payment', {
+    res.render('legal-adviser/payment-method', {
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Payment method',
@@ -275,11 +275,39 @@ router.route('/legal-adviser/collection-payment/:id')
         breadcrumb: true,
         sPaymentMethod: sPaymentMethod,
         sDefendantPay: sDefendantPay,
-        sBack: sBack
+        sBack: sBack,
+        sLumpSumAmount: sLumpSumAmount,
+        sLumpSumPaidWithin: sLumpSumPaidWithin,
+        sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
+        sLumpSumInstalmentMade: sLumpSumInstalmentMade,
+        sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
+        sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
+        sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+        sInstalmentOnlyAmount: sInstalmentOnlyAmount,
+        sInstalmentOnlyMade: sInstalmentOnlyMade,
+        sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
+        sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
+        sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear
       });
     })
     .post(function(req, res, next) {
       sDefendantPay = req.session.defendantPay = req.body.defendantPay;
+      if (sDefendantPay === "Lump sum plus instalments") {
+        sLumpSumAmount = req.session.lumpSumAmount = req.body.lumpSumAmount;
+        sLumpSumPaidWithin = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+        sLumpSumInstalmentAmount = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
+        sLumpSumInstalmentMade = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
+        sLumpSumInstalmentStartDateDay = req.session.lumpSumInstalmentStartDateDay = req.body.lumpSumInstalmentStartDateDay;
+        sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = req.body.lumpSumInstalmentStartDateMonth;
+        sLumpSumInstalmentStartDateYear = req.session.lumpSumInstalmentStartDateYear = req.body.lumpSumInstalmentStartDateYear;
+      } else if (sDefendantPay === "Instalments only") {
+        sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+        sInstalmentOnlyAmount = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
+        sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+        sInstalmentOnlyStartDateDay = req.session.instalmentOnlyStartDateDay = req.body.instalmentOnlyStartDateDay;
+        sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = req.body.instalmentOnlyStartDateMonth;
+        sInstalmentOnlyStartDateYear = req.session.instalmentOnlyStartDateYear = req.body.instalmentOnlyStartDateYear;
+      }
       res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
     });
 

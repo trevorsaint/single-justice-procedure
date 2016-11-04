@@ -68,17 +68,32 @@
             <legend class="visuallyhidden">How should defendant pay the court?</legend>
 
             <label class="block-label">
-              <input type="radio" name="defendantPay" value="Lump sum 14 days" checked="checked"> Lump sum within 14 days
+              <input type="radio" name="defendantPay" value="Lump sum 14 days"
+              {{#if ../sDefendantPay}}
+                {{#contains ../sDefendantPay "Lump sum 14 days"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.defendant-pay "Lump sum 14 days"}} checked="checked"{{/contains}}
+              {{/if}}> Lump sum within 14 days
             </label>
 
             <p class="form-block">or</p>
 
             <label class="block-label">
-              <input type="radio" name="defendantPay" value="Lump sum 28 days"> Lump sum within 28 days
+              <input type="radio" name="defendantPay" value="Lump sum 28 days"
+              {{#if ../sDefendantPay}}
+                {{#contains ../sDefendantPay "Lump sum 28 days"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.defendant-pay "Lump sum 28 days"}} checked="checked"{{/contains}}
+              {{/if}}> Lump sum within 28 days
             </label>
 
             <label class="block-label" data-target="lump-sum-plus-instalments">
-              <input type="radio" name="defendantPay" value="Lump sum plus instalments"> Lump sum plus instalments
+              <input type="radio" name="defendantPay" value="Lump sum plus instalments"
+              {{#if ../sDefendantPay}}
+                {{#contains ../sDefendantPay "Lump sum plus instalments"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.defendant-pay "Lump sum plus instalments"}} checked="checked"{{/contains}}
+              {{/if}}> Lump sum plus instalments
             </label>
 
             <div class="panel panel-border-narrow js-hidden" id="lump-sum-plus-instalments">
@@ -88,7 +103,7 @@
                   <span class="form-label">Amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="lump-sum-amount" name="lumpSumAmount" value="">
+                  <input class="form-control form-control-1-4" type="text" id="lump-sum-amount" name="lumpSumAmount"{{#if ../sLumpSumAmount}} value="{{../sLumpSumAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -101,15 +116,15 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumAmountPaidWithin" value="14 days"> 14 days
+                    <input type="radio" name="lumpSumAmountPaidWithin" value="14 days"{{#contains ../sLumpSumPaidWithin "14 days"}} checked="checked"{{/contains}}> 14 days
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumAmountPaidWithin" value="28 days"> 28 days
+                    <input type="radio" name="lumpSumAmountPaidWithin" value="28 days"{{#contains ../sLumpSumPaidWithin "28 days"}} checked="checked"{{/contains}}> 28 days
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumAmountPaidWithin" value="Other"> Other
+                    <input type="radio" name="lumpSumAmountPaidWithin" value="Other"{{#contains ../sLumpSumPaidWithin "Other"}} checked="checked"{{/contains}}> Other
                   </label>
 
                 </fieldset>
@@ -121,7 +136,7 @@
                   <span class="form-label">Instalment amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="lump-sum-instalment-amount" name="lumpSumInstalmentAmount" value="">
+                  <input class="form-control form-control-1-4" type="text" id="lump-sum-instalment-amount" name="lumpSumInstalmentAmount"{{#if ../sLumpSumInstalmentAmount}} value="{{../sLumpSumInstalmentAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -134,15 +149,15 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumInstalmentsMade" value="Weekly"> Weekly
+                    <input type="radio" name="lumpSumInstalmentsMade" value="Weekly"{{#contains ../sLumpSumInstalmentMade "Weekly"}} checked="checked"{{/contains}}> Weekly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumInstalmentsMade" value="Fortnightly"> Fortnightly
+                    <input type="radio" name="lumpSumInstalmentsMade" value="Fortnightly"{{#contains ../sLumpSumInstalmentMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumInstalmentsMade" value="Monthly"> Monthly
+                    <input type="radio" name="lumpSumInstalmentsMade" value="Monthly"{{#contains ../sLumpSumInstalmentMade "Monthly"}} checked="checked"{{/contains}}> Monthly
                   </label>
 
                 </fieldset>
@@ -184,17 +199,22 @@
             </div>
 
             <label class="block-label" data-target="lump-sum-instalments-only">
-              <input type="radio" name="defendantPay" value="Instalments only"> Instalments only
+              <input type="radio" name="defendantPay" value="Instalments only"
+              {{#if ../sDefendantPay}}
+                {{#contains ../sDefendantPay "Instalments only"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.defendant-pay "Instalments only"}} checked="checked"{{/contains}}
+              {{/if}}> Instalments only
             </label>
 
-            <div class="panel panel-border-narrow js-hidden" id="lump-sum-instalments-only">
+            <div class="panel panel-border-narrow{{#isnt ../sDefendantPay "Instalments only"}} js-hidden{{/isnt}}" id="lump-sum-instalments-only">
 
               <div class="form-group">
                 <label for="instalment-amount">
                   <span class="form-label">Instalment amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="instalment-amount" name="instalmentAmount" value="">
+                  <input class="form-control form-control-1-4" type="text" id="instalment-amount" name="instalmentAmount"{{#if ../sInstalmentOnlyAmount}} value="{{../sInstalmentOnlyAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -207,15 +227,15 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="instalmentsMade" value="Weekly"> Weekly
+                    <input type="radio" name="instalmentsMade" value="Weekly"{{#contains ../sInstalmentOnlyMade "Weekly"}} checked="checked"{{/contains}}> Weekly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="instalmentsMade" value="Fortnightly"> Fortnightly
+                    <input type="radio" name="instalmentsMade" value="Fortnightly"{{#contains ../sInstalmentOnlyMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="instalmentsMade" value="Monthly"> Monthly
+                    <input type="radio" name="instalmentsMade" value="Monthly"{{#contains ../sInstalmentOnlyMade "Monthly"}} checked="checked"{{/contains}}> Monthly
                   </label>
 
                 </fieldset>
@@ -273,9 +293,6 @@
     <div class="column-third">
 
       <div class="related">
-
-        <h3 class="bold-medium">Weekly income</h3>
-        <p>&pound;440 (assumed)</p>
 
         <div class="related-section">
           <h3 class="related-heading">Documents</h3>

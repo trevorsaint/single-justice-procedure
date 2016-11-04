@@ -15,69 +15,85 @@
   <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
   <!-- offence 1 -->
-  <h2 class="heading-medium">1. Passenger used ticket issued for another person</h2>
-  <p><strong class="status-label">Pleaded guilty SJP</strong></p>
+  <h2 class="heading-medium">Passenger used ticket issued for another person</h2>
   <table class="table table-summary">
     <tbody>
       <tr>
         <td class="table-summary-title">Decision</td>
-        <td>Financial penalty</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
+        <td>
+          {{#if ../sMakeDecision}}
+            {{../sMakeDecision}}
+          {{else}}
+            {{#if offence.decision}}
+              {{offence.decision}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          {{/if}}
+        </td>
+        <td class="table-cell-action"><a href="/legal-adviser/case-details/{{id}}/#offence-decision" title="Change make a decision">Change<span class="visually-hidden"> make a decision</span></a></td>
       </tr>
-
+      <tr>
+        <td class="table-summary-title">Defendant&rsquo;s weekly income</td>
+        <td colspan="2">&pound;440 (assumed)</td>
+      </tr>
       <tr class="table-row-noborder">
         <td class="table-summary-title">Fine band applied</td>
-        <td>Band A</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
+        <td>
+          {{#if ../sFineBandApplied}}
+            {{../sFineBandApplied}}
+          {{else}}
+            {{#if offence.fine-band-applied}}
+              {{offence.fine-band-applied}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          {{/if}}
+        </td>
+        <td class="table-cell-action"><a href="/legal-adviser/continue-decisions/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change<span class="visually-hidden"> and compensation</span></a></td>
       </tr>
-
       <tr class="table-row-noborder">
         <td class="table-summary-title">Fine</td>
-        <td>&pound;220.00</td>
-        <td></td>
+        <td colspan="2">
+          {{#if ../sFineA}}
+            {{../sFineA}}
+          {{else if ../sFineB}}
+            {{../sFineB}}
+          {{else if ../sFineC}}
+            {{../sFineC}}
+          {{else}}
+            {{#if offence.fine}}
+              {{offence.fine}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          {{/if}}
+        </td>
       </tr>
-
       <tr class="table-row-noborder">
         <td class="table-summary-title">Compensation</td>
-        <td>&pound;3.50</td>
-        <td></td>
+        <td colspan="2">
+          {{#if ../sCompensationA}}
+            {{../sCompensationA}}
+          {{else if ../sCompensationB}}
+            {{../sCompensationB}}
+          {{else if ../sCompensationC}}
+            {{../sCompensationC}}
+          {{else}}
+            {{#if offence.compensation}}
+              {{offence.compensation}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          {{/if}}
+        </td>
       </tr>
-
     </tbody>
-
   </table>
   <!-- end offence 1 -->
 
 
   <hr class="divider divider-border-dark"></hr>
-
-
-  <!-- offence 2 -->
-  <h2 class="heading-medium">2. Fare evasion</h2>
-  <p><strong class="status-label">Pleaded not guilty</strong></p>
-  <table class="table table-summary">
-
-    <tbody>
-
-      <tr>
-        <td class="table-summary-title">Decision</td>
-        <td>Offence withdrawn</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Reason</td>
-        <td>Offence submitted in error</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
-      </tr>
-
-    </tbody>
-
-  </table>
-  <!-- end offence 2 -->
-
-
-  <hr class="divider divider-border-dark">
 
 
   <!-- costs and surcharge -->
@@ -86,275 +102,214 @@
     <tbody>
       <tr class="table-row-noborder">
         <td class="table-summary-title">Costs</td>
-        <td>&pound;125.00</td>
-        <td class="table-cell-action"><a href="#">Change</a></td>
+        <td>
+          {{#if ../sCost}}
+            &pound;{{../sCost}}
+          {{else}}
+            &pound;{{offence.cost}}
+          {{/if}}
+        </td>
+        <td class="table-cell-action"><a href="/legal-adviser/continue-decisions/{{id}}/?change=true/#costs-and-surcharge" title="Change cost and surcharge">Change <span class="visually-hidden">cost and surcharge</span></a></td>
       </tr>
       <tr class="table-row-noborder">
         <td class="table-summary-title">Surcharge and victim fund</td>
-        <td colspan="2">&pound;30.00</td>
+        <td colspan="2">
+          {{#if ../sSurcharge}}
+            &pound;{{../sSurcharge}}
+          {{else}}
+            &pound;{{offence.surcharge}}
+          {{/if}}
+        </td>
       </tr>
       <tr class="table-row-noborder">
         <td class="table-summary-title">Collection order issued</td>
-        <td colspan="2">Yes</td>
+        <td colspan="2">
+          {{#if ../sCollectionOrderConfirmed}}
+            {{#contains ../sCollectionOrderConfirmed "true"}}Yes{{else}}No{{/contains}}
+          {{else}}
+            {{#contains offence.collection-order-confirmed "true"}}Yes{{else}}No{{/contains}}
+          {{/if}}
+        </td>
       </tr>
     </tbody>
   </table>
   <!-- end costs and surcharge -->
 
 
-  <hr class="divider divider-border-dark">
+  <hr class="divider divider-border-dark" aria-hidden="true">
 
 
-  <!--section class="check-answers" aria-labelledby="offences">
-
-    <header class="check-answers-header">
-      <h2 class="bold-medium" id="offences">Offence decisions</h2>
-      <a class="check-answers-action" href="/legal-adviser/case-details/{{id}}/#offence-decision" title="Change make a decision">Change <span class="visually-hidden">make a decision</span></a>
-    </header>
-
-    <dl class="meta meta-inline">
-      <dt>Offence</dt>
-      <dd>Passenger used a ticket issued for another person</dd>
-      <dt>Plea</dt>
-      <dd>Guilty</dd>
-      <dt>Decision</dt>
-      <dd>
-        {{#if ../sMakeDecision}}
-          {{../sMakeDecision}}
-        {{else}}
-          {{#if offence.decision}}
-            {{offence.decision}}
-          {{else}}
-            &ndash;
-          {{/if}}
-        {{/if}}
-      </dd>
-    </dl>
-
-  </section-->
-
-  <!--section class="check-answers" aria-labelledby="fine-and-compensation">
-
-    <header class="check-answers-header">
-      <h2 class="bold-medium" id="fine-and-compensation">Fine and compensation</h2>
-      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change <span class="visually-hidden">fine and compensation</span></a>
-    </header>
-
-    <dl class="meta meta-inline">
-
-      <dt>Find band applied</dt>
-      <dd>
-      {{#if ../sFineBandApplied}}
-        {{../sFineBandApplied}}
-      {{else}}
-        {{#if offence.fine-band-applied}}
-          {{offence.fine-band-applied}}
-        {{else}}
-          &ndash;
-        {{/if}}
-      {{/if}}
-      </dd>
-
-      <dt>Fine</dt>
-      <dd>
-        {{#if ../sFineA}}
-          {{../sFineA}}
-        {{else if ../sFineB}}
-          {{../sFineB}}
-        {{else if ../sFineC}}
-          {{../sFineC}}
-        {{else}}
-          {{#if offence.fine}}
-            {{offence.fine}}
-          {{else}}
-            &ndash;
-          {{/if}}
-        {{/if}}
-      </dd>
-
-      <dt>Compensation</dt>
-      <dd>
-        {{#if ../sCompensationA}}
-          {{../sCompensationA}}
-        {{else if ../sCompensationB}}
-          {{../sCompensationB}}
-        {{else if ../sCompensationC}}
-          {{../sCompensationC}}
-        {{else}}
-          {{#if offence.compensation}}
-            {{offence.compensation}}
-          {{else}}
-            &ndash;
-          {{/if}}
-        {{/if}}
-      </dd>
-    </dl>
-
-  </section>
-
-  <hr aria-hidden="true"-->
-
-  <!--section class="check-answers" aria-labelledby="cost-and-surcharge">
-
-    <header class="check-answers-header">
-      <h2 class="bold-medium" id="cost-and-surcharge">Costs and surcharge</h2>
-      <a class="check-answers-action" href="/legal-adviser/your-decisions/{{id}}/?change=true/#costs-and-surcharge" title="Change cost and surcharge">Change <span class="visually-hidden">cost and surcharge</span></a>
-    </header>
-
-    <dl class="meta meta-inline">
-
-      <dt>Costs</dt>
-      <dd>
-        {{#if ../sCost}}
-          &pound;{{../sCost}}
-        {{else}}
-          &pound;{{offence.cost}}
-        {{/if}}
-      </dd>
-
-      <dt>Surcharge and victim fund</dt>
-      <dd>
-        {{#if ../sSurcharge}}
-          &pound;{{../sSurcharge}}
-        {{else}}
-          &pound;{{offence.surcharge}}
-        {{/if}}
-      </dd>
-
-      <dt>Collection order issued</dt>
-      <dd>
-      {{#if ../sCollectionOrderConfirmed}}
-        {{#contains ../sCollectionOrderConfirmed "true"}}Yes{{else}}No{{/contains}}
-      {{else}}
-        {{#contains offence.collection-order-confirmed "true"}}Yes{{else}}No{{/contains}}
-      {{/if}}
-    </dd>
-
-    </dl>
-
-  </section>
-
-  <hr aria-hidden="true">
-
-  <section class="check-answers" aria-labelledby="collection-and-payment">
-
-    <header class="check-answers-header">
-      <h2 class="bold-medium" id="collection-and-payment">Collection and payment</h2>
-      <a class="check-answers-action" href="/legal-adviser/collection-payment/{{id}}/?change=true/#collection-payment" title="Change collection and payment">Change <span class="visually-hidden">collection and payment</span></a>
-    </header>
-
+  <!-- collection and payment -->
+  <h2 class="heading-medium">Collection and payment</h2>
+  <table class="table table-summary">
 
     {{#is ../sPaymentMethod "Pay direct to court"}}
+    <tbody>
 
-      <dl class="meta meta-inline">
-
-        <dt>Payment method</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Payment method</td>
+        <td>
           {{#if ../sPaymentMethod}}
             {{../sPaymentMethod}}
           {{else}}
             {{offence.payment-method}}
           {{/if}}
-        </dd>
+        </td>
+        <td class="table-cell-action"><a href="/legal-adviser/payment-method/{{id}}/?change=true/#collection-payment">Change<span class="visually-hidden"> payment method</span></a></td>
+      </tr>
 
-        <dt>Reason you didn&rsquo;t deduct from benefits?</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Reason you didn&rsquo;t deduct from benefits?</td>
+        <td>
           {{#if ../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}
             {{../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}
           {{else}}
             {{offence.reason-for-not-deducting-from-benefits}}
           {{/if}}
-        </dd>
+        </td>
+      </tr>
 
-        <dt>How should defendant pay the court?</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">How should defendant pay the court?</td>
+        <td>
           {{#if ../sDefendantPay}}
             {{../sDefendantPay}}
           {{else}}
             {{offence.defendant-pay}}
           {{/if}}
-        </dd>
+        </td>
+      </tr>
 
-      </dl>
+      {{#is ../sDefendantPay "Lump sum plus instalments"}}
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Amount to be paid</td>
+        <td colspan="2">&pound;{{../sLumpSumAmount}} (within {{../sLumpSumPaidWithin}})</td>
+      </tr>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Instalment amount</td>
+        <td colspan="2">&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on 16 December 2017</td>
+      </tr>
+      {{/is}}
 
+      {{#is ../sDefendantPay "Instalments only"}}
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Instalment amount</td>
+        <td colspan="2">&pound;50.00 (weekly) starting on 16 December 2017</td>
+      </tr>
+      {{/is}}
+
+    </tbody>
     {{/is}}
 
-
     {{#is ../sPaymentMethod "Deduct from benefits"}}
+    <tbody>
 
-      <dl class="meta meta-inline">
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Payment method</td>
+        <td>
+          {{#if ../sPaymentMethod}}
+            {{../sPaymentMethod}}
+          {{else}}
+            {{offence.payment-method}}
+          {{/if}}
+        </td>
+        <td class="table-cell-action"><a href="/legal-adviser/payment-method/{{id}}/?change=true/#collection-payment">Change<span class="visually-hidden"> payment method</span></a></td>
+      </tr>
 
-        <dt>Payment method</dt>
-        <dd>Deduct from benefits</dd>
-
-        <dt>National Insurance number</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">National Insurance number</td>
+        <td colspan=2"">
           {{#if ../sNationalInsuranceNumber}}
             {{../sNationalInsuranceNumber}}
           {{else}}
             {{employment.national-insurance-number}}
           {{/if}}
-        </dd>
+        </td>
+      </tr>
 
-        <dt>Reason for deducting from benefits</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Reason for deducting from benefits</td>
+        <td colspan="2">
+          {{#if ../sReasonForDeductingFromBenefits}}
+            {{../sReasonForDeductingFromBenefits}}
+          {{else}}
+            {{offence.reason-for-deducting-from-benefits}}
+          {{/if}}
+        </td>
+      </tr>
+
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Reserve terms</td>
+        <td colspan="2">
           {{#if ../sReserveTerms}}
             {{../sReserveTerms}}
           {{else}}
             {{offence.reserve-terms}}
           {{/if}}
-        </dd>
+        </td>
+      </tr>
 
-        {{#is ../sReserveTerms "Lump sum plus instalments"}}
-          <dt>Amount to be paid</dt>
-          <dd>&pound;200.00 (within 14 days)</dd>
-          <dt>Instalment amount</dt>
-          <dd>&pound;50.00 (weekly) starting on 16 December 2017</dd>
-        {{/is}}
+      {{#is ../sReserveTerms "Lump sum plus instalments"}}
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Amount to be paid</td>
+        <td colspan="2">&pound;{{../sLumpSumAmount}} (within {{../sLumpSumPaidWithin}})</td>
+      </tr>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Instalment amount</td>
+        <td colspan="2">&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on 16 December 2017</td>
+      </tr>
+      {{/is}}
 
-        {{#is ../sReserveTerms "Instalments only"}}
-          <dt>Instalment amount</dt>
-          <dd>&pound;50.00 (weekly) starting on 16 December 2017</dd>
-        {{/is}}
+      {{#is ../sReserveTerms "Instalments only"}}
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Instalment amount</td>
+        <td colspan="2">&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on 16 December 2017</td>
+      </tr>
+      {{/is}}
 
-      </dl>
-
+    </tbody>
     {{/is}}
 
-
     {{#is ../sPaymentMethod "Attach to earnings"}}
+    <tbody>
 
-      <dl class="meta meta-inline">
-
-        <dt>Payment method</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Payment method</td>
+        <td>
           {{#if ../sPaymentMethod}}
             {{../sPaymentMethod}}
           {{else}}
-            {{offence.paymentMethod}}
+            {{offence.payment-method}}
           {{/if}}
-        </dd>
+        </td>
+        <td class="table-cell-action"><a href="/legal-adviser/payment-method/{{id}}/?change=true/#collection-payment">Change<span class="visually-hidden"> payment method</span></a></td>
+      </tr>
 
-        <dt>Employee number</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Employee number</td>
+        <td colspan="2">
           {{#if ../sEmployeeNumber}}
             {{../sEmployeeNumber}}
           {{else}}
             {{employment.employee-number}}
           {{/if}}
-        </dd>
+        </td>
+      </tr>
 
-        <dt>Employer name</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Employer name</td>
+        <td colspan="2">
           {{#if ../sEmployerName}}
             {{../sEmployerName}}
           {{else}}
             {{employment.employer-name}}
           {{/if}}
-        </dd>
+        </td>
+      </tr>
 
-        <dt>Employer address</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Employer address</td>
+        <td colspan="2">
           {{#if ../sEmployerAddress1}}
             {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
             {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
@@ -366,35 +321,40 @@
             {{#if employment.employer-address.town}}{{employment.employer-address.town}}<br>{{/if}}
             {{#if employment.employer-address.postcode}}{{employment.employer-address.postcode}}{{/if}}
           {{/if}}
-        </dd>
+        </td>
+      </tr>
 
-        <dt>Reason for attaching to earnings</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Reason for attaching to earnings</td>
+        <td colspan="2">
           {{#if ../reasonForAttachingToEarnings}}
             {{../reasonForAttachingToEarnings}}
           {{else}}
             {{offence.reason-for-attaching-to-earnings}}
           {{/if}}
-        </dd>
+        </td>
+      </tr>
 
-        <dt>Reserve terms</dt>
-        <dd>
+      <tr class="table-row-noborder">
+        <td class="table-summary-title">Reserve terms</td>
+        <td colspan="2">
           {{#if ../sReservedTerms}}
             {{../sReservedTerms}}
           {{else}}
             {{offence.reserve-terms}}
           {{/if}}
-        </dd>
+        </td>
+      </tr>
 
-      </dl>
-
+    </tbody>
     {{/is}}
 
+  </table>
+  <!-- end -->
 
 
-  </section>
+  <hr class="divider divider-border-dark" aria-hidden="true">
 
-  <hr aria-hidden="true"-->
 
   <section class="check-answers" aria-labelledby="decision">
 

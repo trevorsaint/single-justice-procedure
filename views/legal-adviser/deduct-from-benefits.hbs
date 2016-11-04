@@ -27,7 +27,7 @@
             <span class="form-label">National Insurance number</span>
             <span class="form-hint" id="national-insurance-number-hint">For example, VO 12 34 56 D</span>
           </label>
-          <input class="form-control" type="text" id="national-insurance-number" name="nationalInsuranceNumber" value="{{#if ../sNationalInsuranceNumber}}{{../sNationalInsuranceNumber}}{{else}}{{employment.national-insurance-number}}{{/if}}" aria-describedby="defendants-national-insurance-number">
+          <input class="form-control" type="text" id="national-insurance-number" name="nationalInsuranceNumber" value="{{#if ../sNationalInsuranceNumber}}{{../sNationalInsuranceNumber}}{{else}}{{employment.national-insurance-number}}{{/if}}" aria-describedby="national-insurance-number-hint">
         </div>
 
         <h3 class="heading-medium">Reason for deducting from benefits</h3>
@@ -83,7 +83,7 @@
             <legend class="visuallyhidden">Set reserve terms</legend>
 
             <label class="block-label">
-              <input type="radio" name="reserveTerms" value="Lump sum 14 days" checked="checked"
+              <input type="radio" name="reserveTerms" value="Lump sum 14 days"
               {{#if ../sReserveTerms}}
                 {{#contains ../sReserveTerms "Lump sum 14 days"}} checked="checked"{{/contains}}
               {{else}}
@@ -312,9 +312,6 @@
     <div class="column-third">
 
       <div class="related">
-
-        <h3 class="bold-medium">Weekly income</h3>
-        <p>&pound;440 (assumed)</p>
 
         <div class="related-section">
           <h3 class="related-heading">Documents</h3>

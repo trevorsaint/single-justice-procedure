@@ -18,13 +18,8 @@
 
       <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
-      <h2 class="heading-large">Offence</h2>
-
-      <h3 class="font-medium">Passenger used ticket issued for another person</h3>
-
-      <p class="font-xsmall">On <time datetime="2016-02-18">18 February 2016</time></p>
-
-      <p><strong class="status-label">Guilty plea &ndash; discount applied</strong></p>
+      <h3 class="font-medium" id="offence">Passenger used ticket issued for another person</h3>
+      <p class="font-xsmall">Date of offence: <time datetime="2016-02-18">18 February 2016</time></p>
 
       <form class="form" method="post">
 
@@ -32,16 +27,26 @@
 
           <h3 class="heading-medium" id="fine-and-compensation">Check fine and compensation</h3>
 
+          <p>Defendant&rsquo;s weekly income: <b>&pound;440</b> assumed</p>
+
           <div class="form-group">
 
-            <fieldset>
+            <fieldset class="inline">
 
               <legend>
                 <span class="form-label">Fine band applied</span>
               </legend>
 
               <label class="block-label" for="fine-band-a"data-target="band-a">
-                <input type="radio" id="fine-band-a" name="fineBandApplied" value="Band A"{{#contains ../sFineBandApplied "Band A"}}{{else}} checked="checked"{{/contains}}> Band A
+                <input type="radio" id="fine-band-a" name="fineBandApplied" value="Band A"{{#if ../sFineBandApplied}}{{#contains ../sFineBandApplied "Band A"}} checked="checked"{{/contains}}{{else}} checked="checked"{{/if}}> Band A
+              </label>
+
+              <label class="block-label" for="fine-band-b" data-target="band-b">
+                <input type="radio" id="fine-band-b" name="fineBandApplied" value="Band B"{{#contains ../sFineBandApplied "Band B"}} checked="checked"{{/contains}}> Band B
+              </label>
+
+              <label class="block-label" for="fine-band-c" data-target="band-c">
+                <input type="radio" id="fine-band-c" name="fineBandApplied" value="Band C"{{#contains ../sFineBandApplied "Band C"}} checked="checked"{{/contains}}> Band C
               </label>
 
               <div class="panel panel-border-narrow{{#if ../sFineBandApplied}}{{#isnt ../sFineBandApplied "Band A"}} js-hidden{{/isnt}}{{/if}}" id="band-a">
@@ -55,6 +60,8 @@
                   </div>
                 </div>
 
+                <!--p class="font-xsmall text-error">Check the amount you&rsquo;ve entered is correct. The recommended maximum fine for this offence is &pound;220 but you can exceed this if you need to.</p-->
+
                 <div class="form-group">
                   <label for="compensation-a">
                     <span class="form-label">Compensation</span>
@@ -64,13 +71,9 @@
                   </div>
                 </div>
 
+                <!--p>Reason for reducing compensation <br> Free text box 2 lines (if value in form field reduced)<p-->
+
               </div>
-
-              <p class="form-block">or switch to</p>
-
-              <label class="block-label" for="fine-band-b" data-target="band-b">
-                <input type="radio" id="fine-band-b" name="fineBandApplied" value="Band B"{{#if ../sFineBandApplied}}{{#contains ../sFineBandApplied "Band B"}} checked="checked"{{/contains}}{{/if}}> Band B
-              </label>
 
               <div class="panel panel-border-narrow{{#isnt ../sFineBandApplied "Band B"}} js-hidden{{/isnt}}" id="band-b">
 
@@ -93,10 +96,6 @@
                 </div>
 
               </div>
-
-              <label class="block-label" for="fine-band-c" data-target="band-c">
-                <input type="radio" id="fine-band-c" name="fineBandApplied" value="Band C"{{#contains ../sFineBandApplied "Band C"}} checked="checked"{{/contains}}> Band C
-              </label>
 
               <div class="panel panel-border-narrow{{#isnt ../sFineBandApplied "Band C"}} js-hidden{{/isnt}}" id="band-c">
 
@@ -141,6 +140,8 @@
             </div>
           </div>
 
+          <!--p>Reason for no costs <br> Free text box 2 lines (if zero or empty)<p-->
+
           <div class="form-group">
             <label for="cost">
               <span class="form-label">Surcharge for victim fund</span>
@@ -149,6 +150,8 @@
               <input class="form-control form-control-1-4" type="text" id="surcharge" name="surcharge" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30.00{{/if}}">
             </div>
           </div>
+
+          <!--p>Reason for reducing surcharge <br> Free text box 2 lines (if value in form field reduced)<p-->
 
           <div class="form-group">
             <label class="block-label">
@@ -171,9 +174,6 @@
     <div class="column-third">
 
       <div class="related">
-
-        <h3 class="bold-medium">Weekly income</h3>
-        <p>&pound;440 (assumed)</p>
 
         <div class="related-section">
           <h3 class="related-heading">Documents</h3>

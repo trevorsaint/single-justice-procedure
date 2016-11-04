@@ -1996,6 +1996,9 @@ CSS Usage
     width: 6.25em;
   }
 }
+.table-summary th, .table-summary td {
+  vertical-align: top;
+}
 .table-summary-title {
   width: 40%;
 }
@@ -3401,6 +3404,13 @@ HTML Usage
   width: 100%;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
+}
+
+fieldset.inline .panel {
+  margin-top: 10px;
+}
+fieldset.inline .panel:last-child {
+  margin-bottom: 15px;
 }
 
 .check-answers {
