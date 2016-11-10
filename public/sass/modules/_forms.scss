@@ -63,4 +63,37 @@ $module: 'form';
     resize: vertical;
   }
 
+  &-time {
+
+    .#{$module}-group {
+      position: relative;
+      clear: none;
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 0;
+      width: 50px;
+
+      &-hour {
+
+        &:after {
+          position: absolute; bottom: 6px;
+          right: -12px;
+          content: ":";
+        }
+
+      }
+
+      label {
+        display: block;
+        padding-bottom: 2px;
+      }
+
+      input {
+        width: 100%;
+      }
+
+    }
+
+  }
+
 }

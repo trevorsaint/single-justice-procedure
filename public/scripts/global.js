@@ -1,51 +1,157 @@
+// change fine
+$.fn.changeFine = function() {
+
+  var $fineLevel = 1000.00;
+
+  this.each(function() {
+
+    $(this).on("change", function(e) {
+
+      var $fineValue = $(this).val();
+      var $fineNote  = $("#" + $(this).attr("id") + "-check");
+
+      if (parseFloat($fineValue) > parseFloat($fineLevel)) {
+        $fineNote.removeClass("js-hidden").attr("role", "alert");
+      } else {
+        $fineNote.addClass("js-hidden").removeAttr("role", "alert");
+      }
+
+    });
+
+  })
+
+};
+
+
+// change compensation
+$.fn.changeCompensation = function() {
+
+  this.each(function() {
+
+    $(this).on("change", function(e) {
+
+      var $compensationValue  = $(this).val();
+      var $compensationReason = $("#" + $(this).attr("id") + "-reason");
+
+      if ($compensationValue === "0" || $compensationValue === "") {
+        $compensationReason.removeClass("js-hidden").attr("aria-hidden", false);
+      } else {
+        $compensationReason.removeClass("js-hidden").attr("aria-hidden", true);
+      }
+
+    });
+
+  })
+
+};
+
+
+// change costs
+function changeCosts() {
+
+  "strict"
+
+  var $input       = $('#cost');
+  var $reason      = $("#costs-reason");
+  var $reasonInput = $("#reason-for-no-costs");
+
+  $reason.attr("aria-hidden", true); // add aria attributes init
+
+  // on change
+  $($input).on('change', function(e) {
+
+    var $inputValue = $input.val();
+
+    if ($inputValue === "" || $inputValue === "0") {
+      $reason.removeClass("js-hidden").attr("aria-hidden", false);
+      $reasonInput.attr("tabindex", "0").focus();
+    } else {
+      $reason.addClass("js-hidden").attr("aria-hidden", true);
+      $reasonInput.attr("tabindex", "-1").blur();
+    }
+
+  });
+
+};
+
+
+// change surcharge
+function changeSurcharge() {
+
+  "strict"
+
+  var $input       = $('#surcharge');
+  var $reason      = $("#surcharge-reason");
+  var $reasonInput = $("#reason-for-reducing-surcharge");
+
+  $initialValue = $input.val(); // get initial value
+  $reason.attr("aria-hidden", true); // add aria attributes init
+
+  // on change
+  $($input).on('change', function(e) {
+
+    var $inputValue = $input.val();
+
+    if (parseFloat($inputValue) < parseFloat($initialValue) || $inputValue === "") {
+      $reason.removeClass("js-hidden").attr("aria-hidden", false);
+      $reasonInput.attr("tabindex", "0").focus();
+    } else {
+      $reason.addClass("js-hidden").attr("aria-hidden", true);
+      $reasonInput.attr("tabindex", "-1").blur();
+    }
+
+  });
+
+};
+
+
 // calculate size of file
 function formatBytes(bytes, decimals, binaryUnits) {
 
-  'strict'
+  "strict"
 
   if(bytes == 0) {
-      return '0 Bytes';
+      return "0 Bytes";
   }
 
   var unitMultiple = (binaryUnits) ? 1024 : 1000;
   var unitNames = (unitMultiple === 1024) ? // 1000 bytes in 1 Kilobyte (KB) or 1024 bytes for the binary version (KiB)
-      ['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']:
-      ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+      ["Bytes", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"]:
+      ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
   var unitChanges = Math.floor(Math.log(bytes) / Math.log(unitMultiple));
 
   return parseFloat((bytes / Math.pow(unitMultiple, unitChanges)).toFixed(decimals || 0)) + ' ' + unitNames[unitChanges];
 
-}
+};
 
 
 // get file extension
 function getFileExtension(filename) {
 
-  'strict'
+  "strict"
 
   var ext = /^.+\.([^.]+)$/.exec(filename);
   return ext == null ? "" : ext[1];
 
-}
+};
 
 
 // multiple file upload
 function file() {
 
-  'strict'
+  "strict"
 
-  // on change
-  var $input     = $('#other-documents'); // file input
+  var $input     = $("#other-documents"); // file input
   var $label     = $input.next(); // file label
-  var $panel     = $input.parent().find('.panel'); // panel
+  var $panel     = $input.parent().find(".panel"); // panel
 
   // on change
-  $(document).on('change', $input, function(e) {
+  $(document).on("change", $input, function(e) {
 
     $panel.remove();
 
-    $('<div class="panel panel-border-narrow"></div>').insertAfter($label);
+    $("<div class=\"panel panel-border-narrow\"></div>").insertAfter($label);
 
     var $files    = $input.get(0).files;
     var $filesQty = $input.get(0).files.length;
@@ -64,17 +170,17 @@ function file() {
   });
 
 
-}
+};
 
 
 function fileUpload() {
 
-  'strict'
+  "strict"
 
-  if ($('.form-control-file').length > 0) {
+  if ($(".form-control-file").length > 0) {
 
     // form file controls
-    $('.form-control-file').each(function(index) {
+    $(".form-control-file").each(function(index) {
 
       var $this   = $(this);
       var $label  = $(this).next();
@@ -88,32 +194,32 @@ function fileUpload() {
           '</p>' +
         '</div>').insertAfter($label);
 
-      var $parent = $this.closest('.form-group');
-      var $panel  = $parent.find ('.panel');
-      var $file   = $parent.find('.filename');
-      var $remove = $parent.find('.remove');
+      var $parent = $this.closest(".form-group");
+      var $panel  = $parent.find (".panel");
+      var $file   = $parent.find(".filename");
+      var $remove = $parent.find(".remove");
 
 
       // add file
-      $this.on('change', function(e) {
+      $this.on("change", function(e) {
 
         var fileVal = $this.val();
 
-        if (fileVal != '') {
-          $panel.removeClass('js-hidden');
+        if (fileVal != "") {
+          $panel.removeClass("js-hidden");
           $file.text(fileVal);
         }
 
       });
 
       // remove file
-      $remove.on('click', function(e) {
+      $remove.on("click", function(e) {
 
         e.preventDefault();
 
-        $this.val('');
-        $file.text('');
-        $panel.addClass('js-hidden');
+        $this.val("");
+        $file.text("");
+        $panel.addClass("js-hidden");
 
       });
 
@@ -122,9 +228,9 @@ function fileUpload() {
   }
 
   // tabs
-  if ($('.tabs').length > 0) {
+  if ($(".tabs").length > 0) {
 
-    $('.tabs').each(function() {
+    $(".tabs").each(function() {
 
       var $container = $(this);
 
@@ -248,20 +354,26 @@ function fileUpload() {
 
 function fileUploadFocus() {
 
-  'strict'
+  "strict"
 
-  $('.form-control-file').on('focus', function() {
-    $(this).addClass('focused');
-  }).on('blur', function() {
-    $(this).removeClass('focused');
+  $(".form-control-file").on("focus", function() {
+    $(this).addClass("focused");
+  }).on("blur", function() {
+    $(this).removeClass("focused");
   })
 
-}
+};
 
 
 // document ready
-(function() {
+(function($) {
+
   fileUpload();
   fileUploadFocus();
-  //file();
+
+  changeCosts();
+  changeSurcharge();
+  $("#fine-a, #fine-b, #fine-c").changeFine();
+  $("#compensation-a, #compensation-b, #compensation-c").changeCompensation();
+
 })(jQuery);

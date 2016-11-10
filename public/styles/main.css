@@ -2066,6 +2066,27 @@ CSS Usage
 .form-control-textarea {
   resize: vertical;
 }
+.form-time .form-group {
+  position: relative;
+  clear: none;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 0;
+  width: 50px;
+}
+.form-time .form-group-hour:after {
+  position: absolute;
+  bottom: 6px;
+  right: -12px;
+  content: ":";
+}
+.form-time .form-group label {
+  display: block;
+  padding-bottom: 2px;
+}
+.form-time .form-group input {
+  width: 100%;
+}
 
 .list-inline li {
   display: inline-block;
@@ -3407,10 +3428,22 @@ HTML Usage
   -o-text-overflow: ellipsis;
 }
 
-fieldset.inline .panel {
+/*fieldset.inline {
+
+  .panel {
+    margin-top: 10px;
+
+    &:last-child {
+      margin-bottom: 15px;
+    }
+
+  }
+
+}*/
+fieldset.inline ~ .panel {
   margin-top: 10px;
 }
-fieldset.inline .panel:last-child {
+fieldset.inline ~ .panel:last-child {
   margin-bottom: 15px;
 }
 

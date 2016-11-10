@@ -1,0 +1,254 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  <div class="persist-info">
+    <div class="persist-info-content">
+      <span class="persist-info-reference">{{personal-details.urn}}</span>
+      <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+    </div>
+    <ul class="persist-info-links">
+      <li><a href="/legal-adviser/end-session/">End session</a></li>
+    </ul>
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+      <h2 class="heading-large">Offence 1</h2>
+      <h3 class="bold-medium">{{offence.title}}</h3>
+      <p class="font-xsmall">On <time datetime="2014-06-10">10/06/2014</time> At grosvenor place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a<!--Driver without a Conductor did not immediately on boarding pay the fare to the Driver for the journey you intended to take-->&hellip; <a href="#">More</a></p>
+
+      <form class="form" method="post">
+
+        <section aria-labelledby="">
+
+          <h3 class="heading-medium" id="">Main heading goes here</h3>
+
+          <div class="form-group">
+
+            <fieldset class="inline">
+
+              <legend>
+                <span class="form-label">Choose type of discharge</span>
+              </legend>
+
+              <label class="block-label" data-target="discharge-duration">
+                <input type="radio" name="typeOfDischarge" value="Conditional"> Conditional
+              </label>
+
+              <label class="block-label">
+                <input type="radio" name="typeOfDischarge" value="Absolute"> Absolute
+              </label>
+
+              <div class="panel panel-border-narrow js-hidden" id="discharge-duration">
+
+                <div class="form-group">
+
+                  <fieldset>
+
+                    <legend>
+                      <span class="form-label">For how long?</span>
+                    </legend>
+
+                    <label class="block-label" data-target="months">
+                      <input type="radio" name="dischargeDuration" value="Months"> Months
+                    </label>
+
+                    <label class="block-label" data-target="weeks">
+                      <input type="radio" name="dischargeDuration" value="Weeks"> Weeks
+                    </label>
+
+                    <label class="block-label" data-target="days">
+                      <input type="radio" name="dischargeDuration" value="Days"> Days
+                    </label>
+
+                  </fieldset>
+
+                  <div class="panel panel-border-narrow js-hidden" id="months">
+
+                    <div class="form-group">
+                      <label for="how-many-months">
+                        <span class="form-label">How many<span class="visually-hidden"> months</span>?</span>
+                      </label>
+                      <input class="form-control form-control-1-8" id="how-many-months" name="howMany" type="text">
+                    </div>
+
+                  </div>
+
+                  <div class="panel panel-border-narrow js-hidden" id="weeks">
+
+                    <div class="form-group">
+                      <label for="how-many-weeks">
+                        <span class="form-label">How many<span class="visually-hidden"> weeks</span>?</span>
+                      </label>
+                      <input class="form-control form-control-1-8" id="how-many-weeks" name="howMany" type="text">
+                    </div>
+
+                  </div>
+
+                  <div class="panel panel-border-narrow js-hidden" id="days">
+
+                    <div class="form-group">
+                      <label for="how-many-days">
+                        <span class="form-label">How many<span class="visually-hidden"> days</span>?</span>
+                      </label>
+                      <input class="form-control form-control-1-8" id="how-many-days" name="howMany" type="text">
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </fieldset>
+
+          </div>
+
+          <div class="form-group">
+            <label for="compensation">
+              <span class="form-label">Compensation</span>
+            </label>
+            <div class="form-currency">
+              <input class="form-control form-control-1-4" id="compensation" name="compensation" type="text">
+            </div>
+          </div>
+
+        </section>
+
+        <hr aria-hidden="true">
+
+        <section aria-labelledby="costs-and-surcharge">
+
+          <h3 class="heading-large" id="costs-and-surcharge">Check costs and surcharge</h3>
+
+          <div class="form-group">
+
+            <label for="cost">
+              <span class="form-label">Costs</span>
+            </label>
+
+            <div class="form-currency">
+              <input class="form-control form-control-1-4" type="text" id="cost" name="cost" value="{{#if ../sCost}}{{../sCost}}{{else}}125.00{{/if}}">
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="costs-reason">
+              <div class="form-group">
+                <label for="reason-for-no-costs">
+                  <span class="form-label">Reason for no costs</span>
+                </label>
+                <textarea class="form-control form-control-3-4 form-control-textarea" id="reason-for-no-costs" name="reasonForNoCosts" rows="2" cols="50"></textarea>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="cost">
+              <span class="form-label">Surcharge for victim fund</span>
+            </label>
+            <div class="form-currency">
+              <input class="form-control form-control-1-4" type="text" id="surcharge" name="surcharge" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30.00{{/if}}">
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="surcharge-reason">
+              <div class="form-group">
+                <label for="reason-for-reducing-surcharge">
+                  <span class="form-label">Reason for reducing surcharge</span>
+                </label>
+                <textarea class="form-control form-control-3-4 form-control-textarea" id="reason-for-reducing-surcharge" name="reasonForReducingSurcharge" rows="2" cols="50"></textarea>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-group form-group-last">
+
+            <label class="block-label">
+              <input type="checkbox" name="collectionOrderConfirmed" {{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}> Confirm a collection order will be issued
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden">
+
+              <div class="form-group">
+
+                <fieldset class="inline">
+
+                  <legend>
+
+                    <span class="form-label">
+                      Are you sure you want to proceed without a collection order?
+                    </span>
+
+                  </legend>
+
+                  <div class="form-group">
+
+                    <label class="block-label selection-button-radio" data-target="yes-and-do-next">
+                      <input name="yes-no-group-a" value="Yes" type="radio"> Yes
+                    </label>
+
+                    <label class="block-label selection-button-radio" data-target="no-and-do-next">
+                      <input name="yes-no-group-a" value="No" type="radio"> No
+                    </label>
+
+                  </div>
+
+                </fieldset>
+
+              <div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <div class="form-group form-group-related">
+          <button class="button" type="submit">Save and continue</button>
+        </div>
+
+        <p><a href="{{../sBack}}">Back</a></p>
+
+      </form>
+
+    </div>
+
+    <div class="column-third">
+
+      <div class="related">
+
+        <div class="related-section">
+          <h3 class="related-heading">Documents</h3>
+          <ul class="related-links">
+            {{#each related-documents.document}}
+              {{#is show true}}
+                <li>
+                  <div class="document document-small">
+                    <i class="icon icon-file-download"></i>
+                    <div class="document-content">
+                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
+                        <div class="document-meta">
+                          <span class="document-meta-details">
+                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              {{/is}}
+            {{/each}}
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{{/with}}

@@ -29,9 +29,9 @@ var search = [
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "2016-02-18",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. <a href=\"#\">More</a>",
+      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;&hellip; <a href=\"#\">More</a>",
       "mitigation": "I picked up my partner&rsquo;s ticket instead of my own when I left my house.",
-      "plea": "Awaiting plea",
+      "plea": "No plea received",
       "decision": "Financial penalty",
       "collection-order-confirmed": "true",
       "reason-for-deducting-from-benefits": "Compensation ordered",

@@ -1,0 +1,233 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  <div class="persist-info">
+    <div class="persist-info-content">
+      <span class="persist-info-reference">{{personal-details.urn}}</span>
+      <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+    </div>
+    <ul class="persist-info-links">
+      <li><a href="/legal-adviser/end-session/">End session</a></li>
+    </ul>
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+      <h2 class="heading-large">Offence 1</h2>
+      <h3 class="bold-medium">{{offence.title}}</h3>
+      <p class="font-xsmall">On <time datetime="2014-06-10">10/06/2014</time> At grosvenor place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a<!--Driver without a Conductor did not immediately on boarding pay the fare to the Driver for the journey you intended to take-->&hellip; <a href="#">More</a></p>
+
+      <form class="form" method="post">
+
+        <h3 class="heading-medium">Refer for court hearing</h3>
+
+        <div class="form-group">
+
+          <label for="court-location">
+            <span class="form-label">Court location</span>
+          </label>
+
+          <select class="form-control form-control-3-4" id="court-location" name="courtLocation">
+            <option>Select</option>
+            <option value="1">Lavender Hill</option>
+            <option value="2">Wimbledon</option>
+            <option value="3">Swansea</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="court-room">
+            <span class="form-label">Court room</span>
+          </label>
+
+          <input class="form-control form-control-3-4" id="court-room" type="text" name="courtRoom">
+
+        </div>
+
+        <div class="form-group">
+
+          <fieldset>
+
+            <legend>
+              <span class="form-label">Date of hearing</span>
+              <span class="form-hint" id="date-of-hearing-hint">For example, 31 3 2017</span>
+            </legend>
+
+            <div class="form-date">
+
+              <div class="form-group form-group-day">
+                <label class="form-label" for="date-of-hearing-day">Day</label>
+                <input class="form-control" id="date-of-hearing-day" type="text" name="dateOfHearingDay" maxlength="2" aria-describedby="date-of-hearing-hint">
+              </div>
+
+              <div class="form-group form-group-month">
+                <label class="form-label" for="date-of-hearing-month">Month</label>
+                <input class="form-control" id="date-of-hearing-month" type="text" name="dateOfHearingMonth" maxlength="2">
+              </div>
+
+              <div class="form-group form-group-year">
+                <label class="form-label" for="date-of-hearing-year">Year</label>
+                <input class="form-control" id="date-of-hearing-year" type="text" name="dateOfHearingYear" maxlength="4">
+              </div>
+
+            </div>
+
+          </fieldset>
+
+        </div>
+
+        <div class="form-group">
+
+          <fieldset>
+
+            <legend>
+              <span class="form-label">Start time of hearing session</span>
+              <span class="form-hint" id="start-time-of-hearing-hint">For example, 13:30</span>
+            </legend>
+
+            <div class="form-time">
+              <div class="form-group form-group-hour">
+                <label class="form-label visually-hidden" for="start-time-of-hearing-hour">Hour</label>
+                <input class="form-control" id="start-time-of-hearing-hour" name="startTimeOfHearingHour" type="text" maxlength="2" aria-describedby="start-time-of-hearing-hint">
+              </div>
+
+              <div class="form-group form-group-minute">
+                <label class="form-label visually-hidden" for="start-time-of-hearing-minute">Minutes</label>
+                <input class="form-control" id="start-time-of-hearing-minute" name="startTimeOfHearingMinute" type="text" maxlength="2" >
+              </div>
+
+            </div>
+
+          </fieldset>
+
+        </div>
+
+        <div class="form-group form-group-last">
+
+          <fieldset>
+
+            <legend>
+              <span class="form-label">Reason for referring</span>
+            </legend>
+
+            <label class="block-label" data-target="equivocal-plea">
+              <input type="radio" name="reasonForReferring" value="Equivocal plea"> Equivocal plea
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden" id="equivocal-plea">
+
+              <fieldset>
+
+                <legend>
+                  <span class="form-label">Select</span>
+                </legend>
+
+                <label class="block-label">
+                  <input type="radio" name="equivocalPlea" value="Defendant to attend to clarify"> Defendant to attend to clarify
+                </label>
+
+                <label class="block-label">
+                  <input type="radio" name="equivocalPlea" value="For trial"> For trial
+                </label>
+
+              </fieldset>
+
+            </div>
+
+            <label class="block-label">
+              <input type="radio" name="reasonForReferring" value="Defence request"> Defence request
+            </label>
+
+            <label class="block-label">
+              <input type="radio" name="reasonForReferring" value="For trial"> For trial
+            </label>
+
+            <label class="block-label" data-target="case-management-hearing">
+              <input type="radio" name="reasonForReferring" value="For a case management hearing"> For a case management hearing
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden" id="case-management-hearing">
+              <fieldset>
+
+                <legend>
+                  <span class="form-label">Select</span>
+                </legend>
+
+                <label class="block-label">
+                  <input type="radio" name="caseManagementHearing" value="Defendant to attend"> Defendant to attend
+                </label>
+
+                <label class="block-label">
+                  <input type="radio" name="caseManagementHearing" value="No appearance"> No appearance
+                </label>
+
+              </fieldset>
+              
+            </div>
+
+            <label class="block-label">
+              <input type="radio" name="reasonForReferring" value="Sentencing hearing"> Sentencing hearing
+            </label>
+
+            <label class="block-label">
+              <input type="radio" name="reasonForReferring" value="Case unsuitable for SJP"> Case unsuitable for SJP
+            </label>
+
+            <label class="block-label">
+              <input type="radio" name="reasonForReferring" value="For disqualification"> For disqualification
+            </label>
+
+          </fieldset>
+
+        </div>
+
+        <div class="form-group form-group-related">
+          <button class="button" type="submit">Save and continue</button>
+        </div>
+
+        <p><a href="{{../sBack}}">Back</a></p>
+
+      </form>
+
+    </div>
+
+    <div class="column-third">
+
+      <div class="related">
+
+        <div class="related-section">
+          <h3 class="related-heading">Documents</h3>
+          <ul class="related-links">
+            {{#each related-documents.document}}
+              {{#is show true}}
+                <li>
+                  <div class="document document-small">
+                    <i class="icon icon-file-download"></i>
+                    <div class="document-content">
+                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
+                        <div class="document-meta">
+                          <span class="document-meta-details">
+                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              {{/is}}
+            {{/each}}
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{{/with}}
