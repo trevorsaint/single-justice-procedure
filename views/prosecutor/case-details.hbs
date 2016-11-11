@@ -39,22 +39,6 @@
                 <dd>{{{prosecutor}}}</dd>
                 <dt>Notice served</dt>
                 <dd><time datetime="{{notice-served-datetime}}">{{{notice-served}}}</time></dd>
-                <dt>Documents</dt>
-                <dd>
-                  {{#each ../related-documents.document}}
-                  <div class="document document-small">
-                    <i class="icon icon-file-download"></i>
-                    <div class="document-content">
-                      <p class="document-title"><a href="#">{{{title}}}</a></p>
-                      <div class="document-meta">
-                        <span class="document-meta-details">
-                          {{{file-type}}}, {{{file-size}}}, {{{file-pages}}}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  {{/each}}
-                </dd>
               </dl>
               {{/with}}
 
@@ -300,6 +284,8 @@
                       </tbody>
                     </table>
                   {{/is}}
+
+                  <h3 class="heading-medium">Payment terms</h3>
 
                 </section>
 

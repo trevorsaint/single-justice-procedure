@@ -40,7 +40,7 @@ $module: 'tabs';
 
     [role='tabpanel'] {
 
-      > [class^="heading-"] {
+      [class^="heading-"]:nth-child(1) {
         margin-top: 0;
       }
 

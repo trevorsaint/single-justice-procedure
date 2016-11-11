@@ -2,69 +2,83 @@
 // ==========================================================================
 
 // margin top
-.mt-xs  {
-  margin-top: 5px;
-}
+$module: 'mt';
 
-.mt-s   {
-  margin-top: 10px;
-  @include media(tablet) {margin-top: 10px;}
-}
+.#{$module} {
 
-.mt-m  {
-  margin-top: 15px;
-  @include media(tablet) {margin-top: 20px;}
-}
+  &-xs  {
+    margin-top: 5px;
+  }
 
-.mt-l   {
-  margin-top: 20px;
-  @include media(tablet) {margin-top: 30px;}
-}
+  &-s   {
+    margin-top: 10px;
+    @include media(tablet) {margin-top: 10px;}
+  }
 
-.mt-xl  {
-  margin-top: 30px;
-  @include media(tablet) {margin-top: 45px;}
-}
+  &-m  {
+    margin-top: 15px;
+    @include media(tablet) {margin-top: 20px;}
+  }
 
-.mt-xxl {
-  margin-top: 45px;
-  @include media(tablet) {margin-top: 60px;}
+  &-l   {
+    margin-top: 20px;
+    @include media(tablet) {margin-top: 30px;}
+  }
+
+  &-xl  {
+    margin-top: 30px;
+    @include media(tablet) {margin-top: 45px;}
+  }
+
+  &-xxl {
+    margin-top: 45px;
+    @include media(tablet) {margin-top: 60px;}
+  }
+
 }
 
 
 // margin bottom
-.mb-xs  {
-  margin-bottom: 5px;
-}
+$module: 'mb';
 
-.mb-s   {
-  margin-bottom: 10px;
-  @include media(tablet) {margin-bottom: 10px;}
-}
+.#{$module} {
 
-.mb-m  {
-  margin-bottom: 15px;
-  @include media(tablet) {margin-bottom: 20px;}
-}
+  &-xs  {
+    margin-bottom: 5px;
+  }
 
-.mb-l   {
-  margin-bottom: 20px;
-  @include media(tablet) {margin-bottom: 30px;}
-}
+  &-s   {
+    margin-bottom: 10px;
+    @include media(tablet) {margin-bottom: 10px;}
+  }
 
-.mb-xl  {
-  margin-bottom: 30px;
-  @include media(tablet) {margin-bottom: 45px;}
-}
+  &-m  {
+    margin-bottom: 15px;
+    @include media(tablet) {margin-bottom: 20px;}
+  }
 
-.mb-xxl {
-  margin-bottom: 45px;
-  @include media(tablet) {margin-bottom: 60px;}
+  &-l   {
+    margin-bottom: 20px;
+    @include media(tablet) {margin-bottom: 30px;}
+  }
+
+  &-xl  {
+    margin-bottom: 30px;
+    @include media(tablet) {margin-bottom: 45px;}
+  }
+
+  &-xxl {
+    margin-bottom: 45px;
+    @include media(tablet) {margin-bottom: 60px;}
+  }
+
 }
 
 
 // text alignment
-.text {
+$module: 'text';
+
+.#{$module} {
 
   &-left {
     text-align: left;
@@ -76,6 +90,22 @@
 
   &-center {
     text-align: center;
+  }
+
+}
+
+
+// flush
+$module: 'flush';
+
+.#{$module} {
+
+  &-top {
+    margin-top: 0;
+  }
+
+  &-bottom {
+    margin-bottom: 0;
   }
 
 }
