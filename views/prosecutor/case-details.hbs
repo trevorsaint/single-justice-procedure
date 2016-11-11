@@ -193,7 +193,7 @@
                   <h3 class="heading-medium">Court decision</h3>
 
                   {{#is ../court-decision 1}}
-                    <table class="table">
+                    <table class="table table-decision">
                       <tbody>
                         <tr>
                           <td>Verdict</td>
@@ -224,7 +224,7 @@
                   {{/is}}
 
                   {{#is ../court-decision 2}}
-                    <table class="table">
+                    <table class="table table-decision">
                       <tbody>
                         <tr>
                           <td>Verdict</td>
@@ -235,21 +235,21 @@
                           <td>&pound;100</td>
                         </tr>
                         <tr>
-                          <td rowspan="2" valign="top">Compensation</td>
+                          <td rowspan="2">Compensation</td>
                           <td>&pound;0</td>
                         </tr>
                         <tr>
                           <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
                         </tr>
                         <tr>
-                          <td rowspan="2" valign="top">Costs</td>
+                          <td rowspan="2">Costs</td>
                           <td>&pound;0</td>
                         </tr>
                         <tr>
                           <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
                         </tr>
                         <tr>
-                          <td rowspan="2" valign="top">Victim surcharge (reduced)</td>
+                          <td rowspan="2">Victim surcharge (reduced)</td>
                           <td>&pound;0</td>
                         </tr>
                         <tr>
@@ -264,7 +264,7 @@
                   {{/is}}
 
                   {{#is ../court-decision 3}}
-                    <table class="table">
+                    <table class="table table-decision">
                       <tbody>
                         <tr>
                           <td>Verdict</td>
@@ -275,7 +275,7 @@
                           <td>6 months</td>
                         </tr>
                         <tr>
-                          <td rowspan="2" valign="top">Compensation</td>
+                          <td rowspan="2">Compensation</td>
                           <td>&pound;0</td>
                         </tr>
                         <tr>
@@ -285,7 +285,34 @@
                     </table>
                   {{/is}}
 
-                  <h3 class="heading-medium">Payment terms</h3>
+                  <details>
+
+                    <summary><span class="summary">Payment and collection terms</span></summary>
+
+                    <div class="panel panel-border-narrow">
+
+                      <h3 class="heading-medium">Payment and collection terms</h3>
+
+                      <dl class="meta meta-inline meta-small">
+                        <dt>Collection order made</dt>
+                        <dd>Yes</dd>
+                        <dt>Total to pay</dt>
+                        <dd>&pound;210.00</dd>
+                        <dt>Payment method</dt>
+                        <dd>Direct to court</dd>
+                        <dt>Terms</dt>
+                        <dd>Lump sum plus installments</dd>
+                        <dt>Lump sum</dt>
+                        <dd>&pound;70 <br> <span class="text-secondary">Pay by <time datetime="2016-12-12">12 December 2016</time></span></dd>
+                        <dt>Instalments</dt>
+                        <dd>&pound;10 <br> <span class="text-secondary">Starts on <time datetime="2017-01-01">1 January 2017</time></span></dd>
+                        <dt>Notice to pay sent to defendant</dt>
+                        <dd><time datetime="2016-11-16">16 November 2016</time></dd>
+                      </dl>
+
+                    </div>
+
+                  </details>
 
                 </section>
 
