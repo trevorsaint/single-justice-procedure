@@ -142,7 +142,7 @@ var search = [
     "decision": false,
     "court-decision": 1,
     "decision-ready": false,
-    "withdraw": true,
+    "withdraw": false,
     "report-error": 1,
     "collection": {
       "order-made": "Yes",
@@ -252,7 +252,7 @@ var search = [
     },
     "court-decision": 2,
     "decision-ready": false,
-    "withdraw": true,
+    "withdraw": false,
     "report-error": 2
   },
 
@@ -437,7 +437,7 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "withdraw": true
+    "withdraw": false
   },
 
   {
