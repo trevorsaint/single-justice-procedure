@@ -83,23 +83,23 @@
             <legend class="visuallyhidden">Set reserve terms</legend>
 
             <label class="block-label">
-              <input type="radio" name="reserveTerms" value="Lump sum 14 days"
+              <input type="radio" name="reserveTerms" value="Lump sum within 14 days"
               {{#if ../sReserveTerms}}
-                {{#contains ../sReserveTerms "Lump sum 14 days"}} checked="checked"{{/contains}}
+                {{#contains ../sReserveTerms "Lump sum within 14 days"}} checked="checked"{{/contains}}
               {{else}}
-                {{#contains offence.reserve-terms "Lump sum 14 days"}} checked="checked"{{/contains}}
+                {{#contains offence.reserve-terms "Lump sum within 14 days"}} checked="checked"{{/contains}}
               {{/if}}>
-              Lump sum  within 14 days
+              Lump sum within 14 days
             </label>
 
             <p class="form-block">or</p>
 
             <label class="block-label">
-              <input type="radio" name="reserveTerms" value="Lump sum 28 days"
+              <input type="radio" name="reserveTerms" value="Lump sum within 28 days"
               {{#if ../sReserveTerms}}
-                {{#contains ../sReserveTerms "Lump sum 28 days"}} checked="checked"{{/contains}}
+                {{#contains ../sReserveTerms "Lump sum within 28 days"}} checked="checked"{{/contains}}
               {{else}}
-                {{#contains offence.reserve-terms "Lump sum 28 days"}} checked="checked"{{/contains}}
+                {{#contains offence.reserve-terms "Lump sum within 28 days"}} checked="checked"{{/contains}}
               {{/if}}>
               Lump sum within 28 days
             </label>

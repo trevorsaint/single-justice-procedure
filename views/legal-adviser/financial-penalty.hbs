@@ -132,19 +132,19 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="reasonForReducingCompensationB" value="Insufficient details provided by the prosecutor"> Insufficient details provided by the prosecutor
+                    <input type="radio" name="reasonForReducingCompensationA" value="Not enough detail given by prosecutor"> Insufficient details provided by prosecutor
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="reasonForReducingCompensationB" value="Limited means of the defendant"> Limited means of the defendant
+                    <input type="radio" name="reasonForReducingCompensationA" value="Limited means of the defendant"> Limited means of the defendant
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="reasonForReducingCompensationB" value="There is no loss or damage"> There is no loss or damage
+                    <input type="radio" name="reasonForReducingCompensationA" value="No loss or damage"> No loss or damage
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="reasonForReducingCompensationB" value="Other"> Other
+                    <input type="radio" name="reasonForReducingCompensationA" value="Other"> Other
                   </label>
 
                 </div>
@@ -183,19 +183,19 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="reasonForReducingCompensationC" value="Insufficient details provided by the prosecutor"> Insufficient details provided by the prosecutor
+                    <input type="radio" name="reasonForReducingCompensationA" value="Not enough detail given by prosecutor"> Insufficient details provided by prosecutor
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="reasonForReducingCompensationC" value="Limited means of the defendant"> Limited means of the defendant
+                    <input type="radio" name="reasonForReducingCompensationA" value="Limited means of the defendant"> Limited means of the defendant
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="reasonForReducingCompensationC" value="There is no loss or damage"> There is no loss or damage
+                    <input type="radio" name="reasonForReducingCompensationA" value="No loss or damage"> No loss or damage
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="reasonForReducingCompensationC" value="Other"> Other
+                    <input type="radio" name="reasonForReducingCompensationA" value="Other"> Other
                   </label>
 
                 </div>
@@ -261,18 +261,14 @@
               <input type="checkbox" name="collectionOrderConfirmed" {{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}> Confirm a collection order will be issued
             </label>
 
-            <div class="panel panel-border-narrow">
+            <div class="panel panel-border-narrow js-hidden">
 
               <div class="form-group">
 
                 <fieldset class="inline">
 
                   <legend>
-
-                    <span class="form-label">
-                      Are you sure you want to proceed without a collection order?
-                    </span>
-
+                    <span class="form-label">Are you sure you want to proceed without a collection order?</span>
                   </legend>
 
                   <div class="form-group">
