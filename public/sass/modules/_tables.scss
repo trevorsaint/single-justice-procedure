@@ -26,11 +26,35 @@ $module: 'table';
 
   }
 
+
+
+  // container
+  &-container {
+    position: relative;
+  }
+
+
+  &-action {
+
+    @include media(tablet) {
+      margin: 0;
+      position: absolute; right: 0; top: 12px;
+    }
+
+  }
+
+
+
   // summary table
   &-summary {
 
     th, td {
+      border: 0;
       vertical-align: top;
+    }
+
+    th {
+      font-weight: normal;
     }
 
     &-title {

@@ -1996,8 +1996,23 @@ CSS Usage
     width: 6.25em;
   }
 }
+.table-container {
+  position: relative;
+}
+@media (min-width: 641px) {
+  .table-action {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 12px;
+  }
+}
 .table-summary th, .table-summary td {
+  border: 0;
   vertical-align: top;
+}
+.table-summary th {
+  font-weight: normal;
 }
 .table-summary-title {
   width: 40%;
@@ -3448,7 +3463,12 @@ fieldset.inline ~ .panel:last-child {
 }
 
 .table {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+}
+@media (min-width: 641px) {
+  .table {
+    margin-bottom: 30px;
+  }
 }
 
 .check-answers {

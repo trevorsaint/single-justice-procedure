@@ -2,370 +2,269 @@
 
 {{#with search}}
 
-<div class="persist-info">
-  <div class="persist-info-content">
-    <span class="persist-info-reference">{{personal-details.urn}}</span>
-    <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+  <div class="persist-info">
+    <div class="persist-info-content">
+      <span class="persist-info-reference">{{personal-details.urn}}</span>
+      <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+    </div>
+    <ul class="persist-info-links">
+      <li><a href="/legal-adviser/end-session/">End session</a></li>
+    </ul>
   </div>
-  <ul class="persist-info-links">
-    <li><a href="/legal-adviser/end-session/">End session</a></li>
-  </ul>
-</div>
 
   <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
-  <!-- offence 1 -->
-  <h2 class="heading-medium">Passenger used ticket issued for another person</h2>
-  <table class="table table-summary">
-    <tbody>
-      <tr>
-        <td class="table-summary-title">Decision</td>
-        <td>
-          {{#if ../sMakeDecision}}
-            {{../sMakeDecision}}
-          {{else}}
-            {{#if offence.decision}}
-              {{offence.decision}}
-            {{else}}
-              &ndash;
-            {{/if}}
-          {{/if}}
-        </td>
-        <td class="table-cell-action"><a href="/legal-adviser/case-details/{{id}}/#offence-decision" title="Change make a decision">Change<span class="visually-hidden"> make a decision</span></a></td>
-      </tr>
-      <tr>
-        <td class="table-summary-title">Defendant&rsquo;s weekly income</td>
-        <td colspan="2">&pound;440 (assumed)</td>
-      </tr>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Fine band applied</td>
-        <td>
-          {{#if ../sFineBandApplied}}
-            {{../sFineBandApplied}}
-          {{else}}
-            {{#if offence.fine-band-applied}}
-              {{offence.fine-band-applied}}
-            {{else}}
-              &ndash;
-            {{/if}}
-          {{/if}}
-        </td>
-        <td class="table-cell-action"><a href="/legal-adviser/continue-decisions/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change<span class="visually-hidden"> and compensation</span></a></td>
-      </tr>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Fine</td>
-        <td colspan="2">
-          {{#if ../sFineA}}
-            {{../sFineA}}
-          {{else if ../sFineB}}
-            {{../sFineB}}
-          {{else if ../sFineC}}
-            {{../sFineC}}
-          {{else}}
-            {{#if offence.fine}}
-              {{offence.fine}}
-            {{else}}
-              &ndash;
-            {{/if}}
-          {{/if}}
-        </td>
-      </tr>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Compensation</td>
-        <td colspan="2">
-          {{#if ../sCompensationA}}
-            {{../sCompensationA}}
-          {{else if ../sCompensationB}}
-            {{../sCompensationB}}
-          {{else if ../sCompensationC}}
-            {{../sCompensationC}}
-          {{else}}
-            {{#if offence.compensation}}
-              {{offence.compensation}}
-            {{else}}
-              &ndash;
-            {{/if}}
-          {{/if}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- end offence 1 -->
+  <section aria-labelledby="offence">
 
+    <h2 class="heading-medium" id="offence">Passenger used ticket issued for another person</h2>
 
-  <hr class="divider divider-border-dark"></hr>
+    <div class="table-container">
 
+      <table class="table table-summary">
 
-  <!-- costs and surcharge -->
-  <h2 class="heading-medium">Costs and surcharge</h2>
-  <table class="table table-summary">
-    <tbody>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Costs</td>
-        <td>
-          {{#if ../sCost}}
-            &pound;{{../sCost}}
-          {{else}}
-            &pound;{{offence.cost}}
-          {{/if}}
-        </td>
-        <td class="table-cell-action"><a href="/legal-adviser/continue-decisions/{{id}}/?change=true/#costs-and-surcharge" title="Change cost and surcharge">Change <span class="visually-hidden">cost and surcharge</span></a></td>
-      </tr>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Surcharge and victim fund</td>
-        <td colspan="2">
-          {{#if ../sSurcharge}}
-            &pound;{{../sSurcharge}}
-          {{else}}
-            &pound;{{offence.surcharge}}
-          {{/if}}
-        </td>
-      </tr>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Collection order issued</td>
-        <td colspan="2">
-          {{#if ../sCollectionOrderConfirmed}}
-            {{#contains ../sCollectionOrderConfirmed "true"}}Yes{{else}}No{{/contains}}
-          {{else}}
-            {{#contains offence.collection-order-confirmed "true"}}Yes{{else}}No{{/contains}}
-          {{/if}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- end costs and surcharge -->
+        <colgroup>
+          <col class="table-summary-title">
+          <col>
+        </colgroup>
 
+        <tbody>
+          <tr>
+            <th>Decision</th>
+            <td>{{#if ../sMakeDecision}}{{../sMakeDecision}}{{else}}{{#if offence.decision}}{{offence.decision}}{{else}}&ndash;{{/if}}{{/if}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <p class="table-action"><a href="/legal-adviser/case-details/{{id}}/#offence-decision">Change<span class="visually-hidden"> decision</span></a></p>
+
+    </div>
+
+    <hr class="divider" aria-hidden="true">
+
+    <div class="table-container">
+
+      <table class="table table-summary">
+
+        <colgroup>
+          <col class="table-summary-title">
+          <col>
+        </colgroup>
+
+        <tbody>
+          <tr>
+            <th>Defendant&rsquo;s weekly income</th>
+            <td>&pound;440 (assumed)</td>
+          </tr>
+          <tr>
+            <th>Fine band applied</th>
+            <td>{{#if ../sFineBandApplied}}{{../sFineBandApplied}}{{else}}{{#if offence.fine-band-applied}}{{offence.fine-band-applied}}{{else}}&ndash;{{/if}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Fine</th>
+            <td>&pound;{{#if ../sFineA}}{{../sFineA}}{{else if ../sFineB}}{{../sFineB}}{{else if ../sFineC}}{{../sFineC}}{{else}}{{#if offence.fine}}{{offence.fine}}{{else}}&ndash;{{/if}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Compensation</th>
+            <td>{{#if ../sCompensationA}}{{../sCompensationA}}{{else if ../sCompensationB}}{{../sCompensationB}}{{else if ../sCompensationC}}{{../sCompensationC}}{{else}}{{#if offence.compensation}}{{offence.compensation}}{{else}}&ndash;{{/if}}{{/if}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <p class="table-action"><a href="/legal-adviser/continue-decisions/{{id}}/?change=true/#fine-and-compensation">Change<span class="visually-hidden"> fine and compensation</span></a></p>
+
+    </div>
+
+  </section>
 
   <hr class="divider divider-border-dark" aria-hidden="true">
 
+  <section aria-labelledby="costs-and-surcharge">
 
-  <!-- collection and payment -->
-  <h2 class="heading-medium">Collection and payment</h2>
-  <table class="table table-summary">
+    <h2 class="heading-medium" id="costs-and-surcharge">Costs and surcharge</h2>
 
-    {{#is ../sPaymentMethod "Pay direct to court"}}
-    <tbody>
+    <div class="table-container">
 
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Payment method</td>
-        <td>
-          {{#if ../sPaymentMethod}}
-            {{../sPaymentMethod}}
-          {{else}}
-            {{offence.payment-method}}
-          {{/if}}
-        </td>
-        <td class="table-cell-action"><a href="/legal-adviser/payment-method/{{id}}/?change=true/#collection-payment">Change<span class="visually-hidden"> payment method</span></a></td>
-      </tr>
+      <table class="table table-summary">
 
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Reason you didn&rsquo;t deduct from benefits?</td>
-        <td>
-          {{#if ../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}
-            {{../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}
-          {{else}}
-            {{offence.reason-for-not-deducting-from-benefits}}
-          {{/if}}
-        </td>
-      </tr>
+        <colgroup>
+          <col class="table-summary-title">
+          <col>
+        </colgroup>
 
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">How should defendant pay the court?</td>
-        <td>
-          {{#if ../sDefendantPay}}
-            {{../sDefendantPay}}
-          {{else}}
-            {{offence.defendant-pay}}
-          {{/if}}
-        </td>
-      </tr>
+        <tbody>
+          <tr>
+            <th>Costs</th>
+            <td>{{#if ../sCost}}&pound;{{../sCost}}{{else}}&pound;{{offence.cost}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Surcharge and victim fund</th>
+            <td>{{#if ../sSurcharge}}&pound;{{../sSurcharge}}{{else}}&pound;{{offence.surcharge}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Collection order issued</th>
+            <td>{{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}}Yes{{else}}No{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}}Yes{{else}}No{{/contains}}{{/if}}</td>
+          </tr>
+        </tbody>
 
-      {{#is ../sDefendantPay "Lump sum plus instalments"}}
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Amount to be paid</td>
-        <td colspan="2">&pound;{{../sLumpSumAmount}} (within {{../sLumpSumPaidWithin}})</td>
-      </tr>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Instalment amount</td>
-        <td colspan="2">&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on 16 December 2017</td>
-      </tr>
-      {{/is}}
+      </table>
 
-      {{#is ../sDefendantPay "Instalments only"}}
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Instalment amount</td>
-        <td colspan="2">&pound;50.00 (weekly) starting on 16 December 2017</td>
-      </tr>
-      {{/is}}
+      <p class="table-action"><a href="/legal-adviser/continue-decisions/{{id}}/?change=true/#costs-and-surcharge">Change <span class="visually-hidden">cost and surcharge</span></a></p>
 
-    </tbody>
-    {{/is}}
+    </div>
 
-    {{#is ../sPaymentMethod "Deduct from benefits"}}
-    <tbody>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Payment method</td>
-        <td>
-          {{#if ../sPaymentMethod}}
-            {{../sPaymentMethod}}
-          {{else}}
-            {{offence.payment-method}}
-          {{/if}}
-        </td>
-        <td class="table-cell-action"><a href="/legal-adviser/payment-method/{{id}}/?change=true/#collection-payment">Change<span class="visually-hidden"> payment method</span></a></td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">National Insurance number</td>
-        <td colspan=2"">
-          {{#if ../sNationalInsuranceNumber}}
-            {{../sNationalInsuranceNumber}}
-          {{else}}
-            {{employment.national-insurance-number}}
-          {{/if}}
-        </td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Reason for deducting from benefits</td>
-        <td colspan="2">
-          {{#if ../sReasonForDeductingFromBenefits}}
-            {{../sReasonForDeductingFromBenefits}}
-          {{else}}
-            {{offence.reason-for-deducting-from-benefits}}
-          {{/if}}
-        </td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Reserve terms</td>
-        <td colspan="2">
-          {{#if ../sReserveTerms}}
-            {{../sReserveTerms}}
-          {{else}}
-            {{offence.reserve-terms}}
-          {{/if}}
-        </td>
-      </tr>
-
-      {{#is ../sReserveTerms "Lump sum plus instalments"}}
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Amount to be paid</td>
-        <td colspan="2">&pound;{{../sLumpSumAmount}} (within {{../sLumpSumPaidWithin}})</td>
-      </tr>
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Instalment amount</td>
-        <td colspan="2">&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on 16 December 2017</td>
-      </tr>
-      {{/is}}
-
-      {{#is ../sReserveTerms "Instalments only"}}
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Instalment amount</td>
-        <td colspan="2">&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on 16 December 2017</td>
-      </tr>
-      {{/is}}
-
-    </tbody>
-    {{/is}}
-
-    {{#is ../sPaymentMethod "Attach to earnings"}}
-    <tbody>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Payment method</td>
-        <td>
-          {{#if ../sPaymentMethod}}
-            {{../sPaymentMethod}}
-          {{else}}
-            {{offence.payment-method}}
-          {{/if}}
-        </td>
-        <td class="table-cell-action"><a href="/legal-adviser/payment-method/{{id}}/?change=true/#collection-payment">Change<span class="visually-hidden"> payment method</span></a></td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Employee number</td>
-        <td colspan="2">
-          {{#if ../sEmployeeNumber}}
-            {{../sEmployeeNumber}}
-          {{else}}
-            {{employment.employee-number}}
-          {{/if}}
-        </td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Employer name</td>
-        <td colspan="2">
-          {{#if ../sEmployerName}}
-            {{../sEmployerName}}
-          {{else}}
-            {{employment.employer-name}}
-          {{/if}}
-        </td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Employer address</td>
-        <td colspan="2">
-          {{#if ../sEmployerAddress1}}
-            {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
-            {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
-            {{#if ../sEmployerTown}}{{../sEmployerTown}}<br> {{/if}}
-            {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
-          {{else}}
-            {{#if employment.employer-address.address1}}{{employment.employer-address.address1}}<br>{{/if}}
-            {{#if employment.employer-address.address2}}{{employment.employer-address.address2}}<br>{{/if}}
-            {{#if employment.employer-address.town}}{{employment.employer-address.town}}<br>{{/if}}
-            {{#if employment.employer-address.postcode}}{{employment.employer-address.postcode}}{{/if}}
-          {{/if}}
-        </td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Reason for attaching to earnings</td>
-        <td colspan="2">
-          {{#if ../reasonForAttachingToEarnings}}
-            {{../reasonForAttachingToEarnings}}
-          {{else}}
-            {{offence.reason-for-attaching-to-earnings}}
-          {{/if}}
-        </td>
-      </tr>
-
-      <tr class="table-row-noborder">
-        <td class="table-summary-title">Reserve terms</td>
-        <td colspan="2">
-          {{#if ../sReservedTerms}}
-            {{../sReservedTerms}}
-          {{else}}
-            {{offence.reserve-terms}}
-          {{/if}}
-        </td>
-      </tr>
-
-    </tbody>
-    {{/is}}
-
-  </table>
-  <!-- end -->
-
+  </section>
 
   <hr class="divider divider-border-dark" aria-hidden="true">
 
+  <section aria-labelledby="collection-and-payment">
 
-  <section class="check-answers" aria-labelledby="decision">
+    <h2 class="heading-medium" id="collection-and-payment">Collection and payment</h2>
 
-    <h2 class="heading-medium" id="decision">Add a note (optional)</h2>
+    <div class="table-container">
+
+      <table class="table table-summary">
+
+        <colgroup>
+          <col class="table-summary-title">
+          <col>
+        </colgroup>
+
+        {{#is ../sPaymentMethod "Pay direct to court"}}
+        <tbody>
+          <tr>
+            <th>Payment method</th>
+            <td>{{#if ../sPaymentMethod}}{{../sPaymentMethod}}{{else}}{{offence.payment-method}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Reason you didn&rsquo;t deduct from benefits?</th>
+            <td>{{#if ../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}{{../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}{{else}}{{offence.reason-for-not-deducting-from-benefits}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>How should defendant pay the court?</th>
+            <td>{{#if ../sDefendantPay}}{{../sDefendantPay}}{{else}}{{offence.defendant-pay}}{{/if}}</td>
+          </tr>
+
+          {{#is ../sDefendantPay "Lump sum plus instalments"}}
+          <tr>
+            <th>Amount to be paid</th>
+            <td>&pound;{{../sLumpSumAmount}} (within {{../sLumpSumPaidWithin}})</td>
+          </tr>
+          <tr>
+            <th>Instalment amount</th>
+            <td>&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on 16 December 2017</td>
+          </tr>
+          {{/is}}
+
+          {{#is ../sDefendantPay "Instalments only"}}
+          <tr>
+            <th>Instalment amount</th>
+            <td>&pound;50.00 (weekly) starting on 16 December 2017</td>
+          </tr>
+          {{/is}}
+
+        </tbody>
+        {{/is}}
+
+        {{#is ../sPaymentMethod "Deduct from benefits"}}
+        <tbody>
+          <tr>
+            <th>Payment method</th>
+            <td>{{#if ../sPaymentMethod}}{{../sPaymentMethod}}{{else}}{{offence.payment-method}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>National Insurance number</th>
+            <td>{{#if ../sNationalInsuranceNumber}}{{../sNationalInsuranceNumber}}{{else}}{{employment.national-insurance-number}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Reason for deducting from benefits</th>
+            <td>{{#if ../sReasonForDeductingFromBenefits}}{{../sReasonForDeductingFromBenefits}}{{else}}{{offence.reason-for-deducting-from-benefits}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Reserve terms</th>
+            <td>{{#if ../sReserveTerms}}{{../sReserveTerms}}{{else}}{{offence.reserve-terms}}{{/if}}</td>
+          </tr>
+          {{#is ../sReserveTerms "Lump sum plus instalments"}}
+          <tr>
+            <th>Amount to be paid</th>
+            <td>&pound;{{../sLumpSumAmount}} (within {{../sLumpSumPaidWithin}})</td>
+          </tr>
+          <tr>
+            <th>Instalment amount</th>
+            <td>&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on 16 December 2017</td>
+          </tr>
+          {{/is}}
+          {{#is ../sReserveTerms "Instalments only"}}
+          <tr>
+            <th>Instalment amount</th>
+            <td>&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on 16 December 2017</td>
+          </tr>
+          {{/is}}
+        </tbody>
+        {{/is}}
+
+        {{#is ../sPaymentMethod "Attach to earnings"}}
+        <tbody>
+          <tr>
+            <th>Payment method</th>
+            <td>{{#if ../sPaymentMethod}}{{../sPaymentMethod}}{{else}}{{offence.payment-method}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Employee number</th>
+            <td>{{#if ../sEmployeeNumber}}{{../sEmployeeNumber}}{{else}}{{employment.employee-number}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Employer name</th>
+            <td>{{#if ../sEmployerName}}{{../sEmployerName}}{{else}}{{employment.employer-name}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Employer address</th>
+            <td>
+              {{#if ../sEmployerAddress1}}
+                {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
+                {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
+                {{#if ../sEmployerTown}}{{../sEmployerTown}}<br> {{/if}}
+                {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
+              {{else}}
+                {{#if employment.employer-address.address1}}{{employment.employer-address.address1}}<br>{{/if}}
+                {{#if employment.employer-address.address2}}{{employment.employer-address.address2}}<br>{{/if}}
+                {{#if employment.employer-address.town}}{{employment.employer-address.town}}<br>{{/if}}
+                {{#if employment.employer-address.postcode}}{{employment.employer-address.postcode}}{{/if}}
+              {{/if}}
+            </td>
+          </tr>
+          <tr>
+            <th>Reason for attaching to earnings</th>
+            <td>{{#if ../reasonForAttachingToEarnings}}{{../reasonForAttachingToEarnings}}{{else}}{{offence.reason-for-attaching-to-earnings}}{{/if}}</td>
+          </tr>
+          <tr>
+            <th>Reserve terms</th>
+            <td>{{#if ../sReservedTerms}}{{../sReservedTerms}}{{else}}{{offence.reserve-terms}}{{/if}}</td>
+          </tr>
+        </tbody>
+        {{/is}}
+
+      </table>
+
+      <p class="table-action"><a href="/legal-adviser/payment-method/{{id}}/?change=true/#collection-payment">Change<span class="visually-hidden"> collection and payment</span></a></p>
+
+    </div>
+
+  </section>
+
+  <hr class="divider divider-border-dark" aria-hidden="true">
+
+  <section aria-labelledby="other-information">
+
+    <h2 class="heading-medium" id="other-information">Add a note (optional)</h2>
 
     <p class="text">Only add if you have important information you couldn&rsquo;t enter elsewhere. The details you enter may be shown publicly, for example to the defendant.</p>
 
     <form class="form" method="post">
 
       <div class="form-group">
-        <label for="notes" class="visually-hidden">
+        <label class="visually-hidden" for="notes">
           <span class="form-label">Notes (optional)</span>
         </label>
         <textarea class="form-control form-control-textarea" id="notes" name="notes" rows="5" cols="60"></textarea>
