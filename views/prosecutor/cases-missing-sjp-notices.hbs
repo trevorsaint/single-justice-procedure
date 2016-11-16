@@ -1,15 +1,13 @@
   {{>breadcrumb}}
 
-  <h1 class="heading-xlarge">{{{pagetitle}}}</h1>
+    <h1 class="heading-xlarge">{{{pagetitle}}}</h1>
 
-  <div class="grid-row">
+    <section aria-labelledby="missing-notices">
 
-    <div class="column-two-thirds">
+      <h3 class="heading-medium" id="missing-notices">5 cases missing notices</h3>
 
-      <h3 class="heading-medium">5 cases missing notices</h3>
-
-      <table class="table table-font-xsmall text">
-        <caption class="visuallyhidden">Cases missing SJP notices</caption>
+      <table class="table table-font-xsmall">
+        <caption class="visually-hidden">Cases missing Single Justice Procedure notices</caption>
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -30,29 +28,14 @@
         </tbody>
       </table>
 
-    </div>
+    </section>
 
-    <div class="column-one-third">
+    <section aria-labelledby="upload-documents">
 
-      <h3 class="heading-medium">Send notices to court</h3>
+      <h3 class="heading-medium" id="upload-documents">When you&rsquo;ve found the missing notices</h3>
 
-      <p>Upload the <abbr title="Single Justice Procedure">SJP</abbr> notices in a zip file.</p>
+      <p>Put the notices in a new zip file and then upload.</p>
 
-      <div class="panel panel-border-wide">
-        <p class="font-xsmall">If you only want to upload one document, you&rsquo;ll still need to put it in a zip file.</p>
-      </div>
+      <p><a class="button" href="/prosecutor/send-other-documents/" role="button">Go to upload documents</a></p>
 
-      <form class="form" method="post" action="">
-
-        <div class="form-group">
-          <input class="form-control-file" type="file" id="notices" name="notices" accept=".zip">
-          <label class="button button-secondary" for="notices">Browse&hellip;</label>
-        </div>
-
-        <button class="button" type="submit">Send to court</button>
-
-      </form>
-
-    </div>
-
-  </div>
+    </section>
