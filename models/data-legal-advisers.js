@@ -21,7 +21,7 @@ var search = [
       "mobile": ""
     },
     "case-details": {
-      "status": "Awaiting plea",
+      "status": "No plea received",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2016-09-30",

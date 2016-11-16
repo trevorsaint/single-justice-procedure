@@ -45,62 +45,29 @@
 
               <div class="panel panel-border-narrow js-hidden" id="discharge-duration">
 
-                <div class="form-group">
+                <fieldset>
 
-                  <fieldset>
+                  <legend>
+                    <span class="form-label">Duration</span>
+                  </legend>
 
-                    <legend>
-                      <span class="form-label">For how long?</span>
-                    </legend>
-
-                    <label class="block-label" data-target="months">
-                      <input type="radio" name="dischargeDuration" value="Months"> Months
-                    </label>
-
-                    <label class="block-label" data-target="weeks">
-                      <input type="radio" name="dischargeDuration" value="Weeks"> Weeks
-                    </label>
-
-                    <label class="block-label" data-target="days">
-                      <input type="radio" name="dischargeDuration" value="Days"> Days
-                    </label>
-
-                  </fieldset>
-
-                  <div class="panel panel-border-narrow js-hidden" id="months">
-
-                    <div class="form-group">
-                      <label for="how-many-months">
-                        <span class="form-label">How many<span class="visually-hidden"> months</span>?</span>
-                      </label>
-                      <input class="form-control form-control-1-8" id="how-many-months" name="howMany" type="text">
+                  <div class="form-duration">
+                    <div class="form-group form-group-amount">
+                      <label class="visually-hidden" for="duration-amount"><span class="form-label">Amount</span></label>
+                      <input class="form-control" type="text" id="duration-amount" name="durationAmount">
                     </div>
-
+                    <div class="form-group form-group-timespan">
+                      <label class="visually-hidden" for="duration-timespan"><span class="form-label">Time span</span></label>
+                      <select class="form-control form-control-select" id="duration-timespan" name="durationTimeSpan">
+                        <option>Select</option>
+                        <option>Months</option>
+                        <option>Weeks</option>
+                        <option>Days</option>
+                      </select>
+                    </div>
                   </div>
 
-                  <div class="panel panel-border-narrow js-hidden" id="weeks">
-
-                    <div class="form-group">
-                      <label for="how-many-weeks">
-                        <span class="form-label">How many<span class="visually-hidden"> weeks</span>?</span>
-                      </label>
-                      <input class="form-control form-control-1-8" id="how-many-weeks" name="howMany" type="text">
-                    </div>
-
-                  </div>
-
-                  <div class="panel panel-border-narrow js-hidden" id="days">
-
-                    <div class="form-group">
-                      <label for="how-many-days">
-                        <span class="form-label">How many<span class="visually-hidden"> days</span>?</span>
-                      </label>
-                      <input class="form-control form-control-1-8" id="how-many-days" name="howMany" type="text">
-                    </div>
-
-                  </div>
-
-                </div>
+                </fieldset>
 
               </div>
 
@@ -109,12 +76,8 @@
           </div>
 
           <div class="form-group">
-            <label for="compensation">
-              <span class="form-label">Compensation</span>
-            </label>
-            <div class="form-currency">
-              <input class="form-control form-control-1-4" id="compensation" name="compensation" type="text">
-            </div>
+            <label for="compensation"><span class="form-label">Compensation</span></label>
+            <div class="form-currency"><input class="form-control form-control-1-4" id="compensation" name="compensation" type="text"></div>
           </div>
 
         </section>
@@ -185,12 +148,12 @@
 
                   <div class="form-group">
 
-                    <label class="block-label selection-button-radio" data-target="yes-and-do-next">
-                      <input name="yes-no-group-a" value="Yes" type="radio"> Yes
+                    <label class="block-label selection-button-radio">
+                      <input name="collectionOrderAnswer" value="Yes" type="radio"> Yes
                     </label>
 
-                    <label class="block-label selection-button-radio" data-target="no-and-do-next">
-                      <input name="yes-no-group-a" value="No" type="radio"> No
+                    <label class="block-label selection-button-radio">
+                      <input name="collectionOrderAnswer" value="No" type="radio"> No
                     </label>
 
                   </div>

@@ -63,6 +63,39 @@ $module: 'form';
     resize: vertical;
   }
 
+  &-control-select {
+    padding: 1px;
+
+    @include media(tablet) {
+      padding: 2px;
+    }
+
+  }
+
+  &-duration {
+
+    .#{$module}-group {
+      float: left;
+      clear: none;
+      margin-right: 20px;
+      margin-bottom: 0;
+
+      &-amount {
+        width: 70px;
+      }
+
+      &-timespan {
+        width: auto;
+      }
+
+      input, select {
+        width: 100%;
+      }
+
+    }
+
+  }
+
   &-time {
 
     .#{$module}-group {
@@ -81,11 +114,6 @@ $module: 'form';
           content: ":";
         }
 
-      }
-
-      label {
-        display: block;
-        padding-bottom: 2px;
       }
 
       input {

@@ -2084,6 +2084,29 @@ CSS Usage
 .form-control-textarea {
   resize: vertical;
 }
+.form-control-select {
+  padding: 1px;
+}
+@media (min-width: 641px) {
+  .form-control-select {
+    padding: 2px;
+  }
+}
+.form-duration .form-group {
+  float: left;
+  clear: none;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+.form-duration .form-group-amount {
+  width: 70px;
+}
+.form-duration .form-group-timespan {
+  width: auto;
+}
+.form-duration .form-group input, .form-duration .form-group select {
+  width: 100%;
+}
 .form-time .form-group {
   position: relative;
   clear: none;
@@ -2097,10 +2120,6 @@ CSS Usage
   bottom: 6px;
   right: -12px;
   content: ":";
-}
-.form-time .form-group label {
-  display: block;
-  padding-bottom: 2px;
 }
 .form-time .form-group input {
   width: 100%;

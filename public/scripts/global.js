@@ -1,3 +1,40 @@
+// collection order
+function collectionOrder() {
+
+  "strict"
+
+  var $input  = $('input[name="collectionOrderConfirmed"]');
+  var $answer = $('input[name="collectionOrderAnswer"]');
+  var $panel  = $input.parent().next(".panel");
+
+  $($input).on("change", function(e) {
+
+    if ($input.prop("checked") === false) {
+      $panel.removeClass("js-hidden").attr("aria-hidden", false);
+    } else {
+      $answer.prop("checked", false).parent().removeClass("selected") // reset answer radio group
+      $panel.addClass("js-hidden").attr("aria-hidden", true);
+    }
+
+  });
+
+  $($answer).on("change", function() {
+
+    var $answerValue = $(this).val();
+
+    if ($answerValue === "No") {
+      $answer.prop("checked", false).parent().removeClass("selected"); // reset answer radio group
+      $input.prop("checked", true).parent().addClass("selected");
+      $panel.addClass("js-hidden").attr("aria-hidden", true);
+    } else {
+      $input.prop("checked", false);
+    }
+
+  });
+
+};
+
+
 // change fine
 $.fn.changeFine = function() {
 
@@ -373,6 +410,8 @@ function fileUploadFocus() {
 
   changeCosts();
   changeSurcharge();
+  collectionOrder();
+
   $("#fine-a, #fine-b, #fine-c").changeFine();
   $("#compensation-a, #compensation-b, #compensation-c").changeCompensation();
 

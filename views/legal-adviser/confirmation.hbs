@@ -1,3 +1,15 @@
+{{#with search}}
+
+<div class="persist-info">
+  <div class="persist-info-content">
+    <span class="persist-info-reference">{{personal-details.urn}}</span>
+    <span class="persist-info-title"><b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b></span>
+  </div>
+  <ul class="persist-info-links">
+    <li><a href="/legal-adviser/end-session/">End session</a></li>
+  </ul>
+</div>
+
 <div class="grid-row">
 
   <div class="column-two-thirds">
@@ -15,3 +27,5 @@
   </div>
 
 </div>
+
+{{/with}}
