@@ -54,7 +54,7 @@ router.use(function(req, res, next) {
   sReserveTerms                     = req.session.reserveTerms;
 
   sLumpSumAmount                    = req.session.lumpSumAmount;
-  sLumpSumPaidWithin                = req.session.lumpSumPaidWithin;
+  sLumpSumAmountPaidWithin          = req.session.lumpSumAmountPaidWithin;
   sLumpSumInstalmentAmount          = req.session.lumpSumInstalmentAmount;
   sLumpSumInstalmentMade            = req.session.lumpSumInstalmentMade;
   sLumpSumInstalmentStartDateDay    = req.session.lumpSumInstalmentStartDateDay;
@@ -168,9 +168,13 @@ router.route('/legal-adviser/case-details/:id/')
 
       res.redirect('/legal-adviser/discharge/' + req.params.id);
 
+    } else if (sMakeDecision === "Withdraw") {
+
+      res.redirect('/legal-adviser/withdraw/' + req.params.id);
+
     } else if (sMakeDecision === "Dismiss") {
 
-      res.redirect('/legal-adviser/dismiss/' + req.params.id);
+      res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
 
     }
 
@@ -196,7 +200,7 @@ router.route('/legal-adviser/refer-for-court-hearing/:id')
     });
   })
   .post(function(req, res, next) {
-    // do something
+    res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
   });
 
 
@@ -223,10 +227,10 @@ router.route('/legal-adviser/discharge/:id')
   });
 
 
-router.route('/legal-adviser/dismiss/:id')
+router.route('/legal-adviser/withdraw/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/dismiss', {
+    res.render('legal-adviser/withdraw', {
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Confirm outcome',
@@ -368,9 +372,10 @@ router.route('/legal-adviser/pay-direct-to-court/:id')
       sDefendantPay: sDefendantPay,
       sBack: sBack,
       sLumpSumAmount: sLumpSumAmount,
-      sLumpSumPaidWithin: sLumpSumPaidWithin,
+      sLumpSumAmountPaidWithin: sLumpSumAmountPaidWithin,
       sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
       sLumpSumInstalmentMade: sLumpSumInstalmentMade,
+      sReasonForNotDeductFromBenefitsOrAttachToEarnings: sReasonForNotDeductFromBenefitsOrAttachToEarnings,
       sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
       sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
       sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
@@ -383,9 +388,10 @@ router.route('/legal-adviser/pay-direct-to-court/:id')
   })
   .post(function(req, res, next) {
     sDefendantPay = req.session.defendantPay = req.body.defendantPay;
+    sReasonForNotDeductFromBenefitsOrAttachToEarnings = req.session.reasonForNotDeductFromBenefitsOrAttachToEarnings = req.body.reasonForNotDeductFromBenefitsOrAttachToEarnings;
     if (sDefendantPay === "Lump sum plus instalments") {
       sLumpSumAmount = req.session.lumpSumAmount = req.body.lumpSumAmount;
-      sLumpSumPaidWithin = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+      sLumpSumAmountPaidWithin = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
       sLumpSumInstalmentAmount = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
       sLumpSumInstalmentMade = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
       sLumpSumInstalmentStartDateDay = req.session.lumpSumInstalmentStartDateDay = req.body.lumpSumInstalmentStartDateDay;
@@ -461,7 +467,7 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
       sBack: sBack,
       sReasonForDeductingFromBenefits: sReasonForDeductingFromBenefits,
       sLumpSumAmount: sLumpSumAmount,
-      sLumpSumPaidWithin: sLumpSumPaidWithin,
+      sLumpSumAmountPaidWithin: sLumpSumAmountPaidWithin,
       sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
       sLumpSumInstalmentMade: sLumpSumInstalmentMade,
       sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
@@ -481,7 +487,7 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
 
     if (sReserveTerms === "Lump sum plus instalments") {
       sLumpSumAmount = req.session.lumpSumAmount = req.body.lumpSumAmount;
-      sLumpSumPaidWithin = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+      sLumpSumAmountPaidWithin = req.session.lumpSumAmountPaidWithin = req.body.lumpSumAmountPaidWithin;
       sLumpSumInstalmentAmount = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
       sLumpSumInstalmentMade = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
       sLumpSumInstalmentStartDateDay = req.session.lumpSumInstalmentStartDateDay = req.body.lumpSumInstalmentStartDateDay;
@@ -502,55 +508,69 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
 
 router.route('/legal-adviser/check-your-answers/:id')
   .get(function(req, res, next) {
+
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/check-your-answers', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Check your decisions',
-      pagetitle: 'Check your decisions',
-      section: 'home',
-      section_name: 'Home',
-      search: entry,
-      signedIn: true,
-      breadcrumb: true,
-      sNationalInsuranceNumber: sNationalInsuranceNumber,
-      sMakeDecision: sMakeDecision,
-      sPaymentMethod: sPaymentMethod,
-      sFineBandApplied: sFineBandApplied,
-      sFineA: sFineA,
-      sFineB: sFineB,
-      sFineC: sFineC,
-      sCompensationA: sCompensationA,
-      sCompensationB: sCompensationB,
-      sCompensationC: sCompensationC,
-      sCollectionOrderConfirmed: sCollectionOrderConfirmed,
-      sReasonForDeductingFromBenefits: sReasonForDeductingFromBenefits,
-      sReasonForAttachingToEarnings: sReasonForAttachingToEarnings,
-      sReserveTerms: sReserveTerms,
-      sCost: sCost,
-      sPaymentMethod: sPaymentMethod,
-      sDefendantPay: sDefendantPay,
-      sSurcharge: sSurcharge,
-      sEmployeeNumber: sEmployeeNumber,
-      sEmployerName: sEmployerName,
-      sEmployerAddress1: sEmployerAddress1,
-      sEmployerAddress2: sEmployerAddress2,
-      sEmployerTown: sEmployerTown,
-      sEmployerPostcode: sEmployerPostcode,
-      sInstalmentOnlyAmount: sInstalmentOnlyAmount,
-      sInstalmentOnlyMade: sInstalmentOnlyMade,
-      sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
-      sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
-      sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
-      sLumpSumAmount: sLumpSumAmount,
-      sLumpSumPaidWithin: sLumpSumPaidWithin,
-      sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
-      sLumpSumInstalmentMade: sLumpSumInstalmentMade,
-      sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
-      sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
-      sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
-      sBack: sBack
-    });
+    sMakeDecision = req.session.makeDecision;
+
+    // prevent access unless a decision has been made
+    if (sMakeDecision === undefined) {
+
+      res.redirect('/legal-adviser/case-details/' + req.params.id);
+
+    } else {
+
+      res.render('legal-adviser/check-your-answers', {
+        baseurl: baseurl,
+        apptitle: apptitle,
+        doctitle: 'Check your decisions',
+        pagetitle: 'Check your decisions ' + sMakeDecision,
+        section: 'home',
+        section_name: 'Home',
+        search: entry,
+        signedIn: true,
+        breadcrumb: true,
+        sNationalInsuranceNumber: sNationalInsuranceNumber,
+        sMakeDecision: sMakeDecision,
+        sPaymentMethod: sPaymentMethod,
+        sFineBandApplied: sFineBandApplied,
+        sFineA: sFineA,
+        sFineB: sFineB,
+        sFineC: sFineC,
+        sCompensationA: sCompensationA,
+        sCompensationB: sCompensationB,
+        sCompensationC: sCompensationC,
+        sCollectionOrderConfirmed: sCollectionOrderConfirmed,
+        sReasonForDeductingFromBenefits: sReasonForDeductingFromBenefits,
+        sReasonForAttachingToEarnings: sReasonForAttachingToEarnings,
+        sReasonForNotDeductFromBenefitsOrAttachToEarnings: sReasonForNotDeductFromBenefitsOrAttachToEarnings,
+        sReserveTerms: sReserveTerms,
+        sCost: sCost,
+        sPaymentMethod: sPaymentMethod,
+        sDefendantPay: sDefendantPay,
+        sSurcharge: sSurcharge,
+        sEmployeeNumber: sEmployeeNumber,
+        sEmployerName: sEmployerName,
+        sEmployerAddress1: sEmployerAddress1,
+        sEmployerAddress2: sEmployerAddress2,
+        sEmployerTown: sEmployerTown,
+        sEmployerPostcode: sEmployerPostcode,
+        sInstalmentOnlyAmount: sInstalmentOnlyAmount,
+        sInstalmentOnlyMade: sInstalmentOnlyMade,
+        sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
+        sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
+        sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+        sLumpSumAmount: sLumpSumAmount,
+        sLumpSumAmountPaidWithin: sLumpSumAmountPaidWithin,
+        sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
+        sLumpSumInstalmentMade: sLumpSumInstalmentMade,
+        sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
+        sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
+        sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+        sBack: sBack
+      });
+
+    }
+
   })
   .post(function(req, res, next) {
     res.redirect('/legal-adviser/confirmation/' + req.params.id);

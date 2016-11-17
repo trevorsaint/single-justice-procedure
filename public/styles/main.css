@@ -3044,38 +3044,6 @@ HTML Usage
 </figure>
 
 */
-.block-mb-sm {
-  margin-bottom: 15px;
-}
-.block-mb-md {
-  margin-bottom: 15px;
-}
-@media (min-width: 641px) {
-  .block-mb-md {
-    margin-bottom: 30px;
-  }
-}
-.block-mt-sm {
-  margin-top: 15px;
-}
-.block-mt-md {
-  margin-top: 15px;
-}
-@media (min-width: 641px) {
-  .block-mt-md {
-    margin-top: 30px;
-  }
-}
-
-/*
-  
-HTML Usage
-  
-<div class="block block-mb-md">
-  ... content
-</div>
-
-*/
 .form-search {
   position: relative;
 }
@@ -3278,6 +3246,14 @@ hr {
 /*
 
 HTML Usage
+
+<hr>
+
+<hr class="divider">
+
+<hr class="divider divider-border-dark">
+
+<hr class="divider divider-border-dark divider-border-thick">
 
 */
 .example {

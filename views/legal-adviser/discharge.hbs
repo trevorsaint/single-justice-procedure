@@ -48,7 +48,7 @@
                 <fieldset>
 
                   <legend>
-                    <span class="form-label">Duration</span>
+                    <span class="form-label">Length of conditional discharge</span>
                   </legend>
 
                   <div class="form-duration">
@@ -133,7 +133,7 @@
           <div class="form-group form-group-last">
 
             <label class="block-label">
-              <input type="checkbox" name="collectionOrderConfirmed" {{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}> Confirm a collection order will be issued
+              <input type="checkbox" name="collectionOrderConfirmed"{{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}> Confirm a collection order will be issued
             </label>
 
             <div class="panel panel-border-narrow js-hidden">
@@ -149,11 +149,11 @@
                   <div class="form-group">
 
                     <label class="block-label selection-button-radio">
-                      <input name="collectionOrderAnswer" value="Yes" type="radio"> Yes
+                      <input name="collectionOrderAnswer" type="radio" value="Yes"> Yes
                     </label>
 
                     <label class="block-label selection-button-radio">
-                      <input name="collectionOrderAnswer" value="No" type="radio"> No
+                      <input name="collectionOrderAnswer" type="radio" value="No"> No
                     </label>
 
                   </div>
@@ -172,7 +172,7 @@
           <button class="button" type="submit">Save and continue</button>
         </div>
 
-        <p><a href="{{../sBack}}">Back</a></p>
+        <p><a href="/legal-adviser/case-details/{{id}}">Back</a></p>
 
       </form>
 

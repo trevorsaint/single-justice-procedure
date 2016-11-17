@@ -149,15 +149,15 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumInstalmentsMade" value="Weekly"{{#contains ../sLumpSumInstalmentMade "Weekly"}} checked="checked"{{/contains}}> Weekly
+                    <input type="radio" name="lumpSumInstalmentMade" value="Weekly"{{#contains ../sLumpSumInstalmentMade "Weekly"}} checked="checked"{{/contains}}> Weekly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumInstalmentsMade" value="Fortnightly"{{#contains ../sLumpSumInstalmentMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
+                    <input type="radio" name="lumpSumInstalmentMade" value="Fortnightly"{{#contains ../sLumpSumInstalmentMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="lumpSumInstalmentsMade" value="Monthly"{{#contains ../sLumpSumInstalmentMade "Monthly"}} checked="checked"{{/contains}}> Monthly
+                    <input type="radio" name="lumpSumInstalmentMade" value="Monthly"{{#contains ../sLumpSumInstalmentMade "Monthly"}} checked="checked"{{/contains}}> Monthly
                   </label>
 
                 </fieldset>
@@ -214,7 +214,7 @@
                   <span class="form-label">Instalment amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="instalment-amount" name="instalmentAmount"{{#if ../sInstalmentOnlyAmount}} value="{{../sInstalmentOnlyAmount}}"{{/if}}>
+                  <input class="form-control form-control-1-4" type="text" id="instalment-amount" name="instalmentOnlyAmount"{{#if ../sInstalmentOnlyAmount}} value="{{../sInstalmentOnlyAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -227,15 +227,15 @@
                   </legend>
 
                   <label class="block-label">
-                    <input type="radio" name="instalmentsMade" value="Weekly"{{#contains ../sInstalmentOnlyMade "Weekly"}} checked="checked"{{/contains}}> Weekly
+                    <input type="radio" name="instalmentOnlyMade" value="Weekly"{{#contains ../sInstalmentOnlyMade "Weekly"}} checked="checked"{{/contains}}> Weekly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="instalmentsMade" value="Fortnightly"{{#contains ../sInstalmentOnlyMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
+                    <input type="radio" name="instalmentOnlyMade" value="Fortnightly"{{#contains ../sInstalmentOnlyMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
                   </label>
 
                   <label class="block-label">
-                    <input type="radio" name="instalmentsMade" value="Monthly"{{#contains ../sInstalmentOnlyMade "Monthly"}} checked="checked"{{/contains}}> Monthly
+                    <input type="radio" name="instalmentOnlyMade" value="Monthly"{{#contains ../sInstalmentOnlyMade "Monthly"}} checked="checked"{{/contains}}> Monthly
                   </label>
 
                 </fieldset>

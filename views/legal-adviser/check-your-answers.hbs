@@ -30,7 +30,7 @@
         <tbody>
           <tr>
             <th>Decision</th>
-            <td>{{#if ../sMakeDecision}}{{../sMakeDecision}}{{else}}{{#if offence.decision}}{{offence.decision}}{{else}}&ndash;{{/if}}{{/if}}</td>
+            <td>{{../sMakeDecision}}</td>
           </tr>
           <tr>
             <th>Verdict</th>
@@ -46,6 +46,9 @@
 
     <hr class="divider" aria-hidden="true">
 
+
+    <!-- financial penalty route only -->
+    {{#contains ../sMakeDecision "Financial penalty"}}
     <div class="table-container">
 
       <table class="table table-summary">
@@ -62,23 +65,81 @@
           </tr>
           <tr>
             <th>Fine band applied</th>
-            <td>{{#if ../sFineBandApplied}}{{../sFineBandApplied}}{{else}}{{#if offence.fine-band-applied}}{{offence.fine-band-applied}}{{else}}&ndash;{{/if}}{{/if}}</td>
+            <td>{{../sFineBandApplied}}</td>
           </tr>
           <tr>
             <th>Fine</th>
-            <td>&pound;{{#if ../sFineA}}{{../sFineA}}{{else if ../sFineB}}{{../sFineB}}{{else if ../sFineC}}{{../sFineC}}{{else}}{{#if offence.fine}}{{offence.fine}}{{else}}&ndash;{{/if}}{{/if}}</td>
+            <td>
+              {{#if ../sFineA}}
+                &pound;{{../sFineA}}
+              {{else if ../sFineB}}
+                &pound;{{../sFineB}}
+              {{else if ../sFineC}}
+                &pound;{{../sFineC}}
+              {{/if}}
+            </td>
           </tr>
           <tr>
             <th>Compensation</th>
-            <td>{{#if ../sCompensationA}}{{../sCompensationA}}{{else if ../sCompensationB}}{{../sCompensationB}}{{else if ../sCompensationC}}{{../sCompensationC}}{{else}}{{#if offence.compensation}}{{offence.compensation}}{{else}}&ndash;{{/if}}{{/if}}</td>
+            <td>
+              {{#if ../sCompensationA}}
+                &pound;{{../sCompensationA}}
+              {{else if ../sCompensationB}}
+                &pound;{{../sCompensationB}}
+              {{else if ../sCompensationC}}
+                &pound;{{../sCompensationC}}
+              {{/if}}
+            </td>
           </tr>
         </tbody>
 
       </table>
 
-      <p class="table-action"><a href="/legal-adviser/continue-decisions/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change<span class="visually-hidden"> fine and compensation</span></a></p>
+      <p class="table-action"><a href="/legal-adviser/financial-penalty/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change<span class="visually-hidden"> fine and compensation</span></a></p>
 
     </div>
+    {{/contains}}
+    <!-- end -->
+
+
+    <!-- discharge route only -->
+    {{#contains ../sMakeDecision "Financial penalty"}}
+    <div class="table-container">
+
+      <table class="table table-summary">
+
+        <colgroup>
+          <col class="table-summary-title">
+          <col>
+        </colgroup>
+
+        <tbody>
+          <tr>
+            <th>Type of discharge</th>
+            <td>Absolute</td>
+          </tr>
+
+          {{#contains ../typeOfDischarge "Conditional"}}
+          <tr>
+            <th>Length of conditional discharge</th>
+            <td>5 days</td>
+          </tr>
+          {{/contains}}
+
+          <tr>
+            <th>Compensation</th>
+            <td>&pound;3.50</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <p class="table-action"><a href="/legal-adviser/financial-penalty/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change<span class="visually-hidden"> fine and compensation</span></a></p>
+
+    </div>
+    {{/contains}}
+    <!-- end -->
+
 
   </section>
 
@@ -100,15 +161,23 @@
         <tbody>
           <tr>
             <th>Costs</th>
-            <td>{{#if ../sCost}}&pound;{{../sCost}}{{else}}&pound;{{offence.cost}}{{/if}}</td>
+            <td>&pound;{{../sCost}}</td>
           </tr>
           <tr>
             <th>Surcharge and victim fund</th>
-            <td>{{#if ../sSurcharge}}&pound;{{../sSurcharge}}{{else}}&pound;{{offence.surcharge}}{{/if}}</td>
+            <td>&pound;{{../sSurcharge}}</td>
           </tr>
           <tr>
             <th>Collection order issued</th>
-            <td>{{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}}Yes{{else}}No{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}}Yes{{else}}No{{/contains}}{{/if}}</td>
+            <td>
+              {{#if ../sCollectionOrderConfirmed}}
+                {{#contains ../sCollectionOrderConfirmed "true"}}
+                  Yes
+                {{else}}
+                  No
+                {{/contains}}
+              {{/if}}
+            </td>
           </tr>
         </tbody>
 
@@ -139,21 +208,21 @@
         <tbody>
           <tr>
             <th>Payment method</th>
-            <td>{{#if ../sPaymentMethod}}{{../sPaymentMethod}}{{else}}{{offence.payment-method}}{{/if}}</td>
+            <td>{{../sPaymentMethod}}</td>
           </tr>
           <tr>
             <th>Reason you didn&rsquo;t deduct from benefits?</th>
-            <td>{{#if ../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}{{../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}{{else}}{{offence.reason-for-not-deducting-from-benefits}}{{/if}}</td>
+            <td>{{../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}</td>
           </tr>
           <tr>
             <th>How should defendant pay the court?</th>
-            <td>{{#if ../sDefendantPay}}{{../sDefendantPay}}{{else}}{{offence.defendant-pay}}{{/if}}</td>
+            <td>{{../sDefendantPay}}</td>
           </tr>
 
           {{#is ../sDefendantPay "Lump sum plus instalments"}}
           <tr>
             <th>Amount to be paid</th>
-            <td>&pound;{{../sLumpSumAmount}} (within {{../sLumpSumPaidWithin}})</td>
+            <td>&pound;{{../sLumpSumAmount}} (within {{../sLumpSumAmountPaidWithin}})</td>
           </tr>
           <tr>
             <th>Instalment amount</th>
@@ -164,7 +233,7 @@
           {{#is ../sDefendantPay "Instalments only"}}
           <tr>
             <th>Instalment amount</th>
-            <td>&pound;50.00 (weekly) starting on 16 December 2017</td>
+            <td>&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on 16 December 2017</td>
           </tr>
           {{/is}}
 
@@ -175,19 +244,19 @@
         <tbody>
           <tr>
             <th>Payment method</th>
-            <td>{{#if ../sPaymentMethod}}{{../sPaymentMethod}}{{else}}{{offence.payment-method}}{{/if}}</td>
+            <td>{{../sPaymentMethod}}</td>
           </tr>
           <tr>
             <th>National Insurance number</th>
-            <td>{{#if ../sNationalInsuranceNumber}}{{../sNationalInsuranceNumber}}{{else}}{{employment.national-insurance-number}}{{/if}}</td>
+            <td>{{../sNationalInsuranceNumber}}</td>
           </tr>
           <tr>
             <th>Reason for deducting from benefits</th>
-            <td>{{#if ../sReasonForDeductingFromBenefits}}{{../sReasonForDeductingFromBenefits}}{{else}}{{offence.reason-for-deducting-from-benefits}}{{/if}}</td>
+            <td>{{../sReasonForDeductingFromBenefits}}</td>
           </tr>
           <tr>
             <th>Reserve terms</th>
-            <td>{{#if ../sReserveTerms}}{{../sReserveTerms}}{{else}}{{offence.reserve-terms}}{{/if}}</td>
+            <td>{{../sReserveTerms}}</td>
           </tr>
           {{#is ../sReserveTerms "Lump sum plus instalments"}}
           <tr>
@@ -212,39 +281,32 @@
         <tbody>
           <tr>
             <th>Payment method</th>
-            <td>{{#if ../sPaymentMethod}}{{../sPaymentMethod}}{{else}}{{offence.payment-method}}{{/if}}</td>
+            <td>{{../sPaymentMethod}}</td>
           </tr>
           <tr>
             <th>Employee number</th>
-            <td>{{#if ../sEmployeeNumber}}{{../sEmployeeNumber}}{{else}}{{employment.employee-number}}{{/if}}</td>
+            <td>{{../sEmployeeNumber}}</td>
           </tr>
           <tr>
             <th>Employer name</th>
-            <td>{{#if ../sEmployerName}}{{../sEmployerName}}{{else}}{{employment.employer-name}}{{/if}}</td>
+            <td>{{../sEmployerName}}</td>
           </tr>
           <tr>
             <th>Employer address</th>
             <td>
-              {{#if ../sEmployerAddress1}}
-                {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
-                {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
-                {{#if ../sEmployerTown}}{{../sEmployerTown}}<br> {{/if}}
-                {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
-              {{else}}
-                {{#if employment.employer-address.address1}}{{employment.employer-address.address1}}<br>{{/if}}
-                {{#if employment.employer-address.address2}}{{employment.employer-address.address2}}<br>{{/if}}
-                {{#if employment.employer-address.town}}{{employment.employer-address.town}}<br>{{/if}}
-                {{#if employment.employer-address.postcode}}{{employment.employer-address.postcode}}{{/if}}
-              {{/if}}
+              {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
+              {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
+              {{#if ../sEmployerTown}}{{../sEmployerTown}} <br> {{/if}}
+              {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
             </td>
           </tr>
           <tr>
             <th>Reason for attaching to earnings</th>
-            <td>{{#if ../reasonForAttachingToEarnings}}{{../reasonForAttachingToEarnings}}{{else}}{{offence.reason-for-attaching-to-earnings}}{{/if}}</td>
+            <td>{{../reasonForAttachingToEarnings}}</td>
           </tr>
           <tr>
             <th>Reserve terms</th>
-            <td>{{#if ../sReservedTerms}}{{../sReservedTerms}}{{else}}{{offence.reserve-terms}}{{/if}}</td>
+            <td>{{../sReservedTerms}}</td>
           </tr>
         </tbody>
         {{/is}}
