@@ -1,10 +1,14 @@
 // Imports
 // ==========================================================================
 
+// Path to assets for use with the file-url function
+// in the govuk frontend toolkit's url-helpers partial
+$path: "/public/images/";
+
 // GDS styles
-@import '../govuk/sass/govuk-elements';
+@import "../govuk/sass/govuk-elements";
 
 // Single Justice Procedure styles
-@import 'modules/manifest';
-@import 'partials/manifest';
-@import 'blocks/manifest';
+@import "modules/manifest";
+@import "partials/manifest";
+@import "blocks/manifest";

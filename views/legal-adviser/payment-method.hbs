@@ -28,7 +28,7 @@
 
             <legend class="visually-hidden">Select option</legend>
 
-            <label class="block-label" for="pay-direct-to-court">
+            <label class="block-label selection-button-radio" for="pay-direct-to-court">
               <input type="radio" id="pay-direct-to-court" name="paymentMethod" value="Pay direct to court"
               {{#if ../sPaymentMethod}}
                 {{#contains ../sPaymentMethod "Pay direct to court"}} checked="checked"{{/contains}}
@@ -40,7 +40,7 @@
 
             <p class="form-block">or</p>
 
-            <label class="block-label" for="deduct-from-benefits">
+            <label class="block-label selection-button-radio" for="deduct-from-benefits">
               <input type="radio" id="deduct-from-benefits" name="paymentMethod" value="Deduct from benefits"
               {{#if ../sPaymentMethod}}
                 {{#contains ../sPaymentMethod "Deduct from benefits"}} checked="checked"{{/contains}}
@@ -50,7 +50,7 @@
               Deduct from benefits
             </label>
 
-            <label class="block-label" for="attach-to-earnings">
+            <label class="block-label selection-button-radio" for="attach-to-earnings">
               <input type="radio" id="attach-to-earnings" name="paymentMethod" value="Attach to earnings"
               {{#if ../sPaymentMethod}}
                 {{#contains ../sPaymentMethod "Attach to earnings"}} checked="checked"{{/contains}}

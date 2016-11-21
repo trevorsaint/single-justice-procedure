@@ -28,7 +28,7 @@
 
             <legend class="visuallyhidden">Select why you didn&rsquo;t deduct from benefits or attach to earnings</legend>
 
-            <label class="block-label">
+            <label class="block-label selection-button-radio">
               <input type="radio" name="reasonForNotDeductFromBenefitsOrAttachToEarnings" value="No information from the defendant"
               {{#if ../reasonForNotDeductFromBenefitsOrAttachToEarnings}}
                 {{#contains ../reasonForNotDeductFromBenefitsOrAttachToEarnings "No information from the defendant"}} checked="checked"{{/contains}}
@@ -38,7 +38,7 @@
               No information from defendant
             </label>
 
-            <label class="block-label" data-target="reason">
+            <label class="block-label selection-button-radio" data-target="reason">
               <input type="radio" name="reasonForNotDeductFromBenefitsOrAttachToEarnings" value="Other reason"
               {{#if ../reasonForNotDeductFromBenefitsOrAttachToEarnings}}
                 {{#contains ../reasonForNotDeductFromBenefitsOrAttachToEarnings "Other reason"}} checked="checked"{{/contains}}
@@ -67,7 +67,7 @@
 
             <legend class="visuallyhidden">How should defendant pay the court?</legend>
 
-            <label class="block-label">
+            <label class="block-label selection-button-radio">
               <input type="radio" name="defendantPay" value="Lump sum within 14 days"
               {{#if ../sDefendantPay}}
                 {{#contains ../sDefendantPay "Lump sum within 14 days"}} checked="checked"{{/contains}}
@@ -78,7 +78,7 @@
 
             <p class="form-block">or</p>
 
-            <label class="block-label">
+            <label class="block-label selection-button-radio">
               <input type="radio" name="defendantPay" value="Lump sum within 28 days"
               {{#if ../sDefendantPay}}
                 {{#contains ../sDefendantPay "Lump sum within 28 days"}} checked="checked"{{/contains}}
@@ -87,7 +87,7 @@
               {{/if}}> Lump sum within 28 days
             </label>
 
-            <label class="block-label" data-target="lump-sum-plus-instalments">
+            <label class="block-label selection-button-radio" data-target="lump-sum-plus-instalments">
               <input type="radio" name="defendantPay" value="Lump sum plus instalments"
               {{#if ../sDefendantPay}}
                 {{#contains ../sDefendantPay "Lump sum plus instalments"}} checked="checked"{{/contains}}
@@ -115,15 +115,15 @@
                     <span class="form-label">To be paid within</span>
                   </legend>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="lumpSumAmountPaidWithin" value="14 days"{{#contains ../sLumpSumPaidWithin "14 days"}} checked="checked"{{/contains}}> 14 days
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="lumpSumAmountPaidWithin" value="28 days"{{#contains ../sLumpSumPaidWithin "28 days"}} checked="checked"{{/contains}}> 28 days
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="lumpSumAmountPaidWithin" value="Other"{{#contains ../sLumpSumPaidWithin "Other"}} checked="checked"{{/contains}}> Other
                   </label>
 
@@ -148,15 +148,15 @@
                     <span class="form-label">How often should instalments be made?</span>
                   </legend>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="lumpSumInstalmentMade" value="Weekly"{{#contains ../sLumpSumInstalmentMade "Weekly"}} checked="checked"{{/contains}}> Weekly
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="lumpSumInstalmentMade" value="Fortnightly"{{#contains ../sLumpSumInstalmentMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="lumpSumInstalmentMade" value="Monthly"{{#contains ../sLumpSumInstalmentMade "Monthly"}} checked="checked"{{/contains}}> Monthly
                   </label>
 
@@ -198,7 +198,7 @@
 
             </div>
 
-            <label class="block-label" data-target="lump-sum-instalments-only">
+            <label class="block-label selection-button-radio" data-target="lump-sum-instalments-only">
               <input type="radio" name="defendantPay" value="Instalments only"
               {{#if ../sDefendantPay}}
                 {{#contains ../sDefendantPay "Instalments only"}} checked="checked"{{/contains}}
@@ -226,15 +226,15 @@
                     <span class="form-label">How often should instalments be made?</span>
                   </legend>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="instalmentOnlyMade" value="Weekly"{{#contains ../sInstalmentOnlyMade "Weekly"}} checked="checked"{{/contains}}> Weekly
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="instalmentOnlyMade" value="Fortnightly"{{#contains ../sInstalmentOnlyMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="instalmentOnlyMade" value="Monthly"{{#contains ../sInstalmentOnlyMade "Monthly"}} checked="checked"{{/contains}}> Monthly
                   </label>
 

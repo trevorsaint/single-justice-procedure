@@ -37,15 +37,15 @@
                 <span class="form-label">Fine band applied</span>
               </legend>
 
-              <label class="block-label" data-target="band-a">
+              <label class="block-label selection-button-radio" data-target="band-a">
                 <input type="radio" name="fineBandApplied" value="Band A"{{#if ../sFineBandApplied}}{{#contains ../sFineBandApplied "Band A"}} checked="checked"{{/contains}}{{else}} checked="checked"{{/if}}> Band A
               </label>
 
-              <label class="block-label" data-target="band-b">
+              <label class="block-label selection-button-radio" data-target="band-b">
                 <input type="radio" name="fineBandApplied" value="Band B"{{#contains ../sFineBandApplied "Band B"}} checked="checked"{{/contains}}> Band B
               </label>
 
-              <label class="block-label" data-target="band-c">
+              <label class="block-label selection-button-radio" data-target="band-c">
                 <input type="radio" name="fineBandApplied" value="Band C"{{#contains ../sFineBandApplied "Band C"}} checked="checked"{{/contains}}> Band C
               </label>
 
@@ -80,19 +80,19 @@
                     <span class="form-label">Reason for no compensation</span>
                   </legend>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="reasonForNoCompensationA" value="Not enough detail given by prosecutor"> Insufficient details provided by prosecutor
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="reasonForNoCompensationA" value="Limited means of the defendant"> Limited means of the defendant
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="reasonForNoCompensationA" value="No loss or damage"> No loss or damage
                   </label>
 
-                  <label class="block-label" data-target="no-compensation-other-a">
+                  <label class="block-label selection-button-radio" data-target="no-compensation-other-a">
                     <input type="radio" name="reasonForNoCompensationA" value="Other"> Other
                   </label>
 
@@ -138,19 +138,19 @@
                     <span class="form-label">Reason for no compensation</span>
                   </legend>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="reasonForNoCompensationB" value="Not enough detail given by prosecutor"> Insufficient details provided by prosecutor
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="reasonForNoCompensationB" value="Limited means of the defendant"> Limited means of the defendant
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="reasonForNoCompensationB" value="No loss or damage"> No loss or damage
                   </label>
 
-                  <label class="block-label" data-target="no-compensation-other-b">
+                  <label class="block-label selection-button-radio" data-target="no-compensation-other-b">
                     <input type="radio" name="reasonForNoCompensationB" value="Other"> Other
                   </label>
 
@@ -196,19 +196,19 @@
                     <span class="form-label">Reason for no compensation</span>
                   </legend>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="reasonForNoCompensationC" value="Not enough detail given by prosecutor"> Insufficient details provided by prosecutor
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="reasonForNoCompensationC" value="Limited means of the defendant"> Limited means of the defendant
                   </label>
 
-                  <label class="block-label">
+                  <label class="block-label selection-button-radio">
                     <input type="radio" name="reasonForNoCompensationC" value="No loss or damage"> No loss or damage
                   </label>
 
-                  <label class="block-label" data-target="no-compensation-other-c">
+                  <label class="block-label selection-button-radio" data-target="no-compensation-other-c">
                     <input type="radio" name="reasonForNoCompensationC" value="Other"> Other
                   </label>
 
@@ -278,7 +278,7 @@
 
           <div class="form-group form-group-last">
 
-            <label class="block-label">
+            <label class="block-label selection-button-checkbox">
               <input type="checkbox" name="collectionOrderConfirmed" {{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}> Confirm a collection order will be issued
             </label>
 

@@ -12,7 +12,7 @@
   </header>
 
   {{#if ../sMakeDecision}}
-    <dl class="meta meta-light meta-large">
+    <dl class="meta meta-inline">
       <dt>Defendant&rsquo;s plea</dt>
       <dd>{{{../sMakeDecision}}}</dd>
 
@@ -31,7 +31,7 @@
     {{#contains case-details.status "Awaiting plea"}}
         <p>No plea received.</p>
       {{else}}
-        <dl class="meta meta-large">
+        <dl class="meta meta-inline">
           <dt>Defendant&rsquo;s plea</dt>
           <dd>{{{case-details.status}}}</dd>
         </dl>

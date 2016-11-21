@@ -35,11 +35,11 @@
                 <span class="form-label">Choose type of discharge</span>
               </legend>
 
-              <label class="block-label" data-target="discharge-duration">
+              <label class="block-label selection-button-radio" data-target="discharge-duration">
                 <input type="radio" name="typeOfDischarge" value="Conditional"> Conditional
               </label>
 
-              <label class="block-label">
+              <label class="block-label selection-button-radio">
                 <input type="radio" name="typeOfDischarge" value="Absolute"> Absolute
               </label>
 
@@ -134,7 +134,7 @@
 
           <div class="form-group form-group-last">
 
-            <label class="block-label">
+            <label class="block-label selection-button-checkbox">
               <input type="checkbox" name="collectionOrderConfirmed"{{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}> Confirm a collection order will be issued
             </label>
 

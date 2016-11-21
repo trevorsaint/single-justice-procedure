@@ -35,16 +35,16 @@ module.exports = function (grunt) {
 
             {
               expand: true,
-              cwd: 'node_modules/govuk_template_mustache/assets/stylesheets',
+              cwd: 'node_modules/govuk_template_jinja/assets/stylesheets',
               src: '**',
               dest: 'public/govuk/stylesheets/'
             },
 
             {
               expand: true,
-              cwd: 'node_modules/govuk_template_mustache/assets/images',
+              cwd: 'node_modules/govuk_template_jinja/assets/images',
               src: '**',
-              dest: 'public/govuk/images/'
+              dest: 'public/govuk/images'
             },
 
             {
