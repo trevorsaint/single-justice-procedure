@@ -32,10 +32,10 @@
             <th>Decision</th>
             <td>{{../sMakeDecision}}</td>
           </tr>
-          <tr>
+          <!--tr>
             <th>Verdict</th>
             <td>Proven SJP</td>
-          </tr>
+          </tr-->
         </tbody>
 
       </table>
@@ -45,7 +45,6 @@
     </div>
 
     <hr class="divider" aria-hidden="true">
-
 
     <!-- financial penalty route only -->
     {{#contains ../sMakeDecision "Financial penalty"}}
@@ -91,6 +90,20 @@
               {{/if}}
             </td>
           </tr>
+          {{#or ../sReasonForNoCompensationA ../sReasonForNoCompensationB ../sReasonForNoCompensationC}}
+          <tr>
+            <th>Reason for no compensation</th>
+            <td>
+              {{#if ../sReasonForNoCompensationA}}
+                {{../sReasonForNoCompensationA}}
+              {{else if ../sReasonForNoCompensationB}}
+                {{../sReasonForNoCompensationB}}
+              {{else if ../sReasonForNoCompensationC}}
+                {{../sReasonForNoCompensationC}}
+              {{/if}}
+            </td>
+          </tr>
+          {{/or}}
         </tbody>
 
       </table>
@@ -101,9 +114,8 @@
     {{/contains}}
     <!-- end -->
 
-
     <!-- discharge route only -->
-    {{#contains ../sMakeDecision "Financial penalty"}}
+    {{#contains ../sMakeDecision "Discharge"}}
     <div class="table-container">
 
       <table class="table table-summary">
@@ -116,30 +128,29 @@
         <tbody>
           <tr>
             <th>Type of discharge</th>
-            <td>Absolute</td>
+            <td>{{../sTypeOfDischarge}}</td>
           </tr>
 
-          {{#contains ../typeOfDischarge "Conditional"}}
+          {{#contains ../sTypeOfDischarge "Conditional"}}
           <tr>
             <th>Length of conditional discharge</th>
-            <td>5 days</td>
+            <td>{{../sDurationAmount}} {{../sDurationTimeSpan}}</td>
           </tr>
           {{/contains}}
 
           <tr>
             <th>Compensation</th>
-            <td>&pound;3.50</td>
+            <td>&pound;{{../sCompensation}}</td>
           </tr>
         </tbody>
 
       </table>
 
-      <p class="table-action"><a href="/legal-adviser/financial-penalty/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change<span class="visually-hidden"> fine and compensation</span></a></p>
+      <p class="table-action"><a href="/legal-adviser/discharge/{{id}}/?change=true" title="Change type of discharge and compensation">Change<span class="visually-hidden"> type of discharge and compensation</span></a></p>
 
     </div>
     {{/contains}}
     <!-- end -->
-
 
   </section>
 
@@ -171,11 +182,7 @@
             <th>Collection order issued</th>
             <td>
               {{#if ../sCollectionOrderConfirmed}}
-                {{#contains ../sCollectionOrderConfirmed "true"}}
-                  Yes
-                {{else}}
-                  No
-                {{/contains}}
+                {{#contains ../sCollectionOrderConfirmed "true"}}Yes{{else}}No{{/contains}}
               {{/if}}
             </td>
           </tr>
@@ -183,11 +190,14 @@
 
       </table>
 
-      <p class="table-action"><a href="/legal-adviser/continue-decisions/{{id}}/?change=true/#costs-and-surcharge" title="Change costs and surcharge">Change <span class="visually-hidden">cost and surcharge</span></a></p>
+      <p class="table-action"><a href="/legal-adviser/discharge/{{id}}/?change=true/#costs-and-surcharge" title="Change costs and surcharge">Change <span class="visually-hidden">cost and surcharge</span></a></p>
 
     </div>
 
   </section>
+
+
+  {{#contains ../sMakeDecision "Financial penalty"}}
 
   <hr class="divider divider-border-dark" aria-hidden="true">
 
@@ -318,6 +328,9 @@
     </div>
 
   </section>
+
+  {{/contains}}
+
 
   <hr class="divider divider-border-dark" aria-hidden="true">
 

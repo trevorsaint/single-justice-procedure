@@ -28,6 +28,11 @@ router.use(function(req, res, next) {
   sCompensationA            = req.session.compensationA;
   sCompensationB            = req.session.compensationB;
   sCompensationC            = req.session.compensationC;
+
+  sReasonForNoCompensationA = req.session.reasonForNoCompensationA;
+  sReasonForNoCompensationB = req.session.reasonForNoCompensationB;
+  sReasonForNoCompensationC = req.session.reasonForNoCompensationC;
+
   sCost                     = req.session.cost;
   sSurcharge                = req.session.surcharge;
 
@@ -43,6 +48,12 @@ router.use(function(req, res, next) {
   sAddress2                 = req.session.address2;
   sTown                     = req.session.town;
   sPostcode                 = req.session.postcode;
+
+  // discharge
+  sTypeOfDischarge  = req.session.typeOfDischarge;
+  sCompensation     = req.session.compensation;
+  sDurationAmount   = req.session.durationAmount;
+  sDurationTimeSpan = req.session.durationTimeSpan;
 
   // pay direct to court
   sReasonForNotDeductFromBenefitsOrAttachToEarnings = req.session.reasonForNotDeductFromBenefitsOrAttachToEarnings;
@@ -174,12 +185,11 @@ router.route('/legal-adviser/case-details/:id/')
 
     } else if (sMakeDecision === "Dismiss") {
 
-      res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
+      res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
 
     }
 
   });
-
 
 router.route('/legal-adviser/refer-for-court-hearing/:id')
   .get(function(req, res, next) {
@@ -200,8 +210,10 @@ router.route('/legal-adviser/refer-for-court-hearing/:id')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
+    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
   });
+
+
 
 
 router.route('/legal-adviser/discharge/:id')
@@ -217,14 +229,30 @@ router.route('/legal-adviser/discharge/:id')
       section2: 'case-details/' + req.params.id,
       section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
+      sTypeOfDischarge: sTypeOfDischarge,
+      sCompensation: sCompensation,
+      sDurationAmount: sDurationAmount,
+      sDurationTimeSpan: sDurationTimeSpan,
+      sCost: sCost,
+      sSurcharge: sSurcharge,
+      sCollectionOrderConfirmed: sCollectionOrderConfirmed,
       search: entry,
       signedIn: true,
       breadcrumb: true,
     });
   })
   .post(function(req, res, next) {
-    // do something
+    sTypeOfDischarge  = req.session.typeOfDischarge = req.body.typeOfDischarge;
+    sCompensation     = req.session.compensation = req.body.compensation;
+    sDurationAmount   = req.session.durationAmount = req.body.durationAmount;
+    sDurationTimeSpan = req.session.durationTimeSpan = req.body.durationTimeSpan;
+    sCost             = req.session.cost = req.body.cost;
+    sSurcharge        = req.session.surcharge = req.body.surcharge;
+    sCollectionOrderConfirmed = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed ? "true" : "false";
+    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
   });
+
+
 
 
 router.route('/legal-adviser/withdraw/:id')
@@ -246,7 +274,7 @@ router.route('/legal-adviser/withdraw/:id')
     });
   })
   .post(function(req, res, next) {
-    // do something
+    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
   });
 
 
@@ -274,39 +302,59 @@ router.route('/legal-adviser/financial-penalty/:id')
       sCompensationA: sCompensationA,
       sCompensationB: sCompensationB,
       sCompensationC: sCompensationC,
+      sReasonForNoCompensationA: sReasonForNoCompensationA,
+      sReasonForNoCompensationB: sReasonForNoCompensationB,
+      sReasonForNoCompensationC: sReasonForNoCompensationC,
       sCollectionOrderConfirmed: sCollectionOrderConfirmed,
       sCost: sCost,
       sSurcharge: sSurcharge
     });
   })
   .post(function(req, res, next) {
-
-    sFineBandApplied = req.session.fineBandApplied = req.body.fineBandApplied;
-    sCost = req.session.cost = req.body.cost;
-    sSurcharge = req.session.surcharge = req.body.surcharge;
-    sCollectionOrderConfirmed = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed ? "true" : "false";
+    sFineBandApplied            = req.session.fineBandApplied = req.body.fineBandApplied;
+    sCost                       = req.session.cost = req.body.cost;
+    sSurcharge                  = req.session.surcharge = req.body.surcharge;
+    sCollectionOrderConfirmed   = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed ? "true" : "false";
 
     if (sFineBandApplied === "Band A") {
-      sFineA = req.session.fineA = req.body.fineA;
-      sCompensationA = req.session.compensationA = req.body.compensationA;
-      sFineB = req.session.fineB = null;
-      sFineC = req.session.fineC = null;
-      sCompensationB = req.session.compensationB = null;
-      sCompensationC = req.session.compensationC = null;
+
+      sFineA                    = req.session.fineA = req.body.fineA;
+      sCompensationA            = req.session.compensationA = req.body.compensationA;
+      sReasonForNoCompensationA = req.session.reasonForNoCompensationA = req.body.reasonForNoCompensationA;
+
+      sFineB                    = req.session.fineB = null;
+      sFineC                    = req.session.fineC = null;
+      sCompensationB            = req.session.compensationB = null;
+      sCompensationC            = req.session.compensationC = null;
+      sReasonForNoCompensationB = req.session.reasonForNoCompensationB = null;
+      sReasonForNoCompensationC = req.session.reasonForNoCompensationC = null;
+
     } else if (sFineBandApplied === "Band B") {
-      sFineB = req.session.fineB = req.body.fineB;
-      sCompensationB = req.session.compensationB = req.body.compensationB;
-      sFineA = req.session.fineA = null;
-      sFineC = req.session.fineC = null;
-      sCompensationA = req.session.compensationA = null;
-      sCompensationC = req.session.compensationC = null;
+
+      sFineB                    = req.session.fineB = req.body.fineB;
+      sCompensationB            = req.session.compensationB = req.body.compensationB;
+      sReasonForNoCompensationB = req.session.reasonForNoCompensationB = req.body.reasonForNoCompensationB;
+
+      sFineA                    = req.session.fineA = null;
+      sFineC                    = req.session.fineC = null;
+      sCompensationA            = req.session.compensationA = null;
+      sCompensationC            = req.session.compensationC = null;
+      sReasonForNoCompensationA = req.session.reasonForNoCompensationA = null;
+      sReasonForNoCompensationC = req.session.reasonForNoCompensationC = null;
+
     } else {
-      sFineC = req.session.fineC = req.body.fineC;
-      sCompensationC = req.session.compensationC = req.body.compensationC;
-      sFineB = req.session.fineB = null;
-      sFineA = req.session.fineA = null;
-      sCompensationB = req.session.compensationB = null;
-      sCompensationA = req.session.compensationA = null;
+
+      sFineC                    = req.session.fineC = req.body.fineC;
+      sCompensationC            = req.session.compensationC = req.body.compensationC;
+      sReasonForNoCompensationC = req.session.reasonForNoCompensationC = req.body.reasonForNoCompensationC;
+
+      sFineA                    = req.session.fineA = null;
+      sFineB                    = req.session.fineB = null;
+      sCompensationA            = req.session.compensationA = null;
+      sCompensationB            = req.session.compensationB = null;
+      sReasonForNoCompensationA = req.session.reasonForNoCompensationA = null;
+      sReasonForNoCompensationB = req.session.reasonForNoCompensationB = null;
+
     }
 
     // has the user come from check your answers
@@ -314,7 +362,7 @@ router.route('/legal-adviser/financial-penalty/:id')
       res.redirect('/legal-adviser/payment-method/' + req.params.id);
     }
     else {
-      res.redirect('/legal-adviser/check-your-answers/' + req.params.id + '#fine-and-compensation');
+      res.redirect('/legal-adviser/check-your-decisions/' + req.params.id + '#fine-and-compensation');
     }
 
   });
@@ -405,7 +453,7 @@ router.route('/legal-adviser/pay-direct-to-court/:id')
       sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = req.body.instalmentOnlyStartDateMonth;
       sInstalmentOnlyStartDateYear = req.session.instalmentOnlyStartDateYear = req.body.instalmentOnlyStartDateYear;
     }
-    res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
+    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
   });
 
 
@@ -442,7 +490,7 @@ router.route('/legal-adviser/attach-to-earnings/:id')
     sEmployerTown = req.session.employerTown = req.body.employerTown;
     sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
     sReasonForAttachingToEarnings = req.session.reasonForAttachingToEarnings = req.body.reasonForAttachingToEarnings;
-    res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
+    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
   });
 
 
@@ -502,11 +550,11 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
       sInstalmentOnlyStartDateYear = req.session.instalmentOnlyStartDateYear = req.body.instalmentOnlyStartDateYear;
     }
 
-    res.redirect('/legal-adviser/check-your-answers/' + req.params.id);
+    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
   });
 
 
-router.route('/legal-adviser/check-your-answers/:id')
+router.route('/legal-adviser/check-your-decisions/:id')
   .get(function(req, res, next) {
 
     entry = dataEngine.getSearchEntry(req.params.id);
@@ -519,11 +567,11 @@ router.route('/legal-adviser/check-your-answers/:id')
 
     } else {
 
-      res.render('legal-adviser/check-your-answers', {
+      res.render('legal-adviser/check-your-decisions', {
         baseurl: baseurl,
         apptitle: apptitle,
         doctitle: 'Check your decisions',
-        pagetitle: 'Check your decisions ' + sMakeDecision,
+        pagetitle: 'Check your decisions',
         section: 'home',
         section_name: 'Home',
         search: entry,
@@ -539,6 +587,11 @@ router.route('/legal-adviser/check-your-answers/:id')
         sCompensationA: sCompensationA,
         sCompensationB: sCompensationB,
         sCompensationC: sCompensationC,
+        
+        sReasonForNoCompensationA: sReasonForNoCompensationA,
+        sReasonForNoCompensationB: sReasonForNoCompensationB,
+        sReasonForNoCompensationC: sReasonForNoCompensationC,
+
         sCollectionOrderConfirmed: sCollectionOrderConfirmed,
         sReasonForDeductingFromBenefits: sReasonForDeductingFromBenefits,
         sReasonForAttachingToEarnings: sReasonForAttachingToEarnings,
@@ -566,6 +619,12 @@ router.route('/legal-adviser/check-your-answers/:id')
         sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
         sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
         sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+
+        sTypeOfDischarge: sTypeOfDischarge,
+        sCompensation: sCompensation,
+        sDurationAmount: sDurationAmount,
+        sDurationTimeSpan: sDurationTimeSpan,
+
         sBack: sBack
       });
 

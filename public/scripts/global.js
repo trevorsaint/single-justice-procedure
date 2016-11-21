@@ -69,11 +69,13 @@ $.fn.changeCompensation = function() {
 
       var $compensationValue  = $(this).val();
       var $compensationReason = $("#" + $(this).attr("id") + "-reason");
+      var $compensationFirst  = $(this).parent().next().find(".block-label").first();
 
       if ($compensationValue === "0" || $compensationValue === "") {
         $compensationReason.removeClass("js-hidden").attr("aria-hidden", false);
+        $compensationFirst.focus();
       } else {
-        $compensationReason.removeClass("js-hidden").attr("aria-hidden", true);
+        $compensationReason.addClass("js-hidden").attr("aria-hidden", true);
       }
 
     });
