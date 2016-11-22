@@ -3121,16 +3121,16 @@ HTML Usage
   box-sizing: border-box;
   display: inline-block;
   vertical-align: middle;
-  width: calc(100% - 32px);
+  width: calc(100% - 33px);
 }
 @media (min-width: 641px) {
   .form-search .form-control {
-    width: calc(50% - 37px);
+    width: calc(50% - 38px);
   }
 }
 @media (min-width: 641px) {
   .form-search .form-control-wide {
-    width: calc(100% - 37px);
+    width: calc(100% - 38px);
   }
 }
 .form-search .form-control:focus {
@@ -3145,12 +3145,12 @@ HTML Usage
   border: 2px solid #005ea5;
   cursor: pointer;
   display: inline-block;
-  height: 32px;
+  height: 33px;
   overflow: hidden;
   padding: 4px;
   text-indent: -9999px;
   vertical-align: middle;
-  width: 32px;
+  width: 33px;
 }
 .form-search-button:focus, .form-search-button:hover {
   background-color: #004f8c;
@@ -3164,8 +3164,8 @@ HTML Usage
 }
 @media (min-width: 641px) {
   .form-search-button {
-    height: 37px;
-    width: 37px;
+    height: 38px;
+    width: 38px;
   }
 }
 .form-search-button:focus {
