@@ -6,57 +6,46 @@
 
     <h1 class="heading-xlarge"><span class="heading-secondary">{{apptitle}}</span> {{pagetitle}}</h1>
 
+    <h2 class="heading-medium">Search for a case</h2>
+
     <form class="form" method="post">
 
       <div class="form-group">
-        <label class="form-label" for="court-location">Court location</label>
-        <select class="form-control" id="court-location" name="courtLocation">
-          <option>Select</option>
-          <option value="Lavender Hill">Lavender Hill</option>
-          <option value="Wimbledon">Wimbledon</option>
-          <option value="Swansea">West Glamorgan</option>
-        </select>
-      </div>
 
-      <div class="form-group">
-        <label class="form-label" for="local-justice-area">Local justice area</label>
-        <select class="form-control" id="local-justice-area" name="localJusticeArea">
-          <option>Select</option>
-          <option value="South West London">South West London</option>
-          <option value="South Wales">South Wales</option>
-        </select>
-      </div>
+        <div class="form-search">
 
-      <div class="form-group form-group-last">
-
-        <fieldset class="inline">
-
-          <legend>
-            <span class="form-label">Are you working with a magistrate?</span>
-          </legend>
-
-          <label class="block-label selection-button-radio" for="working-with-magistrate-yes" data-target="working-with-magistrate">
-            <input type="radio" id="working-with-magistrate-yes" name="workingWithMagistrate" value="Yes"> Yes
+          <label for="search">
+            <span class="form-label">Enter case reference number or defendant&rsquo;s last name</span>
           </label>
 
-          <label class="block-label selection-button-radio" for="working-with-magistrate-no">
-            <input type="radio" id="working-with-magistrate-no" name="workingWithMagistrate" value="No"> No &ndash; I&rsquo;m working under delegated powers
-          </label>
+          <input class="form-control form-control-wide" type="search" id="search" name="search"><button class="form-search-button" type="submit">Search</button>
 
-          <div class="panel panel-border-narrow js-hidden" id="working-with-magistrate">
-            <label class="form-label" for="magistrates-name">Magistrate&rsquo;s name</label>
-            <input class="form-control" type="text" id="magistrates-name" name="magistratesName">
-          </div>
+        </div>
 
-        </fieldset>
-
-      </div>
-
-      <div class="form-group">
-        <button class="button" type="submit">Continue</button>
       </div>
 
     </form>
+
+  </div>
+
+</div>
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <h2 class="heading-medium" id="">Heading to be added (Liz)</h2>
+
+    <ul class="list" aria-labelledby="">
+      <li><p><a href="/legal-adviser/start-a-new-sjp-session/">Start a new SJP session</a></p></li>
+    </ul>
+
+    <h2 class="heading-medium" id="">Other tasks</h2>
+
+    <ul class="list" aria-labelledby="">
+      <li><p><a href="#">Print cases awaiting decision under SJP</a></p></li>
+      <li><p><a href="#">Download press register</a></p></li>
+    </ul>
 
   </div>
 

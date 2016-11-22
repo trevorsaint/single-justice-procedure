@@ -115,9 +115,32 @@ router.route('/legal-adviser/')
     res.redirect('/legal-adviser/home/');
   });
 
+
+
+
 router.route('/legal-adviser/home/')
   .get(function(req, res, next) {
     res.render('legal-adviser/home', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Single Justice Procedure',
+      pagetitle: 'Single Justice Procedure',
+      section: 'home',
+      section_name: 'Home',
+      signedIn: true,
+      breadcrumb: true,
+      sBack: sBack
+    });
+  })
+  .post(function(req, res, next) {
+    // do something
+  });
+
+
+
+router.route('/legal-adviser/start-a-new-sjp-session/')
+  .get(function(req, res, next) {
+    res.render('legal-adviser/start-a-new-sjp-session', {
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Start a new SJP session',
@@ -132,6 +155,8 @@ router.route('/legal-adviser/home/')
   .post(function(req, res, next) {
     res.redirect('/legal-adviser/case-details/1/');
   });
+
+
 
 router.route('/legal-adviser/case-details/:id/')
   .get(function(req, res, next) {
@@ -587,7 +612,7 @@ router.route('/legal-adviser/check-your-decisions/:id')
         sCompensationA: sCompensationA,
         sCompensationB: sCompensationB,
         sCompensationC: sCompensationC,
-        
+
         sReasonForNoCompensationA: sReasonForNoCompensationA,
         sReasonForNoCompensationB: sReasonForNoCompensationB,
         sReasonForNoCompensationC: sReasonForNoCompensationC,
