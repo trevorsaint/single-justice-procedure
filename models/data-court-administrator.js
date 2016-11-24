@@ -29,7 +29,8 @@ var search = [
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "2016-02-18",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "plea": "Awaiting plea"
     },
     "employment": {
@@ -175,7 +176,8 @@ var search = [
       "reference-number": "687642",
       "title": "Passenger used ticket issued for another person",
       "date": "2016-02-01",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "plea": "Pleaded guilty",
       "plea-made-date": "2016-05-15",
       "decision": {
@@ -351,7 +353,8 @@ var search = [
     "offence": {
       "title": "Having failed to pay rail fare gave false particulars",
       "date": "2016-02-01",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "plea": "Pleaded guilty",
     },
     "employment": {
@@ -469,7 +472,8 @@ var search = [
     "offence": {
       "title": "Travel on railway without paying fare",
       "date": "2016-01-18",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "mitigation": "I picked up my partner&rsquo;s ticket instead of my own when I left my house.",
       "plea": "Pleaded guilty"
     },
@@ -586,7 +590,8 @@ var search = [
     "offence": {
       "title": "Passenger used expired ticket",
       "date": "2016-02-01",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -703,7 +708,8 @@ var search = [
     "offence": {
       "title": "Passenger used expired ticket",
       "date": "2016-02-01",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "plea": "Awaiting plea"
     },
     "employment": {
@@ -819,7 +825,8 @@ var search = [
     "offence": {
       "title": "Passenger failing to pay fare",
       "date": "2016-02-01",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -935,7 +942,8 @@ var search = [
     "offence": {
       "title": "Passenger failing to pay fare",
       "date": "2016-02-01",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -1051,7 +1059,8 @@ var search = [
     "offence": {
       "title": "Passenger used altered/defaced ticket",
       "date": "2016-02-01",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "plea": "Pleaded guilty"
     },
     "employment": {
@@ -1167,7 +1176,8 @@ var search = [
     "offence": {
       "title": "Passenger used altered/defaced ticket",
       "date": "2016-02-01",
-      "statement-of-facts": "I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.",
+      "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
+      "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
       "plea": "Pleaded guilty"
     },
     "employment": {

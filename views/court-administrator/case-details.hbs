@@ -373,7 +373,7 @@
 
   <div aria-labelledby="offences">
 
-    <h2 class="heading-large" id="offences">Offence</h2>
+    <h2 class="heading-large" id="offences">Offence 1</h2>
 
     {{#with offence}}
     <section aria-labelledby="offence">
@@ -382,9 +382,9 @@
 
         <div class="column-two-thirds">
 
-          <h3 class="font-medium" id="offence">{{{title}}}</h3>
+          <h3 class="bold-medium" id="offence">{{{title}}}</h3>
 
-          <p class="font-xsmall">On <time datetime="{{moment date format="YYYY-MM-DD"}}">{{moment date format="D MMMM YYYY"}}</time></p>
+          <p class="font-xsmall js-text">{{{offence-wording}}}</p>
 
           <p>
             <strong class="status-label">
@@ -414,12 +414,12 @@
 
                 {{#if statement-of-facts}}
                   <h3 class="heading-medium">Statement of facts</h3>
-                  <p>{{{statement-of-facts}}}</p>
+                  <p class="js-text">{{{statement-of-facts}}}</p>
                 {{/if}}
 
                 {{#if mitigation}}
                   <h3 class="heading-medium">Mitigation</h3>
-                  <p>{{{mitigation}}}</p>
+                  <p class="js-text">{{{mitigation}}}</p>
                 {{/if}}
 
               </section>
