@@ -1,3 +1,65 @@
+
+// text shorten
+$.fn.shorten = function (settings) {
+
+	var config = {
+		showChars:    150,
+		ellipsesText: "&hellip;",
+		moreText:     "More",
+		lessText:     "Less"
+	};
+
+	if (settings) {
+		$.extend(config, settings);
+	}
+
+	$(document).off("click", ".js-text-link-more");
+
+	$(document).on({click: function () {
+
+			var $this = $(this);
+
+      if ($this.hasClass("js-text-link-less")) {
+        
+				$this.removeClass("js-text-link-less");
+				$this.html(config.moreText);
+
+			} else {
+
+				$this.addClass("js-text-link-less");
+				$this.html(config.lessText);
+
+			}
+
+			$this.parent().prev().toggle();
+			$this.prev().toggleClass("visually-hidden");
+			return false;
+		}
+	}, ".js-text-link-more");
+
+	return this.each(function () {
+
+		var $this = $(this);
+
+		if($this.hasClass("js-text-shortened")) return;
+
+		$this.addClass("js-text-shortened");
+
+		var content = $this.html();
+
+		if (content.length > config.showChars) {
+			var c = content.substr(0, config.showChars);
+			var h = content.substr(config.showChars, content.length - config.showChars);
+			var html = c + '<span class="js-text-ellipses" aria-hidden="true">' + config.ellipsesText + ' </span><span class="js-text-content"><span>' + h + '</span> <a href="#" class="js-text-link-more" aria-hidden="true">' + config.moreText + '</a></span>';
+			$this.html(html);
+			$(".js-text-content span").addClass("visually-hidden");
+		}
+
+	});
+
+};
+
+
 // collection order
 function collectionOrder() {
 
@@ -416,5 +478,7 @@ function fileUploadFocus() {
 
   $("#fine-a, #fine-b, #fine-c").changeFine();
   $("#compensation-a, #compensation-b, #compensation-c").changeCompensation();
+
+  $(".js-text").shorten();
 
 })(jQuery);
