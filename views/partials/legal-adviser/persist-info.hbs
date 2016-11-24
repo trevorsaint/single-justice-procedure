@@ -1,0 +1,15 @@
+<div class="persist-info">
+  <div class="persist-info-content">
+    <span class="persist-info-reference">{{personal-details.urn}}</span>
+    <span class="persist-info-title">
+      {{#and ../sFirstname ../sLastname}}
+        <b>{{../sFirstname}} {{uppercase ../sLastname}}</b>
+      {{else}}
+        <b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b>
+      {{/and}}
+    </span>
+  </div>
+  <ul class="persist-info-links">
+    <li><a href="/legal-adviser/end-session/">End session</a></li>
+  </ul>
+</div>

@@ -2,30 +2,9 @@
 
 {{#with search}}
 
-  <div class="persist-info">
-    <div class="persist-info-content">
-      <span class="persist-info-reference">{{personal-details.urn}}</span>
-      <span class="persist-info-title">
-        {{#and ../sFirstname ../sLastname}}
-          <b>{{../sFirstname}} {{uppercase ../sLastname}}</b>
-        {{else}}
-          <b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b>
-        {{/and}}
-      </span>
-    </div>
-    <ul class="persist-info-links">
-      <li><a href="/legal-adviser/end-session/">End session</a></li>
-    </ul>
-  </div>
+  {{>legal-adviser/persist-info}}
 
-  {{#if ../sHasSaved}}
-  <div class="banner banner-confirmation" role="alert">
-    <i class="icon icon-banner-confirmation" role="presentation" aria-hidden="true"></i>
-    <div class="banner-message">
-      <p>Your changes have been saved</p>
-    </div>
-  </div>
-  {{/if}}
+  {{>legal-adviser/has-saved}}
 
   <div class="grid-row">
 
@@ -161,33 +140,9 @@
     </div>
 
     <div class="column-third">
-
       <div class="related">
-
-        <div class="related-section">
-
-          <h3 class="related-heading">Documents</h3>
-
-          <ul class="related-links">
-            {{#each related-documents.document}}
-              <li>
-                <div class="document document-small">
-                  <i class="icon icon-file-download"></i>
-                  <div class="document-content">
-                    <p class="document-title"><a href="{{{file-path}}}">{{{capitalize title}}}</a></p>
-                    <div class="document-meta">
-                      <span class="document-meta-details">{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            {{/each}}
-          </ul>
-
-        </div>
-
+        {{>legal-adviser/related-documents}}
       </div>
-
     </div>
 
   </div>
