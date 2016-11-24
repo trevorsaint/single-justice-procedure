@@ -80,6 +80,8 @@ $module: 'table';
   // decision table
   &-decision {
 
+    th {font-weight: 400;}
+
     th, td {
       vertical-align: top;
     }

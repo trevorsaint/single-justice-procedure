@@ -18,6 +18,12 @@
 
       <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
+      {{#if ../sTotalToPay}}
+      <div class="panel panel-border-wide">
+        <p>Total to pay <br> <b class="bold-medium">&pound;{{../sTotalToPay}}</b></p>
+      </div>
+      {{/if}}
+
       <form class="form" method="post">
 
         <h3 class="heading-medium">Defendant&rsquo;s details</h3>
@@ -118,14 +124,14 @@
 
               <div class="form-group">
                 <label for="lump-sum-amount">
-                  <span class="form-label">Amount</span>
+                  <span class="form-label">Lump sum amount</span>
                 </label>
                 <div class="form-currency">
                   <input class="form-control form-control-1-4" type="text" id="lump-sum-amount" name="lumpSumAmount"{{#if ../sLumpSumAmount}} value="{{../sLumpSumAmount}}"{{/if}}>
                 </div>
               </div>
 
-              <div class="form-group">
+              <!--div class="form-group">
 
                 <fieldset>
 
@@ -147,7 +153,7 @@
 
                 </fieldset>
 
-              </div>
+              </div-->
 
               <div class="form-group">
                 <label for="lump-sum-instalment-amount">
@@ -317,21 +323,17 @@
           <h3 class="related-heading">Documents</h3>
           <ul class="related-links">
             {{#each related-documents.document}}
-              {{#is show true}}
-                <li>
-                  <div class="document document-small">
-                    <i class="icon icon-file-download"></i>
-                    <div class="document-content">
-                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
-                        <div class="document-meta">
-                          <span class="document-meta-details">
-                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
-                        </span>
-                      </div>
+              <li>
+                <div class="document document-small">
+                  <i class="icon icon-file-download"></i>
+                  <div class="document-content">
+                    <p class="document-title"><a href="{{{file-path}}}">{{{capitalize title}}}</a></p>
+                    <div class="document-meta">
+                      <span class="document-meta-details">{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</span>
                     </div>
                   </div>
-                </li>
-              {{/is}}
+                </div>
+              </li>
             {{/each}}
           </ul>
         </div>

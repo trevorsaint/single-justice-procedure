@@ -3,27 +3,27 @@ var search = [
   {
     "id": 1,
     "personal-details": {
-      "title": "Mr",
-      "firstname": "Billy",
-      "lastname": "Smith",
-      "dob": "1970-04-04",
-      "age": "46",
-      "gender": "Male",
-      "urn": "9012466",
+      "title":      "Mr",
+      "firstname":  "Billy",
+      "lastname":   "Smith",
+      "dob":        "1970-04-04",
+      "age":        "46",
+      "gender":     "Male",
+      "urn":        "9012466",
       "address": {
         "address1": "7 Rock Road",
         "address2": "",
-        "town": "London",
+        "town":     "London",
         "postcode": "SE3 8YH"
       },
-      "email": "",
-      "phone": "",
-      "mobile": ""
+      "email":      "",
+      "phone":      "",
+      "mobile":     ""
     },
     "case-details": {
-      "status": "No plea received",
-      "prosecutor": "Transport for London",
-      "charge-date": "2016-01-21",
+      "status":        "No plea received",
+      "prosecutor":    "Transport for London",
+      "charge-date":   "2016-01-21",
       "notice-served": "2016-09-30",
     },
     "offence": {
@@ -41,131 +41,53 @@ var search = [
       "defendant-pay": "Lump sum within 14 days",
       "reason-for-not-deducting-from-benefits": "No information from the defendant",
       "reason-for-deducting-from-benefits": "Compensation ordered",
+      "weekly-income-assumed": "440",
       "fine-band-applied": "Band A",
-      "fine": "220.00",
+      "fine": "220",
       "compensation": "3.12",
-      "cost": "125.00",
-      "surcharge": "30.00"
+      "cost": "125",
+      "surcharge": "30"
     },
     "employment": {
-      "status": "Employed",
+      "status":                    "Employed",
       "national-insurance-number": "LC 59 17 17 B",
-      "employer-name": "Ministry of Justice",
-      "employee-number": "e902938480",
+      "employer-name":             "Ministry of Justice",
+      "employee-number":           "e902938480",
       "employer-address": {
         "address1": "102 Petty France",
         "address2": "",
-        "town": "London",
+        "town":     "London",
         "postcode": "SW1H 9AJ"
       },
-      "employer-telephone": "020 3334 3555",
+      "employer-telephone":        "020 3334 3555",
       "pay": {
         "frequency": "",
-        "amount": ""
+        "amount":    ""
       },
       "receiving-benefits": "",
-    },
-    "files": {
-      "file": [
-        {
-          "csv": true,
-          "uploaded": "2016-05-10",
-          "time": "9:32am",
-          "filename": "case-123456789",
-          "filetype": "CSV",
-          "status": "Being checked",
-          "url": ""
-        },
-        {
-          "csv": true,
-          "uploaded": "2016-05-09",
-          "time": "2:57pm",
-          "filename": "case-123456789",
-          "filetype": "CSV",
-          "status":   "<span class=\"text-error\">Rejected &ndash; errors found</span>",
-          "url":      "check-csv-uploads/report/errors/1"
-        },
-        {
-          "csv": true,
-          "uploaded": "2016-05-09",
-          "time": "2:57pm",
-          "filename": "case-123456789",
-          "filetype": "CSV",
-          "status":   "Sent to court",
-          "url":      "check-csv-uploads/report/success/1"
-        },
-        {
-          "csv": true,
-          "uploaded": "2016-05-09",
-          "time": "10:14am",
-          "filename": "case-123456789",
-          "filetype": "CSV",
-          "status":   "Sent to court",
-          "url":      "check-csv-uploads/report/success/1"
-        }
-      ]
     },
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
-          "file-type": "PDF",
-          "file-size": "256KB",
+          "title":      "SJP notice",
+          "file-type":  "PDF",
+          "file-size":  "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
+          "file-path":  "/legal-adviser/documents/"
         },
         {
-          "show": true,
-          "id": "previous-convictions",
-          "name": "previousConvictions",
-          "title": "previous convictions",
-          "file-type": "PDF",
-          "file-size": "514KB",
+          "title":      "previous convictions",
+          "file-type":  "PDF",
+          "file-size":  "514KB",
           "file-pages": "2 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
+          "file-path":  "/legal-adviser/documents/"
         },
         {
-          "show": false,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
-          "file-type": "PDF",
-          "file-size": "560KB",
-          "file-pages": "10 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
-        },
-        {
-          "show": true,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
-          "file-type": "PDF",
-          "file-size": "256KB",
+          "title":      "statement of income and outgoings (MC100)",
+          "file-type":  "PDF",
+          "file-size":  "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
-        },
-        {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
-          "file-type": "PDF",
-          "file-size": "458KB",
-          "file-pages": "9 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-path":  "/legal-adviser/documents/"
         }
       ]
     }

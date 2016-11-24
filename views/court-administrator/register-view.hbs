@@ -2,6 +2,7 @@
 
 {{#with search}}
 
+
 <h1 class="heading-xlarge">
   {{#and ../sFirstname ../sLastname}}
     {{../sFirstname}} {{uppercase ../sLastname}}
@@ -10,7 +11,8 @@
   {{/and}}
 </h1>
 
-<section class="check-answers" aria-labelledby="personal-details">
+
+<section aria-labelledby="personal-details">
 
   <h2 class="heading-medium" id="personal-details">Personal details</h2>
 
@@ -33,45 +35,6 @@
       {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
     </dd>
 
-    <dt>Email</dt>
-    <dd>
-      {{#if ../sEmail}}
-        {{../sEmail}}
-      {{else}}
-        {{#if personal-details.email}}
-          {{personal-details.email}}
-        {{else}}
-          &ndash;
-        {{/if}}
-      {{/if}}
-    </dd>
-
-    <dt>Home telephone</dt>
-    <dd>
-      {{#if ../sPhone}}
-        {{../sPhone}}
-      {{else}}
-        {{#if personal-details.phone}}
-          {{personal-details.phone}}
-        {{else}}
-          &ndash;
-        {{/if}}
-      {{/if}}
-    </dd>
-
-    <dt>Mobile</dt>
-    <dd>
-      {{#if ../sMobile}}
-        {{../sMobile}}
-      {{else}}
-        {{#if personal-details.mobile}}
-          {{personal-details.mobile}}
-        {{else}}
-          &ndash;
-        {{/if}}
-      {{/if}}
-    </dd>
-
     <dt>Gender</dt>
     <dd>{{personal-details.gender}}</dd>
 
@@ -79,10 +42,12 @@
 
 </section>
 
-<hr aria-hidden="true">
+
+<hr class="divider divider-border-dark" aria-hidden="true">
+
 
 {{#with case-details}}
-<section class="check-answers" aria-labelledby="case-details">
+<section aria-labelledby="case-details">
 
   <h2 class="heading-medium" id="case-details">Case details</h2>
 
@@ -91,96 +56,103 @@
     <dd>{{case-number}}</dd>
     <dt>Prosecutor</dt>
     <dd>{{prosecutor}}</dd>
-    <dt>Informant</dt>
-    <dd>{{informant}}</dd>
-    <dt>Notice served</dt>
-    <dd><time datetime="{{moment notice-served format="YYYY-MM-DD"}}">{{moment notice-served format="D MMMM YYYY"}}</time></dd>
   </dl>
 
 </section>
 {{/with}}
 
-<hr aria-hidden="true">
+
+<hr class="divider divider-border-dark" aria-hidden="true">
+
 
 {{#with offence}}
-<section class="check-answers" aria-labelledby="offence">
+<section aria-labelledby="offence">
 
-  <h2 class="heading-large" id="offence">Offence</h2>
+  <div class="text">
 
-  <h3 class="font-medium" id="offence">{{title}}</h3>
+    <h2 class="heading-large" id="offence">Offence</h2>
 
-  <p class="font-xsmall">On <time datetime="{{moment date format="YYYY-MM-DD"}}">{{moment date format="D MMMM YYYY"}}</time></p>
+    <h3 class="bold-medium">{{title}}</h3>
 
-  <p><strong class="status-label">{{plea}}</strong></p>
+    <p class="font-xsmall">On <time datetime="{{moment date format="YYYY-MM-DD"}}">{{moment date format="D MMMM YYYY"}}</time> At grosvenor place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not immediately on boarding pay the fare to the Driver for the journey you intended to take.</p>
 
-  <h3 class="heading-medium">Details</h3>
+    <p><strong class="status-label">{{{plea}}}</strong></p>
 
-  <dl class="meta meta-inline">
-    <dt>Offence reference number</dt>
-    <dd>{{reference-number}}</dd>
-    <dt>Date plea made</dt>
-    <dd><time datetime="{{moment plea-made-date format="YYYY-MM-DD"}}">{{moment plea-made-date format="D MMMM YYYY"}}</time></dd>
-  </dl>
+  </div>
 
-  <h3 class="heading-medium">Statement of facts</h3>
-  <p class="text">{{{statement-of-facts}}}</p>
+  <section aria-labelledby="decision">
 
-  {{#with decision}}
-  <h3 class="heading-medium">Decision</h3>
+    <h2 class="heading-medium" id="decision">Decision</h2>
 
-  <table class="table">
-    <tbody>
-      <tr>
-        <td>Made at</td>
-        <td>{{made-at}}</td>
-      </tr>
-      <tr>
-        <td>On</td>
-        <td><time datetime="{{moment on-date format="YYYY-MM-DD"}}">{{moment on-date format="D MMMM YYYY"}}</time></td>
-      </tr>
-      <tr valign="top">
-        <td>By</td>
-        <td>
-          <ul>
-            {{#each by}}
-            <li>{{firstname}} {{lastname}} ({{lowercase role}})</li>
-            {{/each}}
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>Verdict</td>
-        <td>{{verdict}}</td>
-      </tr>
-      <tr>
-        <td>Fine</td>
-        <td>&pound;{{fine}}</td>
-      </tr>
-      <tr>
-        <td>Compensation</td>
-        <td>&pound;{{compensation}}</td>
-      </tr>
-      <tr>
-        <td>Costs</td>
-        <td>&pound;{{costs}}</td>
-      </tr>
-      <tr>
-        <td>Victim surcharge</td>
-        <td>&pound;{{victim-surcharge}}</td>
-      </tr>
-      <tr>
-        <td>Guilty plea taken into account?</td>
-        <td>{{taken-into-account}}</td>
-      </tr>
-    </tbody>
-  </table>
-  {{/with}}
+    <table class="table table-decision">
+      <tbody>
+        <tr>
+          <th>Verdict</th>
+          <td>Guilty plea accepted</td>
+        </tr>
+        <tr>
+          <th>Fine</th>
+          <td>&pound;143.50</td>
+        </tr>
+        <tr>
+          <th rowspan="2">Compensation</th>
+          <td>&pound;0</td>
+        </tr>
+        <tr>
+          <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+        </tr>
+        <tr>
+          <th rowspan="2">Costs</th>
+          <td>&pound;0</td>
+        </tr>
+        <tr>
+          <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
+        </tr>
+        <tr>
+          <th rowspan="2">Victim surcharge</th>
+          <td>&pound;0</td>
+        </tr>
+        <tr>
+          <td>Reason for reducing or removing victim surcharge <br> <span class="text-secondary">Limited means of the defendant</span></td>
+        </tr>
+        <tr>
+          <th>Guilty plea taken into account</th>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <th rowspan="2">Decision made</th>
+          <td><time datetime="2016-09-01">1 September 2016</time></td>
+        </tr>
+        <tr>
+          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </section>
+
+  <section aria-labelledby="payment-and-collection">
+
+    <h3 class="heading-medium" id="payment-and-collection">Payment and collection</h3>
+
+    <dl class="meta meta-inline">
+      <dt>Collection order made</dt>
+      <dd>Yes</dd>
+      <dt>Total to pay</dt>
+      <dd>&pound;143.50</dd>
+      <dt>Payment method</dt>
+      <dd>Direct to court</dd>
+      <dt>Lump sum plus instalments</dt>
+      <dd>A lump sum of &pound;23.50 to be paid, followed by &pound;20 paid monthly starting <time datetime="2016-12-30">30 December 2016</time></dd>
+    </dl>
+
+  </section>
 
 </section>
 {{/with}}
 
-<p><a class="button" href="#" role="button">Print</a></p>
 
-<p><a href="/court-administrator/case-details/{{id}}/">Cancel<a></p>
+<p><a class="button" href="#" role="button">Print</a></p>
+<p><a href="/court-administrator/case-details/{{id}}/">Back</a></p>
 
 {{/with}}

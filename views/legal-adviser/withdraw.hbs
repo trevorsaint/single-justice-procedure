@@ -26,7 +26,7 @@
         <h3 class="heading-medium">Withdraw</h3>
 
         <div class="form-group form-group-last">
-          <label for="reason-for-dismissal">
+          <label for="reason-for-withdraw">
             <span class="form-label">Reason for withdrawing offence</span>
           </label>
           <textarea class="form-control form-control-3-4 form-control-textarea" id="reason-for-withdraw" name="reasonForWithdraw" rows="5" cols="50"></textarea>
@@ -50,21 +50,17 @@
           <h3 class="related-heading">Documents</h3>
           <ul class="related-links">
             {{#each related-documents.document}}
-              {{#is show true}}
-                <li>
-                  <div class="document document-small">
-                    <i class="icon icon-file-download"></i>
-                    <div class="document-content">
-                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
-                        <div class="document-meta">
-                          <span class="document-meta-details">
-                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
-                        </span>
-                      </div>
+              <li>
+                <div class="document document-small">
+                  <i class="icon icon-file-download"></i>
+                  <div class="document-content">
+                    <p class="document-title"><a href="{{{file-path}}}">{{{capitalize title}}}</a></p>
+                    <div class="document-meta">
+                      <span class="document-meta-details">{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</span>
                     </div>
                   </div>
-                </li>
-              {{/is}}
+                </div>
+              </li>
             {{/each}}
           </ul>
         </div>

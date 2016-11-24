@@ -2088,6 +2088,9 @@ CSS Usage
 .table-summary .table-row-noborder th, .table-summary .table-row-noborder td {
   border: 0;
 }
+.table-decision th {
+  font-weight: 400;
+}
 .table-decision th, .table-decision td {
   vertical-align: top;
 }

@@ -216,21 +216,17 @@
           <h3 class="related-heading">Documents</h3>
           <ul class="related-links">
             {{#each related-documents.document}}
-              {{#is show true}}
-                <li>
-                  <div class="document document-small">
-                    <i class="icon icon-file-download"></i>
-                    <div class="document-content">
-                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
-                        <div class="document-meta">
-                          <span class="document-meta-details">
-                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
-                        </span>
-                      </div>
+              <li>
+                <div class="document document-small">
+                  <i class="icon icon-file-download"></i>
+                  <div class="document-content">
+                    <p class="document-title"><a href="{{{file-path}}}">{{{capitalize title}}}</a></p>
+                    <div class="document-meta">
+                      <span class="document-meta-details">{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</span>
                     </div>
                   </div>
-                </li>
-              {{/is}}
+                </div>
+              </li>
             {{/each}}
           </ul>
         </div>

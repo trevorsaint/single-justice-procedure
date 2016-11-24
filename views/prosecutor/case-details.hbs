@@ -11,7 +11,7 @@
 
       <div class="column-two-thirds">
 
-        <h1 class="heading-xlarge">{{firstname}} {{uppercase lastname}} <span class="heading-secondary">{{age}} years old</span></h1>
+        <h1 class="heading-xlarge">{{firstname}} {{uppercase lastname}} <span class="heading-secondary"><time datetime="{{date-of-birth-iso}}">{{date-of-birth-long}}</time> ({{age}} years old)</span></h1>
 
         <div class="tabs tabs-horizontal">
 
@@ -37,7 +37,7 @@
                 <dd>{{{status}}}</dd>
                 <dt>Prosecutor</dt>
                 <dd>{{{prosecutor}}}</dd>
-                <dt>Notice served</dt>
+                <dt><abbr title="Single Justice Procedure">SJP</abbr> notice served</dt>
                 <dd><time datetime="{{notice-served-datetime}}">{{{notice-served}}}</time></dd>
               </dl>
               {{/with}}
@@ -146,7 +146,7 @@
 
     <div aria-labelledby="offences">
 
-      <h2 class="heading-large" id="offences">Offence</h2>
+      <h2 class="heading-large" id="offences">Offence 1</h2>
 
       {{#with offence}}
       <section aria-labelledby="offence">
@@ -155,9 +155,9 @@
 
           <div class="column-two-thirds">
 
-            <h3 class="font-medium" id="offence">{{{title}}}</h3>
+            <h3 class="bold-medium" id="offence">{{{title}}}</h3>
 
-            <p class="font-xsmall">On <time datetime="{{date-iso}}">{{date}}</time></p>
+            <p class="font-xsmall">On <time datetime="2014-06-10">10/06/2014</time> At grosvenor place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a <!--Driver without a Conductor did not immediately on boarding pay the fare to the Driver for the journey you intended to take.-->&hellip; <a href="#">More</a></p>
 
             <p><strong class="status-label">{{{plea}}}</strong> {{#if ../cancel-withdrawal}}<strong class="status-label">Pending withdrawal</strong>{{/if}}</p>
 
@@ -200,64 +200,117 @@
                           <td>Guilty plea accepted</td>
                         </tr>
                         <tr>
-                          <td>Fine</td>
+                          <th>Fine</th>
                           <td>&pound;100</td>
                         </tr>
                         <tr>
-                          <td>Compensation</td>
+                          <th>Compensation</th>
                           <td>&pound;3.50</td>
                         </tr>
                         <tr>
-                          <td>Costs</td>
+                          <th>Costs</th>
                           <td>&pound;30</td>
                         </tr>
                         <tr>
-                          <td>Victim surcharge</td>
+                          <th>Victim surcharge</th>
                           <td>&pound;10</td>
                         </tr>
                         <tr>
-                          <td>Guilty plea taken into account?</td>
+                          <th>Guilty plea taken into account?</th>
                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                          <th rowspan="3">Decision made</th>
+                        </tr>
+                        <tr>
+                          <td><time datetime="2016-09-01">1 September 2016</time></td>
+                        </tr>
+                        <tr>
+                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
                         </tr>
                       </tbody>
                     </table>
+                    <!--table class="table table-decision">
+                      <tbody>
+                        <tr>
+                          <td>Result</td>
+                          <td>Dismissed</td>
+                        </tr>
+                        <tr>
+                          <th rowspan="3">Decision made</th>
+                        </tr>
+                        <tr>
+                          <td><time datetime="2016-09-01">1 September 2016</time></td>
+                        </tr>
+                        <tr>
+                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
+                        </tr>
+                      </tbody>
+                    </table-->
+                    <!--table class="table table-decision">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">Result</td>
+                          <td>Withdrawn</td>
+                        </tr>
+                        <tr>
+                          <td>Reason <br> <span class="text-secondary">Submitted in error</span></td>
+                        </tr>
+                        <tr>
+                          <th rowspan="3">Decision made</th>
+                        </tr>
+                        <tr>
+                          <td><time datetime="2016-09-01">1 September 2016</time></td>
+                        </tr>
+                        <tr>
+                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
+                        </tr>
+                      </tbody>
+                    </table-->
                   {{/is}}
 
                   {{#is ../court-decision 2}}
                     <table class="table table-decision">
                       <tbody>
                         <tr>
-                          <td>Verdict</td>
+                          <th>Verdict</th>
                           <td>Guilty plea accepted</td>
                         </tr>
                         <tr>
-                          <td>Fine</td>
-                          <td>&pound;100</td>
+                          <th>Fine</th>
+                          <td>&pound;143.50</td>
                         </tr>
                         <tr>
-                          <td rowspan="2">Compensation</td>
+                          <th rowspan="2">Compensation</th>
                           <td>&pound;0</td>
                         </tr>
                         <tr>
                           <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
                         </tr>
                         <tr>
-                          <td rowspan="2">Costs</td>
+                          <th rowspan="2">Costs</th>
                           <td>&pound;0</td>
                         </tr>
                         <tr>
                           <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
                         </tr>
                         <tr>
-                          <td rowspan="2">Victim surcharge (reduced)</td>
+                          <th rowspan="2">Victim surcharge</th>
                           <td>&pound;0</td>
                         </tr>
                         <tr>
-                          <td>Reason for reduction <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                          <td>Reason for reducing or removing victim surcharge <br> <span class="text-secondary">Limited means of the defendant</span></td>
                         </tr>
                         <tr>
-                          <td>Guilty plea taken into account</td>
+                          <th>Guilty plea taken into account</th>
                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                          <th rowspan="2">Decision made</th>
+                          <td><time datetime="2016-09-01">1 September 2016</time></td>
+                        </tr>
+                        <tr>
+                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -271,15 +324,29 @@
                           <td>Guilty plea accepted</td>
                         </tr>
                         <tr>
-                          <td>Conditional discharge</td>
-                          <td>6 months</td>
+                          <td>Result</td>
+                          <td>Conditional discharge for 6 months</td>
                         </tr>
                         <tr>
-                          <td rowspan="2">Compensation</td>
-                          <td>&pound;0</td>
+                          <td>Compensation</td>
+                          <td>&pound;100</td>
                         </tr>
                         <tr>
-                          <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                          <td>Costs</td>
+                          <td>&pound;3.50</td>
+                        </tr>
+                        <tr>
+                          <td>Victim surcharge</td>
+                          <td>&pound;10</td>
+                        </tr>
+                        <tr>
+                          <th rowspan="3">Decision made</th>
+                        </tr>
+                        <tr>
+                          <td><time datetime="2016-09-01">1 September 2016</time></td>
+                        </tr>
+                        <tr>
+                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -287,27 +354,25 @@
 
                   <details>
 
-                    <summary><span class="summary">Payment and collection terms</span></summary>
+                    <summary><span class="summary">Payment and collection</span></summary>
 
                     <div class="panel panel-border-narrow">
 
-                      <h3 class="heading-medium">Payment and collection terms</h3>
+                      <h3 class="heading-medium">Payment and collection</h3>
 
                       <dl class="meta meta-inline meta-small">
                         <dt>Collection order made</dt>
                         <dd>Yes</dd>
                         <dt>Total to pay</dt>
-                        <dd>&pound;210.00</dd>
+                        <dd>&pound;113.50</dd>
                         <dt>Payment method</dt>
                         <dd>Direct to court</dd>
-                        <dt>Terms</dt>
-                        <dd>Lump sum plus installments</dd>
-                        <dt>Lump sum</dt>
-                        <dd>&pound;70 <br> <span class="text-secondary">Pay by <time datetime="2016-12-12">12 December 2016</time></span></dd>
-                        <dt>Instalments</dt>
-                        <dd>&pound;10 <br> <span class="text-secondary">Starts on <time datetime="2017-01-01">1 January 2017</time></span></dd>
-                        <dt>Notice to pay sent to defendant</dt>
-                        <dd><time datetime="2016-11-16">16 November 2016</time></dd>
+                        <!--dt>Lump sum only</dt>
+                        <dd>&pound;143.50 to be paid within 14 days</dd-->
+                        <!--dt>Lump sum plus instalments</dt>
+                        <dd>A lump sum of &pound;23.50 to be paid, followed by &pound;20 paid monthly starting <time datetime="2016-12-30">30 December 2016</time></dd-->
+                        <dt>Instalments only</dt>
+                        <dd>&pound;18.91 to be paid monthly starting 1 December 2016</dd>
                       </dl>
 
                     </div>

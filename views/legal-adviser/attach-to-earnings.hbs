@@ -18,6 +18,12 @@
 
       <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
+      {{#if ../sTotalToPay}}
+      <div class="panel panel-border-wide">
+        <p>Total to pay <br> <b class="bold-medium">&pound;{{../sTotalToPay}}</b></p>
+      </div>
+      {{/if}}
+
       <form class="form" method="post">
 
         <h3 class="heading-medium">Employer details</h3>
@@ -61,7 +67,7 @@
           <label for="employer-postcode">
             <span class="form-label">Postcode</span>
           </label>
-          <input class="form-control form-control-1-4"  type="text" id="employer-postcode" name="employerPostcode" value="{{uppercase employment.employer-address.postcode}}">
+          <input class="form-control form-control-1-4" type="text" id="employer-postcode" name="employerPostcode" value="{{uppercase employment.employer-address.postcode}}">
         </div>
 
         <h3 class="heading-medium">Reason for attaching to earnings</h3>
@@ -73,19 +79,19 @@
             <legend class="visually-hidden">Reason for attaching to earnings</legend>
 
             <label class="block-label selection-button-radio" for="compensation-ordered">
-              <input type="radio" id="compensation-ordered" name="reasonForAttachingToEarnings" value="Compensation ordered" checked="checked">
+              <input type="radio" name="reasonForAttachingToEarnings" value="Compensation ordered" checked="checked">
               Compensation ordered
             </label>
 
             <p class="form-block">or</p>
 
             <label class="block-label selection-button-radio" for="known-defaulter">
-              <input id="known-defaulter" type="radio" name="reasonForAttachingToEarnings" value="Defendant is a know defaulter">
+              <input type="radio" name="reasonForAttachingToEarnings" value="Defendant is a know defaulter">
               Defendant is a known defaulter
             </label>
 
             <label class="block-label selection-button-radio" for="defendant-requested">
-              <input id="defendant-requested" type="radio" name="reasonForAttachingToEarnings" value="Defendant requested this">
+              <input type="radio" name="reasonForAttachingToEarnings" value="Defendant requested this">
               Defendant requested this
             </label>
 
@@ -102,19 +108,19 @@
             <legend class="visually-hidden">Set reserve terms</legend>
 
             <label class="block-label selection-button-radio" for="lumpsum-14-days">
-              <input type="radio" id="lumpsum-14-days" name="reserveTerms" value="Lump sum within 14 days" checked="checked">
+              <input type="radio" name="reserveTerms" value="Lump sum within 14 days" checked="checked">
               Lump sum within 14 days
             </label>
 
             <p class="form-block">or</p>
 
             <label class="block-label selection-button-radio" for="lumpsum-28-days">
-              <input type="radio" id="lumpsum-28-days" name="reserveTerms" value="Lump sum within 28 days">
+              <input type="radio" name="reserveTerms" value="Lump sum within 28 days">
               Lump sum within 28 days
             </label>
 
             <label class="block-label selection-button-radio" for="lumpsum-plus-instalments" data-target="lump-sum-plus-instalments">
-              <input type="radio" id="lumpsum-plus-instalments" name="reserveTerms" value="Lump sum plus instalments">
+              <input type="radio" name="reserveTerms" value="Lump sum plus instalments">
               Lump sum plus instalments
             </label>
 
@@ -122,14 +128,14 @@
 
               <div class="form-group">
                 <label for="lump-sum-amount">
-                  <span class="form-label">Amount</span>
+                  <span class="form-label">Lump sum amount</span>
                 </label>
                 <div class="form-currency">
                   <input class="form-control form-control-1-4" type="text" id="lump-sum-amount" name="lumpSumAmount" value="">
                 </div>
               </div>
 
-              <div class="form-group">
+              <!--div class="form-group">
 
                 <fieldset>
 
@@ -151,7 +157,7 @@
 
                 </fieldset>
 
-              </div>
+              </div-->
 
               <div class="form-group">
                 <label for="lump-sum-instalment-amount">
@@ -221,7 +227,7 @@
             </div>
 
             <label class="block-label selection-button-radio" for="instalments-only" data-target="lump-sum-instalments-only">
-              <input type="radio" id="instalments-only" name="reserveTerms" value="Instalments only">
+              <input type="radio" name="reserveTerms" value="Instalments only">
               Instalments only
             </label>
 
@@ -316,21 +322,17 @@
           <h3 class="related-heading">Documents</h3>
           <ul class="related-links">
             {{#each related-documents.document}}
-              {{#is show true}}
-                <li>
-                  <div class="document document-small">
-                    <i class="icon icon-file-download"></i>
-                    <div class="document-content">
-                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
-                        <div class="document-meta">
-                          <span class="document-meta-details">
-                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
-                        </span>
-                      </div>
+              <li>
+                <div class="document document-small">
+                  <i class="icon icon-file-download"></i>
+                  <div class="document-content">
+                    <p class="document-title"><a href="{{{file-path}}}">{{{capitalize title}}}</a></p>
+                    <div class="document-meta">
+                      <span class="document-meta-details">{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</span>
                     </div>
                   </div>
-                </li>
-              {{/is}}
+                </div>
+              </li>
             {{/each}}
           </ul>
         </div>

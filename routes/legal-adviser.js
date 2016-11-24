@@ -28,13 +28,12 @@ router.use(function(req, res, next) {
   sCompensationA            = req.session.compensationA;
   sCompensationB            = req.session.compensationB;
   sCompensationC            = req.session.compensationC;
-
   sReasonForNoCompensationA = req.session.reasonForNoCompensationA;
   sReasonForNoCompensationB = req.session.reasonForNoCompensationB;
   sReasonForNoCompensationC = req.session.reasonForNoCompensationC;
-
   sCost                     = req.session.cost;
   sSurcharge                = req.session.surcharge;
+  sTotalToPay               = req.session.totalToPay;
 
   // personal details
   sTitle                    = req.session.title;
@@ -128,7 +127,7 @@ router.route('/legal-adviser/home/')
       section: 'home',
       section_name: 'Home',
       signedIn: true,
-      breadcrumb: true,
+      breadcrumb: false,
       sBack: sBack
     });
   })
@@ -332,7 +331,8 @@ router.route('/legal-adviser/financial-penalty/:id')
       sReasonForNoCompensationC: sReasonForNoCompensationC,
       sCollectionOrderConfirmed: sCollectionOrderConfirmed,
       sCost: sCost,
-      sSurcharge: sSurcharge
+      sSurcharge: sSurcharge,
+      sTotalToPay: sTotalToPay
     });
   })
   .post(function(req, res, next) {
@@ -346,6 +346,7 @@ router.route('/legal-adviser/financial-penalty/:id')
       sFineA                    = req.session.fineA = req.body.fineA;
       sCompensationA            = req.session.compensationA = req.body.compensationA;
       sReasonForNoCompensationA = req.session.reasonForNoCompensationA = req.body.reasonForNoCompensationA;
+      sTotalToPay               = req.session.totalToPay = Number(sFineA) + Number(sCompensationA) + Number(sCost) + Number(sSurcharge);
 
       sFineB                    = req.session.fineB = null;
       sFineC                    = req.session.fineC = null;
@@ -359,6 +360,7 @@ router.route('/legal-adviser/financial-penalty/:id')
       sFineB                    = req.session.fineB = req.body.fineB;
       sCompensationB            = req.session.compensationB = req.body.compensationB;
       sReasonForNoCompensationB = req.session.reasonForNoCompensationB = req.body.reasonForNoCompensationB;
+      sTotalToPay               = req.session.totalToPay = Number(sFineB) + Number(sCompensationB) + Number(sCost) + Number(sSurcharge);
 
       sFineA                    = req.session.fineA = null;
       sFineC                    = req.session.fineC = null;
@@ -372,6 +374,7 @@ router.route('/legal-adviser/financial-penalty/:id')
       sFineC                    = req.session.fineC = req.body.fineC;
       sCompensationC            = req.session.compensationC = req.body.compensationC;
       sReasonForNoCompensationC = req.session.reasonForNoCompensationC = req.body.reasonForNoCompensationC;
+      sTotalToPay               = req.session.totalToPay = Number(sFineC) + Number(sCompensationC) + Number(sCost) + Number(sSurcharge);
 
       sFineA                    = req.session.fineA = null;
       sFineB                    = req.session.fineB = null;
@@ -409,6 +412,7 @@ router.route('/legal-adviser/payment-method/:id')
       signedIn: true,
       breadcrumb: true,
       sPaymentMethod: sPaymentMethod,
+      sTotalToPay: sTotalToPay,
       sBack: sBack
     });
   })
@@ -456,7 +460,8 @@ router.route('/legal-adviser/pay-direct-to-court/:id')
       sInstalmentOnlyMade: sInstalmentOnlyMade,
       sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
       sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
-      sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear
+      sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+      sTotalToPay: sTotalToPay
     });
   })
   .post(function(req, res, next) {
@@ -504,7 +509,8 @@ router.route('/legal-adviser/attach-to-earnings/:id')
       sEmployerAddress2: sEmployerAddress2,
       sEmployerTown: sEmployerTown,
       sEmployerPostcode: sEmployerPostcode,
-      sReasonForAttachingToEarnings: sReasonForAttachingToEarnings
+      sReasonForAttachingToEarnings: sReasonForAttachingToEarnings,
+      sTotalToPay: sTotalToPay
     });
   })
   .post(function(req, res, next) {
@@ -550,7 +556,8 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
       sInstalmentOnlyMade: sInstalmentOnlyMade,
       sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
       sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
-      sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear
+      sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+      sTotalToPay: sTotalToPay
     });
   })
   .post(function(req, res, next) {
