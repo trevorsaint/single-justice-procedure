@@ -2,66 +2,57 @@
 
 {{#with search}}
 
-<div class="persist-info">
-  <span class="persist-info-reference">{{urn}}</span>
-  <span class="persist-info-title">
-    {{#and ../sFirstname ../sLastname}}
-      {{../sFirstname}} {{uppercase ../sLastname}}
-    {{else}}
-      {{personal-details.firstname}} {{uppercase personal-details.lastname}}
-    {{/and}}
-  </span>
-</div>
+  {{>court-administrator/persist-info}}
 
-<h1 class="heading-xlarge">{{../pagetitle}}</h1>
+  <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
-<form class="form" method="post">
+  <form class="form" method="post">
 
-  <div class="form-group">
+    <div class="form-group">
 
-    <fieldset>
+      <fieldset>
 
-      <legend>
-        <span class="form-label-bold">Date case was officially reopened in court</span>
-        <span class="form-hint" id="date-order-hint">For example, 31 3 2016</span>
-      </legend>
+        <legend>
+          <span class="form-label-bold">Date case was officially reopened in court</span>
+          <span class="form-hint" id="date-order-hint">For example, 31 3 2016</span>
+        </legend>
 
-      <div class="form-date">
+        <div class="form-date">
 
-        <div class="form-group form-group-day">
-          <label class="form-label" for="date-order-day">Day</label>
-          <input class="form-control" type="number" id="date-order-day" aria-describedby="date-order-hint">
+          <div class="form-group form-group-day">
+            <label class="form-label" for="date-order-day">Day</label>
+            <input class="form-control" type="number" id="date-order-day" aria-describedby="date-order-hint">
+          </div>
+
+          <div class="form-group form-group-month">
+            <label class="form-label" for="date-order-month">Month</label>
+            <input class="form-control" type="number" id="date-order-month">
+          </div>
+
+          <div class="form-group form-group-year">
+            <label class="form-label" for="date-order-year">Year</label>
+            <input class="form-control" type="number" id="date-order-year">
+          </div>
+
         </div>
 
-        <div class="form-group form-group-month">
-          <label class="form-label" for="date-order-month">Month</label>
-          <input class="form-control" type="number" id="date-order-month">
-        </div>
+      </fieldset>
 
-        <div class="form-group form-group-year">
-          <label class="form-label" for="date-order-year">Year</label>
-          <input class="form-control" type="number" id="date-order-year">
-        </div>
+    </div>
 
-      </div>
+    <div class="form-group form-group-last">
+      <label for="libra-account-number">
+        <span class="form-label-bold">New Libra case number</span>
+      </label>
+      <input class="form-control form-control-1-2" type="text" id="libra-account-number" name="libraAccountNumber">
+    </div>
 
-    </fieldset>
+    <div class="form-group form-group-related">
+      <button class="button" type="submit">Save</button>
+    </div>
 
-  </div>
+    <p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
 
-  <div class="form-group form-group-last">
-    <label for="libra-account-number">
-      <span class="form-label-bold">New Libra case number</span>
-    </label>
-    <input class="form-control form-control-1-2" type="text" id="libra-account-number" name="libraAccountNumber">
-  </div>
-
-  <div class="form-group form-group-related">
-    <button class="button" type="submit">Save</button>
-  </div>
-
-  <p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
-
-</form>
+  </form>
 
 {{/with}}

@@ -61,7 +61,6 @@ var search = [
       ]
     }
   },
-
   {
     "id": 2,
     "personal-details": {
@@ -123,7 +122,6 @@ var search = [
       ]
     }
   },
-
   {
     "id": 3,
     "personal-details": {
@@ -185,7 +183,6 @@ var search = [
       ]
     }
   },
-
   {
     "id": 4,
     "personal-details": {
@@ -261,7 +258,6 @@ var search = [
       ]
     }
   },
-
   {
     "id": 5,
     "personal-details": {
@@ -344,7 +340,7 @@ var search = [
       ]
     }
   }
-
+  
 ];
 
 exports.getSearchEntries = function() {

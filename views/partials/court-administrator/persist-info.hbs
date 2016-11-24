@@ -1,0 +1,10 @@
+<div class="persist-info">
+  <span class="persist-info-reference">{{personal-details.urn}}</span>
+  <span class="persist-info-title">
+    {{#and ../sFirstname ../sLastname}}
+      <br>{{../sFirstname}} {{uppercase ../sLastname}}</b>
+    {{else}}
+      <b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b>
+    {{/and}}
+  </span>
+</div>

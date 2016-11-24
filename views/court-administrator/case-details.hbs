@@ -2,16 +2,7 @@
 
 {{#with search}}
 
-  <div class="persist-info">
-    <span class="persist-info-reference">{{personal-details.urn}}</span>
-    <span class="persist-info-title">
-      {{#and ../sFirstname ../sLastname}}
-        {{../sFirstname}} {{uppercase ../sLastname}}
-      {{else}}
-        {{personal-details.firstname}} {{uppercase personal-details.lastname}}
-      {{/and}}
-    </span>
-  </div>
+  {{>court-administrator/persist-info}}
 
   {{#if ../sIsLocked}}
   <div class="banner banner-warning" role="alert">
