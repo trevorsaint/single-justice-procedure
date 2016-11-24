@@ -52,7 +52,7 @@
                   <span class="form-label">Fine</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="fine-a" name="fineA" value="{{#if ../sFineA}}{{../sFineA}}{{else}}220{{/if}}">
+                  <input class="form-control form-control-1-4" type="text" id="fine-a" name="fineA" value="{{#if ../sFineA}}{{../sFineA}}{{else}}{{offence.fine}}{{/if}}">
                 </div>
               </div>
 
@@ -65,7 +65,7 @@
                 </label>
 
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="compensation-a" name="compensationA" value="{{#if ../sCompensationA}}{{../sCompensationA}}{{else}}3.12{{/if}}">
+                  <input class="form-control form-control-1-4" type="text" id="compensation-a" name="compensationA" value="{{#if ../sCompensationA}}{{../sCompensationA}}{{else}}{{offence.compensation}}{{/if}}">
                 </div>
 
                 <div class="panel panel-border-narrow js-hidden" id="compensation-a-reason">
@@ -248,7 +248,7 @@
             </label>
 
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="cost" name="cost" value="{{#if ../sCost}}{{../sCost}}{{else}}125{{/if}}">
+              <input class="form-control form-control-1-4" type="text" id="cost" name="cost" value="{{#if ../sCost}}{{../sCost}}{{else}}{{offence.cost}}{{/if}}">
             </div>
 
             <div class="panel panel-border-narrow js-hidden" id="costs-reason">
@@ -268,7 +268,7 @@
               <span class="form-label">Victim surcharge</span>
             </label>
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="surcharge" name="surcharge" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30{{/if}}">
+              <input class="form-control form-control-1-4" type="text" id="surcharge" name="surcharge" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}{{offence.surcharge}}{{/if}}">
             </div>
 
             <div class="panel panel-border-narrow js-hidden" id="surcharge-reason">
