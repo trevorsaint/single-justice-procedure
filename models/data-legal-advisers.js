@@ -209,6 +209,24 @@ var search = [
       "charge-date":   "2016-01-21",
       "notice-served": "2016-11-16",
     },
+    "employment": {
+      "status": "Employed",
+      "national-insurance-number": "",
+      "employer-name": "Harvey’s Furniture",
+      "employee-number": "",
+      "employer-address": {
+        "address1": "1 New Cross Gate",
+        "address2": "New Cross Rd",
+        "town": "London",
+        "postcode": "SE14 5UQ"
+      },
+      "employer-telephone": "",
+      "pay": {
+        "frequency": "",
+        "amount": ""
+      },
+      "receiving-benefits": "",
+    },
     "offence": {
       "title": "Public service vehicle &ndash; passenger used ticket issued for another person",
       "date": "2016-11-07",
@@ -340,7 +358,7 @@ var search = [
       ]
     }
   }
-  
+
 ];
 
 exports.getSearchEntries = function() {
