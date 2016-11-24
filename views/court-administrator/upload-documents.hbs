@@ -43,39 +43,26 @@
 
     <form class="form" method="post" enctype="multipart/form-data">
 
-      <fieldset>
-        <legend>
+      <div class="form-group">
+        <label for="plea-document">
           <span class="form-label-bold">Select plea document</span>
-        </legend>
-        <div class="form-group">
-          <input class="form-control-file" type="file" id="plea-document" name="pleaDocument">
-          <label class="button button-secondary" for="plea-document">Browse&hellip;</label>
-        </div>
-      </fieldset>
+        </label>
+        <input type="file" id="plea-document" name="pleaDocument">
+      </div>
 
-      <fieldset>
-        <legend>
+      <div class="form-group">
+        <label for="statement-of-income">
           <span class="form-label-bold">Select statement of income and outgoings (MC100)</span>
-        </legend>
-        <div class="form-group">
-          <input class="form-control-file" type="file" id="statement-of-income" name="statementIncome">
-          <label class="button button-secondary" for="statement-of-income">Browse&hellip;</label>
-        </div>
-      </fieldset>
+        </label>
+        <input type="file" id="statement-of-income" name="statementIncome">
+      </div>
 
       <div class="form-group form-group-last">
-
-        <!--fieldset-->
-          <legend>
-            <span class="form-label-bold">Select any other documents</span>
-            <span class="form-hint">For example, a bank statement, email or a copy of a travelcard</span>
-          </legend>
-          <div class="form-group form-group-related">
-            <input class="form-control-file" type="file" id="other-documents" name="otherDocuments" multiple="">
-            <label class="button button-secondary" for="other-documents">Browse&hellip;</label>
-          </div>
-        <!--/fieldset-->
-
+        <label for="other-documents">
+          <span class="form-label-bold">Select any other documents</span>
+          <span class="form-hint">For example, a bank statement, email or a copy of a travelcard</span>
+        </label>
+        <input type="file" id="other-documents" name="otherDocuments" multiple="">
       </div>
 
       <div class="form-group form-group-actions">
