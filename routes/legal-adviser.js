@@ -114,9 +114,6 @@ router.route('/legal-adviser/')
     res.redirect('/legal-adviser/home/');
   });
 
-
-
-
 router.route('/legal-adviser/home/')
   .get(function(req, res, next) {
     res.render('legal-adviser/home', {
@@ -266,14 +263,17 @@ router.route('/legal-adviser/discharge/:id')
     });
   })
   .post(function(req, res, next) {
-    sTypeOfDischarge  = req.session.typeOfDischarge = req.body.typeOfDischarge;
-    sCompensation     = req.session.compensation = req.body.compensation;
-    sDurationAmount   = req.session.durationAmount = req.body.durationAmount;
-    sDurationTimeSpan = req.session.durationTimeSpan = req.body.durationTimeSpan;
-    sCost             = req.session.cost = req.body.cost;
-    sSurcharge        = req.session.surcharge = req.body.surcharge;
+    sTypeOfDischarge          = req.session.typeOfDischarge = req.body.typeOfDischarge;
+    sCompensation             = req.session.compensation = req.body.compensation;
+    sDurationAmount           = req.session.durationAmount = req.body.durationAmount;
+    sDurationTimeSpan         = req.session.durationTimeSpan = req.body.durationTimeSpan;
+    sCost                     = req.session.cost = req.body.cost;
+    sSurcharge                = req.session.surcharge = req.body.surcharge;
     sCollectionOrderConfirmed = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed ? "true" : "false";
-    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+    sTotalToPay               = req.session.totalToPay = (Number(sCompensation) + Number(sCost) + Number(sSurcharge)).toFixed(2);
+
+    res.redirect('/legal-adviser/payment-method/' + req.params.id);
+
   });
 
 
@@ -346,7 +346,7 @@ router.route('/legal-adviser/financial-penalty/:id')
       sFineA                    = req.session.fineA = req.body.fineA;
       sCompensationA            = req.session.compensationA = req.body.compensationA;
       sReasonForNoCompensationA = req.session.reasonForNoCompensationA = req.body.reasonForNoCompensationA;
-      sTotalToPay               = req.session.totalToPay = Number(sFineA) + Number(sCompensationA) + Number(sCost) + Number(sSurcharge);
+      sTotalToPay               = req.session.totalToPay = (Number(sFineA) + Number(sCompensationA) + Number(sCost) + Number(sSurcharge)).toFixed(2);
 
       sFineB                    = req.session.fineB = null;
       sFineC                    = req.session.fineC = null;
@@ -360,7 +360,7 @@ router.route('/legal-adviser/financial-penalty/:id')
       sFineB                    = req.session.fineB = req.body.fineB;
       sCompensationB            = req.session.compensationB = req.body.compensationB;
       sReasonForNoCompensationB = req.session.reasonForNoCompensationB = req.body.reasonForNoCompensationB;
-      sTotalToPay               = req.session.totalToPay = Number(sFineB) + Number(sCompensationB) + Number(sCost) + Number(sSurcharge);
+      sTotalToPay               = req.session.totalToPay = (Number(sFineB) + Number(sCompensationB) + Number(sCost) + Number(sSurcharge)).toFixed(2);
 
       sFineA                    = req.session.fineA = null;
       sFineC                    = req.session.fineC = null;
@@ -374,7 +374,7 @@ router.route('/legal-adviser/financial-penalty/:id')
       sFineC                    = req.session.fineC = req.body.fineC;
       sCompensationC            = req.session.compensationC = req.body.compensationC;
       sReasonForNoCompensationC = req.session.reasonForNoCompensationC = req.body.reasonForNoCompensationC;
-      sTotalToPay               = req.session.totalToPay = Number(sFineC) + Number(sCompensationC) + Number(sCost) + Number(sSurcharge);
+      sTotalToPay               = req.session.totalToPay = (Number(sFineC) + Number(sCompensationC) + Number(sCost) + Number(sSurcharge)).toFixed(2);
 
       sFineA                    = req.session.fineA = null;
       sFineB                    = req.session.fineB = null;
@@ -583,6 +583,7 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
     }
 
     res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+    
   });
 
 
