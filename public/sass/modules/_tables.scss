@@ -27,24 +27,6 @@ $module: 'table';
   }
 
 
-
-  // container
-  &-container {
-    position: relative;
-  }
-
-
-  &-action {
-
-    @include media(tablet) {
-      margin: 0;
-      position: absolute; right: 0; top: 12px;
-    }
-
-  }
-
-
-
   // summary table
   &-summary {
 
@@ -79,6 +61,15 @@ $module: 'table';
 
   // decision table
   &-decision {
+
+    + details {
+      margin-top: $gutter-half;
+
+      @include media(tablet) {
+        margin-top: $gutter;
+      }
+
+    }
 
     th {font-weight: 400;}
 

@@ -10,7 +10,7 @@
 
     <h2 class="heading-medium" id="offence">Passenger used ticket issued for another person</h2>
 
-    <div class="table-container">
+    <div class="check-answers">
 
       <table class="table table-summary">
 
@@ -24,23 +24,21 @@
             <th>Result</th>
             <td>{{../sMakeDecision}}</td>
           </tr>
-          <!--tr>
+          <tr>
             <th>Verdict</th>
             <td>Proven SJP</td>
-          </tr-->
+          </tr>
         </tbody>
 
       </table>
 
-      <p class="table-action"><a href="/legal-adviser/case-details/{{id}}/#decision" title="Change decision">Change<span class="visually-hidden"> decision</span></a></p>
+      <p class="check-answers-action"><a href="/legal-adviser/case-details/{{id}}/#decision" title="Change decision">Change<span> decision</span></a></p>
 
     </div>
 
-    <hr class="divider" aria-hidden="true">
-
     <!-- financial penalty route only -->
     {{#contains ../sMakeDecision "Financial penalty"}}
-    <div class="table-container">
+    <div class="check-answers">
 
       <table class="table table-summary">
 
@@ -100,7 +98,7 @@
 
       </table>
 
-      <p class="table-action"><a href="/legal-adviser/financial-penalty/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change<span class="visually-hidden"> fine and compensation</span></a></p>
+      <p class="check-answers-action"><a href="/legal-adviser/financial-penalty/{{id}}/?change=true/#fine-and-compensation" title="Change fine and compensation">Change<span> fine and compensation</span></a></p>
 
     </div>
     {{/contains}}
@@ -108,7 +106,7 @@
 
     <!-- discharge route only -->
     {{#contains ../sMakeDecision "Discharge"}}
-    <div class="table-container">
+    <div class="check-answers">
 
       <table class="table table-summary">
 
@@ -138,7 +136,7 @@
 
       </table>
 
-      <p class="table-action"><a href="/legal-adviser/discharge/{{id}}/?change=true" title="Change type of discharge and compensation">Change<span class="visually-hidden"> type of discharge and compensation</span></a></p>
+      <p class="check-answers-action"><a href="/legal-adviser/discharge/{{id}}/?change=true" title="Change type of discharge and compensation">Change<span> type of discharge and compensation</span></a></p>
 
     </div>
     {{/contains}}
@@ -152,7 +150,7 @@
 
     <h2 class="heading-medium" id="costs-and-surcharge">Costs and surcharge</h2>
 
-    <div class="table-container">
+    <div class="check-answers">
 
       <table class="table table-summary">
 
@@ -182,7 +180,7 @@
 
       </table>
 
-      <p class="table-action"><a href="/legal-adviser/discharge/{{id}}/?change=true/#costs-and-surcharge" title="Change costs and surcharge">Change <span class="visually-hidden">cost and surcharge</span></a></p>
+      <p class="check-answers-action"><a href="/legal-adviser/discharge/{{id}}/?change=true/#costs-and-surcharge" title="Change costs and surcharge">Change <span>cost and surcharge</span></a></p>
 
     </div>
 
@@ -197,7 +195,7 @@
 
     <h2 class="heading-medium" id="payment">Payment</h2>
 
-    <div class="table-container">
+    <div class="check-answers">
 
       <table class="table table-summary">
 
@@ -315,14 +313,13 @@
 
       </table>
 
-      <p class="table-action"><a href="/legal-adviser/payment-method/{{id}}/?change=true/#collection-payment" title="Change payment">Change<span class="visually-hidden"> payment</span></a></p>
+      <p class="check-answers-action"><a href="/legal-adviser/payment-method/{{id}}/?change=true/#collection-payment" title="Change payment">Change<span> payment</span></a></p>
 
     </div>
 
   </section>
 
   {{/contains}}
-
 
   <hr class="divider divider-border-dark" aria-hidden="true">
 

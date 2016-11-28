@@ -4,16 +4,26 @@
 $module: 'check-answers';
 
 .#{$module} {
-  margin-top: em(40);
-  margin-bottom: em(40);
+  position: relative;
 
-  &-header {
-    margin-bottom: em(20);
-    position: relative;
-  }
+  @include media(desktop) {
+    &-action {
+      margin: 0; // reset margins
+      position: absolute; right: 0; top: 12px;
 
-  &-action {
-    position: absolute; top: 0; right: 0;
+      // hide visually but make available for screen readers
+      span {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+    }
   }
 
 }

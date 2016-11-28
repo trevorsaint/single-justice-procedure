@@ -2060,17 +2060,6 @@ CSS Usage
     width: 6.25em;
   }
 }
-.table-container {
-  position: relative;
-}
-@media (min-width: 641px) {
-  .table-action {
-    margin: 0;
-    position: absolute;
-    right: 0;
-    top: 12px;
-  }
-}
 .table-summary th, .table-summary td {
   border: 0;
   vertical-align: top;
@@ -2087,6 +2076,14 @@ CSS Usage
 }
 .table-summary .table-row-noborder th, .table-summary .table-row-noborder td {
   border: 0;
+}
+.table-decision + details {
+  margin-top: 15px;
+}
+@media (min-width: 641px) {
+  .table-decision + details {
+    margin-top: 30px;
+  }
 }
 .table-decision th {
   font-weight: 400;
@@ -3048,18 +3045,6 @@ HTML Usage
 </div>
 
 */
-.section-header {
-  position: relative;
-}
-.section-header [class^='heading-'] {
-  margin-top: 0;
-}
-.section-header a {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .status-label {
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
@@ -3505,18 +3490,6 @@ HTML Usage
   -o-text-overflow: ellipsis;
 }
 
-/*fieldset.inline {
-
-  .panel {
-    margin-top: 10px;
-
-    &:last-child {
-      margin-bottom: 15px;
-    }
-
-  }
-
-}*/
 fieldset.inline ~ .panel {
   margin-top: 10px;
 }
@@ -3524,25 +3497,24 @@ fieldset.inline ~ .panel:last-child {
   margin-bottom: 15px;
 }
 
-.table {
-  margin-bottom: 15px;
-}
-@media (min-width: 641px) {
-  .table {
-    margin-bottom: 30px;
-  }
-}
-
 .check-answers {
-  margin-top: 2.10526em;
-  margin-bottom: 2.10526em;
-}
-.check-answers-header {
-  margin-bottom: 1.05263em;
   position: relative;
 }
-.check-answers-action {
-  position: absolute;
-  top: 0;
-  right: 0;
+@media (min-width: 769px) {
+  .check-answers-action {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 12px;
+  }
+  .check-answers-action span {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
 }

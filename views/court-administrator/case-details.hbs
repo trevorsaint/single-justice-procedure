@@ -78,14 +78,7 @@
           {{#with personal-details}}
           <section id="personal-details">
 
-            {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}
-              <h2 class="heading-medium">Personal details</h2>
-            {{else}}
-              <header class="section-header">
-                <h2 class="heading-medium">Personal details</h2>
-                <a class="font-small" href="/court-administrator/personal-details/{{../id}}/" title="Change personal details">Change <span class="visually-hidden">personal details</span></a>
-              </header>
-            {{/is}}
+            <h2 class="heading-medium">Personal details</h2>
 
             <dl class="meta meta-inline meta-boldterms">
 
@@ -156,20 +149,17 @@
 
             </dl>
 
+            {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
+            <p><a class="font-small" href="/court-administrator/personal-details/{{../id}}/">Change personal details</a></p>
+            {{/isnt}}
+
           </section>
           {{/with}}
 
           {{#with employment}}
           <section id="employment-and-income">
 
-            {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}
-              <h2 class="heading-medium">Employment and income</h2>
-            {{else}}
-              <header class="section-header">
-                <h2 class="heading-medium">Employment and income</h2>
-                <a class="font-small" href="/court-administrator/employment-and-income/{{../id}}/" title="Change employment and income">Change <span class="visually-hidden">employment and income</span></a>
-              </header>
-            {{/is}}
+            <h2 class="heading-medium">Employment and income</h2>
 
             <dl class="meta meta-inline meta-boldterms">
 
@@ -289,20 +279,17 @@
 
             </dl>
 
+            {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
+            <p><a class="font-small" href="/court-administrator/employment-and-income/{{../id}}/">Change employment and income</a></p>
+            {{/isnt}}
+
           </section>
           {{/with}}
 
           {{#with related-documents}}
           <section id="documents">
 
-            {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}
-              <h2 class="heading-medium">Documents</h2>
-            {{else}}
-              <header class="section-header">
-                <h2 class="heading-medium">Documents</h2>
-                <a class="font-small" href="/court-administrator/upload-documents/{{../id}}/" title="Upload more documents">Upload more<span class="visually-hidden"> documents</span></a>
-              </header>
-            {{/is}}
+            <h2 class="heading-medium">Documents</h2>
 
             <dl class="meta meta-inline meta-boldterms">
               <dt>Uploaded files</dt>
@@ -324,6 +311,10 @@
                 {{/each}}
               </dd>
             </dl>
+
+            {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
+            <p><a class="font-small" href="/court-administrator/upload-documents/{{../id}}/">Upload more documents</a></p>
+            {{/isnt}}
 
           </section>
           {{/with}}
