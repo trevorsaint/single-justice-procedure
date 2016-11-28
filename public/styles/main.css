@@ -2064,9 +2064,6 @@ CSS Usage
   border: 0;
   vertical-align: top;
 }
-.table-summary th {
-  font-weight: normal;
-}
 .table-summary-title {
   width: 40%;
 }
@@ -3289,6 +3286,12 @@ HTML Usage
 }
 .divider-border-thick {
   height: 0.26316em;
+}
+@media (min-width: 641px) {
+  .divider-gutter-large {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
 }
 
 hr {
