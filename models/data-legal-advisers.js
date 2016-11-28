@@ -54,9 +54,9 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "256KB",
-          "file-pages": "3 pages",
-          "file-path":  "/legal-adviser/documents/"
+          "file-size":  "312KB",
+          "file-pages": "4 pages",
+          "file-path":  "/public/documents/legal-adviser/1/sjp-notice.pdf"
         }
       ]
     }
@@ -115,9 +115,9 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "256KB",
-          "file-pages": "3 pages",
-          "file-path":  "/legal-adviser/documents/"
+          "file-size":  "312KB",
+          "file-pages": "4 pages",
+          "file-path":  "/public/documents/legal-adviser/2/sjp-notice.pdf"
         }
       ]
     }
@@ -176,9 +176,9 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "256KB",
-          "file-pages": "3 pages",
-          "file-path":  "/legal-adviser/documents/"
+          "file-size":  "312KB",
+          "file-pages": "4 pages",
+          "file-path":  "/public/documents/legal-adviser/3/sjp-notice.pdf"
         }
       ]
     }
@@ -237,9 +237,9 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "256KB",
-          "file-pages": "3 pages",
-          "file-path":  "/legal-adviser/documents/"
+          "file-size":  "312KB",
+          "file-pages": "4 pages",
+          "file-path":  "/public/documents/legal-adviser/4/sjp-notice.pdf"
         },
         {
           "title":      "previous convictions",
@@ -312,9 +312,9 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "256KB",
-          "file-pages": "3 pages",
-          "file-path":  "/legal-adviser/documents/"
+          "file-size":  "312KB",
+          "file-pages": "4 pages",
+          "file-path":  "/public/documents/legal-adviser/5/sjp-notice.pdf"
         },
         {
           "title":      "previous convictions",
@@ -333,14 +333,14 @@ var search = [
         {
           "title": "plea document",
           "file-type": "PDF",
-          "file-size": "560KB",
-          "file-pages": "10 pages",
-          "file-path": "/legal-adviser/documents/",
+          "file-size": "120KB",
+          "file-pages": "3 pages",
+          "file-path": "/public/documents/legal-adviser/5/plea-document.pdf",
         },
       ]
     }
   }
-  
+
 ];
 
 exports.getSearchEntries = function() {
