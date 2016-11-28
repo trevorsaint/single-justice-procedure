@@ -242,19 +242,19 @@ var search = [
           "file-path":  "/public/documents/legal-adviser/4/sjp-notice.pdf"
         },
         {
-          "title":      "previous convictions",
-          "file-type":  "PDF",
-          "file-size":  "514KB",
-          "file-pages": "2 pages",
-          "file-path":  "/legal-adviser/documents/"
-        },
-        {
           "title":      "statement of income and outgoings (MC100)",
           "file-type":  "PDF",
-          "file-size":  "256KB",
-          "file-pages": "3 pages",
-          "file-path":  "/legal-adviser/documents/"
-        }
+          "file-size":  "718KB",
+          "file-pages": "1 page",
+          "file-path":  "/public/documents/legal-adviser/4/mc100.pdf"
+        },
+        {
+          "title": "plea document",
+          "file-type": "PDF",
+          "file-size": "43KB",
+          "file-pages": "1 page",
+          "file-path": "/public/documents/legal-adviser/4/plea-document.pdf",
+        },
       ]
     }
   },
@@ -312,29 +312,29 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "312KB",
-          "file-pages": "4 pages",
+          "file-size":  "85KB",
+          "file-pages": "1 page",
           "file-path":  "/public/documents/legal-adviser/5/sjp-notice.pdf"
         },
         {
           "title":      "previous convictions",
           "file-type":  "PDF",
-          "file-size":  "514KB",
-          "file-pages": "2 pages",
-          "file-path":  "/legal-adviser/documents/"
+          "file-size":  "111KB",
+          "file-pages": "1 page",
+          "file-path":  "/public/documents/legal-adviser/5/previous-convictions.pdf"
         },
         {
           "title":      "statement of income and outgoings (MC100)",
           "file-type":  "PDF",
-          "file-size":  "256KB",
-          "file-pages": "3 pages",
-          "file-path":  "/legal-adviser/documents/"
+          "file-size":  "714KB",
+          "file-pages": "1 page",
+          "file-path":  "/public/documents/legal-adviser/5/mc100.pdf"
         },
         {
           "title": "plea document",
           "file-type": "PDF",
-          "file-size": "120KB",
-          "file-pages": "3 pages",
+          "file-size": "40KB",
+          "file-pages": "1 page",
           "file-path": "/public/documents/legal-adviser/5/plea-document.pdf",
         },
       ]
