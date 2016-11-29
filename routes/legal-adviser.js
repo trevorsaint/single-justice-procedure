@@ -70,12 +70,14 @@ router.use(function(req, res, next) {
   sLumpSumInstalmentStartDateDay    = req.session.lumpSumInstalmentStartDateDay;
   sLumpSumInstalmentStartDateMonth  = req.session.lumpSumInstalmentStartDateMonth;
   sLumpSumInstalmentStartDateYear   = req.session.lumpSumInstalmentStartDateYear;
+  sLumpSumInstalmentStartDate       = req.session.lumpSumInstalmentStartDate;
 
   sInstalmentOnlyAmount          = req.session.instalmentOnlyAmount;
   sInstalmentOnlyMade            = req.session.instalmentOnlyMade;
   sInstalmentOnlyStartDateDay    = req.session.instalmentOnlyStartDateDay;
   sInstalmentOnlyStartDateMonth  = req.session.instalmentOnlyStartDateMonth;
   sInstalmentOnlyStartDateYear   = req.session.instalmentOnlyStartDateYear;
+  sInstalmentOnlyStartDate       = req.session.instalmentOnlyStartDate;
 
   // attach to earnings
   sEmployeeNumber                 = req.session.employeeNumber;
@@ -467,23 +469,31 @@ router.route('/legal-adviser/pay-direct-to-court/:id')
   .post(function(req, res, next) {
     sDefendantPay = req.session.defendantPay = req.body.defendantPay;
     sReasonForNotDeductFromBenefitsOrAttachToEarnings = req.session.reasonForNotDeductFromBenefitsOrAttachToEarnings = req.body.reasonForNotDeductFromBenefitsOrAttachToEarnings;
+
     if (sDefendantPay === "Lump sum plus instalments") {
-      sLumpSumAmount = req.session.lumpSumAmount = req.body.lumpSumAmount;
-      sLumpSumAmountPaidWithin = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
-      sLumpSumInstalmentAmount = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
-      sLumpSumInstalmentMade = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
-      sLumpSumInstalmentStartDateDay = req.session.lumpSumInstalmentStartDateDay = req.body.lumpSumInstalmentStartDateDay;
-      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = req.body.lumpSumInstalmentStartDateMonth;
-      sLumpSumInstalmentStartDateYear = req.session.lumpSumInstalmentStartDateYear = req.body.lumpSumInstalmentStartDateYear;
+
+      sLumpSumAmount                   = req.session.lumpSumAmount = req.body.lumpSumAmount;
+      sLumpSumAmountPaidWithin         = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+      sLumpSumInstalmentAmount         = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
+      sLumpSumInstalmentMade           = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
+      sLumpSumInstalmentStartDateDay   = req.session.lumpSumInstalmentStartDateDay = parseInt(req.body.lumpSumInstalmentStartDateDay);
+      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = parseInt(req.body.lumpSumInstalmentStartDateMonth);
+      sLumpSumInstalmentStartDateYear  = req.session.lumpSumInstalmentStartDateYear = parseInt(req.body.lumpSumInstalmentStartDateYear);
+      sLumpSumInstalmentStartDate      = req.session.lumpSumInstalmentStartDate = new Date(parseInt(req.body.lumpSumInstalmentStartDateYear) + '-' + parseInt(req.body.lumpSumInstalmentStartDateMonth) + '-' + parseInt(req.body.lumpSumInstalmentStartDateDay));
+
     } else if (sDefendantPay === "Instalments only") {
-      sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
-      sInstalmentOnlyAmount = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
-      sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
-      sInstalmentOnlyStartDateDay = req.session.instalmentOnlyStartDateDay = req.body.instalmentOnlyStartDateDay;
-      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = req.body.instalmentOnlyStartDateMonth;
-      sInstalmentOnlyStartDateYear = req.session.instalmentOnlyStartDateYear = req.body.instalmentOnlyStartDateYear;
+
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyAmount         = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyStartDateDay   = req.session.instalmentOnlyStartDateDay = parseInt(req.body.instalmentOnlyStartDateDay);
+      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = parseInt(req.body.instalmentOnlyStartDateMonth);
+      sInstalmentOnlyStartDateYear  = req.session.instalmentOnlyStartDateYear = parseInt(req.body.instalmentOnlyStartDateYear);
+      sInstalmentOnlyStartDate      = req.session.instalmentOnlyStartDate = new Date(parseInt(req.body.instalmentOnlyStartDateYear) + '-' + parseInt(req.body.instalmentOnlyStartDateMonth) + '-' + parseInt(req.body.instalmentOnlyStartDateDay));
+
     }
     res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+    
   });
 
 
@@ -510,6 +520,21 @@ router.route('/legal-adviser/attach-to-earnings/:id')
       sEmployerTown: sEmployerTown,
       sEmployerPostcode: sEmployerPostcode,
       sReasonForAttachingToEarnings: sReasonForAttachingToEarnings,
+      sReserveTerms: sReserveTerms,
+      sLumpSumAmount: sLumpSumAmount,
+      sLumpSumAmountPaidWithin: sLumpSumAmountPaidWithin,
+      sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
+      sLumpSumInstalmentMade: sLumpSumInstalmentMade,
+      sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
+      sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
+      sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+      sLumpSumInstalmentStartDate: sLumpSumInstalmentStartDate,
+      sInstalmentOnlyAmount: sInstalmentOnlyAmount,
+      sInstalmentOnlyMade: sInstalmentOnlyMade,
+      sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
+      sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
+      sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+      sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
       sTotalToPay: sTotalToPay
     });
   })
@@ -521,6 +546,31 @@ router.route('/legal-adviser/attach-to-earnings/:id')
     sEmployerTown = req.session.employerTown = req.body.employerTown;
     sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
     sReasonForAttachingToEarnings = req.session.reasonForAttachingToEarnings = req.body.reasonForAttachingToEarnings;
+    sRerserveTerms = req.session.reserveTerms = req.body.reserveTerms;
+
+    if (sReserveTerms === "Lump sum plus instalments") {
+
+      sLumpSumAmount                   = req.session.lumpSumAmount = req.body.lumpSumAmount;
+      sLumpSumAmountPaidWithin         = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+      sLumpSumInstalmentAmount         = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
+      sLumpSumInstalmentMade           = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
+      sLumpSumInstalmentStartDateDay   = req.session.lumpSumInstalmentStartDateDay = parseInt(req.body.lumpSumInstalmentStartDateDay);
+      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = parseInt(req.body.lumpSumInstalmentStartDateMonth);
+      sLumpSumInstalmentStartDateYear  = req.session.lumpSumInstalmentStartDateYear = parseInt(req.body.lumpSumInstalmentStartDateYear);
+      sLumpSumInstalmentStartDate      = new Date(req.session.lumpSumInstalmentStartDate = parseInt(req.body.lumpSumInstalmentStartDateYear) + '-' + parseInt(req.body.lumpSumInstalmentStartDateMonth) + '-' + parseInt(req.body.lumpSumInstalmentStartDateDay));
+
+    } else if (sReserveTerms === "Instalments only") {
+
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyAmount         = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyStartDateDay   = req.session.instalmentOnlyStartDateDay = parseInt(req.body.instalmentOnlyStartDateDay);
+      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = parseInt(req.body.instalmentOnlyStartDateMonth);
+      sInstalmentOnlyStartDateYear  = req.session.instalmentOnlyStartDateYear = parseInt(req.body.instalmentOnlyStartDateYear);
+      sInstalmentOnlyStartDate      = new Date(req.session.instalmentOnlyStartDate = parseInt(req.body.instalmentOnlyStartDateYear) + '-' + parseInt(req.body.instalmentOnlyStartDateMonth) + '-' + parseInt(req.body.instalmentOnlyStartDateDay));
+
+    }
+
     res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
   });
 
@@ -552,11 +602,13 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
       sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
       sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
       sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+      sLumpSumInstalmentStartDate: sLumpSumInstalmentStartDate,
       sInstalmentOnlyAmount: sInstalmentOnlyAmount,
       sInstalmentOnlyMade: sInstalmentOnlyMade,
       sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
       sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
       sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+      sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
       sTotalToPay: sTotalToPay
     });
   })
@@ -566,24 +618,30 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
     sReserveTerms = req.session.reserveTerms = req.body.reserveTerms;
 
     if (sReserveTerms === "Lump sum plus instalments") {
-      sLumpSumAmount = req.session.lumpSumAmount = req.body.lumpSumAmount;
-      sLumpSumAmountPaidWithin = req.session.lumpSumAmountPaidWithin = req.body.lumpSumAmountPaidWithin;
-      sLumpSumInstalmentAmount = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
-      sLumpSumInstalmentMade = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
-      sLumpSumInstalmentStartDateDay = req.session.lumpSumInstalmentStartDateDay = req.body.lumpSumInstalmentStartDateDay;
-      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = req.body.lumpSumInstalmentStartDateMonth;
-      sLumpSumInstalmentStartDateYear = req.session.lumpSumInstalmentStartDateYear = req.body.lumpSumInstalmentStartDateYear;
+
+      sLumpSumAmount                   = req.session.lumpSumAmount = req.body.lumpSumAmount;
+      sLumpSumAmountPaidWithin         = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+      sLumpSumInstalmentAmount         = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
+      sLumpSumInstalmentMade           = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
+      sLumpSumInstalmentStartDateDay   = req.session.lumpSumInstalmentStartDateDay = parseInt(req.body.lumpSumInstalmentStartDateDay);
+      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = parseInt(req.body.lumpSumInstalmentStartDateMonth);
+      sLumpSumInstalmentStartDateYear  = req.session.lumpSumInstalmentStartDateYear = parseInt(req.body.lumpSumInstalmentStartDateYear);
+      sLumpSumInstalmentStartDate      = new Date(req.session.lumpSumInstalmentStartDate = parseInt(req.body.lumpSumInstalmentStartDateYear) + '-' + parseInt(req.body.lumpSumInstalmentStartDateMonth) + '-' + parseInt(req.body.lumpSumInstalmentStartDateDay));
+
     } else if (sReserveTerms === "Instalments only") {
-      sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
-      sInstalmentOnlyAmount = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
-      sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
-      sInstalmentOnlyStartDateDay = req.session.instalmentOnlyStartDateDay = req.body.instalmentOnlyStartDateDay;
-      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = req.body.instalmentOnlyStartDateMonth;
-      sInstalmentOnlyStartDateYear = req.session.instalmentOnlyStartDateYear = req.body.instalmentOnlyStartDateYear;
+
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyAmount         = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyStartDateDay   = req.session.instalmentOnlyStartDateDay = parseInt(req.body.instalmentOnlyStartDateDay);
+      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = parseInt(req.body.instalmentOnlyStartDateMonth);
+      sInstalmentOnlyStartDateYear  = req.session.instalmentOnlyStartDateYear = parseInt(req.body.instalmentOnlyStartDateYear);
+      sInstalmentOnlyStartDate      = new Date(req.session.instalmentOnlyStartDate = parseInt(req.body.instalmentOnlyStartDateYear) + '-' + parseInt(req.body.instalmentOnlyStartDateMonth) + '-' + parseInt(req.body.instalmentOnlyStartDateDay));
+
     }
 
     res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
-    
+
   });
 
 
@@ -645,6 +703,7 @@ router.route('/legal-adviser/check-your-decisions/:id')
         sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
         sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
         sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+        sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
         sLumpSumAmount: sLumpSumAmount,
         sLumpSumAmountPaidWithin: sLumpSumAmountPaidWithin,
         sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
@@ -652,6 +711,7 @@ router.route('/legal-adviser/check-your-decisions/:id')
         sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
         sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
         sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+        sLumpSumInstalmentStartDate: sLumpSumInstalmentStartDate,
 
         sTypeOfDischarge: sTypeOfDischarge,
         sCompensation: sCompensation,

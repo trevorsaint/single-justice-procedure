@@ -10,8 +10,8 @@
 
       <h1 class="heading-xlarge">{{../pagetitle}}</h1>
       <h2 class="heading-large">Offence 1</h2>
-      <h3 class="bold-medium">Passenger used ticket issued for another person</h3>
-      <p class="font-xsmall">On <time datetime="2016-06-10">10/06/2014</time> At grosvenor place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a<!--Driver without a Conductor did not immediately on boarding pay the fare to the Driver for the journey you intended to take-->&hellip; <a href="">More</a></p>
+      <h3 class="bold-medium">{{{offence.title}}}</h3>
+      <p class="font-xsmall js-text">{{{offence.offence-wording}}}</p>
 
       <form class="form" method="post">
 
@@ -19,8 +19,8 @@
 
           <h3 class="heading-medium" id="fine-and-compensation">Check fine and compensation</h3>
 
-          {{#if offence.weekly-income-assumed}}
-          <p>Defendant&rsquo;s weekly income: <b>&pound;{{offence.weekly-income-assumed}}</b> assumed</p>
+          {{#if offence.weekly-income}}
+            <p>Defendant&rsquo;s weekly income: <b>&pound;{{offence.weekly-income}}</b>{{#if offence.weekly-income-assumed}} (assumed){{/if}}</p>
           {{/if}}
 
           <div class="form-group">
@@ -52,7 +52,7 @@
                   <span class="form-label">Fine</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="fine-a" name="fineA" value="{{#if ../sFineA}}{{../sFineA}}{{else}}220{{/if}}">
+                  <input class="form-control form-control-1-4" type="text" id="fine-a" name="fineA" value="{{#if ../sFineA}}{{../sFineA}}{{else}}{{offence.fine}}{{/if}}">
                 </div>
               </div>
 
@@ -65,7 +65,7 @@
                 </label>
 
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="compensation-a" name="compensationA" value="{{#if ../sCompensationA}}{{../sCompensationA}}{{else}}3.12{{/if}}">
+                  <input class="form-control form-control-1-4" type="text" id="compensation-a" name="compensationA" value="{{#if ../sCompensationA}}{{../sCompensationA}}{{else}}{{offence.compensation}}{{/if}}">
                 </div>
 
                 <div class="panel panel-border-narrow js-hidden" id="compensation-a-reason">

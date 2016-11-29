@@ -2064,15 +2064,13 @@ CSS Usage
   border: 0;
   vertical-align: top;
 }
-.table-summary-title {
+.table-summary .table-cell-title {
   width: 40%;
 }
-.table-summary .table-cell-action {
-  padding-right: 0;
-  text-align: right;
-}
-.table-summary .table-row-noborder th, .table-summary .table-row-noborder td {
-  border: 0;
+@media (min-width: 641px) {
+  .table-summary .table-cell-content {
+    padding-right: 80px;
+  }
 }
 .table-decision + details {
   margin-top: 15px;

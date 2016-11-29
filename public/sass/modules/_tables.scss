@@ -35,19 +35,14 @@ $module: 'table';
       vertical-align: top;
     }
 
-    &-title {
+    .#{$module}-cell-title {
       width: 40%;
     }
 
-    .#{$module}-cell-action {
-      padding-right: 0;
-      text-align: right;
-    }
+    @include media(tablet) {
 
-    .#{$module}-row-noborder {
-
-      th, td {
-        border: 0;
+      .#{$module}-cell-content {
+        padding-right: 80px;
       }
 
     }
