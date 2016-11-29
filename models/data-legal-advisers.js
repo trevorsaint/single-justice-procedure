@@ -55,7 +55,7 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "312KB",
+          "file-size":  "313KB",
           "file-pages": "4 pages",
           "file-path":  "/public/documents/legal-adviser/1/sjp-notice.pdf"
         }
@@ -179,7 +179,7 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "312KB",
+          "file-size":  "330KB",
           "file-pages": "4 pages",
           "file-path":  "/public/documents/legal-adviser/3/sjp-notice.pdf"
         }
@@ -259,7 +259,7 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "312KB",
+          "file-size":  "314KB",
           "file-pages": "4 pages",
           "file-path":  "/public/documents/legal-adviser/4/sjp-notice.pdf"
         },
@@ -273,8 +273,8 @@ var search = [
         {
           "title": "plea document",
           "file-type": "PDF",
-          "file-size": "43KB",
-          "file-pages": "1 page",
+          "file-size": "139KB",
+          "file-pages": "3 pages",
           "file-path": "/public/documents/legal-adviser/4/plea-document.pdf",
         },
       ]
@@ -353,8 +353,8 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "85KB",
-          "file-pages": "1 page",
+          "file-size":  "266KB",
+          "file-pages": "4 pages",
           "file-path":  "/public/documents/legal-adviser/5/sjp-notice.pdf"
         },
         {
