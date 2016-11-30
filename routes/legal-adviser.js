@@ -1,8 +1,10 @@
 var express = require('express');
-var router = express.Router();
+var router  = express.Router();
+
 
 // datastore
 var dataEngine = require('../models/data-legal-advisers');
+
 
 // baseurl and apptitle
 var baseurl  = '/legal-adviser/';
@@ -94,61 +96,59 @@ router.use(function(req, res, next) {
 
 });
 
+
 // remove session data and redirect user to sign-in page
 router.get('/legal-adviser/end-session', function(req, res, next) {
   req.session.destroy();
   res.redirect('/legal-adviser/');
 });
 
-// routes
+
 router.route('/legal-adviser/')
   .get(function(req, res, next) {
     res.render('legal-adviser/index', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Sign in',
-      pagetitle: 'Sign in',
-      signedIn: false,
+      baseurl:    baseurl,
+      apptitle:   apptitle,
+      doctitle:   'Sign in',
+      pagetitle:  'Sign in',
+      signedIn:   false,
       breadcrumb: false,
-      sBack: sBack
+      sBack:      sBack
     });
   })
   .post(function(req, res, next) {
     res.redirect('/legal-adviser/home/');
   });
 
+
 router.route('/legal-adviser/home/')
   .get(function(req, res, next) {
     res.render('legal-adviser/home', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Single Justice Procedure',
-      pagetitle: 'Single Justice Procedure',
-      section: 'home',
+      baseurl:      baseurl,
+      apptitle:     apptitle,
+      doctitle:     'Single Justice Procedure',
+      pagetitle:    'Single Justice Procedure',
+      section:      'home',
       section_name: 'Home',
-      signedIn: true,
-      breadcrumb: false,
-      sBack: sBack
+      signedIn:     true,
+      breadcrumb:   false,
+      sBack:        sBack
     });
-  })
-  .post(function(req, res, next) {
-    // do something
   });
-
 
 
 router.route('/legal-adviser/start-a-new-sjp-session/')
   .get(function(req, res, next) {
     res.render('legal-adviser/start-a-new-sjp-session', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Start a new SJP session',
-      pagetitle: 'Start a new SJP session',
-      section: 'home',
+      baseurl:      baseurl,
+      apptitle:     apptitle,
+      doctitle:     'Start a new SJP session',
+      pagetitle:    'Start a new SJP session',
+      section:      'home',
       section_name: 'Home',
-      signedIn: true,
-      breadcrumb: true,
-      sBack: sBack
+      signedIn:     true,
+      breadcrumb:   true,
+      sBack:        sBack
     });
   })
   .post(function(req, res, next) {
@@ -156,35 +156,34 @@ router.route('/legal-adviser/start-a-new-sjp-session/')
   });
 
 
-
 router.route('/legal-adviser/case-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('legal-adviser/case-details', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Case details',
-      pagetitle: 'Case details',
-      section: 'home',
-      section_name: 'Home',
-      search: entry,
-      signedIn: true,
-      breadcrumb: true,
-      sFirstname: sFirstname,
-      sLastname: sLastname,
-      sDob: sDob,
-      sEmail: sEmail,
-      sPhone: sPhone,
-      sMobile: sMobile,
-      sAddress1: sAddress1,
-      sAddress2: sAddress2,
-      sTown: sTown,
-      sPostcode: sPostcode,
+      baseurl:                  baseurl,
+      apptitle:                 apptitle,
+      doctitle:                 'Case details',
+      pagetitle:                'Case details',
+      section:                  'home',
+      section_name:             'Home',
+      search:                   entry,
+      signedIn:                 true,
+      breadcrumb:               true,
+      sFirstname:               sFirstname,
+      sLastname:                sLastname,
+      sDob:                     sDob,
+      sEmail:                   sEmail,
+      sPhone:                   sPhone,
+      sMobile:                  sMobile,
+      sAddress1:                sAddress1,
+      sAddress2:                sAddress2,
+      sTown:                    sTown,
+      sPostcode:                sPostcode,
       sNationalInsuranceNumber: sNationalInsuranceNumber,
-      sHasSaved: sHasSaved,
-      sMakeDecision: sMakeDecision,
-      sBack: sBack,
-      sActiveTab: sActiveTab
+      sHasSaved:                sHasSaved,
+      sMakeDecision:            sMakeDecision,
+      sActiveTab:               sActiveTab,
+      sBack:                    sBack
     });
   })
   .post(function(req, res, next) {
@@ -215,22 +214,23 @@ router.route('/legal-adviser/case-details/:id/')
 
   });
 
+
 router.route('/legal-adviser/refer-for-court-hearing/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('legal-adviser/refer-for-court-hearing', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Confirm outcome',
-      pagetitle: 'Confirm outcome',
-      section: 'home',
-      section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
+      baseurl:       baseurl,
+      apptitle:      apptitle,
+      doctitle:      'Confirm outcome',
+      pagetitle:     'Confirm outcome',
+      section:       'home',
+      section_name:  'Home',
+      section2:      'case-details/' + req.params.id,
       section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
-      search: entry,
-      signedIn: true,
-      breadcrumb: true,
+      search:        entry,
+      signedIn:      true,
+      breadcrumb:    true,
     });
   })
   .post(function(req, res, next) {
@@ -238,48 +238,45 @@ router.route('/legal-adviser/refer-for-court-hearing/:id')
   });
 
 
-
-
 router.route('/legal-adviser/discharge/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('legal-adviser/discharge', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Confirm outcome',
-      pagetitle: 'Confirm outcome',
-      section: 'home',
-      section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      sMakeDecision: sMakeDecision,
-      sTypeOfDischarge: sTypeOfDischarge,
-      sCompensation: sCompensation,
-      sDurationAmount: sDurationAmount,
-      sDurationTimeSpan: sDurationTimeSpan,
-      sCost: sCost,
-      sSurcharge: sSurcharge,
+      baseurl:                   baseurl,
+      apptitle:                  apptitle,
+      doctitle:                  'Confirm outcome',
+      pagetitle:                 'Confirm outcome',
+      section:                   'home',
+      section_name:              'Home',
+      section2:                  'case-details/' + req.params.id,
+      section2_name:             'Case details',
+      sMakeDecision:             sMakeDecision,
+      sTypeOfDischarge:          sTypeOfDischarge,
+      sCompensation:             sCompensation,
+      sDurationAmount:           sDurationAmount,
+      sDurationTimeSpan:         sDurationTimeSpan,
+      sCost:                     sCost,
+      sSurcharge:                sSurcharge,
       sCollectionOrderConfirmed: sCollectionOrderConfirmed,
-      search: entry,
-      signedIn: true,
-      breadcrumb: true,
+      search:                    entry,
+      signedIn:                  true,
+      breadcrumb:                true,
     });
   })
   .post(function(req, res, next) {
-    sTypeOfDischarge          = req.session.typeOfDischarge = req.body.typeOfDischarge;
-    sCompensation             = req.session.compensation = req.body.compensation;
-    sDurationAmount           = req.session.durationAmount = req.body.durationAmount;
-    sDurationTimeSpan         = req.session.durationTimeSpan = req.body.durationTimeSpan;
-    sCost                     = req.session.cost = req.body.cost;
-    sSurcharge                = req.session.surcharge = req.body.surcharge;
+
+    sTypeOfDischarge          = req.session.typeOfDischarge          = req.body.typeOfDischarge;
+    sCompensation             = req.session.compensation             = req.body.compensation;
+    sDurationAmount           = req.session.durationAmount           = req.body.durationAmount;
+    sDurationTimeSpan         = req.session.durationTimeSpan         = req.body.durationTimeSpan;
+    sCost                     = req.session.cost                     = req.body.cost;
+    sSurcharge                = req.session.surcharge                = req.body.surcharge;
     sCollectionOrderConfirmed = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed ? "true" : "false";
-    sTotalToPay               = req.session.totalToPay = (Number(sCompensation) + Number(sCost) + Number(sSurcharge)).toFixed(2);
+    sTotalToPay               = req.session.totalToPay               = (Number(sCompensation) + Number(sCost) + Number(sSurcharge)).toFixed(2);
 
     res.redirect('/legal-adviser/payment-method/' + req.params.id);
 
   });
-
-
 
 
 router.route('/legal-adviser/withdraw/:id')
@@ -420,15 +417,15 @@ router.route('/legal-adviser/payment-method/:id')
     });
   })
   .post(function(req, res, next) {
-      sPaymentMethod = req.session.paymentMethod = req.body.paymentMethod;
+    sPaymentMethod = req.session.paymentMethod = req.body.paymentMethod;
 
-      if (sPaymentMethod === "Pay direct to court") {
-        res.redirect('/legal-adviser/pay-direct-to-court/' + req.params.id);
-      } else if (sPaymentMethod === "Deduct from benefits") {
-        res.redirect('/legal-adviser/deduct-from-benefits/' + req.params.id);
-      } else {
-        res.redirect('/legal-adviser/attach-to-earnings/' + req.params.id);
-      }
+    if (sPaymentMethod === "Pay direct to court") {
+      res.redirect('/legal-adviser/pay-direct-to-court/' + req.params.id);
+    } else if (sPaymentMethod === "Deduct from benefits") {
+      res.redirect('/legal-adviser/deduct-from-benefits/' + req.params.id);
+    } else {
+      res.redirect('/legal-adviser/attach-to-earnings/' + req.params.id);
+    }
 
   });
 
@@ -737,14 +734,17 @@ router.route('/legal-adviser/confirmation/:id/')
 
     entry = dataEngine.getSearchEntry(req.params.id);
 
-    id = Number(req.params.id) + 1;
+    url = "case-details";
+    id  = Number(req.params.id) + 1;
 
     if (id > 5) {
-      id = 1;
+      id  = null;
+      url = "no-more-cases";
     }
 
     res.render('legal-adviser/confirmation', {
       id: id,
+      url: url,
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Confirmation',
@@ -754,6 +754,19 @@ router.route('/legal-adviser/confirmation/:id/')
       breadcrumb: false
     });
 
+  });
+
+
+router.route('/legal-adviser/no-more-cases/')
+  .get(function(req, res, next) {
+    res.render('legal-adviser/no-more-cases', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Session complete',
+      pagetitle: 'Session complete',
+      signedIn: true,
+      breadcrumb: false
+    });
   });
 
 
@@ -816,5 +829,6 @@ router.get('/legal-adviser/*', function(req, res, next) {
     sBack: sBack
   });
 });
+
 
 module.exports = router
