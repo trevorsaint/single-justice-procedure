@@ -1,9 +1,5 @@
 {{>breadcrumb}}
 
-{{#with search}}
-
-{{>legal-adviser/persist-info}}
-
 <div class="grid-row">
 
   <div class="column-two-thirds">
@@ -11,14 +7,13 @@
     <div class="notification notification-confirmation" role="alert">
       <i class="icon icon-tick-white" role="presentation" aria-hidden="true"></i>
       <div class="notification-message">
-        <h1 class="bold-medium">{{../pagetitle}}</h1>
+        <h1 class="bold-medium">{{pagetitle}}</h1>
+        <p>There are no more cases to review at present</p>
       </div>
     </div>
 
-    <p><a class="button" href="/legal-adviser/{{../url}}/{{../id}}" role="button">Continue to next case</a></p>
+    <p><a class="button" href="/legal-adviser/home" role="button">Go to home page</a></p>
 
   </div>
 
 </div>
-
-{{/with}}

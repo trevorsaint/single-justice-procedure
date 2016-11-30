@@ -2457,6 +2457,10 @@ HTML Usage
   }
 }
 
+.phase-banner-alpha + .persist-info, .phase-banner-beta + .persist-info {
+  margin-top: -1px;
+}
+
 /*
 
 HTML Usage

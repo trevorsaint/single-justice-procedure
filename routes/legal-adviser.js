@@ -100,7 +100,7 @@ router.use(function(req, res, next) {
 // remove session data and redirect user to sign-in page
 router.get('/legal-adviser/end-session', function(req, res, next) {
   req.session.destroy();
-  res.redirect('/legal-adviser/');
+  res.redirect('/legal-adviser/home');
 });
 
 
@@ -747,8 +747,8 @@ router.route('/legal-adviser/confirmation/:id/')
       url: url,
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Confirmation',
-      pagetitle: 'Confirmation',
+      doctitle: 'Decision submitted',
+      pagetitle: 'Decision submitted',
       search: entry,
       signedIn: true,
       breadcrumb: false
@@ -757,15 +757,30 @@ router.route('/legal-adviser/confirmation/:id/')
   });
 
 
-router.route('/legal-adviser/no-more-cases/')
+router.route('/legal-adviser/session-complete/')
   .get(function(req, res, next) {
-    res.render('legal-adviser/no-more-cases', {
+    res.render('legal-adviser/session-complete', {
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Session complete',
       pagetitle: 'Session complete',
       signedIn: true,
       breadcrumb: false
+    });
+  });
+
+
+router.route('/legal-adviser/no-cases-to-review/')
+  .get(function(req, res, next) {
+    res.render('legal-adviser/no-cases-to-review', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'No cases to review',
+      pagetitle: 'No cases to review',
+      section: 'home',
+      section_name: 'Home',
+      signedIn: true,
+      breadcrumb: true
     });
   });
 
