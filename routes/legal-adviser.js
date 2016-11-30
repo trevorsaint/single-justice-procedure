@@ -13,6 +13,7 @@ var apptitle = 'Legal adviser';
 router.use(function(req, res, next) {
 
   // general
+  id                        = req.params.id;
   sHasSaved                 = req.query.saved;
   sActiveTab                = req.session.activeTab;
   sBack                     = req.header('Referer') || '/';
@@ -493,7 +494,7 @@ router.route('/legal-adviser/pay-direct-to-court/:id')
 
     }
     res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
-    
+
   });
 
 
@@ -731,20 +732,28 @@ router.route('/legal-adviser/check-your-decisions/:id')
 
 router.route('/legal-adviser/confirmation/:id/')
   .get(function(req, res, next) {
+
+    req.session.destroy();
+
     entry = dataEngine.getSearchEntry(req.params.id);
+
+    id = Number(req.params.id) + 1;
+
+    if (id > 5) {
+      id = 1;
+    }
+
     res.render('legal-adviser/confirmation', {
+      id: id,
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Confirmation',
       pagetitle: 'Confirmation',
-      section: 'home',
-      section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
       search: entry,
       signedIn: true,
-      breadcrumb: true
+      breadcrumb: false
     });
+
   });
 
 

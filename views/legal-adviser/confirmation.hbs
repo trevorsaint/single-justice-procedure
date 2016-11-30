@@ -2,6 +2,8 @@
 
 {{>legal-adviser/persist-info}}
 
+{{../param}}
+
 <div class="grid-row">
 
   <div class="column-two-thirds">
@@ -10,11 +12,11 @@
       <i class="icon icon-tick-white" role="presentation" aria-hidden="true"></i>
       <div class="notification-message">
         <h1 class="bold-medium">Decision submitted</h1>
-        <p>Case 12345667890 complete</p>
+        <p>Case {{personal-details.urn}} complete</p>
       </div>
     </div>
 
-    <p><a class="button" href="/legal-adviser/case-details/1/" role="button">Continue to next case</a></p>
+    <p><a class="button" href="/legal-adviser/case-details/{{../id}}" role="button">Continue to next case</a></p>
 
   </div>
 
