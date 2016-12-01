@@ -1,0 +1,24 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+{{>legal-adviser/persist-info}}
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <div class="notification notification-confirmation" role="alert">
+      <i class="icon icon-tick-white" role="presentation" aria-hidden="true"></i>
+      <div class="notification-message">
+        <h1 class="bold-medium">{{../pagetitle}}</h1>
+      </div>
+    </div>
+
+    <p><a class="button" href="/proof-in-absence/legal-adviser/{{../url}}/{{../id}}" role="button">Continue to next case</a></p>
+
+  </div>
+
+</div>
+
+{{/with}}

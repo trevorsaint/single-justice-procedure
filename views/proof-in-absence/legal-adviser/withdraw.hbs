@@ -1,0 +1,45 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  {{>legal-adviser/persist-info}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+      <h2 class="heading-large">Offence 1</h2>
+      <h3 class="bold-medium">{{{offence.title}}}</h3>
+      <p class="font-xsmall js-text">{{{offence.offence-wording}}}</p>
+
+      <form class="form" method="post">
+
+        <h3 class="heading-medium">Withdraw</h3>
+
+        <div class="form-group form-group-last">
+          <label for="reason-for-withdraw">
+            <span class="form-label">Reason for withdrawing offence</span>
+          </label>
+          <textarea class="form-control form-control-3-4 form-control-textarea" id="reason-for-withdraw" name="reasonForWithdraw" rows="3" cols="50">Prosecutor&rsquo;s request</textarea>
+        </div>
+
+        <div class="form-group form-group-related">
+          <button class="button" type="submit">Save and continue</button>
+        </div>
+
+        <p><a href="/proof-in-absence/legal-adviser/case-details/{{id}}">Back</a></p>
+
+      </form>
+
+    </div>
+
+    <div class="column-third">
+      <div class="related">
+        {{>legal-adviser/related-documents}}
+      </div>
+    </div>
+
+  </div>
+
+{{/with}}

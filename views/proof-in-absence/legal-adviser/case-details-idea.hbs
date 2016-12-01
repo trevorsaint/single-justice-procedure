@@ -93,7 +93,7 @@
                   {{#if email}}
                     {{email}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#email">Add email</a>
+                    <a href="/proof-in-absence/legal-adviser/personal-details/{{../id}}/#email">Add email</a>
                   {{/if}}
                 {{/if}}
               </dd>
@@ -106,7 +106,7 @@
                   {{#if phone}}
                     {{phone}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#phone">Add home telephone</a>
+                    <a href="/proof-in-absence/legal-adviser/personal-details/{{../id}}/#phone">Add home telephone</a>
                   {{/if}}
                 {{/if}}
               </dd>
@@ -119,14 +119,14 @@
                   {{#if mobile}}
                     {{mobile}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#mobile">Add mobile</a>
+                    <a href="/proof-in-absence/legal-adviser/personal-details/{{../id}}/#mobile">Add mobile</a>
                   {{/if}}
                 {{/if}}
               </dd>
 
             </dl>
 
-            <p><a class="font-small" href="/legal-adviser/personal-details/{{../id}}" title="Change personal details">Change personal details</a></p>
+            <p><a class="font-small" href="/proof-in-absence/legal-adviser/personal-details/{{../id}}" title="Change personal details">Change personal details</a></p>
 
           </section>
           {{/with}}
@@ -185,7 +185,7 @@
 
         <div class="column-third">
 
-          <h3 class="heading-small" id="decision">Make a decision</h3>
+          <!--h3 class="heading-small" id="decision">Make a decision</h3>
 
           <form class="form" method="post">
 
@@ -222,6 +222,62 @@
               </div>
 
             </fieldset>
+
+          </form-->
+
+          <h3 class="heading-small" id="decision">The prosecutor has asked for this case to be withdrawn</h3>
+
+          <p>Do you want to withdraw case?</p>
+
+          <form class="form" method="post">
+
+            <div class="form-group">
+
+              <fieldset class="inline">
+
+                <label class="block-label selection-button-radio">
+                  <input type="radio" name="" value="Yes"> Yes
+                </label>
+
+                <label class="block-label selection-button-radio" data-target="make-decision">
+                  <input type="radio" name="" value="No"> No
+                </label>
+
+              </fieldset>
+
+              <div class="panel panel-border-narrow js-hidden" id="make-decision">
+
+                <div class="form-group">
+
+                  <fieldset>
+
+                    <legend>
+                      <span class="form-label-bold">Select alternative</span>
+                    </legend>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="makeDecision" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}> Financial penalty
+                    </label>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="makeDecision" value="Discharge"{{#contains ../../sMakeDecision "Discharge"}} checked="checked"{{/contains}}> Discharge
+                    </label>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="makeDecision" value="Dismiss"{{#contains ../../sMakeDecision "Dismiss"}} checked="checked"{{/contains}}> Dismiss
+                    </label>
+
+                  </fieldset>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="form-group form-group-related">
+              <button class="button" type="submit">Save and continue</button>
+            </div>
 
           </form>
 

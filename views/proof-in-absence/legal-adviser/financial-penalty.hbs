@@ -1,0 +1,341 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  {{>legal-adviser/persist-info}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+      <h2 class="heading-large">Offence 1</h2>
+      <h3 class="bold-medium">{{{offence.title}}}</h3>
+      <p class="font-xsmall js-text">{{{offence.offence-wording}}}</p>
+
+      <form class="form" method="post">
+
+        <section aria-labelledby="fine-and-compensation">
+
+          <h3 class="heading-medium" id="fine-and-compensation">Check fine and compensation</h3>
+
+          {{#if offence.weekly-income}}
+            <p>Defendant&rsquo;s weekly income: <b>&pound;{{offence.weekly-income}}</b>{{#if offence.weekly-income-assumed}} (assumed){{/if}}</p>
+          {{/if}}
+
+          <div class="form-group">
+
+            <fieldset class="inline">
+
+              <legend>
+                <span class="form-label">Fine band applied</span>
+              </legend>
+
+              <label class="block-label selection-button-radio" data-target="band-a">
+                <input type="radio" name="fineBandApplied" value="Band A"{{#if ../sFineBandApplied}}{{#contains ../sFineBandApplied "Band A"}} checked="checked"{{/contains}}{{else}}{{#contains offence.fine-band-applied "Band A"}} checked="checked"{{/contains}}{{/if}}> Band A
+              </label>
+
+              <label class="block-label selection-button-radio" data-target="band-b">
+                <input type="radio" name="fineBandApplied" value="Band B"{{#if ../sFineBandApplied}}{{#contains ../sFineBandApplied "Band B"}} checked="checked"{{/contains}}{{else}}{{#contains offence.fine-band-applied "Band B"}} checked="checked"{{/contains}}{{/if}}> Band B
+              </label>
+
+              <label class="block-label selection-button-radio" data-target="band-c">
+                <input type="radio" name="fineBandApplied" value="Band C"{{#if ../sFineBandApplied}}{{#contains ../sFineBandApplied "Band C"}} checked="checked"{{/contains}}{{else}}{{#contains offence.fine-band-applied "Band C"}} checked="checked"{{/contains}}{{/if}}> Band C
+              </label>
+
+            </fieldset>
+
+            <div class="panel panel-border-narrow{{#if ../sFineBandApplied}}{{#isnt ../sFineBandApplied "Band A"}} js-hidden{{/isnt}}{{else}}{{#isnt offence.fine-band-applied "Band A"}} js-hidden{{/isnt}}{{/if}}" id="band-a">
+
+              <div class="form-group form-group-related">
+                <label for="fine-a">
+                  <span class="form-label">Fine</span>
+                </label>
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="fine-a" name="fineA" value="{{#if ../sFineA}}{{../sFineA}}{{else}}{{offence.fine}}{{/if}}">
+                </div>
+              </div>
+
+              <p class="font-xsmall text-error js-hidden" id="fine-a-check">Check the amount you&rsquo;ve entered is correct. The recommended maximum fine for this offence is &pound;1000 but you can exceed this if you need to.</p>
+
+              <div class="form-group">
+
+                <label for="compensation-a">
+                  <span class="form-label">Compensation</span>
+                </label>
+
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="compensation-a" name="compensationA" value="{{#if ../sCompensationA}}{{../sCompensationA}}{{else}}{{offence.compensation}}{{/if}}">
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="compensation-a-reason">
+
+                  <fieldset>
+
+                    <legend>
+                      <span class="form-label">Reason for no compensation</span>
+                    </legend>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="reasonForNoCompensationA" value="Not enough detail given by prosecutor"> Insufficient details provided by prosecutor
+                    </label>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="reasonForNoCompensationA" value="Limited means of the defendant"> Limited means of the defendant
+                    </label>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="reasonForNoCompensationA" value="No loss or damage"> No loss or damage
+                    </label>
+
+                    <label class="block-label selection-button-radio" data-target="no-compensation-other-a">
+                      <input type="radio" name="reasonForNoCompensationA" value="Other"> Other
+                    </label>
+
+                    <div class="panel panel-border-narrow js-hidden" id="no-compensation-other-a">
+                      <label for="reason-for-no-compensation-other-a">
+                        <span class="form-label">Reason</span>
+                      </label>
+                      <textarea class="form-control form-control-3-4 form-control-textarea" id="reason-for-no-compensation-other-a" name="reasonForNoCompensationOtherA" rows="2" cols="50"></textarea>
+                    </div>
+
+                  </fieldset>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="panel panel-border-narrow{{#if ../sFineBandApplied}}{{#isnt ../sFineBandApplied "Band B"}} js-hidden{{/isnt}}{{else}}{{#isnt offence.fine-band-applied "Band B"}} js-hidden{{/isnt}}{{/if}}" id="band-b">
+
+              <div class="form-group form-group-related">
+                <label for="fine-b">
+                  <span class="form-label">Fine</span>
+                </label>
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="fine-b" name="fineB" value="{{#if ../sFineB}}{{../sFineB}}{{else}}440{{/if}}">
+                </div>
+              </div>
+
+              <p class="font-xsmall text-error js-hidden" id="fine-b-check">Check the amount you&rsquo;ve entered is correct. The recommended maximum fine for this offence is &pound;1000 but you can exceed this if you need to.</p>
+
+              <div class="form-group">
+
+                <label for="compensation-b">
+                  <span class="form-label">Compensation</span>
+                </label>
+
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="compensation-b" name="compensationB" value="{{#if ../sCompensationB}}{{../sCompensationB}}{{else}}3.12{{/if}}">
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="compensation-b-reason">
+
+                  <fieldset>
+
+                    <legend>
+                      <span class="form-label">Reason for no compensation</span>
+                    </legend>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="reasonForNoCompensationB" value="Not enough detail given by prosecutor"> Insufficient details provided by prosecutor
+                    </label>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="reasonForNoCompensationB" value="Limited means of the defendant"> Limited means of the defendant
+                    </label>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="reasonForNoCompensationB" value="No loss or damage"> No loss or damage
+                    </label>
+
+                    <label class="block-label selection-button-radio" data-target="no-compensation-other-b">
+                      <input type="radio" name="reasonForNoCompensationB" value="Other"> Other
+                    </label>
+
+                    <div class="panel panel-border-narrow js-hidden" id="no-compensation-other-b">
+                      <label for="reason-for-no-compensation-other-b">
+                        <span class="form-label">Reason</span>
+                      </label>
+                      <textarea class="form-control form-control-3-4 form-control-textarea" id="reason-for-no-compensation-other-b" name="reasonForNoCompensationOtherB" rows="2" cols="50"></textarea>
+                    </div>
+
+                  </fieldset>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="panel panel-border-narrow{{#if ../sFineBandApplied}}{{#isnt ../sFineBandApplied "Band C"}} js-hidden{{/isnt}}{{else}}{{#isnt offence.fine-band-applied "Band C"}} js-hidden{{/isnt}}{{/if}}" id="band-c">
+
+              <div class="form-group form-group-related">
+                <label for="fine-c">
+                  <span class="form-label">Fine</span>
+                </label>
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="fine-c" name="fineC" value="{{#if ../sFineC}}{{../sFineC}}{{else}}660{{/if}}">
+                </div>
+              </div>
+
+              <p class="font-xsmall text-error js-hidden" id="fine-c-check">Check the amount you&rsquo;ve entered is correct. The recommended maximum fine for this offence is &pound;1000 but you can exceed this if you need to.</p>
+
+              <div class="form-group">
+
+                <label for="compensation-c">
+                  <span class="form-label">Compensation</span>
+                </label>
+
+                <div class="form-currency">
+                  <input class="form-control form-control-1-4" type="text" id="compensation-c" name="compensationC" value="{{#if ../sCompensation}}{{../sCompensation}}{{else}}3.12{{/if}}">
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="compensation-c-reason">
+
+                  <fieldset>
+
+                    <legend>
+                      <span class="form-label">Reason for no compensation</span>
+                    </legend>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="reasonForNoCompensationC" value="Not enough detail given by prosecutor"> Insufficient details provided by prosecutor
+                    </label>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="reasonForNoCompensationC" value="Limited means of the defendant"> Limited means of the defendant
+                    </label>
+
+                    <label class="block-label selection-button-radio">
+                      <input type="radio" name="reasonForNoCompensationC" value="No loss or damage"> No loss or damage
+                    </label>
+
+                    <label class="block-label selection-button-radio" data-target="no-compensation-other-c">
+                      <input type="radio" name="reasonForNoCompensationC" value="Other"> Other
+                    </label>
+
+                    <div class="panel panel-border-narrow js-hidden" id="no-compensation-other-c">
+                      <label for="reason-for-no-compensation-other-c">
+                        <span class="form-label">Reason</span>
+                      </label>
+                      <textarea class="form-control form-control-3-4 form-control-textarea" id="reason-for-no-compensation-other-c" name="reasonForNoCompensationOtherC" rows="2" cols="50"></textarea>
+                    </div>
+
+                  </fieldset>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <hr aria-hidden="true">
+
+        <section aria-labelledby="costs-and-surcharge">
+
+          <h3 class="heading-large" id="costs-and-surcharge">Check costs and surcharge</h3>
+
+          <div class="form-group">
+
+            <label for="cost">
+              <span class="form-label">Costs</span>
+            </label>
+
+            <div class="form-currency">
+              <input class="form-control form-control-1-4" type="text" id="cost" name="cost" value="{{#if ../sCost}}{{../sCost}}{{else}}125{{/if}}">
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="costs-reason">
+              <div class="form-group">
+                <label for="reason-for-no-costs">
+                  <span class="form-label">Reason for no costs</span>
+                </label>
+                <textarea class="form-control form-control-3-4 form-control-textarea" id="reason-for-no-costs" name="reasonForNoCosts" rows="2" cols="50"></textarea>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="cost">
+              <span class="form-label">Victim surcharge</span>
+            </label>
+            <div class="form-currency">
+              <input class="form-control form-control-1-4" type="text" id="surcharge" name="surcharge" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30{{/if}}">
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="surcharge-reason">
+              <div class="form-group">
+                <label for="reason-for-reducing-surcharge">
+                  <span class="form-label">Reason for reducing surcharge</span>
+                </label>
+                <textarea class="form-control form-control-3-4 form-control-textarea" id="reason-for-reducing-surcharge" name="reasonForReducingSurcharge" rows="2" cols="50"></textarea>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-group form-group-last">
+
+            <label class="block-label selection-button-checkbox">
+              <input type="checkbox" name="collectionOrderConfirmed" {{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}> Confirm a collection order will be issued
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden">
+
+              <div class="form-group">
+
+                <fieldset class="inline">
+
+                  <legend>
+                    <span class="form-label">Are you sure you want to proceed without a collection order?</span>
+                  </legend>
+
+                  <div class="form-group">
+
+                    <label class="block-label selection-button-radio">
+                      <input name="collectionOrderAnswer" value="Yes" type="radio"> Yes
+                    </label>
+
+                    <label class="block-label selection-button-radio">
+                      <input name="collectionOrderAnswer" value="No" type="radio"> No
+                    </label>
+
+                  </div>
+
+                </fieldset>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <div class="form-group form-group-related">
+          <button class="button" type="submit">Save and continue</button>
+        </div>
+
+        <p><a href="/proof-in-absence/legal-adviser/case-details/{{id}}">Back</a></p>
+
+      </form>
+
+    </div>
+
+    <div class="column-third">
+      <div class="related">
+        {{>legal-adviser/related-documents}}
+      </div>
+    </div>
+
+  </div>
+
+{{/with}}

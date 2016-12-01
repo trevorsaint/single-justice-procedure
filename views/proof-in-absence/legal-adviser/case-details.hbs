@@ -93,7 +93,7 @@
                   {{#if email}}
                     {{email}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#email">Add email</a>
+                    &ndash;
                   {{/if}}
                 {{/if}}
               </dd>
@@ -106,7 +106,7 @@
                   {{#if phone}}
                     {{phone}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#phone">Add home telephone</a>
+                    &ndash;
                   {{/if}}
                 {{/if}}
               </dd>
@@ -119,14 +119,12 @@
                   {{#if mobile}}
                     {{mobile}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#mobile">Add mobile</a>
+                    &ndash;
                   {{/if}}
                 {{/if}}
               </dd>
 
             </dl>
-
-            <p><a class="font-small" href="/legal-adviser/personal-details/{{../id}}" title="Change personal details">Change personal details</a></p>
 
           </section>
           {{/with}}
@@ -197,10 +195,6 @@
 
                 <label class="block-label selection-button-radio">
                   <input type="radio" name="makeDecision" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}> Financial penalty
-                </label>
-
-                <label class="block-label selection-button-radio">
-                  <input type="radio" name="makeDecision" value="Refer for court hearing"{{#contains ../../sMakeDecision "Refer for court hearing"}} checked="checked"{{/contains}}> Refer for court hearing
                 </label>
 
                 <label class="block-label selection-button-radio">
