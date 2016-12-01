@@ -634,8 +634,8 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
         res.render('court-administrator/print-register-view-of-cases', {
           baseurl: baseurl,
           apptitle: apptitle,
-          doctitle: 'Print register view of cases',
-          pagetitle: 'Print batch of cases in register view',
+          doctitle: 'Download register for the press',
+          pagetitle: 'Create register for the press',
           section: 'home',
           section_name: 'Home',
           signedIn: true,

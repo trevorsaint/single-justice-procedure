@@ -6,7 +6,7 @@
 
     <h1 class="heading-xlarge">{{pagetitle}}</h1>
 
-    <p class="lede">Search by date decision made</p>
+    <h3 class="heading-medium">Include cases by date decision made</h3>
 
     <form class="form">
 
@@ -14,7 +14,7 @@
 
         <fieldset>
           <legend>
-            <span class="form-label-bold">From</span>
+            <span class="form-label">From</span>
             <span class="form-hint" id="from-hint">For example, 13 6 2016</span>
           </legend>
           <div class="form-date">
@@ -39,7 +39,7 @@
 
         <fieldset>
           <legend>
-            <span class="form-label-bold">To</span>
+            <span class="form-label">To</span>
             <span class="form-hint" id="to-hint">For example, 13 7 2016</span>
           </legend>
           <div class="form-date">
@@ -61,8 +61,10 @@
       </div>
 
       <div class="form-group form-group-related">
-        <button class="button" type="submit">Search</button>
+        <button class="button" type="submit">Create</button>
       </div>
+
+      <p><a href="/court-administrator/home/">Cancel</a></p>
 
     </form>
 
@@ -70,49 +72,19 @@
 
 </div>
 
-<h3 class="heading-medium">2 cases found</h3>
 
-<div class="form-group">
-  <table class="table table-font-xsmall">
-    <caption class="visually-hidden">Resulted cases for printing</caption>
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Case reference number</th>
-        <th scope="col">Date of birth</th>
-        <td><a class="checkbox-selection" href="#">Select all</a></td>
-      </tr>
-    </thead>
-    <tbody>
+<!--hr class="divider divider-border-dark" aria-hidden="true">
 
-      {{#each searches}}
-
-        {{#is case-details.status 'Completed &ndash; decision sent to defendant'}}
-          <tr>
-            <th scope="row"><a href="/court-administrator/case-details/{{id}}/">{{uppercase personal-details.lastname}} {{personal-details.firstname}}</a></th>
-            <td>{{personal-details.urn}}</td>
-            <td>{{moment personal-details.dob format="D MMM YYYY"}}</td>
-            <td><label><input type="checkbox" id="checkbox1" name="checkbox1"> <span class="visually-hidden">Select {{uppercase personal-details.lastname}} {{personal-details.firstname}}</span></label></td>
-          </tr>
-        {{/is}}
-
-        {{#is case-details.status 'Decision made'}}
-            <tr>
-              <th scope="row"><a href="/court-administrator/case-details/{{id}}/">{{uppercase personal-details.lastname}} {{personal-details.firstname}}</a></th>
-              <td>{{personal-details.urn}}</td>
-              <td>{{moment personal-details.dob format="D MMM YYYY"}}</td>
-              <td><label><input type="checkbox" id="checkbox1" name="checkbox1"> <span class="visually-hidden">Select {{uppercase personal-details.lastname}} {{personal-details.firstname}}</span></label></td>
-            </tr>
-          {{/is}}
-
-      {{/each}}
-
-    </tbody>
-  </table>
-</div>
+<h3 class="heading-medium">216 cases found and added to register</h3>
 
 <div class="form-group form-group-related">
-  <button class="button button-secondary" type="submit">Print selected</button>
+  <button class="button button-secondary" type="submit">Download register in spreadsheet</button>
 </div>
 
-<p><a href="/court-administrator/home/">Cancel</a></p>
+<p><a href="#">Reset<span class="visually-hidden">search for cases by date decision made</span></a></p-->
+
+
+<!--hr class="divider divider-border-dark" aria-hidden="true">
+
+<h3 class="heading-medium">0 cases found</h3>
+<p><a href="/court-administrator/home/">Reset</a></p-->

@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@page {
+  margin: 0;
+}
+body {
+  padding: 1cm;
+  width: 100%;
+}
+
+#global-header, .phase-banner-alpha, .breadcrumbs, .button, caption, .form {
+  display: none !important;
+}
+
+.heading-secondary {
+  font-weight: 400;
+  display: block;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table th, .table td {
+  padding: 5px 10px 5px 0;
+}
+.table thead th {
+  text-align: left;
+}
+.table tbody th, .table tbody td {
+  border-top: 1px solid #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, img {
+  page-break-inside: avoid;
+}
+
+abbr {
+  border: 0 none;
+}
