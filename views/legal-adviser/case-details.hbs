@@ -93,7 +93,7 @@
                   {{#if email}}
                     {{email}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#email">Add email</a>
+                    <a href="{{../../baseurl}}personal-details/{{../id}}/#email">Add email</a>
                   {{/if}}
                 {{/if}}
               </dd>
@@ -106,7 +106,7 @@
                   {{#if phone}}
                     {{phone}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#phone">Add home telephone</a>
+                    <a href="{{../../baseurl}}personal-details/{{../id}}/#phone">Add home telephone</a>
                   {{/if}}
                 {{/if}}
               </dd>
@@ -119,14 +119,14 @@
                   {{#if mobile}}
                     {{mobile}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#mobile">Add mobile</a>
+                    <a href="{{../../baseurl}}personal-details/{{../id}}/#mobile">Add mobile</a>
                   {{/if}}
                 {{/if}}
               </dd>
 
             </dl>
 
-            <p><a class="font-small" href="/legal-adviser/personal-details/{{../id}}" title="Change personal details">Change personal details</a></p>
+            <p><a class="font-small" href="{{../../baseurl}}personal-details/{{../id}}" title="Change personal details">Change personal details</a></p>
 
           </section>
           {{/with}}

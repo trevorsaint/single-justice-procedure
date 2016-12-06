@@ -82,7 +82,7 @@ $module: 'persist-info';
 }
 
 // if persit info directly after phase banner
-.phase-banner-alpha, .phase-banner-beta {
+.phase-banner {
 
   + .persist-info {
     margin-top: -1px;
