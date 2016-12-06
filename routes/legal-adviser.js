@@ -133,6 +133,24 @@ router.route('/legal-adviser/home/')
       breadcrumb:   false,
       sBack:        sBack
     });
+    }).post(function(req, res, next) {
+    res.redirect('/legal-adviser/search-for-a-case/');
+  });
+
+
+router.route('/legal-adviser/search-for-a-case/')
+  .all(function(req, res, next) {
+    res.render('legal-adviser/search-for-a-case', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Search for a case',
+      pagetitle: 'Search for a case',
+      section: 'home',
+      section_name: 'Home',
+      signedIn: true,
+      breadcrumb: true,
+      searches: dataEngine.getSearchEntries()
+    });
   });
 
 
@@ -212,6 +230,66 @@ router.route('/legal-adviser/case-details/:id/')
     }
 
   });
+
+
+  // alternative proposal
+  router.route('/legal-adviser/case-details-idea/:id/')
+    .get(function(req, res, next) {
+      entry = dataEngine.getSearchEntry(req.params.id);
+      res.render('legal-adviser/case-details-idea', {
+        baseurl:                  baseurl,
+        apptitle:                 apptitle,
+        doctitle:                 'Case details',
+        pagetitle:                'Case details',
+        section:                  'home',
+        section_name:             'Home',
+        search:                   entry,
+        signedIn:                 true,
+        breadcrumb:               true,
+        sFirstname:               sFirstname,
+        sLastname:                sLastname,
+        sDob:                     sDob,
+        sEmail:                   sEmail,
+        sPhone:                   sPhone,
+        sMobile:                  sMobile,
+        sAddress1:                sAddress1,
+        sAddress2:                sAddress2,
+        sTown:                    sTown,
+        sPostcode:                sPostcode,
+        sNationalInsuranceNumber: sNationalInsuranceNumber,
+        sHasSaved:                sHasSaved,
+        sMakeDecision:            sMakeDecision,
+        sActiveTab:               sActiveTab,
+        sBack:                    sBack
+      });
+    })
+    .post(function(req, res, next) {
+
+      sMakeDecision = req.session.makeDecision = req.body.makeDecision;
+
+      if (sMakeDecision === "Financial penalty") {
+
+        res.redirect('/legal-adviser/financial-penalty/' + req.params.id);
+
+      } else if (sMakeDecision === "Refer for court hearing") {
+
+        res.redirect('/legal-adviser/refer-for-court-hearing/' + req.params.id);
+
+      } else if (sMakeDecision === "Discharge") {
+
+        res.redirect('/legal-adviser/discharge/' + req.params.id);
+
+      } else if (sMakeDecision === "Withdraw") {
+
+        res.redirect('/legal-adviser/withdraw/' + req.params.id);
+
+      } else if (sMakeDecision === "Dismiss") {
+
+        res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+
+      }
+
+    });
 
 
 router.route('/legal-adviser/refer-for-court-hearing/:id')

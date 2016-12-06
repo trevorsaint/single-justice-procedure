@@ -3276,12 +3276,16 @@ HTML Usage
   color: #b10e1e;
   font-weight: 700;
 }
+.text-uppercase {
+  text-transform: uppercase;
+}
 
 /*
 
 HTML Usage
 
 <span class="text-errors">Errors found</span>
+<span class="text-uppercase">Errors found</span>
 
 */
 .divider {

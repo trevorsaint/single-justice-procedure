@@ -3,9 +3,9 @@
     <span class="persist-info-reference">{{personal-details.urn}}</span>
     <span class="persist-info-title">
       {{#and ../sFirstname ../sLastname}}
-        <b>{{../sFirstname}} {{uppercase ../sLastname}}</b>
+        <b>{{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span></b>
       {{else}}
-        <b>{{personal-details.firstname}} {{uppercase personal-details.lastname}}</b>
+        <b>{{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span></b>
       {{/and}}
     </span>
   </div>

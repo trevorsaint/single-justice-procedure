@@ -121,20 +121,38 @@ router.route('/proof-in-absence/legal-adviser/')
   });
 
 
-router.route('/proof-in-absence/legal-adviser/home/')
-  .get(function(req, res, next) {
-    res.render('proof-in-absence/legal-adviser/home', {
-      baseurl:      baseurl,
-      apptitle:     apptitle,
-      doctitle:     'Single Justice Procedure',
-      pagetitle:    'Single Justice Procedure',
-      section:      'home',
-      section_name: 'Home',
-      signedIn:     true,
-      breadcrumb:   false,
-      sBack:        sBack
+  router.route('/proof-in-absence/legal-adviser/home/')
+    .get(function(req, res, next) {
+      res.render('proof-in-absence/legal-adviser/home', {
+        baseurl:      baseurl,
+        apptitle:     apptitle,
+        doctitle:     'Single Justice Procedure',
+        pagetitle:    'Single Justice Procedure',
+        section:      'home',
+        section_name: 'Home',
+        signedIn:     true,
+        breadcrumb:   false,
+        sBack:        sBack
+      });
+      }).post(function(req, res, next) {
+      res.redirect('/proof-in-absence/legal-adviser/search-for-a-case/');
     });
-  });
+
+
+  router.route('/proof-in-absence/legal-adviser/search-for-a-case/')
+    .all(function(req, res, next) {
+      res.render('proof-in-absence/legal-adviser/search-for-a-case', {
+        baseurl: baseurl,
+        apptitle: apptitle,
+        doctitle: 'Search for a case',
+        pagetitle: 'Search for a case',
+        section: 'home',
+        section_name: 'Home',
+        signedIn: true,
+        breadcrumb: true,
+        searches: dataEngine.getSearchEntries()
+      });
+    });
 
 
 router.route('/proof-in-absence/legal-adviser/start-a-new-sjp-session/')

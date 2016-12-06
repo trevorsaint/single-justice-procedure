@@ -3,14 +3,14 @@ var router = express.Router();
 
 // datastore
 var dataEngine = require('../models/data-court-administrator');
-
-// baseurl and apptitle
-var baseurl  = '/court-administrator/';
-var apptitle = 'Court administrator';
 var entry;
 
 // routes
 router.use(function(req, res, next) {
+
+  // base
+  baseurl            = '/court-administrator/';
+  apptitle           = 'Court administrator';
 
   // general
   sHasSaved          = req.query.saved;

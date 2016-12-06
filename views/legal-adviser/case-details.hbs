@@ -12,9 +12,9 @@
 
       <h1 class="heading-xlarge mb-l">
         {{#and ../sFirstname ../sLastname}}
-          {{../sFirstname}} {{uppercase ../sLastname}}
+          {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
         {{else}}
-          {{personal-details.firstname}} {{uppercase personal-details.lastname}}
+          {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
         {{/and}}
       </h1>
 
@@ -62,9 +62,9 @@
               <dt>Name</dt>
               <dd>
                 {{#and ../../sFirstname ../../sLastname}}
-                  {{../../sFirstname}} {{uppercase ../../sLastname}}
+                  {{../../sFirstname}} <span class="text-uppercase">{{../../sLastname}}</span>
                 {{else}}
-                  {{firstname}} {{uppercase lastname}}
+                  {{firstname}} <span class="text-uppercase">{{lastname}}</span>
                 {{/and}}
               </dd>
 
