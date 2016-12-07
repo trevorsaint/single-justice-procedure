@@ -179,7 +179,7 @@ var search = [
         {
           "title":      "SJP notice",
           "file-type":  "PDF",
-          "file-size":  "330KB",
+          "file-size":  "171KB",
           "file-pages": "4 pages",
           "file-path":  "/public/documents/legal-adviser/3/sjp-notice.pdf"
         }
