@@ -755,9 +755,9 @@ router.route('/proof-in-absence/legal-adviser/confirmation/:id/')
     url = "case-details";
     id  = Number(req.params.id) + 1;
 
-    if (id > 5) {
+    if (id > 10) {
       id  = null;
-      url = "no-more-cases";
+      url = "session-complete";
     }
 
     res.render('proof-in-absence/legal-adviser/confirmation', {

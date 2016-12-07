@@ -176,7 +176,7 @@ router.route('/legal-adviser/start-a-new-sjp-session/')
 router.route('/legal-adviser/case-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/case-details', {
+    res.render('legal-adviser/case-details', {      
       baseurl:                  baseurl,
       apptitle:                 apptitle,
       doctitle:                 'Case details',
@@ -186,6 +186,7 @@ router.route('/legal-adviser/case-details/:id/')
       search:                   entry,
       signedIn:                 true,
       breadcrumb:               true,
+      casedetails:              true,
       sFirstname:               sFirstname,
       sLastname:                sLastname,
       sDob:                     sDob,
@@ -814,9 +815,9 @@ router.route('/legal-adviser/confirmation/:id/')
     url = "case-details";
     id  = Number(req.params.id) + 1;
 
-    if (id > 5) {
+    if (id > 10) {
       id  = null;
-      url = "no-more-cases";
+      url = "session-complete";
     }
 
     res.render('legal-adviser/confirmation', {
