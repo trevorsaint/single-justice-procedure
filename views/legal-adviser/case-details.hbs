@@ -10,20 +10,19 @@
 
     <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">
+      <h1 class="heading-xlarge mb-l">
         {{#and ../sFirstname ../sLastname}}
-          {{../sFirstname}} {{uppercase ../sLastname}}
+          {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
         {{else}}
-          {{personal-details.firstname}} {{uppercase personal-details.lastname}}
+          {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
         {{/and}}
-        <span class="heading-secondary">
-          {{#if ../sDob}}
-            <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMMM YYYY"}}</time>
-          {{else}}
-            <time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMMM YYYY"}}</time> ({{personal-details.age}} years old)
-          {{/if}}
-        </span>
       </h1>
+
+      <p class="mb-xl">
+        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}
+        <br>
+        {{#if ../../sAddress1}}{{../../sAddress1}}{{else}}{{personal-details.address.address1}}{{/if}}{{#if ../../sAddress2}}, {{../../sAddress2}}{{else}}{{#if personal-details.address.address2}}, {{personal-details.address.address2}}{{/if}}{{/if}} {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}} {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
+      </p>
 
       <div class="tabs tabs-horizontal">
 
@@ -56,19 +55,16 @@
           {{#with personal-details}}
           <section id="personal-details">
 
-            <header class="section-header">
-              <h2 class="heading-medium">Personal details</h2>
-              <a class="font-small" href="/legal-adviser/personal-details/{{../id}}" title="Change personal details">Change <span class="visuallyhidden">personal details</span></a>
-            </header>
+            <h2 class="heading-medium">Personal details</h2>
 
             <dl class="meta meta-inline meta-boldterms">
 
               <dt>Name</dt>
               <dd>
                 {{#and ../../sFirstname ../../sLastname}}
-                  {{../../sFirstname}} {{uppercase ../../sLastname}}
+                  {{../../sFirstname}} <span class="text-uppercase">{{../../sLastname}}</span>
                 {{else}}
-                  {{firstname}} {{uppercase lastname}}
+                  {{firstname}} <span class="text-uppercase">{{lastname}}</span>
                 {{/and}}
               </dd>
 
@@ -97,7 +93,7 @@
                   {{#if email}}
                     {{email}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#email">Add email</a>
+                    <a href="{{../../baseurl}}personal-details/{{../id}}/#email">Add email</a>
                   {{/if}}
                 {{/if}}
               </dd>
@@ -110,7 +106,7 @@
                   {{#if phone}}
                     {{phone}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#phone">Add home telephone</a>
+                    <a href="{{../../baseurl}}personal-details/{{../id}}/#phone">Add home telephone</a>
                   {{/if}}
                 {{/if}}
               </dd>
@@ -123,12 +119,14 @@
                   {{#if mobile}}
                     {{mobile}}
                   {{else}}
-                    <a href="/legal-adviser/personal-details/{{../id}}/#mobile">Add mobile</a>
+                    <a href="{{../../baseurl}}personal-details/{{../id}}/#mobile">Add mobile</a>
                   {{/if}}
                 {{/if}}
               </dd>
 
             </dl>
+
+            <p><a class="font-small" href="{{../../baseurl}}personal-details/{{../id}}" title="Change personal details">Change personal details</a></p>
 
           </section>
           {{/with}}
@@ -141,13 +139,13 @@
 
     <div class="column-third">
       <div class="related">
-        {{>legal-adviser/related-documents}}
+        {{>legal-adviser/related-documents casedetails='true'}}
       </div>
     </div>
 
   </div>
 
-  <hr aria-hidden="true">
+  <hr class="divider divider-border-dark" aria-hidden="true">
 
   <div aria-labelledby="offences">
 

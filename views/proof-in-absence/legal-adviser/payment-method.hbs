@@ -1,0 +1,83 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  {{>legal-adviser/persist-info}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+      {{#if ../sTotalToPay}}
+      <div class="panel panel-border-wide">
+        <p>Total to pay <br> <b class="bold-medium">&pound;{{../sTotalToPay}}</b></p>
+      </div>
+      {{/if}}
+
+      <form class="form" method="post">
+
+        <h2 class="heading-medium" id="collection-payment">Select option</h2>
+
+        <div class="form-group form-group-last">
+
+          <fieldset>
+
+            <legend class="visually-hidden">Select option</legend>
+
+            <label class="block-label selection-button-radio" for="pay-direct-to-court">
+              <input type="radio" id="pay-direct-to-court" name="paymentMethod" value="Pay direct to court"
+              {{#if ../sPaymentMethod}}
+                {{#contains ../sPaymentMethod "Pay direct to court"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.payment-method "Pay direct to court"}} checked="checked"{{/contains}}
+              {{/if}}>
+              Pay direct to court
+            </label>
+
+            <p class="form-block">or</p>
+
+            <label class="block-label selection-button-radio" for="deduct-from-benefits">
+              <input type="radio" id="deduct-from-benefits" name="paymentMethod" value="Deduct from benefits"
+              {{#if ../sPaymentMethod}}
+                {{#contains ../sPaymentMethod "Deduct from benefits"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.payment-method "Deduct from benefits"}} checked="checked"{{/contains}}
+              {{/if}}>
+              Deduct from benefits
+            </label>
+
+            <label class="block-label selection-button-radio" for="attach-to-earnings">
+              <input type="radio" id="attach-to-earnings" name="paymentMethod" value="Attach to earnings"
+              {{#if ../sPaymentMethod}}
+                {{#contains ../sPaymentMethod "Attach to earnings"}} checked="checked"{{/contains}}
+              {{else}}
+                {{#contains offence.payment-method "Attach to earnings"}} checked="checked"{{/contains}}
+              {{/if}}>
+              Attach to earnings
+            </label>
+
+          </fieldset>
+
+        </div>
+
+        <div class="form-group form-group-related">
+          <button class="button" type="submit">Save and continue</button>
+        </div>
+
+        <p><a href="{{../sBack}}">Back</a><p>
+
+      </form>
+
+    </div>
+
+    <div class="column-third">
+      <div class="related">
+        {{>legal-adviser/related-documents}}
+      </div>
+    </div>
+
+  </div>
+
+{{/with}}

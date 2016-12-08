@@ -27,24 +27,6 @@ $module: 'table';
   }
 
 
-
-  // container
-  &-container {
-    position: relative;
-  }
-
-
-  &-action {
-
-    @include media(tablet) {
-      margin: 0;
-      position: absolute; right: 0; top: 12px;
-    }
-
-  }
-
-
-
   // summary table
   &-summary {
 
@@ -53,23 +35,14 @@ $module: 'table';
       vertical-align: top;
     }
 
-    th {
-      font-weight: normal;
-    }
-
-    &-title {
+    .#{$module}-cell-title {
       width: 40%;
     }
 
-    .#{$module}-cell-action {
-      padding-right: 0;
-      text-align: right;
-    }
+    @include media(tablet) {
 
-    .#{$module}-row-noborder {
-
-      th, td {
-        border: 0;
+      .#{$module}-cell-content {
+        padding-right: 80px;
       }
 
     }
@@ -79,6 +52,15 @@ $module: 'table';
 
   // decision table
   &-decision {
+
+    + details {
+      margin-top: $gutter-half;
+
+      @include media(tablet) {
+        margin-top: $gutter;
+      }
+
+    }
 
     th {font-weight: 400;}
 

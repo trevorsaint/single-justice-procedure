@@ -3,14 +3,14 @@ var router = express.Router();
 
 // datastore
 var dataEngine = require('../models/data-court-administrator');
-
-// baseurl and apptitle
-var baseurl  = '/court-administrator/';
-var apptitle = 'Court administrator';
 var entry;
 
 // routes
 router.use(function(req, res, next) {
+
+  // base
+  baseurl            = '/court-administrator/';
+  apptitle           = 'Court administrator';
 
   // general
   sHasSaved          = req.query.saved;
@@ -634,8 +634,8 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
         res.render('court-administrator/print-register-view-of-cases', {
           baseurl: baseurl,
           apptitle: apptitle,
-          doctitle: 'Print register view of cases',
-          pagetitle: 'Print batch of cases in register view',
+          doctitle: 'Download register for the press',
+          pagetitle: 'Create register for the press',
           section: 'home',
           section_name: 'Home',
           signedIn: true,

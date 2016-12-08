@@ -93,7 +93,8 @@ module.exports = function (grunt) {
           },
 
           files: {
-            'public/styles/main.css' : 'public/sass/main.scss'
+            'public/styles/main.css'  : 'public/sass/main.scss',
+            'public/styles/print.css' : 'public/sass/print.scss'
           }
 
         }

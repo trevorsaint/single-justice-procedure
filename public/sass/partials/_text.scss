@@ -10,6 +10,10 @@ $module: 'text';
     font-weight: 700;
   }
 
+  &-uppercase {
+    text-transform: uppercase;
+  }
+
 }
 
 /*
@@ -17,5 +21,6 @@ $module: 'text';
 HTML Usage
 
 <span class="text-errors">Errors found</span>
+<span class="text-uppercase">Errors found</span>
 
 */

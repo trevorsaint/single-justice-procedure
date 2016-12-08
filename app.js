@@ -70,6 +70,7 @@ app.use(require('./routes/'));
 app.use(require('./routes/court-administrator'));
 app.use(require('./routes/prosecutor'));
 app.use(require('./routes/legal-adviser'));
+app.use(require('./routes/legal-adviser-proof-in-absence'));
 app.use(require('./routes/single-justice-procedure-transparency'));
 
 /*

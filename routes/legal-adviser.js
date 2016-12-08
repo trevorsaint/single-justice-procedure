@@ -1,18 +1,20 @@
 var express = require('express');
-var router = express.Router();
+var router  = express.Router();
+
 
 // datastore
 var dataEngine = require('../models/data-legal-advisers');
-
-// baseurl and apptitle
-var baseurl  = '/legal-adviser/';
-var apptitle = 'Legal adviser';
 
 
 // routes
 router.use(function(req, res, next) {
 
+  // base
+  baseurl                   = '/legal-adviser/';
+  apptitle                  = 'Legal adviser';
+
   // general
+  id                        = req.params.id;
   sHasSaved                 = req.query.saved;
   sActiveTab                = req.session.activeTab;
   sBack                     = req.header('Referer') || '/';
@@ -70,12 +72,14 @@ router.use(function(req, res, next) {
   sLumpSumInstalmentStartDateDay    = req.session.lumpSumInstalmentStartDateDay;
   sLumpSumInstalmentStartDateMonth  = req.session.lumpSumInstalmentStartDateMonth;
   sLumpSumInstalmentStartDateYear   = req.session.lumpSumInstalmentStartDateYear;
+  sLumpSumInstalmentStartDate       = req.session.lumpSumInstalmentStartDate;
 
   sInstalmentOnlyAmount          = req.session.instalmentOnlyAmount;
   sInstalmentOnlyMade            = req.session.instalmentOnlyMade;
   sInstalmentOnlyStartDateDay    = req.session.instalmentOnlyStartDateDay;
   sInstalmentOnlyStartDateMonth  = req.session.instalmentOnlyStartDateMonth;
   sInstalmentOnlyStartDateYear   = req.session.instalmentOnlyStartDateYear;
+  sInstalmentOnlyStartDate       = req.session.instalmentOnlyStartDate;
 
   // attach to earnings
   sEmployeeNumber                 = req.session.employeeNumber;
@@ -91,61 +95,77 @@ router.use(function(req, res, next) {
 
 });
 
+
 // remove session data and redirect user to sign-in page
 router.get('/legal-adviser/end-session', function(req, res, next) {
   req.session.destroy();
-  res.redirect('/legal-adviser/');
+  res.redirect('/legal-adviser/home');
 });
 
-// routes
+
 router.route('/legal-adviser/')
   .get(function(req, res, next) {
     res.render('legal-adviser/index', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Sign in',
-      pagetitle: 'Sign in',
-      signedIn: false,
+      baseurl:    baseurl,
+      apptitle:   apptitle,
+      doctitle:   'Sign in',
+      pagetitle:  'Sign in',
+      signedIn:   false,
       breadcrumb: false,
-      sBack: sBack
+      sBack:      sBack
     });
   })
   .post(function(req, res, next) {
     res.redirect('/legal-adviser/home/');
   });
 
+
 router.route('/legal-adviser/home/')
   .get(function(req, res, next) {
     res.render('legal-adviser/home', {
+      baseurl:      baseurl,
+      apptitle:     apptitle,
+      doctitle:     'Single Justice Procedure',
+      pagetitle:    'Single Justice Procedure',
+      section:      'home',
+      section_name: 'Home',
+      signedIn:     true,
+      breadcrumb:   false,
+      sBack:        sBack
+    });
+    }).post(function(req, res, next) {
+    res.redirect('/legal-adviser/search-for-a-case/');
+  });
+
+
+router.route('/legal-adviser/search-for-a-case/')
+  .all(function(req, res, next) {
+    res.render('legal-adviser/search-for-a-case', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Single Justice Procedure',
-      pagetitle: 'Single Justice Procedure',
+      doctitle: 'Search for a case',
+      pagetitle: 'Search for a case',
       section: 'home',
       section_name: 'Home',
       signedIn: true,
-      breadcrumb: false,
-      sBack: sBack
+      breadcrumb: true,
+      searches: dataEngine.getSearchEntries()
     });
-  })
-  .post(function(req, res, next) {
-    // do something
   });
-
 
 
 router.route('/legal-adviser/start-a-new-sjp-session/')
   .get(function(req, res, next) {
     res.render('legal-adviser/start-a-new-sjp-session', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Start a new SJP session',
-      pagetitle: 'Start a new SJP session',
-      section: 'home',
+      baseurl:      baseurl,
+      apptitle:     apptitle,
+      doctitle:     'Start a new SJP session',
+      pagetitle:    'Start a new SJP session',
+      section:      'home',
       section_name: 'Home',
-      signedIn: true,
-      breadcrumb: true,
-      sBack: sBack
+      signedIn:     true,
+      breadcrumb:   true,
+      sBack:        sBack
     });
   })
   .post(function(req, res, next) {
@@ -153,35 +173,35 @@ router.route('/legal-adviser/start-a-new-sjp-session/')
   });
 
 
-
 router.route('/legal-adviser/case-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/case-details', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Case details',
-      pagetitle: 'Case details',
-      section: 'home',
-      section_name: 'Home',
-      search: entry,
-      signedIn: true,
-      breadcrumb: true,
-      sFirstname: sFirstname,
-      sLastname: sLastname,
-      sDob: sDob,
-      sEmail: sEmail,
-      sPhone: sPhone,
-      sMobile: sMobile,
-      sAddress1: sAddress1,
-      sAddress2: sAddress2,
-      sTown: sTown,
-      sPostcode: sPostcode,
+    res.render('legal-adviser/case-details', {      
+      baseurl:                  baseurl,
+      apptitle:                 apptitle,
+      doctitle:                 'Case details',
+      pagetitle:                'Case details',
+      section:                  'home',
+      section_name:             'Home',
+      search:                   entry,
+      signedIn:                 true,
+      breadcrumb:               true,
+      casedetails:              true,
+      sFirstname:               sFirstname,
+      sLastname:                sLastname,
+      sDob:                     sDob,
+      sEmail:                   sEmail,
+      sPhone:                   sPhone,
+      sMobile:                  sMobile,
+      sAddress1:                sAddress1,
+      sAddress2:                sAddress2,
+      sTown:                    sTown,
+      sPostcode:                sPostcode,
       sNationalInsuranceNumber: sNationalInsuranceNumber,
-      sHasSaved: sHasSaved,
-      sMakeDecision: sMakeDecision,
-      sBack: sBack,
-      sActiveTab: sActiveTab
+      sHasSaved:                sHasSaved,
+      sMakeDecision:            sMakeDecision,
+      sActiveTab:               sActiveTab,
+      sBack:                    sBack
     });
   })
   .post(function(req, res, next) {
@@ -212,22 +232,83 @@ router.route('/legal-adviser/case-details/:id/')
 
   });
 
+
+  // alternative proposal
+  router.route('/legal-adviser/case-details-idea/:id/')
+    .get(function(req, res, next) {
+      entry = dataEngine.getSearchEntry(req.params.id);
+      res.render('legal-adviser/case-details-idea', {
+        baseurl:                  baseurl,
+        apptitle:                 apptitle,
+        doctitle:                 'Case details',
+        pagetitle:                'Case details',
+        section:                  'home',
+        section_name:             'Home',
+        search:                   entry,
+        signedIn:                 true,
+        breadcrumb:               true,
+        sFirstname:               sFirstname,
+        sLastname:                sLastname,
+        sDob:                     sDob,
+        sEmail:                   sEmail,
+        sPhone:                   sPhone,
+        sMobile:                  sMobile,
+        sAddress1:                sAddress1,
+        sAddress2:                sAddress2,
+        sTown:                    sTown,
+        sPostcode:                sPostcode,
+        sNationalInsuranceNumber: sNationalInsuranceNumber,
+        sHasSaved:                sHasSaved,
+        sMakeDecision:            sMakeDecision,
+        sActiveTab:               sActiveTab,
+        sBack:                    sBack
+      });
+    })
+    .post(function(req, res, next) {
+
+      sMakeDecision = req.session.makeDecision = req.body.makeDecision;
+
+      if (sMakeDecision === "Financial penalty") {
+
+        res.redirect('/legal-adviser/financial-penalty/' + req.params.id);
+
+      } else if (sMakeDecision === "Refer for court hearing") {
+
+        res.redirect('/legal-adviser/refer-for-court-hearing/' + req.params.id);
+
+      } else if (sMakeDecision === "Discharge") {
+
+        res.redirect('/legal-adviser/discharge/' + req.params.id);
+
+      } else if (sMakeDecision === "Withdraw") {
+
+        res.redirect('/legal-adviser/withdraw/' + req.params.id);
+
+      } else if (sMakeDecision === "Dismiss") {
+
+        res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+
+      }
+
+    });
+
+
 router.route('/legal-adviser/refer-for-court-hearing/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('legal-adviser/refer-for-court-hearing', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Confirm outcome',
-      pagetitle: 'Confirm outcome',
-      section: 'home',
-      section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
+      baseurl:       baseurl,
+      apptitle:      apptitle,
+      doctitle:      'Confirm outcome',
+      pagetitle:     'Confirm outcome',
+      section:       'home',
+      section_name:  'Home',
+      section2:      'case-details/' + req.params.id,
       section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
-      search: entry,
-      signedIn: true,
-      breadcrumb: true,
+      search:        entry,
+      signedIn:      true,
+      breadcrumb:    true,
     });
   })
   .post(function(req, res, next) {
@@ -235,48 +316,45 @@ router.route('/legal-adviser/refer-for-court-hearing/:id')
   });
 
 
-
-
 router.route('/legal-adviser/discharge/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('legal-adviser/discharge', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Confirm outcome',
-      pagetitle: 'Confirm outcome',
-      section: 'home',
-      section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      sMakeDecision: sMakeDecision,
-      sTypeOfDischarge: sTypeOfDischarge,
-      sCompensation: sCompensation,
-      sDurationAmount: sDurationAmount,
-      sDurationTimeSpan: sDurationTimeSpan,
-      sCost: sCost,
-      sSurcharge: sSurcharge,
+      baseurl:                   baseurl,
+      apptitle:                  apptitle,
+      doctitle:                  'Confirm outcome',
+      pagetitle:                 'Confirm outcome',
+      section:                   'home',
+      section_name:              'Home',
+      section2:                  'case-details/' + req.params.id,
+      section2_name:             'Case details',
+      sMakeDecision:             sMakeDecision,
+      sTypeOfDischarge:          sTypeOfDischarge,
+      sCompensation:             sCompensation,
+      sDurationAmount:           sDurationAmount,
+      sDurationTimeSpan:         sDurationTimeSpan,
+      sCost:                     sCost,
+      sSurcharge:                sSurcharge,
       sCollectionOrderConfirmed: sCollectionOrderConfirmed,
-      search: entry,
-      signedIn: true,
-      breadcrumb: true,
+      search:                    entry,
+      signedIn:                  true,
+      breadcrumb:                true,
     });
   })
   .post(function(req, res, next) {
-    sTypeOfDischarge          = req.session.typeOfDischarge = req.body.typeOfDischarge;
-    sCompensation             = req.session.compensation = req.body.compensation;
-    sDurationAmount           = req.session.durationAmount = req.body.durationAmount;
-    sDurationTimeSpan         = req.session.durationTimeSpan = req.body.durationTimeSpan;
-    sCost                     = req.session.cost = req.body.cost;
-    sSurcharge                = req.session.surcharge = req.body.surcharge;
+
+    sTypeOfDischarge          = req.session.typeOfDischarge          = req.body.typeOfDischarge;
+    sCompensation             = req.session.compensation             = req.body.compensation;
+    sDurationAmount           = req.session.durationAmount           = req.body.durationAmount;
+    sDurationTimeSpan         = req.session.durationTimeSpan         = req.body.durationTimeSpan;
+    sCost                     = req.session.cost                     = req.body.cost;
+    sSurcharge                = req.session.surcharge                = req.body.surcharge;
     sCollectionOrderConfirmed = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed ? "true" : "false";
-    sTotalToPay               = req.session.totalToPay = (Number(sCompensation) + Number(sCost) + Number(sSurcharge)).toFixed(2);
+    sTotalToPay               = req.session.totalToPay               = (Number(sCompensation) + Number(sCost) + Number(sSurcharge)).toFixed(2);
 
     res.redirect('/legal-adviser/payment-method/' + req.params.id);
 
   });
-
-
 
 
 router.route('/legal-adviser/withdraw/:id')
@@ -417,15 +495,15 @@ router.route('/legal-adviser/payment-method/:id')
     });
   })
   .post(function(req, res, next) {
-      sPaymentMethod = req.session.paymentMethod = req.body.paymentMethod;
+    sPaymentMethod = req.session.paymentMethod = req.body.paymentMethod;
 
-      if (sPaymentMethod === "Pay direct to court") {
-        res.redirect('/legal-adviser/pay-direct-to-court/' + req.params.id);
-      } else if (sPaymentMethod === "Deduct from benefits") {
-        res.redirect('/legal-adviser/deduct-from-benefits/' + req.params.id);
-      } else {
-        res.redirect('/legal-adviser/attach-to-earnings/' + req.params.id);
-      }
+    if (sPaymentMethod === "Pay direct to court") {
+      res.redirect('/legal-adviser/pay-direct-to-court/' + req.params.id);
+    } else if (sPaymentMethod === "Deduct from benefits") {
+      res.redirect('/legal-adviser/deduct-from-benefits/' + req.params.id);
+    } else {
+      res.redirect('/legal-adviser/attach-to-earnings/' + req.params.id);
+    }
 
   });
 
@@ -467,23 +545,31 @@ router.route('/legal-adviser/pay-direct-to-court/:id')
   .post(function(req, res, next) {
     sDefendantPay = req.session.defendantPay = req.body.defendantPay;
     sReasonForNotDeductFromBenefitsOrAttachToEarnings = req.session.reasonForNotDeductFromBenefitsOrAttachToEarnings = req.body.reasonForNotDeductFromBenefitsOrAttachToEarnings;
+
     if (sDefendantPay === "Lump sum plus instalments") {
-      sLumpSumAmount = req.session.lumpSumAmount = req.body.lumpSumAmount;
-      sLumpSumAmountPaidWithin = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
-      sLumpSumInstalmentAmount = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
-      sLumpSumInstalmentMade = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
-      sLumpSumInstalmentStartDateDay = req.session.lumpSumInstalmentStartDateDay = req.body.lumpSumInstalmentStartDateDay;
-      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = req.body.lumpSumInstalmentStartDateMonth;
-      sLumpSumInstalmentStartDateYear = req.session.lumpSumInstalmentStartDateYear = req.body.lumpSumInstalmentStartDateYear;
+
+      sLumpSumAmount                   = req.session.lumpSumAmount = req.body.lumpSumAmount;
+      sLumpSumAmountPaidWithin         = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+      sLumpSumInstalmentAmount         = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
+      sLumpSumInstalmentMade           = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
+      sLumpSumInstalmentStartDateDay   = req.session.lumpSumInstalmentStartDateDay = parseInt(req.body.lumpSumInstalmentStartDateDay);
+      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = parseInt(req.body.lumpSumInstalmentStartDateMonth);
+      sLumpSumInstalmentStartDateYear  = req.session.lumpSumInstalmentStartDateYear = parseInt(req.body.lumpSumInstalmentStartDateYear);
+      sLumpSumInstalmentStartDate      = req.session.lumpSumInstalmentStartDate = new Date(parseInt(req.body.lumpSumInstalmentStartDateYear) + '-' + parseInt(req.body.lumpSumInstalmentStartDateMonth) + '-' + parseInt(req.body.lumpSumInstalmentStartDateDay));
+
     } else if (sDefendantPay === "Instalments only") {
-      sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
-      sInstalmentOnlyAmount = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
-      sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
-      sInstalmentOnlyStartDateDay = req.session.instalmentOnlyStartDateDay = req.body.instalmentOnlyStartDateDay;
-      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = req.body.instalmentOnlyStartDateMonth;
-      sInstalmentOnlyStartDateYear = req.session.instalmentOnlyStartDateYear = req.body.instalmentOnlyStartDateYear;
+
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyAmount         = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyStartDateDay   = req.session.instalmentOnlyStartDateDay = parseInt(req.body.instalmentOnlyStartDateDay);
+      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = parseInt(req.body.instalmentOnlyStartDateMonth);
+      sInstalmentOnlyStartDateYear  = req.session.instalmentOnlyStartDateYear = parseInt(req.body.instalmentOnlyStartDateYear);
+      sInstalmentOnlyStartDate      = req.session.instalmentOnlyStartDate = new Date(parseInt(req.body.instalmentOnlyStartDateYear) + '-' + parseInt(req.body.instalmentOnlyStartDateMonth) + '-' + parseInt(req.body.instalmentOnlyStartDateDay));
+
     }
     res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+
   });
 
 
@@ -510,6 +596,21 @@ router.route('/legal-adviser/attach-to-earnings/:id')
       sEmployerTown: sEmployerTown,
       sEmployerPostcode: sEmployerPostcode,
       sReasonForAttachingToEarnings: sReasonForAttachingToEarnings,
+      sReserveTerms: sReserveTerms,
+      sLumpSumAmount: sLumpSumAmount,
+      sLumpSumAmountPaidWithin: sLumpSumAmountPaidWithin,
+      sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
+      sLumpSumInstalmentMade: sLumpSumInstalmentMade,
+      sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
+      sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
+      sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+      sLumpSumInstalmentStartDate: sLumpSumInstalmentStartDate,
+      sInstalmentOnlyAmount: sInstalmentOnlyAmount,
+      sInstalmentOnlyMade: sInstalmentOnlyMade,
+      sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
+      sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
+      sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+      sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
       sTotalToPay: sTotalToPay
     });
   })
@@ -521,6 +622,31 @@ router.route('/legal-adviser/attach-to-earnings/:id')
     sEmployerTown = req.session.employerTown = req.body.employerTown;
     sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
     sReasonForAttachingToEarnings = req.session.reasonForAttachingToEarnings = req.body.reasonForAttachingToEarnings;
+    sRerserveTerms = req.session.reserveTerms = req.body.reserveTerms;
+
+    if (sReserveTerms === "Lump sum plus instalments") {
+
+      sLumpSumAmount                   = req.session.lumpSumAmount = req.body.lumpSumAmount;
+      sLumpSumAmountPaidWithin         = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+      sLumpSumInstalmentAmount         = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
+      sLumpSumInstalmentMade           = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
+      sLumpSumInstalmentStartDateDay   = req.session.lumpSumInstalmentStartDateDay = parseInt(req.body.lumpSumInstalmentStartDateDay);
+      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = parseInt(req.body.lumpSumInstalmentStartDateMonth);
+      sLumpSumInstalmentStartDateYear  = req.session.lumpSumInstalmentStartDateYear = parseInt(req.body.lumpSumInstalmentStartDateYear);
+      sLumpSumInstalmentStartDate      = new Date(req.session.lumpSumInstalmentStartDate = parseInt(req.body.lumpSumInstalmentStartDateYear) + '-' + parseInt(req.body.lumpSumInstalmentStartDateMonth) + '-' + parseInt(req.body.lumpSumInstalmentStartDateDay));
+
+    } else if (sReserveTerms === "Instalments only") {
+
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyAmount         = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyStartDateDay   = req.session.instalmentOnlyStartDateDay = parseInt(req.body.instalmentOnlyStartDateDay);
+      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = parseInt(req.body.instalmentOnlyStartDateMonth);
+      sInstalmentOnlyStartDateYear  = req.session.instalmentOnlyStartDateYear = parseInt(req.body.instalmentOnlyStartDateYear);
+      sInstalmentOnlyStartDate      = new Date(req.session.instalmentOnlyStartDate = parseInt(req.body.instalmentOnlyStartDateYear) + '-' + parseInt(req.body.instalmentOnlyStartDateMonth) + '-' + parseInt(req.body.instalmentOnlyStartDateDay));
+
+    }
+
     res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
   });
 
@@ -552,11 +678,13 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
       sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
       sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
       sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+      sLumpSumInstalmentStartDate: sLumpSumInstalmentStartDate,
       sInstalmentOnlyAmount: sInstalmentOnlyAmount,
       sInstalmentOnlyMade: sInstalmentOnlyMade,
       sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
       sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
       sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+      sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
       sTotalToPay: sTotalToPay
     });
   })
@@ -566,24 +694,30 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
     sReserveTerms = req.session.reserveTerms = req.body.reserveTerms;
 
     if (sReserveTerms === "Lump sum plus instalments") {
-      sLumpSumAmount = req.session.lumpSumAmount = req.body.lumpSumAmount;
-      sLumpSumAmountPaidWithin = req.session.lumpSumAmountPaidWithin = req.body.lumpSumAmountPaidWithin;
-      sLumpSumInstalmentAmount = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
-      sLumpSumInstalmentMade = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
-      sLumpSumInstalmentStartDateDay = req.session.lumpSumInstalmentStartDateDay = req.body.lumpSumInstalmentStartDateDay;
-      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = req.body.lumpSumInstalmentStartDateMonth;
-      sLumpSumInstalmentStartDateYear = req.session.lumpSumInstalmentStartDateYear = req.body.lumpSumInstalmentStartDateYear;
+
+      sLumpSumAmount                   = req.session.lumpSumAmount = req.body.lumpSumAmount;
+      sLumpSumAmountPaidWithin         = req.session.lumpSumPaidWithin = req.body.lumpSumPaidWithin;
+      sLumpSumInstalmentAmount         = req.session.lumpSumInstalmentAmount = req.body.lumpSumInstalmentAmount;
+      sLumpSumInstalmentMade           = req.session.lumpSumInstalmentMade = req.body.lumpSumInstalmentMade;
+      sLumpSumInstalmentStartDateDay   = req.session.lumpSumInstalmentStartDateDay = parseInt(req.body.lumpSumInstalmentStartDateDay);
+      sLumpSumInstalmentStartDateMonth = req.session.lumpSumInstalmentStartDateMonth = parseInt(req.body.lumpSumInstalmentStartDateMonth);
+      sLumpSumInstalmentStartDateYear  = req.session.lumpSumInstalmentStartDateYear = parseInt(req.body.lumpSumInstalmentStartDateYear);
+      sLumpSumInstalmentStartDate      = new Date(req.session.lumpSumInstalmentStartDate = parseInt(req.body.lumpSumInstalmentStartDateYear) + '-' + parseInt(req.body.lumpSumInstalmentStartDateMonth) + '-' + parseInt(req.body.lumpSumInstalmentStartDateDay));
+
     } else if (sReserveTerms === "Instalments only") {
-      sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
-      sInstalmentOnlyAmount = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
-      sInstalmentOnlyMade = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
-      sInstalmentOnlyStartDateDay = req.session.instalmentOnlyStartDateDay = req.body.instalmentOnlyStartDateDay;
-      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = req.body.instalmentOnlyStartDateMonth;
-      sInstalmentOnlyStartDateYear = req.session.instalmentOnlyStartDateYear = req.body.instalmentOnlyStartDateYear;
+
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyAmount         = req.session.instalmentOnlyAmount = req.body.instalmentOnlyAmount;
+      sInstalmentOnlyMade           = req.session.instalmentOnlyMade = req.body.instalmentOnlyMade;
+      sInstalmentOnlyStartDateDay   = req.session.instalmentOnlyStartDateDay = parseInt(req.body.instalmentOnlyStartDateDay);
+      sInstalmentOnlyStartDateMonth = req.session.instalmentOnlyStartDateMonth = parseInt(req.body.instalmentOnlyStartDateMonth);
+      sInstalmentOnlyStartDateYear  = req.session.instalmentOnlyStartDateYear = parseInt(req.body.instalmentOnlyStartDateYear);
+      sInstalmentOnlyStartDate      = new Date(req.session.instalmentOnlyStartDate = parseInt(req.body.instalmentOnlyStartDateYear) + '-' + parseInt(req.body.instalmentOnlyStartDateMonth) + '-' + parseInt(req.body.instalmentOnlyStartDateDay));
+
     }
 
     res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
-    
+
   });
 
 
@@ -645,6 +779,7 @@ router.route('/legal-adviser/check-your-decisions/:id')
         sInstalmentOnlyStartDateDay: sInstalmentOnlyStartDateDay,
         sInstalmentOnlyStartDateMonth: sInstalmentOnlyStartDateMonth,
         sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
+        sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
         sLumpSumAmount: sLumpSumAmount,
         sLumpSumAmountPaidWithin: sLumpSumAmountPaidWithin,
         sLumpSumInstalmentAmount: sLumpSumInstalmentAmount,
@@ -652,6 +787,7 @@ router.route('/legal-adviser/check-your-decisions/:id')
         sLumpSumInstalmentStartDateDay: sLumpSumInstalmentStartDateDay,
         sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
         sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
+        sLumpSumInstalmentStartDate: sLumpSumInstalmentStartDate,
 
         sTypeOfDischarge: sTypeOfDischarge,
         sCompensation: sCompensation,
@@ -671,17 +807,56 @@ router.route('/legal-adviser/check-your-decisions/:id')
 
 router.route('/legal-adviser/confirmation/:id/')
   .get(function(req, res, next) {
+
+    req.session.destroy();
+
     entry = dataEngine.getSearchEntry(req.params.id);
+
+    url = "case-details";
+    id  = Number(req.params.id) + 1;
+
+    if (id > 10) {
+      id  = null;
+      url = "session-complete";
+    }
+
     res.render('legal-adviser/confirmation', {
+      id: id,
+      url: url,
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Confirmation',
-      pagetitle: 'Confirmation',
+      doctitle: 'Decision submitted',
+      pagetitle: 'Decision submitted',
+      search: entry,
+      signedIn: true,
+      breadcrumb: false
+    });
+
+  });
+
+
+router.route('/legal-adviser/session-complete/')
+  .get(function(req, res, next) {
+    res.render('legal-adviser/session-complete', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Session complete',
+      pagetitle: 'Session complete',
+      signedIn: true,
+      breadcrumb: false
+    });
+  });
+
+
+router.route('/legal-adviser/no-cases-to-review/')
+  .get(function(req, res, next) {
+    res.render('legal-adviser/no-cases-to-review', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'No cases to review',
+      pagetitle: 'No cases to review',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      search: entry,
       signedIn: true,
       breadcrumb: true
     });
@@ -747,5 +922,6 @@ router.get('/legal-adviser/*', function(req, res, next) {
     sBack: sBack
   });
 });
+
 
 module.exports = router

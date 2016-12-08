@@ -81,6 +81,15 @@ $module: 'persist-info';
 
 }
 
+// if persit info directly after phase banner
+.phase-banner {
+
+  + .persist-info {
+    margin-top: -1px;
+  }
+
+}
+
 /*
 
 HTML Usage

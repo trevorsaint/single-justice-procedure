@@ -1,14 +1,10 @@
   {{>breadcrumb}}
 
-
   <div class="grid-row">
-
 
     <div class="column-two-thirds">
 
-
       <h1 class="heading-xlarge">{{pagetitle}}</h1>
-
 
       {{#error}}
       <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
@@ -25,7 +21,6 @@
 
       </div>
       {{/error}}
-
 
       <div class="text">
 
@@ -47,29 +42,26 @@
           </div>
         </div>
 
-        <div class="form-group form-group-last{{#error}}{{#unless documents}} error{{/unless}}{{/error}}">
-
-          <h2 class="bold-small"{{#error}}{{#unless header}} id="error-documents"{{/unless}}{{/error}}>Select file</h2>
-
-          {{#error}}
-            {{#unless documents}}<span class="error-message">You need to upload a file</span>{{/unless}}
-            <!--span class="error-message">Wrong file type &ndash; select a zip file instead</span-->
-            <!--span class="error-message">Wrong file extension &ndash; change to .zip</span-->
-          {{/error}}
-
-          <input class="form-control-file" type="file" id="documents" name="documents" accept=".zip">
-          <label class="button button-secondary" for="documents">Browse&hellip;</label>
-
+        <div class="form-group form-group-last{{#error}}{{#unless documents}} error{{/unless}}{{/error}}"{{#error}}{{#unless header}} id="error-documents"{{/unless}}{{/error}}>
+          <label for="documents">
+            <span class="form-label-bold">Select file</span>
+            {{#error}}
+              {{#unless documents}}<span class="error-message">You need to upload a file</span>{{/unless}}
+              <!--span class="error-message">Wrong file type &ndash; select a zip file instead</span-->
+              <!--span class="error-message">Wrong file extension &ndash; change to .zip</span-->
+            {{/error}}
+          </label>
+          <input type="file" id="documents" name="documents" accept=".zip">
         </div>
 
-        <div class="form-group">
+        <div class="form-group form-group-related">
           <button class="button" type="submit" id="send" name="send" value="send">Send to court</button>
         </div>
 
+        <p><a href="{{baseurl}}home">Cancel</a></p>
+
       </form>
 
-
     </div>
-
 
   </div>

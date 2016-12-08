@@ -1,3 +1,5 @@
+{{>breadcrumb}}
+
 {{#with search}}
 
 {{>legal-adviser/persist-info}}
@@ -9,12 +11,11 @@
     <div class="notification notification-confirmation" role="alert">
       <i class="icon icon-tick-white" role="presentation" aria-hidden="true"></i>
       <div class="notification-message">
-        <h1 class="bold-medium">Decision submitted</h1>
-        <p>Case 12345667890 complete</p>
+        <h1 class="bold-medium">{{../pagetitle}}</h1>
       </div>
     </div>
 
-    <p><a class="button" href="/legal-adviser/case-details/1/" role="button">Continue to next case</a></p>
+    <p><a class="button" href="{{../baseurl}}{{../url}}/{{../id}}" role="button">Continue to next case</a></p>
 
   </div>
 

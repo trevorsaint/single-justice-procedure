@@ -21,6 +21,16 @@ $module: 'divider';
     height: em(5);
   }
 
+  // just for tablet and desktop screens
+  @include media(tablet) {
+
+    &-gutter-large {
+      margin-top: $gutter*2;
+      margin-bottom: $gutter*2;
+    }
+
+  }
+
 }
 
 hr {
