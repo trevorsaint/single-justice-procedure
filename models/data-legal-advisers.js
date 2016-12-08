@@ -104,10 +104,6 @@ var search = [
       "defendant-pay": "Lump sum within 14 days",
       "reason-for-not-deducting-from-benefits": "No information from the defendant",
       "reason-for-deducting-from-benefits": "Compensation ordered",
-<<<<<<< HEAD
-      "weekly-income-assumed": "440",
-=======
->>>>>>> release_1-version_4
       "weekly-income": "440",
       "weekly-income-assumed": true,
       "fine-band-applied": "Band A",
