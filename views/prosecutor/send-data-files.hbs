@@ -28,34 +28,28 @@
 
       <form class="form" method="post"{{#if error}}action="/prosecutor/data-files-confirmation"{{/if}}>
 
-        <div class="form-group{{#error}}{{#unless header}} error{{/unless}}{{/error}}">
-
-          <h2 class="bold-small"{{#error}}{{#unless header}} id="error-header"{{/unless}}{{/error}}>Select header <abbr title="Comma Separated Value">CSV</abbr></h2>
-
-          {{#error}}
-            {{#unless header}}<span class="error-message">You need to upload a file</span>{{/unless}}
-            <!--span class="error-message">Wrong file type &ndash; select a <abbr title="Comma Separated Value">CSV</abbr> instead</span-->
-            <!--span class="error-message">File names not a matching pair &ndash; fix and try again</span-->
-          {{/error}}
-
-          <input class="form-control-file" type="file" id="header" name="header" accept=".csv">
-          <label class="button button-secondary" for="header">Browse&hellip;</label>
-
+        <div class="form-group{{#error}}{{#unless header}} error{{/unless}}{{/error}}"{{#error}}{{#unless header}} id="error-header"{{/unless}}{{/error}}>
+          <label for="header">
+            <span class="form-label-bold">Select header <abbr title="Comma Separated Value">CSV</abbr></span>
+            {{#error}}
+              {{#unless header}}<span class="error-message">You need to upload a file</span>{{/unless}}
+              <!--span class="error-message">Wrong file type &ndash; select a <abbr title="Comma Separated Value">CSV</abbr> instead</span-->
+              <!--span class="error-message">File names not a matching pair &ndash; fix and try again</span-->
+            {{/error}}
+          </label>
+          <input type="file" id="header" name="header" accept=".csv">
         </div>
 
-        <div class="form-group form-group-last{{#error}}{{#unless offences}} error{{/unless}}{{/error}}">
-
-          <h2 class="bold-small"{{#error}}{{#unless offences}} id="error-offences"{{/unless}}{{/error}}>Select offences <abbr title="Comma Separated Value">CSV</abbr></h2>
-
-          {{#error}}
-            {{#unless offences}}<span class="error-message">You need to upload a file</span>{{/unless}}
-            <!--span class="error-message">Wrong file type &ndash; select a <abbr title="Comma Separated Value">CSV</abbr> instead</span-->
-            <!--span class="error-message">File names not a matching pair &ndash; fix and try again</span-->
-          {{/error}}
-
-          <input class="form-control-file" type="file" id="offences" name="offences" accept=".csv">
-          <label class="button button-secondary" for="offences">Browse&hellip;</label>
-
+        <div class="form-group form-group-last{{#error}}{{#unless offences}} error{{/unless}}{{/error}}"{{#error}}{{#unless offences}} id="error-offences"{{/unless}}{{/error}}>
+          <label for="offences">
+            <span class="form-label-bold">Select offences <abbr title="Comma Separated Value">CSV</abbr></span>
+            {{#error}}
+              {{#unless offences}}<span class="error-message">You need to upload a file</span>{{/unless}}
+              <!--span class="error-message">Wrong file type &ndash; select a <abbr title="Comma Separated Value">CSV</abbr> instead</span-->
+              <!--span class="error-message">File names not a matching pair &ndash; fix and try again</span-->
+            {{/error}}
+          </label>
+          <input type="file" id="offences" name="offences" accept=".csv">
         </div>
 
         <div class="form-group form-group-related">
