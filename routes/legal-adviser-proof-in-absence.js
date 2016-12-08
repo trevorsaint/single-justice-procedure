@@ -6,13 +6,12 @@ var router  = express.Router();
 var dataEngine = require('../models/data-legal-advisers');
 
 
-// baseurl and apptitle
-var baseurl  = '/proof-in-absence/legal-adviser/';
-var apptitle = 'Legal adviser';
-
-
 // routes
 router.use(function(req, res, next) {
+
+  // base
+  baseurl                   = '/proof-in-absence/legal-adviser/';
+  apptitle                  = 'Legal adviser';
 
   // general
   id                        = req.params.id;
