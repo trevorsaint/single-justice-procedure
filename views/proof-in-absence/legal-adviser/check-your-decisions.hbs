@@ -22,13 +22,17 @@
             <td class="table-cell-content">{{{offence.title}}}</td>
           </tr>
           <tr>
+            <th class="table-cell-title">Verdict</th>
+            <td class="table-cell-content">{{{offence.verdict}}}</td>
+          </tr>
+          <tr>
             <th class="table-cell-title">Result</th>
             <td class="table-cell-content">{{../sMakeDecision}}</td>
           </tr>
         </tbody>
       </table>
 
-      <p class="check-answers-action"><a href="/proof-in-absence/legal-adviser/case-details/{{id}}" title="Change decision">Change<span> decision</span></a></p>
+      <p class="check-answers-action"><a href="{{../baseurl}}case-details/{{id}}" title="Change decision">Change<span> decision</span></a></p>
 
     </div>
 
@@ -87,7 +91,7 @@
         </tbody>
       </table>
 
-      <p class="check-answers-action"><a href="/proof-in-absence/legal-adviser/financial-penalty/{{id}}/?change=true" title="Change fine and compensation">Change<span> fine and compensation</span></a></p>
+      <p class="check-answers-action"><a href="{{../baseurl}}financial-penalty/{{id}}/?change=true" title="Change fine and compensation">Change<span> fine and compensation</span></a></p>
 
     </div>
     {{/contains}}
@@ -116,7 +120,7 @@
         </tbody>
       </table>
 
-      <p class="check-answers-action"><a href="/proof-in-absence/legal-adviser/discharge/{{id}}/?change=true" title="Change type of discharge and compensation">Change<span> type of discharge and compensation</span></a></p>
+      <p class="check-answers-action"><a href="{{../baseurl}}discharge/{{id}}/?change=true" title="Change type of discharge and compensation">Change<span> type of discharge and compensation</span></a></p>
 
     </div>
     {{/contains}}
@@ -158,7 +162,7 @@
         </tbody>
       </table>
 
-      <p class="check-answers-action"><a href="/proof-in-absence/legal-adviser/financial-penalty/{{id}}/?change=true" title="Change costs and surcharge">Change <span>cost and surcharge</span></a></p>
+      <p class="check-answers-action"><a href="{{../baseurl}}financial-penalty/{{id}}/?change=true" title="Change costs and surcharge">Change <span>cost and surcharge</span></a></p>
 
     </div>
 
@@ -199,7 +203,7 @@
         </tbody>
       </table>
 
-      <p class="check-answers-action"><a href="/proof-in-absence/legal-adviser/discharge/{{id}}/?change=true" title="Change costs and surcharge">Change <span>cost and surcharge</span></a></p>
+      <p class="check-answers-action"><a href="{{../baseurl}}discharge/{{id}}/?change=true" title="Change costs and surcharge">Change <span>cost and surcharge</span></a></p>
 
     </div>
 
@@ -236,17 +240,17 @@
           </tr>
           {{#is ../sDefendantPay "Lump sum plus instalments"}}
           <tr>
-            <th class="table-cell-title">Amount to be paid</th>
+            <th class="table-cell-title">Lump sum amount</th>
             <td class="table-cell-content">&pound;{{../sLumpSumAmount}}</td>
           </tr>
           <tr>
-            <th class="table-cell-title">Instalment amount</th>
+            <th class="table-cell-title">Instalments</th>
             <td class="table-cell-content">&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on ({{moment ../sLumpSumInstalmentStartDate format="D MMMM YYYY"}})</td>
           </tr>
           {{/is}}
           {{#is ../sDefendantPay "Instalments only"}}
           <tr>
-            <th class="table-cell-title">Instalment amount</th>
+            <th class="table-cell-title">Instalments</th>
             <td class="table-cell-content">&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on ({{moment ../sInstalmentOnlyStartDate format="D MMMM YYYY"}})</td>
           </tr>
           {{/is}}
@@ -361,7 +365,7 @@
         {{/is}}
       </table>
 
-      <p class="check-answers-action"><a href="/proof-in-absence/legal-adviser/payment-method/{{id}}/?change=true" title="Change payment">Change<span> payment</span></a></p>
+      <p class="check-answers-action"><a href="{{../baseurl}}payment-method/{{id}}/?change=true" title="Change payment">Change<span> payment</span></a></p>
 
     </div>
 
@@ -523,7 +527,7 @@
         {{/is}}
       </table>
 
-      <p class="check-answers-action"><a href="/proof-in-absence/legal-adviser/payment-method/{{id}}/?change=true" title="Change payment">Change<span> payment</span></a></p>
+      <p class="check-answers-action"><a href="{{../baseurl}}payment-method/{{id}}/?change=true" title="Change payment">Change<span> payment</span></a></p>
 
     </div>
 

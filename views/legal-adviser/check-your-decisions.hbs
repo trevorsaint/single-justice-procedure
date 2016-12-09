@@ -240,17 +240,17 @@
           </tr>
           {{#is ../sDefendantPay "Lump sum plus instalments"}}
           <tr>
-            <th class="table-cell-title">Amount to be paid</th>
+            <th class="table-cell-title">Lump sum amount</th>
             <td class="table-cell-content">&pound;{{../sLumpSumAmount}}</td>
           </tr>
           <tr>
-            <th class="table-cell-title">Instalment amount</th>
+            <th class="table-cell-title">Instalments</th>
             <td class="table-cell-content">&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on ({{moment ../sLumpSumInstalmentStartDate format="D MMMM YYYY"}})</td>
           </tr>
           {{/is}}
           {{#is ../sDefendantPay "Instalments only"}}
           <tr>
-            <th class="table-cell-title">Instalment amount</th>
+            <th class="table-cell-title">Instalments</th>
             <td class="table-cell-content">&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on ({{moment ../sInstalmentOnlyStartDate format="D MMMM YYYY"}})</td>
           </tr>
           {{/is}}
