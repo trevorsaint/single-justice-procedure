@@ -1,0 +1,77 @@
+{{>breadcrumb}}
+
+  {{#with search}}
+
+  <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+  <section aria-labelledby="uploaded-documents">
+
+    <h2 class="heading-medium" id="uploaded-documents">Already uploaded</h2>
+
+    <table class="table table-font-xsmall">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Uploaded on</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+      {{#each related-documents.document}}
+        {{#is show true}}
+          <tr>
+            <td><a href="#">{{capitalize title}}</a></td>
+            <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
+            <td><time datetime="{{moment file-uploaded-date format="YYYY-MM-DD"}}">{{moment file-uploaded-date format="D MMM YYYY"}}</time></td>
+            <td>{{#if can-remove}}<a href="#">Remove</a>{{/if}}</td>
+          </tr>
+        {{/is}}
+      {{/each}}
+
+      </tbody>
+    </table>
+
+  </section>
+
+  <section aria-labelledby="add-other-documents">
+
+    <h2 class="heading-medium" id="add-other-documents">Add more documents</h2>
+
+    <p>You can upload any of the following, if available.</p>
+
+    <form class="form" method="post" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label for="plea-document">
+          <span class="form-label-bold">Select plea document</span>
+        </label>
+        <input type="file" id="plea-document" name="pleaDocument">
+      </div>
+
+      <div class="form-group">
+        <label for="statement-of-income">
+          <span class="form-label-bold">Select statement of income and outgoings (MC100)</span>
+        </label>
+        <input type="file" id="statement-of-income" name="statementIncome">
+      </div>
+
+      <div class="form-group form-group-last">
+        <label for="other-documents">
+          <span class="form-label-bold">Select any other documents</span>
+          <span class="form-hint">For example, a bank statement, email or a copy of a travelcard</span>
+        </label>
+        <input type="file" id="other-documents" name="otherDocuments" multiple="">
+      </div>
+
+      <div class="form-group form-group-actions">
+        <button class="button" type="submit">Upload</button>
+        <p><a href="/court-administrator/case-details/{{id}}">Done &ndash; go back to case</a></p>
+      </div>
+
+    </form>
+
+  </section>
+
+{{/with}}
