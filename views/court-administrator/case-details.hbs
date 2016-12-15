@@ -26,14 +26,21 @@
 
     <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">
+      <h1 class="heading-xlarge mb-l">
         {{#and ../sFirstname ../sLastname}}
-          {{../sFirstname}} {{uppercase ../sLastname}}
+          {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
         {{else}}
-          {{personal-details.firstname}} {{uppercase personal-details.lastname}}
+          {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
         {{/and}}
-        <span class="heading-secondary"><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMMM YYYY"}}</time> ({{personal-details.age}} years old)</span>
       </h1>
+
+      <p class="mb-xl">
+        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
+        {{#if ../../sAddress1}}{{../../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
+        {{#if ../../sAddress2}}{{../../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
+        {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
+        {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
+      </p>
 
       <div class="tabs tabs-horizontal">
 
