@@ -227,6 +227,30 @@ router.route('/proof-in-absence/court-administrator/print-register-view-of-cases
     //res.redirect('/proof-in-absence/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
+  router.route('/proof-in-absence/court-administrator/reopen-case/:id/')
+    .get(function(req, res, next) {
+      entry = dataEngine.getSearchEntry(req.params.id);
+      res.render('proof-in-absence/court-administrator/reopen-case', {
+        baseurl: baseurl,
+        apptitle: apptitle,
+        doctitle: 'Log case as reopened on Libra',
+        pagetitle: 'Log case as reopened on Libra',
+        section: 'home',
+        section_name: 'Home',
+        section2: 'case-details/' + req.params.id,
+        section2_name: 'Case details',
+        signedIn: true,
+        breadcrumb: true,
+        search: entry,
+        sLibraAccountNumber: sLibraAccountNumber
+      });
+    })
+    .post(function(req, res, next) {
+      sReopenedCase = req.session.reopenedCase = 'Yes';
+      sLibraAccountNumber = req.session.libraAccountNumber = req.body.libraAccountNumber;
+      res.redirect('/proof-in-absence/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    });
+
 router.get('/proof-in-absence/court-administrator/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,

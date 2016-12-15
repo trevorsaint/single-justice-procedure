@@ -62,7 +62,7 @@
             <dl class="meta meta-inline meta-boldterms">
               <dt>Case status</dt>
               <dd>
-              {{#is status 'Completed &ndash; decision sent to defendant'}}
+              {{#is status 'Completed'}}
                 {{#if ../../sLibraAccountNumber}}
                   Reopened <time datetime="2016-10-12">12 October 2016</time> <br> (Libra account no: {{../../sLibraAccountNumber}})
                 {{else}}
@@ -192,6 +192,27 @@
       </div>
 
     </div>
+
+    {{#contains case-details.status 'Completed'}}
+      {{#isnt ../sReopenedCase 'Yes'}}
+      <div class="column-third">
+
+        <div class="related">
+
+          <div class="related-section">
+
+            <h3 class="related-heading">Case options</h3>
+            <ul class="related-links">
+              <li><a href="{{../baseurl}}reopen-case/{{id}}/">Log case reopened on Libra</a></li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+      {{/isnt}}
+    {{/contains}}
 
   </div>
 
