@@ -10,7 +10,7 @@ router.use(function(req, res, next) {
 
   // base
   baseurl            = '/proof-in-absence/court-administrator/';
-  apptitle           = 'Court administrator';
+  apptitle           = 'Single Justice Procedure';
 
   // general
   sHasSaved          = req.query.saved;
@@ -95,7 +95,10 @@ router.route('/proof-in-absence/court-administrator/home/')
       section: 'home',
       section_name: 'Home',
       signedIn: true,
-      breadcrumb: false
+      breadcrumb: false,
+      phaseBanner:     false,
+      phaseBannerHome: true,
+      globalHeaderBar: false
     });
   })
   .post(function(req, res, next) {

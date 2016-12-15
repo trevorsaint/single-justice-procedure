@@ -1,18 +1,18 @@
 {{>breadcrumb}}
 
-<div class="grid-row">
+<div class="homepage-masthead">
 
-  <div class="column-two-thirds">
+  <div class="grid-row">
 
-    <h1 class="heading-xlarge"><span class="heading-secondary">{{apptitle}}</span> {{pagetitle}}</h1>
+    <div class="column-two-thirds">
 
-    <h2 class="heading-medium">Search for a case</h2>
+      <h1 class="bold-xlarge mb-l">{{apptitle}}</h1>
 
-    <form class="form" method="post">
+      <h2 class="bold-medium">Search for a case</h2>
 
-      <div class="form-group">
+      <form class="form" method="post">
 
-        <div class="form-search">
+        <div class="form-search form-search-home">
 
           <label for="search">
             <span class="form-label">Enter case reference number or defendant&rsquo;s last name</span>
@@ -22,13 +22,15 @@
 
         </div>
 
-      </div>
-
-    </form>
+    </div>
 
   </div>
 
 </div>
+
+{{#is phaseBannerHome true}}
+  {{>phase-banner}}
+{{/is}}
 
 <div class="grid-row">
 
@@ -37,15 +39,15 @@
     <h2 class="heading-medium" id="print-orders">Print orders</h2>
 
     <ul class="list" aria-labelledby="print-orders">
-      <li><p><a href="{{baseurl}}#">Print new orders</a> (273)</p></li>
-      <li><p><a href="{{baseurl}}#">Find previously printed orders</a></p></li>
+      <li><p><a href="#">Orders ready to be printed</a></p></li>
+      <li><p><a href="#">Find previously printed orders</a></p></li>
     </ul>
 
     <h2 class="heading-medium" id="information-for-the-public">Information for the public</h2>
 
     <ul class="list" aria-labelledby="information-for-the-public">
-      <li><p><a href="{{baseurl}}court-list">Print list of cases awaiting decision</a></p></li>
-      <li><p><a href="{{baseurl}}print-register-view-of-cases">Download register for the press</a></p></li>
+      <li><p><a href="/court-administrator/court-list">Print list of cases for public display</a></p></li>
+      <li><p><a href="/court-administrator/print-register-view-of-cases">Create register for the media</a></p></li>
     </ul>
 
   </div>

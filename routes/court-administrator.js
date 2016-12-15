@@ -10,7 +10,7 @@ router.use(function(req, res, next) {
 
   // base
   baseurl            = '/court-administrator/';
-  apptitle           = 'Court administrator';
+  apptitle           = 'Single Justice Procedure';
 
   // general
   sHasSaved          = req.query.saved;

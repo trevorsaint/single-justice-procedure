@@ -11,7 +11,7 @@ router.use(function(req, res, next) {
 
   // base
   baseurl                   = '/proof-in-absence/legal-adviser/';
-  apptitle                  = 'Legal adviser';
+  apptitle                  = 'Single Justice Procedure';
 
   // general
   id                        = req.params.id;
@@ -131,6 +131,9 @@ router.route('/proof-in-absence/legal-adviser/')
         section_name: 'Home',
         signedIn:     true,
         breadcrumb:   false,
+        phaseBanner:     false,
+        phaseBannerHome: true,
+        globalHeaderBar: false,
         sBack:        sBack
       });
       }).post(function(req, res, next) {

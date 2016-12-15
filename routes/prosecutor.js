@@ -6,7 +6,7 @@ var dataEngine = require('../models/data-prosecutor');
 
 // baseurl and apptitle
 var baseurl  = '/prosecutor/';
-var apptitle = 'Prosecutor';
+var apptitle = 'Single Justice Procedure';
 
 // routes
 router.route('/prosecutor')
