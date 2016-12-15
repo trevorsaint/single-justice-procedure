@@ -102,14 +102,17 @@ router.route('/court-administrator/styles')
 router.route('/court-administrator/home/')
   .get(function(req, res, next) {
     res.render('court-administrator/home', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Single Justice Procedure',
-      pagetitle: 'Single Justice Procedure',
-      section: 'home',
-      section_name: 'Home',
-      signedIn: true,
-      breadcrumb: false
+      baseurl:         baseurl,
+      apptitle:        apptitle,
+      doctitle:        'Single Justice Procedure',
+      pagetitle:       'Single Justice Procedure',
+      section:         'home',
+      section_name:    'Home',
+      signedIn:        true,
+      breadcrumb:      false,
+      phaseBanner:     false,
+      phaseBannerHome: true,
+      globalHeaderBar: false
     });
   })
   .post(function(req, res, next) {
