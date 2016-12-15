@@ -71,6 +71,26 @@ $module: 'form-search';
 
   }
 
+  // modifier
+  &-home {
+
+    .form-control {
+      background-color: $white;
+      border-color: $white;
+      color: $black;
+    }
+
+    .form-label {
+      color: $white;
+    }
+
+    .form-search-button {
+      background-color: $black;
+      border-color: $black;
+    }
+
+  }
+
 }
 
 .error {

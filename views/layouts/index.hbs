@@ -2,14 +2,16 @@
 
 
   <main id="content" role="main">
-    
-    
-    {{>phase-banner}}
-    
-  
+
+
+    {{#isnt phaseBanner false}}
+      {{>phase-banner}}
+    {{/isnt}}
+
+
     {{{body}}}
-    
-  
+
+
   </main>
 
 

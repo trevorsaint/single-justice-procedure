@@ -6,7 +6,7 @@ var dataEngine = require('../models/data-prosecutor');
 
 // baseurl and apptitle
 var baseurl  = '/prosecutor/';
-var apptitle = 'Prosecutor';
+var apptitle = 'Prosecute SJP cases';
 
 // routes
 router.route('/prosecutor')
@@ -33,7 +33,10 @@ router.all('/prosecutor/home', function(req, res) {
     section: 'home',
     section_name: 'Home',
     signedIn: true,
-    breadcrumb: false
+    breadcrumb: false,
+    phaseBanner: false,
+    phaseBannerHome: true,
+    globalHeaderBar: false
   });
 });
 

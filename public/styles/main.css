@@ -3168,6 +3168,18 @@ HTML Usage
 .form-search-button:focus {
   position: relative;
 }
+.form-search-home .form-control {
+  background-color: #fff;
+  border-color: #fff;
+  color: #0b0c0c;
+}
+.form-search-home .form-label {
+  color: #fff;
+}
+.form-search-home .form-search-button {
+  background-color: #0b0c0c;
+  border-color: #0b0c0c;
+}
 
 .error .form-search-button {
   border-width: 4px;
@@ -3470,6 +3482,18 @@ HTML Usage
 }
 .flush-bottom {
   margin-bottom: 0;
+}
+
+.homepage-masthead {
+  background-color: #005ea5;
+  color: #fff;
+  margin-left: -100%;
+  margin-right: -100%;
+  padding: 30px 100%;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 :focus {
