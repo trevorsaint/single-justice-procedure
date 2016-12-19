@@ -632,13 +632,13 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
       //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
     });
 
-    router.route('/court-administrator/print-register-view-of-cases/')
+    router.route('/court-administrator/create-register-for-the-media/')
       .get(function(req, res, next) {
-        res.render('court-administrator/print-register-view-of-cases', {
+        res.render('court-administrator/create-register-for-the-media', {
           baseurl: baseurl,
           apptitle: apptitle,
-          doctitle: 'Download register for the press',
-          pagetitle: 'Create register for the press',
+          doctitle: 'Create register for the media',
+          pagetitle: 'Create register for the media',
           section: 'home',
           section_name: 'Home',
           signedIn: true,

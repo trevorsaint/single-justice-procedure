@@ -212,13 +212,13 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
     res.redirect('/proof-in-absence/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
-router.route('/proof-in-absence/court-administrator/print-register-view-of-cases/')
+router.route('/proof-in-absence/court-administrator/create-register-for-the-media/')
   .get(function(req, res, next) {
-    res.render('proof-in-absence/court-administrator/print-register-view-of-cases', {
+    res.render('proof-in-absence/court-administrator/create-register-for-the-media', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Download register for the press',
-      pagetitle: 'Create register for the press',
+      doctitle: 'Create register for the media',
+      pagetitle: 'Create register for the media',
       section: 'home',
       section_name: 'Home',
       signedIn: true,
