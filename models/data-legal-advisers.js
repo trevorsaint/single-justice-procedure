@@ -27,7 +27,7 @@ var search = [
       "notice-served": "2016-11-02",
     },
     "offence": {
-      "title": "Public service vehicle &ndash; passenger used ticket issued for another person",
+      "title": "Passenger used ticket issued for another person",
       "date": "2016-02-18",
       "offence-wording": "On 10 Nov 2016 at Belmont Hill, Lewisham, SE13, being a passenger on a Public Services Vehicle being operated on behalf of London Bus Company Limited , used for the carriage of passengers at separate fares, used a ticket which had been issued for use by another person on terms that it was not transferable. Contrary to regulation 7(1)(b) of the Public Service Vehicles (Conduct of Drivers, Inspectors, Conductors and Passengers) Regulations 1990 and section 25 of the Public Passenger Vehicles Act 1981",
       "statement-of-facts": "On Thursday 10th November 2016 you were on board a route 178 bus, garage code 552 with the intention of travelling from LEWISHAM to BLACKHEATH, a normal adult fare of &pound;2.40. During the course of this journey at about 4:15 PM you offered for the inspection of London Bus Inspector LB004512 a &pound;3.60 Discount SINGLE Pay as you go pass in oystercard format, serial number 02871229561, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. When questioned, you said &ldquo;It&rsquo;s my wife&rsquo;s&rdquo;. When informed that you were being reported you said &ldquo;It&rsquo;s not fair, nobody told me I couldn&rsquo;t use someone else&rsquo;s oystercard",
@@ -209,7 +209,7 @@ var search = [
       "mobile":     ""
     },
     "case-details": {
-      "status":        "No Plea Received",
+      "status":        "No plea received",
       "prosecutor":    "Transport for London",
       "charge-date":   "2016-01-21",
       "notice-served": "2016-11-02",
@@ -238,7 +238,7 @@ var search = [
       "offence-wording": "On 5 Nov 2016 At Freemason&rsquo;s Road E16 Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction.",
       "statement-of-facts": "On Saturday 5th November 2016 you were on board a route 241 bus, garage code 351, headed in the direction of STRATFORD CITY. During the course of this journey at about 5:45 PM you were approached by London Bus Inspector LB06143 and were not in possession of a valid ticket for travel. When questioned you said &ldquo;I don&rsquo;t need to buy a ticket&rdquo;. When informed that you were being reported you said &ldquo;It doesn&rsquo;t matter, I won&rsquo;t pay.&rdquo;",
       "mitigation": "",
-      "plea": "No Plea Received",
+      "plea": "No plea received",
       "verdict": "Proven <abbr title=\"Single Justice Procedure\">SJP</abbr>",
       "decision": "Financial penalty",
       "collection-order-confirmed": "true",
@@ -289,7 +289,7 @@ var search = [
       "mobile":     ""
     },
     "case-details": {
-      "status":        "No Plea Received",
+      "status":        "No plea received",
       "prosecutor":    "Transport for London",
       "charge-date":   "2016-01-21",
       "notice-served": "2016-11-02",
@@ -318,7 +318,7 @@ var search = [
       "offence-wording": "On 4 Nov 2016 At Redriff Road SE16 Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction.",
       "statement-of-facts": "On Friday 4th November 2016 you were on board a route 381 bus, garage code 219 headed in the direction of WATERLOO. During the course of this journey at about 5:45 PM you were approached by London Bus Inspector LB06531 and were not in possession of a valid ticket for travel. When questioned you said &ldquo;I don&rsquo;t understand you, what did I do&rdquo;. When informed that you were being reported you said &ldquo;Everyone else does it, why pick on me&rdquo;",
       "mitigation": "",
-      "plea": "No Plea Received",
+      "plea": "No plea received",
       "verdict": "Proven <abbr title=\"Single Justice Procedure\">SJP</abbr>",
       "decision": "Financial penalty",
       "collection-order-confirmed": "true",
@@ -394,11 +394,11 @@ var search = [
         "receiving-benefits": "",
     },
     "offence": {
-      "title": "Public service vehicle &ndash; passenger used ticket issued for another person",
+      "title": "Passenger used ticket issued for another person",
       "date": "2016-11-07",
       "offence-wording": "On 10 Nov 2016 at New Cross Road, New Cross, SE14, being a passenger on a Public Services Vehicle being operated on behalf of London Bus Company Limited , used for the carriage of passengers at separate fares, used a ticket which had been issued for use by another person on terms that it was not transferable. Contrary to regulation 7(1)(b) of the Public Service Vehicles (Conduct of Drivers, Inspectors, Conductors and Passengers) Regulations 1990 and section 25 of the Public Passenger Vehicles Act 1981.",
       "statement-of-facts": "On Thursday 10th November 2016 you were on board a route 177 bus, garage code 308 with the intention of travelling from PECKHAM to NEW CROSS a normal adult fare of &pound;2.40. During the course of this journey at about 7:48 AM you offered for the inspection of London Bus Inspector LB004192 a &pound;3.60 SINGLE Pay as you go pass in oystercard format, serial number 0287573061, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. When questioned, you said &ldquo;I borrowed my flatmate&rsquo;s card&rdquo;. When informed that you were being reported you said &ldquo;But it&rsquo;s paid for, why are you doing this, who does it help&rdquo;.",
-      "mitigation": "I was in a hurry to get to work and was worried that I&rsquo;d be in trouble with my manager for being late. They have a strict policy and I could have been sacked. I am sorry, this is the only time I&rsquo;ve done anything wrong.",
+      "mitigation": "Defendant has sent a postal reply &ndash; check the plea document.",
       "plea": "Guilty",
       "verdict": "Guilty plea accepted",
       "decision": "Financial penalty",
@@ -566,7 +566,7 @@ var search = [
       "mobile":     "07975337198"
     },
     "case-details": {
-      "status":        "Awaiting Decision",
+      "status":        "Awaiting decision",
       "prosecutor":    "Transport for London",
       "charge-date":   "2016-01-21",
       "notice-served": "2016-11-02",
@@ -594,7 +594,7 @@ var search = [
       "date": "2016-11-07",
       "offence-wording": "On 7 Nov 2016 At Dalston Junction  Where the entrance to or exit from a platform or station is via an automatic ticket barrier did enter or leave the station except with permission from an authorised person without passing through the barrier in the correct manner.",
       "statement-of-facts": "On Monday 7th November 2016 you were leaving Dalston Junction station. You were observed to follow another passenger closely through the wide access ticket gate. When approached by LU Ticket Inspector LU048439, you were not in possession of a valid ticket for travel. When questioned you said &ldquo;It was just one stop, I didn&rsquo;t think anyone would notice&rdquo;. When informed that you were being reported you said &ldquo;Oh no, my parents will kill me&rdquo;.",
-      "mitigation": "I&rsquo;ve never done anything like this before, it was really stupid and I&rsquo;m very sorry.",
+      "mitigation": "Defendant has sent a postal reply &ndash; check the plea document.",
       "plea": "Guilty",
       "verdict": "Guilty plea accepted",
       "decision": "Financial penalty",
@@ -660,7 +660,7 @@ var search = [
       "mobile":     "07977231531"
     },
     "case-details": {
-      "status":        "Guilty",
+      "status":        "Guilty plea",
       "prosecutor":    "Transport for London",
       "charge-date":   "2016-01-21",
       "notice-served": "2016-11-02",
@@ -688,8 +688,8 @@ var search = [
       "date": "2016-11-07",
       "offence-wording": "On 4 Nov 2016 At Willesden Green Station. Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
       "statement-of-facts": "On Friday 4th November 2016 you passed through the ticket gates at WILLESDEN GREEN intending to travel to WEMBLEY PARK and were subsequently approached by a TfL ticket inspector LU012529. At 10:14 you produced a a &pound;2.40 Zone 2&ndash;4 CHILD ticket. When questioned you said &ldquo;I couldn&rsquo;t afford the adult ticket&rdquo;. When informed that you were being reported you offered no response.",
-      "mitigation": "I don&rsquo;t make much money and tickets cost too much. I can&rsquo;t afford to pay any fine.",
-      "plea": "Guilty",
+      "mitigation": "Defendant has sent a postal reply &ndash; check the plea document.",
+      "plea": "Guilty plea &ndash; no court hearing",
       "verdict": "Guilty plea accepted",
       "decision": "Financial penalty",
       "collection-order-confirmed": "true",
@@ -755,7 +755,7 @@ var search = [
       "mobile":     "07845129554"
     },
     "case-details": {
-      "status":        "Awaiting Decision",
+      "status":        "Awaiting decision",
       "prosecutor":    "Transport for London",
       "charge-date":   "2016-01-21",
       "notice-served": "2016-11-02",

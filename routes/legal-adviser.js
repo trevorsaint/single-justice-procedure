@@ -797,6 +797,8 @@ router.route('/legal-adviser/check-your-decisions/:id')
         sDurationAmount: sDurationAmount,
         sDurationTimeSpan: sDurationTimeSpan,
 
+        sTotalToPay: sTotalToPay,
+
         sBack: sBack
       });
 

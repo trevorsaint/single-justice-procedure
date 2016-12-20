@@ -3,7 +3,7 @@ var router  = express.Router();
 
 
 // datastore
-var dataEngine = require('../models/data-legal-advisers');
+var dataEngine = require('../models/data-legal-advisers-pia');
 
 
 // routes
@@ -222,13 +222,17 @@ router.route('/proof-in-absence/legal-adviser/case-details/:id/')
 
       res.redirect('/proof-in-absence/legal-adviser/discharge/' + req.params.id);
 
-    } else if (sMakeDecision === "Withdraw") {
+    } else if (sMakeDecision === "Withdraw offence") {
 
       res.redirect('/proof-in-absence/legal-adviser/withdraw/' + req.params.id);
 
     } else if (sMakeDecision === "Dismiss") {
 
       res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id);
+
+    } else if (sMakeDecision === "Refer for future SJP session") {
+
+      res.redirect('/proof-in-absence/legal-adviser/refer-for-future-sjp-session/' + req.params.id);
 
     }
 
@@ -303,6 +307,29 @@ router.route('/proof-in-absence/legal-adviser/withdraw/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('proof-in-absence/legal-adviser/withdraw', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      doctitle: 'Confirm outcome',
+      pagetitle: 'Confirm outcome',
+      section: 'home',
+      section_name: 'Home',
+      section2: 'case-details/' + req.params.id,
+      section2_name: 'Case details',
+      sMakeDecision: sMakeDecision,
+      search: entry,
+      signedIn: true,
+      breadcrumb: true,
+    });
+  })
+  .post(function(req, res, next) {
+    res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id);
+  });
+
+
+router.route('/proof-in-absence/legal-adviser/refer-for-future-sjp-session/:id')
+  .get(function(req, res, next) {
+    entry = dataEngine.getSearchEntry(req.params.id);
+    res.render('proof-in-absence/legal-adviser/refer-for-future-sjp-session', {
       baseurl: baseurl,
       apptitle: apptitle,
       doctitle: 'Confirm outcome',
@@ -735,6 +762,8 @@ router.route('/proof-in-absence/legal-adviser/check-your-decisions/:id')
         sCompensation: sCompensation,
         sDurationAmount: sDurationAmount,
         sDurationTimeSpan: sDurationTimeSpan,
+
+        sTotalToPay: sTotalToPay,
 
         sBack: sBack
       });

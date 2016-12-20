@@ -227,6 +227,10 @@
         {{#is ../sPaymentMethod "Pay direct to court"}}
         <tbody>
           <tr>
+            <th class="table-cell-title">Total</th>
+            <td class="table-cell-content">&pound;{{../sTotalToPay}}</td>
+          </tr>
+          <tr>
             <th class="table-cell-title">Payment method</th>
             <td class="table-cell-content">{{../sPaymentMethod}}</td>
           </tr>
@@ -542,7 +546,7 @@
 
     <h2 class="heading-medium" id="other-information">Add a note (optional)</h2>
 
-    <p class="text">Only add if you have important information you couldn&rsquo;t enter elsewhere.</p>
+    <p class="text">This will only be seen by court staff.</p>
 
     <form class="form" method="post">
 

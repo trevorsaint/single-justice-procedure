@@ -39,7 +39,7 @@
             <p class="form-block">or</p>
 
             <label class="block-label selection-button-radio" for="deduct-from-benefits">
-              <input type="radio" id="deduct-from-benefits" name="paymentMethod" value="Deduct from benefits"
+              <input type="radio" id="deduct-from-benefits" name="paymentMethod" value="Deduct from benefits" disabled="disabled"
               {{#if ../sPaymentMethod}}
                 {{#contains ../sPaymentMethod "Deduct from benefits"}} checked="checked"{{/contains}}
               {{else}}
@@ -49,7 +49,7 @@
             </label>
 
             <label class="block-label selection-button-radio" for="attach-to-earnings">
-              <input type="radio" id="attach-to-earnings" name="paymentMethod" value="Attach to earnings"
+              <input type="radio" id="attach-to-earnings" name="paymentMethod" value="Attach to earnings" disabled="disabled"
               {{#if ../sPaymentMethod}}
                 {{#contains ../sPaymentMethod "Attach to earnings"}} checked="checked"{{/contains}}
               {{else}}

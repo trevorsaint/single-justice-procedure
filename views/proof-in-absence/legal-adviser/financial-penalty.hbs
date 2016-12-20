@@ -9,7 +9,15 @@
     <div class="column-two-thirds">
 
       <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+      {{#if offence.previous-convictions}}
+        <div class="panel panel-border-wide">
+          <p>Defendant has <b>{{offence.previous-convictions.convictions}}</b> previous convictions.</p>
+        </div>
+      {{/if}}
+
       <h2 class="heading-large">Offence 1</h2>
+
       <h3 class="bold-medium">{{{offence.title}}}</h3>
       <p class="font-xsmall js-text">{{{offence.offence-wording}}}</p>
 
@@ -22,6 +30,8 @@
           {{#if offence.weekly-income}}
             <p>Defendant&rsquo;s weekly income: <b>&pound;{{offence.weekly-income}}</b>{{#if offence.weekly-income-assumed}} (assumed){{/if}}</p>
           {{/if}}
+
+          <!--p><strong class="status-label">Discount applied for guilty plea</strong></p-->
 
           <div class="form-group">
 
