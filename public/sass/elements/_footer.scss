@@ -1,0 +1,70 @@
+// Footer
+// ==========================================================================
+
+$module: 'footer';
+
+.#{$module} {
+  background-color: $grey-3;
+  border-top: 1px solid #a1acb2;
+
+  a {
+    color: lighten($black, 20%);
+  }
+
+  &-wrapper {
+    @extend %contain-floats;
+    margin: 0 auto;
+    max-width: 960px;
+    padding: $gutter*2 $gutter-half;
+
+    @include media(tablet) {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+
+  }
+
+  &-support {
+
+    li {
+      float: left;
+      margin-right: $gutter-half;
+    }
+
+  }
+
+  &-helpdesk {
+
+    h2 {
+      @include core-24;
+      font-weight: bold;
+    }
+
+    dl {
+      margin-top: em(5);
+    }
+
+    dt {
+      display: inline;
+      &::after {
+        content: ':';
+      }
+    }
+
+    dd {
+      display: inline;
+
+      &::after {
+        display: block;
+        content: '';
+      }
+
+    }
+
+    p {
+      margin: 0;
+    }
+
+  }
+
+}

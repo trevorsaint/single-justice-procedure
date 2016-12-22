@@ -1,4 +1,4 @@
-{{#if casedetails}}
+{{#compare hideconvictions '===' 'yes'}}
 
   <div class="related-section">
 
@@ -11,7 +11,7 @@
           <div class="document document-small">
             <i class="icon icon-file-download" aria-hidden="true" role="presentation"></i>
             <div class="document-content">
-              <p class="document-title"><a href="{{{file-path}}}" target="_blank" title="{{{capitalize title}}} (opens in a new window)">{{{capitalize title}}}</a></p>
+              <p class="document-title"><a href="{{{file-path}}}" title="{{{capitalize title}}} (opens in a new window)">{{{capitalize title}}}</a></p>
               <div class="document-meta">
                 <span class="document-meta-details">{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</span>
               </div>
@@ -36,7 +36,7 @@
         <div class="document document-small">
           <i class="icon icon-file-download" aria-hidden="true" role="presentation"></i>
           <div class="document-content">
-            <p class="document-title"><a href="{{{file-path}}}" target="_blank" title="{{{capitalize title}}} (opens in a new window)">{{{capitalize title}}}</a></p>
+            <p class="document-title"><a href="{{{file-path}}}" title="{{{capitalize title}}} (opens in a new window)">{{{capitalize title}}}</a></p>
             <div class="document-meta">
               <span class="document-meta-details">{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</span>
             </div>
@@ -48,7 +48,7 @@
 
   </div>
 
-  {{#each related-documents.document}}{{#compare title  "=="  'previous convictions' }}
+  {{#each related-documents.document}}{{#compare title  "==="  'previous convictions' }}
   <div class="related-section">
 
     <h3 class="related-heading">Now available</h3>
@@ -58,7 +58,7 @@
         <div class="document document-small">
           <i class="icon icon-file-download" aria-hidden="true" role="presentation"></i>
           <div class="document-content">
-            <p class="document-title"><a href="{{{file-path}}}" target="_blank" title="{{{capitalize title}}} (opens in a new window)">{{{capitalize title}}}</a></p>
+            <p class="document-title"><a href="{{{file-path}}}" title="{{{capitalize title}}} (opens in a new window)">{{{capitalize title}}}</a></p>
             <div class="document-meta">
               <span class="document-meta-details">{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</span>
             </div>
@@ -70,4 +70,4 @@
   </div>
   {{/compare}}{{/each}}
 
-{{/if}}
+{{/compare}}

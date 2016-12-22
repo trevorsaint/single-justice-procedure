@@ -8,21 +8,18 @@
 
     <div class="column-two-thirds">
 
-
       <h1 class="heading-xlarge">{{../pagetitle}}</h1>
       <h2 class="heading-large">Offence 1</h2>
       <h3 class="bold-medium">{{{offence.title}}}</h3>
       <p class="font-xsmall js-text">{{{offence.offence-wording}}}</p>
 
-      <h3 class="heading-medium">Refer for future SJP session</h3>
+      <h3 class="heading-medium">Dismiss offence</h3>
 
-      <p>You&rsquo;re about to remove the case from this service.</p>
+      <p>No further action to be taken against the defendant.</p>
 
-      <p>Give the case number to your court administrator and ask them to manually create a new case in Libra.</p>
+      <p><a class="button" href="{{../baseurl}}check-your-decisions/{{id}}" role="buton">Save and continue</a></p>
 
-      <p><a class="button" href="/proof-in-absence/legal-adviser/check-your-decisions/{{id}}" role="button">Save and continue</a></p>
-
-      <p><a href="/proof-in-absence/legal-adviser/case-details/{{id}}">Back</a></p>
+      <p><a href="{{../baseurl}}case-details/{{id}}">Back</a></p>
 
     </div>
 

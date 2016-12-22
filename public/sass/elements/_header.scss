@@ -1,0 +1,78 @@
+// Header
+// ==========================================================================
+
+$module: 'header';
+
+.#{$module} {
+  background-color: $black;
+  width: 100%;
+
+  &-wrapper {
+    @extend %contain-floats;
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 8px $gutter-half;
+
+    @include media(tablet) {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+
+  }
+
+  &-nav {
+
+    a {
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:focus {
+        color: $black;
+      }
+
+    }
+
+  }
+
+  &-name {
+    @include core-24;
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+
+    @include media(desktop) {
+      float: left;
+    }
+
+  }
+
+  &-menu {
+    padding-top: 5px;
+    padding-bottom: 1px;
+
+    @include media(desktop) {
+      text-align: right;
+    }
+
+    li {
+      margin-left: $gutter-half;
+      display: inline-block;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+    }
+
+    a {
+      @include core-16;
+      font-weight: bold;
+    }
+
+  }
+
+}

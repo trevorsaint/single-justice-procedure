@@ -11,13 +11,6 @@ var port    = (process.env.PORT || 3000);
 var app     = express();
 
 /*
- * Baseurl and Apptitle
- */
-
-var baseurl  = '/';
-var apptitle = 'Single Justice Procedure';
-
-/*
  * Body parser
  */
 
@@ -38,9 +31,7 @@ app.use(session({
  * Helpers
  */
 
-var helpers    = require('handlebars-helpers')();
-//var comparison = helpers.comparison();
-//var string     = helpers.string();
+var helpers = require('handlebars-helpers')();
 
 
 /*

@@ -1,3 +1,33 @@
+{{#is ispublic false}}
+
+  <header class="header" role="banner">
+
+    <div class="header-wrapper">
+
+      {{#is issigned false}}
+
+      <span class="header-name">Single Justice Procedure</span>
+
+      {{else}}
+
+      <nav class="header-nav">
+
+        {{#is ishome}}<a class="header-name" href="/">Single Justice Procedure</a>{{/is}}
+
+        <ul class="header-menu">
+          <li><a href="/your-account">Your account</a></li>
+          <li><a href="{{baseurl}}">Sign out</a></li>
+        </ul>
+      </nav>
+
+      {{/is}}
+
+    </div>
+
+  </header>
+
+{{else}}
+
   <header class="with-proposition" id="global-header" role="banner">
 
     <div class="header-wrapper">
@@ -10,7 +40,7 @@
         </div>
       </div>
 
-      {{#is signedIn false}}
+      {{#is issigned false}}
 
       <div class="header-proposition">
         <div class="content">
@@ -40,3 +70,5 @@
     </div>
 
   </header>
+
+{{/is}}
