@@ -10,6 +10,17 @@
 
     <div class="column-two-thirds">
 
+      <!-- error summary -->
+      <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
+
+        <h1 class="heading-medium error-summary-heading" id="error-summary-heading">Fix the following</h1>
+
+        <ul class="error-summary-list">
+          <li><a href="#make-a-decision">Make a decision</a></li>
+        </ul>
+
+      </div>
+
       <h1 class="heading-xlarge mb-l">
         {{#and ../sFirstname ../sLastname}}
           {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
@@ -189,16 +200,17 @@
 
           <form class="form" method="post">
 
-            <div class="form-group">
+            <div class="form-group error">
 
               <fieldset>
 
-                  <legend>
+                  <legend id="make-a-decision">
                     <span class="visually-hidden">Make a decision</span>
+                    <span class="error-message" id="error-message-make-a-decision">Choose an answer</span>
                   </legend>
 
                   <label class="block-label selection-button-radio">
-                    <input type="radio" name="makeDecision" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}> Financial penalty
+                    <input type="radio" name="makeDecision" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}} aria-describedby="error-message-make-a-decision"> Financial penalty
                   </label>
 
                   <label class="block-label selection-button-radio">

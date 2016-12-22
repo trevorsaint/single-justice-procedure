@@ -243,6 +243,69 @@ router.route('/proof-in-absence/legal-adviser/case-details/:id/')
 });
 
 
+router.route('/proof-in-absence/legal-adviser/case-details-error/:id/')
+  .get(function(req, res, next) {
+    entry = dataEngine.getSearchEntry(req.params.id);
+    res.render('proof-in-absence/legal-adviser/case-details-error', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      ispublic: false,
+      issigned: true,
+      doctitle: 'Case details',
+      pagetitle: 'Case details',
+      section: 'home',
+      section_name: 'Home',
+      search: entry,
+      breadcrumb: true,
+      sFirstname: sFirstname,
+      sLastname: sLastname,
+      sDob: sDob,
+      sEmail: sEmail,
+      sPhone: sPhone,
+      sMobile: sMobile,
+      sAddress1: sAddress1,
+      sAddress2: sAddress2,
+      sTown: sTown,
+      sPostcode: sPostcode,
+      sNationalInsuranceNumber: sNationalInsuranceNumber,
+      sHasSaved: sHasSaved,
+      sMakeDecision: sMakeDecision,
+      sActiveTab: sActiveTab,
+      sBack: sBack
+    });
+  }).post(function(req, res, next) {
+
+    sMakeDecision = req.session.makeDecision = req.body.makeDecision;
+
+    if (sMakeDecision === "Financial penalty") {
+
+      res.redirect('/proof-in-absence/legal-adviser/financial-penalty/' + req.params.id);
+
+    } else if (sMakeDecision === "Refer for court hearing") {
+
+      res.redirect('/proof-in-absence/legal-adviser/refer-for-court-hearing/' + req.params.id);
+
+    } else if (sMakeDecision === "Discharge") {
+
+      res.redirect('/proof-in-absence/legal-adviser/discharge/' + req.params.id);
+
+    } else if (sMakeDecision === "Withdraw offence") {
+
+      res.redirect('/proof-in-absence/legal-adviser/withdraw/' + req.params.id);
+
+    } else if (sMakeDecision === "Dismiss") {
+
+      res.redirect('/proof-in-absence/legal-adviser/dismiss/' + req.params.id);
+
+    } else if (sMakeDecision === "Refer for future SJP session") {
+
+      res.redirect('/proof-in-absence/legal-adviser/refer-for-future-sjp-session/' + req.params.id);
+
+    }
+
+});
+
+
 router.route('/proof-in-absence/legal-adviser/case-details-idea/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
