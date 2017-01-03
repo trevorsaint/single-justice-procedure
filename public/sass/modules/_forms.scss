@@ -15,7 +15,7 @@ $module: 'form';
 
     &:before {
       @include core-19;
-      color: $grey-1;
+      color: $black;
       content: "\00a3";
       display: inline-block;
       font-weight: bold;
