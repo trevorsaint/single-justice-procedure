@@ -7,8 +7,14 @@ $module: 'footer';
   background-color: $grey-3;
   border-top: 1px solid #a1acb2;
 
+  // colours do not exist in GOV palette (copied GOV footer)
   a {
-    color: lighten($black, 20%);
+    color: #454a4c;
+
+    &:hover {
+      color: #171819;
+    }
+
   }
 
   &-wrapper {
@@ -34,9 +40,11 @@ $module: 'footer';
   }
 
   &-helpdesk {
+    color: #454a4c;
 
     h2 {
       @include core-24;
+      color: $black;
       font-weight: bold;
     }
 

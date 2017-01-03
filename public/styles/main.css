@@ -3644,7 +3644,10 @@ fieldset.inline ~ .panel:last-child {
   border-top: 1px solid #a1acb2;
 }
 .footer a {
-  color: #3c4141;
+  color: #454a4c;
+}
+.footer a:hover {
+  color: #171819;
 }
 .footer-wrapper {
   margin: 0 auto;
@@ -3661,12 +3664,16 @@ fieldset.inline ~ .panel:last-child {
   float: left;
   margin-right: 15px;
 }
+.footer-helpdesk {
+  color: #454a4c;
+}
 .footer-helpdesk h2 {
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 18px;
   line-height: 1.2;
+  color: #0b0c0c;
   font-weight: bold;
 }
 @media (min-width: 641px) {
