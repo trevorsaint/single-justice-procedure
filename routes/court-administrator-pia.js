@@ -208,7 +208,7 @@ router.route('/proof-in-absence/court-administrator/find-and-print-orders/result
       pagetitle: 'Find and print orders',
       section: 'home',
       section_name: 'Home',
-      section2: 'home',
+      section2: 'find-and-print-orders',
       section2_name: 'Find and print orders',
       signedIn: true,
       breadcrumb: true,
