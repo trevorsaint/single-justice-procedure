@@ -134,13 +134,13 @@ router.route('/court-administrator/search-for-a-case/')
     });
   });
 
-router.route('/court-administrator/court-list/')
+router.route('/court-administrator/print-list-of-cases-awaiting-decision/')
   .all(function(req, res, next) {
-    res.render('court-administrator/court-list', {
+    res.render('court-administrator/print-list-of-cases-awaiting-decision', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Cases awaiting decision under Single Justice Procedure',
-      pagetitle: 'Cases awaiting decision under Single Justice Procedure',
+      doctitle: 'Print list of cases awaiting decision',
+      pagetitle: 'Print list of cases awaiting decision',
       section: 'home',
       section_name: 'Home',
       searches: dataEngine.getSearchEntries(),
