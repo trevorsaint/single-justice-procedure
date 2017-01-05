@@ -3308,6 +3308,11 @@ HTML Usage
   margin-right: 10px;
   vertical-align: middle;
 }
+@media (max-width: 640px) {
+  .link-with-icon .icon {
+    display: none;
+  }
+}
 
 /*
 

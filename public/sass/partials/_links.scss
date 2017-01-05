@@ -12,6 +12,11 @@ $module: 'link';
     .icon {
       margin-right: 10px;
       vertical-align: middle;
+
+      @include media(mobile) {
+        display: none;
+      }
+
     }
 
   }
