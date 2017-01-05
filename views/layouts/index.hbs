@@ -2,12 +2,10 @@
 
   <main id="content" role="main">
 
-    {{#isnt phaseBanner false}}
-      {{>phase-banner}}
-    {{/isnt}}
-
-    {{{body}}}
-
+  {{#isnt phaseBanner false}}
+    {{>phase-banner}}
+  {{/isnt}}
+  {{{body}}}
   </main>
 
 {{>footer}}

@@ -6,192 +6,192 @@
 
   {{>legal-adviser/has-saved}}
 
-  <div class="grid-row">
+    <div class="grid-row">
 
-    <div class="column-two-thirds">
+      <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge mb-l">
-        {{#and ../sFirstname ../sLastname}}
+        <h1 class="heading-xlarge mb-l">
+          {{#and ../sFirstname ../sLastname}}
           {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
-        {{else}}
+          {{else}}
           {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
-        {{/and}}
-      </h1>
+          {{/and}}
+        </h1>
 
-      <p class="mb-xl">
-        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
-        {{#if ../../sAddress1}}{{../../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
-        {{#if ../../sAddress2}}{{../../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
-        {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
-        {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
-      </p>
+        <p class="mb-xl">
+          {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
+          {{#if ../../sAddress1}}{{../../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
+          {{#if ../../sAddress2}}{{../../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
+          {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
+          {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
+        </p>
 
-      <div class="tabs tabs-horizontal">
+        <div class="tabs tabs-horizontal">
 
-        <div class="tabs-header">
-          <ul class="list">
-            <li{{#is ../sActiveTab "Case details"}} class="is-active"{{/is}}><a href="#case-details">Case details</a></li>
-            <li{{#is ../sActiveTab "Personal details"}} class="is-active"{{/is}}><a href="#personal-details">Personal details</a></li>
-          </ul>
+          <div class="tabs-header">
+            <ul class="list">
+              <li{{#is ../sActiveTab "Case details"}} class="is-active"{{/is}}><a href="#case-details">Case details</a></li>
+              <li{{#is ../sActiveTab "Personal details"}} class="is-active"{{/is}}><a href="#personal-details">Personal details</a></li>
+            </ul>
+          </div>
+
+          <div class="tabs-content">
+
+            {{#with case-details}}
+            <section id="case-details">
+
+              <h2 class="heading-medium">Case details</h2>
+
+              <dl class="meta meta-inline meta-boldterms">
+                <dt>Case status</dt>
+                <dd>{{{status}}}</dd>
+                <dt>Prosecutor</dt>
+                <dd>{{{prosecutor}}}</dd>
+                <dt><abbr title="Single Justice Procedure">SJP</abbr> notice served</dt>
+                <dd><time datetime="{{moment notice-served format="YYYY-MM-DD"}}">{{moment notice-served format="D MMMM YYYY"}}</time></dd>
+              </dl>
+
+            </section>
+            {{/with}}
+
+            {{#with personal-details}}
+            <section id="personal-details">
+
+              <h2 class="heading-medium">Personal details</h2>
+
+              <dl class="meta meta-inline meta-boldterms">
+
+                <dt>Name</dt>
+                <dd>
+                  {{#and ../../sFirstname ../../sLastname}}
+                    {{../../sFirstname}} <span class="text-uppercase">{{../../sLastname}}</span>
+                  {{else}}
+                    {{firstname}} <span class="text-uppercase">{{lastname}}</span>
+                  {{/and}}
+                </dd>
+
+                <dt>Date of birth</dt>
+                <dd>
+                  {{#if ../../sDob}}
+                    <time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>
+                  {{else}}
+                    <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)
+                  {{/if}}
+                </dd>
+
+                <dt>Address</dt>
+                <dd>
+                  {{#if ../../sAddress1}}{{../../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
+                  {{#if ../../sAddress2}}{{../../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
+                  {{#if ../../sTown}}{{../../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
+                  {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
+                </dd>
+
+                <dt>Email</dt>
+                <dd>
+                  {{#if ../../sEmail}}
+                    {{../../sEmail}}
+                  {{else}}
+                    {{#if email}}
+                      {{email}}
+                    {{else}}
+                      &ndash;
+                    {{/if}}
+                  {{/if}}
+                </dd>
+
+                <dt>Home telephone</dt>
+                <dd>
+                  {{#if ../../sPhone}}
+                    {{../../sPhone}}
+                  {{else}}
+                    {{#if phone}}
+                      {{phone}}
+                    {{else}}
+                      &ndash;
+                    {{/if}}
+                  {{/if}}
+                </dd>
+
+                <dt>Mobile</dt>
+                <dd>
+                  {{#if ../../sMobile}}
+                    {{../../sMobile}}
+                  {{else}}
+                    {{#if mobile}}
+                      {{mobile}}
+                    {{else}}
+                      &ndash;
+                    {{/if}}
+                  {{/if}}
+                </dd>
+
+              </dl>
+
+            </section>
+            {{/with}}
+
+          </div>
+
         </div>
 
-        <div class="tabs-content">
+      </div>
 
-          {{#with case-details}}
-          <section id="case-details">
-
-            <h2 class="heading-medium">Case details</h2>
-
-            <dl class="meta meta-inline meta-boldterms">
-              <dt>Case status</dt>
-              <dd>{{{status}}}</dd>
-              <dt>Prosecutor</dt>
-              <dd>{{{prosecutor}}}</dd>
-              <dt><abbr title="Single Justice Procedure">SJP</abbr> notice served</dt>
-              <dd><time datetime="{{moment notice-served format="YYYY-MM-DD"}}">{{moment notice-served format="D MMMM YYYY"}}</time></dd>
-            </dl>
-
-          </section>
-          {{/with}}
-
-          {{#with personal-details}}
-          <section id="personal-details">
-
-            <h2 class="heading-medium">Personal details</h2>
-
-            <dl class="meta meta-inline meta-boldterms">
-
-              <dt>Name</dt>
-              <dd>
-                {{#and ../../sFirstname ../../sLastname}}
-                  {{../../sFirstname}} <span class="text-uppercase">{{../../sLastname}}</span>
-                {{else}}
-                  {{firstname}} <span class="text-uppercase">{{lastname}}</span>
-                {{/and}}
-              </dd>
-
-              <dt>Date of birth</dt>
-              <dd>
-                {{#if ../../sDob}}
-                  <time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>
-                {{else}}
-                  <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)
-                {{/if}}
-              </dd>
-
-              <dt>Address</dt>
-              <dd>
-                {{#if ../../sAddress1}}{{../../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
-                {{#if ../../sAddress2}}{{../../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
-                {{#if ../../sTown}}{{../../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
-                {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
-              </dd>
-
-              <dt>Email</dt>
-              <dd>
-                {{#if ../../sEmail}}
-                  {{../../sEmail}}
-                {{else}}
-                  {{#if email}}
-                    {{email}}
-                  {{else}}
-                    &ndash;
-                  {{/if}}
-                {{/if}}
-              </dd>
-
-              <dt>Home telephone</dt>
-              <dd>
-                {{#if ../../sPhone}}
-                  {{../../sPhone}}
-                {{else}}
-                  {{#if phone}}
-                    {{phone}}
-                  {{else}}
-                    &ndash;
-                  {{/if}}
-                {{/if}}
-              </dd>
-
-              <dt>Mobile</dt>
-              <dd>
-                {{#if ../../sMobile}}
-                  {{../../sMobile}}
-                {{else}}
-                  {{#if mobile}}
-                    {{mobile}}
-                  {{else}}
-                    &ndash;
-                  {{/if}}
-                {{/if}}
-              </dd>
-
-            </dl>
-
-          </section>
-          {{/with}}
-
+      <div class="column-third">
+        <div class="related">
+          {{>legal-adviser/related-documents hideconvictions='yes'}}
         </div>
-
       </div>
 
     </div>
 
-    <div class="column-third">
-      <div class="related">
-        {{>legal-adviser/related-documents hideconvictions='yes'}}
-      </div>
-    </div>
+    <hr class="divider divider-border-dark" aria-hidden="true">
 
-  </div>
+    <div aria-labelledby="offences">
 
-  <hr class="divider divider-border-dark" aria-hidden="true">
+      <h2 class="heading-large" id="offences">Offence 1</h2>
 
-  <div aria-labelledby="offences">
+      {{#with offence}}
+      <div aria-labelledby="offence">
 
-    <h2 class="heading-large" id="offences">Offence 1</h2>
+        <div class="grid-row">
 
-    {{#with offence}}
-    <section aria-labelledby="offence">
+          <div class="column-two-thirds">
 
-      <div class="grid-row">
+            <h3 class="bold-medium" id="offence">{{{title}}}</h3>
+            <p class="font-xsmall">{{{offence-wording}}}</p>
 
-        <div class="column-two-thirds">
+            <p><strong class="status-label">{{{plea}}}</strong></p>
 
-          <h3 class="bold-medium" id="offence">{{{title}}}</h3>
-          <p class="font-xsmall">{{{offence-wording}}}</p>
-
-          <p><strong class="status-label">{{{plea}}}</strong></p>
+          </div>
 
         </div>
 
-      </div>
+        <div class="grid-row">
 
-      <div class="grid-row">
+          <div class="column-two-thirds">
 
-        <div class="column-two-thirds">
+            {{#if statement-of-facts}}
+              <h4 class="heading-small">Statement of facts</h4>
+              <p class="text">{{{statement-of-facts}}}</p>
+            {{/if}}
 
-          {{#if statement-of-facts}}
-            <h3 class="heading-small">Statement of facts</h3>
-            <p class="text">{{{statement-of-facts}}}</p>
-          {{/if}}
+            {{#if mitigation}}
+              <h4 class="heading-small">Mitigation</h4>
+              <p class="text">{{{mitigation}}}</p>
+            {{/if}}
 
-          {{#if mitigation}}
-            <h3 class="heading-small">Mitigation</h3>
-            <p class="text">{{{mitigation}}}</p>
-          {{/if}}
+          </div>
 
-        </div>
+          <div class="column-third">
 
-        <div class="column-third">
+            <h4 class="heading-small" id="decision">Make a decision</h4>
 
-          <h3 class="heading-small" id="decision">Make a decision</h3>
+            <form class="form" method="post">
 
-          <form class="form" method="post">
+              <div class="form-group">
 
-            <div class="form-group">
-
-              <fieldset>
+                <fieldset>
 
                   <legend>
                     <span class="visually-hidden">Make a decision</span>
@@ -225,15 +225,15 @@
                 <button class="button" type="submit">Save and continue</button>
               </div>
 
-          </form>
+            </form>
+
+          </div>
 
         </div>
 
       </div>
+      {{/with}}
 
-    </section>
-    {{/with}}
-
-  </div>
+    </div>
 
 {{/with}}
