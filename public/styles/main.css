@@ -3300,6 +3300,22 @@ HTML Usage
 <span class="text-uppercase">Errors found</span>
 
 */
+.link-with-icon {
+  display: inline-block;
+  overflow: hidden;
+}
+.link-with-icon .icon {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/*
+
+HTML Usage
+
+<a class="link link-with-icon" href="#"><i class="icon icon-file-download" role="presentation" aria-hidden="true"></i>View and print</a>
+
+*/
 .divider {
   background-color: #bfc1c3;
   border: 0;
