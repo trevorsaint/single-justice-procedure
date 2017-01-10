@@ -50,8 +50,10 @@ router.use(function(req, res, next) {
 
   // plea
   sMakeDecision        = req.session.makeDecision;
-  sNeedInterpreter     = req.session.needInterpreter;
-  sInterpreterLanguage = req.session.interpreterLanguage;
+  //sNeedInterpreter     = req.session.needInterpreter;
+  //sInterpreterLanguage = req.session.interpreterLanguage;
+  sGuiltyCourtRemove   = req.session.guiltyCourtRemove;
+  sGuiltyNoCourtRemove = req.session.guiltyNoCourtRemove;
 
   // other
   sCaseActiveTab    = req.session.caseActiveTab;
@@ -104,13 +106,14 @@ router.route('/proof-in-absence/court-administrator/home/')
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
+      ishome: true,
       doctitle: 'Single Justice Procedure',
       pagetitle: 'Single Justice Procedure',
       section: 'home',
       section_name: 'Home',
       signedIn: true,
       breadcrumb: false,
-      phaseBanner:     false,
+      phaseBanner: false,
       phaseBannerHome: true,
       globalHeaderBar: false
     });
@@ -259,8 +262,10 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
       sPayAmount: sPayAmount,
       sReceivingBenefits: sReceivingBenefits,
       sMakeDecision: sMakeDecision,
-      sNeedInterpreter: sNeedInterpreter,
-      sInterpreterLanguage: sInterpreterLanguage,
+      //sNeedInterpreter: sNeedInterpreter,
+      //sInterpreterLanguage: sInterpreterLanguage,
+      sGuiltyCourtRemove: sGuiltyCourtRemove,
+      sGuiltyNoCourtRemove: sGuiltyNoCourtRemove,
       sCaseActiveTab: sCaseActiveTab,
       sOffenceActiveTab: sOffenceActiveTab,
       sDocumentNotice: sDocumentNotice,
@@ -277,19 +282,29 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
 
     if (sMakeDecision === 'Pleaded guilty SJP') {
 
-      sNeedInterpreter = req.session.needInterpreter = req.body.guiltyInterpreter;
-      sInterpreterLanguage = req.session.interpreterLanguage = req.body.guiltyInterpreterLanguage;
+      //sNeedInterpreter = req.session.needInterpreter = req.body.guiltyInterpreter;
+      //sInterpreterLanguage = req.session.interpreterLanguage = req.body.guiltyInterpreterLanguage;
+      sGuiltyCourtRemove = req.session.guiltyCourtRemove = req.body.guiltyCourtRemove;
+
+    } else if (sMakeDecision === 'Pleaded guilty court hearing requested') {
+
+      //sNeedInterpreter = req.session.needInterpreter = req.body.notGuiltyInterpreter;
+      //sInterpreterLanguage = req.session.interpreterLanguage = req.body.notGuiltyInterpreterLanguage;
+      sGuiltyNoCourtRemove = req.session.guiltyNoCourtRemove = req.body.guiltyNoCourtRemove;
 
     } else if (sMakeDecision === 'Pleaded not guilty') {
 
-      sNeedInterpreter = req.session.needInterpreter = req.body.notGuiltyInterpreter;
-      sInterpreterLanguage = req.session.interpreterLanguage = req.body.notGuiltyInterpreterLanguage;
+      //sNeedInterpreter = req.session.needInterpreter = req.body.notGuiltyInterpreter;
+      //sInterpreterLanguage = req.session.interpreterLanguage = req.body.notGuiltyInterpreterLanguage;
+      sGuiltyNoCourtRemove = req.session.guiltyNoCourtRemove = req.body.guiltyNoCourtRemove;
 
     } else {
 
       // reset session
-      sNeedInterpreter = req.session.needInterpreter = null;
-      sInterpreterLanguage = req.session.interpreterLanguage = null;
+      //sNeedInterpreter = req.session.needInterpreter = null;
+      //sInterpreterLanguage = req.session.interpreterLanguage = null;
+      sGuiltyCourtRemove = req.session.guiltyCourtRemove = null;
+      sGuiltyNoCourtRemove = req.session.guiltyNoCourtRemove = null;
 
     }
 

@@ -289,15 +289,59 @@
                         No plea received
                       </label>
 
-                      <label class="block-label selection-button-radio" for="guilty-no-court">
+                      <label class="block-label selection-button-radio" for="guilty-no-court" data-target="guilty-no-court-option">
                         <input type="radio" id="guilty-no-court" name="makeDecision" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
                         Guilty &ndash; I don&rsquo;t want to come to court
                       </label>
 
-                      <label class="block-label selection-button-radio" for="guilty-court">
+                      <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded guilty court hearing requested"}} js-hidden{{/isnt}}" id="guilty-no-court-option">
+
+                        <p>Selecting this will remove the case from this system and you&rsquo;ll have to manually enter the case again in Libra.</p>
+
+                        <fieldset class="inline">
+
+                          <legend>
+                            <span class="form-label">Are you sure you want to proceed?</span>
+                          </legend>
+
+                          <label class="block-label selection-button-radio" for="guilty-no-court-remove-yes">
+                            <input id="guilty-no-court-remove-yes" type="radio" name="guiltyNoCourtRemove" value="Yes"{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}{{#contains ../../sGuiltyNoCourtRemove "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
+                          </label>
+
+                          <label class="block-label selection-button-radio" for="guilty-no-court-remove-no">
+                            <input id="guilty-no-court-remove-no" type="radio" name="guiltyNoCourtRemove" value="No"{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}{{#contains ../../sGuiltyNoCourtRemove "No"}} checked="checked"{{/contains}}{{/contains}}> No
+                          </label>
+
+                        </fieldset>
+
+                      </div>
+
+                      <label class="block-label selection-button-radio" for="guilty-court" data-target="guilty-court-option">
                         <input type="radio" id="guilty-court" name="makeDecision" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
                         Guilty &ndash; I want to come to court
                       </label>
+
+                      <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded guilty SJP"}} js-hidden{{/isnt}}" id="guilty-court-option">
+
+                        <p>Selecting this will remove the case from this system and you&rsquo;ll have to manually enter the case again in Libra.</p>
+
+                        <fieldset class="inline">
+
+                          <legend>
+                            <span class="form-label">Are you sure you want to proceed?</span>
+                          </legend>
+
+                          <label class="block-label selection-button-radio" for="guilty-court-remove-yes">
+                            <input id="guilty-court-remove-yes" type="radio" name="guiltyCourtRemove" value="Yes"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sGuiltyCourtRemove "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
+                          </label>
+
+                          <label class="block-label selection-button-radio" for="guilty-court-remove-no">
+                            <input id="guilty-court-remove-no" type="radio" name="guiltyCourtRemove" value="No"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sGuiltyCourtRemove "No"}} checked="checked"{{/contains}}{{/contains}}> No
+                          </label>
+
+                        </fieldset>
+
+                      </div>
 
                       <label class="block-label selection-button-radio" for="not-guilty">
                         <input type="radio" id="not-guilty" name="makeDecision" value="Pleaded not guilty"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded not guilty"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded not guilty"}} checked="checked"{{/contains}}{{/if}}>
