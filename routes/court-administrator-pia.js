@@ -87,6 +87,7 @@ router.route('/proof-in-absence/court-administrator')
     res.render('proof-in-absence/court-administrator/index', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Sign in',
       pagetitle: 'Sign in',
       signedIn: false,
