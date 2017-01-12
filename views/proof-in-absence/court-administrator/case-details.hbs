@@ -343,10 +343,32 @@
 
                       </div>
 
-                      <label class="block-label selection-button-radio" for="not-guilty">
+                      <label class="block-label selection-button-radio" for="not-guilty" data-target="not-guilty-court-option">
                         <input type="radio" id="not-guilty" name="makeDecision" value="Pleaded not guilty"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded not guilty"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded not guilty"}} checked="checked"{{/contains}}{{/if}}>
                         Not guilty &ndash; send me the date of my trial
                       </label>
+
+                      <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded not guilty"}} js-hidden{{/isnt}}" id="not-guilty-court-option">
+
+                        <p>Selecting this will remove the case from this system and you&rsquo;ll have to manually enter the case again in Libra.</p>
+
+                        <fieldset class="inline">
+
+                          <legend>
+                            <span class="form-label">Are you sure you want to proceed?</span>
+                          </legend>
+
+                          <label class="block-label selection-button-radio" for="not-guilty-remove-yes">
+                            <input id="not-guilty-remove-yes" type="radio" name="notGuiltyRemove" value="Yes"{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{#contains ../../sNotGuiltyRemove "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
+                          </label>
+
+                          <label class="block-label selection-button-radio" for="not-guilty-remove-no">
+                            <input id="not-guilty-remove-no" type="radio" name="notGuiltyRemove" value="No"{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{#contains ../../sNotGuiltyRemove "No"}} checked="checked"{{/contains}}{{/contains}}> No
+                          </label>
+
+                        </fieldset>
+
+                      </div>
 
                     </div>
 
