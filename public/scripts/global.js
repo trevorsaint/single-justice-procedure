@@ -20,7 +20,7 @@ $.fn.shorten = function (settings) {
 			var $this = $(this);
 
       if ($this.hasClass("js-text-link-less")) {
-        
+
 				$this.removeClass("js-text-link-less");
 				$this.html(config.moreText);
 
@@ -450,7 +450,7 @@ function fileUpload() {
 
   }
 
-}
+};
 
 
 function fileUploadFocus() {
@@ -464,6 +464,11 @@ function fileUploadFocus() {
   })
 
 };
+
+
+$("[data-action='print']").on("click", function() {
+	window.print();
+});
 
 
 // document ready
