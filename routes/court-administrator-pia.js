@@ -50,11 +50,9 @@ router.use(function(req, res, next) {
 
   // plea
   sMakeDecision        = req.session.makeDecision;
-  //sNeedInterpreter     = req.session.needInterpreter;
-  //sInterpreterLanguage = req.session.interpreterLanguage;
-  sGuiltyCourtRemove    = req.session.guiltyCourtRemove;
-  sGuiltyNoCourtRemove  = req.session.guiltyNoCourtRemove;
-  sNotGuiltyRemove = req.session.notGuiltyRemove;
+  sGuiltyCourtRemove   = req.session.guiltyCourtRemove;
+  sGuiltyNoCourtRemove = req.session.guiltyNoCourtRemove;
+  sNotGuiltyRemove     = req.session.notGuiltyRemove;
 
   // other
   sCaseActiveTab    = req.session.caseActiveTab;
@@ -272,21 +270,28 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
     });
   })
   .post(function(req, res, next) {
+
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
 
-    if (sMakeDecision === 'Pleaded guilty SJP') {
+    sGuiltyCourtRemove   = req.session.guiltyCourtRemove = req.body.guiltyCourtRemove;
+    sGuiltyNoCourtRemove = req.session.guiltyNoCourtRemove = req.body.guiltyNoCourtRemove;
+    sNotGuiltyRemove     = req.session.notGuiltyRemove = req.body.notGuiltyRemove;
+
+    if (sMakeDecision === 'Pleaded guilty SJP' && sGuiltyCourtRemove === 'Yes') {
 
       sGuiltyCourtRemove = req.session.guiltyCourtRemove = req.body.guiltyCourtRemove;
 
-    } else if (sMakeDecision === 'Pleaded guilty court hearing requested') {
+    } else if (sMakeDecision === 'Pleaded guilty court hearing requested' && sGuiltyNoCourtRemove === 'Yes') {
 
       sGuiltyNoCourtRemove = req.session.guiltyNoCourtRemove = req.body.guiltyNoCourtRemove;
 
-    } else if (sMakeDecision === 'Pleaded not guilty') {
+    } else if (sMakeDecision === 'Pleaded not guilty' && sNotGuiltyRemove === 'Yes') {
 
       sNotGuiltyRemove = req.session.notGuiltyRemove = req.body.notGuiltyRemove;
 
     } else {
+
+      sMakeDecision = req.session.makeDecision = "No plea received";
 
       // reset session
       sGuiltyCourtRemove = req.session.guiltyCourtRemove = null;
