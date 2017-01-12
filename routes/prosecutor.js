@@ -15,9 +15,9 @@ router.route('/prosecutor')
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
+      issigned: false,
       doctitle: 'Sign in',
       pagetitle: 'Sign in',
-      signedIn: false,
       breadcrumb: false
     });
   })
@@ -35,7 +35,6 @@ router.all('/prosecutor/home', function(req, res) {
     pagetitle: 'Single Justice Procedure',
     section: 'home',
     section_name: 'Home',
-    signedIn: true,
     breadcrumb: false,
     phaseBanner: false,
     phaseBannerHome: true,
@@ -53,7 +52,6 @@ router.all('/prosecutor/search-for-a-case', function(req, res) {
     section: 'home',
     section_name: 'Home',
     searches: dataEngine.getSearchEntries(),
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -71,7 +69,6 @@ router.all('/prosecutor/case-details/:id', function(req, res) {
     section2: 'search-for-a-case',
     section2_name: 'Search for a case',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -103,7 +100,6 @@ router.all('/prosecutor/send-data-files', function(req, res) {
     pagetitle: 'Upload CSVs',
     section: 'home',
     section_name: 'Home',
-    signedIn: true,
     breadcrumb: true,
     send: send,
     header: header,
@@ -123,7 +119,6 @@ router.all('/prosecutor/data-files-confirmation', function(req, res) {
     section_name: 'Home',
     section2: 'send-data-files',
     section2_name: 'Send data files to court',
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -156,7 +151,6 @@ router.all('/prosecutor/send-other-documents', function (req, res) {
     pagetitle: 'Upload SJP notices and other documents',
     section: 'home',
     section_name: 'Home',
-    signedIn: true,
     breadcrumb: true,
     send: send,
     documents: documents,
@@ -175,7 +169,6 @@ router.all('/prosecutor/check-document-uploads', function(req, res) {
     section: 'home',
     section_name: 'Home',
     searches: dataEngine.getSearchEntries(),
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -193,7 +186,6 @@ router.all('/prosecutor/check-document-uploads/report/success/:id', function(req
     section2: 'check-document-uploads',
     section2_name: 'Check document uploads',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -211,7 +203,6 @@ router.all('/prosecutor/check-document-uploads/report/errors/:id', function(req,
     section2: 'check-document-uploads',
     section2_name: 'Check document uploads',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -226,7 +217,6 @@ router.all('/prosecutor/check-csv-uploads', function(req, res) {
     section: 'home',
     section_name: 'Home',
     searches: dataEngine.getSearchEntries(),
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -244,7 +234,6 @@ router.all('/prosecutor/check-csv-uploads/report/success/:id', function(req, res
     section2: 'check-csv-uploads',
     section2_name: 'Check CSV uploads',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -262,7 +251,6 @@ router.all('/prosecutor/check-csv-uploads/report/errors/:id', function(req, res)
     section2: 'check-csv-uploads',
     section2_name: 'Check CSV uploads',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -276,7 +264,6 @@ router.all('/prosecutor/export-case-results-by-date', function(req, res) {
     pagetitle: 'Export case results by date',
     section: 'home',
     section_name: 'Home',
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -291,7 +278,6 @@ router.all('/prosecutor/cases-missing-sjp-notices', function(req, res) {
     section: 'home',
     section_name: 'Home',
     searches: dataEngine.getSearchEntries(),
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -306,7 +292,6 @@ router.all('/prosecutor/withdraw-an-offence', function(req, res) {
     section: 'home',
     section_name: 'Home',
     searches: dataEngine.getSearchEntries(),
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -324,7 +309,6 @@ router.all('/prosecutor/withdraw-offence/:id', function(req, res) {
     section2: 'case-details/' + req.params.id,
     section2_name: 'Case details',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -342,7 +326,6 @@ router.all('/prosecutor/withdraw-offence-confirmation/:id', function(req, res) {
     section2: 'case-details/' + req.params.id,
     section2_name: 'Case details',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -358,7 +341,6 @@ router.all('/prosecutor/documents-confirmation', function(req, res) {
     section_name: 'Home',
     section2: 'send-other-documents',
     section2_name: 'Send documents to court',
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -376,7 +358,6 @@ router.all('/prosecutor/case-details-cancel-withdraw/:id', function(req, res) {
     section2: 'search-for-a-case',
     section2_name: 'Search for a case',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -392,7 +373,6 @@ router.all('/prosecutor/withdraw-all-offences/:id', function(req, res) {
     section: 'home',
     section_name: 'Home',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -410,7 +390,6 @@ router.all('/prosecutor/cancel-withdrawal-offence-confirmation/:id', function(re
     section2: 'case-details/' + req.params.id,
     section2_name: 'Case details',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -428,7 +407,6 @@ router.all('/prosecutor/cancel-request-to-withdraw-offence/:id', function(req, r
     section2: 'case-details/' + req.params.id,
     section2_name: 'Case details',
     search: entry,
-    signedIn: true,
     breadcrumb: true
   });
 });
@@ -442,7 +420,6 @@ router.get('/prosecutor/*', function(req, res, next) {
     pagetitle: 'Page not found',
     section: 'home',
     section_name: 'Home',
-    signedIn: true,
     breadcrumb: true
   });
 });

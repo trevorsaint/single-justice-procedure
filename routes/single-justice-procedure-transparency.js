@@ -11,9 +11,10 @@ router.route('/single-justice-procedure-transparency/home')
     res.render('single-justice-procedure-transparency/home', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
+      issigned: false,
       doctitle: 'Sign in',
       pagetitle: 'Sign in',
-      signedIn: false,
       breadcrumb: false
     });
   })
@@ -26,11 +27,11 @@ router.route('/single-justice-procedure-transparency/search-for-case')
     res.render('single-justice-procedure-transparency/search-for-case', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Search for a case',
       pagetitle: 'Search for a case',
       section: 'home',
       section_name: 'Home',
-      signedIn: false,
       breadcrumb: true
     });
   })
@@ -43,13 +44,13 @@ router.route('/single-justice-procedure-transparency/search-for-case')
       res.render('single-justice-procedure-transparency/results', {
         baseurl: baseurl,
         apptitle: apptitle,
+        ispublic: false,
         doctitle: 'Cases prosecuted under SJP',
         pagetitle: 'Cases prosecuted under SJP',
         section: 'home',
         section_name: 'Home',
         section2: 'search-for-case',
         section2_name: 'Search for case',
-        signedIn: false,
         breadcrumb: true
       });
     });
@@ -58,11 +59,11 @@ router.get('/single-justice-procedure-transparency/*', function(req, res, next) 
   res.render('404', {
     baseurl: baseurl,
     apptitle: apptitle,
+    ispublic: false,
     doctitle: 'Page not found',
     pagetitle: 'Page not found',
     section: 'home',
     section_name: 'Home',
-    signedIn: true,
     breadcrumb: true,
     sBack: sBack
   });

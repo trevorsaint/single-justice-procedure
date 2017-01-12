@@ -90,9 +90,9 @@ router.route('/proof-in-absence/court-administrator')
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
+      issigned: false,
       doctitle: 'Sign in',
       pagetitle: 'Sign in',
-      signedIn: false,
       breadcrumb: false
     });
   })
@@ -111,7 +111,6 @@ router.route('/proof-in-absence/court-administrator/home/')
       pagetitle: 'Single Justice Procedure',
       section: 'home',
       section_name: 'Home',
-      signedIn: true,
       breadcrumb: false,
       phaseBanner: false,
       phaseBannerHome: true,
@@ -132,7 +131,6 @@ router.route('/proof-in-absence/court-administrator/search-for-a-case/')
       pagetitle: 'Search for a case',
       section: 'home',
       section_name: 'Home',
-      signedIn: true,
       breadcrumb: true,
       searches: dataEngine.getSearchEntries()
     });
@@ -149,7 +147,6 @@ router.route('/proof-in-absence/court-administrator/court-list/')
       section: 'home',
       section_name: 'Home',
       searches: dataEngine.getSearchEntries(),
-      signedIn: true,
       breadcrumb: true
     });
   });
@@ -167,7 +164,6 @@ router.route('/proof-in-absence/court-administrator/find-and-print-orders/')
       pagetitle: 'Find and print orders',
       section: 'home',
       section_name: 'Home',
-      signedIn: true,
       breadcrumb: true,
       sCases: sCases,
       sFromDay: sFromDay,
@@ -214,7 +210,6 @@ router.route('/proof-in-absence/court-administrator/find-and-print-orders/result
       section_name: 'Home',
       section2: 'find-and-print-orders',
       section2_name: 'Find and print orders',
-      signedIn: true,
       breadcrumb: true,
       sFrom: sFrom,
       sTo: sTo,
@@ -237,7 +232,6 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
       section2: 'search-for-a-case',
       section2_name: 'Search for a case',
       search:entry,
-      signedIn: true,
       breadcrumb: true,
       sFirstname: sFirstname,
       sLastname: sLastname,
@@ -323,7 +317,6 @@ router.route('/proof-in-absence/court-administrator/create-register-for-the-medi
       pagetitle: 'Create register for the media',
       section: 'home',
       section_name: 'Home',
-      signedIn: true,
       breadcrumb: true,
       searches: dataEngine.getSearchEntries()
     });
@@ -345,7 +338,6 @@ router.route('/proof-in-absence/court-administrator/reopen-case/:id/')
       section_name: 'Home',
       section2: 'case-details/' + req.params.id,
       section2_name: 'Case details',
-      signedIn: true,
       breadcrumb: true,
       search: entry,
       sLibraAccountNumber: sLibraAccountNumber
@@ -366,7 +358,6 @@ router.get('/proof-in-absence/court-administrator/*', function(req, res, next) {
     pagetitle: 'Page not found',
     section: 'home',
     section_name: 'Home',
-    signedIn: true,
     breadcrumb: true
   });
 });
