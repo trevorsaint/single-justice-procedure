@@ -66,8 +66,8 @@ router.all('/prosecutor/case-details/:id', function(req, res) {
     pagetitle: 'Case details',
     section: 'home',
     section_name: 'Home',
-    section2: 'search-for-a-case',
-    section2_name: 'Search for a case',
+    //section2: 'search-for-a-case',
+    //section2_name: 'Search for a case',
     search: entry,
     breadcrumb: true
   });
@@ -117,8 +117,8 @@ router.all('/prosecutor/data-files-confirmation', function(req, res) {
     pagetitle: 'Confirmation',
     section: 'home',
     section_name: 'Home',
-    section2: 'send-data-files',
-    section2_name: 'Send data files to court',
+    //section2: 'send-data-files',
+    //section2_name: 'Send data files to court',
     breadcrumb: true
   });
 });
@@ -183,8 +183,8 @@ router.all('/prosecutor/check-document-uploads/report/success/:id', function(req
     pagetitle: 'View upload report',
     section: 'home',
     section_name: 'Home',
-    section2: 'check-document-uploads',
-    section2_name: 'Check document uploads',
+    //section2: 'check-document-uploads',
+    //section2_name: 'Check document uploads',
     search: entry,
     breadcrumb: true
   });
@@ -200,8 +200,8 @@ router.all('/prosecutor/check-document-uploads/report/errors/:id', function(req,
     pagetitle: 'View upload report',
     section: 'home',
     section_name: 'Home',
-    section2: 'check-document-uploads',
-    section2_name: 'Check document uploads',
+    //section2: 'check-document-uploads',
+    //section2_name: 'Check document uploads',
     search: entry,
     breadcrumb: true
   });
@@ -231,8 +231,8 @@ router.all('/prosecutor/check-csv-uploads/report/success/:id', function(req, res
     pagetitle: 'View upload report',
     section: 'home',
     section_name: 'Home',
-    section2: 'check-csv-uploads',
-    section2_name: 'Check CSV uploads',
+    //section2: 'check-csv-uploads',
+    //section2_name: 'Check CSV uploads',
     search: entry,
     breadcrumb: true
   });
@@ -248,8 +248,8 @@ router.all('/prosecutor/check-csv-uploads/report/errors/:id', function(req, res)
     pagetitle: 'View upload report',
     section: 'home',
     section_name: 'Home',
-    section2: 'check-csv-uploads',
-    section2_name: 'Check CSV uploads',
+    //section2: 'check-csv-uploads',
+    //section2_name: 'Check CSV uploads',
     search: entry,
     breadcrumb: true
   });
@@ -306,8 +306,8 @@ router.all('/prosecutor/withdraw-offence/:id', function(req, res) {
     pagetitle: 'Withdraw offence',
     section: 'home',
     section_name: 'Home',
-    section2: 'case-details/' + req.params.id,
-    section2_name: 'Case details',
+    //section2: 'case-details/' + req.params.id,
+    //section2_name: 'Case details',
     search: entry,
     breadcrumb: true
   });
@@ -323,8 +323,8 @@ router.all('/prosecutor/withdraw-offence-confirmation/:id', function(req, res) {
     pagetitle: 'Withdraw offence confirmation',
     section: 'home',
     section_name: 'Home',
-    section2: 'case-details/' + req.params.id,
-    section2_name: 'Case details',
+    //section2: 'case-details/' + req.params.id,
+    //section2_name: 'Case details',
     search: entry,
     breadcrumb: true
   });
@@ -339,8 +339,8 @@ router.all('/prosecutor/documents-confirmation', function(req, res) {
     pagetitle: 'Confirmation',
     section: 'home',
     section_name: 'Home',
-    section2: 'send-other-documents',
-    section2_name: 'Send documents to court',
+    //section2: 'send-other-documents',
+    //section2_name: 'Send documents to court',
     breadcrumb: true
   });
 });
@@ -355,8 +355,8 @@ router.all('/prosecutor/case-details-cancel-withdraw/:id', function(req, res) {
     pagetitle: 'Cancel withdrawal',
     section: 'home',
     section_name: 'Home',
-    section2: 'search-for-a-case',
-    section2_name: 'Search for a case',
+    //section2: 'search-for-a-case',
+    //section2_name: 'Search for a case',
     search: entry,
     breadcrumb: true
   });
@@ -387,8 +387,8 @@ router.all('/prosecutor/cancel-withdrawal-offence-confirmation/:id', function(re
     pagetitle: 'Cancel offence withdrawal',
     section: 'home',
     section_name: 'Home',
-    section2: 'case-details/' + req.params.id,
-    section2_name: 'Case details',
+    //section2: 'case-details/' + req.params.id,
+    //section2_name: 'Case details',
     search: entry,
     breadcrumb: true
   });
@@ -404,8 +404,8 @@ router.all('/prosecutor/cancel-request-to-withdraw-offence/:id', function(req, r
     pagetitle: 'Cancel withdrawal of offence',
     section: 'home',
     section_name: 'Home',
-    section2: 'case-details/' + req.params.id,
-    section2_name: 'Case details',
+    //section2: 'case-details/' + req.params.id,
+    //section2_name: 'Case details',
     search: entry,
     breadcrumb: true
   });
