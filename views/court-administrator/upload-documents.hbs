@@ -14,7 +14,7 @@
           <th scope="col">Name</th>
           <th scope="col">Type</th>
           <th scope="col">Uploaded on</th>
-          <th></th>
+          <th scope="col"><span class="visually-hidden">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -22,10 +22,10 @@
       {{#each related-documents.document}}
         {{#is show true}}
           <tr>
-            <td><a href="#">{{capitalize title}}</a></td>
+            <td><a href="/">{{capitalize title}}</a></td>
             <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
             <td><time datetime="{{moment file-uploaded-date format="YYYY-MM-DD"}}">{{moment file-uploaded-date format="D MMM YYYY"}}</time></td>
-            <td>{{#if can-remove}}<a href="#">Remove</a>{{/if}}</td>
+            {{#if can-remove}}<td><a href="/">Remove <span class="visually-hidden">{{capitalize title}}</span></a></td>{{/if}}
           </tr>
         {{/is}}
       {{/each}}
