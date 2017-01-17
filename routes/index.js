@@ -67,4 +67,17 @@ router.all('/technical-problems', function(req, res) {
   });
 });
 
+// Only for testing purposes
+router.get('/test', function(req, res) {
+
+  res.render('test', {
+    baseurl:   baseurl,
+    apptitle:  apptitle,
+    doctitle:  'Test',
+    pagetitle: 'Test'
+  });
+
+});
+
+
 module.exports = router

@@ -492,14 +492,21 @@ router.route('/legal-adviser/payment-method/:id')
       sBack: sBack
     });
   }).post(function(req, res, next) {
+    
     sPaymentMethod = req.session.paymentMethod = req.body.paymentMethod;
 
     if (sPaymentMethod === "Pay direct to court") {
+
       res.redirect('/legal-adviser/pay-direct-to-court/' + req.params.id);
+
     } else if (sPaymentMethod === "Deduct from benefits") {
+
       res.redirect('/legal-adviser/deduct-from-benefits/' + req.params.id);
+
     } else {
+
       res.redirect('/legal-adviser/attach-to-earnings/' + req.params.id);
+
     }
 
 });
@@ -884,19 +891,19 @@ router.route('/legal-adviser/personal-details/:id/')
       sActiveTab: sActiveTab
     });
   }).post(function(req, res, next) {
-    sTitle = req.session.title = req.body.title;
-    sFirstname = req.session.firstname = req.body.firstname;
-    sLastname = req.session.lastname = req.body.lastname;
-    sDob = req.session.dob = req.body.dobYear + '-' + req.body.dobMonth + '-' + req.body.dobDay;
-    sEmail = req.session.email = req.body.email;
-    sPhone = req.session.phone = req.body.phone;
-    sMobile = req.session.mobile = req.body.mobile;
-    sAddress1 = req.session.address1 = req.body.address1;
-    sAddress2 = req.session.address2 = req.body.address2;
-    sTown = req.session.town = req.body.town;
-    sPostcode = req.session.postcode = req.body.postcode;
-    sActiveTab = req.session.activeTab = 'Personal details';
-    res.redirect('/legal-adviser/case-details/' + req.params.id + '/?saved=true');
+      sTitle = req.session.title = req.body.title;
+      sFirstname = req.session.firstname = req.body.firstname;
+      sLastname = req.session.lastname = req.body.lastname;
+      sDob = req.session.dob = req.body.dobYear + '-' + req.body.dobMonth + '-' + req.body.dobDay;
+      sEmail = req.session.email = req.body.email;
+      sPhone = req.session.phone = req.body.phone;
+      sMobile = req.session.mobile = req.body.mobile;
+      sAddress1 = req.session.address1 = req.body.address1;
+      sAddress2 = req.session.address2 = req.body.address2;
+      sTown = req.session.town = req.body.town;
+      sPostcode = req.session.postcode = req.body.postcode;
+      sActiveTab = req.session.activeTab = 'Personal details';
+      res.redirect('/legal-adviser/case-details/' + req.params.id + '/?saved=true');
 });
 
 
