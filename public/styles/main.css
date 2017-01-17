@@ -3585,7 +3585,18 @@ fieldset.inline ~ .panel:last-child {
 
 .header {
   background-color: #0b0c0c;
+  color: #fff;
   width: 100%;
+}
+.header a {
+  color: inherit;
+  text-decoration: none;
+}
+.header a:hover {
+  text-decoration: underline;
+}
+.header a:focus {
+  color: #0b0c0c;
 }
 .header-wrapper {
   margin: 0 auto;
@@ -3598,23 +3609,13 @@ fieldset.inline ~ .panel:last-child {
     padding-right: 30px;
   }
 }
-.header-nav a {
-  color: #fff;
-  text-decoration: none;
-}
-.header-nav a:hover {
-  text-decoration: underline;
-}
-.header-nav a:focus {
-  color: #0b0c0c;
-}
 .header-name {
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 18px;
   line-height: 1.2;
-  color: #fff;
+  text-decoration: none;
   display: inline-block;
   font-weight: bold;
 }
