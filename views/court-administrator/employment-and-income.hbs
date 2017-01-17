@@ -50,15 +50,15 @@
           </legend>
 
           <label class="block-label selection-button-radio" for="employed" data-target="is-employed">
-            <input type="radio" id="employed" name="employment" value="Employed"{{#if ../sEmployment}}{{#contains ../sEmployment "Employed"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status "Employed"}} checked="checked"{{/contains}}{{/if}}> Yes
+            <input type="radio" id="employed" name="employment" value="Employed"{{#if ../sEmployment}}{{#contains ../sEmployment "Employed"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status "Employed"}} checked="checked"{{/contains}}{{/if}}> Yes<span class="visually-hidden"> is employed</span>
           </label>
 
           <label class="block-label selection-button-radio" for="unemployed">
-            <input type="radio" id="unemployed" name="employment" value="Unemployed"{{#if ../sEmployment}}{{#contains ../sEmployment "Unemployed"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status "Unemployed"}} checked="checked"{{/contains}}{{/if}}> No
+            <input type="radio" id="unemployed" name="employment" value="Unemployed"{{#if ../sEmployment}}{{#contains ../sEmployment "Unemployed"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status "Unemployed"}} checked="checked"{{/contains}}{{/if}}> No<span class="visually-hidden"> is not employed</span>
           </label>
 
           <label class="block-label selection-button-radio" for="unknown">
-            <input type="radio" id="unknown" name="employment" value="Don’t know"{{#if ../sEmployment}}{{#contains ../sEmployment "Don’t know"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status ""}} checked="checked"{{/contains}}{{/if}}> Don’t know
+            <input type="radio" id="unknown" name="employment" value="Don’t know"{{#if ../sEmployment}}{{#contains ../sEmployment "Don’t know"}} checked="checked"{{/contains}}{{else}}{{#contains employment.status ""}} checked="checked"{{/contains}}{{/if}}> Don’t know<span class="visually-hidden"> if employed</span>
           </label>
 
         </fieldset>
@@ -143,15 +143,15 @@
           </legend>
 
           <label class="block-label selection-button-radio" for="receiving-benefits-yes">
-            <input type="radio" id="receiving-benefits-yes" name="receivingBenefits" value="Yes"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Yes"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "Yes"}} checked="checked"{{/contains}}{{/if}}>Yes
+            <input type="radio" id="receiving-benefits-yes" name="receivingBenefits" value="Yes"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Yes"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "Yes"}} checked="checked"{{/contains}}{{/if}}>Yes<span class="visually-hidden"> is receiving benefits</span>
           </label>
 
           <label class="block-label selection-button-radio" for="receiving-benefits-no">
-            <input type="radio" id="receiving-benefits-no" name="receivingBenefits" value="No"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "No"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "No"}} checked="checked"{{/contains}}{{/if}}>No
+            <input type="radio" id="receiving-benefits-no" name="receivingBenefits" value="No"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "No"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "No"}} checked="checked"{{/contains}}{{/if}}>No<span class="visually-hidden"> is not receiving benefits</span>
           </label>
 
           <label class="block-label selection-button-radio" for="receiving-benefits-dont-know">
-            <input type="radio" id="receiving-benefits-dont-know" name="receivingBenefits" value="Don’t know"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Don’t know"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits ""}} checked="checked"{{/contains}}{{/if}}>Don&rsquo;t know
+            <input type="radio" id="receiving-benefits-dont-know" name="receivingBenefits" value="Don’t know"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Don’t know"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits ""}} checked="checked"{{/contains}}{{/if}}>Don&rsquo;t know<span class="visually-hidden"> if receiving benefits</span>
           </label>
 
         </fieldset>
