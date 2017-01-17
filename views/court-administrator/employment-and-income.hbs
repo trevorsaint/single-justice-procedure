@@ -84,16 +84,23 @@
 
               <div class="form-group form-group-compound">
                 <label for="employer-address-1">
-                  <span class="form-label">Street</span>
+                  <span class="form-label">Building and street</span>
                 </label>
                 <input class="form-control" type="text" id="employer-address-1" name="employerAddress1"{{#if ../sEmployerAddress1}} value="{{../sEmployerAddress1}}"{{else}} value="{{employment.employer-address.address1}}"{{/if}}>
               </div>
 
               <div class="form-group">
                 <label class="visually-hidden" for="employer-address-2">
-                  <span class="form-label">Street</span>
+                  <span class="form-label">Building and street address line 2</span>
                 </label>
                 <input class="form-control" type="text" id="employer-address-2" name="employerAddress2"{{#if ../sEmployerAddress2}} value="{{../sEmployerAddress2}}"{{else}} value="{{employment.employer-address.address2}}"{{/if}}>
+              </div>
+
+              <div class="form-group">
+                <label for="employer-address-country">
+                  <span class="form-label">Country (optional)</span>
+                </label>
+                <input class="form-control" type="text" id="employer-address-country" name="employerCountry">
               </div>
 
               <div class="form-group">
