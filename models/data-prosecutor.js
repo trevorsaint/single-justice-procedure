@@ -142,7 +142,6 @@ var search = [
     "decision": false,
     "court-decision": 1,
     "decision-ready": false,
-    "withdraw": false,
     "report-error": 1,
     "collection": {
       "order-made": "Yes",
@@ -252,7 +251,6 @@ var search = [
     },
     "court-decision": 2,
     "decision-ready": false,
-    "withdraw": false,
     "report-error": 2
   },
 
@@ -355,7 +353,8 @@ var search = [
       ]
     },
     "court-decision": 3,
-    "decision-ready": false
+    "decision-ready": false,
+    "withdraw": true
   },
 
   {
@@ -437,7 +436,7 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "withdraw": false
+    "withdraw": true
   },
 
   {
@@ -520,7 +519,8 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "report-error": 3
+    "report-error": 3,
+    "withdraw": true
   },
 
   {
@@ -771,7 +771,8 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "missing-sjp": true
+    "missing-sjp": true,
+    "withdraw": true
   },
 
   {
@@ -859,7 +860,8 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "missing-sjp": true
+    "missing-sjp": true,
+    "withdraw": true
   },
 
   {
@@ -947,7 +949,8 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "missing-sjp": true
+    "missing-sjp": true,
+    "withdraw": true
   }
 
 ];
