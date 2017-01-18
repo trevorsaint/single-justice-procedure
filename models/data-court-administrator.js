@@ -592,7 +592,7 @@ var search = [
       "date": "2016-02-01",
       "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
       "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
-      "plea": "Pleaded guilty"
+      "plea": "No plea received"
     },
     "employment": {
       "status": "Unemployed",
