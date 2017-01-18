@@ -628,56 +628,7 @@ var search = [
       ]
     },
     "related-documents": {
-      "document": [
-        {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
-          "file-type": "PDF",
-          "file-size": "256KB",
-          "file-pages": "3 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
-        },
-        {
-          "show": false,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
-          "file-type": "PDF",
-          "file-size": "560KB",
-          "file-pages": "10 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
-        },
-        {
-          "show": false,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
-          "file-type": "PDF",
-          "file-size": "256KB",
-          "file-pages": "3 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
-        },
-        {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
-          "file-type": "PDF",
-          "file-size": "458KB",
-          "file-pages": "9 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
-        }
-      ]
+      "document": []
     }
   },
 

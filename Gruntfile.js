@@ -101,6 +101,14 @@ module.exports = function (grunt) {
 
       },
 
+
+      pa11y: {
+        options: {
+          url: 'google.com'
+        }
+      },
+
+
       watch: {
 
         express: {
@@ -143,6 +151,7 @@ module.exports = function (grunt) {
     'grunt-contrib-copy',
     'grunt-contrib-handlebars',
     'grunt-contrib-sass',
+    //'grunt-pa11y',
     'grunt-contrib-watch'
   ].forEach(function (task) {
     grunt.loadNpmTasks(task);
@@ -153,6 +162,7 @@ module.exports = function (grunt) {
     'copy:govuk',
     'handlebars',
     'sass',
+    //'pa11y',
     'watch',
   ]);
 

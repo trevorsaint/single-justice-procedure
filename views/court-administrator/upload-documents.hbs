@@ -4,6 +4,7 @@
 
   <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
+  {{#if related-documents.document}}
   <section aria-labelledby="uploaded-documents">
 
     <h2 class="heading-medium" id="uploaded-documents">Already uploaded</h2>
@@ -14,7 +15,7 @@
           <th scope="col">Name</th>
           <th scope="col">Type</th>
           <th scope="col">Uploaded on</th>
-          <th scope="col"><span class="visually-hidden">Action</th>
+          <th scope="col"><span class="visually-hidden">Action</span></th>
         </tr>
       </thead>
       <tbody>
@@ -25,7 +26,7 @@
             <td><a href="/">{{capitalize title}}</a></td>
             <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
             <td><time datetime="{{moment file-uploaded-date format="YYYY-MM-DD"}}">{{moment file-uploaded-date format="D MMM YYYY"}}</time></td>
-            {{#if can-remove}}<td><a href="/">Remove <span class="visually-hidden">{{capitalize title}}</span></a></td>{{/if}}
+            <td>{{#if can-remove}}<a href="/">Remove <span class="visually-hidden">{{capitalize title}}</span></a>{{else}}&ndash;{{/if}}</td>
           </tr>
         {{/is}}
       {{/each}}
@@ -34,10 +35,11 @@
     </table>
 
   </section>
+  {{/if}}
 
-  <section aria-labelledby="add-other-documents">
+  <section aria-labelledby="add-documents">
 
-    <h2 class="heading-medium" id="add-other-documents">Add more documents</h2>
+    <h2 class="heading-medium" id="add-documents">Add documents</h2>
 
     <p>You can upload any of the following, if available.</p>
 
