@@ -38,7 +38,7 @@
   </thead>
   <tbody>
     {{#each searches}}
-      {{#contains case-details.status 'Awaiting plea'}}
+      {{#contains case-details.status 'No plea received'}}
         <tr>
           <td>{{uppercase personal-details.lastname}} {{personal-details.firstname}}</td>
           <td>{{{offence.title}}}</td>
