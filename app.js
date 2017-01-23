@@ -5,6 +5,7 @@
 var express    = require('express');
 var exphbs     = require('express-handlebars');
 var session    = require('express-session');
+var validator  = require('express-validator');
 var bodyParser = require('body-parser');
 var router  = express.Router();
 var port    = (process.env.PORT || 3000);
@@ -16,6 +17,8 @@ var app     = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(validator());
 
 /*
  * Session

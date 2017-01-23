@@ -123,41 +123,46 @@ router.all('/prosecutor/data-files-confirmation', function(req, res) {
   });
 });
 
-router.all('/prosecutor/send-other-documents', function (req, res) {
+router.route('/prosecutor/send-other-documents')
 
-  var doctitle = 'Upload SJP notices and other documents';
-  var pagetitle = 'Upload SJP notices and other documents';
+  .get(function(req, res, next) {
+    res.render('prosecutor/send-other-documents', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      ispublic: false,
+      doctitle: 'Upload SJP notices and other documents',
+      pagetitle: 'Upload SJP notices and other documents',
+      section: 'home',
+      section_name: 'Home',
+      breadcrumb: true
+    });
+  }).post(function(req, res, next) {
 
-  var send = req.body.send;
-  var documents = req.body.documents;
-  var sendtocourt = req.body.sendtocourt;
-  var error = false;
+    // validate
+    req.checkBody(
+      'documents', 'Select file'
+    ).notEmpty();
 
-  if (send) {
-
-    if (!documents) {
-      error = true;
+    // check the validation object for errors
+    var errors = req.validationErrors();
+    if (errors) {
+      res.render('prosecutor/send-other-documents', {
+        baseurl: baseurl,
+        apptitle: apptitle,
+        ispublic: false,
+        doctitle: 'Upload SJP notices and other documents',
+        pagetitle: 'Upload SJP notices and other documents',
+        section: 'home',
+        section_name: 'Home',
+        breadcrumb: true,
+        errors: errors
+      });
+      return;
     } else {
-      error = false;
+      res.redirect('/prosecutor/documents-confirmation');
     }
 
-  }
-
-  res.render('prosecutor/send-other-documents', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    ispublic: false,
-    doctitle: 'Upload SJP notices and other documents',
-    pagetitle: 'Upload SJP notices and other documents',
-    section: 'home',
-    section_name: 'Home',
-    breadcrumb: true,
-    send: send,
-    documents: documents,
-    error: error
   });
-
-});
 
 router.all('/prosecutor/check-document-uploads', function(req, res) {
   res.render('prosecutor/check-uploads/document/uploads', {

@@ -6,21 +6,19 @@
 
       <h1 class="heading-xlarge">{{pagetitle}}</h1>
 
-      {{#error}}
-      <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+      {{#if errors}}
+      <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
 
-        <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">Fix the following</h1>
+        <h1 class="heading-medium error-summary-heading" id="error-summary-heading">Fix the following</h1>
 
         <ul class="error-summary-list">
-
-          {{#unless documents}}
-          <li><a href="#error-documents">Select file</a></li>
-          {{/unless}}
-
+          {{#each errors}}
+          <li><a href="#error-documents">{{this.msg}}</a></li>
+          {{/each}}
         </ul>
 
       </div>
-      {{/error}}
+      {{/if}}
 
       <div class="text">
 
@@ -34,7 +32,7 @@
 
       </div>
 
-      <form class="form" method="post"{{#if error}}action="/documents-confirmation"{{/if}}>
+      <form class="form" method="post">
 
         <div class="form-block">
           <div class="panel panel-border-wide text">
@@ -42,16 +40,12 @@
           </div>
         </div>
 
-        <div class="form-group form-group-last{{#error}}{{#unless documents}} error{{/unless}}{{/error}}"{{#error}}{{#unless header}} id="error-documents"{{/unless}}{{/error}}>
+        <div class="form-group form-group-last{{#if errors}} error {{/if}}"{{#if errors}} id="error-documents"{{/if}}>
           <label for="documents">
             <span class="form-label-bold">Select file</span>
-            {{#error}}
-              {{#unless documents}}<span class="error-message">You need to upload a file</span>{{/unless}}
-              <!--span class="error-message">Wrong file type &ndash; select a zip file instead</span-->
-              <!--span class="error-message">Wrong file extension &ndash; change to .zip</span-->
-            {{/error}}
+            {{#if errors}}<span class="error-message" id="error-message-documents">You need to upload a file</span>{{/if}}
           </label>
-          <input type="file" id="documents" name="documents" accept=".zip">
+          <input type="file" id="documents" name="documents" accept=".zip"{{#if errors}} aria-describedby="error-message-documents"{{/if}}>
         </div>
 
         <div class="form-group form-group-related">
