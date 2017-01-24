@@ -36,9 +36,9 @@ $module: 'header';
 
   &-name {
     @include core-24;
-    text-decoration: none;
     display: inline-block;
     font-weight: bold;
+    text-decoration: none;
 
     @include media(desktop) {
       float: left;
@@ -55,8 +55,8 @@ $module: 'header';
     }
 
     li {
-      margin-left: $gutter-half;
       display: inline-block;
+      margin-left: $gutter-half;
 
       &:first-child {
         margin-left: 0;

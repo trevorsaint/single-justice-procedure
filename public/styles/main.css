@@ -3615,9 +3615,9 @@ fieldset.inline ~ .panel:last-child {
   text-transform: none;
   font-size: 18px;
   line-height: 1.2;
-  text-decoration: none;
   display: inline-block;
   font-weight: bold;
+  text-decoration: none;
 }
 @media (min-width: 641px) {
   .header-name {
@@ -3640,8 +3640,8 @@ fieldset.inline ~ .panel:last-child {
   }
 }
 .header-menu li {
-  margin-left: 15px;
   display: inline-block;
+  margin-left: 15px;
 }
 .header-menu li:first-child {
   margin-left: 0;
