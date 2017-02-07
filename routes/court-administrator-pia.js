@@ -306,7 +306,14 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
   });
 
 router.route('/proof-in-absence/court-administrator/create-register-for-the-media/')
+
   .get(function(req, res, next) {
+
+    // kill session (reset values)
+    if (sCases) {
+      req.session.destroy();
+    }
+
     res.render('proof-in-absence/court-administrator/create-register-for-the-media', {
       baseurl: baseurl,
       apptitle: apptitle,
@@ -316,11 +323,38 @@ router.route('/proof-in-absence/court-administrator/create-register-for-the-medi
       section: 'home',
       section_name: 'Home',
       breadcrumb: true,
+      sCases: sCases,
+      sFromDay: sFromDay,
+      sFromMonth: sFromMonth,
+      sFromYear: sFromYear,
+      sToDay: sToDay,
+      sToMonth: sToMonth,
+      sToYear: sToYear,
       searches: dataEngine.getSearchEntries()
     });
   })
   .post(function(req, res, next) {
-    //res.redirect('/proof-in-absence/court-administrator/case-details/' + req.params.id + '/?saved=true');
+
+    // from
+    sFromDay   = req.session.fromDateDay   = req.body.fromDay;
+    sFromMonth = req.session.fromDateMonth = req.body.fromMonth;
+    sFromYear  = req.session.fromDateYear  = req.body.fromYear;
+    sFrom      = req.session.fromDate      = sFromYear + '-' + sFromMonth + '-' + sFromDay;
+
+    // to
+    sToDay     = req.session.toDateDay   = req.body.toDay;
+    sToMonth   = req.session.toDateMonth = req.body.toMonth;
+    sToYear    = req.session.toDateYear  = req.body.toYear;
+    sTo        = req.session.toDate      = sToYear + '-' + sToMonth + '-' + sToDay;
+
+    // for demonstration purposes
+    if (sFrom === '2016-3-10' && sTo === '2016-3-10') {
+      res.redirect('/proof-in-absence/court-administrator/create-register-for-the-media/?cases=216');
+    } else {
+      req.session.destroy(); // kill session (reset values)
+      res.redirect('/proof-in-absence/court-administrator/create-register-for-the-media/');
+    }
+
   });
 
 router.route('/proof-in-absence/court-administrator/reopen-case/:id/')
