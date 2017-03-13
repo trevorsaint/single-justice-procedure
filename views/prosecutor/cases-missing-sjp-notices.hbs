@@ -19,9 +19,9 @@
           {{#each searches}}
             {{#if missing-sjp}}
             <tr>
-              <td><span class="text-uppercase">{{lastname}}</span> {{firstname}}</td>
-              <td>{{urn}}</td>
-              <td>{{date-of-birth}}</td>
+              <td><span class="text-uppercase">{{personal-details.lastname}}</span> {{personal-details.firstname}}</td>
+              <td>{{personal-details.urn}}</td>
+              <td>{{moment personal-details.dob format="D MMM YYYY"}}</td>
             </tr>
             {{/if}}
           {{/each}}

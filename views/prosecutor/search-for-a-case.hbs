@@ -46,11 +46,11 @@
   <tbody>
   {{#each searches}}
     <tr>
-      <th scope="row"><a href="/prosecutor/case-details/{{id}}"><span class="text-uppercase">{{lastname}}</span> {{firstname}}</a></th>
-      <td>{{urn}}</td>
-      <td>{{date-of-birth}}</td>
+      <th scope="row"><a href="/prosecutor/case-details/{{id}}"><span class="text-uppercase">{{personal-details.lastname}}</span> {{personal-details.firstname}}</a></th>
+      <td>{{personal-details.urn}}</td>
+      <td>{{moment personal-details.dob format="D MMM YYYY"}}</td>
       <td>{{{case-details.status}}}</td>
-      <td>{{notice-served}}</td>
+      <td>{{moment notice-served format="D MMM YYYY"}}</td>
     </tr>
   {{/each}}
   </tbody>
