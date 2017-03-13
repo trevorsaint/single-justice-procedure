@@ -21,7 +21,7 @@ var search = [
       "mobile": ""
     },
     "case-details": {
-      "status": "Awaiting plea",
+      "status": "No plea received",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-04-30",
@@ -31,7 +31,7 @@ var search = [
       "date": "2016-02-18",
       "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
       "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
-      "plea": "Awaiting plea"
+      "plea": "No plea received"
     },
     "employment": {
       "status": "",
@@ -582,7 +582,7 @@ var search = [
       "phone": "077 8068 5313"
     },
     "case-details": {
-      "status": "Awaiting plea",
+      "status": "No plea received",
       "prosecutor": "Transport for London",
       "charge-date": "2015-01-21",
       "notice-served": "2016-09-18",
@@ -661,7 +661,7 @@ var search = [
       "date": "2016-02-01",
       "offence-wording": "On 7 Nov 2016 At Ealing Broadway  Did enter a compulsory ticket area without having with her a valid ticket. Contrary to Byelaw 17(1) of the Transport for London Railway Byelaws Made under paragraph 26 of Schedule 11 to the Greater London Authority Act 1999 and confirmed under section 67 of the Transport Act 1962.",
       "statement-of-facts": "On Monday 7th November 2016 you passed through the ticket gates at EALING BROADWAY intending to travel to EAST ACTON and were subsequently approached by a TfL ticket inspector LU012274. At 14:51 you produced a DISABLED PERSONS OYSTER FREEDOM PASS that did not belong to you. When questioned you admitted that this pass did belong to your partner.",
-      "plea": "Awaiting plea"
+      "plea": "No plea received"
     },
     "employment": {
       "status": "Unemployed",
@@ -768,7 +768,7 @@ var search = [
       "phone": "079 4115 6799"
     },
     "case-details": {
-      "status": "Awaiting plea",
+      "status": "No plea received",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-09-18"
@@ -885,7 +885,7 @@ var search = [
       "phone": "070 2908 3863"
     },
     "case-details": {
-      "status": "Awaiting plea",
+      "status": "No plea received",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-09-18"
@@ -1002,7 +1002,7 @@ var search = [
       "phone": "070 1279 6913"
     },
     "case-details": {
-      "status": "Awaiting plea",
+      "status": "No plea received",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-01-14"
@@ -1119,7 +1119,7 @@ var search = [
       "phone": "070 6195 4223"
     },
     "case-details": {
-      "status": "Awaiting plea",
+      "status": "No plea received",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-01-14"
