@@ -4,10 +4,10 @@
   <div class="header-wrapper">
 
     {{#is issigned false}}
-    <a class="header-name" href="/">Single Justice Procedure</a>
+    <a class="header-name" href="/">{{apptitle}}</a>
     {{else}}
     <nav class="header-nav">
-      {{#is ishome}}<a class="header-name" href="/">Single Justice Procedure</a>{{/is}}
+      {{#is ishome}}<a class="header-name" href="/">{{apptitle}}</a>{{/is}}
       <ul class="header-menu">
         <li><a href="/your-account">Your account</a></li>
         <li><a href="{{baseurl}}">Sign out</a></li>

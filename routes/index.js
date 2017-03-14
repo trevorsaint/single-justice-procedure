@@ -3,7 +3,7 @@ var router = express.Router();
 
 // baseurl and apptitle
 var baseurl  = '/';
-var apptitle = 'Single Justice Procedure';
+var apptitle = 'Criminal Justice Services online';
 
 // routes
 router.all('/', function(req, res) {

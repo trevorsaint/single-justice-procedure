@@ -3696,12 +3696,27 @@ fieldset.inline ~ .panel:last-child {
   font-size: 18px;
   line-height: 1.2;
   color: #0b0c0c;
-  font-weight: bold;
+  font-weight: 700;
 }
 @media (min-width: 641px) {
   .footer-helpdesk h2 {
     font-size: 24px;
     line-height: 1.25;
+  }
+}
+.footer-helpdesk h3 {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin-top: 15px;
+}
+@media (min-width: 641px) {
+  .footer-helpdesk h3 {
+    font-size: 19px;
+    line-height: 1.31579;
   }
 }
 .footer-helpdesk dl {
@@ -3711,15 +3726,12 @@ fieldset.inline ~ .panel:last-child {
   display: inline;
 }
 .footer-helpdesk dt::after {
-  content: ':';
+  content: ":";
 }
 .footer-helpdesk dd {
   display: inline;
 }
 .footer-helpdesk dd::after {
   display: block;
-  content: '';
-}
-.footer-helpdesk p {
-  margin: 0;
+  content: "";
 }

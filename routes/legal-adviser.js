@@ -11,7 +11,7 @@ router.use(function(req, res, next) {
 
   // base
   baseurl = '/legal-adviser/';
-  apptitle = 'Single Justice Procedure';
+  apptitle = 'Criminal Justice Services online';
 
   // general
   id = req.params.id;

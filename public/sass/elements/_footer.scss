@@ -45,7 +45,13 @@ $module: 'footer';
     h2 {
       @include core-24;
       color: $black;
-      font-weight: bold;
+      font-weight: 700;
+    }
+
+    h3 {
+      @include core-19;
+      font-weight: 700;
+      margin-top: $gutter-half;
     }
 
     dl {
@@ -55,7 +61,7 @@ $module: 'footer';
     dt {
       display: inline;
       &::after {
-        content: ':';
+        content: ":";
       }
     }
 
@@ -64,13 +70,9 @@ $module: 'footer';
 
       &::after {
         display: block;
-        content: '';
+        content: "";
       }
 
-    }
-
-    p {
-      margin: 0;
     }
 
   }

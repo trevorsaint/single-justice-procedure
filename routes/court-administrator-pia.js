@@ -10,7 +10,7 @@ router.use(function(req, res, next) {
 
   // base
   baseurl            = '/proof-in-absence/court-administrator/';
-  apptitle           = 'Single Justice Procedure';
+  apptitle           = 'Criminal Justice Services online';
 
   // general
   sHasSaved          = req.query.saved;

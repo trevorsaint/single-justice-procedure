@@ -6,7 +6,7 @@ var dataEngine = require('../models/data-prosecutor');
 
 // baseurl and apptitle
 var baseurl  = '/prosecutor/';
-var apptitle = 'Single Justice Procedure';
+var apptitle = 'Criminal Justice Services online';
 
 // routes
 router.route('/prosecutor')
