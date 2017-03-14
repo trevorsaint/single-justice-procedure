@@ -13,6 +13,17 @@
   </div>
   {{/if}}
 
+
+  {{#unless related-documents.document}}
+    <div class="banner banner-warning" role="alert">
+      <i class="icon icon-banner-warning" role="presentation" aria-hidden="true"></i>
+      <div class="banner-message">
+        <p>You can&rsquo;t edit this case at the moment as we&rsquo;re awaiting case documents from the prosecutor. Check back again soon.</p>
+      </div>
+    </div>
+  {{/unless}}
+
+
   {{#if ../sHasSaved}}
   <div class="banner banner-confirmation" role="alert">
     <i class="icon icon-banner-confirmation" role="presentation" aria-hidden="true"></i>
@@ -26,14 +37,21 @@
 
     <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">
+      <h1 class="heading-xlarge mb-l">
         {{#and ../sFirstname ../sLastname}}
-          {{../sFirstname}} {{uppercase ../sLastname}}
+          {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
         {{else}}
-          {{personal-details.firstname}} {{uppercase personal-details.lastname}}
+          {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
         {{/and}}
-        <span class="heading-secondary"><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMMM YYYY"}}</time> ({{personal-details.age}} years old)</span>
       </h1>
+
+      <p class="mb-xl">
+        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
+        {{#if ../../sAddress1}}{{../../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
+        {{#if ../../sAddress2}}{{../../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
+        {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
+        {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
+      </p>
 
       <div class="tabs tabs-horizontal">
 
@@ -291,26 +309,30 @@
 
             <h2 class="heading-medium">Documents</h2>
 
-            <dl class="meta meta-inline meta-boldterms">
-              <dt>Uploaded files</dt>
-              <dd>
-                {{#each document}}
-                  {{#is show true}}
-                  <div class="document document-small">
-                    <i class="icon icon-file-download"></i>
-                    <div class="document-content">
-                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
-                      <div class="document-meta">
-                        <span class="document-meta-details">
-                          {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
-                        </span>
+            {{#if document}}
+              <dl class="meta meta-inline meta-boldterms">
+                <dt>Uploaded files</dt>
+                <dd>
+                  {{#each document}}
+                    {{#is show true}}
+                    <div class="document document-small">
+                      <i class="icon icon-file-download"></i>
+                      <div class="document-content">
+                        <p class="document-title"><a href="/">{{{capitalize title}}}</a></p>
+                        <div class="document-meta">
+                          <span class="document-meta-details">
+                            {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {{/is}}
-                {{/each}}
-              </dd>
-            </dl>
+                    {{/is}}
+                  {{/each}}
+                </dd>
+              </dl>
+            {{else}}
+              <p>You haven&rsquo;t uploaded any documents.</p>
+            {{/if}}
 
             {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
             <p><a class="font-small" href="/court-administrator/upload-documents/{{../id}}/">Upload more documents</a></p>
@@ -338,20 +360,24 @@
             <li><a href="/court-administrator/reopen-case/{{id}}/">Log case reopened on Libra</a></li>
             <li><a href="/court-administrator/register-view/{{id}}/">View register version</a></li>
           {{else}}
-            <li><a href="#">Send case to court hearing</a></li>
+            <li><a href="/">Send case to court hearing</a></li>
           {{/contains}}
           </ul>
 
         </div>
 
-        {{#isnt case-details.status 'Completed &ndash; decision sent to defendant'}}
-        <div class="related-section">
-          <h3 class="related-heading">Postal replies</h3>
-          <ul class="related-links">
-            <li><a href="/court-administrator/postal/add-plea/{{id}}">Add all details from postal reply</a></li>
-          </ul>
-        </div>
-        {{/isnt}}
+        {{#if related-documents.document}}
+
+          {{#isnt case-details.status 'Completed &ndash; decision sent to defendant'}}
+          <div class="related-section">
+            <h3 class="related-heading">Postal replies</h3>
+            <ul class="related-links">
+              <li><a href="/court-administrator/postal/add-plea/{{id}}">Add all details from postal reply</a></li>
+            </ul>
+          </div>
+          {{/isnt}}
+
+        {{/if}}
 
       </div>
 
@@ -375,7 +401,7 @@
 
           <h3 class="bold-medium" id="offence">{{{title}}}</h3>
 
-          <p class="font-xsmall js-text">{{{offence-wording}}}</p>
+          <p class="font-xsmall">{{{offence-wording}}}</p>
 
           <p>
             <strong class="status-label">
@@ -389,254 +415,270 @@
             </strong>
           </p>
 
-          <div class="tabs tabs-horizontal">
+          {{#if ../related-documents.document}}
 
-            <div class="tabs-header">
-              <ul class="list">
-                <li{{#is ../../sOffenceActiveTab "Details"}} class="is-active"{{/is}}><a href="#offence-details">Details</a></li>
-                {{#if ../case-details.court-decision}}{{else}}<li{{#is ../../sOffenceActiveTab "Add or change plea"}} class="is-active"{{/is}}><a href="#offence-plea">Add or change plea</a></li>{{/if}}
-                {{#if ../case-details.court-decision}}<li class="is-active"><a href="#offence-decision">Decision</a></li>{{/if}}
-              </ul>
-            </div>
+            <div class="tabs tabs-horizontal">
 
-            <div class="tabs-content">
+              <div class="tabs-header">
+                <ul class="list">
+                  <li{{#is ../../sOffenceActiveTab "Details"}} class="is-active"{{/is}}><a href="#offence-details">Details</a></li>
+                  {{#if ../case-details.court-decision}}{{else}}<li{{#is ../../sOffenceActiveTab "Add or change plea"}} class="is-active"{{/is}}><a href="#offence-plea">Add or change plea</a></li>{{/if}}
+                  {{#if ../case-details.court-decision}}<li class="is-active"><a href="#offence-decision">Decision</a></li>{{/if}}
+                </ul>
+              </div>
 
-              <section id="offence-details">
+              <div class="tabs-content">
 
-                {{#if statement-of-facts}}
-                  <h3 class="heading-medium">Statement of facts</h3>
-                  <p class="js-text">{{{statement-of-facts}}}</p>
-                {{/if}}
+                <section id="offence-details">
 
-                {{#if mitigation}}
-                  <h3 class="heading-medium">Mitigation</h3>
-                  <p class="js-text">{{{mitigation}}}</p>
-                {{/if}}
+                  {{#if statement-of-facts}}
+                    <h3 class="heading-medium">Statement of facts</h3>
+                    <p class="text">{{{statement-of-facts}}}</p>
+                  {{/if}}
 
-              </section>
+                  {{#if mitigation}}
+                    <h3 class="heading-medium">Mitigation</h3>
+                    <p class="text">{{{mitigation}}}</p>
+                  {{/if}}
 
-              {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
-              <section id="offence-plea">
+                </section>
 
-                <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
+                {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
+                <section id="offence-plea">
 
-                <form class="form" method="post">
+                  <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
 
-                  <fieldset>
+                  <form class="form" method="post">
 
-                    <legend class="visually-hidden">Select defendant&rsquo;s plea</legend>
+                    <fieldset>
 
-                    <div class="form-group">
+                      <legend class="visually-hidden">Select defendant&rsquo;s plea</legend>
 
-                      <label class="block-label selection-button-radio" for="no-plea-received">
-                        <input type="radio" id="no-plea-received" name="makeDecision" value=""{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision ""}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Awaiting plea"}} checked="checked"{{/contains}}{{/if}}>
-                        No plea received
-                      </label>
+                      <div class="form-group">
 
-                      <label class="block-label selection-button-radio" for="guilty-no-court">
-                        <input type="radio" id="guilty-no-court" name="makeDecision" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
-                        Guilty &ndash; I don&rsquo;t want to come to court
-                      </label>
+                        <label class="block-label selection-button-radio" for="no-plea-received">
+                          <input type="radio" id="no-plea-received" name="makeDecision" value=""{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision ""}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Awaiting plea"}} checked="checked"{{/contains}}{{/if}}>
+                          No plea received
+                        </label>
 
-                      <label class="block-label selection-button-radio" for="guilty-court" data-target="guilty-interpreter">
-                        <input type="radio" id="guilty-court" name="makeDecision" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
-                        Guilty &ndash; I want to come to court
-                      </label>
+                        <label class="block-label selection-button-radio" for="guilty-no-court">
+                          <input type="radio" id="guilty-no-court" name="makeDecision" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
+                          Guilty &ndash; I don&rsquo;t want to come to court
+                        </label>
 
-                      <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded guilty SJP"}} js-hidden{{/isnt}}" id="guilty-interpreter">
+                        <label class="block-label selection-button-radio" for="guilty-court" data-target="guilty-interpreter">
+                          <input type="radio" id="guilty-court" name="makeDecision" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
+                          Guilty &ndash; I want to come to court
+                        </label>
 
-                        <fieldset class="inline">
+                        <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded guilty SJP"}} js-hidden{{/isnt}}" id="guilty-interpreter">
 
-                          <legend>
-                            <span class="form-label">Does the defendant need an interpreter?</span>
-                          </legend>
+                          <fieldset class="inline">
 
-                          <label class="block-label selection-button-radio" for="guilty-interpreter-yes" data-target="guilty-interpreter-language">
-                            <input id="guilty-interpreter-yes" type="radio" name="guiltyInterpreter" value="Yes"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sNeedInterpreter "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
-                          </label>
+                            <legend>
+                              <span class="form-label">Does the defendant need an interpreter?</span>
+                            </legend>
 
-                          <label class="block-label selection-button-radio" for="guilty-interpreter-no">
-                            <input id="guilty-interpreter-no" type="radio" name="guiltyInterpreter" value="No"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sNeedInterpreter "No"}} checked="checked"{{/contains}}{{/contains}}> No
-                          </label>
-
-                        </fieldset>
-
-                        <div class="panel panel-border-narrow{{#isnt ../../sNeedInterpreter "Yes"}} js-hidden{{/isnt}}" id="guilty-interpreter-language">
-
-                          <div class="form-group">
-                            <label for="guilty-language">
-                              <span class="form-label">Which language?</span>
-                              <span class="form-hint" id="guilty-language-hint">You can include sign language</span>
+                            <label class="block-label selection-button-radio" for="guilty-interpreter-yes" data-target="guilty-interpreter-language">
+                              <input id="guilty-interpreter-yes" type="radio" name="guiltyInterpreter" value="Yes"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sNeedInterpreter "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
                             </label>
-                            <input class="form-control" id="guilty-language" type="text" name="guiltyInterpreterLanguage" value="{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{../../sInterpreterLanguage}}{{/contains}}" aria-describedby="guilty-language-hint">
+
+                            <label class="block-label selection-button-radio" for="guilty-interpreter-no">
+                              <input id="guilty-interpreter-no" type="radio" name="guiltyInterpreter" value="No"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sNeedInterpreter "No"}} checked="checked"{{/contains}}{{/contains}}> No
+                            </label>
+
+                          </fieldset>
+
+                          <div class="panel panel-border-narrow{{#isnt ../../sNeedInterpreter "Yes"}} js-hidden{{/isnt}}" id="guilty-interpreter-language">
+
+                            <div class="form-group">
+                              <label for="guilty-language">
+                                <span class="form-label">Which language?</span>
+                                <span class="form-hint" id="guilty-language-hint">You can include sign language</span>
+                              </label>
+                              <input class="form-control" id="guilty-language" type="text" name="guiltyInterpreterLanguage" value="{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{../../sInterpreterLanguage}}{{/contains}}" aria-describedby="guilty-language-hint">
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <label class="block-label selection-button-radio" for="not-guilty" data-target="not-guilty-interpreter">
+                          <input type="radio" id="not-guilty" name="makeDecision" value="Pleaded not guilty"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded not guilty"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded not guilty"}} checked="checked"{{/contains}}{{/if}}>
+                          Not guilty &ndash; send me the date of my trial
+                        </label>
+
+                        <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded not guilty"}} js-hidden{{/isnt}}" id="not-guilty-interpreter">
+
+                          <fieldset class="inline">
+
+                            <legend>
+                              <span class="form-label">Does the defendant need an interpreter?</span>
+                            </legend>
+
+                            <div class="form-group">
+
+                              <label class="block-label selection-button-radio" for="not-guilty-interpreter-yes" data-target="not-guilty-interpreter-language">
+                                <input id="not-guilty-interpreter-yes" type="radio" name="notGuiltyInterpreter" value="Yes"{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{#contains ../../sNeedInterpreter "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
+                              </label>
+
+                              <label class="block-label selection-button-radio" for="not-guilty-interpreter-no">
+                                <input id="not-guilty-interpreter-no" type="radio" name="notGuiltyInterpreter" value="No"{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{#contains ../../sNeedInterpreter "No"}} checked="checked"{{/contains}}{{/contains}}> No
+                              </label>
+
+                            </div>
+
+                          </fieldset>
+
+                          <div class="panel panel-border-narrow{{#isnt ../../sNeedInterpreter "Yes"}} js-hidden{{/isnt}}" id="not-guilty-interpreter-language">
+
+                            <div class="form-group">
+                              <label for="not-guilty-language">
+                                <span class="form-label">Which language?</span>
+                                <span class="form-hint" id="not-guilty-language-hint">You can include sign language</span>
+                              </label>
+                              <input class="form-control" id="not-guilty-language" type="text" name="notGuiltyInterpreterLanguage" value="{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{../../sInterpreterLanguage}}{{/contains}}" aria-describedby="not-guilty-language-hint">
+                            </div>
+
                           </div>
 
                         </div>
 
                       </div>
 
-                      <label class="block-label selection-button-radio" for="not-guilty" data-target="not-guilty-interpreter">
-                        <input type="radio" id="not-guilty" name="makeDecision" value="Pleaded not guilty"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded not guilty"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded not guilty"}} checked="checked"{{/contains}}{{/if}}>
-                        Not guilty &ndash; send me the date of my trial
-                      </label>
-
-                      <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded not guilty"}} js-hidden{{/isnt}}" id="not-guilty-interpreter">
-
-                        <fieldset class="inline">
-
-                          <legend>
-                            <span class="form-label">Does the defendant need an interpreter?</span>
-                          </legend>
-
-                          <div class="form-group">
-
-                            <label class="block-label selection-button-radio" for="not-guilty-interpreter-yes" data-target="not-guilty-interpreter-language">
-                              <input id="not-guilty-interpreter-yes" type="radio" name="notGuiltyInterpreter" value="Yes"{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{#contains ../../sNeedInterpreter "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
-                            </label>
-
-                            <label class="block-label selection-button-radio" for="not-guilty-interpreter-no">
-                              <input id="not-guilty-interpreter-no" type="radio" name="notGuiltyInterpreter" value="No"{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{#contains ../../sNeedInterpreter "No"}} checked="checked"{{/contains}}{{/contains}}> No
-                            </label>
-
-                          </div>
-
-                        </fieldset>
-
-                        <div class="panel panel-border-narrow{{#isnt ../../sNeedInterpreter "Yes"}} js-hidden{{/isnt}}" id="not-guilty-interpreter-language">
-
-                          <div class="form-group">
-                            <label for="not-guilty-language">
-                              <span class="form-label">Which language?</span>
-                              <span class="form-hint" id="not-guilty-language-hint">You can include sign language</span>
-                            </label>
-                            <input class="form-control" id="not-guilty-language" type="text" name="notGuiltyInterpreterLanguage" value="{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{../../sInterpreterLanguage}}{{/contains}}" aria-describedby="not-guilty-language-hint">
-                          </div>
-
-                        </div>
-
+                      <div class="form-group form-group-related">
+                        <button class="button" type="submit">Save</button>
                       </div>
 
-                    </div>
+                    </fieldset>
 
-                    <div class="form-group form-group-related">
-                      <button class="button" type="submit">Save</button>
-                    </div>
+                  </form>
 
-                  </fieldset>
+                </section>
+                {{/isnt}}
 
-                </form>
+                {{#if ../case-details.court-decision}}
+                <section id="offence-decision">
 
-              </section>
-              {{/isnt}}
+                  <h3 class="heading-medium">Court decision</h3>
 
-              {{#if ../case-details.court-decision}}
-              <section id="offence-decision">
+                  {{#is ../case-details.court-decision 1}}
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td>Verdict</td>
+                          <td>Guilty plea accepted</td>
+                        </tr>
+                        <tr>
+                          <td>Fine</td>
+                          <td>&pound;100</td>
+                        </tr>
+                        <tr>
+                          <td>Compensation</td>
+                          <td>&pound;3.50</td>
+                        </tr>
+                        <tr>
+                          <td>Costs</td>
+                          <td>&pound;30</td>
+                        </tr>
+                        <tr>
+                          <td>Victim surcharge</td>
+                          <td>&pound;10</td>
+                        </tr>
+                        <tr>
+                          <td>Guilty plea taken into account?</td>
+                          <td>Yes</td>
+                        </tr>
+                        <tr>
+                          <td>Guilty plea taken into account?</td>
+                          <td>Yes</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  {{/is}}
 
-                <h3 class="heading-medium">Court decision</h3>
+                  {{#is ../case-details.court-decision 2}}
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td>Verdict</td>
+                          <td>Guilty plea accepted</td>
+                        </tr>
+                        <tr>
+                          <td>Fine</td>
+                          <td>&pound;100</td>
+                        </tr>
+                        <tr>
+                          <td rowspan="2" valign="top">Compensation</td>
+                          <td>&pound;0</td>
+                        </tr>
+                        <tr>
+                          <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                        </tr>
+                        <tr>
+                          <td rowspan="2" valign="top">Costs</td>
+                          <td>&pound;0</td>
+                        </tr>
+                        <tr>
+                          <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                        </tr>
+                        <tr>
+                          <td rowspan="2" valign="top">Victim surcharge (reduced)</td>
+                          <td>&pound;0</td>
+                        </tr>
+                        <tr>
+                          <td>Reason for reduction <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                        </tr>
+                        <tr>
+                          <td>Guilty plea taken into account</td>
+                          <td>Yes</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  {{/is}}
 
-                {{#is ../case-details.court-decision 1}}
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>Verdict</td>
-                        <td>Guilty plea accepted</td>
-                      </tr>
-                      <tr>
-                        <td>Fine</td>
-                        <td>&pound;100</td>
-                      </tr>
-                      <tr>
-                        <td>Compensation</td>
-                        <td>&pound;3.50</td>
-                      </tr>
-                      <tr>
-                        <td>Costs</td>
-                        <td>&pound;30</td>
-                      </tr>
-                      <tr>
-                        <td>Victim surcharge</td>
-                        <td>&pound;10</td>
-                      </tr>
-                      <tr>
-                        <td>Guilty plea taken into account?</td>
-                        <td>Yes</td>
-                      </tr>
-                      <tr>
-                        <td>Guilty plea taken into account?</td>
-                        <td>Yes</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                {{/is}}
+                  {{#is ../case-details.court-decision 3}}
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td>Verdict</td>
+                          <td>Guilty plea accepted</td>
+                        </tr>
+                        <tr>
+                          <td>Conditional discharge</td>
+                          <td>6 months</td>
+                        </tr>
+                        <tr>
+                          <td rowspan="2" valign="top">Compensation</td>
+                          <td>&pound;0</td>
+                        </tr>
+                        <tr>
+                          <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  {{/is}}
 
-                {{#is ../case-details.court-decision 2}}
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>Verdict</td>
-                        <td>Guilty plea accepted</td>
-                      </tr>
-                      <tr>
-                        <td>Fine</td>
-                        <td>&pound;100</td>
-                      </tr>
-                      <tr>
-                        <td rowspan="2" valign="top">Compensation</td>
-                        <td>&pound;0</td>
-                      </tr>
-                      <tr>
-                        <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                      </tr>
-                      <tr>
-                        <td rowspan="2" valign="top">Costs</td>
-                        <td>&pound;0</td>
-                      </tr>
-                      <tr>
-                        <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                      </tr>
-                      <tr>
-                        <td rowspan="2" valign="top">Victim surcharge (reduced)</td>
-                        <td>&pound;0</td>
-                      </tr>
-                      <tr>
-                        <td>Reason for reduction <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                      </tr>
-                      <tr>
-                        <td>Guilty plea taken into account</td>
-                        <td>Yes</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                {{/is}}
+                </section>
+                {{/if}}
 
-                {{#is ../case-details.court-decision 3}}
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>Verdict</td>
-                        <td>Guilty plea accepted</td>
-                      </tr>
-                      <tr>
-                        <td>Conditional discharge</td>
-                        <td>6 months</td>
-                      </tr>
-                      <tr>
-                        <td rowspan="2" valign="top">Compensation</td>
-                        <td>&pound;0</td>
-                      </tr>
-                      <tr>
-                        <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                {{/is}}
-
-              </section>
-              {{/if}}
+              </div>
 
             </div>
 
-          </div>
+          {{else}}
+
+            {{#if statement-of-facts}}
+              <h3 class="heading-medium">Statement of facts</h3>
+              <p class="text">{{{statement-of-facts}}}</p>
+            {{/if}}
+
+            {{#if mitigation}}
+              <h3 class="heading-medium">Mitigation</h3>
+              <p class="text">{{{mitigation}}}</p>
+            {{/if}}
+
+          {{/if}}
 
         </div>
 

@@ -1,0 +1,55 @@
+
+{{>breadcrumb}}
+
+<div class="homepage-masthead">
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="bold-xlarge mb-l">{{apptitle}}</h1>
+
+      <h2 class="bold-medium">Search for a case</h2>
+
+      <form class="form" method="post">
+
+        <div class="form-search form-search-home">
+
+          <label for="search">
+            <span class="form-label">Enter case reference number or defendant&rsquo;s last name</span>
+          </label>
+
+          <input class="form-control form-control-wide" type="search" id="search" name="search"><button class="form-search-button" type="submit">Search</button>
+
+        </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{{#is phaseBannerHome true}}
+  {{>phase-banner}}
+{{/is}}
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <h2 class="heading-medium" id="orders">Orders</h2>
+
+    <ul class="list" aria-labelledby="print-orders">
+      <li><p><a href="{{baseurl}}find-and-print-orders">Find and print orders</a></p></li>
+    </ul>
+
+    <h2 class="heading-medium" id="information-for-the-public">Information for the public</h2>
+
+    <ul class="list" aria-labelledby="information-for-the-public">
+      <li><p><a href="{{baseurl}}court-list">Print list of cases for public display</a></p></li>
+      <li><p><a href="{{baseurl}}create-register-for-the-media">Create register for the media</a></p></li>
+    </ul>
+
+  </div>
+
+</div>

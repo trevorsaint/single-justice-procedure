@@ -1,3 +1,5 @@
+
+  {{#is ispublic}}
   <footer id="footer" role="contentinfo">
 
     <div class="footer-wrapper">
@@ -6,7 +8,7 @@
 
         <div class="footer-meta-inner">
 
-          <h2 class="visuallyhidden">Support links</h2>
+          <h2 class="visually-hidden">Support links</h2>
 
           <ul>
             <li><a href="#">About</a></li>
@@ -32,9 +34,52 @@
 
   </footer>
 
+  {{else}}
+  <footer class="footer" role="contentinfo">
+
+    <div class="footer-wrapper">
+
+      <div class="footer-helpdesk">
+
+        <h2>Help desk</h2>
+
+        <dl>
+          <dt>Telephone</dt>
+          <dd>0207 633 4140</dd>
+          <dd>Monday to Friday, 8am to 6pm (excluding public holidays)</dd>
+        </dl>
+
+        <h3>Help by email</h3>
+
+        <dl>
+          <dt><abbr title="Crown Prosecution Service">CPS</abbr> users only</dt>
+          <dd><a href="mailto:CJSCP-ServiceDesk@hmcts.gsi.gov.uk?Subject=General%20enquiry">CJSCP-ServiceDesk@hmcts.gsi.gov.uk</a></dd>
+          <dt>All other users</dt>
+          <dd><a href="mailto:CJSCP-ServiceDesk@hmcts.net?Subject=General%20enquiry">CJSCP-ServiceDesk@hmcts.net</a></dd>
+        </dl>
+
+      </div>
+
+      <hr>
+
+      <div class="footer-support">
+
+        <h2 class="visually-hidden">Support links</h2>
+
+        <ul>
+          <li><a href="/terms-and-conditions">Terms and conditions</a></li>
+          <li><a href="/cookies">Cookies</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  {{/is}}
 
   {{>scripts}}
-
 
 </body>
 </html>

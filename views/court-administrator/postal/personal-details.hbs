@@ -83,20 +83,27 @@
 
         <fieldset>
 
-          <legend class="visually-hidden">Adress</legend>
+          <legend class="visually-hidden">Address</legend>
 
           <div class="form-group form-group-compound">
             <label for="address1">
-              <span class="form-label">Street</span>
+              <span class="form-label">Building and street</span>
             </label>
             <input class="form-control" type="text" id="address1" name="address1" {{#if ../sAddress1}} value="{{../sAddress1}}"{{else}} value="{{personal-details.address.address1}}"{{/if}}>
           </div>
 
           <div class="form-group">
             <label class="visually-hidden" for="address2">
-              <span class="form-label">Street</span>
+              <span class="form-label">Building and street address line 2</span>
             </label>
             <input class="form-control" type="text" id="address2" name="address2"{{#if ../sAddress2}} value="{{../sAddress2}}"{{else}} value="{{personal-details.address.address2}}"{{/if}}>
+          </div>
+
+          <div class="form-group">
+            <label for="country">
+              <span class="form-label">Country (optional)</span>
+            </label>
+            <input class="form-control" type="text" id="country" name="country">
           </div>
 
           <div class="form-group">
@@ -140,7 +147,7 @@
           </div>
 
           <div class="form-group">
-            <label for="email">
+            <label for="mobile">
               <span class="form-label">Mobile</span>
             </label>
             <input class="form-control form-control-1-4" type="tel" id="mobile" name="mobile"{{#if ../sMobile}} value="{{../sMobile}}"{{else}} value="{{mobile}}"{{/if}}>

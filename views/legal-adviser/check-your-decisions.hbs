@@ -23,7 +23,7 @@
           </tr>
           <tr>
             <th class="table-cell-title">Verdict</th>
-            <td class="table-cell-content">[ verdict will go here ]</td>
+            <td class="table-cell-content">{{{offence.verdict}}}</td>
           </tr>
           <tr>
             <th class="table-cell-title">Result</th>
@@ -162,7 +162,7 @@
         </tbody>
       </table>
 
-      <p class="check-answers-action"><a href="{{../baseurl}}financial-penalty/{{id}}/?change=true" title="Change costs and surcharge">Change <span>cost and surcharge</span></a></p>
+      <p class="check-answers-action"><a href="{{../baseurl}}financial-penalty/{{id}}/?change=true" title="Change costs and surcharge">Change <span>costs and surcharge</span></a></p>
 
     </div>
 
@@ -227,6 +227,10 @@
         {{#is ../sPaymentMethod "Pay direct to court"}}
         <tbody>
           <tr>
+            <th class="table-cell-title">Total</th>
+            <td class="table-cell-content">&pound;{{../sTotalToPay}}</td>
+          </tr>
+          <tr>
             <th class="table-cell-title">Payment method</th>
             <td class="table-cell-content">{{../sPaymentMethod}}</td>
           </tr>
@@ -240,17 +244,17 @@
           </tr>
           {{#is ../sDefendantPay "Lump sum plus instalments"}}
           <tr>
-            <th class="table-cell-title">Amount to be paid</th>
+            <th class="table-cell-title">Lump sum amount</th>
             <td class="table-cell-content">&pound;{{../sLumpSumAmount}}</td>
           </tr>
           <tr>
-            <th class="table-cell-title">Instalment amount</th>
+            <th class="table-cell-title">Instalments</th>
             <td class="table-cell-content">&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on ({{moment ../sLumpSumInstalmentStartDate format="D MMMM YYYY"}})</td>
           </tr>
           {{/is}}
           {{#is ../sDefendantPay "Instalments only"}}
           <tr>
-            <th class="table-cell-title">Instalment amount</th>
+            <th class="table-cell-title">Instalments</th>
             <td class="table-cell-content">&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on ({{moment ../sInstalmentOnlyStartDate format="D MMMM YYYY"}})</td>
           </tr>
           {{/is}}
@@ -542,7 +546,7 @@
 
     <h2 class="heading-medium" id="other-information">Add a note (optional)</h2>
 
-    <p class="text">Only add if you have important information you couldn&rsquo;t enter elsewhere.</p>
+    <p class="text">This will only be seen by court staff.</p>
 
     <form class="form" method="post">
 

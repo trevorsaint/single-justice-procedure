@@ -1,0 +1,34 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  {{>legal-adviser/persist-info}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+      <h2 class="heading-large">Offence 1</h2>
+      <h3 class="bold-medium">{{{offence.title}}}</h3>
+      <p class="font-xsmall js-text">{{{offence.offence-wording}}}</p>
+
+      <h4 class="heading-medium">Dismiss offence</h4>
+
+      <p>No further action to be taken against the defendant.</p>
+
+      <p><a class="button" href="{{../baseurl}}check-your-decisions/{{id}}" role="buton">Save and continue</a></p>
+
+      <p><a href="{{../baseurl}}case-details/{{id}}">Back</a></p>
+
+    </div>
+
+    <div class="column-third">
+      <div class="related">
+        {{>legal-adviser/related-documents hideconvictions='yes'}}
+      </div>
+    </div>
+
+  </div>
+
+{{/with}}

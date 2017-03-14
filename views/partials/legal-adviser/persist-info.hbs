@@ -1,15 +1,15 @@
-<div class="persist-info">
-  <div class="persist-info-content">
-    <span class="persist-info-reference">{{personal-details.urn}}</span>
-    <span class="persist-info-title">
-      {{#and ../sFirstname ../sLastname}}
-        <b>{{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span></b>
-      {{else}}
-        <b>{{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span></b>
-      {{/and}}
-    </span>
+  <div class="persist-info">
+    <div class="persist-info-content">
+      <span class="persist-info-reference">{{personal-details.urn}}</span>
+      <span class="persist-info-title">
+        {{#and ../sFirstname ../sLastname}}
+          <b>{{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span></b>
+        {{else}}
+          <b>{{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span></b>
+        {{/and}}
+      </span>
+    </div>
+    <ul class="persist-info-links">
+      <li><a href="/proof-in-absence/legal-adviser/end-session/">End session</a></li>
+    </ul>
   </div>
-  <ul class="persist-info-links">
-    <li><a href="/legal-adviser/end-session/">End session</a></li>
-  </ul>
-</div>

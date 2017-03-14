@@ -1,4 +1,4 @@
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
@@ -23,19 +23,19 @@
   margin: 0 -15px;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
@@ -60,13 +60,13 @@
   margin: 0 -15px;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
@@ -2110,7 +2110,7 @@ CSS Usage
   text-transform: none;
   font-size: 16px;
   line-height: 1.25;
-  color: #6f777b;
+  color: #0b0c0c;
   content: "\00a3";
   display: inline-block;
   font-weight: bold;
@@ -3168,6 +3168,18 @@ HTML Usage
 .form-search-button:focus {
   position: relative;
 }
+.form-search-home .form-control {
+  background-color: #fff;
+  border-color: #fff;
+  color: #0b0c0c;
+}
+.form-search-home .form-label {
+  color: #fff;
+}
+.form-search-home .form-search-button {
+  background-color: #0b0c0c;
+  border-color: #0b0c0c;
+}
 
 .error .form-search-button {
   border-width: 4px;
@@ -3286,6 +3298,27 @@ HTML Usage
 
 <span class="text-errors">Errors found</span>
 <span class="text-uppercase">Errors found</span>
+
+*/
+.link-with-icon {
+  display: inline-block;
+  overflow: hidden;
+}
+.link-with-icon .icon {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+@media (max-width: 640px) {
+  .link-with-icon .icon {
+    display: none;
+  }
+}
+
+/*
+
+HTML Usage
+
+<a class="link link-with-icon" href="#"><i class="icon icon-file-download" role="presentation" aria-hidden="true"></i>View and print</a>
 
 */
 .divider {
@@ -3472,6 +3505,18 @@ HTML Usage
   margin-bottom: 0;
 }
 
+.homepage-masthead {
+  background-color: #005ea5;
+  color: #fff;
+  margin-left: -100%;
+  margin-right: -100%;
+  padding: 30px 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
 :focus {
   overflow: hidden;
 }
@@ -3536,4 +3581,157 @@ fieldset.inline ~ .panel:last-child {
     position: absolute;
     width: 1px;
   }
+}
+
+.header {
+  background-color: #0b0c0c;
+  color: #fff;
+  width: 100%;
+}
+.header a {
+  color: inherit;
+  text-decoration: none;
+}
+.header a:hover {
+  text-decoration: underline;
+}
+.header a:focus {
+  color: #0b0c0c;
+}
+.header-wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 8px 15px;
+}
+@media (min-width: 641px) {
+  .header-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+.header-name {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 18px;
+  line-height: 1.2;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+}
+@media (min-width: 641px) {
+  .header-name {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+}
+@media (min-width: 769px) {
+  .header-name {
+    float: left;
+  }
+}
+.header-menu {
+  padding-top: 5px;
+  padding-bottom: 1px;
+}
+@media (min-width: 769px) {
+  .header-menu {
+    text-align: right;
+  }
+}
+.header-menu li {
+  display: inline-block;
+  margin-left: 15px;
+}
+.header-menu li:first-child {
+  margin-left: 0;
+}
+.header-menu a {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.14286;
+  font-weight: bold;
+}
+@media (min-width: 641px) {
+  .header-menu a {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.footer {
+  background-color: #dee0e2;
+  border-top: 1px solid #a1acb2;
+}
+.footer a {
+  color: #454a4c;
+}
+.footer a:hover {
+  color: #171819;
+}
+.footer-wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 60px 15px;
+}
+@media (min-width: 641px) {
+  .footer-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+.footer-support li {
+  float: left;
+  margin-right: 15px;
+}
+.footer-helpdesk {
+  color: #454a4c;
+}
+.footer-helpdesk h2 {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #0b0c0c;
+  font-weight: 700;
+}
+@media (min-width: 641px) {
+  .footer-helpdesk h2 {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+}
+.footer-helpdesk h3 {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin-top: 15px;
+}
+@media (min-width: 641px) {
+  .footer-helpdesk h3 {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
+}
+.footer-helpdesk dl {
+  margin-top: 0.26316em;
+}
+.footer-helpdesk dt {
+  display: inline;
+}
+.footer-helpdesk dt::after {
+  content: ":";
+}
+.footer-helpdesk dd {
+  display: inline;
+}
+.footer-helpdesk dd::after {
+  display: block;
+  content: "";
 }

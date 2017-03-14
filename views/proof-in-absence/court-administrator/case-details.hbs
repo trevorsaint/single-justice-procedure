@@ -1,0 +1,432 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  {{>court-administrator/persist-info}}
+
+  {{#if ../sIsLocked}}
+  <div class="banner banner-warning" role="alert">
+    <i class="icon icon-banner-warning" role="presentation" aria-hidden="true"></i>
+    <div class="banner-message">
+      <p>This case is view&ndash;only, as a legal adviser is making a decision on it &ndash; try again later if you need to edit.</p>
+    </div>
+  </div>
+  {{/if}}
+
+  {{#if ../sHasSaved}}
+  <div class="banner banner-confirmation" role="alert">
+    <i class="icon icon-banner-confirmation" role="presentation" aria-hidden="true"></i>
+    <div class="banner-message">
+      <p>Your changes have been saved</p>
+    </div>
+  </div>
+  {{/if}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge mb-l">
+        {{#and ../sFirstname ../sLastname}}
+          {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
+        {{else}}
+          {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
+        {{/and}}
+      </h1>
+
+      <p class="mb-xl">
+        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
+        {{#if ../../sAddress1}}{{../../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
+        {{#if ../../sAddress2}}{{../../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
+        {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
+        {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
+      </p>
+
+      <div class="tabs tabs-horizontal">
+
+        <div class="tabs-header">
+          <ul class="list">
+            <li{{#is ../sCaseActiveTab "Case details"}} class="is-active"{{/is}}><a href="#case-details">Case details</a></li>
+            <li{{#is ../sCaseActiveTab "Personal details"}} class="is-active"{{/is}}><a href="#personal-details">Personal details</a></li>
+            <li{{#is ../sCaseActiveTab "Documents"}} class="is-active"{{/is}}><a href="#documents">Documents</a></li>
+          </ul>
+        </div>
+
+        <div class="tabs-content">
+
+          {{#with case-details}}
+          <section id="case-details">
+
+            <h2 class="heading-medium">Case details</h2>
+
+            <dl class="meta meta-inline meta-boldterms">
+              <dt>Case status</dt>
+              <dd>
+              {{#is status 'Completed'}}
+                {{#if ../../sLibraAccountNumber}}
+                  Reopened <time datetime="2016-10-12">12 October 2016</time> <br> (Libra account no: {{../../sLibraAccountNumber}})
+                {{else}}
+                  {{{status}}}
+                {{/if}}
+              {{else}}
+
+                {{#if ../../sMakeDecision}}
+                  {{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}Completed{{/contains}}
+                  {{#contains ../../sMakeDecision "Pleaded guilty SJP"}}Completed{{/contains}}
+                  {{#contains ../../sMakeDecision "Pleaded not guilty"}}Completed{{/contains}}
+                  {{#contains ../../sMakeDecision "No plea received"}}No plea received{{/contains}}
+                {{else}}
+                  {{{status}}}
+                {{/if}}
+
+              {{/is}}
+              </dd>
+              <dt>Prosecutor</dt>
+              <dd>{{{prosecutor}}}</dd>
+              <dt>Notice served</dt>
+              <dd><time datetime="{{moment notice-served format="YYYY-MM-DD"}}">{{moment notice-served format="D MMMM YYYY"}}</time></dd>
+            </dl>
+
+          </section>
+          {{/with}}
+
+          {{#with personal-details}}
+          <section id="personal-details">
+
+            <h2 class="heading-medium">Personal details</h2>
+
+            <dl class="meta meta-inline meta-boldterms">
+
+              <dt>Name</dt>
+              <dd>
+                {{#and ../../sFirstname ../../sLastname}}
+                  {{../../sFirstname}} {{uppercase ../../sLastname}}
+                {{else}}
+                  {{firstname}} {{uppercase lastname}}
+                {{/and}}
+              </dd>
+
+              <dt>Date of birth</dt>
+              <dd>
+                {{#if ../../sDob}}
+                  <time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../..sDob format="D MMM YYYY"}}</time>
+                {{else}}
+                  <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)
+                {{/if}}
+              </dd>
+
+              <dt>Address</dt>
+              <dd>
+                {{#if ../../sAddress1}}{{../../sAddress1}}<br>{{else}}{{address.address1}}<br>{{/if}}
+                {{#if ../../sAddress2}}{{../../sAddress2}}<br>{{else}}{{#if address.address2}}{{address.address2}}<br>{{/if}}{{/if}}
+                {{#if ../../sTown}}{{../../sTown}}<br>{{else}}{{address.town}}<br>{{/if}}
+                {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase address.postcode}}{{/if}}
+              </dd>
+
+              <dt>Email</dt>
+              <dd>
+                {{#if ../../sEmail}}
+                  {{../../sEmail}}
+                {{else}}
+                  {{#if email}}
+                    {{email}}
+                  {{else}}
+                    &ndash;
+                  {{/if}}
+                {{/if}}
+              </dd>
+
+              <dt>Home telephone</dt>
+              <dd>
+                {{#if ../../sPhone}}
+                  {{../../sPhone}}
+                {{else}}
+                  {{#if phone}}
+                    {{phone}}
+                  {{else}}
+                    &ndash;
+                  {{/if}}
+                {{/if}}
+              </dd>
+
+              <dt>Mobile</dt>
+              <dd>
+                {{#if ../../sMobile}}
+                  {{../../sMobile}}
+                {{else}}
+                  {{#if mobile}}
+                    {{mobile}}
+                  {{else}}
+                    &ndash;
+                  {{/if}}
+                {{/if}}
+              </dd>
+
+            </dl>
+
+          </section>
+          {{/with}}
+
+          {{#with related-documents}}
+          <section id="documents">
+
+            <h2 class="heading-medium">Documents</h2>
+
+            <dl class="meta meta-inline meta-boldterms">
+              <dt>Uploaded files</dt>
+              <dd>
+                {{#each document}}
+                  {{#is show true}}
+                  <div class="document document-small">
+                    <i class="icon icon-file-download"></i>
+                    <div class="document-content">
+                      <p class="document-title"><a href="#">{{{capitalize title}}}</a></p>
+                      <div class="document-meta">
+                        <span class="document-meta-details">
+                          {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  {{/is}}
+                {{/each}}
+              </dd>
+            </dl>
+
+          </section>
+          {{/with}}
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {{#contains case-details.status 'Completed'}}
+      {{#isnt ../sReopenedCase 'Yes'}}
+      <div class="column-third">
+
+        <div class="related">
+
+          <div class="related-section">
+
+            <h3 class="related-heading">Case options</h3>
+            <ul class="related-links">
+              <li><a href="{{../baseurl}}reopen-case/{{id}}/">Log case reopened on Libra</a></li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+      {{/isnt}}
+    {{/contains}}
+
+  </div>
+
+  <hr class="divider divider-border-dark" aria-hidden="true">
+
+  <div aria-labelledby="offences">
+
+    <h2 class="heading-large" id="offences">Offence 1</h2>
+
+    {{#with offence}}
+    <section aria-labelledby="offence">
+
+      <div class="grid-row">
+
+        <div class="column-two-thirds">
+
+          <h3 class="bold-medium" id="offence">{{{title}}}</h3>
+
+          <p class="font-xsmall">{{{offence-wording}}}</p>
+
+          <p>
+            <strong class="status-label">
+              {{#if ../../sMakeDecision}}
+                {{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}Completed{{/contains}}
+                {{#contains ../../sMakeDecision "Pleaded guilty SJP"}}Completed{{/contains}}
+                {{#contains ../../sMakeDecision "Pleaded not guilty"}}Completed{{/contains}}
+                {{#contains ../../sMakeDecision "No plea received"}}No plea received{{/contains}}
+              {{else}}
+                {{{plea}}}
+              {{/if}}
+            </strong>
+          </p>
+
+          <div class="tabs tabs-horizontal">
+
+            <div class="tabs-header">
+
+              <ul class="list">
+
+                <li><a href="#offence-details">Details</a></li>
+
+                {{#contains ../../sMakeDecision "Pleaded"}}
+                  <li class="is-active"><a href="#offence-decision">Decision</a></li>
+                {{else}}
+                  <li><a href="#offence-plea">Add or change plea</a></li>
+                {{/contains}}
+
+              </ul>
+
+            </div>
+
+            <div class="tabs-content">
+
+              <section id="offence-details">
+
+                {{#if statement-of-facts}}
+                  <h3 class="heading-medium">Statement of facts</h3>
+                  <p>{{{statement-of-facts}}}</p>
+                {{/if}}
+
+                {{#if mitigation}}
+                  <h3 class="heading-medium">Mitigation</h3>
+                  <p>{{{mitigation}}}</p>
+                {{/if}}
+
+              </section>
+
+              {{#contains ../../sMakeDecision "Pleaded"}}
+
+              <section id="offence-decision">
+
+                <h3 class="heading-medium">Decision</h3>
+
+                <dl class="meta meta-inline meta-boldterms">
+                  <dt>Result</dt>
+                  <dd>Referred for future <abbr title="Single Justice Procedure">SJP</abbr> session</dd>
+                </dl>
+
+              </section>
+
+              {{else}}
+
+              <section id="offence-plea">
+
+                <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
+
+                <form class="form" method="post">
+
+                  <fieldset>
+
+                    <legend class="visually-hidden">Select defendant&rsquo;s plea</legend>
+
+                    <div class="form-group">
+
+                      <label class="block-label selection-button-radio" for="no-plea-received">
+                        <input type="radio" id="no-plea-received" name="makeDecision" value=""{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision ""}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "No plea received"}} checked="checked"{{/contains}}{{/if}}>
+                        No plea received
+                      </label>
+
+                      <label class="block-label selection-button-radio" for="guilty-no-court" data-target="guilty-no-court-option">
+                        <input type="radio" id="guilty-no-court" name="makeDecision" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
+                        Guilty &ndash; I don&rsquo;t want to come to court
+                      </label>
+
+                      <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded guilty court hearing requested"}} js-hidden{{/isnt}}" id="guilty-no-court-option">
+
+                        <p>Selecting this will remove the case from this system and you&rsquo;ll have to manually enter the case again in Libra.</p>
+
+                        <fieldset class="inline">
+
+                          <legend>
+                            <span class="form-label">Are you sure you want to proceed?</span>
+                          </legend>
+
+                          <label class="block-label selection-button-radio" for="guilty-no-court-remove-yes">
+                            <input id="guilty-no-court-remove-yes" type="radio" name="guiltyNoCourtRemove" value="Yes"{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}{{#contains ../../sGuiltyNoCourtRemove "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
+                          </label>
+
+                          <label class="block-label selection-button-radio" for="guilty-no-court-remove-no">
+                            <input id="guilty-no-court-remove-no" type="radio" name="guiltyNoCourtRemove" value="No"{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}{{#contains ../../sGuiltyNoCourtRemove "No"}} checked="checked"{{/contains}}{{/contains}}> No
+                          </label>
+
+                        </fieldset>
+
+                      </div>
+
+                      <label class="block-label selection-button-radio" for="guilty-court" data-target="guilty-court-option">
+                        <input type="radio" id="guilty-court" name="makeDecision" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
+                        Guilty &ndash; I want to come to court
+                      </label>
+
+                      <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded guilty SJP"}} js-hidden{{/isnt}}" id="guilty-court-option">
+
+                        <p>Selecting this will remove the case from this system and you&rsquo;ll have to manually enter the case again in Libra.</p>
+
+                        <fieldset class="inline">
+
+                          <legend>
+                            <span class="form-label">Are you sure you want to proceed?</span>
+                          </legend>
+
+                          <label class="block-label selection-button-radio" for="guilty-court-remove-yes">
+                            <input id="guilty-court-remove-yes" type="radio" name="guiltyCourtRemove" value="Yes"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sGuiltyCourtRemove "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
+                          </label>
+
+                          <label class="block-label selection-button-radio" for="guilty-court-remove-no">
+                            <input id="guilty-court-remove-no" type="radio" name="guiltyCourtRemove" value="No"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sGuiltyCourtRemove "No"}} checked="checked"{{/contains}}{{/contains}}> No
+                          </label>
+
+                        </fieldset>
+
+                      </div>
+
+                      <label class="block-label selection-button-radio" for="not-guilty" data-target="not-guilty-court-option">
+                        <input type="radio" id="not-guilty" name="makeDecision" value="Pleaded not guilty"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded not guilty"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded not guilty"}} checked="checked"{{/contains}}{{/if}}>
+                        Not guilty &ndash; send me the date of my trial
+                      </label>
+
+                      <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded not guilty"}} js-hidden{{/isnt}}" id="not-guilty-court-option">
+
+                        <p>Selecting this will remove the case from this system and you&rsquo;ll have to manually enter the case again in Libra.</p>
+
+                        <fieldset class="inline">
+
+                          <legend>
+                            <span class="form-label">Are you sure you want to proceed?</span>
+                          </legend>
+
+                          <label class="block-label selection-button-radio" for="not-guilty-remove-yes">
+                            <input id="not-guilty-remove-yes" type="radio" name="notGuiltyRemove" value="Yes"{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{#contains ../../sNotGuiltyRemove "Yes"}} checked="checked"{{/contains}}{{/contains}}> Yes
+                          </label>
+
+                          <label class="block-label selection-button-radio" for="not-guilty-remove-no">
+                            <input id="not-guilty-remove-no" type="radio" name="notGuiltyRemove" value="No"{{#contains ../../sMakeDecision "Pleaded not guilty"}}{{#contains ../../sNotGuiltyRemove "No"}} checked="checked"{{/contains}}{{/contains}}> No
+                          </label>
+
+                        </fieldset>
+
+                      </div>
+
+                    </div>
+
+                    <div class="form-group form-group-related">
+                      <button class="button" type="submit">Save</button>
+                    </div>
+
+                  </fieldset>
+
+                </form>
+
+              </section>
+
+              {{/contains}}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    {{/with}}
+
+  </div>
+
+{{/with}}

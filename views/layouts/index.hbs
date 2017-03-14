@@ -1,16 +1,11 @@
 {{>doctype}}
 
-
   <main id="content" role="main">
-    
-    
-    {{>phase-banner}}
-    
-  
-    {{{body}}}
-    
-  
-  </main>
 
+  {{#isnt phaseBanner false}}
+    {{>phase-banner}}
+  {{/isnt}}
+  {{{body}}}
+  </main>
 
 {{>footer}}

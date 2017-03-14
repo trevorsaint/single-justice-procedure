@@ -8,7 +8,8 @@ $path: "/public/images/";
 // GDS styles
 @import "../govuk/sass/govuk-elements";
 
-// Single Justice Procedure styles
+// SJP styles
 @import "modules/manifest";
 @import "partials/manifest";
 @import "blocks/manifest";
+@import "elements/manifest";

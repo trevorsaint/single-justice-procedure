@@ -10,7 +10,7 @@ router.use(function(req, res, next) {
 
   // base
   baseurl            = '/court-administrator/';
-  apptitle           = 'Court administrator';
+  apptitle           = 'Criminal Justice Services online';
 
   // general
   sHasSaved          = req.query.saved;
@@ -75,9 +75,10 @@ router.route('/court-administrator')
     res.render('court-administrator/index', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
+      issigned: false,
       doctitle: 'Sign in',
       pagetitle: 'Sign in',
-      signedIn: false,
       breadcrumb: false
     });
   })
@@ -90,11 +91,11 @@ router.route('/court-administrator/styles')
     res.render('court-administrator/styles', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Styles',
       pagetitle: 'Styles',
       section: 'home',
       section_name: 'Home',
-      signedIn: false,
       breadcrumb: true
     });
   });
@@ -104,12 +105,16 @@ router.route('/court-administrator/home/')
     res.render('court-administrator/home', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
+      ishome: true,
       doctitle: 'Single Justice Procedure',
       pagetitle: 'Single Justice Procedure',
       section: 'home',
       section_name: 'Home',
-      signedIn: true,
-      breadcrumb: false
+      breadcrumb: false,
+      phaseBanner: false,
+      phaseBannerHome: true,
+      globalHeaderBar: false
     });
   })
   .post(function(req, res, next) {
@@ -121,27 +126,27 @@ router.route('/court-administrator/search-for-a-case/')
     res.render('court-administrator/search-for-a-case', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Search for a case',
       pagetitle: 'Search for a case',
       section: 'home',
       section_name: 'Home',
-      signedIn: true,
       breadcrumb: true,
       searches: dataEngine.getSearchEntries()
     });
   });
 
-router.route('/court-administrator/court-list/')
+router.route('/court-administrator/print-list-of-cases-awaiting-decision/')
   .all(function(req, res, next) {
-    res.render('court-administrator/court-list', {
+    res.render('court-administrator/print-list-of-cases-awaiting-decision', {
       baseurl: baseurl,
       apptitle: apptitle,
-      doctitle: 'Cases awaiting decision under Single Justice Procedure',
-      pagetitle: 'Cases awaiting decision under Single Justice Procedure',
+      ispublic: false,
+      doctitle: 'Print list of cases awaiting decision',
+      pagetitle: 'Print list of cases awaiting decision',
       section: 'home',
       section_name: 'Home',
       searches: dataEngine.getSearchEntries(),
-      signedIn: true,
       breadcrumb: true
     });
   });
@@ -152,14 +157,14 @@ router.route('/court-administrator/case-details/:id/')
     res.render('court-administrator/case-details', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Case details',
       pagetitle: 'Case details',
       section: 'home',
       section_name: 'Home',
-      section2: 'search-for-a-case',
-      section2_name: 'Search for a case',
+      //section2: 'search-for-a-case',
+      //section2_name: 'Search for a case',
       search:entry,
-      signedIn: true,
       breadcrumb: true,
       sFirstname: sFirstname,
       sLastname: sLastname,
@@ -229,14 +234,14 @@ router.route('/court-administrator/personal-details/:id/')
     res.render('court-administrator/personal-details', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Personal details',
       pagetitle: 'Personal details',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
+      //section2: 'case-details/' + req.params.id,
+      //section2_name: 'Case details',
       search: entry,
-      signedIn: true,
       breadcrumb: true,
       sTitle: sTitle,
       sFirstname: sFirstname,
@@ -273,13 +278,13 @@ router.route('/court-administrator/employment-and-income/:id/')
     res.render('court-administrator/employment-and-income', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Add employment and income',
       pagetitle: 'Add employment and income',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      signedIn: true,
+      //section2: 'case-details/' + req.params.id,
+      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sNationalInsurance: sNationalInsurance,
@@ -317,13 +322,13 @@ router.route('/court-administrator/upload-documents/:id/')
     res.render('court-administrator/upload-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Upload documents',
       pagetitle: 'Upload documents',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      signedIn: true,
+      //section2: 'case-details/' + req.params.id,
+      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sDocumentNotice: sDocumentNotice,
@@ -364,13 +369,13 @@ router.route('/court-administrator/postal/add-plea/:id/')
     res.render('court-administrator/postal/add-plea', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Add plea',
       pagetitle: 'Add plea',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      signedIn: true,
+      //section2: 'case-details/' + req.params.id,
+      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sMakeDecision: sMakeDecision,
@@ -417,13 +422,13 @@ router.route('/court-administrator/postal/personal-details/:id/')
     res.render('court-administrator/postal/personal-details', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Personal details',
       pagetitle: 'Personal details',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      signedIn: true,
+      //section2: 'case-details/' + req.params.id,
+      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sTitle: sTitle,
@@ -468,13 +473,13 @@ router.route('/court-administrator/postal/employment-and-income/:id/')
     res.render('court-administrator/postal/employment-and-income', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Add employment and income',
       pagetitle: 'Add employment and income',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      signedIn: true,
+      //section2: 'case-details/' + req.params.id,
+      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sNationalInsurance: sNationalInsurance,
@@ -521,13 +526,13 @@ router.route('/court-administrator/postal/upload-documents/:id/')
     res.render('court-administrator/postal/upload-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Upload documents',
       pagetitle: 'Upload documents',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      signedIn: true,
+      //section2: 'case-details/' + req.params.id,
+      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry
     });
@@ -545,13 +550,13 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
     res.render('court-administrator/postal/check-your-answers', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Check your answers',
       pagetitle: 'Check your answers',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      signedIn: true,
+      //section2: 'case-details/' + req.params.id,
+      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sMakeDecision: sMakeDecision,
@@ -591,13 +596,13 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
       res.render('court-administrator/register-view', {
         baseurl: baseurl,
         apptitle: apptitle,
+        ispublic: false,
         doctitle: 'Register view',
         pagetitle: 'Register view',
         section: 'home',
         section_name: 'Home',
-        section2: 'case-details/' + req.params.id,
-        section2_name: 'Case details',
-        signedIn: true,
+        //section2: 'case-details/' + req.params.id,
+        //section2_name: 'Case details',
         breadcrumb: true,
         search: entry,
         sMakeDecision: sMakeDecision,
@@ -629,16 +634,16 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
       //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
     });
 
-    router.route('/court-administrator/print-register-view-of-cases/')
+    router.route('/court-administrator/create-register-for-the-media/')
       .get(function(req, res, next) {
-        res.render('court-administrator/print-register-view-of-cases', {
+        res.render('court-administrator/create-register-for-the-media', {
           baseurl: baseurl,
           apptitle: apptitle,
-          doctitle: 'Download register for the press',
-          pagetitle: 'Create register for the press',
+          ispublic: false,
+          doctitle: 'Create register for the media',
+          pagetitle: 'Create register for the media',
           section: 'home',
           section_name: 'Home',
-          signedIn: true,
           breadcrumb: true,
           searches: dataEngine.getSearchEntries()
         });
@@ -653,13 +658,13 @@ router.route('/court-administrator/reopen-case/:id/')
     res.render('court-administrator/reopen-case', {
       baseurl: baseurl,
       apptitle: apptitle,
+      ispublic: false,
       doctitle: 'Log case as reopened on Libra',
       pagetitle: 'Log case as reopened on Libra',
       section: 'home',
       section_name: 'Home',
-      section2: 'case-details/' + req.params.id,
-      section2_name: 'Case details',
-      signedIn: true,
+      //section2: 'case-details/' + req.params.id,
+      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sLibraAccountNumber: sLibraAccountNumber
@@ -676,11 +681,11 @@ router.get('/court-administrator/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,
     apptitle: apptitle,
+    ispublic: false,
     doctitle: 'Page not found',
     pagetitle: 'Page not found',
     section: 'home',
     section_name: 'Home',
-    signedIn: true,
     breadcrumb: true
   });
 });

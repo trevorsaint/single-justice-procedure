@@ -1,45 +1,48 @@
-{{>breadcrumb}}
 
-<div class="grid-row">
+    <div class="homepage-masthead">
 
-  <div class="column-two-thirds">
+      <div class="grid-row">
 
-    <h1 class="heading-xlarge"><span class="heading-secondary">{{apptitle}}</span> {{pagetitle}}</h1>
+        <div class="column-two-thirds">
 
-    <h2 class="heading-medium">Search for a case</h2>
+          <h1 class="bold-xlarge mb-l">{{apptitle}}</h1>
 
-    <form class="form" method="post">
+          <h2 class="bold-medium">Search for a case</h2>
 
-      <div class="form-group">
+          <form class="form" method="post">
 
-        <div class="form-search">
+            <div class="form-search form-search-home">
 
-          <label for="search">
-            <span class="form-label">Enter case reference number or defendant&rsquo;s last name</span>
-          </label>
+              <label for="search">
+                <span class="form-label">Enter case reference number or defendant&rsquo;s last name</span>
+              </label>
 
-          <input class="form-control form-control-wide" type="search" id="search" name="search"><button class="form-search-button" type="submit">Search</button>
+              <input class="form-control form-control-wide" type="search" id="search" name="search"><button class="form-search-button" type="submit">Search</button>
+
+            </div>
+
+          </form>
 
         </div>
 
       </div>
 
-    </form>
+    </div>
 
-  </div>
+    {{#is phaseBannerHome true}}
+    {{>phase-banner}}
+    {{/is}}
 
-</div>
+    <div class="grid-row">
 
-<div class="grid-row">
+      <div class="column-two-thirds">
 
-  <div class="column-two-thirds">
+        <h2 class="heading-medium" id="make-case-decisions">Make case decisions</h2>
 
-    <h2 class="heading-medium" id="make-case-decisions">Make case decisions</h2>
+        <ul class="list" aria-labelledby="make-case-decisions">
+          <li><p><a href="{{baseurl}}start-a-new-sjp-session/">Start a new SJP session</a> (1 case)</p></li>
+        </ul>
 
-    <ul class="list" aria-labelledby="make-case-decisions">
-      <li><p><a href="/proof-in-absence/legal-adviser/start-a-new-sjp-session/">Start a new SJP session</a> (10 cases)</p></li>
-    </ul>
+      </div>
 
-  </div>
-
-</div>
+    </div>

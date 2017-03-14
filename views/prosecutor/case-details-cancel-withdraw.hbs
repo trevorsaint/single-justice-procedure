@@ -2,16 +2,23 @@
 
 {{#with search}}
 
-  <div class="persist-info">
-    <span class="persist-info-reference">{{urn}}</span>
-    <span class="persist-info-title">{{firstname}} {{uppercase lastname}}</span>
-  </div>
+  {{>prosecutor/persist-info}}
 
   <div class="grid-row">
 
     <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">{{firstname}} {{uppercase lastname}} <span class="heading-secondary">{{age}} years old</span></h1>
+      {{#with personal-details}}
+      <h1 class="heading-xlarge mb-l">{{{firstname}}} <span class="text-uppercase">{{{lastname}}}</span></h1>
+
+      <p class="mb-xl">
+        <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{{age}}} years old)<br>
+        {{{address.address1}}},
+        {{#if address.address2}}{{{address.address2}}},{{/if}}
+        {{{address.town}}}
+        <span class="text-uppercase">{{{address.postcode}}}</span>
+      </p>
+      {{/with}}
 
       <div class="tabs tabs-horizontal">
 
@@ -63,22 +70,24 @@
 
             <h2 class="heading-medium">Personal details</h2>
 
-            <dl class="meta meta-large">
+            {{#with personal-details}}
+            <dl class="meta meta-inline meta-boldterms">
               <dt>Name</dt>
-              <dd>{{{firstname}}} {{uppercase lastname}}</dd>
+              <dd>{{{firstname}}} <span class="text-uppercase">{{{lastname}}}</span></dd>
               <dt>Date of birth</dt>
-              <dd><time datetime="{{date-of-birth-iso}}">{{date-of-birth}}</time> (age {{age}})</dd>
+              <dd><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{{age}}} years old)</dd>
               <dt>Address</dt>
-              <dd>{{address.address1}}, <br> {{address.town}} {{address.postcode}}</dd>
+              <dd>{{{address.address1}}} <br> {{#if address.address2}}{{{address.address2}}} <br> {{/if}} {{{address.town}}} {{{address.postcode}}}</dd>
               <dt>Email</dt>
-              <dd>{{#if email}}{{email}}{{else}}&ndash;{{/if}}</dd>
+              <dd>{{#if email}}{{{email}}}{{else}}&ndash;{{/if}}</dd>
               <dt>Home telephone</dt>
-              <dd>{{#if phone}}{{phone}}{{else}}&ndash;{{/if}}</dd>
+              <dd>{{#if phone}}{{{phone}}}{{else}}&ndash;{{/if}}</dd>
               <dt>Mobile</dt>
-              <dd>{{#if mobile}}{{mobile}}{{else}}&ndash;{{/if}}</dd>
+              <dd>{{#if mobile}}{{{mobile}}}{{else}}&ndash;{{/if}}</dd>
               <dt>National Insurance number</dt>
-              <dd>{{#if national-insurance-number}}{{national-insurance-number}}{{else}}&ndash;{{/if}}</dd>
+              <dd>{{#if national-insurance-number}}{{{national-insurance-number}}}{{else}}&ndash;{{/if}}</dd>
             </dl>
+            {{/with}}
 
           </section>
 

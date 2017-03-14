@@ -9,19 +9,29 @@
     <div class="column-two-thirds">
 
       <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+      {{#if offence.previous-convictions}}
+        <div class="panel panel-border-wide">
+          <p>Defendant has <b>{{offence.previous-convictions.convictions}}</b> previous convictions.</p>
+        </div>
+      {{/if}}
+
       <h2 class="heading-large">Offence 1</h2>
+
       <h3 class="bold-medium">{{{offence.title}}}</h3>
       <p class="font-xsmall js-text">{{{offence.offence-wording}}}</p>
 
       <form class="form" method="post">
 
-        <section aria-labelledby="fine-and-compensation">
+        <div aria-labelledby="fine-and-compensation">
 
-          <h3 class="heading-medium" id="fine-and-compensation">Check fine and compensation</h3>
+          <h4 class="heading-medium" id="fine-and-compensation">Check fine and compensation</h4>
 
           {{#if offence.weekly-income}}
             <p>Defendant&rsquo;s weekly income: <b>&pound;{{offence.weekly-income}}</b>{{#if offence.weekly-income-assumed}} (assumed){{/if}}</p>
           {{/if}}
+
+          <!--p><strong class="status-label">Discount applied for guilty plea</strong></p-->
 
           <div class="form-group">
 
@@ -233,13 +243,13 @@
 
           </div>
 
-        </section>
+        </div>
 
         <hr aria-hidden="true">
 
-        <section aria-labelledby="costs-and-surcharge">
+        <div aria-labelledby="costs-and-surcharge">
 
-          <h3 class="heading-large" id="costs-and-surcharge">Check costs and surcharge</h3>
+          <h2 class="heading-large" id="costs-and-surcharge">Check costs and surcharge</h2>
 
           <div class="form-group">
 
@@ -318,7 +328,7 @@
 
           </div>
 
-        </section>
+        </div>
 
         <div class="form-group form-group-related">
           <button class="button" type="submit">Save and continue</button>

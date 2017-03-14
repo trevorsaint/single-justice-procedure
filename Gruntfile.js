@@ -35,9 +35,16 @@ module.exports = function (grunt) {
 
             {
               expand: true,
+              cwd: 'node_modules/govuk_template_jinja/assets/javascripts',
+              src: '**',
+              dest: 'public/govuk/javascripts'
+            },
+
+            {
+              expand: true,
               cwd: 'node_modules/govuk_template_jinja/assets/stylesheets',
               src: '**',
-              dest: 'public/govuk/stylesheets/'
+              dest: 'public/govuk/stylesheets'
             },
 
             {
@@ -45,6 +52,13 @@ module.exports = function (grunt) {
               cwd: 'node_modules/govuk_template_jinja/assets/images',
               src: '**',
               dest: 'public/govuk/images'
+            },
+
+            {
+              expand: true,
+              cwd: 'node_modules/govuk_frontend_toolkit/javascripts',
+              src: '**',
+              dest: 'public/govuk/javascripts'
             },
 
             {
@@ -100,6 +114,14 @@ module.exports = function (grunt) {
         }
 
       },
+
+
+      pa11y: {
+        options: {
+          url: 'google.com'
+        }
+      },
+
 
       watch: {
 

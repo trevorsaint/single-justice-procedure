@@ -2,12 +2,9 @@
 
 {{#with search}}
 
-  <div class="persist-info">
-    <span class="persist-info-reference">{{urn}}</span>
-    <span class="persist-info-title">{{firstname}} {{uppercase lastname}}</span>
-  </div>
+  {{>prosecutor/persist-info}}
 
-  <h1 class="heading-large">{{pagetitle}}</h1>
+  <h1 class="heading-large">{{../pagetitle}}</h1>
 
   <div class="text">
     <p class="lede">You can ask a legal adviser to withdraw this offence. Are you sure you want to do this?</p>

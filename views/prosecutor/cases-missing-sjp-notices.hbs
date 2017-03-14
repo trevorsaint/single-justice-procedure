@@ -19,9 +19,9 @@
           {{#each searches}}
             {{#if missing-sjp}}
             <tr>
-              <td>{{uppercase lastname}} {{firstname}}</td>
-              <td>{{urn}}</td>
-              <td>{{date-of-birth}}</td>
+              <td><span class="text-uppercase">{{personal-details.lastname}}</span> {{personal-details.firstname}}</td>
+              <td>{{personal-details.urn}}</td>
+              <td>{{moment personal-details.dob format="D MMM YYYY"}}</td>
             </tr>
             {{/if}}
           {{/each}}
@@ -36,6 +36,6 @@
 
       <p>Put the notices in a new zip file and then upload.</p>
 
-      <p><a class="button" href="/prosecutor/send-other-documents/" role="button">Go to upload documents</a></p>
+      <p><a class="button" href="/prosecutor/send-other-documents/">Go to upload documents</a></p>
 
     </section>

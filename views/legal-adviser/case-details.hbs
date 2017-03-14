@@ -19,9 +19,11 @@
       </h1>
 
       <p class="mb-xl">
-        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}
-        <br>
-        {{#if ../../sAddress1}}{{../../sAddress1}}{{else}}{{personal-details.address.address1}}{{/if}}{{#if ../../sAddress2}}, {{../../sAddress2}}{{else}}{{#if personal-details.address.address2}}, {{personal-details.address.address2}}{{/if}}{{/if}} {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}} {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
+        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
+        {{#if ../../sAddress1}}{{../../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
+        {{#if ../../sAddress2}}{{../../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
+        {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
+        {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
       </p>
 
       <div class="tabs tabs-horizontal">
@@ -139,7 +141,7 @@
 
     <div class="column-third">
       <div class="related">
-        {{>legal-adviser/related-documents casedetails='true'}}
+        {{>legal-adviser/related-documents}}
       </div>
     </div>
 
@@ -152,14 +154,14 @@
     <h2 class="heading-large" id="offences">Offence 1</h2>
 
     {{#with offence}}
-    <section aria-labelledby="offence">
+    <div aria-labelledby="offence">
 
       <div class="grid-row">
 
         <div class="column-two-thirds">
 
           <h3 class="bold-medium" id="offence">{{{title}}}</h3>
-          <p class="font-xsmall js-text">{{{offence-wording}}}</p>
+          <p class="font-xsmall">{{{offence-wording}}}</p>
 
           <p><strong class="status-label">{{{plea}}}</strong></p>
 
@@ -172,20 +174,20 @@
         <div class="column-two-thirds">
 
           {{#if statement-of-facts}}
-            <h3 class="heading-small">Statement of facts</h3>
-            <p class="text js-text">{{{statement-of-facts}}}</p>
+            <h4 class="heading-small">Statement of facts</h4>
+            <p class="text">{{{statement-of-facts}}}</p>
           {{/if}}
 
           {{#if mitigation}}
-            <h3 class="heading-small">Mitigation</h3>
-            <p class="text js-text">{{{mitigation}}}</p>
+            <h4 class="heading-small">Mitigation</h4>
+            <p class="text">{{{mitigation}}}</p>
           {{/if}}
 
         </div>
 
         <div class="column-third">
 
-          <h3 class="heading-small" id="decision">Make a decision</h3>
+          <h4 class="heading-small" id="decision">Make a decision</h4>
 
           <form class="form" method="post">
 
@@ -229,7 +231,7 @@
 
       </div>
 
-    </section>
+    </div>
     {{/with}}
 
   </div>
