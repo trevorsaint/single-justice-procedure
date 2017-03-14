@@ -1,8 +1,8 @@
-Single Justice Procedure (SJP)
-==============================
+Criminal Justice Service
+========================
 
 A service for:
 
-- Prosecutor
-- Court administrator
-- Legal adviser
+- Prosecutors
+- Court administrators
+- Legal advisers
