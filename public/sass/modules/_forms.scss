@@ -47,7 +47,6 @@ $module: 'form';
   }
 
   &-group-last {
-    margin-bottom: $gutter;
 
     @include media(tablet) {
       margin-bottom: $gutter*2;

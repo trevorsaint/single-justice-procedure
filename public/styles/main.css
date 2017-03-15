@@ -2139,9 +2139,6 @@ CSS Usage
     display: inline-block;
   }
 }
-.form-group-last {
-  margin-bottom: 30px;
-}
 @media (min-width: 641px) {
   .form-group-last {
     margin-bottom: 60px;
@@ -3570,16 +3567,6 @@ fieldset.inline ~ .panel:last-child {
     position: absolute;
     right: 0;
     top: 12px;
-  }
-  .check-answers-action span {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
   }
 }
 
