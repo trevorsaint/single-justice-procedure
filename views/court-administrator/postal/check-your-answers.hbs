@@ -18,33 +18,33 @@
         {{#if ../sMakeDecision}}
 
           <tr>
-            <th class="table-summary-title">Defendant&rsquo;s plea</th>
-            <td>{{{../sMakeDecision}}}</td>
+            <th class="table-cell-title">Defendant&rsquo;s plea</th>
+            <td class="table-cell-content">{{{../sMakeDecision}}}</td>
           </tr>
           {{#if ../sNeedInterpreter}}
           <tr>
-            <th class="table-summary-title">Does defendant need an interpreter?</th>
-            <td>{{{../sNeedInterpreter}}}</td>
+            <th class="table-cell-title">Does defendant need an interpreter?</th>
+            <td class="table-cell-content">{{{../sNeedInterpreter}}}</td>
           </tr>
           {{/if}}
           {{#contains ../sNeedInterpreter "Yes"}}
           <tr>
-            <th class="table-summary-title">Interpreter language</th>
-            <td>{{{../sInterpreterLanguage}}}</td>
+            <th class="table-cell-title">Interpreter language</th>
+            <td class="table-cell-content">{{{../sInterpreterLanguage}}}</td>
           </tr>
           {{/contains}}
 
         {{else}}
 
-          {{#contains case-details.status "Awaiting plea"}}
+          {{#contains case-details.status "No plea received"}}
           <tr>
-            <th class="table-summary-title">Defendant&rsquo;s plea</th>
-            <td>No plea received</td>
+            <th class="table-cell-title">Defendant&rsquo;s plea</th>
+            <td class="table-cell-content">No plea received</td>
           </tr>
           {{else}}
           <tr>
-            <th class="table-summary-title">Defendant&rsquo;s plea</th>
-            <td>{{{case-details.status}}}</td>
+            <th class="table-cell-title">Defendant&rsquo;s plea</th>
+            <td class="table-cell-content">{{{case-details.status}}}</td>
           </tr>
           {{/contains}}
 
@@ -74,8 +74,8 @@
 
       <tbody>
         <tr>
-          <th class="table-summary-title">Name</th>
-          <td>
+          <th class="table-cell-title">Name</th>
+          <td class="table-cell-content">
             {{#and ../sFirstname ../sLastname}}
               {{../sFirstname}} {{uppercase ../sLastname}}
             {{else}}
@@ -84,8 +84,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Date of birth</th>
-          <td>
+          <th class="table-cell-title">Date of birth</th>
+          <td class="table-cell-content">
             {{#if ../sDob}}
               <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMM YYYY"}}</time>
             {{else}}
@@ -94,8 +94,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Address</th>
-          <td>
+          <th class="table-cell-title">Address</th>
+          <td class="table-cell-content">
             {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{personal-details.address.address1}}<br>{{/if}}
             {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}<br>{{/if}}{{/if}}
             {{#if ../sTown}}{{../sTown}}<br>{{else}}{{personal-details.address.town}}<br>{{/if}}
@@ -103,8 +103,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Email</th>
-          <td>
+          <th class="table-cell-title">Email</th>
+          <td class="table-cell-content">
             {{#if ../sEmail}}
               {{../sEmail}}
             {{else}}
@@ -117,8 +117,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Home telephone</th>
-          <td>
+          <th class="table-cell-title">Home telephone</th>
+          <td class="table-cell-content">
             {{#if ../sPhone}}
               {{../sPhone}}
             {{else}}
@@ -131,8 +131,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Mobile</th>
-          <td>
+          <th class="table-cell-title">Mobile</th>
+          <td class="table-cell-content">
             {{#if ../sMobile}}
               {{../sMobile}}
             {{else}}
@@ -168,8 +168,8 @@
 
       <tbody>
         <tr>
-          <th class="table-summary-title">National Insurance number</th>
-          <td>
+          <th class="table-cell-title">National Insurance number</th>
+          <td class="table-cell-content">
             {{#if ../sNationalInsurance}}
               {{../sNationalInsurance}}
             {{else}}
@@ -182,8 +182,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Income and outgoings</th>
-          <td>
+          <th class="table-cell-title">Income and outgoings</th>
+          <td class="table-cell-content">
             {{#if ../sPayFrequency}}
               {{../sPayFrequency}}
             {{else}}
@@ -196,8 +196,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Employment status</th>
-          <td>
+          <th class="table-cell-title">Employment status</th>
+          <td class="table-cell-content">
             {{#if ../sEmployment}}
               {{../sEmployment}}
             {{else}}
@@ -212,8 +212,8 @@
 
         {{#compare ../sEmployment "===" "Employed"}}
         <tr>
-          <th class="table-summary-title">Employer name</th>
-          <td>
+          <th class="table-cell-title">Employer name</th>
+          <td class="table-cell-content">
             {{#if ../sEmployerName}}
               {{../sEmployerName}}
             {{else}}
@@ -226,8 +226,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Employer telephone</th>
-          <td>
+          <th class="table-cell-title">Employer telephone</th>
+          <td class="table-cell-content">
             {{#if ../sEmployerTelephone}}
               {{../sEmployerTelephone}}
             {{else}}
@@ -240,8 +240,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Employer address</th>
-          <td>
+          <th class="table-cell-title">Employer address</th>
+          <td class="table-cell-content">
             {{#if ../sEmployerAddress1}}
               {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
               {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
@@ -260,8 +260,8 @@
           </td>
         </tr>
         <tr>
-          <th class="table-summary-title">Net pay (take home pay)</th>
-          <td>
+          <th class="table-cell-title">Net pay (take home pay)</th>
+          <td class="table-cell-content">
             {{#if ../sPayAmount}}
               &pound;{{../sPayAmount}}
             {{else}}
@@ -276,8 +276,8 @@
         {{/compare}}
 
         <tr>
-          <th class="table-summary-title">Receving benefits?</th>
-          <td>
+          <th class="table-cell-title">Receving benefits?</th>
+          <td class="table-cell-content">
             {{#if ../sReceivingBenefits}}
               {{../sReceivingBenefits}}
             {{else}}
@@ -314,8 +314,8 @@
 
       <tbody>
         <tr>
-          <th class="table-summary-title">Uploaded documents</th>
-          <td>You haven&rsquo;t uploaded any documents.</td>
+          <th class="table-cell-title">Uploaded documents</th>
+          <td class="table-cell-content">You haven&rsquo;t uploaded any documents.</td>
         </tr>
       </tbody>
 
