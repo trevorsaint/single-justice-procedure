@@ -24,7 +24,7 @@
           <div class="form-group form-group-last">
 
             <label class="block-label selection-button-radio" for="no-plea-received">
-              <input type="radio" id="no-plea-received" name="makeDecision" value=""{{#if ../sMakeDecision}}{{#contains ../sMakeDecision ""}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "Awaiting plea"}} checked="checked"{{/contains}}{{/if}}>
+              <input type="radio" id="no-plea-received" name="makeDecision" value=""{{#if ../sMakeDecision}}{{#contains ../sMakeDecision ""}} checked="checked"{{/contains}}{{else}}{{#contains case-details.status "No plea received"}} checked="checked"{{/contains}}{{/if}}>
               No plea received
             </label>
 
