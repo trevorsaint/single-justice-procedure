@@ -165,7 +165,7 @@ router.route('/legal-adviser/start-a-new-sjp-session/')
       apptitle: apptitle,
       ispublic: false,
       doctitle: 'Start a new SJP session',
-      pagetitle: 'Start a new SJP session',
+      pagetitle: 'Start a new <abbr title="Single Justice Procedure">SJP</abbr> session',
       section: 'home',
       section_name: 'Home',
       breadcrumb: true,
