@@ -3560,14 +3560,22 @@ fieldset.inline ~ .panel:last-child {
 
 .check-answers {
   position: relative;
+  margin-bottom: 2.10526em;
 }
-@media (min-width: 769px) {
-  .check-answers-action {
-    margin: 0;
-    position: absolute;
-    right: 0;
-    top: 12px;
-  }
+.check-answers th {
+  font-weight: 400;
+  width: 40%;
+}
+.check-answers th,
+.check-answers td {
+  vertical-align: top;
+}
+.check-answers-action {
+  font-weight: 700;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .header {
