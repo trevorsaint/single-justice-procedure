@@ -11,12 +11,12 @@
       <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
       {{#if ../sTotalToPay}}
-      <div class="panel panel-border-wide">
+      <div class="panel panel-border-wide" role="note" aria-label="Information">
         <p>Total to pay <br> <b class="bold-medium">&pound;{{../sTotalToPay}}</b></p>
       </div>
       {{/if}}
 
-      <form class="form" method="post">
+      <form class="form" method="post" novalidate>
 
         <h2 class="heading-medium" id="collection-payment">Select option</h2>
 
@@ -26,37 +26,27 @@
 
             <legend class="visually-hidden">Select option</legend>
 
-            <label class="block-label selection-button-radio" for="pay-direct-to-court">
-              <input type="radio" id="pay-direct-to-court" name="paymentMethod" value="Pay direct to court"
+            <div class="multiple-choice">
+              <input id="pay-direct-to-court" name="paymentMethod" type="radio" value="Pay direct to court"
               {{#if ../sPaymentMethod}}
                 {{#contains ../sPaymentMethod "Pay direct to court"}} checked="checked"{{/contains}}
               {{else}}
                 {{#contains offence.payment-method "Pay direct to court"}} checked="checked"{{/contains}}
               {{/if}}>
-              Pay direct to court
-            </label>
+              <label for="pay-direct-to-court">Pay direct to court</label>
+            </div>
 
             <p class="form-block">or</p>
 
-            <label class="block-label selection-button-radio" for="deduct-from-benefits">
-              <input type="radio" id="deduct-from-benefits" name="paymentMethod" value="Deduct from benefits" disabled="disabled"
-              {{#if ../sPaymentMethod}}
-                {{#contains ../sPaymentMethod "Deduct from benefits"}} checked="checked"{{/contains}}
-              {{else}}
-                {{#contains offence.payment-method "Deduct from benefits"}} checked="checked"{{/contains}}
-              {{/if}}>
-              Deduct from benefits
-            </label>
+            <div class="multiple-choice">
+              <input id="deduct-from-benefits" name="paymentMethod" type="radio" value="Deduct from benefits" disabled>
+              <label for="deduct-from-benefits">Deduct from benefits</label>
+            </div>
 
-            <label class="block-label selection-button-radio" for="attach-to-earnings">
-              <input type="radio" id="attach-to-earnings" name="paymentMethod" value="Attach to earnings" disabled="disabled"
-              {{#if ../sPaymentMethod}}
-                {{#contains ../sPaymentMethod "Attach to earnings"}} checked="checked"{{/contains}}
-              {{else}}
-                {{#contains offence.payment-method "Attach to earnings"}} checked="checked"{{/contains}}
-              {{/if}}>
-              Attach to earnings
-            </label>
+            <div class="multiple-choice">
+              <input id="attach-to-earnings" name="paymentMethod" type="radio" value="Attach to earnings" disabled>
+              <label for="attach-to-earnings">Attach to earnings</label>
+            </div>
 
           </fieldset>
 

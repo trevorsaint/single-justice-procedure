@@ -1,65 +1,67 @@
 {{>breadcrumb}}
 
-    <div class="grid-row">
+<div class="grid-row">
 
-      <div class="column-two-thirds">
+  <div class="column-two-thirds">
 
-        <h1 class="heading-xlarge">{{pagetitle}}</h1>
+    <h1 class="heading-xlarge">{{{pagetitle}}}</h1>
 
-        <form class="form" method="post">
+    <form class="form" method="post" novalidate>
 
-          <div class="form-group">
-            <label class="form-label" for="court-location">Court location</label>
-            <select class="form-control form-control-2-3" id="court-location" name="courtLocation">
-              <option>Select</option>
-              <option value="Lavender Hill">Lavender Hill</option>
-              <option value="Wimbledon">Wimbledon</option>
-              <option value="Swansea">West Glamorgan</option>
-            </select>
+      <div class="form-group">
+        <label class="form-label" for="court-location">Court location</label>
+        <select class="form-control form-control-2-3" id="court-location" name="courtLocation">
+          <option>Select</option>
+          <option value="Lavender Hill">Lavender Hill</option>
+          <option value="Wimbledon">Wimbledon</option>
+          <option value="Swansea">West Glamorgan</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="local-justice-area">Local justice area</label>
+        <select class="form-control form-control-2-3" id="local-justice-area" name="localJusticeArea">
+          <option>Select</option>
+          <option value="South West London">South West London</option>
+          <option value="South Wales">South Wales</option>
+        </select>
+      </div>
+
+      <div class="form-group form-group-last">
+
+        <fieldset class="inline">
+
+          <legend>
+            <span class="form-label">Are you working with a magistrate?</span>
+          </legend>
+
+          <div class="multiple-choice" data-target="working-with-magistrate">
+            <input id="working-with-magistrate-yes" name="workingWithMagistrate" type="radio" value="Yes">
+            <label for="working-with-magistrate-yes">Yes</label>
           </div>
 
-          <div class="form-group">
-            <label class="form-label" for="local-justice-area">Local justice area</label>
-            <select class="form-control form-control-2-3" id="local-justice-area" name="localJusticeArea">
-              <option>Select</option>
-              <option value="South West London">South West London</option>
-              <option value="South Wales">South Wales</option>
-            </select>
+          <div class="multiple-choice">
+            <input id="working-with-magistrate-no" name="workingWithMagistrate" type="radio" value="No">
+            <label for="working-with-magistrate-no">No &ndash; I&rsquo;m working under delegated powers</label>
           </div>
 
-          <div class="form-group form-group-last">
-
-            <fieldset class="inline">
-
-              <legend>
-                <span class="form-label">Are you working with a magistrate?</span>
-              </legend>
-
-              <label class="block-label selection-button-radio" for="working-with-magistrate-yes" data-target="working-with-magistrate">
-                <input type="radio" id="working-with-magistrate-yes" name="workingWithMagistrate" value="Yes"> Yes
-              </label>
-
-              <label class="block-label selection-button-radio" for="working-with-magistrate-no">
-                <input type="radio" id="working-with-magistrate-no" name="workingWithMagistrate" value="No"> No &ndash; I&rsquo;m working under delegated powers
-              </label>
-
-              <div class="panel panel-border-narrow js-hidden" id="working-with-magistrate">
-                <label class="form-label" for="magistrates-name">Magistrate&rsquo;s name</label>
-                <input class="form-control" type="text" id="magistrates-name" name="magistratesName">
-              </div>
-
-            </fieldset>
-
+          <div class="panel panel-border-narrow js-hidden" id="working-with-magistrate">
+            <label class="form-label" for="magistrates-name">Magistrate&rsquo;s name</label>
+            <input class="form-control" id="magistrates-name" name="magistratesName" type="text">
           </div>
 
-          <div class="form-group form-group-related">
-            <button class="button" type="submit">Continue</button>
-          </div>
-
-          <p><a href="/proof-in-absence/legal-adviser/home/">Back</a></p>
-
-        </form>
+        </fieldset>
 
       </div>
 
-    </div>
+      <div class="form-group form-group-related">
+        <button class="button" type="submit">Continue</button>
+      </div>
+
+      <p><a href="{{baseurl}}home/">Back</a></p>
+
+    </form>
+
+  </div>
+
+</div>
