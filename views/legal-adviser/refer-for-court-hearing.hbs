@@ -13,7 +13,7 @@
       <h3 class="bold-medium">{{{offence.title}}}</h3>
       <p class="font-xsmall js-text">{{{offence.offence-wording}}}</p>
 
-      <form class="form" method="post">
+      <form class="form" method="post" novalidate>
 
         <h4 class="heading-medium">Refer for court hearing</h4>
 
@@ -95,6 +95,7 @@
             </legend>
 
             <div class="form-time">
+
               <div class="form-group form-group-hour">
                 <label class="form-label visually-hidden" for="start-time-of-hearing-hour">Hour</label>
                 <input class="form-control" id="start-time-of-hearing-hour" name="startTimeOfHearingHour" type="text" maxlength="2" aria-describedby="start-time-of-hearing-hint">

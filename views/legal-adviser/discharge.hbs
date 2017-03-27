@@ -13,7 +13,7 @@
       <h3 class="bold-medium">{{{offence.title}}}</h3>
       <p class="font-xsmall js-text">{{{offence.offence-wording}}}</p>
 
-      <form class="form" method="post">
+      <form class="form" method="post" novalidate>
 
         <div aria-labelledby="discharge">
 
@@ -27,13 +27,15 @@
                 <span class="form-label">Choose type of discharge</span>
               </legend>
 
-              <label class="block-label selection-button-radio" data-target="discharge-duration">
-                <input type="radio" name="typeOfDischarge" value="Conditional"> Conditional
-              </label>
+              <div class="multiple-choice" data-target="discharge-duration">
+                <input id="discharge-conditional" name="typeOfDischarge" type="radio" value="Conditional">
+                <label for="discharge-conditional">Conditional</label>
+              </div>
 
-              <label class="block-label selection-button-radio">
-                <input type="radio" name="typeOfDischarge" value="Absolute"> Absolute
-              </label>
+              <div class="multiple-choice">
+                <input id="discharge-absolute" name="typeOfDischarge" type="radio" value="Absolute">
+                <label for="discharge-absolute">Absolute</label>
+              </div>
 
               <div class="panel panel-border-narrow js-hidden" id="discharge-duration">
 
@@ -46,7 +48,7 @@
                   <div class="form-duration">
                     <div class="form-group form-group-amount">
                       <label class="visually-hidden" for="duration-amount"><span class="form-label">Amount</span></label>
-                      <input class="form-control" type="text" id="duration-amount" name="durationAmount" value="{{../sDurationAmount}}">
+                      <input class="form-control" id="duration-amount" name="durationAmount" type="text" value="{{../sDurationAmount}}">
                     </div>
                     <div class="form-group form-group-timespan">
                       <label class="visually-hidden" for="duration-timespan"><span class="form-label">Time span</span></label>
@@ -70,7 +72,7 @@
           <div class="form-group">
             <label for="compensation"><span class="form-label">Compensation</span></label>
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="compensation" name="compensation" value="{{#if ../sCompensation}}{{../sCompensation}}{{else}}3.50{{/if}}">
+              <input class="form-control form-control-1-4" id="compensation" name="compensation" type="text" value="{{#if ../sCompensation}}{{../sCompensation}}{{else}}3.50{{/if}}">
             </div>
           </div>
 
@@ -89,7 +91,7 @@
             </label>
 
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="cost" name="cost" value="{{#if ../sCost}}{{../sCost}}{{else}}125.00{{/if}}">
+              <input class="form-control form-control-1-4" id="cost" name="cost" type="text" value="{{#if ../sCost}}{{../sCost}}{{else}}125.00{{/if}}">
             </div>
 
             <div class="panel panel-border-narrow js-hidden" id="costs-reason">
@@ -110,7 +112,7 @@
             </label>
 
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="surcharge" name="surcharge" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30.00{{/if}}">
+              <input class="form-control form-control-1-4" id="surcharge" name="surcharge" type="text" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30.00{{/if}}">
             </div>
 
             <div class="panel panel-border-narrow js-hidden" id="surcharge-reason">
@@ -126,9 +128,10 @@
 
           <div class="form-group form-group-last">
 
-            <label class="block-label selection-button-checkbox">
-              <input type="checkbox" name="collectionOrderConfirmed"{{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}> Confirm a collection order will be issued
-            </label>
+            <div class="multiple-choice">
+              <input id="collection-order"name="collectionOrderConfirmed" type="checkbox"{{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}>
+              <label for="collection-order">Confirm a collection order will be issued</label>
+            </div>
 
             <div class="panel panel-border-narrow js-hidden">
 
@@ -142,13 +145,15 @@
 
                   <div class="form-group">
 
-                    <label class="block-label selection-button-radio">
-                      <input name="collectionOrderAnswer" type="radio" value="Yes"> Yes
-                    </label>
+                    <div class="multiple-choice">
+                      <input id="collection-order-yes" name="collectionOrderAnswer" type="radio" value="Yes">
+                      <label for="collection-order-yes">Yes</label>
+                    </div>
 
-                    <label class="block-label selection-button-radio">
-                      <input name="collectionOrderAnswer" type="radio" value="No"> No
-                    </label>
+                    <div class="multiple-choice">
+                      <input id="collection-order-no" name="collectionOrderAnswer" type="radio" value="No">
+                      <label for="collection-order-no">No</label>
+                    </div>
 
                   </div>
 
