@@ -198,44 +198,49 @@
 
           <h3 class="heading-small" id="decision">Make a decision</h3>
 
-          <form class="form" method="post">
+          <form class="form" method="post" novalidate>
 
             <div class="form-group error">
 
               <fieldset>
 
-                  <legend id="make-a-decision">
-                    <span class="visually-hidden">Make a decision</span>
-                    <span class="error-message" id="error-message-make-a-decision">Choose an answer</span>
-                  </legend>
+                <legend id="make-a-decision">
+                  <span class="visually-hidden">Make a decision</span>
+                  <span class="error-message" id="error-message-make-a-decision">Choose an answer</span>
+                </legend>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="makeDecision" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}} aria-describedby="error-message-make-a-decision"> Financial penalty
-                  </label>
+                <div class="multiple-choice">
+                  <input id="financial-penalty" name="makeDecision" type="radio" value="Financial penalty">
+                  <label for="financial-penalty">Financial penalty</label>
+                </div>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="makeDecision" value="Withdraw offence"{{#contains ../../sMakeDecision "Withdraw offence"}} checked="checked"{{/contains}}> Withdraw
-                  </label>
+                <div class="multiple-choice">
+                  <input id="withdraw" name="makeDecision" type="radio" value="Withdraw offence">
+                  <label for="withdraw">Withdraw</label>
+                </div>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="makeDecision" value="Discharge"{{#contains ../../sMakeDecision "Discharge"}} checked="checked"{{/contains}}> Discharge
-                  </label>
+                <div class="multiple-choice">
+                  <input id="discharge" name="makeDecision" type="radio" value="Discharge">
+                  <label for="discharge">Discharge</label>
+                </div>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="makeDecision" value="Dismiss"{{#contains ../../sMakeDecision "Dismiss"}} checked="checked"{{/contains}}> Dismiss
-                  </label>
+                <div class="multiple-choice">
+                  <input id="dismiss" name="makeDecision" type="radio" value="Dismiss">
+                  <label for="dismiss">Dismiss</label>
+                </div>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="makeDecision" value="Refer for future SJP session"{{#contains ../../sMakeDecision "Refer for future SJP session"}} checked="checked"{{/contains}}> Refer for future SJP session
-                  </label>
+                <div class="multiple-choice">
+                  <input id="refer" name="makeDecision" type="radio" value="Refer for future SJP session">
+                  <label for="refer">Refer for future SJP session</label>
+                </div>
 
-                </fieldset>
+              </fieldset>
 
-              </div>
+            </div>
 
-              <div class="form-group form-group-related">
-                <button class="button" type="submit">Save and continue</button>
-              </div>
+            <div class="form-group form-group-related">
+              <button class="button" type="submit">Save and continue</button>
+            </div>
 
           </form>
 

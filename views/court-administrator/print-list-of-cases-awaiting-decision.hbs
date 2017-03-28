@@ -17,13 +17,17 @@
 <div class="grid-row">
 
   <div class="column-half">
-    <div class="panel panel-border-wide">
+
+    <div class="panel panel-border-wide" role="note" aria-label="Information">
       <p>7 cases awaiting decision</p>
     </div>
+
   </div>
 
   <div class="column-half">
-    <p class="text-right"><button class="button" data-action="print">Print</button></p>
+    <p class="text-right">
+      <button class="button" type="button" data-action="print">Print</button>
+    </p>
   </div>
 
 </div>
@@ -38,13 +42,13 @@
   </thead>
   <tbody>
     {{#each searches}}
-      {{#contains case-details.status 'Awaiting plea'}}
+      {{#contains case-details.status "No plea received"}}
         <tr>
           <td>{{uppercase personal-details.lastname}} {{personal-details.firstname}}</td>
           <td>{{{offence.title}}}</td>
         </tr>
       {{/contains}}
-      {{#contains case-details.status 'Ready'}}
+      {{#contains case-details.status "Ready"}}
         <tr>
           <td>{{uppercase personal-details.lastname}} {{personal-details.firstname}}</td>
           <td>{{{offence.title}}}</td>

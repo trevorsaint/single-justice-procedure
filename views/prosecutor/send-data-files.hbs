@@ -26,7 +26,7 @@
       </div>
       {{/error}}
 
-      <form class="form" method="post"{{#if error}}action="/prosecutor/data-files-confirmation"{{/if}}>
+      <form class="form" method="post"{{#if error}}action="/prosecutor/data-files-confirmation"{{/if}} novalidate>
 
         <div class="form-group{{#error}}{{#unless header}} error{{/unless}}{{/error}}"{{#error}}{{#unless header}} id="error-header"{{/unless}}{{/error}}>
           <label for="header">
@@ -37,7 +37,7 @@
               <!--span class="error-message">File names not a matching pair &ndash; fix and try again</span-->
             {{/error}}
           </label>
-          <input type="file" id="header" name="header" accept=".csv">
+          <input id="header" name="header" type="file" accept=".csv">
         </div>
 
         <div class="form-group form-group-last{{#error}}{{#unless offences}} error{{/unless}}{{/error}}"{{#error}}{{#unless offences}} id="error-offences"{{/unless}}{{/error}}>
@@ -49,11 +49,11 @@
               <!--span class="error-message">File names not a matching pair &ndash; fix and try again</span-->
             {{/error}}
           </label>
-          <input type="file" id="offences" name="offences" accept=".csv">
+          <input id="offences" name="offences" type="file" accept=".csv">
         </div>
 
         <div class="form-group form-group-related">
-          <button class="button" type="submit" id="send" name="send" value="send">Send to court</button>
+          <button class="button" id="send" name="send" type="submit" value="send">Send to court</button>
         </div>
 
         <p><a href="{{baseurl}}home">Cancel</a></p>

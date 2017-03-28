@@ -6,7 +6,7 @@
 
   <div class="column-two-thirds">
 
-    <form class="form" method="post">
+    <form class="form" method="post" novalidate>
 
       <div class="form-group">
 
@@ -16,7 +16,7 @@
             <span class="form-label">Enter case reference number or defendant&rsquo;s last name</span>
           </label>
 
-          <input class="form-control form-control-wide" type="search" id="search" name="search"><a class="form-search-button" href="/court-administrator/search-for-a-case/">Search</a>
+          <input class="form-control form-control-wide" id="search" name="search" type="search"><a class="form-search-button" href="/court-administrator/search-for-a-case/">Search</a>
 
         </div>
 
@@ -46,7 +46,7 @@
   <tbody>
   {{#each searches}}
     <tr>
-      <th scope="row"><a href="/court-administrator/case-details/{{id}}/">{{uppercase personal-details.lastname}} {{personal-details.firstname}}</a></th>
+      <th scope="row"><a href="/court-administrator/case-details/{{id}}/"><span class="text-uppercase">{{personal-details.lastname}}</span> {{personal-details.firstname}}</a></th>
       <td>{{personal-details.urn}}</td>
       <td>{{moment personal-details.dob format="D MMM YYYY"}}</td>
       <td>{{{case-details.status}}}</td>

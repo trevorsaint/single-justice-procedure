@@ -12,16 +12,18 @@
 
       <h1 class="heading-xlarge mb-l">
         {{#and ../sFirstname ../sLastname}}
-          {{../sFirstname}} {{uppercase ../sLastname}}
+          {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
         {{else}}
-          {{personal-details.firstname}} {{uppercase personal-details.lastname}}
+          {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
         {{/and}}
       </h1>
 
       <p class="mb-xl">
-        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}
-        <br>
-        {{#if ../../sAddress1}}{{../../sAddress1}}{{else}}{{personal-details.address.address1}}{{/if}}{{#if ../../sAddress2}}, {{../../sAddress2}}{{else}}{{#if personal-details.address.address2}}, {{personal-details.address.address2}}{{/if}}{{/if}} {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}} {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
+        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
+        {{#if ../../sAddress1}}{{../../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
+        {{#if ../../sAddress2}}{{../../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
+        {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
+        {{#if ../../sPostcode}}{{uppercase ../../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
       </p>
 
       <div class="tabs tabs-horizontal">
@@ -185,63 +187,25 @@
 
         <div class="column-third">
 
-          <!--h3 class="heading-small" id="decision">Make a decision</h3>
-
-          <form class="form" method="post">
-
-            <fieldset>
-
-              <legend class="visually-hidden">Make a decision</legend>
-
-              <div class="form-group">
-
-                <label class="block-label selection-button-radio">
-                  <input type="radio" name="makeDecision" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}> Financial penalty
-                </label>
-
-                <label class="block-label selection-button-radio">
-                  <input type="radio" name="makeDecision" value="Refer for court hearing"{{#contains ../../sMakeDecision "Refer for court hearing"}} checked="checked"{{/contains}}> Refer for court hearing
-                </label>
-
-                <label class="block-label selection-button-radio">
-                  <input type="radio" name="makeDecision" value="Withdraw"{{#contains ../../sMakeDecision "Withdraw"}} checked="checked"{{/contains}}> Withdraw
-                </label>
-
-                <label class="block-label selection-button-radio">
-                  <input type="radio" name="makeDecision" value="Discharge"{{#contains ../../sMakeDecision "Discharge"}} checked="checked"{{/contains}}> Discharge
-                </label>
-
-                <label class="block-label selection-button-radio">
-                  <input type="radio" name="makeDecision" value="Dismiss"{{#contains ../../sMakeDecision "Dismiss"}} checked="checked"{{/contains}}> Dismiss
-                </label>
-
-              </div>
-
-              <div class="form-group form-group-related">
-                <button class="button" type="submit">Save and continue</button>
-              </div>
-
-            </fieldset>
-
-          </form-->
-
           <h3 class="heading-small" id="decision">The prosecutor has asked for this case to be withdrawn</h3>
 
           <p>Do you want to withdraw case?</p>
 
-          <form class="form" method="post">
+          <form class="form" method="post" novalidate>
 
             <div class="form-group">
 
               <fieldset class="inline">
 
-                <label class="block-label selection-button-radio">
-                  <input type="radio" name="" value="Yes"> Yes
-                </label>
+                <div class="multiple-choice">
+                  <input id="withdraw-case-yes" name="withdrawCase" type="radio" value="Yes">
+                  <label for="withdraw-case-yes">Yes<span class="visually-hidden">, withdraw case</span></label>
+                </div>
 
-                <label class="block-label selection-button-radio" data-target="make-decision">
-                  <input type="radio" name="" value="No"> No
-                </label>
+                <div class="multiple-choice" data-target="make-decision">
+                  <input id="withdraw-case-no" name="withdrawCase" type="radio" value="No">
+                  <label for="withdraw-case-no">No<span class="visually-hidden">, don&rsquo;t withdraw case</span></label>
+                </div>
 
               </fieldset>
 
@@ -255,17 +219,20 @@
                       <span class="form-label-bold">Select alternative</span>
                     </legend>
 
-                    <label class="block-label selection-button-radio">
-                      <input type="radio" name="makeDecision" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}> Financial penalty
-                    </label>
+                    <div class="multiple-choice">
+                      <input id="financial-penalty" name="makeDecision" type="radio" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}>
+                      <label for="financial-penalty">Financial penalty</label>
+                    </div>
 
-                    <label class="block-label selection-button-radio">
-                      <input type="radio" name="makeDecision" value="Discharge"{{#contains ../../sMakeDecision "Discharge"}} checked="checked"{{/contains}}> Discharge
-                    </label>
+                    <div class="multiple-choice">
+                      <input id="discharge" name="makeDecision" type="radio" value="Discharge"{{#contains ../../sMakeDecision "Discharge"}} checked="checked"{{/contains}}>
+                      <label for="discharge">Discharge</label>
+                    </div>
 
-                    <label class="block-label selection-button-radio">
-                      <input type="radio" name="makeDecision" value="Dismiss"{{#contains ../../sMakeDecision "Dismiss"}} checked="checked"{{/contains}}> Dismiss
-                    </label>
+                    <div class="multiple-choice">
+                      <input id="dismiss" name="makeDecision" type="radio" value="Dismiss"{{#contains ../../sMakeDecision "Dismiss"}} checked="checked"{{/contains}}>
+                      <label for="dismiss">Dismiss</label>
+                    </div>
 
                   </fieldset>
 

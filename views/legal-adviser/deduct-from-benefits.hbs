@@ -11,12 +11,12 @@
       <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
       {{#if ../sTotalToPay}}
-      <div class="panel panel-border-wide">
+      <div class="panel panel-border-wide" role="note" aria-label="Information">
         <p>Total to pay <br> <b class="bold-medium">&pound;{{../sTotalToPay}}</b></p>
       </div>
       {{/if}}
 
-      <form class="form" method="post">
+      <form class="form" method="post" novalidate>
 
         <h2 class="heading-medium">Defendant&rsquo;s details</h2>
 
@@ -25,7 +25,7 @@
             <span class="form-label">National Insurance number</span>
             <span class="form-hint" id="national-insurance-number-hint">For example, VO 12 34 56 D</span>
           </label>
-          <input class="form-control" type="text" id="national-insurance-number" name="nationalInsuranceNumber" value="{{#if ../sNationalInsuranceNumber}}{{../sNationalInsuranceNumber}}{{else}}{{employment.national-insurance-number}}{{/if}}" aria-describedby="national-insurance-number-hint">
+          <input class="form-control" id="national-insurance-number" name="nationalInsuranceNumber" type="text" value="{{#if ../sNationalInsuranceNumber}}{{../sNationalInsuranceNumber}}{{else}}{{employment.national-insurance-number}}{{/if}}" aria-describedby="national-insurance-number-hint">
         </div>
 
         <h2 class="heading-medium">Reason for deducting from benefits</h2>
@@ -36,37 +36,37 @@
 
             <legend class="visually-hidden">Reason for deducting from benefits</legend>
 
-            <label class="block-label selection-button-radio">
-              <input type="radio" name="reasonForDeductingFromBenefits" value="Compensation ordered"
+            <div class="multiple-choice">
+              <input id="compensation-ordered" name="reasonForDeductingFromBenefits" type="radio" value="Compensation ordered"
               {{#if ../sReasonForDeductingFromBenefits}}
                 {{#contains ../sReasonForDeductingFromBenefits "Compensation ordered"}} checked="checked"{{/contains}}
               {{else}}
                 {{#contains offence.reason-for-deducting-from-benefits "Compensation ordered"}} checked="checked"{{/contains}}
               {{/if}}>
-              Compensation ordered
-            </label>
+              <label for="compensation-ordered">Compensation ordered</label>
+            </div>
 
             <p class="form-block">or</p>
 
-            <label class="block-label selection-button-radio">
-              <input type="radio" name="reasonForDeductingFromBenefits" value="Defendant is a know defaulter"
+            <div class="multiple-choice">
+              <input id="known-defaulter" name="reasonForDeductingFromBenefits" type="radio" value="Defendant is a know defaulter"
               {{#if ../sReasonForDeductingFromBenefits}}
                 {{#contains ../sReasonForDeductingFromBenefits "Defendant is a know defaulter"}} checked="checked"{{/contains}}
               {{else}}
                 {{#contains offence.reason-for-deducting-from-benefits "Defendant is a know defaulter"}} checked="checked"{{/contains}}
               {{/if}}>
-              Defendant is a known defaulter
-            </label>
+              <label for="known-defaulter">Defendant is a known defaulter</label>
+            </div>
 
-            <label class="block-label selection-button-radio">
-              <input type="radio" name="reasonForDeductingFromBenefits" value="Defendant requested this"
+            <div class="multiple-choice">
+              <input id="defendant-requested" name="reasonForDeductingFromBenefits" type="radio" value="Defendant requested this"
               {{#if ../sReasonForDeductingFromBenefits}}
                 {{#contains ../sReasonForDeductingFromBenefits "Defendant requested this"}} checked="checked"{{/contains}}
               {{else}}
                 {{#contains offence.reason-for-deducting-from-benefits "Defendant requested this"}} checked="checked"{{/contains}}
               {{/if}}>
-              Defendant requested this
-            </label>
+              <label for="defendant-requested">Defendant requested this</label>
+            </div>
 
           </fieldset>
 
@@ -80,37 +80,37 @@
 
             <legend class="visually-hidden">Set reserve terms</legend>
 
-            <label class="block-label selection-button-radio">
-              <input type="radio" name="reserveTerms" value="Lump sum within 14 days"
+            <div class="multiple-choice">
+              <input id="reserve-terms-pay-14-days" name="reserveTerms" type="radio" value="Lump sum within 14 days"
               {{#if ../sReserveTerms}}
                 {{#contains ../sReserveTerms "Lump sum within 14 days"}} checked="checked"{{/contains}}
               {{else}}
                 {{#contains offence.reserve-terms "Lump sum within 14 days"}} checked="checked"{{/contains}}
               {{/if}}>
-              Lump sum within 14 days
-            </label>
+              <label for="reserve-terms-pay-14-days">Lump sum within 14 days</label>
+            </div>
 
             <p class="form-block">or</p>
 
-            <label class="block-label selection-button-radio">
-              <input type="radio" name="reserveTerms" value="Lump sum within 28 days"
+            <div class="multiple-choice">
+              <input id="reserve-terms-pay-28-days" name="reserveTerms" type="radio" value="Lump sum within 28 days"
               {{#if ../sReserveTerms}}
                 {{#contains ../sReserveTerms "Lump sum within 28 days"}} checked="checked"{{/contains}}
               {{else}}
                 {{#contains offence.reserve-terms "Lump sum within 28 days"}} checked="checked"{{/contains}}
               {{/if}}>
-              Lump sum within 28 days
-            </label>
+              <label for="reserve-terms-pay-28-days">Lump sum within 28 days</label>
+            </div>
 
-            <label class="block-label selection-button-radio" data-target="lump-sum-plus-instalments">
-              <input type="radio" name="reserveTerms" value="Lump sum plus instalments"
+            <div class="multiple-choice" data-target="lump-sum-plus-instalments">
+              <input id="reserve-terms-lump-sum" name="reserveTerms" type="radio" value="Lump sum plus instalments"
               {{#if ../sReserveTerms}}
                 {{#contains ../sReserveTerms "Lump sum plus instalments"}} checked="checked"{{/contains}}
               {{else}}
                 {{#contains offence.reserve-terms "Lump sum plus instalments"}} checked="checked"{{/contains}}
               {{/if}}>
-              Lump sum plus instalments
-            </label>
+              <label for="reserve-terms-lump-sum">Lump sum plus instalments</label>
+            </div>
 
             <div class="panel panel-border-narrow{{#isnt ../sReserveTerms "Lump sum plus instalments"}} js-hidden{{/isnt}}" id="lump-sum-plus-instalments">
 
@@ -119,7 +119,7 @@
                   <span class="form-label">Lump sum amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="lump-sum-amount" name="lumpSumAmount"{{#if ../sLumpSumAmount}} value="{{../sLumpSumAmount}}"{{/if}}>
+                  <input class="form-control form-control-1-4" id="lump-sum-amount" name="lumpSumAmount" type="text"{{#if ../sLumpSumAmount}} value="{{../sLumpSumAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -128,7 +128,7 @@
                   <span class="form-label">Instalment amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="lump-sum-instalment-amount" name="lumpSumInstalmentAmount"{{#if ../sLumpSumInstalmentAmount}} value="{{../sLumpSumInstalmentAmount}}"{{/if}}>
+                  <input class="form-control form-control-1-4" id="lump-sum-instalment-amount" name="lumpSumInstalmentAmount" type="text"{{#if ../sLumpSumInstalmentAmount}} value="{{../sLumpSumInstalmentAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -140,17 +140,20 @@
                     <span class="form-label">How often should instalments be made?</span>
                   </legend>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="lumpSumInstalmentMade" value="Weekly"{{#contains ../sLumpSumInstalmentMade "Weekly"}} checked="checked"{{/contains}}> Weekly
-                  </label>
+                  <div class="multiple-choice">
+                    <input id="lump-sum-weekly" name="lumpSumInstalmentMade" type="radio" value="Weekly"{{#contains ../sLumpSumInstalmentMade "Weekly"}} checked="checked"{{/contains}}>
+                    <label for="lump-sum-weekly"><span class="visually-hidden">Lump sum instalments made </span>Weekly</label>
+                  </div>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="lumpSumInstalmentMade" value="Fortnightly"{{#contains ../sLumpSumInstalmentMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
-                  </label>
+                  <div class="multiple-choice">
+                    <input id="lump-sum-fortnightly" name="lumpSumInstalmentMade" type="radio" value="Fortnightly"{{#contains ../sLumpSumInstalmentMade "Fortnightly"}} checked="checked"{{/contains}}>
+                    <label for="lump-sum-fortnightly"><span class="visually-hidden">Lump sum instalments made </span>Fortnightly</label>
+                  </div>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="lumpSumInstalmentMade" value="Monthly"{{#contains ../sLumpSumInstalmentMade "Monthly"}} checked="checked"{{/contains}}> Monthly
-                  </label>
+                  <div class="multiple-choice">
+                    <input id="lump-sum-monthly" name="lumpSumInstalmentMade" type="radio" value="Monthly"{{#contains ../sLumpSumInstalmentMade "Monthly"}} checked="checked"{{/contains}}>
+                    <label for="lump-sum-monthly"><span class="visually-hidden">Lump sum instalments made </span>Monthly</label>
+                  </div>
 
                 </fieldset>
 
@@ -190,15 +193,15 @@
 
             </div>
 
-            <label class="block-label selection-button-radio" data-target="instalments-only">
-              <input type="radio" name="reserveTerms" value="Instalments only"
+            <div class="multiple-choice" data-target="instalments-only">
+              <input id="reserve-terms-instalments" name="reserveTerms" type="radio" value="Instalments only"
               {{#if ../sReserveTerms}}
                 {{#contains ../sReserveTerms "Instalments only"}} checked="checked"{{/contains}}
               {{else}}
                 {{#contains offence.reserve-terms "Instalments only"}} checked="checked"{{/contains}}
               {{/if}}>
-              Instalments only
-            </label>
+              <label for="reserve-terms-instalments">Instalments only</label>
+            </div>
 
             <div class="panel panel-border-narrow{{#isnt ../sReserveTerms "Instalments only"}} js-hidden{{/isnt}}" id="instalments-only">
 
@@ -207,7 +210,7 @@
                   <span class="form-label">Instalment amount</span>
                 </label>
                 <div class="form-currency">
-                  <input class="form-control form-control-1-4" type="text" id="instalment-only-amount" name="instalmentOnlyAmount"{{#if ../sInstalmentOnlyAmount}} value="{{../sInstalmentOnlyAmount}}"{{/if}}>
+                  <input class="form-control form-control-1-4" id="instalment-only-amount" name="instalmentOnlyAmount" type="text"{{#if ../sInstalmentOnlyAmount}} value="{{../sInstalmentOnlyAmount}}"{{/if}}>
                 </div>
               </div>
 
@@ -219,17 +222,20 @@
                     <span class="form-label">How often should instalments be made?</span>
                   </legend>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="instalmentOnlyMade" value="Weekly"{{#contains ../sInstalmentOnlyMade "Weekly"}} checked="checked"{{/contains}}> Weekly
-                  </label>
+                  <div class="multiple-choice">
+                    <input id="instalments-only-weekly" name="instalmentOnlyMade" type="radio" value="Weekly"{{#contains ../sInstalmentOnlyMade "Weekly"}} checked="checked"{{/contains}}>
+                    <label for="instalments-only-weekly"><span class="visually-hidden">Instalments only made </span>Weekly</label>
+                  </div>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="instalmentOnlyMade" value="Fortnightly"{{#contains ../sInstalmentOnlyMade "Fortnightly"}} checked="checked"{{/contains}}> Fortnightly
-                  </label>
+                  <div class="multiple-choice">
+                    <input id="instalments-only-fortnightly" name="instalmentOnlyMade" type="radio" value="Fortnightly"{{#contains ../sInstalmentOnlyMade "Fortnightly"}} checked="checked"{{/contains}}>
+                    <label for="instalments-only-fortnightly"><span class="visually-hidden">Instalments only made </span>Fortnightly</label>
+                  </div>
 
-                  <label class="block-label selection-button-radio">
-                    <input type="radio" name="instalmentOnlyMade" value="Monthly"{{#contains ../sInstalmentOnlyMade "Monthly"}} checked="checked"{{/contains}}> Monthly
-                  </label>
+                  <div class="multiple-choice">
+                    <input id="instalments-only-monthly" name="instalmentOnlyMade" type="radio" value="Monthly"{{#contains ../sInstalmentOnlyMade "Monthly"}} checked="checked"{{/contains}}>
+                    <label for="instalments-only-monthly"><span class="visually-hidden">Instalments only made </span>Monthly</label>
+                  </div>
 
                 </fieldset>
 

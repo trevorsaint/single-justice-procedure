@@ -5,347 +5,287 @@
 <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
 
-<section aria-labelledby="plea">
+<div class="check-answers" aria-labelledby="plea">
 
   <h2 class="heading-medium" id="plea">Plea</h2>
 
-  <div class="check-answers">
+  <table class="table">
 
-    <table class="table table-summary">
-
-      <colgroup>
-        <col class="table-summary-title">
-        <col>
-      </colgroup>
-
-      <tbody>
-
-        {{#if ../sMakeDecision}}
-
-          <tr>
-            <th>Defendant&rsquo;s plea</th>
-            <td>{{{../sMakeDecision}}}</td>
-          </tr>
-          {{#if ../sNeedInterpreter}}
-          <tr>
-            <th>Does defendant need an interpreter?</th>
-            <td>{{{../sNeedInterpreter}}}</td>
-          </tr>
-          {{/if}}
-          {{#contains ../sNeedInterpreter "Yes"}}
-          <tr>
-            <th>Interpreter language</th>
-            <td>{{{../sInterpreterLanguage}}}</td>
-          </tr>
-          {{/contains}}
-
-        {{else}}
-
-          {{#contains case-details.status "Awaiting plea"}}
-          <tr>
-            <th>Defendant&rsquo;s plea</th>
-            <td>No plea received</td>
-          </tr>
-          {{else}}
-          <tr>
-            <th>Defendant&rsquo;s plea</th>
-            <td>{{{case-details.status}}}</td>
-          </tr>
-          {{/contains}}
-
+    <tbody>
+      {{#if ../sMakeDecision}}
+        <tr>
+          <th>Defendant&rsquo;s plea</th>
+          <td>{{{../sMakeDecision}}}</td>
+        </tr>
+        {{#if ../sNeedInterpreter}}
+        <tr>
+          <th>Does defendant need an interpreter?</th>
+          <td>{{{../sNeedInterpreter}}}</td>
+        </tr>
         {{/if}}
+        {{#contains ../sNeedInterpreter "Yes"}}
+        <tr>
+          <th>Interpreter language</th>
+          <td>{{{../sInterpreterLanguage}}}</td>
+        </tr>
+        {{/contains}}
+      {{else}}
+        {{#contains case-details.status "No plea received"}}
+        <tr>
+          <th>Defendant&rsquo;s plea</th>
+          <td>No plea received</td>
+        </tr>
+        {{else}}
+        <tr>
+          <th>Defendant&rsquo;s plea</th>
+          <td>{{{case-details.status}}}</td>
+        </tr>
+        {{/contains}}
+      {{/if}}
+    </tbody>
 
-      </tbody>
+  </table>
 
-    </table>
+  <p class="check-answers-action"><a href="/court-administrator/postal/add-plea/{{id}}/?change=true">Change<span class="visually-hidden"> answers for &ldquo;Plea&rdquo;.</span></a></p>
 
-    <p class="check-answers-action"><a href="/court-administrator/postal/add-plea/{{id}}/?change=true" title="Change plea">Change <span>plea</span></a></p>
-
-  </div>
-
-</section>
+</div>
 
 
-<hr class="divider divider-border-dark divider-gutter-large" aria-hidden="true">
-
-
-<section aria-labelledby="personal-details">
+<div class="check-answers" aria-labelledby="personal-details">
 
   <h2 class="heading-medium" id="personal-details">Personal details</h2>
 
-  <div class="check-answers">
-
-    <table class="table table-summary">
-
-      <colgroup>
-        <col class="table-summary-title">
-        <col>
-      </colgroup>
-
-      <tbody>
-        <tr>
-          <th>Name</th>
-          <td>
-            {{#and ../sFirstname ../sLastname}}
-              {{../sFirstname}} {{uppercase ../sLastname}}
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <td>
+          {{#and ../sFirstname ../sLastname}}
+            {{../sFirstname}} {{uppercase ../sLastname}}
+          {{else}}
+            {{personal-details.firstname}} {{uppercase personal-details.lastname}}
+          {{/and}}
+        </td>
+      </tr>
+      <tr>
+        <th>Date of birth</th>
+        <td>
+          {{#if ../sDob}}
+            <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMM YYYY"}}</time>
+          {{else}}
+            <time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time>
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td>
+          {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{personal-details.address.address1}}<br>{{/if}}
+          {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}<br>{{/if}}{{/if}}
+          {{#if ../sTown}}{{../sTown}}<br>{{else}}{{personal-details.address.town}}<br>{{/if}}
+          {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
+        </td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>
+          {{#if ../sEmail}}
+            {{../sEmail}}
+          {{else}}
+            {{#if email}}
+              {{personal-details.email}}
             {{else}}
-              {{personal-details.firstname}} {{uppercase personal-details.lastname}}
-            {{/and}}
-          </td>
-        </tr>
-        <tr>
-          <th>Date of birth</th>
-          <td>
-            {{#if ../sDob}}
-              <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMM YYYY"}}</time>
-            {{else}}
-              <time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time>
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-        <tr>
-          <th>Address</th>
-          <td>
-            {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{personal-details.address.address1}}<br>{{/if}}
-            {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}<br>{{/if}}{{/if}}
-            {{#if ../sTown}}{{../sTown}}<br>{{else}}{{personal-details.address.town}}<br>{{/if}}
-            {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
-          </td>
-        </tr>
-        <tr>
-          <th>Email</th>
-          <td>
-            {{#if ../sEmail}}
-              {{../sEmail}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <th>Home telephone</th>
+        <td>
+          {{#if ../sPhone}}
+            {{../sPhone}}
+          {{else}}
+            {{#if phone}}
+              {{personal-details.phone}}
             {{else}}
-              {{#if email}}
-                {{personal-details.email}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-        <tr>
-          <th>Home telephone</th>
-          <td>
-            {{#if ../sPhone}}
-              {{../sPhone}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <th>Mobile</th>
+        <td>
+          {{#if ../sMobile}}
+            {{../sMobile}}
+          {{else}}
+            {{#if mobile}}
+              {{personal-details.mobile}}
             {{else}}
-              {{#if phone}}
-                {{personal-details.phone}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-        <tr>
-          <th>Mobile</th>
-          <td>
-            {{#if ../sMobile}}
-              {{../sMobile}}
-            {{else}}
-              {{#if mobile}}
-                {{personal-details.mobile}}
-              {{else}}
-                &ndash;
-              {{/if}}
-            {{/if}}
-          </td>
-        </tr>
-      </tbody>
+          {{/if}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    </table>
+  <p class="check-answers-action"><a href="/court-administrator/postal/personal-details/{{id}}/?change=true">Change<span class="visually-hidden"> answers for &ldquo;Personal details&rdquo;.</span></a></p>
 
-    <p class="check-answers-action"><a href="/court-administrator/postal/personal-details/{{id}}/?change=true" title="Change personal details">Change <span>personal details</span></a></p>
-
-  </div>
-
-</section>
+</div>
 
 
-<hr class="divider divider-border-dark divider-gutter-large" aria-hidden="true">
-
-
-<section aria-labelledby="employment-and-income">
+<div class="check-answers" aria-labelledby="employment-and-income">
 
   <h2 class="heading-medium" id="employment-and-income">Employment and income</h2>
 
-  <div class="check-answers">
-
-    <table class="table table-summary">
-
-      <colgroup>
-        <col class="table-summary-title">
-        <col>
-      </colgroup>
-
-      <tbody>
-        <tr>
-          <th>National Insurance number</th>
-          <td>
-            {{#if ../sNationalInsurance}}
-              {{../sNationalInsurance}}
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>National Insurance number</th>
+        <td>
+          {{#if ../sNationalInsurance}}
+            {{../sNationalInsurance}}
+          {{else}}
+            {{#if personal-details.national-insurance-number}}
+              {{personal-details.national-insurance-number}}
             {{else}}
-              {{#if personal-details.national-insurance-number}}
-                {{personal-details.national-insurance-number}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-        <tr>
-          <th>Income and outgoings</th>
-          <td>
-            {{#if ../sPayFrequency}}
-              {{../sPayFrequency}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <th>Income and outgoings</th>
+        <td>
+          {{#if ../sPayFrequency}}
+            {{../sPayFrequency}}
+          {{else}}
+            {{#if employment.pay.frequency}}
+              {{employment.pay.frequency}}
             {{else}}
-              {{#if employment.pay.frequency}}
-                {{employment.pay.frequency}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-        <tr>
-          <th>Employment status</th>
-          <td>
-            {{#if ../sEmployment}}
-              {{../sEmployment}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <th>Employment status</th>
+        <td>
+          {{#if ../sEmployment}}
+            {{../sEmployment}}
+          {{else}}
+            {{#if employment.status}}
+              {{employment.status}}
             {{else}}
-              {{#if employment.status}}
-                {{employment.status}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-
-        {{#compare ../sEmployment "===" "Employed"}}
-        <tr>
-          <th>Employer name</th>
-          <td>
-            {{#if ../sEmployerName}}
-              {{../sEmployerName}}
+          {{/if}}
+        </td>
+      </tr>
+      {{#compare ../sEmployment "===" "Employed"}}
+      <tr>
+        <th>Employer name</th>
+        <td>
+          {{#if ../sEmployerName}}
+            {{../sEmployerName}}
+          {{else}}
+            {{#if ../employer-name}}
+              {{../employer-name}}
             {{else}}
-              {{#if ../employer-name}}
-                {{../employer-name}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-        <tr>
-          <th>Employer telephone</th>
-          <td>
-            {{#if ../sEmployerTelephone}}
-              {{../sEmployerTelephone}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <th>Employer telephone</th>
+        <td>
+          {{#if ../sEmployerTelephone}}
+            {{../sEmployerTelephone}}
+          {{else}}
+            {{#if employer-telephone}}
+              {{employer-telephone}}
             {{else}}
-              {{#if employer-telephone}}
-                {{employer-telephone}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-        <tr>
-          <th>Employer address</th>
-          <td>
-            {{#if ../sEmployerAddress1}}
-              {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
-              {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
-              {{#if ../sEmployerTown}}{{../sEmployerTown}} <br>{{/if}}
-              {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <th>Employer address</th>
+        <td>
+          {{#if ../sEmployerAddress1}}
+            {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
+            {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
+            {{#if ../sEmployerTown}}{{../sEmployerTown}} <br>{{/if}}
+            {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
+          {{else}}
+            {{#if employer-address1}}
+              {{#if employer-address.address1}}{{employer-address.address1}} <br>{{/if}}
+              {{#if employer-address.address2}}{{employer-address.address2}} <br>{{/if}}
+              {{#if employer-address.town}}{{employer-address.town}} <br>{{/if}}
+              {{#if employer-address.postcode}}{{employer-address.postcode}}{{/if}}
             {{else}}
-              {{#if employer-address1}}
-                {{#if employer-address.address1}}{{employer-address.address1}} <br>{{/if}}
-                {{#if employer-address.address2}}{{employer-address.address2}} <br>{{/if}}
-                {{#if employer-address.town}}{{employer-address.town}} <br>{{/if}}
-                {{#if employer-address.postcode}}{{employer-address.postcode}}{{/if}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-        <tr>
-          <th>Net pay (take home pay)</th>
-          <td>
-            {{#if ../sPayAmount}}
-              &pound;{{../sPayAmount}}
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <th>Net pay (take home pay)</th>
+        <td>
+          {{#if ../sPayAmount}}
+            &pound;{{../sPayAmount}}
+          {{else}}
+            {{#if pay.amount}}
+              &pound;{{pay.amount}}
             {{else}}
-              {{#if pay.amount}}
-                &pound;{{pay.amount}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
-        {{/compare}}
-
-        <tr>
-          <th>Receving benefits?</th>
-          <td>
-            {{#if ../sReceivingBenefits}}
-              {{../sReceivingBenefits}}
+          {{/if}}
+        </td>
+      </tr>
+      {{/compare}}
+      <tr>
+        <th>Receving benefits?</th>
+        <td>
+          {{#if ../sReceivingBenefits}}
+            {{../sReceivingBenefits}}
+          {{else}}
+            {{#if employment.receiving-benefits}}
+              {{employment.receiving-benefits}}
             {{else}}
-              {{#if employment.receiving-benefits}}
-                {{employment.receiving-benefits}}
-              {{else}}
-                &ndash;
-              {{/if}}
+              &ndash;
             {{/if}}
-          </td>
-        </tr>
+          {{/if}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-      </tbody>
+  <p class="check-answers-action"><a href="/court-administrator/postal/employment-and-income/{{id}}/?change=true">Change<span class="visually-hidden"> answers for &ldquo;Employment and income&rdquo;.</span></a></p>
 
-    </table>
-
-    <p class="check-answers-action"><a href="/court-administrator/postal/employment-and-income/{{id}}/?change=true" title="Change employment and income">Change <span>employment and income</span></a></p>
-
-  </div>
-
-</section>
+</div>
 
 
-<hr class="divider divider-border-dark divider-gutter-large" aria-hidden="true">
+<div class="check-answers" aria-labelledby="uploaded-documents">
 
+  <h2 class="heading-medium" id="uploaded-documents">Uploaded documents</h2>
 
-<section aria-labelledby="uploaded-documents">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>Document</th>
+        <td>You haven&rsquo;t uploaded any documents.</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <h2 class="heading-medium" id="uploaded-documents">Employment and income</h2>
+  <p class="check-answers-action"><a href="/court-administrator/postal/upload-documents/{{id}}/?change=true">Change<span class="visually-hidden"> &ldquo;Uploaded documents&rdquo;.</span></a></p>
 
-  <div class="check-answers">
-
-    <table class="table table-summary">
-
-      <colgroup>
-        <col class="table-summary-title">
-        <col>
-      </colgroup>
-
-      <tbody>
-        <tr>
-          <th>Uploaded documents</th>
-          <td>You haven&rsquo;t uploaded any documents.</td>
-        </tr>
-      </tbody>
-
-    </table>
-
-    <p class="check-answers-action"><a href="/court-administrator/postal/upload-documents/{{id}}/?change=true" title="Change uploaded documents">Change <span>uploaded documents</span></a></p>
-
-  </div>
-
-</section>
+</div>
 
 
 <div class="mt-xl">

@@ -62,7 +62,7 @@
                 <dt>Date of birth</dt>
                 <dd><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{{age}}} years old)</dd>
                 <dt>Address</dt>
-                <dd>{{{address.address1}}} <br> {{#if address.address2}}{{{address.address2}}} <br> {{/if}} {{{address.town}}} {{{address.postcode}}}</dd>
+                <dd>{{{address.address1}}} <br> {{#if address.address2}}{{{address.address2}}} <br> {{/if}} {{{address.town}}} <br> {{{address.postcode}}}</dd>
                 <dt>Email</dt>
                 <dd>{{#if email}}{{{email}}}{{else}}&ndash;{{/if}}</dd>
                 <dt>Home telephone</dt>
@@ -88,7 +88,7 @@
                   <div class="document document-small">
                     <i class="icon icon-file-download"></i>
                     <div class="document-content">
-                      <p class="document-title"><a href="#">{{{title}}}</a></p>
+                      <p class="document-title"><a href="#" target="_blank">{{{title}}} <span class="visually-hidden">(opens in a new window)</span></a></p>
                       <div class="document-meta">
                         <span class="document-meta-details">
                           {{{file-type}}}, {{{file-size}}}, {{{file-pages}}}
@@ -205,7 +205,7 @@
                     <table class="table table-decision">
                       <tbody>
                         <tr>
-                          <td>Verdict</td>
+                          <th>Verdict</th>
                           <td>Guilty plea accepted</td>
                         </tr>
                         <tr>
@@ -229,9 +229,7 @@
                           <td>Yes</td>
                         </tr>
                         <tr>
-                          <th rowspan="3">Decision made</th>
-                        </tr>
-                        <tr>
+                          <th rowspan="2">Decision made</th>
                           <td><time datetime="2016-09-01">1 September 2016</time></td>
                         </tr>
                         <tr>

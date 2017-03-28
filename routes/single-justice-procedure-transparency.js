@@ -46,7 +46,7 @@ router.route('/single-justice-procedure-transparency/search-for-case')
         apptitle: apptitle,
         ispublic: false,
         doctitle: 'Cases prosecuted under SJP',
-        pagetitle: 'Cases prosecuted under SJP',
+        pagetitle: 'Cases prosecuted under <abbr title="Single Justice Procedure">SJP</abbr>',
         section: 'home',
         section_name: 'Home',
         section2: 'search-for-case',
