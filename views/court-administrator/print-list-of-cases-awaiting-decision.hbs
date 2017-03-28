@@ -42,13 +42,13 @@
   </thead>
   <tbody>
     {{#each searches}}
-      {{#contains case-details.status 'No plea received'}}
+      {{#contains case-details.status "No plea received"}}
         <tr>
           <td>{{uppercase personal-details.lastname}} {{personal-details.firstname}}</td>
           <td>{{{offence.title}}}</td>
         </tr>
       {{/contains}}
-      {{#contains case-details.status 'Ready'}}
+      {{#contains case-details.status "Ready"}}
         <tr>
           <td>{{uppercase personal-details.lastname}} {{personal-details.firstname}}</td>
           <td>{{{offence.title}}}</td>

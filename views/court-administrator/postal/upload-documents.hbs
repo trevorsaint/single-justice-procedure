@@ -6,20 +6,20 @@
 
   <p class="lede">You can add any of the following, if available.</p>
 
-  <form class="form" method="post">
+  <form class="form" method="post" novalidate>
 
     <div class="form-group">
       <label for="plea-document">
         <span class="form-label-bold">Select plea document</label>
       </label>
-      <input type="file" id="plea-document" name="pleaDocument">
+      <input id="plea-document" name="pleaDocument" type="file">
     </div>
 
     <div class="form-group">
       <label for="statement-of-income">
         <span class="form-label-bold">Select statement of income and outgoings (MC100)</label>
       </label>
-      <input type="file" id="statement-of-income" name="statementIncome">
+      <input id="statement-of-income" name="statementIncome" type="file">
     </div>
 
     <div class="form-group form-group-last">
@@ -27,7 +27,7 @@
         <span class="form-label-bold">Select other documents</span>
         <span class="form-hint">For example, a bank statement, email or a copy of a travelcard</span>
       </label>
-      <input type="file" id="other-documents" name="otherDocuments">
+      <input id="other-documents" name="otherDocuments" type="file">
     </div>
 
     <div class="form-group form-group-related">
