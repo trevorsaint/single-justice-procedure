@@ -10,7 +10,7 @@
     <p class="lede">You can ask a legal adviser to withdraw all offences. Are you sure you want to do this?</p>
   </div>
 
-  <form class="form" method="get" action="/prosecutor/confirmation/{{id}}">
+  <form class="form" method="post" action="/prosecutor/confirmation/{{id}}" novalidate>
 
     <div class="form-group form-group-related">
       <button class="button" type="submit">Yes &ndash; send request</button>
