@@ -21,7 +21,7 @@
     "express-handlebars": "3.0.0",
     "express-session": "^1.14.1",
     "express-validator": "^3.1.2",
-    "govuk-elements-sass": "^3.0.1",
+    "govuk-elements-sass": "^3.0.2",
     "govuk_frontend_toolkit": "^5.1.2",
     "govuk_template_jinja": "0.19.2",
     "handlebars": "^4.0.5",

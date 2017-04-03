@@ -1565,17 +1565,12 @@ textarea.form-control {
   float: none;
   clear: left;
   position: relative;
-  padding: 8px 10px 9px 50px;
+  padding: 0 0 0 38px;
   margin-bottom: 10px;
-  cursor: pointer;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
 }
 @media (min-width: 641px) {
   .multiple-choice {
     float: left;
-    padding-top: 7px;
-    padding-bottom: 7px;
   }
 }
 .multiple-choice input {
@@ -1593,6 +1588,17 @@ textarea.form-control {
 }
 .multiple-choice label {
   cursor: pointer;
+  padding: 8px 10px 9px 12px;
+  display: block;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+@media (min-width: 641px) {
+  .multiple-choice label {
+    float: left;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
 }
 .multiple-choice [type=radio] + label::before {
   content: "";
