@@ -15,12 +15,12 @@
 
 
   {{#unless related-documents.document}}
-    <div class="banner banner-warning" role="alert">
-      <i class="icon icon-banner-warning" role="presentation" aria-hidden="true"></i>
-      <div class="banner-message">
-        <p>You can&rsquo;t edit this case at the moment as we&rsquo;re awaiting case documents from the prosecutor. Check back again soon.</p>
-      </div>
+  <div class="banner banner-warning" role="alert">
+    <i class="icon icon-banner-warning" role="presentation" aria-hidden="true"></i>
+    <div class="banner-message">
+      <p>You can&rsquo;t edit this case at the moment as we&rsquo;re awaiting case documents from the prosecutor. Check back again soon.</p>
     </div>
+  </div>
   {{/unless}}
 
 
@@ -38,19 +38,19 @@
     <div class="column-two-thirds">
 
       <h1 class="heading-xlarge mb-l">
-        {{#and ../sFirstname ../sLastname}}
-          {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
-        {{else}}
-          {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
-        {{/and}}
+      {{#and ../sFirstname ../sLastname}}
+        {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
+      {{else}}
+        {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
+      {{/and}}
       </h1>
 
       <p class="mb-xl">
-        {{#if ../../sDob}}<time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
-        {{#if ../../sAddress1}}{{../../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
-        {{#if ../../sAddress2}}{{../../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
-        {{#if ../../sTown}}{{../../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
-        {{#if ../../sPostcode}}<span class="text-uppercase">{{../../sPostcode}}</span>{{else}}<span class="text-uppercase">{{personal-details.address.postcode}}</span>{{/if}}
+        {{#if ../sDob}}<time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
+        {{#if ../sAddress1}}{{../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
+        {{#if ../sAddress2}}{{../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
+        {{#if ../sTown}}{{../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
+        {{#if ../sPostcode}}<span class="text-uppercase">{{../sPostcode}}</span>{{else}}<span class="text-uppercase">{{personal-details.address.postcode}}</span>{{/if}}
       </p>
 
       <div class="tabs tabs-horizontal">
@@ -112,7 +112,7 @@
               <dt>Date of birth</dt>
               <dd>
                 {{#if ../../sDob}}
-                  <time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../..sDob format="D MMM YYYY"}}</time>
+                  <time datetime="{{moment ../../sDob format="YYYY-MM-DD"}}">{{moment ../../sDob format="D MMM YYYY"}}</time>
                 {{else}}
                   <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{age}} years old)
                 {{/if}}
