@@ -23,10 +23,10 @@
       {{#each related-documents.document}}
         {{#is show true}}
           <tr>
-            <td><a href="/">{{capitalize title}}</a></td>
+            <td><a href="#" target="_blank">{{capitalize title}}<span class="visually-hidden"> (opens in a new window)</span></a></td>
             <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
             <td><time datetime="{{moment file-uploaded-date format="YYYY-MM-DD"}}">{{moment file-uploaded-date format="D MMM YYYY"}}</time></td>
-            <td>{{#if can-remove}}<a href="/">Remove <span class="visually-hidden">{{capitalize title}}</span></a>{{else}}&ndash;{{/if}}</td>
+            <td>{{#if can-remove}}<a href="#">Remove <span class="visually-hidden">{{capitalize title}}</span></a>{{else}}&ndash;{{/if}}</td>
           </tr>
         {{/is}}
       {{/each}}

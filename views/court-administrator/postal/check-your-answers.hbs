@@ -61,9 +61,9 @@
         <th>Name</th>
         <td>
           {{#and ../sFirstname ../sLastname}}
-            {{../sFirstname}} {{uppercase ../sLastname}}
+            {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
           {{else}}
-            {{personal-details.firstname}} {{uppercase personal-details.lastname}}
+            {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
           {{/and}}
         </td>
       </tr>

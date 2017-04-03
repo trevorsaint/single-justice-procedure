@@ -5,6 +5,11 @@ var router = express.Router();
 var dataEngine = require('../models/data-court-administrator-pia');
 var entry;
 
+// Date fixer (add leading zero)
+function zeroFill(i) {
+  return (i < 10 ? '0' : '') + i
+}
+
 // routes
 router.use(function(req, res, next) {
 

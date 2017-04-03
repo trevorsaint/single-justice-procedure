@@ -5,6 +5,10 @@ var router  = express.Router();
 // datastore
 var dataEngine = require('../models/data-legal-advisers');
 
+// Date fixer (add leading zero)
+function zeroFill(i) {
+  return (i < 10 ? '0' : '') + i
+}
 
 // routes
 router.use(function(req, res, next) {
@@ -894,7 +898,7 @@ router.route('/legal-adviser/personal-details/:id/')
       sTitle = req.session.title = req.body.title;
       sFirstname = req.session.firstname = req.body.firstname;
       sLastname = req.session.lastname = req.body.lastname;
-      sDob = req.session.dob = req.body.dobYear + '-' + req.body.dobMonth + '-' + req.body.dobDay;
+      sDob = req.session.dob = req.body.dobYear + '-' + zeroFill(req.body.dobMonth) + '-' + zeroFill(req.body.dobDay);
       sEmail = req.session.email = req.body.email;
       sPhone = req.session.phone = req.body.phone;
       sMobile = req.session.mobile = req.body.mobile;
