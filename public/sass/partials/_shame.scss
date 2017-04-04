@@ -1,56 +1,8 @@
 // Shame
 // ==========================================================================
 
-:focus {
+.header a:focus {
   overflow: hidden; // removes additional white space on focused elements
-}
-
-// form file control (http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/)
-.form-control-file + label {
-  display: none;
-}
-
-.js-enabled {
-
-  .form-control-file {
-    width: .1px;
-    height: .1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-
-    + label {
-      display: inline-block;
-      width: auto; // prevent GOV setting width to 100% for mobile
-    }
-
-    &:hover + label,
-    &:focus + label,
-    &.focused + label {
-      background-color: darken($grey-3, 5%);
-    }
-
-    &:focus + label,
-    &.focused + label {
-      outline: 3px solid $focus-colour;
-      overflow: hidden;
-    }
-
-  }
-
-}
-
-// http://mattsnider.com/css-string-truncation-with-ellipsis
-
-.filename {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-
-  text-overflow: ellipsis;
-   -o-text-overflow: ellipsis; // opera 9 & 10
 }
 
 fieldset.inline ~ .panel {
@@ -58,6 +10,24 @@ fieldset.inline ~ .panel {
 
   &:last-child {
     margin-bottom: 15px;
+  }
+
+}
+
+$module: 'select-user';
+
+.#{$module} {
+  border-bottom: 1px solid $border-colour;
+
+  &-item {
+    border-top: 1px solid $border-colour;
+  }
+
+  &-link {
+    display: block;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    text-decoration: none;
   }
 
 }

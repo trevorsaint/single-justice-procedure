@@ -18,6 +18,18 @@ router.all('/', function(req, res) {
   });
 });
 
+router.all('/select-user-type', function(req, res) {
+  req.session.destroy(); // kill all sessions to begin with
+  res.render('select-user-type', {
+    baseurl: baseurl,
+    apptitle: apptitle,
+    ispublic: false,
+    issigned: false,
+    doctitle: 'Select user type',
+    pagetitle: 'Select user type'
+  });
+});
+
 router.all('/terms-and-conditions', function(req, res) {
   res.render('terms-and-conditions', {
     baseurl: baseurl,

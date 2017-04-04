@@ -3529,41 +3529,8 @@ html, body {
   overflow-x: hidden;
 }
 
-:focus {
+.header a:focus {
   overflow: hidden;
-}
-
-.form-control-file + label {
-  display: none;
-}
-
-.js-enabled .form-control-file {
-  width: .1px;
-  height: .1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-.js-enabled .form-control-file + label {
-  display: inline-block;
-  width: auto;
-}
-.js-enabled .form-control-file:hover + label, .js-enabled .form-control-file:focus + label, .js-enabled .form-control-file.focused + label {
-  background-color: #d0d3d6;
-}
-.js-enabled .form-control-file:focus + label, .js-enabled .form-control-file.focused + label {
-  outline: 3px solid #ffbf47;
-  overflow: hidden;
-}
-
-.filename {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-  text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
 }
 
 fieldset.inline ~ .panel {
@@ -3571,6 +3538,19 @@ fieldset.inline ~ .panel {
 }
 fieldset.inline ~ .panel:last-child {
   margin-bottom: 15px;
+}
+
+.select-user {
+  border-bottom: 1px solid #bfc1c3;
+}
+.select-user-item {
+  border-top: 1px solid #bfc1c3;
+}
+.select-user-link {
+  display: block;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  text-decoration: none;
 }
 
 .check-answers {

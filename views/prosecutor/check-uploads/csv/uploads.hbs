@@ -8,10 +8,11 @@
     <caption class="visually-hidden">CSV file uploads</caption>
     <thead>
       <tr>
-        <th scope="col">Date uploaded</th>
-        <th scope="col">At</th>
-        <th scope="col">File name</th>
-        <th scope="col" colspan="2">Status</th>
+        <th>Date uploaded</th>
+        <th>At</th>
+        <th>File name</th>
+        <th>Status</th>
+        <th><span class="visually-hidden">Action</span></th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +24,7 @@
               <td>{{time}}</td>
               <td>{{filename}}</td>
               <td>{{{status}}}</td>
-              <td>{{#if url}}<a href="/prosecutor/{{url}}">View report</a>{{else}}&ndash;{{/if}}</td>
+              <td>{{#if url}}<a href="/prosecutor/{{url}}">View report</a>{{else}}&#45;{{/if}}</td>
             </tr>
           {{/if}}
         {{/each}}
