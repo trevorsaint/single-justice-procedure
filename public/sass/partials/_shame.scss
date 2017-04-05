@@ -9,25 +9,7 @@ fieldset.inline ~ .panel {
   margin-top: 10px;
 
   &:last-child {
-    margin-bottom: 15px;
-  }
-
-}
-
-$module: 'select-user';
-
-.#{$module} {
-  border-bottom: 1px solid $border-colour;
-
-  &-item {
-    border-top: 1px solid $border-colour;
-  }
-
-  &-link {
-    display: block;
-    padding-top: 19px;
-    padding-bottom: 19px;
-    text-decoration: none;
+    margin-bottom: $gutter-half;
   }
 
 }

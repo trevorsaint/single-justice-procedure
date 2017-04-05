@@ -3529,6 +3529,19 @@ html, body {
   overflow-x: hidden;
 }
 
+.select-user {
+  border-bottom: 1px solid #bfc1c3;
+}
+.select-user-item {
+  border-top: 1px solid #bfc1c3;
+}
+.select-user-link {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-decoration: none;
+}
+
 .header a:focus {
   overflow: hidden;
 }
@@ -3538,19 +3551,6 @@ fieldset.inline ~ .panel {
 }
 fieldset.inline ~ .panel:last-child {
   margin-bottom: 15px;
-}
-
-.select-user {
-  border-bottom: 1px solid #bfc1c3;
-}
-.select-user-item {
-  border-top: 1px solid #bfc1c3;
-}
-.select-user-link {
-  display: block;
-  padding-top: 19px;
-  padding-bottom: 19px;
-  text-decoration: none;
 }
 
 .check-answers {
