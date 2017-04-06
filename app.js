@@ -2,14 +2,22 @@
  * Module dependencies
  */
 
-var express    = require("express");
-var exphbs     = require("express-handlebars");
-var session    = require("express-session");
-var validator  = require("express-validator");
-var bodyParser = require("body-parser");
-var router     = express.Router();
-var port       = (process.env.PORT || 3000);
-var app        = express();
+var sslRedirect = require("heroku-ssl-redirect");
+var express     = require("express");
+var exphbs      = require("express-handlebars");
+var session     = require("express-session");
+var validator   = require("express-validator");
+var bodyParser  = require("body-parser");
+var router      = express.Router();
+var port        = (process.env.PORT || 3000);
+var app         = express();
+
+/*
+ * Enable SSL redirect
+ */
+
+ app.use(sslRedirect());
+
 
 /*
  * Body parser
