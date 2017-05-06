@@ -5,6 +5,7 @@ $module: 'table';
 
 .#{$module} {
 
+
   // error log table
   &-error-log {
 
@@ -66,7 +67,7 @@ $module: 'table';
 
     tfoot th,
     tfoot td {
-      border-top: 2px solid black;
+      border-top: 2px solid $black;
       position: relative; top: -1px;
     }
 
@@ -79,10 +80,6 @@ $module: 'table';
 
       .#{$module}-cell-title {
         width: 40%;
-      }
-
-      .#{$module}-cell-amount {
-        width: 20%;
       }
 
     }
@@ -114,9 +111,7 @@ $module: 'table';
 }
 
 
-
-
-
+// button actions
 .button-actions {
   margin-bottom: em(20);
 
