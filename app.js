@@ -78,6 +78,7 @@ app.use(require("./routes/prosecutor"));
 app.use(require("./routes/legal-adviser"));
 app.use(require("./routes/legal-adviser-pia"));
 app.use(require("./routes/court-administrator-pia"));
+app.use(require("./routes/operational-reporting"));
 app.use(require("./routes/single-justice-procedure-transparency"));
 
 /*

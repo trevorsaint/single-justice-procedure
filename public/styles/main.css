@@ -2097,6 +2097,35 @@ CSS Usage
     padding-right: 80px;
   }
 }
+.table-performance {
+  border-top: 1px solid #0b0c0c;
+  border-collapse: separate;
+  margin-bottom: 2.10526em;
+}
+.table-performance th, .table-performance td {
+  vertical-align: top;
+}
+.table-performance tbody th {
+  font-weight: 400;
+}
+.table-performance tfoot th,
+.table-performance tfoot td {
+  border-top: 2px solid black;
+  position: relative;
+  top: -1px;
+}
+.table-performance .table-cell-last {
+  padding-right: 0;
+  text-align: right;
+}
+@media (min-width: 641px) {
+  .table-performance .table-cell-title {
+    width: 40%;
+  }
+  .table-performance .table-cell-amount {
+    width: 20%;
+  }
+}
 .table-decision + details {
   margin-top: 15px;
 }
@@ -2110,6 +2139,14 @@ CSS Usage
 }
 .table-decision th, .table-decision td {
   vertical-align: top;
+}
+
+.button-actions {
+  margin-bottom: 1.05263em;
+}
+.button-actions li {
+  display: inline-block;
+  margin-right: 0.52632em;
 }
 
 .form-currency {
@@ -3051,13 +3088,13 @@ HTML Usage
 }
 
 /*
-  
+
 HTML Usage
-  
+
 <div class="file">
 
   <i class="icon icon-file-download"></i>
-            
+
   <div class="file-details">
     <a href="#">Cite notice</a>
     <span class="file-meta">PDF, 156KB</span>
@@ -3539,6 +3576,64 @@ html, body {
   display: block;
   padding-top: 15px;
   padding-bottom: 15px;
+  text-decoration: none;
+}
+
+.filters-menu {
+  margin-bottom: 60px;
+}
+.filters-label {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #6f777b;
+}
+@media (min-width: 641px) {
+  .filters-label {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
+}
+.filters-buttons {
+  display: inline;
+}
+.filters-link {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  background: transparent;
+  border: 0 none;
+  color: #005ea5;
+  cursor: pointer;
+  margin-left: 0.52632em;
+  padding: 0;
+  text-decoration: underline;
+}
+@media (min-width: 641px) {
+  .filters-link {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
+}
+.filters-link::-moz-focus-inner {
+  border: 0;
+}
+.filters-link:hover {
+  color: #2b8cc4;
+}
+.filters-link:active, .filters-link:focus {
+  background-color: #ffbf47;
+  outline: 3px solid #ffbf47;
+  overflow: hidden;
+}
+.filters-link.is-selected {
+  color: #0b0c0c;
+  cursor: default;
+  font-weight: 700;
   text-decoration: none;
 }
 

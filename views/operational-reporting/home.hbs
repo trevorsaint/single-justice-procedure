@@ -1,0 +1,50 @@
+{{>operational-reporting/breadcrumb}}
+
+<div class="homepage-masthead">
+
+  <h1 class="bold-xlarge mb-l">{{{pagetitle}}}</h1>
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h2 class="bold-medium">Search for a case</h2>
+
+      <form class="form" method="post" novalidate>
+
+        <div class="form-search form-search-home">
+
+          <label for="search">
+            <span class="form-label">Enter case reference number or defendant&rsquo;s last name</span>
+          </label>
+
+          <input class="form-control form-control-wide" id="search" name="search" type="search"><button class="form-search-button" type="submit">Search</button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+{{#is phaseBannerHome true}}
+  {{>phase-banner}}
+{{/is}}
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <h2 class="heading-medium"><abbr title="Single Justice Procedure">SJP</abbr> online performance data</h2>
+
+    <ul class="list">
+      <li><p><a href="/{{baseurl}}/find-sjp-online-performance-data">Check how SJP is performing online</a></p></li>
+      <li><p><a href="/{{baseurl}}/number-of-cases-pending-decision">Number of cases pending decision</a></p></li>
+    </ul>
+
+  </div>
+
+</div>

@@ -453,6 +453,67 @@ function fileUpload() {
 };
 
 
+// filters
+if ($('.filters').length > 0) {
+
+	$('.filters').each(function() {
+
+		var $container = $(this);
+
+		// click handler
+		$container.find('.filters-link').on('click', function(e) {
+
+			var $button     = $(this);
+			var $dataToSort = $(this).attr('data-sort');
+
+			// reset
+			$container.find('.filters-content').attr('aria-hidden', null).removeClass('js-hidden');
+
+			// filter results
+			//if ($button.attr('data-sort') != 'all') {
+				$container.find('.filters-content').not('.filters-content[data-filter="' + $dataToSort + '"]').attr('aria-hidden', true).addClass('js-hidden');
+			//}
+
+			// add and remove attributes
+			$(this).siblings().attr('aria-pressed', false).removeClass('is-selected');
+			$(this).attr('aria-pressed', true).addClass('is-selected').focus();
+
+
+		});
+
+		// keydown handler
+		$container.find('.filters-link').on('keydown', function(e) {
+
+			// define current, previous and next (possible) tabs
+			var $newButton;
+			var $prevButton = $(this).prev();
+			var $nextButton = $(this).next();
+			var $dataToSort = $(this).attr('data-sort');
+
+			// find the direction (prev or next)
+			switch (e.keyCode) {
+				case 37:
+					$newButton = $prevButton;
+					break;
+				case 39:
+					$newButton = $nextButton;
+					break;
+				default:
+					$newButton = false;
+					break;
+			}
+
+			if ($newButton.length) {
+				$newButton.focus();
+			}
+
+		});
+
+	});
+
+}
+
+
 function fileUploadFocus() {
 
   "strict"
