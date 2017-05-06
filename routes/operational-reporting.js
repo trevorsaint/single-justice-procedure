@@ -53,8 +53,6 @@ router.route('/' + baseurl + '/sjp-online-performance-data')
       section_name: 'Home',
       breadcrumb: true
     });
-  }).post(function(req, res, next) {
-    res.redirect('');
   });
 
 router.route('/' + baseurl + '/number-of-cases-pending-decision')
