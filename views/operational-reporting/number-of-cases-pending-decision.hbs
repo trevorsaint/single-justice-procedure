@@ -1,54 +1,119 @@
 {{>operational-reporting/breadcrumb}}
 
+
 <div class="grid-row">
 
   <div class="column-two-thirds">
 
-    <h1 class="heading-xlarge">Cases older than 21 days missing an <abbr title="Single Justice Procedure">SJP</abbr> notice</h1>
+    <h1 class="heading-xlarge">Number of cases pending decision</h1>
 
-    <span class="font-medium">On 31 March 2017</span>
+    <p class="font-medium">On 31 March 2017</p>
 
   </div>
 
 </div>
 
-<h3 class="heading-medium">5 cases missing notices</h3>
 
+<div class="grid-row">
+
+  <div class="column-third">
+
+    <div class="data">
+      <span class="data-item bold-xlarge">1574 </span>
+      <span class="data-item font-xsmall">total cases pending decision</span>
+    </div>
+
+  </div>
+
+  <div class="column-third">
+
+    <div class="data">
+      <span class="data-item bold-xlarge">612 </span>
+      <span class="data-item font-xsmall">cases ready for decsion</span>
+    </div>
+
+  </div>
+
+  <div class="column-third">
+
+    <div class="data">
+      <span class="data-item bold-xlarge">35 days </span>
+      <span class="data-item font-xsmall">oldest case ready for decision</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<h3 class="heading-small">Pending decision cases &ndash; breakdown</h3>
 <table class="table table-font-xsmall table-performance">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Reference number</th>
-      <th scope="col">Notice served</th>
-    </tr>
-  </thead>
+
   <tbody>
     <tr>
-      <th class="table-cell-title" scope="row"><a href="#"><span class="text-uppercase">Francis</span> David</a></th>
-      <td>1234567</td>
-      <td>12 February 2017</td>
+      <th class="table-cell-title" scope="row">Ready for decision</th>
+      <td><span class="bold-xsmall">612</span></td>
     </tr>
     <tr>
-      <th class="table-cell-title" scope="row"><a href="#"><span class="text-uppercase">Afadar</span> Mohamed</a></th>
-      <td>1234567</td>
-      <td>12 February 2017</td>
+      <th class="table-cell-title" scope="row">21 to 27 days old</th>
+      <td><span class="bold-xsmall">391</span></td>
     </tr>
     <tr>
-      <th class="table-cell-title" scope="row"><a href="#"><span class="text-uppercase">Jensen</span> Deborah</a></th>
-      <td>1234567</td>
-      <td>12 February 2017</td>
-    </tr>
-    <tr>
-      <th class="table-cell-title" scope="row"><a href="#"><span class="text-uppercase">Nowak</span> Antoni</a></th>
-      <td>1234567</td>
-      <td>12 February 2017</td>
-    </tr>
-    <tr>
-      <th class="table-cell-title" scope="row"><a href="#"><span class="text-uppercase">Sousa</span> Juan</a></th>
-      <td>1234567</td>
-      <td>12 February 2017</td>
+      <th class="table-cell-title" scope="row">0 to 20 days old</th>
+      <td><span class="bold-xsmall">571</span></td>
     </tr>
   </tbody>
+
 </table>
 
-<p><a class="button" href="/{{baseurl}}/home/" role="button">Back to dashboard</a></p>
+
+<h3 class="heading-small">Ready for decision cases &ndash; breakdown</h3>
+<table class="table table-font-xsmall table-performance">
+
+  <tbody>
+    <tr>
+      <th class="table-cell-title" scope="row">Not guilty plea</th>
+      <td><span class="bold-xsmall">356</span></td>
+    </tr>
+    <tr>
+      <th class="table-cell-title" scope="row">Guilty plea</th>
+      <td><span class="bold-xsmall">57</span></td>
+    </tr>
+    <tr>
+      <th class="table-cell-title" scope="row">Guilty plea &ndash; court hearing requested</th>
+      <td><span class="bold-xsmall">12</span></td>
+    </tr>
+    <tr>
+      <th class="table-cell-title" scope="row">Awaiting withdrawal</th>
+      <td><span class="bold-xsmall">33</span></td>
+    </tr>
+    <tr>
+      <th class="table-cell-title" scope="row">No plea received</th>
+      <td><span class="bold-xsmall">475</span></td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+<h3 class="heading-small"><span class="text-warning">Warnings</span></h3>
+<table class="table table-font-xsmall table-performance">
+
+  <tbody>
+    <tr>
+      <th class="table-cell-title" scope="row">Cases older than 21 days without an <abbr title="Single Justice Procedure">SJP</abbr> notice</th>
+      <td><span class="bold-xsmall">5</span></td>
+      <td><a href="/{{baseurl}}/cases-older-than-21-days-missing-an-sjp-notice/">View cases<span class="visually-hidden"> older than 21 days without an SJP notice</span></a></td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+<ul class="button-actions">
+  <li><a class="button" href="#" role="button">Print</a></li>
+  <li><a class="button button-secondary" href="#" role="button">Download in Excel</a></li>
+</ul>
+
+
+<p><a href="/{{baseurl}}/home/">Back to dashboard</a></p>

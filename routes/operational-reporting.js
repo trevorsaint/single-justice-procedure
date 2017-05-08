@@ -67,8 +67,20 @@ router.route('/' + baseurl + '/number-of-cases-pending-decision')
       section_name: 'Home',
       breadcrumb: true
     });
-  }).post(function(req, res, next) {
-    res.redirect('');
+  });
+
+router.route('/' + baseurl + '/cases-older-than-21-days-missing-an-sjp-notice')
+  .get(function(req, res, next) {
+    res.render(baseurl + '/cases-older-than-21-days-missing-an-sjp-notice', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      ispublic: ispublic,
+      doctitle: 'Cases older than 21 days missing an SJP notice',
+      pagetitle: 'Cases older than 21 days missing an <abbr title="Single Justice Procedure">SJP</abbr> notice',
+      section: 'home',
+      section_name: 'Home',
+      breadcrumb: true
+    });
   });
 
 // page not found
