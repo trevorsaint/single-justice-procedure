@@ -2118,10 +2118,8 @@ CSS Usage
   padding-right: 0;
   text-align: right;
 }
-@media (min-width: 641px) {
-  .table-performance .table-cell-title {
-    width: 40%;
-  }
+.table-performance .table-cell-title {
+  width: 40%;
 }
 .table-decision + details {
   margin-top: 15px;

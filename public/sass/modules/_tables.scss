@@ -76,12 +76,8 @@ $module: 'table';
       text-align: right;
     }
 
-    @include media(tablet) {
-
-      .#{$module}-cell-title {
-        width: 40%;
-      }
-
+    .#{$module}-cell-title {
+      width: 40%;
     }
 
   }
