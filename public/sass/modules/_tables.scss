@@ -80,6 +80,10 @@ $module: 'table';
       width: 40%;
     }
 
+    .#{$module}-cell-amount {
+      width: 20%;
+    }
+
   }
 
 

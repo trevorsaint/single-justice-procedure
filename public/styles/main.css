@@ -2121,6 +2121,9 @@ CSS Usage
 .table-performance .table-cell-title {
   width: 40%;
 }
+.table-performance .table-cell-amount {
+  width: 20%;
+}
 .table-decision + details {
   margin-top: 15px;
 }
