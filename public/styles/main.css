@@ -2986,6 +2986,22 @@ HTML Usage
     width: 60%;
   }
 }
+.meta-wide {
+  overflow: hidden;
+}
+@media (min-width: 641px) {
+  .meta-wide dt {
+    float: left;
+  }
+  .meta-wide dt, .meta-wide dd {
+    margin-bottom: 0.52632em;
+  }
+  .meta-wide dd {
+    font-weight: 700;
+    overflow: hidden;
+    text-align: right;
+  }
+}
 .meta-small {
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;

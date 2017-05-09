@@ -51,6 +51,31 @@ $module: 'meta';
   }
 
 
+  // wide
+  &-wide {
+    overflow: hidden;
+
+    @include media(tablet) {
+
+      dt {
+        float: left;
+      }
+
+      dt, dd {
+        margin-bottom: em(10);
+      }
+
+      dd {
+        font-weight: 700;
+        overflow: hidden;
+        text-align: right;
+      }
+
+    }
+
+  }
+
+
   // small
   &-small {
     @include core-16;
