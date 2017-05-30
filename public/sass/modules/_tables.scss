@@ -99,7 +99,10 @@ $module: 'table';
 
     }
 
-    th {font-weight: 400;}
+    th {
+      font-weight: 400;
+      width: 40%;
+    }
 
     th, td {
       vertical-align: top;

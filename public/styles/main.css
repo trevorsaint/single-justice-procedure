@@ -2134,6 +2134,7 @@ CSS Usage
 }
 .table-decision th {
   font-weight: 400;
+  width: 40%;
 }
 .table-decision th, .table-decision td {
   vertical-align: top;

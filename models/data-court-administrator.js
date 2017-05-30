@@ -24,7 +24,7 @@ var search = [
       "status": "No plea received",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
-      "notice-served": "2015-04-30",
+      "notice-served": "2015-04-30"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
@@ -170,7 +170,7 @@ var search = [
       "informant": "Trevor Saint",
       "charge-date": "2016-01-21",
       "notice-served": "2015-09-18",
-      "court-decision": 1
+      "court-decision": 4
     },
     "offence": {
       "reference-number": "687642",
@@ -348,7 +348,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-07-13",
-      "court-decision": 2
+      "court-decision": 5
     },
     "offence": {
       "title": "Having failed to pay rail fare gave false particulars",
