@@ -344,7 +344,7 @@ var search = [
       "phone": "078 1825 3550"
     },
     "case-details": {
-      "status": "Decision made",
+      "status": "Completed &ndash; decision sent to defendant",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-07-13",

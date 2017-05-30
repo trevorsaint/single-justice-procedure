@@ -595,15 +595,15 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
-  router.route('/court-administrator/register-view/:id/')
+  router.route('/court-administrator/extract-of-court-record/:id/')
     .get(function(req, res, next) {
       entry = dataEngine.getSearchEntry(req.params.id);
-      res.render('court-administrator/register-view', {
+      res.render('court-administrator/extract-of-court-record', {
         baseurl: baseurl,
         apptitle: apptitle,
         ispublic: false,
-        doctitle: 'Register view',
-        pagetitle: 'Register view',
+        doctitle: 'Extract of court record',
+        pagetitle: 'Extract of court record',
         section: 'home',
         section_name: 'Home',
         //section2: 'case-details/' + req.params.id,
@@ -657,10 +657,10 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
         //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
       });
 
-router.route('/court-administrator/reopen-case/:id/')
+router.route('/court-administrator/log-case-as-reopened-on-libra/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/reopen-case', {
+    res.render('court-administrator/log-case-as-reopened-on-libra', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
