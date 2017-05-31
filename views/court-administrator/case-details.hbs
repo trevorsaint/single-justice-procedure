@@ -14,7 +14,7 @@
   {{/if}}
 
 
-  {{#unless related-documents.document}}
+  {{#unless related-documents.document}}s
   <div class="banner banner-warning" role="alert">
     <i class="icon icon-banner-warning" role="presentation" aria-hidden="true"></i>
     <div class="banner-message">
@@ -75,8 +75,11 @@
               <dt>Case status</dt>
               <dd>
               {{#is status 'Completed &ndash; decision sent to defendant'}}
-                {{#if ../../sLibraAccountNumber}}
-                  Reopened <time datetime="2016-10-12">12 October 2016</time> <br> (Libra account no: {{../../sLibraAccountNumber}})
+                {{#if ../../sCaseNumber}}
+                  Reopened <time datetime="{{moment ../../sDateOrder format="YYYY-MM-DD"}}">{{moment ../../sDateOrder format="D MMMM YYYY"}}</time><br>
+                  Reopened case number: {{../../sCaseNumber}} <br>
+                  Reason: {{../../sReasonForReopening}} <br>
+                  <a href="/court-administrator/change-reopened-case-status/{{../id}}">Change<span class="visually-hidden"> reopened case status</span></a>
                 {{else}}
                   {{{status}}}
                 {{/if}}
@@ -347,7 +350,6 @@
 
     </div>
 
-    {{#isnt ../sReopenedCase 'Yes'}}
     <div class="column-third">
 
       <div class="related">
@@ -357,7 +359,7 @@
           <h3 class="related-heading">Case options</h3>
           <ul class="related-links">
           {{#contains case-details.status 'Completed'}}
-            <li><a href="/court-administrator/log-case-as-reopened-on-libra/{{id}}/">Log case as reopened on Libra</a></li>
+            {{#isnt ../sReopenedCase 'Yes'}}<li><a href="/court-administrator/log-case-as-reopened-on-libra/{{id}}/">Log case as reopened on Libra</a></li>{{/isnt}}
             <li><a href="/court-administrator/extract-of-court-record/{{id}}/">Extract of court record</a></li>
           {{else}}
             <li><a href="/">Send case to court hearing</a></li>
@@ -382,7 +384,6 @@
       </div>
 
     </div>
-    {{/isnt}}
 
   </div>
 

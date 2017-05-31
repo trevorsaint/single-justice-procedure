@@ -68,7 +68,13 @@ router.use(function(req, res, next) {
   sOtherDocument   = req.session.otherDocument;
 
   // reopen case
-  sLibraAccountNumber = req.session.libraAccountNumber;
+  sCaseNumber = req.session.caseNumber;
+  sDateOrder = req.session.dateOrder;
+  sDateOrderDay = req.session.dateOrderDay;
+  sDateOrderMonth = req.session.dateOrderMonth;
+  sDateOrderYear = req.session.dateOrderYear;
+  sReasonForReopening = req.session.reasonForReopening;
+  sRevertCase = req.session.revertCase = req.body.revertCase;
 
   next();
 
@@ -203,7 +209,9 @@ router.route('/court-administrator/case-details/:id/')
       sStatementIncome: sStatementIncome,
       sOtherDocument: sOtherDocument,
       sHasSaved: sHasSaved,
-      sLibraAccountNumber: sLibraAccountNumber,
+      sCaseNumber: sCaseNumber,
+      sDateOrder: req.session.dateOrder = req.session.dateOrderYear + '-' + zeroFill(req.session.dateOrderMonth) + '-' + zeroFill(req.session.dateOrderMonth),
+      sReasonForReopening: sReasonForReopening,
       sReopenedCase: sReopenedCase
     });
   })
@@ -223,12 +231,12 @@ router.route('/court-administrator/case-details/:id/')
     } else {
 
       // reset session
-      sNeedInterpreter = req.session.needInterpreter = null;
-      sInterpreterLanguage = req.session.interpreterLanguage = null;
+      req.session.needInterpreter = null;
+      req.session.interpreterLanguage = null;
 
     }
 
-    sCaseActiveTab = req.session.caseActiveTab = null;
+    req.session.caseActiveTab = null;
     sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
@@ -405,8 +413,8 @@ router.route('/court-administrator/postal/add-plea/:id/')
     } else {
 
       // reset session
-      sNeedInterpreter = req.session.needInterpreter = null;
-      sInterpreterLanguage = req.session.interpreterLanguage = null;
+      req.session.needInterpreter = null;
+      req.session.interpreterLanguage = null;
 
     }
 
@@ -657,6 +665,9 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
         //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
       });
 
+
+
+
 router.route('/court-administrator/log-case-as-reopened-on-libra/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
@@ -668,18 +679,102 @@ router.route('/court-administrator/log-case-as-reopened-on-libra/:id/')
       pagetitle: 'Log case as reopened on Libra',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
-      sLibraAccountNumber: sLibraAccountNumber
+      sDateOrderDay: sDateOrderDay,
+      sDateOrderMonth: sDateOrderMonth,
+      sDateOrderYear: sDateOrderYear,
+      sCaseNumber: sCaseNumber,
+      sReasonForReopening: sReasonForReopening
     });
   })
   .post(function(req, res, next) {
     sReopenedCase = req.session.reopenedCase = 'Yes';
-    sLibraAccountNumber = req.session.libraAccountNumber = req.body.libraAccountNumber;
+    sDateOrderDay = req.session.dateOrderDay = req.body.dateOrderDay;
+    sDateOrderMonth = req.session.dateOrderMonth = req.body.dateOrderMonth;
+    sDateOrderYear = req.session.dateOrderYear = req.body.dateOrderYear;
+    sCaseNumber = req.session.caseNumber = req.body.caseNumber;
+    sReasonForReopening = req.session.reasonForReopening = req.body.reasonForReopening;
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
+
+
+
+
+
+router.route('/court-administrator/change-reopened-case-status/:id/')
+  .get(function(req, res, next) {
+    entry = dataEngine.getSearchEntry(req.params.id);
+    res.render('court-administrator/change-reopened-case-status', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      ispublic: false,
+      doctitle: 'Change reopened case status',
+      pagetitle: 'Change reopened case status',
+      section: 'home',
+      section_name: 'Home',
+      breadcrumb: true,
+      search: entry,
+      sDateOrderDay: sDateOrderDay,
+      sDateOrderMonth: sDateOrderMonth,
+      sDateOrderYear: sDateOrderYear,
+      sCaseNumber: sCaseNumber,
+      sReasonForReopening: sReasonForReopening
+    });
+  })
+  .post(function(req, res, next) {
+    sReopenedCase = req.session.reopenedCase = 'Yes';
+    sDateOrderDay = req.session.dateOrderDay = req.body.dateOrderDay;
+    sDateOrderMonth = req.session.dateOrderMonth = req.body.dateOrderMonth;
+    sDateOrderYear = req.session.dateOrderYear = req.body.dateOrderYear;
+    sCaseNumber   = req.session.caseNumber = req.body.caseNumber;
+    sReasonForReopening = req.session.reasonForReopening = req.body.reasonForReopening;
+    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+  });
+
+
+router.route('/court-administrator/revert-case-status-to-completed/:id/')
+  .get(function(req, res, next) {
+    entry = dataEngine.getSearchEntry(req.params.id);
+    res.render('court-administrator/revert-case-status-to-completed', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      ispublic: false,
+      doctitle: 'Revert case status to completed',
+      pagetitle: 'Revert case status to completed',
+      section: 'home',
+      section_name: 'Home',
+      breadcrumb: true,
+      search: entry
+    });
+  })
+  .post(function(req, res, next) {
+
+    sRevertCase = req.session.revertCase = req.body.revertCase;
+
+    if (sRevertCase === 'Yes') {
+      req.session.reopenedCase = null;
+      req.session.dateOrderDay = null;
+      req.session.dateOrderMonth = null;
+      req.session.dateOrderYear = null;
+      req.session.caseNumber = null;
+      req.session.reasonForReopening = null;
+    } else {
+      sReopenedCase = req.session.reopenedCase = 'Yes';
+      sDateOrderDay = req.session.dateOrderDay;
+      sDateOrderMonth = req.session.dateOrderMonth;
+      sDateOrderYear = req.session.dateOrderYear;
+      sCaseNumber = req.session.caseNumber;
+      sReasonForReopening = req.session.reasonForReopening;
+    }
+
+    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+
+  });
+
+
+
+
 
 // page not found
 router.get('/court-administrator/*', function(req, res, next) {
