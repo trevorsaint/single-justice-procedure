@@ -27,13 +27,13 @@
             <legend class="visually-hidden">Select option</legend>
 
             <div class="multiple-choice">
-              <input id="pay-direct-to-court" name="paymentMethod" type="radio" value="Pay direct to court"
+              <input id="pay-directly-to-court" name="paymentMethod" type="radio" value="Pay directly to court"
               {{#if ../sPaymentMethod}}
-                {{#contains ../sPaymentMethod "Pay direct to court"}} checked="checked"{{/contains}}
+                {{#contains ../sPaymentMethod "Pay directly to court"}} checked="checked"{{/contains}}
               {{else}}
-                {{#contains offence.payment-method "Pay direct to court"}} checked="checked"{{/contains}}
+                {{#contains offence.payment-method "Pay directly to court"}} checked="checked"{{/contains}}
               {{/if}}>
-              <label for="pay-direct-to-court">Pay directly to court</label>
+              <label for="pay-directly-to-court">Pay directly to court</label>
             </div>
 
             <p class="form-block">or</p>

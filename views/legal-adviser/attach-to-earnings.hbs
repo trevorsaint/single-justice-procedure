@@ -24,35 +24,42 @@
           <label for="employee-number">
             <span class="form-label">Employee number (optional)</span>
           </label>
-          <input class="form-control" id="employee-number" name="employeeNumber" type="text" value="{{uppercase employment.employee-number}}">
+          <input class="form-control form-control-2-3" id="employee-number" name="employeeNumber" type="text" value="{{uppercase employment.employee-number}}">
         </div>
 
         <div class="form-group">
           <label for="employer-name">
             <span class="form-label">Employer name</span>
           </label>
-          <input class="form-control" id="employer-name" name="employerName" type="text" value="{{employment.employer-name}}">
+          <input class="form-control form-control-2-3" id="employer-name" name="employerName" type="text" value="{{employment.employer-name}}">
         </div>
 
         <div class="form-group form-group-compound">
           <label for="employer-address1">
-            <span class="form-label">Street</span>
+            <span class="form-label">Address</span>
           </label>
-          <input class="form-control" id="employer-address1" name="employerAddress1" type="text" value="{{employment.employer-address.address1}}">
+          <input class="form-control form-control-2-3" id="employer-address1" name="employerAddress1" type="text" value="{{employment.employer-address.address1}}">
+        </div>
+
+        <div class="form-group form-group-compound">
+          <label class="visually-hidden" for="employer-address2">
+            <span class="form-label">Address line 2</span>
+          </label>
+          <input class="form-control form-control-2-3" id="employer-address2" name="employerAddress2" type="text" value="{{employment.employer-address.address2}}">
         </div>
 
         <div class="form-group">
-          <label class="visually-hidden" for="employer-address2">
-            <span class="form-label">Street</span>
+          <label class="visually-hidden" for="employer-address3">
+            <span class="form-label">Address line 3</span>
           </label>
-          <input class="form-control" id="employer-address2" name="employerAddress2" type="text" value="{{employment.employer-address.address2}}">
+          <input class="form-control form-control-2-3" id="employer-address3" name="employerAddress3" type="text" value="{{employment.employer-address.address3}}">
         </div>
 
         <div class="form-group">
           <label for="employer-town">
             <span class="form-label">Town or City</span>
           </label>
-          <input class="form-control form-control-1-4" id="employer-town" name="employerTown" type="text" value="{{employment.employer-address.town}}">
+          <input class="form-control" id="employer-town" name="employerTown" type="text" value="{{employment.employer-address.town}}">
         </div>
 
         <div class="form-group">

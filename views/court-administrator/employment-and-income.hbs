@@ -76,10 +76,17 @@
           <h3 class="heading-medium">Employer details</h3>
 
           <div class="form-group">
+            <label for="employee-number">
+              <span class="form-label">Employee number (optional)</span>
+            </label>
+            <input class="form-control form-control-2-3" id="employee-number" name="employeeNumber" type="text" value="{{uppercase employment.employee-number}}">
+          </div>
+
+          <div class="form-group">
             <label for="employer-name">
               <span class="form-label">Employer name</span>
             </label>
-            <input class="form-control" id="employer-name" name="employerName" type="text"{{#if ../sEmployerName}} value="{{../sEmployerName}}"{{else}} value="{{employment.employer-name}}"{{/if}}>
+            <input class="form-control form-control-2-3" id="employer-name" name="employerName" type="text"{{#if ../sEmployerName}} value="{{../sEmployerName}}"{{else}} value="{{employment.employer-name}}"{{/if}}>
           </div>
 
           <div class="form-group">
@@ -92,30 +99,30 @@
 
               <div class="form-group form-group-compound">
                 <label for="employer-address-1">
-                  <span class="form-label">Building and street</span>
+                  <span class="form-label">Address</span>
                 </label>
-                <input class="form-control" id="employer-address-1" name="employerAddress1" type="text"{{#if ../sEmployerAddress1}} value="{{../sEmployerAddress1}}"{{else}} value="{{employment.employer-address.address1}}"{{/if}}>
+                <input class="form-control form-control-2-3" id="employer-address-1" name="employerAddress1" type="text"{{#if ../sEmployerAddress1}} value="{{../sEmployerAddress1}}"{{else}} value="{{employment.employer-address.address1}}"{{/if}}>
               </div>
 
-              <div class="form-group">
+              <div class="form-group form-group-compound">
                 <label class="visually-hidden" for="employer-address-2">
-                  <span class="form-label">Building and street address line 2</span>
+                  <span class="form-label">Address line 2</span>
                 </label>
-                <input class="form-control" id="employer-address-2" name="employerAddress2" type="text"{{#if ../sEmployerAddress2}} value="{{../sEmployerAddress2}}"{{else}} value="{{employment.employer-address.address2}}"{{/if}}>
+                <input class="form-control form-control-2-3" id="employer-address-2" name="employerAddress2" type="text"{{#if ../sEmployerAddress2}} value="{{../sEmployerAddress2}}"{{else}} value="{{employment.employer-address.address2}}"{{/if}}>
               </div>
 
               <div class="form-group">
-                <label for="employer-address-country">
-                  <span class="form-label">Country (optional)</span>
+                <label class="visually-hidden" for="employer-address-3">
+                  <span class="form-label">Address line 3</span>
                 </label>
-                <input class="form-control" id="employer-address-country" name="employerCountry" type="text">
+                <input class="form-control form-control-2-3" id="employer-address-3" name="employerAddress3" type="text"{{#if ../sEmployerAddress3}} value="{{../sEmployerAddress3}}"{{else}} value="{{employment.employer-address.address3}}"{{/if}}>
               </div>
 
               <div class="form-group">
                 <label for="employer-address-town">
                   <span class="form-label">Town or City</span>
                 </label>
-                <input class="form-control form-control-1-4" id="employer-address-town" name="employerTown" type="text"{{#if ../sEmployerTown}} value="{{../sEmployerTown}}"{{else}} value="{{employment.employer-address.town}}"{{/if}}>
+                <input class="form-control" id="employer-address-town" name="employerTown" type="text"{{#if ../sEmployerTown}} value="{{../sEmployerTown}}"{{else}} value="{{employment.employer-address.town}}"{{/if}}>
               </div>
 
               <div class="form-group">

@@ -41,6 +41,7 @@ router.use(function(req, res, next) {
   sEmployerName      = req.session.employerName;
   sEmployerAddress1  = req.session.employerAddress1;
   sEmployerAddress2  = req.session.employerAddress2;
+  sEmployerAddress3  = req.session.employerAddress3;
   sEmployerTown      = req.session.employerTown;
   sEmployerPostcode  = req.session.employerPostcode;
   sEmployerTelephone = req.session.employerTelephone;
@@ -193,6 +194,7 @@ router.route('/court-administrator/case-details/:id/')
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
       sEmployerAddress2: sEmployerAddress2,
+      sEmployerAddress3: sEmployerAddress3,
       sEmployerTown: sEmployerTown,
       sEmployerPostcode: sEmployerPostcode,
       sEmployerTelephone: sEmployerTelephone,
@@ -307,6 +309,7 @@ router.route('/court-administrator/employment-and-income/:id/')
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
       sEmployerAddress2: sEmployerAddress2,
+      sEmployerAddress3: sEmployerAddress3,
       sEmployerTown: sEmployerTown,
       sEmployerPostcode: sEmployerPostcode,
       sEmployerTelephone: sEmployerTelephone,
@@ -322,6 +325,7 @@ router.route('/court-administrator/employment-and-income/:id/')
     sEmployerName = req.session.employerName = req.body.employerName;
     sEmployerAddress1 = req.session.employerAddress1 = req.body.employerAddress1;
     sEmployerAddress2 = req.session.employerAddress2 = req.body.employerAddress2;
+    sEmployerAddress3 = req.session.employerAddress3 = req.body.employerAddress3;
     sEmployerTown = req.session.employerTown = req.body.employerTown;
     sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
     sEmployerTelephone = req.session.employerTelephone = req.body.employerTelephone;
@@ -502,6 +506,7 @@ router.route('/court-administrator/postal/employment-and-income/:id/')
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
       sEmployerAddress2: sEmployerAddress2,
+      sEmployerAddress3: sEmployerAddress3,
       sEmployerTown: sEmployerTown,
       sEmployerPostcode: sEmployerPostcode,
       sEmployerTelephone: sEmployerTelephone,
@@ -517,6 +522,7 @@ router.route('/court-administrator/postal/employment-and-income/:id/')
     sEmployerName = req.session.employerName = req.body.employerName;
     sEmployerAddress1 = req.session.employerAddress1 = req.body.employerAddress1;
     sEmployerAddress2 = req.session.employerAddress2 = req.body.employerAddress2;
+    sEmployerAddress3 = req.session.employerAddress3 = req.body.employerAddress3;
     sEmployerTown = req.session.employerTown = req.body.employerTown;
     sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
     sEmployerTelephone = req.session.employerTelephone = req.body.employerTelephone;
@@ -593,6 +599,7 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
       sEmployerAddress2: sEmployerAddress2,
+      sEmployerAddress3: sEmployerAddress3,
       sEmployerTown: sEmployerTown,
       sEmployerPostcode: sEmployerPostcode,
       sEmployerTelephone: sEmployerTelephone,
@@ -637,6 +644,7 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
         sEmployerName: sEmployerName,
         sEmployerAddress1: sEmployerAddress1,
         sEmployerAddress2: sEmployerAddress2,
+        sEmployerAddress3: sEmployerAddress3,
         sEmployerTown: sEmployerTown,
         sEmployerPostcode: sEmployerPostcode,
         sEmployerTelephone: sEmployerTelephone,

@@ -60,7 +60,7 @@ router.use(function(req, res, next) {
   sDurationAmount = req.session.durationAmount;
   sDurationTimeSpan = req.session.durationTimeSpan;
 
-  // pay direct to court
+  // pay directly to court
   sReasonForNotDeductFromBenefitsOrAttachToEarnings = req.session.reasonForNotDeductFromBenefitsOrAttachToEarnings;
   sDefendantPay = req.session.defendantPay;
 
@@ -92,6 +92,7 @@ router.use(function(req, res, next) {
   sEmployerName = req.session.employerName;
   sEmployerAddress1 = req.session.employerAddress1;
   sEmployerAddress2 = req.session.employerAddress2;
+  sEmployerAddress3 = req.session.employerAddress3;
   sEmployerTown = req.session.employerTown;
   sEmployerPostcode = req.session.employerPostcode;
 
@@ -499,9 +500,9 @@ router.route('/legal-adviser/payment-method/:id')
 
     sPaymentMethod = req.session.paymentMethod = req.body.paymentMethod;
 
-    if (sPaymentMethod === "Pay direct to court") {
+    if (sPaymentMethod === "Pay directly to court") {
 
-      res.redirect('/legal-adviser/pay-direct-to-court/' + req.params.id);
+      res.redirect('/legal-adviser/pay-directly-to-court/' + req.params.id);
 
     } else if (sPaymentMethod === "Deduct from benefits") {
 
@@ -516,15 +517,15 @@ router.route('/legal-adviser/payment-method/:id')
 });
 
 
-router.route('/legal-adviser/pay-direct-to-court/:id')
+router.route('/legal-adviser/pay-directly-to-court/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/pay-direct-to-court', {
+    res.render('legal-adviser/pay-directly-to-court', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
-      doctitle: 'Pay direct to court',
-      pagetitle: 'Pay direct to court',
+      doctitle: 'Pay directly to court',
+      pagetitle: 'Pay directly to court',
       section: 'home',
       section_name: 'Home',
       //section2: 'case-details/' + req.params.id,
@@ -601,6 +602,7 @@ router.route('/legal-adviser/attach-to-earnings/:id')
       sEmployerName: sEmployerName,
       sEmployerAddress1: sEmployerAddress1,
       sEmployerAddress2: sEmployerAddress2,
+      sEmployerAddress3: sEmployerAddress3,
       sEmployerTown: sEmployerTown,
       sEmployerPostcode: sEmployerPostcode,
       sReasonForAttachingToEarnings: sReasonForAttachingToEarnings,
@@ -626,6 +628,7 @@ router.route('/legal-adviser/attach-to-earnings/:id')
     sEmployerName = req.session.employerName = req.body.employerName;
     sEmployerAddress1 = req.session.employerAddress1 = req.body.employerAddress1;
     sEmployerAddress2 = req.session.employerAddress2 = req.body.employerAddress2;
+    sEmployerAddress3 = req.session.employerAddress3 = req.body.employerAddress3;
     sEmployerTown = req.session.employerTown = req.body.employerTown;
     sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
     sReasonForAttachingToEarnings = req.session.reasonForAttachingToEarnings = req.body.reasonForAttachingToEarnings;
@@ -777,6 +780,7 @@ router.route('/legal-adviser/check-your-decisions/:id')
         sEmployerName: sEmployerName,
         sEmployerAddress1: sEmployerAddress1,
         sEmployerAddress2: sEmployerAddress2,
+        sEmployerAddress3: sEmployerAddress3,
         sEmployerTown: sEmployerTown,
         sEmployerPostcode: sEmployerPostcode,
         sInstalmentOnlyAmount: sInstalmentOnlyAmount,
