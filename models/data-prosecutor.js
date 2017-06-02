@@ -21,7 +21,7 @@ var search = [
       "mobile":     "",
       "national-insurance-number": ""
     },
-    "notice-served": "30 Apr 2015",
+    "notice-served": "2015-04-30",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
@@ -32,7 +32,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-04-30",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
@@ -174,7 +174,7 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "ZK 89 01 41 A"
     },
-    "notice-served": "18 Sep 2015",
+    "notice-served": "2015-09-18",
     "hearing": "18 Nov 2015",
     "verdict": "Guilty",
     "decision": "Adjourned",
@@ -185,7 +185,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-09-18",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
@@ -277,7 +277,7 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "GK 69 85 94 D"
     },
-    "notice-served": "13 Jul 2015",
+    "notice-served": "2015-07-13",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
@@ -288,7 +288,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-07-13",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
@@ -385,7 +385,7 @@ var search = [
     "email": "",
     "phone": "",
     "national-insurance-number": "",
-    "notice-served": "4 Sep 2015",
+    "notice-served": "2015-09-04",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Withdrawn",
@@ -396,7 +396,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-09-04",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
@@ -469,7 +469,7 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "TK 60 97 18 A"
     },
-    "notice-served": "18 Sep 2015",
+    "notice-served": "2015-09-18",
     "hearing": "18 Nov 2015",
     "verdict": "Guilty",
     "decision": "Adjourned",
@@ -480,7 +480,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-09-18",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
@@ -555,7 +555,7 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "NY 80 08 89 A"
     },
-    "notice-served": "14 Jan 2015",
+    "notice-served": "2015-01-14",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
@@ -566,7 +566,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-01-14",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
@@ -646,7 +646,7 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "HS 12 20 51 D"
     },
-    "notice-served": "18 Sep 2015",
+    "notice-served": "2015-09-18",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
@@ -657,7 +657,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-09-18",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
@@ -736,7 +736,7 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "MJ 82 16 61 A"
     },
-    "notice-served": "18 Sep 2015",
+    "notice-served": "2015-09-18",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
@@ -747,7 +747,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-09-18",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
@@ -813,7 +813,7 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "LC 59 17 17 B"
     },
-    "notice-served": "14 Jan 2015",
+    "notice-served": "2015-01-14",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
@@ -824,7 +824,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-01-14",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
@@ -904,7 +904,7 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "LN 56 80 72 B"
     },
-    "notice-served": "14 Jan 2015",
+    "notice-served": "2015-01-14",
     "hearing": "",
     "verdict": "Guilty",
     "decision": "Fine",
@@ -915,7 +915,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
-      "notice-served": "2 February 2016",
+      "notice-served": "2015-01-14",
       "notice-served-datetime": "2016-02-02",
     },
     "offence": {
