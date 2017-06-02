@@ -33,7 +33,7 @@ var search = [
       "statement-of-facts": "On Thursday 10th November 2016 you were on board a route 178 bus, garage code 552 with the intention of travelling from LEWISHAM to BLACKHEATH, a normal adult fare of &pound;2.40. During the course of this journey at about 4:15 PM you offered for the inspection of London Bus Inspector LB004512 a &pound;3.60 Discount SINGLE Pay as you go pass in oystercard format, serial number 02871229561, which had been issued to another person on terms that it was not transferable and was therefore not valid for travel by you. When questioned, you said &ldquo;It&rsquo;s my wife&rsquo;s&rdquo;. When informed that you were being reported you said &ldquo;It&rsquo;s not fair, nobody told me I couldn&rsquo;t use someone else&rsquo;s oystercard",
       "mitigation": "",
       "plea": "No plea received",
-      "verdict": "Proven <abbr title=\"Single Justice Procedure\">SJP</abbr>",
+      "verdict": "Proved <abbr title=\"Single Justice Procedure\">SJP</abbr>",
       "decision": "Financial penalty",
       "collection-order-confirmed": "true",
       "reason-for-deducting-from-benefits": "Compensation ordered",
