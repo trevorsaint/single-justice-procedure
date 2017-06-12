@@ -676,15 +676,15 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
 
 
 
-router.route('/court-administrator/log-case-as-reopened-on-libra/:id/')
+router.route('/court-administrator/mark-case-as-reopened/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/log-case-as-reopened-on-libra', {
+    res.render('court-administrator/mark-case-as-reopened', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
-      doctitle: 'Log case as reopened on Libra',
-      pagetitle: 'Log case as reopened on Libra',
+      doctitle: 'Mark case as reopened',
+      pagetitle: 'Mark case as reopened',
       section: 'home',
       section_name: 'Home',
       breadcrumb: true,

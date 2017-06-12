@@ -6,28 +6,19 @@
 
   <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
+  <p>This will delete all &lsquo;case reopened&rsquo; details</h2>
+
   <form class="form" method="post" novalidate>
 
     <div class="form-group">
 
       <fieldset class="inline">
 
-        <legend>
-          <label class="form-label-bold">Are you sure?</label>
-        </legend>
-
-        <div class="multiple-choice" data-target="revert-case">
-          <input id="revert-case-yes" name="revertCase" type="radio" value="Yes">
-          <label for="revert-case-yes">Yes</label>
-        </div>
+        <legend class="visually-hidden">This will delete all &lsquo;case reopened&rsquo; details</label></legend>
 
         <div class="multiple-choice">
-          <input id="revert-case-no" name="revertCase" type="radio" value="No">
-          <label for="revert-case-no">No</label>
-        </div>
-
-        <div class="panel panel-border-narrow js-hidden" id="revert-case">
-          <p>This will delete all &lsquo;case reopened&rsquo; details</p>
+          <input id="revert-case" name="revertCase" type="checkbox" value="Yes">
+          <label for="revert-case">Confirm</label>
         </div>
 
       </fieldset>

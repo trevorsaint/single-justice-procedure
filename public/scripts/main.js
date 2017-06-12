@@ -1,4 +1,3 @@
-
 // text shorten
 $.fn.shorten = function (settings) {
 
@@ -60,43 +59,6 @@ $.fn.shorten = function (settings) {
 };
 
 
-// collection order
-function collectionOrder() {
-
-  "strict"
-
-  var $input  = $('input[name="collectionOrderConfirmed"]');
-  var $answer = $('input[name="collectionOrderAnswer"]');
-  var $panel  = $input.parent().next(".panel");
-
-  $($input).on("change", function(e) {
-
-    if ($input.prop("checked") === false) {
-      $panel.removeClass("js-hidden").attr("aria-hidden", false);
-    } else {
-      $answer.prop("checked", false).parent().removeClass("selected") // reset answer radio group
-      $panel.addClass("js-hidden").attr("aria-hidden", true);
-    }
-
-  });
-
-  $($answer).on("change", function() {
-
-    var $answerValue = $(this).val();
-
-    if ($answerValue === "No") {
-      $answer.prop("checked", false).parent().removeClass("selected"); // reset answer radio group
-      $input.prop("checked", true).parent().addClass("selected");
-      $panel.addClass("js-hidden").attr("aria-hidden", true);
-    } else {
-      $input.prop("checked", false);
-    }
-
-  });
-
-};
-
-
 // change fine
 $.fn.changeFine = function() {
 
@@ -117,7 +79,7 @@ $.fn.changeFine = function() {
 
     });
 
-  })
+  });
 
 };
 
@@ -142,15 +104,54 @@ $.fn.changeCompensation = function() {
 
     });
 
-  })
+  });
 
 };
+
+
+// collection order
+function collectionOrder() {
+
+  "use strict";
+
+  var $input  = $('input[name="collectionOrderConfirmed"]');
+  var $answer = $('input[name="collectionOrderAnswer"]');
+  var $panel  = $input.parent().next(".panel");
+
+  $($input).on("change", function(e) {
+
+    if ($input.prop("checked") === false) {
+      $panel.removeClass("js-hidden").attr("aria-hidden", false);
+    } else {
+      $answer.prop("checked", false).parent().removeClass("selected"); // reset answer radio group
+      $panel.addClass("js-hidden").attr("aria-hidden", true);
+    }
+
+  });
+
+
+  $($answer).on("change", function() {
+
+    var $answerValue = $(this).val();
+
+    if ($answerValue === "No") {
+      $answer.prop("checked", false).parent().removeClass("selected"); // reset answer radio group
+      $input.prop("checked", true).parent().addClass("selected");
+      $panel.addClass("js-hidden").attr("aria-hidden", true);
+    } else {
+      $input.prop("checked", false);
+    }
+
+  });
+
+}
+
 
 
 // change costs
 function changeCosts() {
 
-  "strict"
+  "use strict";
 
   var $input       = $('#cost');
   var $reason      = $("#costs-reason");
@@ -173,17 +174,19 @@ function changeCosts() {
 
   });
 
-};
+}
+
 
 
 // change surcharge
 function changeSurcharge() {
 
-  "strict"
+  "use strict";
 
   var $input       = $('#surcharge');
   var $reason      = $("#surcharge-reason");
   var $reasonInput = $("#reason-for-reducing-surcharge");
+	var $initialValue;
 
   $initialValue = $input.val(); // get initial value
   $reason.attr("aria-hidden", true); // add aria attributes init
@@ -203,15 +206,16 @@ function changeSurcharge() {
 
   });
 
-};
+}
+
 
 
 // calculate size of file
 function formatBytes(bytes, decimals, binaryUnits) {
 
-  "strict"
+  "use strict";
 
-  if(bytes == 0) {
+  if(bytes === 0) {
       return "0 Bytes";
   }
 
@@ -224,24 +228,26 @@ function formatBytes(bytes, decimals, binaryUnits) {
 
   return parseFloat((bytes / Math.pow(unitMultiple, unitChanges)).toFixed(decimals || 0)) + ' ' + unitNames[unitChanges];
 
-};
+}
+
 
 
 // get file extension
 function getFileExtension(filename) {
 
-  "strict"
+  "use strict";
 
   var ext = /^.+\.([^.]+)$/.exec(filename);
-  return ext == null ? "" : ext[1];
+  return ext === null ? "" : ext[1];
 
-};
+}
+
 
 
 // multiple file upload
 function file() {
 
-  "strict"
+  "use strict";
 
   var $input     = $("#other-documents"); // file input
   var $label     = $input.next(); // file label
@@ -267,16 +273,18 @@ function file() {
 
     }
 
-
   });
 
+}
 
-};
 
 
+// file uplaod
 function fileUpload() {
 
-  "strict"
+
+  "use strict";
+
 
   if ($(".form-control-file").length > 0) {
 
@@ -306,12 +314,13 @@ function fileUpload() {
 
         var fileVal = $this.val();
 
-        if (fileVal != "") {
+        if (fileVal !== "") {
           $panel.removeClass("js-hidden");
           $file.text(fileVal);
         }
 
       });
+
 
       // remove file
       $remove.on("click", function(e) {
@@ -324,227 +333,266 @@ function fileUpload() {
 
       });
 
-    });
-
-  }
-
-  // tabs
-  if ($(".tabs").length > 0) {
-
-    $(".tabs").each(function() {
-
-      var $container = $(this);
-
-      // the setup
-      $container.find('.tabs-header > ul').attr('role', 'tablist');
-      $container.find('.tabs-header > ul li').attr('role', 'presentation');
-
-      $container.find('[role="tablist"] a').attr({
-        'role' : 'tab',
-        'tabindex' : '-1'
-      });
-
-      // make each aria-controls correspond id of targeted section (re href)
-      $container.find('[role="tablist"] a').each(function() {
-
-        $(this).attr(
-          'aria-controls', $(this).attr('href').substring(1)
-        );
-
-      });
-
-      // make first tab selected by default and allow it focus
-      $container.find('[role="tablist"] li:first-child a').attr({
-        'aria-selected' : true,
-        'tabindex' : 0
-      });
-
-      // make each section focusable and give it the tabpanel role
-      $container.find('section').attr({
-        'role' : 'tabpanel'
-      });
-
-
-      // make first child of each panel focusable programmatically
-      $container.find('section > *:first-child').attr({
-        'tabindex' : 0
-      });
-
-      // make all but the first section hidden (ARIA state and display CSS)
-      $container.find('[role="tabpanel"]:not(:first-of-type)').attr({
-        'aria-hidden' : true
-      });
-
-      // change focus between tabs with arrow keys
-      $container.find('[role="tab"]').on('keydown', function(e) {
-
-        // define current, previous and next (possible) tabs
-        var $original = $(this);
-        var $prev = $(this).parents('li').prev().children('[role="tab"]');
-        var $next = $(this).parents('li').next().children('[role="tab"]');
-        var $target;
-
-        // find the direction (prev or next)
-        switch (e.keyCode) {
-          case 37:
-            $target = $prev;
-            break;
-          case 39:
-            $target = $next;
-            break;
-          default:
-            $target = false;
-            break;
-        }
-
-        if ($target.length) {
-
-          $original.attr({
-            'tabindex' : -1,
-            'aria-selected' : null
-          });
-
-          $target.attr({
-            'tabindex' : 0,
-            'aria-selected' : true
-          }).focus();
-
-        }
-
-        // hide panels
-        $container.find('[role="tabpanel"]').attr('aria-hidden', true);
-
-        // show panel which corresponds to target
-        $('#' + $(document.activeElement).attr('href').substring(1)).attr('aria-hidden', null);
-
-      });
-
-      $container.find('[role="tab"]').on('click', function(e) {
-
-        e.preventDefault();
-
-        // remove focusability and aria-selected
-        $container.find('[role="tab"]').attr({
-          'tabindex' : -1,
-          'aria-selected' : null
-        });
-
-        // replace above on clicked tab
-        $(this).attr({
-          'aria-selected' : true,
-          'tabindex' : 0
-        });
-
-        // hide panels
-        $container.find('[role="tabpanel"]').attr('aria-hidden', true);
-
-        // show corresponding panel
-        $('#' + $(this).attr('href').substring(1)).attr('aria-hidden', null);
-
-      });
-
-      // open if is-active class
-      $container.find('[role="presentation"].is-active [role="tab"]').trigger('click');
 
     });
 
-  }
 
-};
+   }
+
+
+ }
+
+
+
+ // tabs
+ if ($(".tabs").length > 0) {
+
+ 	$(".tabs").each(function() {
+
+ 		var $container = $(this);
+
+ 		// the setup
+ 		$container.find('.tabs-header > ul').attr('role', 'tablist');
+ 		$container.find('.tabs-header > ul li').attr('role', 'presentation');
+
+ 		$container.find('[role="tablist"] a').attr({
+ 			'role' : 'tab',
+ 			'tabindex' : '-1'
+ 		});
+
+ 		// make each aria-controls correspond id of targeted section (re href)
+ 		$container.find('[role="tablist"] a').each(function() {
+
+ 			$(this).attr(
+ 				'aria-controls', $(this).attr('href').substring(1)
+ 			);
+
+ 		});
+
+ 		// make first tab selected by default and allow it focus
+ 		$container.find('[role="tablist"] li:first-child a').attr({
+ 			'aria-selected' : true,
+ 			'tabindex' : 0
+ 		});
+
+ 		// make each section focusable and give it the tabpanel role
+ 		$container.find('section').attr({
+ 			'role' : 'tabpanel'
+ 		});
+
+
+ 		// make first child of each panel focusable programmatically
+ 		$container.find('section > *:first-child').attr({
+ 			'tabindex' : 0
+ 		});
+
+ 		// make all but the first section hidden (ARIA state and display CSS)
+ 		$container.find('[role="tabpanel"]:not(:first-of-type)').attr({
+ 			'aria-hidden' : true
+ 		});
+
+ 		// change focus between tabs with arrow keys
+ 		$container.find('[role="tab"]').on('keydown', function(e) {
+
+ 			// define current, previous and next (possible) tabs
+ 			var $original = $(this);
+ 			var $prev = $(this).parents('li').prev().children('[role="tab"]');
+ 			var $next = $(this).parents('li').next().children('[role="tab"]');
+ 			var $target;
+
+ 			// find the direction (prev or next)
+ 			switch (e.keyCode) {
+ 				case 37:
+ 					$target = $prev;
+ 					break;
+ 				case 39:
+ 					$target = $next;
+ 					break;
+ 				default:
+ 					$target = false;
+ 					break;
+ 			}
+
+ 			if ($target.length) {
+
+ 				$original.attr({
+ 					'tabindex' : -1,
+ 					'aria-selected' : null
+ 				});
+
+ 				$target.attr({
+ 					'tabindex' : 0,
+ 					'aria-selected' : true
+ 				}).focus();
+
+ 			}
+
+ 			// hide panels
+ 			$container.find('[role="tabpanel"]').attr('aria-hidden', true);
+
+ 			// show panel which corresponds to target
+ 			$('#' + $(document.activeElement).attr('href').substring(1)).attr('aria-hidden', null);
+
+ 		});
+
+ 		$container.find('[role="tab"]').on('click', function(e) {
+
+ 			e.preventDefault();
+
+ 			// remove focusability and aria-selected
+ 			$container.find('[role="tab"]').attr({
+ 				'tabindex' : -1,
+ 				'aria-selected' : null
+ 			});
+
+ 			// replace above on clicked tab
+ 			$(this).attr({
+ 				'aria-selected' : true,
+ 				'tabindex' : 0
+ 			});
+
+ 			// hide panels
+ 			$container.find('[role="tabpanel"]').attr('aria-hidden', true);
+
+ 			// show corresponding panel
+ 			$('#' + $(this).attr('href').substring(1)).attr('aria-hidden', null);
+
+ 		});
+
+ 		// open if is-active class
+ 		$container.find('[role="presentation"].is-active [role="tab"]').trigger('click');
+
+ 	});
+
+
+ }
+
 
 
 // filters
 if ($('.filters').length > 0) {
 
-	$('.filters').each(function() {
+ 	$('.filters').each(function() {
 
-		var $container = $(this);
+ 		var $container = $(this);
 
-		// click handler
-		$container.find('.filters-link').on('click', function(e) {
+ 		// click handler
+ 		$container.find('.filters-link').on('click', function(e) {
 
-			var $button     = $(this);
-			var $dataToSort = $(this).attr('data-sort');
+ 			var $button     = $(this);
+ 			var $dataToSort = $(this).attr('data-sort');
 
-			// reset
-			$container.find('.filters-content').attr('aria-hidden', null).removeClass('js-hidden');
+ 			// reset
+ 			$container.find('.filters-content').attr('aria-hidden', null).removeClass('js-hidden');
 
-			// filter results
-			//if ($button.attr('data-sort') != 'all') {
-				$container.find('.filters-content').not('.filters-content[data-filter="' + $dataToSort + '"]').attr('aria-hidden', true).addClass('js-hidden');
-			//}
+ 			// filter results
+ 			//if ($button.attr('data-sort') != 'all') {
+ 				$container.find('.filters-content').not('.filters-content[data-filter="' + $dataToSort + '"]').attr('aria-hidden', true).addClass('js-hidden');
+ 			//}
 
-			// add and remove attributes
-			$(this).siblings().attr('aria-pressed', false).removeClass('is-selected');
-			$(this).attr('aria-pressed', true).addClass('is-selected').focus();
-
-
-		});
-
-		// keydown handler
-		$container.find('.filters-link').on('keydown', function(e) {
-
-			// define current, previous and next (possible) tabs
-			var $newButton;
-			var $prevButton = $(this).prev();
-			var $nextButton = $(this).next();
-			var $dataToSort = $(this).attr('data-sort');
-
-			// find the direction (prev or next)
-			switch (e.keyCode) {
-				case 37:
-					$newButton = $prevButton;
-					break;
-				case 39:
-					$newButton = $nextButton;
-					break;
-				default:
-					$newButton = false;
-					break;
-			}
-
-			if ($newButton.length) {
-				$newButton.focus();
-			}
-
-		});
-
-	});
-
-}
+ 			// add and remove attributes
+ 			$(this).siblings().attr('aria-pressed', false).removeClass('is-selected');
+ 			$(this).attr('aria-pressed', true).addClass('is-selected').focus();
 
 
-function fileUploadFocus() {
+ 		});
 
-  "strict"
+ 		// keydown handler
+ 		$container.find('.filters-link').on('keydown', function(e) {
 
-  $(".form-control-file").on("focus", function() {
-    $(this).addClass("focused");
-  }).on("blur", function() {
-    $(this).removeClass("focused");
-  })
+ 			// define current, previous and next (possible) tabs
+ 			var $newButton;
+ 			var $prevButton = $(this).prev();
+ 			var $nextButton = $(this).next();
+ 			var $dataToSort = $(this).attr('data-sort');
 
-};
+ 			// find the direction (prev or next)
+ 			switch (e.keyCode) {
+ 				case 37:
+ 					$newButton = $prevButton;
+ 					break;
+ 				case 39:
+ 					$newButton = $nextButton;
+ 					break;
+ 				default:
+ 					$newButton = false;
+ 					break;
+ 			}
+
+ 			if ($newButton.length) {
+ 				$newButton.focus();
+ 			}
+
+ 		});
+
+ 	});
+
+ }
 
 
-$("[data-action='print']").on("click", function() {
-	window.print();
-});
+
+ // file uplaod focus
+ function fileUploadFocus() {
+
+   "use strict";
+
+   $(".form-control-file").on("focus", function() {
+     $(this).addClass("focused");
+   }).on("blur", function() {
+     $(this).removeClass("focused");
+   });
+
+ }
 
 
-// document ready
-(function($) {
 
-  fileUpload();
-  fileUploadFocus();
 
-  changeCosts();
-  changeSurcharge();
-  collectionOrder();
+ // other documents
+ function otherDocuments() {
 
-  $("#fine-a, #fine-b, #fine-c").changeFine();
-  $("#compensation-a, #compensation-b, #compensation-c").changeCompensation();
+   "use strict";
 
-  $(".js-text").shorten();
+   $("#other-documents").on("change", function() {
 
-})(jQuery);
+ 		var file     = $(this);
+ 		var filename = $(this).val();
+ 		var panel    = $(this).attr('aria-controls');
+
+ 		if (filename) {
+
+ 			file.attr('aria-expanded', true);
+ 			$('#' + panel).attr('aria-hidden', false).removeClass('js-hidden');
+
+ 		}
+
+   });
+
+ }
+
+
+
+ // print
+ $("[data-action='print']").on("click", function() {
+ 	window.print();
+ });
+
+
+
+ // document ready
+ (function($) {
+
+   //fileUpload();
+   //fileUploadFocus();
+
+ 	 otherDocuments();
+
+   changeCosts();
+   changeSurcharge();
+   collectionOrder();
+
+   $("#fine-a, #fine-b, #fine-c").changeFine();
+   $("#compensation-a, #compensation-b, #compensation-c").changeCompensation();
+
+   $(".js-text").shorten();
+
+ })(jQuery);

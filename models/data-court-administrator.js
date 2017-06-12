@@ -93,52 +93,13 @@ var search = [
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
+          "file-title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
-        },
-        {
-          "show": false,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
-          "file-type": "PDF",
-          "file-size": "560KB",
-          "file-pages": "10 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
-        },
-        {
-          "show": false,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
-          "file-type": "PDF",
-          "file-size": "256KB",
-          "file-pages": "3 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
-        },
-        {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
-          "file-type": "PDF",
-          "file-size": "458KB",
-          "file-pages": "9 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-date": "2016-01-14",
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         }
       ]
     }
@@ -248,78 +209,49 @@ var search = [
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
+          "file-title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
+          "file-uploaded-date": "2016-01-14",
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": true,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
+          "file-title": "Plea",
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "9:15:01am",
+          "file-path": "#"
         },
         {
-          "show": true,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
+          "file-title": "Plea",
+          "file-type": "PDF",
+          "file-size": "560KB",
+          "file-pages": "10 pages",
+          "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "9:15:58am",
+          "file-path": "#"
+        },
+        {
+          "file-title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "9:15:58am",
+          "file-path": "#"
         },
         {
-          "show": true,
-          "id": "witness-statement",
-          "name": "witnessStatement",
-          "title": "witness statement",
-          "file-type": "PDF",
-          "file-size": "856KB",
-          "file-pages": "12 pages",
-          "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
-        },
-        {
-          "show": true,
-          "id": "orders",
-          "name": "orders",
-          "title": "orders",
-          "file-type": "PDF",
-          "file-size": "125KB",
-          "file-pages": "2 pages",
-          "file-uploaded-date": "2016-10-07",
-          "file-path": "#",
-          "printed-for-posting": "Printed for posting 7 Oct 2016",
-          "printed-for-posting-iso": "2016-10-07",
-          "can-remove": true
-        },
-        {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
+          "file-title": "Unnamed 1",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "9:16:11am",
+          "file-path": "#"
         }
       ]
     }
@@ -394,52 +326,40 @@ var search = [
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
+          "file-title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "4:38:52pm",
           "file-path": "#",
-          "can-remove": false
         },
         {
-          "show": true,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
+          "file-title": "Plea",
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
           "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "9:15:01am",
           "file-path": "#",
-          "can-remove": true
         },
         {
-          "show": false,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
+          "file-title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "9:15:58am",
           "file-path": "#",
-          "can-remove": true
         },
         {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
+          "file-title": "Other 1",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
           "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "9:15:58am",
           "file-path": "#",
-          "can-remove": true
         }
       ]
     }
@@ -512,52 +432,40 @@ var search = [
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
+          "file-title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "4:38:52pm",
           "file-path": "#",
-          "can-remove": false
         },
         {
-          "show": true,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
+          "file-title": "Plea",
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
           "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "9:15:01am",
           "file-path": "#",
-          "can-remove": true
         },
         {
-          "show": false,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
+          "file-title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "9:15:58am",
           "file-path": "#",
-          "can-remove": true
         },
         {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
+          "file-title": "Other 1",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
           "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "9:16:01am",
           "file-path": "#",
-          "can-remove": true
         }
       ]
     }
@@ -698,52 +606,40 @@ var search = [
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
+          "file-title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
+          "file-title": "Plea",
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
+          "file-title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
+          "file-title": "Other 1",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         }
       ]
     }
@@ -815,52 +711,40 @@ var search = [
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
+          "file-title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
+          "file-title": "Plea",
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
+          "file-title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
+          "file-title": "Other 1",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         }
       ]
     }
@@ -932,52 +816,40 @@ var search = [
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
+          "file-title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
+          "file-title": "Plea",
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
+          "file-title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
+          "file-title": "Other 1",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         }
       ]
     }
@@ -1049,52 +921,40 @@ var search = [
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
+          "file-title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
+          "file-title": "Plea",
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
+          "file-title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
+          "file-title": "Other 1",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         }
       ]
     }
@@ -1166,52 +1026,49 @@ var search = [
     "related-documents": {
       "document": [
         {
-          "show": true,
-          "id": "sjp-notice",
-          "name": "documentNotice",
-          "title": "SJP notice",
+          "file-title": "SJP notice",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": false
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "plea-document",
-          "name": "pleaDocument",
-          "title": "plea document",
+          "file-title": "Plea",
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "statement-income",
-          "name": "statementIncome",
-          "title": "statement of income and outgoings (MC100)",
+          "file-title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "256KB",
           "file-pages": "3 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         },
         {
-          "show": false,
-          "id": "other-document",
-          "name": "otherDocument",
-          "title": "other document",
+          "file-title": "Other 1",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
           "file-uploaded-date": "2016-01-15",
-          "file-path": "#",
-          "can-remove": true
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
+        },
+        {
+          "file-title": "Other 2",
+          "file-type": "PDF",
+          "file-size": "329KB",
+          "file-pages": "5 pages",
+          "file-uploaded-date": "2016-01-15",
+          "file-uploaded-time": "4:38:52pm",
+          "file-path": "#"
         }
       ]
     }

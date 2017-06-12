@@ -5,6 +5,14 @@ $module: 'form';
 
 .#{$module} {
 
+  &-upload-type {
+    @include core-16;
+    color: $secondary-text-colour;
+    display: block;
+    margin-top: em(10);
+    margin-bottom: em(20);
+  }
+
   &-currency {
     display: block;
     position: relative;

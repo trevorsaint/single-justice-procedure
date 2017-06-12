@@ -14,7 +14,7 @@
   {{/if}}
 
 
-  {{#unless related-documents.document}}s
+  {{#unless related-documents.document}}
   <div class="banner banner-warning" role="alert">
     <i class="icon icon-banner-warning" role="presentation" aria-hidden="true"></i>
     <div class="banner-message">
@@ -317,11 +317,10 @@
                 <dt>Uploaded files</dt>
                 <dd>
                   {{#each document}}
-                    {{#is show true}}
                     <div class="document document-small">
                       <i class="icon icon-file-download"></i>
                       <div class="document-content">
-                        <p class="document-title"><a href="#" target="_blank">{{{capitalize title}}}<span class="visually-hidden"> (opens in a new window)</span></a></p>
+                        <p class="document-title"><a href="#" target="_blank">{{{file-title}}}<span class="visually-hidden"> (opens in a new window)</span></a></p>
                         <div class="document-meta">
                           <span class="document-meta-details">
                             {{{file-type}}}, {{{file-size}}}, {{{file-pages}}} {{#if printed-for-posting}}<br> <time datetime="{{printed-for-posting-iso}}">{{printed-for-posting}}</time>{{/if}}
@@ -329,7 +328,6 @@
                         </div>
                       </div>
                     </div>
-                    {{/is}}
                   {{/each}}
                 </dd>
               </dl>
@@ -337,9 +335,7 @@
               <p>You haven&rsquo;t uploaded any documents.</p>
             {{/if}}
 
-            {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
             <p><a class="font-small" href="/court-administrator/upload-documents/{{../id}}/">Upload more documents</a></p>
-            {{/isnt}}
 
           </section>
           {{/with}}
@@ -359,7 +355,7 @@
           <h3 class="related-heading">Case options</h3>
           <ul class="related-links">
           {{#contains case-details.status 'Completed'}}
-            {{#isnt ../sReopenedCase 'Yes'}}<li><a href="/court-administrator/log-case-as-reopened-on-libra/{{id}}/">Log case as reopened on Libra</a></li>{{/isnt}}
+            {{#isnt ../sReopenedCase 'Yes'}}<li><a href="/court-administrator/mark-case-as-reopened/{{id}}/">Mark case as reopened</a></li>{{/isnt}}
             <li><a href="/court-administrator/extract-of-court-record/{{id}}/">Extract of court record</a></li>
           {{else}}
             <li><a href="/">Send case to court hearing</a></li>

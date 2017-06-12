@@ -2,78 +2,96 @@
 
   {{#with search}}
 
+  {{>court-administrator/persist-info}}
+
   <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
+  <p>You can upload any of the following, if available.</p>
+
+  <form class="form" method="post" enctype="multipart/form-data" novalidate>
+
+    <div class="form-group">
+
+      <label for="plea-document">
+        <span class="form-label-bold">Select plea document</span>
+        <span class="visually-hidden">PDF or Word document</span>
+      </label>
+
+      <input id="plea-document" name="pleaDocument" type="file" accept=".pdf, .doc, .docx">
+      <span class="form-upload-type" aria-hidden="true">PDF or Word doc</span>
+
+    </div>
+
+    <div class="form-group">
+
+      <label for="statement-of-income">
+        <span class="form-label-bold">Select statement of income and outgoings</span>
+        <span class="form-hint">For example, MC100</span>
+        <span class="visually-hidden">PDF or Word document</span>
+      </label>
+
+      <input id="statement-of-income" name="statementIncome" type="file" accept=".pdf, .doc, .docx">
+
+      <span class="form-upload-type" aria-hidden="true">PDF or Word doc</span>
+
+    </div>
+
+    <div class="form-group">
+
+      <label for="other-documents">
+        <span class="form-label-bold">Select other document</span>
+        <span class="form-hint">For example, a bank statement, email or a copy of a travelcard</span>
+        <span class="visually-hidden">PDF or Word document</span>
+      </label>
+
+      <input id="other-documents" name="otherDocuments" type="file" accept=".pdf, .doc, .docx" aria-controls="describe-document" aria-expanded="false">
+
+      <span class="form-upload-type" aria-hidden="true">PDF or Word doc</span>
+
+      <div class="panel panel-border-wide js-hidden" id="describe-document" aria-hidden="true">
+
+        <label for="document-name">
+          <span class="form-label-bold">Describe document (optional)</span>
+          <span class="form-hint">For example, &lsquo;Travelcard&rsquo;</span>
+        </label>
+        <input class="form-control" id="document-name" name="documentName" type="text">
+
+      </div>
+
+    </div>
+
+    <div class="form-group form-group-related">
+      <button class="button" type="submit">Upload</button>
+    </div>
+
+    <p><a href="/court-administrator/case-details/{{id}}">Done &ndash; go back to case</a></p>
+
+  </form>
+
   {{#if related-documents.document}}
-  <section aria-labelledby="uploaded-documents">
-
-    <h2 class="heading-medium" id="uploaded-documents">Already uploaded</h2>
-
+  <div aria-live="assertive">
+    <h2 class="heading-medium">Uploaded</h2>
     <table class="table table-font-xsmall">
       <thead>
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Type</th>
           <th scope="col">Uploaded on</th>
-          <th scope="col"><span class="visually-hidden">Action</span></th>
+          <th scope="col">Time</th>
         </tr>
       </thead>
       <tbody>
-
       {{#each related-documents.document}}
-        {{#is show true}}
-          <tr>
-            <td><a href="#" target="_blank">{{capitalize title}}<span class="visually-hidden"> (opens in a new window)</span></a></td>
-            <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
-            <td><time datetime="{{moment file-uploaded-date format="YYYY-MM-DD"}}">{{moment file-uploaded-date format="D MMM YYYY"}}</time></td>
-            <td>{{#if can-remove}}<a href="#">Remove <span class="visually-hidden">{{capitalize title}}</span></a>{{else}}&ndash;{{/if}}</td>
-          </tr>
-        {{/is}}
+        <tr>
+          <th scope="row"><a href="{{file-path}}" target="_blank">{{file-title}}<span class="visually-hidden"> (opens in a new window)</span></a></th>
+          <td>{{{file-type}}}, {{{file-size}}}, {{{file-pages}}}</td>
+          <td><time datetime="{{moment file-uploaded-date format="YYYY-MM-DD"}}">{{moment file-uploaded-date format="D MMM YYYY"}}</time></td>
+          <td>{{file-uploaded-time}}</td>
+        </tr>
       {{/each}}
-
       </tbody>
     </table>
-
-  </section>
+  </div>
   {{/if}}
-
-  <section aria-labelledby="add-documents">
-
-    <h2 class="heading-medium" id="add-documents">Add documents</h2>
-
-    <p>You can upload any of the following, if available.</p>
-
-    <form class="form" method="post" enctype="multipart/form-data" novalidate>
-
-      <div class="form-group">
-        <label for="plea-document">
-          <span class="form-label-bold">Select plea document</span>
-        </label>
-        <input id="plea-document" name="pleaDocument" type="file">
-      </div>
-
-      <div class="form-group">
-        <label for="statement-of-income">
-          <span class="form-label-bold">Select statement of income and outgoings (MC100)</span>
-        </label>
-        <input id="statement-of-income" name="statementIncome" type="file">
-      </div>
-
-      <div class="form-group form-group-last">
-        <label for="other-documents">
-          <span class="form-label-bold">Select any other documents</span>
-          <span class="form-hint">For example, a bank statement, email or a copy of a travelcard</span>
-        </label>
-        <input id="other-documents" name="otherDocuments" type="file" multiple>
-      </div>
-
-      <div class="form-group form-group-actions">
-        <button class="button" type="submit">Upload</button>
-        <p><a href="/court-administrator/case-details/{{id}}">Done &ndash; go back to case</a></p>
-      </div>
-
-    </form>
-
-  </section>
 
 {{/with}}
