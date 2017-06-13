@@ -4,62 +4,72 @@
 
   {{>court-administrator/persist-info}}
 
-  <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+  <div class="grid-row">
 
-  <form class="form" method="post" novalidate>
+    <div class="column-two-thirds">
 
-    <div class="form-group">
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
-      <fieldset>
+      <p>Make sure this case has been reopened in Libra first, before marking as reopened here.</p>
 
-        <legend>
-          <span class="form-label-bold">Date case was officially reopened in court</span>
-          <span class="form-hint" id="date-order-hint">For example, 18 5 2016</span>
-        </legend>
+      <form class="form" method="post" novalidate>
 
-        <div class="form-date">
+        <div class="form-group">
 
-          <div class="form-group form-group-day">
-            <label class="form-label" for="date-order-day">Day</label>
-            <input class="form-control" id="date-order-day" name="dateOrderDay" type="number" aria-describedby="date-order-hint">
-          </div>
+          <fieldset>
 
-          <div class="form-group form-group-month">
-            <label class="form-label" for="date-order-month">Month</label>
-            <input class="form-control" id="date-order-month" name="dateOrderMonth" type="number">
-          </div>
+            <legend>
+              <span class="form-label-bold">Date case was officially reopened in court</span>
+              <span class="form-hint" id="date-order-hint">For example, 18 5 2016</span>
+            </legend>
 
-          <div class="form-group form-group-year">
-            <label class="form-label" for="date-order-year">Year</label>
-            <input class="form-control" id="date-order-year" name="dateOrderYear" type="number">
-          </div>
+            <div class="form-date">
+
+              <div class="form-group form-group-day">
+                <label class="form-label" for="date-order-day">Day</label>
+                <input class="form-control" id="date-order-day" name="dateOrderDay" type="number" aria-describedby="date-order-hint">
+              </div>
+
+              <div class="form-group form-group-month">
+                <label class="form-label" for="date-order-month">Month</label>
+                <input class="form-control" id="date-order-month" name="dateOrderMonth" type="number">
+              </div>
+
+              <div class="form-group form-group-year">
+                <label class="form-label" for="date-order-year">Year</label>
+                <input class="form-control" id="date-order-year" name="dateOrderYear" type="number">
+              </div>
+
+            </div>
+
+          </fieldset>
 
         </div>
 
-      </fieldset>
+        <div class="form-group">
+          <label for="case-number">
+            <span class="form-label-bold">New Libra case number</span>
+          </label>
+          <input class="form-control form-control-3-4" id="case-number" name="caseNumber" type="text">
+        </div>
+
+        <div class="form-group">
+          <label for="reason-for-reopening">
+            <span class="form-label-bold">Reason for reopening</span>
+          </label>
+          <textarea class="form-control form-control-3-4" id="reason-for-reopening" name="reasonForReopening" rows="5"></textarea>
+        </div>
+
+        <div class="form-group form-group-related">
+          <button class="button" type="submit">Save</button>
+        </div>
+
+        <p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
+
+      </form>
 
     </div>
 
-    <div class="form-group">
-      <label for="case-number">
-        <span class="form-label-bold">New Libra case number</span>
-      </label>
-      <input class="form-control" id="case-number" name="caseNumber" type="text">
-    </div>
-
-    <div class="form-group">
-      <label for="reason-for-reopening">
-        <span class="form-label-bold">Reason for reopening</span>
-      </label>
-      <textarea class="form-control" id="reason-for-reopening" name="reasonForReopening" rows="5"></textarea>
-    </div>
-
-    <div class="form-group form-group-related">
-      <button class="button" type="submit">Save</button>
-    </div>
-
-    <p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
-
-  </form>
+  </div>
 
 {{/with}}

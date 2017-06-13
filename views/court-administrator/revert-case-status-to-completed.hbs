@@ -4,33 +4,27 @@
 
   {{>court-administrator/persist-info}}
 
-  <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+  <div class="grid-row">
 
-  <p>This will delete all &lsquo;case reopened&rsquo; details</h2>
+    <div class="column-two-thirds">
 
-  <form class="form" method="post" novalidate>
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
-    <div class="form-group">
+      <p>This will delete all &lsquo;case reopened&rsquo; details. Are you sure you want to do this?</p>
 
-      <fieldset class="inline">
+      <form class="form" method="post" novalidate>
 
-        <legend class="visually-hidden">This will delete all &lsquo;case reopened&rsquo; details</label></legend>
-
-        <div class="multiple-choice">
-          <input id="revert-case" name="revertCase" type="checkbox" value="Yes">
-          <label for="revert-case">Confirm</label>
+        <div class="form-group form-group-related">
+          <input name="revertCase" type="hidden" value="Yes">
+          <button class="button" type="submit">Yes &ndash; confirm</button>
         </div>
 
-      </fieldset>
+        <p><a href="/court-administrator/change-reopened-case-status/{{id}}/">Cancel</a></p>
+
+      </form>
 
     </div>
 
-    <div class="form-group form-group-related">
-      <button class="button" type="submit">Save</button>
-    </div>
-
-    <p><a href="/court-administrator/change-reopened-case-status/{{id}}/">Cancel</a></p>
-
-  </form>
+  </div>
 
 {{/with}}

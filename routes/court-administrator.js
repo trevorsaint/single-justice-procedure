@@ -743,6 +743,7 @@ router.route('/court-administrator/revert-case-status-to-completed/:id/')
       section: 'home',
       section_name: 'Home',
       breadcrumb: true,
+      sRevertCase: sRevertCase,
       search: entry
     });
   })
