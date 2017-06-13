@@ -14,25 +14,25 @@ function zeroFill(i) {
 router.use(function(req, res, next) {
 
   // base
-  baseurl            = '/court-administrator/';
-  apptitle           = 'Criminal Justice Services online';
+  baseurl  = '/court-administrator/';
+  apptitle = 'Criminal Justice Services online';
 
   // general
-  sHasSaved          = req.query.saved;
-  sReopenedCase      = req.session.reopenedCase;
+  sHasSaved     = req.query.saved;
+  sReopenedCase = req.session.reopenedCase;
 
   // personal details
-  sTitle             = req.session.title;
-  sFirstname         = req.session.firstname;
-  sLastname          = req.session.lastname;
-  sDob               = req.session.dob;
-  sEmail             = req.session.email;
-  sPhone             = req.session.phone;
-  sMobile            = req.session.mobile;
-  sAddress1          = req.session.address1;
-  sAddress2          = req.session.address2;
-  sTown              = req.session.town;
-  sPostcode          = req.session.postcode;
+  sTitle     = req.session.title;
+  sFirstname = req.session.firstname;
+  sLastname  = req.session.lastname;
+  sDob       = req.session.dob;
+  sEmail     = req.session.email;
+  sPhone     = req.session.phone;
+  sMobile    = req.session.mobile;
+  sAddress1  = req.session.address1;
+  sAddress2  = req.session.address2;
+  sTown      = req.session.town;
+  sPostcode  = req.session.postcode;
 
   // employment details
   sNationalInsurance = req.session.nationalInsurance;
@@ -47,8 +47,8 @@ router.use(function(req, res, next) {
   sEmployerTelephone = req.session.employerTelephone;
 
   // pay
-  sPayFrequency         = req.session.payFrequency;
-  sPayAmount            = req.session.payAmount;
+  sPayFrequency = req.session.payFrequency;
+  sPayAmount    = req.session.payAmount;
 
   // benefits
   sReceivingBenefits = req.session.receivingBenefits;
@@ -69,13 +69,15 @@ router.use(function(req, res, next) {
   sOtherDocument   = req.session.otherDocument;
 
   // reopen case
-  sCaseNumber = req.session.caseNumber;
-  sDateOrder = req.session.dateOrder;
-  sDateOrderDay = req.session.dateOrderDay;
-  sDateOrderMonth = req.session.dateOrderMonth;
-  sDateOrderYear = req.session.dateOrderYear;
+  sCaseNumber         = req.session.caseNumber;
+  sDateOrder          = req.session.dateOrder;
+  sDateOrderDay       = req.session.dateOrderDay;
+  sDateOrderMonth     = req.session.dateOrderMonth;
+  sDateOrderYear      = req.session.dateOrderYear;
   sReasonForReopening = req.session.reasonForReopening;
-  sRevertCase = req.session.revertCase = req.body.revertCase;
+  sRevertCase         = req.session.revertCase = req.body.revertCase;
+
+  sError = req.session.error;
 
   next();
 
@@ -254,8 +256,6 @@ router.route('/court-administrator/personal-details/:id/')
       pagetitle: 'Personal details',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sTitle: sTitle,
@@ -344,39 +344,31 @@ router.route('/court-administrator/upload-documents/:id/')
       pagetitle: 'Upload documents',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
-      sDocumentNotice: sDocumentNotice,
       sPleaDocument: sPleaDocument,
-      sStatementIncome: sStatementIncome,
-      sOtherDocument: sOtherDocument
+      sError: sError
     });
   })
   .post(function(req, res, next) {
-    sDocumentNotice  = req.body.documentNotice;
-    sPleaDocument    = req.body.pleaDocument;
-    sStatementIncome = req.body.statementIncome;
-    sOtherDocument   = req.body.otherDocument;
 
-    if (sDocumentNotice != '') {
-      sDocumentNotice = req.session.documentNotice = true;
+    sPleaDocument = req.session.pleaDocument = req.body.pleaDocument;
+    sStatementIncome = req.session.statementIncome = req.body.statementIncome;
+    sOtherDocuments = req.session.otherDocuments = req.body.otherDocuments;
+
+    if (sPleaDocument === '' && sStatementIncome === '' && sOtherDocuments === '') {
+
+      sError = req.session.error = true;
+
+    } else {
+
+      sError = req.session.error = null;
+
     }
 
-    if (sPleaDocument != '') {
-      sPleaDocument = req.session.pleaDocument = true;
-    }
+    //res.redirect('/court-administrator/upload-documents/' + req.params.id + '/?saved=true');
+    res.redirect('/court-administrator/upload-documents/' + req.params.id);
 
-    if (sStatementIncome != '') {
-      sStatementIncome = req.session.statementIncome = true;
-    }
-
-    if (sOtherDocument != '') {
-      sOtherDocument = req.session.otherDocument = true;
-    }
-
-    res.redirect('/court-administrator/upload-documents/' + req.params.id + '/?saved=true');
   });
 
 // step process routes
@@ -391,8 +383,6 @@ router.route('/court-administrator/postal/add-plea/:id/')
       pagetitle: 'Add plea',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sMakeDecision: sMakeDecision,
