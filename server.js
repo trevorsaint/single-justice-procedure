@@ -1,5 +1,5 @@
 // Module dependencies
-const path         = require('path')
+const path         = require("path")
 const sslRedirect  = require("heroku-ssl-redirect")
 const express      = require("express");
 const exphbs       = require("express-handlebars")
@@ -18,9 +18,9 @@ const app          = express()
 
  // Serve static assets
  app.use("/public", express.static(path.join(__dirname, "/public")))
- app.use('/public', express.static(path.join(__dirname, '/node_modules/govuk_template_jinja/assets')))
- app.use('/public', express.static(path.join(__dirname, '/node_modules/govuk_frontend_toolkit')))
- app.use('/public', express.static(path.join(__dirname, '/node_modules/govuk-elements-sass')))
+ app.use("/public", express.static(path.join(__dirname, "/node_modules/govuk_template_jinja/assets")))
+ app.use("/public", express.static(path.join(__dirname, "/node_modules/govuk_frontend_toolkit")))
+ app.use("/public", express.static(path.join(__dirname, "/node_modules/govuk-elements-sass")))
 
 
 // Application settings
@@ -66,7 +66,7 @@ const helpers = require("handlebars-helpers")()
 
 // Send assetPath to all views / add variables that area available in all views
 app.use((req, res, next) => {
-  res.locals.asset_path = '/public/'
+  res.locals.asset_path = "/public/"
   next()
 })
 
