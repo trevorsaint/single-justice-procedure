@@ -72,14 +72,6 @@
   clear: both;
 }
 
-.example-highlight-grid .grid-row {
-  background: #bfc1c3;
-}
-.example-highlight-grid .column-highlight {
-  background: #dee0e2;
-  width: 100%;
-}
-
 .visually-hidden,
 .visuallyhidden {
   position: absolute;
@@ -1560,6 +1552,13 @@ textarea.form-control {
   }
 }
 
+option:active,
+option:checked,
+select:focus::-ms-value {
+  color: #fff;
+  background-color: #005ea5;
+}
+
 .multiple-choice {
   display: block;
   float: none;
@@ -1973,7 +1972,7 @@ input[type=number] {
 
 .govuk-box-highlight {
   margin: 1em 0;
-  padding: 2em 0 1em;
+  padding: 2em 1em;
   color: #fff;
   background: #28a197;
   text-align: center;
