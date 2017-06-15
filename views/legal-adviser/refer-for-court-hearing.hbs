@@ -20,14 +20,14 @@
         <div class="form-group">
 
           <label for="court-location">
-            <span class="form-label">Court location</span>
+            <span class="form-label">Refer to which court?</span>
           </label>
 
           <select class="form-control" id="court-location" name="courtLocation">
             <option>Select</option>
-            <option value="1">Lavender Hill</option>
-            <option value="2">Wimbledon</option>
-            <option value="3">Swansea</option>
+            <option value="Lavender Hill"{{#contains ../sCourtLocation "Lavender Hill"}} selected{{/contains}}>Lavender Hill</option>
+            <option value="Wimbledon"{{#contains ../sCourtLocation "Wimbledon"}} selected{{/contains}}>Wimbledon</option>
+            <option value="Swansea"{{#contains ../sCourtLocation "Swansea"}} selected{{/contains}}>Swansea</option>
           </select>
 
         </div>
@@ -40,15 +40,15 @@
 
           <select class="form-control form-control-1-4" id="court-room" name="courtRoom">
             <option>Select</option>
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-            <option value="4">04</option>
-            <option value="5">05</option>
-            <option value="6">06</option>
-            <option value="7">07</option>
-            <option value="8">08</option>
-            <option value="9">09</option>
+            <option value="01"{{#contains ../sCourtRoom "01"}} selected{{/contains}}>01</option>
+            <option value="02"{{#contains ../sCourtRoom "02"}} selected{{/contains}}>02</option>
+            <option value="03"{{#contains ../sCourtRoom "03"}} selected{{/contains}}>03</option>
+            <option value="04"{{#contains ../sCourtRoom "04"}} selected{{/contains}}>04</option>
+            <option value="05"{{#contains ../sCourtRoom "05"}} selected{{/contains}}>05</option>
+            <option value="06"{{#contains ../sCourtRoom "06"}} selected{{/contains}}>06</option>
+            <option value="07"{{#contains ../sCourtRoom "07"}} selected{{/contains}}>07</option>
+            <option value="08"{{#contains ../sCourtRoom "08"}} selected{{/contains}}>08</option>
+            <option value="09"{{#contains ../sCourtRoom "09"}} selected{{/contains}}>09</option>
           </select>
 
         </div>
@@ -66,17 +66,17 @@
 
               <div class="form-group form-group-day">
                 <label class="form-label" for="date-of-hearing-day">Day</label>
-                <input class="form-control" id="date-of-hearing-day" name="dateOfHearingDay" type="number" aria-describedby="date-of-hearing-hint">
+                <input class="form-control" id="date-of-hearing-day" name="dateOfHearingDay" type="number" aria-describedby="date-of-hearing-hint" value="{{../sDateOfHearingDay}}">
               </div>
 
               <div class="form-group form-group-month">
                 <label class="form-label" for="date-of-hearing-month">Month</label>
-                <input class="form-control" id="date-of-hearing-month" name="dateOfHearingMonth" type="number">
+                <input class="form-control" id="date-of-hearing-month" name="dateOfHearingMonth" type="number" value="{{../sDateOfHearingMonth}}">
               </div>
 
               <div class="form-group form-group-year">
                 <label class="form-label" for="date-of-hearing-year">Year</label>
-                <input class="form-control" id="date-of-hearing-year" name="dateOfHearingYear" type="number">
+                <input class="form-control" id="date-of-hearing-year" name="dateOfHearingYear" type="number" value="{{../sDateOfHearingYear}}">
               </div>
 
             </div>
@@ -98,12 +98,12 @@
 
               <div class="form-group form-group-hour">
                 <label class="form-label visually-hidden" for="start-time-of-hearing-hour">Hour</label>
-                <input class="form-control" id="start-time-of-hearing-hour" name="startTimeOfHearingHour" type="number" aria-describedby="start-time-of-hearing-hint">
+                <input class="form-control" id="start-time-of-hearing-hour" name="startTimeOfHearingHour" type="number" aria-describedby="start-time-of-hearing-hint" value="{{../sStartTimeOfHearingHour}}">
               </div>
 
               <div class="form-group form-group-minute">
                 <label class="form-label visually-hidden" for="start-time-of-hearing-minute">Minutes</label>
-                <input class="form-control" id="start-time-of-hearing-minute" name="startTimeOfHearingMinute" type="number">
+                <input class="form-control" id="start-time-of-hearing-minute" name="startTimeOfHearingMinute" type="number" value="{{../sStartTimeOfHearingMinute}}">
               </div>
 
             </div>
@@ -121,7 +121,7 @@
             </legend>
 
             <div class="multiple-choice" data-target="equivocal-plea">
-              <input id="reason-equivocal" name="reasonForReferring" type="radio" value="Equivocal plea">
+              <input id="reason-equivocal" name="reasonForReferring" type="radio" value="Equivocal plea"{{#contains ../sReasonForReferring "Equivocal plea"}} checked{{/contains}}>
               <label for="reason-equivocal">Equivocal plea</label>
             </div>
 
@@ -134,12 +134,12 @@
                 </legend>
 
                 <div class="multiple-choice">
-                  <input id="defendant-to-attend-to-clarify" name="equivocalPlea" type="radio" value="Defendant to attend to clarify">
+                  <input id="defendant-to-attend-to-clarify" name="equivocalPlea" type="radio" value="Defendant to attend to clarify"{{#contains ../sEquivocalPlea "Defendant to attend to clarify"}} checked{{/contains}}>
                   <label for="defendant-to-attend-to-clarify">Defendant to attend to clarify</label>
                 </div>
 
                 <div class="multiple-choice">
-                  <input id="for-trial" name="equivocalPlea" type="radio" value="For trial">
+                  <input id="for-trial" name="equivocalPlea" type="radio" value="For trial"{{#contains ../sEquivocalPlea "For trial"}} checked{{/contains}}>
                   <label for="for-trial">For trial</label>
                 </div>
 
@@ -148,17 +148,17 @@
             </div>
 
             <div class="multiple-choice">
-              <input id="reason-defence" name="reasonForReferring" type="radio" value="Defence request">
+              <input id="reason-defence" name="reasonForReferring" type="radio" value="Defence request"{{#contains ../sReasonForReferring "Defence request"}} checked{{/contains}}>
               <label for="reason-defence">Defence request</label>
             </div>
 
             <div class="multiple-choice">
-              <input id="reason-for-trial" name="reasonForReferring" type="radio" value="For trial">
+              <input id="reason-for-trial" name="reasonForReferring" type="radio" value="For trial"{{#contains ../sReasonForReferring "For trial"}} checked{{/contains}}>
               <label for="reason-for-trial">For trial</label>
             </div>
 
             <div class="multiple-choice" data-target="case-management-hearing">
-              <input id="reason-case-management" name="reasonForReferring" type="radio" value="For a case management hearing">
+              <input id="reason-case-management" name="reasonForReferring" type="radio" value="For a case management hearing"{{#contains ../sReasonForReferring "For a case management hearing"}} checked{{/contains}}>
               <label for="reason-case-management">For a case management hearing</label>
             </div>
 
@@ -171,12 +171,12 @@
                 </legend>
 
                 <div class="multiple-choice">
-                  <input id="defendant-to-attend" name="caseManagementHearing" type="radio" value="Defendant to attend">
+                  <input id="defendant-to-attend" name="caseManagementHearing" type="radio" value="Defendant to attend"{{#contains ../sCaseManagementHearing "Defendant to attend"}} checked{{/contains}}>
                   <label for="defendant-to-attend">Defendant to attend</label>
                 </div>
 
                 <div class="multiple-choice">
-                  <input id="no-appearance" name="caseManagementHearing" type="radio" value="No appearance">
+                  <input id="no-appearance" name="caseManagementHearing" type="radio" value="No appearance"{{#contains ../sCaseManagementHearing "No appearance"}} checked{{/contains}}>
                   <label for="no-appearance">No appearance</label>
                 </div>
 
@@ -185,17 +185,17 @@
             </div>
 
             <div class="multiple-choice">
-              <input id="reason-sentencing-hearing" name="reasonForReferring" type="radio" value="Sentencing hearing">
+              <input id="reason-sentencing-hearing" name="reasonForReferring" type="radio" value="Sentencing hearing"{{#contains ../sReasonForReferring "Sentencing hearing"}} checked{{/contains}}>
               <label for="reason-sentencing-hearing">Sentencing hearing</label>
             </div>
 
             <div class="multiple-choice">
-              <input id="reason-case-unsuitable" name="reasonForReferring" type="radio" value="Case unsuitable for SJP">
+              <input id="reason-case-unsuitable" name="reasonForReferring" type="radio" value="Case unsuitable for SJP"{{#contains ../sReasonForReferring "Case unsuitable for SJP"}} checked{{/contains}}>
               <label for="reason-case-unsuitable">Case unsuitable for <abbr title="Single Justice Procedure">SJP</abbr></label>
             </div>
 
             <div class="multiple-choice">
-              <input id="reason-disqualification" name="reasonForReferring" type="radio" value="For disqualification">
+              <input id="reason-disqualification" name="reasonForReferring" type="radio" value="For disqualification"{{#contains ../sReasonForReferring "For disqualification"}} checked{{/contains}}>
               <label for="reason-disqualification">For disqualification</label>
             </div>
 

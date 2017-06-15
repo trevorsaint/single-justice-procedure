@@ -96,6 +96,22 @@ router.use(function(req, res, next) {
   sEmployerTown = req.session.employerTown;
   sEmployerPostcode = req.session.employerPostcode;
 
+  // refer for court hearing
+  sCourtLocation = req.session.courtLocation;
+  sCourtRoom = req.session.courtRoom;
+  sReasonForReferring = req.session.reasonForReferring;
+
+  sDateOfHearingDay = req.session.dateOfHearingDay;
+  sDateOfHearingMonth = req.session.dateOfHearingMonth;
+  sDateOfHearingYear = req.session.dateOfHearingYear;
+  sDateOfHearing = req.session.dateOfHearing;
+
+  sStartTimeOfHearingHour = req.session.startTimeOfHearingHour;
+  sStartTimeOfHearingMinute = req.session.startTimeOfHearingMinute;
+
+  sEquivocalPlea = req.session.equivocalPlea;
+  sCaseManagementHearing = req.session.caseManagementHearing;
+
   next();
 
 });
@@ -310,14 +326,41 @@ router.route('/legal-adviser/refer-for-court-hearing/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
-      search:entry,
+
+      sCourtLocation: sCourtLocation,
+      sCourtRoom: sCourtRoom,
+      sReasonForReferring: sReasonForReferring,
+      sDateOfHearingDay: sDateOfHearingDay,
+      sDateOfHearingMonth: sDateOfHearingMonth,
+      sDateOfHearingYear: sDateOfHearingYear,
+      sDateOfHearing: sDateOfHearing,
+      sStartTimeOfHearingHour: sStartTimeOfHearingHour,
+      sStartTimeOfHearingMinute: sStartTimeOfHearingMinute,
+      sEquivocalPlea: sEquivocalPlea,
+      sCaseManagementHearing: sCaseManagementHearing,
+      search: entry,
       breadcrumb: true,
     });
   }).post(function(req, res, next) {
+
+    sCourtLocation = req.session.courtLocation = req.body.courtLocation;
+    sCourtRoom = req.session.courtRoom = req.body.courtRoom;
+    sReasonForReferring = req.session.reasonForReferring = req.body.reasonForReferring;
+
+    sDateOfHearingDay = req.session.dateOfHearingDay = req.body.dateOfHearingDay;
+    sDateOfHearingMonth = req.session.dateOfHearingMonth = req.body.dateOfHearingMonth;
+    sDateOfHearingYear = req.session.dateOfHearingYear = req.body.dateOfHearingYear;
+    sDateOfHearing = req.session.dateOfHearing = new Date(parseInt(req.body.dateOfHearingYear) + '-' + parseInt(req.body.dateOfHearingMonth) + '-' + parseInt(req.body.dateOfHearingDay));
+
+    sStartTimeOfHearingHour = req.session.startTimeOfHearingHour = req.body.startTimeOfHearingHour;
+    sStartTimeOfHearingMinute = req.session.startTimeOfHearingMinute = req.body.startTimeOfHearingMinute;
+
+    sEquivocalPlea = req.session.equivocalPlea = req.body.equivocalPlea;
+    sCaseManagementHearing = req.session.caseManagementHearing = req.body.caseManagementHearing;
+
     res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+
 });
 
 
@@ -332,8 +375,6 @@ router.route('/legal-adviser/discharge/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
       sTypeOfDischarge: sTypeOfDischarge,
       sCompensation: sCompensation,
@@ -373,8 +414,6 @@ router.route('/legal-adviser/withdraw/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
       search: entry,
       breadcrumb: true,
@@ -528,8 +567,6 @@ router.route('/legal-adviser/pay-directly-to-court/:id')
       pagetitle: 'Pay directly to court',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sPaymentMethod: sPaymentMethod,
@@ -797,6 +834,19 @@ router.route('/legal-adviser/check-your-decisions/:id')
         sLumpSumInstalmentStartDateMonth: sLumpSumInstalmentStartDateMonth,
         sLumpSumInstalmentStartDateYear: sLumpSumInstalmentStartDateYear,
         sLumpSumInstalmentStartDate: sLumpSumInstalmentStartDate,
+
+        sCourtLocation: sCourtLocation,
+        sCourtRoom: sCourtRoom,
+        sReasonForReferring: sReasonForReferring,
+
+        sDateOfHearingDay: sDateOfHearingDay,
+        sDateOfHearingMonth: sDateOfHearingMonth,
+        sDateOfHearingYear: sDateOfHearingYear,
+        sDateOfHearing: sDateOfHearing,
+
+        sStartTimeOfHearingHour: sStartTimeOfHearingHour,
+        sStartTimeOfHearingMinute: sStartTimeOfHearingMinute,
+
         sTypeOfDischarge: sTypeOfDischarge,
         sCompensation: sCompensation,
         sDurationAmount: sDurationAmount,
