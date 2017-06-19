@@ -134,8 +134,8 @@
                 </legend>
 
                 <div class="multiple-choice">
-                  <input id="defendant-to-attend-to-clarify" name="equivocalPlea" type="radio" value="Defendant to attend to clarify"{{#contains ../sEquivocalPlea "Defendant to attend to clarify"}} checked{{/contains}}>
-                  <label for="defendant-to-attend-to-clarify">Defendant to attend to clarify</label>
+                  <input id="defendant-to-attend-to-clarify-plea" name="equivocalPlea" type="radio" value="Defendant to attend to clarify plea"{{#contains ../sEquivocalPlea "Defendant to attend to clarify plea"}} checked{{/contains}}>
+                  <label for="defendant-to-attend-to-clarify-plea">Defendant to attend to clarify plea</label>
                 </div>
 
                 <div class="multiple-choice">
@@ -158,8 +158,8 @@
             </div>
 
             <div class="multiple-choice" data-target="case-management-hearing">
-              <input id="reason-case-management" name="reasonForReferring" type="radio" value="For a case management hearing"{{#contains ../sReasonForReferring "For a case management hearing"}} checked{{/contains}}>
-              <label for="reason-case-management">For a case management hearing</label>
+              <input id="reason-case-management" name="reasonForReferring" type="radio" value="For case management hearing"{{#contains ../sReasonForReferring "For case management hearing"}} checked{{/contains}}>
+              <label for="reason-case-management">For case management hearing</label>
             </div>
 
             <div class="panel panel-border-narrow js-hidden" id="case-management-hearing">
@@ -176,8 +176,8 @@
                 </div>
 
                 <div class="multiple-choice">
-                  <input id="no-appearance" name="caseManagementHearing" type="radio" value="No appearance"{{#contains ../sCaseManagementHearing "No appearance"}} checked{{/contains}}>
-                  <label for="no-appearance">No appearance</label>
+                  <input id="no-appearance" name="caseManagementHearing" type="radio" value="No need for defendant to attend"{{#contains ../sCaseManagementHearing "No need for defendant to attend"}} checked{{/contains}}>
+                  <label for="no-appearance">No need for defendant to attend</label>
                 </div>
 
               </fieldset>
@@ -185,18 +185,18 @@
             </div>
 
             <div class="multiple-choice">
-              <input id="reason-sentencing-hearing" name="reasonForReferring" type="radio" value="Sentencing hearing"{{#contains ../sReasonForReferring "Sentencing hearing"}} checked{{/contains}}>
-              <label for="reason-sentencing-hearing">Sentencing hearing</label>
+              <input id="reason-sentencing-hearing" name="reasonForReferring" type="radio" value="For sentencing hearing (defendant to attend)"{{#contains ../sReasonForReferring "For sentencing hearing (defendant to attend)"}} checked{{/contains}}>
+              <label for="reason-sentencing-hearing">For sentencing hearing (defendant to attend)</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="reason-disqualification" name="reasonForReferring" type="radio" value="For disqualification (defendant to attend)"{{#contains ../sReasonForReferring "For disqualification (defendant to attend)"}} checked{{/contains}}>
+              <label for="reason-disqualification">For disqualification (defendant to attend)</label>
             </div>
 
             <div class="multiple-choice">
               <input id="reason-case-unsuitable" name="reasonForReferring" type="radio" value="Case unsuitable for SJP"{{#contains ../sReasonForReferring "Case unsuitable for SJP"}} checked{{/contains}}>
               <label for="reason-case-unsuitable">Case unsuitable for <abbr title="Single Justice Procedure">SJP</abbr></label>
-            </div>
-
-            <div class="multiple-choice">
-              <input id="reason-disqualification" name="reasonForReferring" type="radio" value="For disqualification"{{#contains ../sReasonForReferring "For disqualification"}} checked{{/contains}}>
-              <label for="reason-disqualification">For disqualification</label>
             </div>
 
           </fieldset>

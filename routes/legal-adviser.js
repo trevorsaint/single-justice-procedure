@@ -852,6 +852,10 @@ router.route('/legal-adviser/check-your-decisions/:id')
         sDurationAmount: sDurationAmount,
         sDurationTimeSpan: sDurationTimeSpan,
         sTotalToPay: sTotalToPay,
+
+        sCaseManagementHearing: sCaseManagementHearing,
+        sEquivocalPlea: sEquivocalPlea,
+
         sBack: sBack
       });
 

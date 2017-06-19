@@ -526,7 +526,19 @@
         </tr>
         <tr>
           <th>Reason for referring to court</th>
-          <td>{{../sReasonForReferring}}</td>
+          <td>
+
+            {{#is ../sReasonForReferring "Equivocal plea" }}
+              {{../sReasonForReferring}} &ndash; {{../sEquivocalPlea}}
+            {{else}}
+              {{#is ../sReasonForReferring "For case management hearing" }}
+                {{../sReasonForReferring}} &ndash; {{../sCaseManagementHearing}}
+              {{else}}
+                 {{../sReasonForReferring}}
+               {{/is}}
+             {{/is}}
+
+          </td>
         </tr>
       </tbody>
     </table>
