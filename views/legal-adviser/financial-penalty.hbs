@@ -251,8 +251,9 @@
           <p>These have been calculated taking into account:</p>
 
           <ul class="list list-bullet">
-            <li>income <b>&pound;440</b> weekly (assumed)</li>
-            <!--li>outgoings <b>&pound;700</b> weekly</li-->
+            {{#if offence.weekly-income}}
+            <li>income <b>&pound;{{offence.weekly-income}}</b> weekly{{#if offence.weekly-income-assumed}} (assumed){{/if}}</li>
+            {{/if}}
             <li>guilty plea discount</li>
           </ul>
 
