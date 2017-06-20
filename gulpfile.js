@@ -14,8 +14,8 @@ requireDir('./gulp')
 // Build  ----------------------------------------------
 // 1. Clean public folder
 // 2. Compiles CSS from SASS
-// 3. handlebars templates
-// 4. Minifies images with caching
+// 3. Minifies images with caching
+// 4. Moves documents into public folder
 // 5. ESLint our javascripts
 // 6. Validates HTML
 // -----------------------------------------------------
@@ -24,6 +24,7 @@ gulp.task('build', () => {
   runsequence('clean', [
     'sass',
     'images',
+    'documents',
     'javascripts'
   ], 'html')
 })

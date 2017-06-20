@@ -1,5 +1,5 @@
 const gulp = require('gulp')
-const eslint = require('gulp-eslint')
+//const eslint = require('gulp-eslint')
 const uglify = require('gulp-uglify')
 const browserSync = require('browser-sync')
 
