@@ -280,7 +280,7 @@ var search = [
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-07-13",
-      "court-decision": 5
+      "court-decision": 6
     },
     "offence": {
       "title": "Having failed to pay rail fare gave false particulars",
