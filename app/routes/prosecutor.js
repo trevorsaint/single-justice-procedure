@@ -14,8 +14,6 @@ router.route('/prosecutor')
     res.render('prosecutor/index', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
-      issigned: false,
       doctitle: 'Sign in',
       pagetitle: 'Sign in',
       breadcrumb: false
@@ -29,7 +27,6 @@ router.all('/prosecutor/home', function(req, res) {
   res.render('prosecutor/home', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     ishome: true,
     doctitle: 'Single Justice Procedure',
     pagetitle: 'Single Justice Procedure',
@@ -46,7 +43,6 @@ router.all('/prosecutor/search-for-a-case', function(req, res) {
   res.render('prosecutor/search-for-a-case', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Search for a case',
     pagetitle: 'Search for a case',
     section: 'home',
@@ -61,13 +57,10 @@ router.all('/prosecutor/case-details/:id', function(req, res) {
   res.render('prosecutor/case-details', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Case details',
     pagetitle: 'Case details',
     section: 'home',
     section_name: 'Home',
-    //section2: 'search-for-a-case',
-    //section2_name: 'Search for a case',
     search: entry,
     breadcrumb: true
   });
@@ -95,7 +88,6 @@ router.all('/prosecutor/send-data-files', function(req, res) {
   res.render('prosecutor/send-data-files', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Upload CSVs',
     pagetitle: 'Upload CSVs',
     section: 'home',
@@ -112,13 +104,10 @@ router.all('/prosecutor/data-files-confirmation', function(req, res) {
   res.render('prosecutor/data-files-confirmation', {
     baseurl: baseurl,
     apptitle: 'Confirmation',
-    ispublic: false,
     doctitle: 'Confirmation',
     pagetitle: 'Confirmation',
     section: 'home',
     section_name: 'Home',
-    //section2: 'send-data-files',
-    //section2_name: 'Send data files to court',
     breadcrumb: true
   });
 });
@@ -129,7 +118,6 @@ router.route('/prosecutor/send-other-documents')
     res.render('prosecutor/send-other-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Upload SJP notices and other documents',
       pagetitle: 'Upload SJP notices and other documents',
       section: 'home',
@@ -149,7 +137,6 @@ router.route('/prosecutor/send-other-documents')
       res.render('prosecutor/send-other-documents', {
         baseurl: baseurl,
         apptitle: apptitle,
-        ispublic: false,
         doctitle: 'Upload SJP notices and other documents',
         pagetitle: 'Upload SJP notices and other documents',
         section: 'home',
@@ -168,7 +155,6 @@ router.all('/prosecutor/check-document-uploads', function(req, res) {
   res.render('prosecutor/check-uploads/document/uploads', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Check document uploads',
     pagetitle: 'Check document uploads',
     section: 'home',
@@ -183,13 +169,10 @@ router.all('/prosecutor/check-document-uploads/report/success/:id', function(req
   res.render('prosecutor/check-uploads/document/report/success', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'View upload report',
     pagetitle: 'View upload report',
     section: 'home',
     section_name: 'Home',
-    //section2: 'check-document-uploads',
-    //section2_name: 'Check document uploads',
     search: entry,
     breadcrumb: true
   });
@@ -200,13 +183,10 @@ router.all('/prosecutor/check-document-uploads/report/errors/:id', function(req,
   res.render('prosecutor/check-uploads/document/report/errors', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'View upload report',
     pagetitle: 'View upload report',
     section: 'home',
     section_name: 'Home',
-    //section2: 'check-document-uploads',
-    //section2_name: 'Check document uploads',
     search: entry,
     breadcrumb: true
   });
@@ -216,7 +196,6 @@ router.all('/prosecutor/check-csv-uploads', function(req, res) {
   res.render('prosecutor/check-uploads/csv/uploads', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Check CSV uploads',
     pagetitle: 'Check CSV uploads',
     section: 'home',
@@ -231,13 +210,10 @@ router.all('/prosecutor/check-csv-uploads/report/success/:id', function(req, res
   res.render('prosecutor/check-uploads/csv/report/success', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'View upload report',
     pagetitle: 'View upload report',
     section: 'home',
     section_name: 'Home',
-    //section2: 'check-csv-uploads',
-    //section2_name: 'Check CSV uploads',
     search: entry,
     breadcrumb: true
   });
@@ -248,13 +224,10 @@ router.all('/prosecutor/check-csv-uploads/report/errors/:id', function(req, res)
   res.render('prosecutor/check-uploads/csv/report/errors', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'View upload report',
     pagetitle: 'View upload report',
     section: 'home',
     section_name: 'Home',
-    //section2: 'check-csv-uploads',
-    //section2_name: 'Check CSV uploads',
     search: entry,
     breadcrumb: true
   });
@@ -264,7 +237,6 @@ router.all('/prosecutor/export-case-results-by-date', function(req, res) {
   res.render('prosecutor/export-case-results-by-date', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Export case results by date',
     pagetitle: 'Export case results by date',
     section: 'home',
@@ -277,7 +249,6 @@ router.all('/prosecutor/cases-missing-sjp-notices', function(req, res) {
   res.render('prosecutor/cases-missing-sjp-notices', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Send missing SJP notices to court',
     pagetitle: 'Send missing SJP notices to court',
     section: 'home',
@@ -291,7 +262,6 @@ router.all('/prosecutor/withdraw-an-offence', function(req, res) {
   res.render('prosecutor/withdraw-an-offence', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Withdraw an offence',
     pagetitle: 'Withdraw an offence',
     section: 'home',
@@ -306,13 +276,10 @@ router.all('/prosecutor/withdraw-offence/:id', function(req, res) {
   res.render('prosecutor/withdraw-offence', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Withdraw offence',
     pagetitle: 'Withdraw offence',
     section: 'home',
     section_name: 'Home',
-    //section2: 'case-details/' + req.params.id,
-    //section2_name: 'Case details',
     search: entry,
     breadcrumb: true
   });
@@ -323,13 +290,10 @@ router.all('/prosecutor/withdraw-offence-confirmation/:id', function(req, res) {
   res.render('prosecutor/withdraw-offence-confirmation', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Withdraw offence confirmation',
     pagetitle: 'Withdraw offence confirmation',
     section: 'home',
     section_name: 'Home',
-    //section2: 'case-details/' + req.params.id,
-    //section2_name: 'Case details',
     search: entry,
     breadcrumb: true
   });
@@ -339,13 +303,10 @@ router.all('/prosecutor/documents-confirmation', function(req, res) {
   res.render('prosecutor/documents-confirmation', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Confirmation',
     pagetitle: 'Confirmation',
     section: 'home',
     section_name: 'Home',
-    //section2: 'send-other-documents',
-    //section2_name: 'Send documents to court',
     breadcrumb: true
   });
 });
@@ -355,13 +316,10 @@ router.all('/prosecutor/case-details-cancel-withdraw/:id', function(req, res) {
   res.render('prosecutor/case-details-cancel-withdraw', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Cancel withdrawal',
     pagetitle: 'Cancel withdrawal',
     section: 'home',
     section_name: 'Home',
-    //section2: 'search-for-a-case',
-    //section2_name: 'Search for a case',
     search: entry,
     breadcrumb: true
   });
@@ -372,7 +330,6 @@ router.all('/prosecutor/withdraw-all-offences/:id', function(req, res) {
   res.render('prosecutor/withdraw-all-offences', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Withdraw all offences',
     pagetitle: 'Withdraw all offences',
     section: 'home',
@@ -387,13 +344,10 @@ router.all('/prosecutor/cancel-withdrawal-offence-confirmation/:id', function(re
   res.render('prosecutor/cancel-withdrawal-offence-confirmation', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Cancel offence withdrawal',
     pagetitle: 'Cancel offence withdrawal',
     section: 'home',
     section_name: 'Home',
-    //section2: 'case-details/' + req.params.id,
-    //section2_name: 'Case details',
     search: entry,
     breadcrumb: true
   });
@@ -404,13 +358,10 @@ router.all('/prosecutor/cancel-request-to-withdraw-offence/:id', function(req, r
   res.render('prosecutor/cancel-request-to-withdraw-offence', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Cancel withdrawal of offence',
     pagetitle: 'Cancel withdrawal of offence',
     section: 'home',
     section_name: 'Home',
-    //section2: 'case-details/' + req.params.id,
-    //section2_name: 'Case details',
     search: entry,
     breadcrumb: true
   });
@@ -420,7 +371,6 @@ router.get('/prosecutor/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Page not found',
     pagetitle: 'Page not found',
     section: 'home',

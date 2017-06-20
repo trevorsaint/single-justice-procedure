@@ -4,7 +4,6 @@ const router  = express.Router();
 // project variables
 const baseurl  = 'operational-reporting';
 const apptitle = 'Criminal Justice Services online';
-const ispublic = false
 
 // routes
 router.route('/' + baseurl + '/home')
@@ -12,7 +11,6 @@ router.route('/' + baseurl + '/home')
     res.render(baseurl + '/home', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: ispublic,
       ishome: true,
       doctitle: 'Single Justice Procedure',
       pagetitle: 'Single Justice Procedure',
@@ -30,7 +28,6 @@ router.route('/' + baseurl + '/find-sjp-online-performance-data')
     res.render(baseurl + '/find-sjp-online-performance-data', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: ispublic,
       doctitle: 'Find SJP online performance data',
       pagetitle: 'Find <abbr title="Single Justice Procedure">SJP</abbr> online performance data',
       section: 'home',
@@ -46,7 +43,6 @@ router.route('/' + baseurl + '/sjp-online-performance-data')
     res.render(baseurl + '/sjp-online-performance-data', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: ispublic,
       doctitle: 'SJP online performance data',
       pagetitle: '<abbr title="Single Justice Procedure">SJP</abbr> online performance data',
       section: 'home',
@@ -60,7 +56,6 @@ router.route('/' + baseurl + '/number-of-cases-pending-decision')
     res.render(baseurl + '/number-of-cases-pending-decision', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: ispublic,
       doctitle: 'Number of cases pending decision',
       pagetitle: 'Number of cases pending decision',
       section: 'home',
@@ -74,7 +69,6 @@ router.route('/' + baseurl + '/cases-older-than-21-days-without-an-sjp-notice')
     res.render(baseurl + '/cases-older-than-21-days-without-an-sjp-notice', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: ispublic,
       doctitle: 'Cases older than 21 days without an SJP notice',
       pagetitle: 'Cases older than 21 days without an <abbr title="Single Justice Procedure">SJP</abbr> notice',
       section: 'home',
@@ -88,7 +82,6 @@ router.get('/operational-reporting/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: ispublic,
     doctitle: 'Page not found',
     pagetitle: 'Page not found',
     section: 'home',

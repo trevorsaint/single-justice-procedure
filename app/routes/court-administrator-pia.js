@@ -93,8 +93,6 @@ router.route('/proof-in-absence/court-administrator')
     res.render('proof-in-absence/court-administrator/index', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
-      issigned: false,
       doctitle: 'Sign in',
       pagetitle: 'Sign in',
       breadcrumb: false
@@ -109,7 +107,6 @@ router.route('/proof-in-absence/court-administrator/home/')
     res.render('proof-in-absence/court-administrator/home', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       ishome: true,
       doctitle: 'Single Justice Procedure',
       pagetitle: 'Single Justice Procedure',
@@ -130,7 +127,6 @@ router.route('/proof-in-absence/court-administrator/search-for-a-case/')
     res.render('proof-in-absence/court-administrator/search-for-a-case', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Search for a case',
       pagetitle: 'Search for a case',
       section: 'home',
@@ -145,7 +141,6 @@ router.route('/proof-in-absence/court-administrator/court-list/')
     res.render('proof-in-absence/court-administrator/court-list', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Cases awaiting decision under Single Justice Procedure',
       pagetitle: 'Cases awaiting decision under Single Justice Procedure',
       section: 'home',
@@ -163,7 +158,6 @@ router.route('/proof-in-absence/court-administrator/find-and-print-orders/')
     res.render('proof-in-absence/court-administrator/find-and-print-orders/index', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Find and print orders',
       pagetitle: 'Find and print orders',
       section: 'home',
@@ -207,13 +201,10 @@ router.route('/proof-in-absence/court-administrator/find-and-print-orders/result
     res.render('proof-in-absence/court-administrator/find-and-print-orders/results', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Find and print orders',
       pagetitle: 'Find and print orders',
       section: 'home',
       section_name: 'Home',
-      //section2: 'find-and-print-orders',
-      //section2_name: 'Find and print orders',
       breadcrumb: true,
       sFrom: sFrom,
       sTo: sTo,
@@ -228,13 +219,10 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
     res.render('proof-in-absence/court-administrator/case-details', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Case details',
       pagetitle: 'Case details',
       section: 'home',
       section_name: 'Home',
-      //section2: 'search-for-a-case',
-      //section2_name: 'Search for a case',
       search:entry,
       breadcrumb: true,
       sFirstname: sFirstname,
@@ -322,7 +310,6 @@ router.route('/proof-in-absence/court-administrator/create-register-for-the-medi
     res.render('proof-in-absence/court-administrator/create-register-for-the-media', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Create register for the media',
       pagetitle: 'Create register for the media',
       section: 'home',
@@ -368,13 +355,10 @@ router.route('/proof-in-absence/court-administrator/reopen-case/:id/')
     res.render('proof-in-absence/court-administrator/reopen-case', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Log case as reopened on Libra',
       pagetitle: 'Log case as reopened on Libra',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sLibraAccountNumber: sLibraAccountNumber
@@ -390,7 +374,6 @@ router.get('/proof-in-absence/court-administrator/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Page not found',
     pagetitle: 'Page not found',
     section: 'home',

@@ -89,8 +89,6 @@ router.route('/court-administrator')
     res.render('court-administrator/index', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
-      issigned: false,
       doctitle: 'Sign in',
       pagetitle: 'Sign in',
       breadcrumb: false
@@ -105,7 +103,6 @@ router.route('/court-administrator/styles')
     res.render('court-administrator/styles', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Styles',
       pagetitle: 'Styles',
       section: 'home',
@@ -119,7 +116,6 @@ router.route('/court-administrator/home/')
     res.render('court-administrator/home', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       ishome: true,
       doctitle: 'Single Justice Procedure',
       pagetitle: 'Single Justice Procedure',
@@ -140,7 +136,6 @@ router.route('/court-administrator/search-for-a-case/')
     res.render('court-administrator/search-for-a-case', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Search for a case',
       pagetitle: 'Search for a case',
       section: 'home',
@@ -155,7 +150,6 @@ router.route('/court-administrator/print-list-of-cases-awaiting-decision/')
     res.render('court-administrator/print-list-of-cases-awaiting-decision', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Print list of cases awaiting decision',
       pagetitle: 'Print list of cases awaiting decision',
       section: 'home',
@@ -171,13 +165,10 @@ router.route('/court-administrator/case-details/:id/')
     res.render('court-administrator/case-details', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Case details',
       pagetitle: 'Case details',
       section: 'home',
       section_name: 'Home',
-      //section2: 'search-for-a-case',
-      //section2_name: 'Search for a case',
       search:entry,
       breadcrumb: true,
       sFirstname: sFirstname,
@@ -251,7 +242,6 @@ router.route('/court-administrator/personal-details/:id/')
     res.render('court-administrator/personal-details', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Personal details',
       pagetitle: 'Personal details',
       section: 'home',
@@ -293,13 +283,10 @@ router.route('/court-administrator/employment-and-income/:id/')
     res.render('court-administrator/employment-and-income', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Add employment and income',
       pagetitle: 'Add employment and income',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sNationalInsurance: sNationalInsurance,
@@ -339,7 +326,6 @@ router.route('/court-administrator/upload-documents/:id/')
     res.render('court-administrator/upload-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Upload documents',
       pagetitle: 'Upload documents',
       section: 'home',
@@ -378,7 +364,6 @@ router.route('/court-administrator/postal/add-plea/:id/')
     res.render('court-administrator/postal/add-plea', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Add plea',
       pagetitle: 'Add plea',
       section: 'home',
@@ -429,13 +414,10 @@ router.route('/court-administrator/postal/personal-details/:id/')
     res.render('court-administrator/postal/personal-details', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Personal details',
       pagetitle: 'Personal details',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sTitle: sTitle,
@@ -480,13 +462,10 @@ router.route('/court-administrator/postal/employment-and-income/:id/')
     res.render('court-administrator/postal/employment-and-income', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Add employment and income',
       pagetitle: 'Add employment and income',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sNationalInsurance: sNationalInsurance,
@@ -535,13 +514,10 @@ router.route('/court-administrator/postal/upload-documents/:id/')
     res.render('court-administrator/postal/upload-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Upload documents',
       pagetitle: 'Upload documents',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry
     });
@@ -559,13 +535,10 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
     res.render('court-administrator/postal/check-your-answers', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Check your answers',
       pagetitle: 'Check your answers',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sMakeDecision: sMakeDecision,
@@ -606,13 +579,10 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
       res.render('court-administrator/extract-of-court-record', {
         baseurl: baseurl,
         apptitle: apptitle,
-        ispublic: false,
         doctitle: 'Extract of court record',
         pagetitle: 'Extract of court record',
         section: 'home',
         section_name: 'Home',
-        //section2: 'case-details/' + req.params.id,
-        //section2_name: 'Case details',
         breadcrumb: true,
         search: entry,
         sMakeDecision: sMakeDecision,
@@ -650,7 +620,6 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
         res.render('court-administrator/create-register-for-the-media', {
           baseurl: baseurl,
           apptitle: apptitle,
-          ispublic: false,
           doctitle: 'Create register for the media',
           pagetitle: 'Create register for the media',
           section: 'home',
@@ -672,7 +641,6 @@ router.route('/court-administrator/mark-case-as-reopened/:id/')
     res.render('court-administrator/mark-case-as-reopened', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Mark case as reopened',
       pagetitle: 'Mark case as reopened',
       section: 'home',
@@ -697,16 +665,12 @@ router.route('/court-administrator/mark-case-as-reopened/:id/')
   });
 
 
-
-
-
 router.route('/court-administrator/change-reopened-case-status/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
     res.render('court-administrator/change-reopened-case-status', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Change reopened case status',
       pagetitle: 'Change reopened case status',
       section: 'home',
@@ -737,7 +701,6 @@ router.route('/court-administrator/revert-case-status-to-completed/:id/')
     res.render('court-administrator/revert-case-status-to-completed', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Revert case status to completed',
       pagetitle: 'Revert case status to completed',
       section: 'home',
@@ -772,15 +735,11 @@ router.route('/court-administrator/revert-case-status-to-completed/:id/')
   });
 
 
-
-
-
 // page not found
 router.get('/court-administrator/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Page not found',
     pagetitle: 'Page not found',
     section: 'home',

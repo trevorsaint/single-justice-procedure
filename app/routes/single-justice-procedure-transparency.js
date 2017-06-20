@@ -11,8 +11,6 @@ router.route('/single-justice-procedure-transparency/home')
     res.render('single-justice-procedure-transparency/home', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
-      issigned: false,
       doctitle: 'Sign in',
       pagetitle: 'Sign in',
       breadcrumb: false
@@ -27,7 +25,6 @@ router.route('/single-justice-procedure-transparency/search-for-case')
     res.render('single-justice-procedure-transparency/search-for-case', {
       baseurl: baseurl,
       apptitle: apptitle,
-      ispublic: false,
       doctitle: 'Search for a case',
       pagetitle: 'Search for a case',
       section: 'home',
@@ -44,7 +41,6 @@ router.route('/single-justice-procedure-transparency/search-for-case')
       res.render('single-justice-procedure-transparency/results', {
         baseurl: baseurl,
         apptitle: apptitle,
-        ispublic: false,
         doctitle: 'Cases prosecuted under SJP',
         pagetitle: 'Cases prosecuted under <abbr title="Single Justice Procedure">SJP</abbr>',
         section: 'home',
@@ -59,7 +55,6 @@ router.get('/single-justice-procedure-transparency/*', function(req, res, next) 
   res.render('404', {
     baseurl: baseurl,
     apptitle: apptitle,
-    ispublic: false,
     doctitle: 'Page not found',
     pagetitle: 'Page not found',
     section: 'home',
