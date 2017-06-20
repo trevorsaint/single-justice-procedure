@@ -13,28 +13,28 @@ const app          = express()
 
 
 // Enable SSL redirect
- app.use(sslRedirect())
+app.use(sslRedirect())
 
 
- // Serve static assets
- app.use("/public", express.static(path.join(__dirname, "/public")))
- app.use("/public", express.static(path.join(__dirname, "/node_modules/govuk_template_jinja/assets")))
- app.use("/public", express.static(path.join(__dirname, "/node_modules/govuk_frontend_toolkit")))
- app.use("/public", express.static(path.join(__dirname, "/node_modules/govuk-elements-sass")))
+// Serve static assets
+app.use("/public", express.static(path.join(__dirname, "/public")))
+app.use("/public", express.static(path.join(__dirname, "/node_modules/govuk_template_jinja/assets")))
+app.use("/public", express.static(path.join(__dirname, "/node_modules/govuk_frontend_toolkit")))
+app.use("/public", express.static(path.join(__dirname, "/node_modules/govuk-elements-sass")))
 
 
 // Application settings
- app.set("view engine", "hbs")
- app.set("views", "app/views")
+app.set("view engine", "hbs")
+app.set("views", "app/views")
 
 
- // Handlebars template engine
- app.engine("hbs", exphbs({
-   defaultLayout: "index",
-   layoutsDir: "app/views/layouts/",
-   partialsDir: "app/views/partials/",
-   extname: ".hbs"
- }))
+// Handlebars template engine
+app.engine("hbs", exphbs({
+  defaultLayout: "index",
+  layoutsDir: "app/views/layouts/",
+  partialsDir: "app/views/partials/",
+  extname: ".hbs"
+}))
 
 
 // Body parser
