@@ -227,7 +227,7 @@ var search = [
           "file-path": "#"
         },
         {
-          "file-title": "Plea",
+          "file-title": "Plea 2",
           "file-type": "PDF",
           "file-size": "560KB",
           "file-pages": "10 pages",
@@ -245,12 +245,21 @@ var search = [
           "file-path": "#"
         },
         {
-          "file-title": "Unnamed 1",
+          "file-title": "Unnamed",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
           "file-uploaded-date": "2016-01-16",
           "file-uploaded-time": "10:02am",
+          "file-path": "#"
+        },
+        {
+          "file-title": "Unnamed 2",
+          "file-type": "PDF",
+          "file-size": "256KB",
+          "file-pages": "3 pages",
+          "file-uploaded-date": "2016-01-16",
+          "file-uploaded-time": "10:01am",
           "file-path": "#"
         }
       ]
@@ -353,7 +362,7 @@ var search = [
           "file-path": "#",
         },
         {
-          "file-title": "Other 1",
+          "file-title": "Unnamed",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",
@@ -459,7 +468,7 @@ var search = [
           "file-path": "#",
         },
         {
-          "file-title": "Other 1",
+          "file-title": "Unnamed",
           "file-type": "PDF",
           "file-size": "458KB",
           "file-pages": "9 pages",

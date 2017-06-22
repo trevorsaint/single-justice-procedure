@@ -3143,6 +3143,9 @@ HTML Usage
   display: inline-block;
   font-weight: 700;
   line-height: 1;
+  margin-top: 0.52632em;
+  margin-bottom: 0.52632em;
+  margin-right: 0.52632em;
   padding: 0.3125em 0.625em;
   text-transform: uppercase;
 }
@@ -3158,9 +3161,7 @@ HTML Usage
 HTML Usage
 
 <p><strong class="status-label">Pleaded guilty</strong></p>
-
 <p><strong class="status-label">Not guilty</strong></p>
-
 <p><strong class="status-label">No plea given</strong></p>
 
 */

@@ -4,21 +4,28 @@
 
     {{>prosecutor/persist-info}}
 
+    {{#if locked-case}}
+    <div class="banner banner-warning" role="alert">
+      <i class="icon icon-banner-warning" role="presentation" aria-hidden="true"></i>
+      <div class="banner-message">
+        <p>This case is view&ndash;only, as a legal adviser is working on it.</p>
+      </div>
+    </div>
+    {{/if}}
+
     <div class="grid-row">
 
       <div class="column-two-thirds">
 
-        {{#with personal-details}}
-        <h1 class="heading-xlarge mb-l">{{{firstname}}} <span class="text-uppercase">{{{lastname}}}</span></h1>
+        <h1 class="heading-xlarge mb-l">{{{personal-details.firstname}}} <span class="text-uppercase">{{{personal-details.lastname}}}</span></h1>
 
         <p class="mb-xl">
-          <time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{{age}}} years old)<br>
-          {{{address.address1}}},
-          {{#if address.address2}}{{{address.address2}}},{{/if}}
-          {{{address.town}}}
-          <span class="text-uppercase">{{{address.postcode}}}</span>
+          <time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{{personal-details.age}}} years old)<br>
+          {{{personal-details.address.address1}}},
+          {{#if personal-details.address.address2}}{{{personal-details.address.address2}}},{{/if}}
+          {{{personal-details.address.town}}}
+          <span class="text-uppercase">{{{personal-details.address.postcode}}}</span>
         </p>
-        {{/with}}
 
         <div class="tabs tabs-horizontal">
 
@@ -38,16 +45,14 @@
 
               <h2 class="heading-medium">Case details</h2>
 
-              {{#with case-details}}
               <dl class="meta meta-inline meta-boldterms">
                 <dt>Case status</dt>
-                <dd>{{{status}}}</dd>
+                <dd>{{{case-details.status}}}</dd>
                 <dt>Prosecutor</dt>
-                <dd>{{{prosecutor}}}</dd>
+                <dd>{{{case-details.prosecutor}}}</dd>
                 <dt><abbr title="Single Justice Procedure">SJP</abbr> notice served</dt>
-                <dd><time datetime="{{notice-served-datetime}}">{{{notice-served}}}</time></dd>
+                <dd><time datetime="{{moment case-details.notice-served format="YYYY-MM-DD"}}">{{moment case-details.notice-served format="D MMMM YYYY"}}</time></dd>
               </dl>
-              {{/with}}
 
             </section>
 
@@ -55,24 +60,22 @@
 
               <h2 class="heading-medium">Personal details</h2>
 
-              {{#with personal-details}}
               <dl class="meta meta-inline meta-boldterms">
                 <dt>Name</dt>
-                <dd>{{{firstname}}} <span class="text-uppercase">{{{lastname}}}</span></dd>
+                <dd>{{{personal-details.firstname}}} <span class="text-uppercase">{{{personal-details.lastname}}}</span></dd>
                 <dt>Date of birth</dt>
-                <dd><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{{age}}} years old)</dd>
+                <dd><time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{{personal-details.age}}} years old)</dd>
                 <dt>Address</dt>
-                <dd>{{{address.address1}}} <br> {{#if address.address2}}{{{address.address2}}} <br> {{/if}} {{{address.town}}} <br> {{{address.postcode}}}</dd>
+                <dd>{{{personal-details.address.address1}}} <br> {{#if personal-details.address.address2}}{{{personal-details.address.address2}}} <br> {{/if}} {{{personal-details.address.town}}} <br> {{{personal-details.address.postcode}}}</dd>
                 <dt>Email</dt>
-                <dd>{{#if email}}{{{email}}}{{else}}&ndash;{{/if}}</dd>
+                <dd>{{#if personal-details.email}}{{{personal-details.email}}}{{else}}&ndash;{{/if}}</dd>
                 <dt>Home telephone</dt>
-                <dd>{{#if phone}}{{{phone}}}{{else}}&ndash;{{/if}}</dd>
+                <dd>{{#if personal-details.phone}}{{{personal-details.phone}}}{{else}}&ndash;{{/if}}</dd>
                 <dt>Mobile</dt>
-                <dd>{{#if mobile}}{{{mobile}}}{{else}}&ndash;{{/if}}</dd>
+                <dd>{{#if personal-details.mobile}}{{{personal-details.mobile}}}{{else}}&ndash;{{/if}}</dd>
                 <dt>National Insurance number</dt>
-                <dd>{{#if national-insurance-number}}{{{national-insurance-number}}}{{else}}&ndash;{{/if}}</dd>
+                <dd>{{#if personal-details.national-insurance-number}}{{{personal-details.national-insurance-number}}}{{else}}&ndash;{{/if}}</dd>
               </dl>
-              {{/with}}
 
             </section>
 
@@ -80,11 +83,10 @@
 
               <h2 class="heading-medium">Documents</h2>
 
-              {{#with case-details}}
               <dl class="meta meta-inline meta-boldterms">
                 <dt>Uploaded files</dt>
                 <dd>
-                  {{#each ../related-documents.document}}
+                  {{#each related-documents.document}}
                   <div class="document document-small">
                     <i class="icon icon-file-download"></i>
                     <div class="document-content">
@@ -99,7 +101,6 @@
                   {{/each}}
                 </dd>
               </dl>
-              {{/with}}
 
             </section>
 
@@ -119,27 +120,11 @@
              <h2 class="related-heading">Case options</h2>
 
              <ul class="related-links">
-               <li><a href="/prosecutor/withdraw-offence/{{id}}">Withdraw offence</a></li>
-             </ul>
-
-           </div>
-
-         </div>
-
-       </div>
-       {{/if}}
-
-       {{#if cancel-withdrawal}}
-       <div class="column-third">
-
-         <div class="related">
-
-           <div class="related-section">
-
-             <h2 class="related-heading">Case options</h2>
-
-             <ul class="related-links">
-               <li><a href="/prosecutor/cancel-request-to-withdraw-offence/{{id}}">Cancel withdrawal of offence</a></li>
+               {{#if ../sWithdrawOffence}}
+                <li><a href="/prosecutor/cancel-withdrawal-request/{{id}}">Cancel withdrawal request</a></li>
+               {{else}}
+                <li><a href="/prosecutor/withdraw-offence/{{id}}">Withdraw offence</a></li>
+               {{/if}}
              </ul>
 
            </div>
@@ -157,18 +142,20 @@
 
       <h2 class="heading-large" id="offences">Offence 1</h2>
 
-      {{#with offence}}
       <section aria-labelledby="offence">
 
         <div class="grid-row">
 
           <div class="column-two-thirds">
 
-            <h3 class="bold-medium" id="offence">{{{title}}}</h3>
+            <h3 class="bold-medium" id="offence">{{{offence.title}}}</h3>
 
-            <p class="font-xsmall">On <time datetime="2014-06-10">10/06/2014</time> At grosvenor place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not immediately on boarding pay the fare to the Driver for the journey you intended to take.</p>
+            <p>On 10/06/2014 At grosvenor place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not immediately on boarding pay the fare to the Driver for the journey you intended to take.</p>
 
-            <p><strong class="status-label">{{{plea}}}</strong> {{#if ../cancel-withdrawal}}<strong class="status-label">Pending withdrawal</strong>{{/if}}</p>
+            <p><strong class="status-label">{{{case-details.status}}}</strong> {{#if ../sWithdrawOffence}}<strong class="status-label">Pending withdrawal</strong>{{/if}}</p>
+
+
+            {{#isnt case-details.status 'No plea received'}}
 
             <div class="tabs tabs-horizontal">
 
@@ -185,14 +172,14 @@
 
                 <section id="offence-details">
 
-                  {{#if statement-of-facts}}
+                  {{#if offence.statement-of-facts}}
                     <h3 class="heading-medium">Statement of facts</h3>
-                    <p>{{{statement-of-facts}}}</p>
+                    <p>{{{offence.statement-of-facts}}}</p>
                   {{/if}}
 
-                  {{#if mitigation}}
+                  {{#if offence.mitigation}}
                     <h3 class="heading-medium">Mitigation</h3>
-                    <p>{{{mitigation}}}</p>
+                    <p>{{{offence.mitigation}}}</p>
                   {{/if}}
 
                 </section>
@@ -201,162 +188,125 @@
 
                   <h3 class="heading-medium">Court decision</h3>
 
-                  {{#is ../court-decision 1}}
-                    <table class="table table-decision">
-                      <tbody>
-                        <tr>
-                          <th>Verdict</th>
-                          <td>Guilty plea accepted</td>
-                        </tr>
-                        <tr>
-                          <th>Fine</th>
-                          <td>&pound;100</td>
-                        </tr>
-                        <tr>
-                          <th>Compensation</th>
-                          <td>&pound;3.50</td>
-                        </tr>
-                        <tr>
-                          <th>Costs</th>
-                          <td>&pound;30</td>
-                        </tr>
-                        <tr>
-                          <th>Victim surcharge</th>
-                          <td>&pound;10</td>
-                        </tr>
-                        <tr>
-                          <th>Guilty plea taken into account?</th>
-                          <td>Yes</td>
-                        </tr>
-                        <tr>
-                          <th rowspan="2">Decision made</th>
-                          <td><time datetime="2016-09-01">1 September 2016</time></td>
-                        </tr>
-                        <tr>
-                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <!--table class="table table-decision">
-                      <tbody>
-                        <tr>
-                          <td>Result</td>
-                          <td>Dismissed</td>
-                        </tr>
-                        <tr>
-                          <th rowspan="3">Decision made</th>
-                        </tr>
-                        <tr>
-                          <td><time datetime="2016-09-01">1 September 2016</time></td>
-                        </tr>
-                        <tr>
-                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
-                        </tr>
-                      </tbody>
-                    </table-->
-                    <!--table class="table table-decision">
-                      <tbody>
-                        <tr>
-                          <td rowspan="2">Result</td>
-                          <td>Withdrawn</td>
-                        </tr>
-                        <tr>
-                          <td>Reason <br> <span class="text-secondary">Submitted in error</span></td>
-                        </tr>
-                        <tr>
-                          <th rowspan="3">Decision made</th>
-                        </tr>
-                        <tr>
-                          <td><time datetime="2016-09-01">1 September 2016</time></td>
-                        </tr>
-                        <tr>
-                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
-                        </tr>
-                      </tbody>
-                    </table-->
+                  {{#is court-decision 1}}
+                  <table class="table table-decision">
+                    <tbody>
+                      <tr>
+                        <th>Verdict</th>
+                        <td>Guilty plea accepted</td>
+                      </tr>
+                      <tr>
+                        <th>Fine</th>
+                        <td>&pound;100</td>
+                      </tr>
+                      <tr>
+                        <th>Compensation</th>
+                        <td>&pound;3.50</td>
+                      </tr>
+                      <tr>
+                        <th>Costs</th>
+                        <td>&pound;30</td>
+                      </tr>
+                      <tr>
+                        <th>Victim surcharge</th>
+                        <td>&pound;10</td>
+                      </tr>
+                      <tr>
+                        <th>Guilty plea taken into account?</th>
+                        <td>Yes</td>
+                      </tr>
+                      <tr>
+                        <th rowspan="2">Decision made</th>
+                        <td><time datetime="2016-09-01">1 September 2016</time></td>
+                      </tr>
+                      <tr>
+                        <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
                   {{/is}}
 
-                  {{#is ../court-decision 2}}
-                    <table class="table table-decision">
-                      <tbody>
-                        <tr>
-                          <th>Verdict</th>
-                          <td>Guilty plea accepted</td>
-                        </tr>
-                        <tr>
-                          <th>Fine</th>
-                          <td>&pound;143.50</td>
-                        </tr>
-                        <tr>
-                          <th rowspan="2">Compensation</th>
-                          <td>&pound;0</td>
-                        </tr>
-                        <tr>
-                          <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                        </tr>
-                        <tr>
-                          <th rowspan="2">Costs</th>
-                          <td>&pound;0</td>
-                        </tr>
-                        <tr>
-                          <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                        </tr>
-                        <tr>
-                          <th rowspan="2">Victim surcharge</th>
-                          <td>&pound;0</td>
-                        </tr>
-                        <tr>
-                          <td>Reason for reducing or removing victim surcharge <br> <span class="text-secondary">Limited means of the defendant</span></td>
-                        </tr>
-                        <tr>
-                          <th>Guilty plea taken into account</th>
-                          <td>Yes</td>
-                        </tr>
-                        <tr>
-                          <th rowspan="2">Decision made</th>
-                          <td><time datetime="2016-09-01">1 September 2016</time></td>
-                        </tr>
-                        <tr>
-                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  {{#is court-decision 2}}
+                  <table class="table table-decision">
+                    <tbody>
+                      <tr>
+                        <th>Verdict</th>
+                        <td>Guilty plea accepted</td>
+                      </tr>
+                      <tr>
+                        <th>Fine</th>
+                        <td>&pound;143.50</td>
+                      </tr>
+                      <tr>
+                        <th rowspan="2">Compensation</th>
+                        <td>&pound;0</td>
+                      </tr>
+                      <tr>
+                        <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                      </tr>
+                      <tr>
+                        <th rowspan="2">Costs</th>
+                        <td>&pound;0</td>
+                      </tr>
+                      <tr>
+                        <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                      </tr>
+                      <tr>
+                        <th rowspan="2">Victim surcharge</th>
+                        <td>&pound;0</td>
+                      </tr>
+                      <tr>
+                        <td>Reason for reducing or removing victim surcharge <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                      </tr>
+                      <tr>
+                        <th>Guilty plea taken into account</th>
+                        <td>Yes</td>
+                      </tr>
+                      <tr>
+                        <th rowspan="2">Decision made</th>
+                        <td><time datetime="2016-09-01">1 September 2016</time></td>
+                      </tr>
+                      <tr>
+                        <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
                   {{/is}}
 
-                  {{#is ../court-decision 3}}
-                    <table class="table table-decision">
-                      <tbody>
-                        <tr>
-                          <td>Verdict</td>
-                          <td>Guilty plea accepted</td>
-                        </tr>
-                        <tr>
-                          <td>Result</td>
-                          <td>Conditional discharge for 6 months</td>
-                        </tr>
-                        <tr>
-                          <td>Compensation</td>
-                          <td>&pound;100</td>
-                        </tr>
-                        <tr>
-                          <td>Costs</td>
-                          <td>&pound;3.50</td>
-                        </tr>
-                        <tr>
-                          <td>Victim surcharge</td>
-                          <td>&pound;10</td>
-                        </tr>
-                        <tr>
-                          <th rowspan="3">Decision made</th>
-                        </tr>
-                        <tr>
-                          <td><time datetime="2016-09-01">1 September 2016</time></td>
-                        </tr>
-                        <tr>
-                          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  {{#is court-decision 3}}
+                  <table class="table table-decision">
+                    <tbody>
+                      <tr>
+                        <td>Verdict</td>
+                        <td>Guilty plea accepted</td>
+                      </tr>
+                      <tr>
+                        <td>Result</td>
+                        <td>Conditional discharge for 6 months</td>
+                      </tr>
+                      <tr>
+                        <td>Compensation</td>
+                        <td>&pound;100</td>
+                      </tr>
+                      <tr>
+                        <td>Costs</td>
+                        <td>&pound;3.50</td>
+                      </tr>
+                      <tr>
+                        <td>Victim surcharge</td>
+                        <td>&pound;10</td>
+                      </tr>
+                      <tr>
+                        <th rowspan="3">Decision made</th>
+                      </tr>
+                      <tr>
+                        <td><time datetime="2016-09-01">1 September 2016</time></td>
+                      </tr>
+                      <tr>
+                        <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
                   {{/is}}
 
                   <details>
@@ -374,10 +324,6 @@
                         <dd>&pound;113.50</dd>
                         <dt>Payment method</dt>
                         <dd>Direct to court</dd>
-                        <!--dt>Lump sum only</dt>
-                        <dd>&pound;143.50 to be paid within 14 days</dd-->
-                        <!--dt>Lump sum plus instalments</dt>
-                        <dd>A lump sum of &pound;23.50 to be paid, followed by &pound;20 paid monthly starting <time datetime="2016-12-30">30 December 2016</time></dd-->
                         <dt>Instalments only</dt>
                         <dd>&pound;18.91 to be paid monthly starting 1 December 2016</dd>
                       </dl>
@@ -392,12 +338,27 @@
 
             </div>
 
+            {{else}}
+
+            <hr class="divider" aria-hidden="true">
+
+            {{#if offence.statement-of-facts}}
+            <h3 class="heading-medium">Statement of facts</h3>
+            <p>{{{offence.statement-of-facts}}}</p>
+            {{/if}}
+
+            {{#if offence.mitigation}}
+            <h3 class="heading-medium">Mitigation</h3>
+            <p>{{{offence.mitigation}}}</p>
+            {{/if}}
+
+            {{/isnt}}
+
           </div>
 
         </div>
 
       </section>
-      {{/with}}
 
     </div>
 

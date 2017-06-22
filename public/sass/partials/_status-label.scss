@@ -9,6 +9,9 @@ $module: 'status-label';
   display: inline-block;
   font-weight: 700;
   line-height: 1;
+  margin-top: em(10);
+  margin-bottom: em(10);
+  margin-right: em(10);
   padding: em(5, 16) em(10, 16);
   text-transform: uppercase;
 }
@@ -18,9 +21,7 @@ $module: 'status-label';
 HTML Usage
 
 <p><strong class="status-label">Pleaded guilty</strong></p>
-
 <p><strong class="status-label">Not guilty</strong></p>
-
 <p><strong class="status-label">No plea given</strong></p>
 
 */

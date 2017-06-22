@@ -27,6 +27,7 @@
           <ul class="list">
             <li><a href="#case-details">Case details</a></li>
             <li><a href="#personal-details">Personal details</a></li>
+            <li><a href="#documents">Documents</a></li>
           </ul>
 
         </div>
@@ -38,29 +39,13 @@
             <h2 class="heading-medium">Case details</h2>
 
             {{#with case-details}}
-            <dl class="meta meta-large">
+            <dl class="meta meta-inline meta-boldterms">
               <dt>Case status</dt>
               <dd>{{{status}}}</dd>
               <dt>Prosecutor</dt>
               <dd>{{{prosecutor}}}</dd>
-              <dt>Notice served</dt>
-              <dd><time datetime="{{notice-served-datetime}}">{{{notice-served}}}</time></dd>
-              <dt>Documents</dt>
-              <dd>
-                {{#each ../related-documents.document}}
-                <div class="document document-small">
-                  <i class="icon icon-file-download"></i>
-                  <div class="document-content">
-                    <p class="document-title"><a href="#">{{{title}}}</a></p>
-                    <div class="document-meta">
-                      <span class="document-meta-details">
-                        {{{file-type}}}, {{{file-size}}}, {{{file-pages}}}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                {{/each}}
-              </dd>
+              <dt><abbr title="Single Justice Procedure">SJP</abbr> notice served</dt>
+              <dd><time datetime="{{moment notice-served format="YYYY-MM-DD"}}">{{moment notice-served format="D MMM YYYY"}}</time></dd>
             </dl>
             {{/with}}
 
@@ -77,7 +62,7 @@
               <dt>Date of birth</dt>
               <dd><time datetime="{{moment dob format="YYYY-MM-DD"}}">{{moment dob format="D MMM YYYY"}}</time> ({{{age}}} years old)</dd>
               <dt>Address</dt>
-              <dd>{{{address.address1}}} <br> {{#if address.address2}}{{{address.address2}}} <br> {{/if}} {{{address.town}}} {{{address.postcode}}}</dd>
+              <dd>{{{address.address1}}} <br> {{#if address.address2}}{{{address.address2}}} <br> {{/if}} {{{address.town}}} <br> {{{address.postcode}}}</dd>
               <dt>Email</dt>
               <dd>{{#if email}}{{{email}}}{{else}}&ndash;{{/if}}</dd>
               <dt>Home telephone</dt>
@@ -86,6 +71,33 @@
               <dd>{{#if mobile}}{{{mobile}}}{{else}}&ndash;{{/if}}</dd>
               <dt>National Insurance number</dt>
               <dd>{{#if national-insurance-number}}{{{national-insurance-number}}}{{else}}&ndash;{{/if}}</dd>
+            </dl>
+            {{/with}}
+
+          </section>
+
+          <section id="documents">
+
+            <h2 class="heading-medium">Documents</h2>
+
+            {{#with case-details}}
+            <dl class="meta meta-inline meta-boldterms">
+              <dt>Uploaded files</dt>
+              <dd>
+                {{#each ../related-documents.document}}
+                <div class="document document-small">
+                  <i class="icon icon-file-download"></i>
+                  <div class="document-content">
+                    <p class="document-title"><a href="#" target="_blank">{{{title}}} <span class="visually-hidden">(opens in a new window)</span></a></p>
+                    <div class="document-meta">
+                      <span class="document-meta-details">
+                        {{{file-type}}}, {{{file-size}}}, {{{file-pages}}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+              </dd>
             </dl>
             {{/with}}
 
@@ -135,43 +147,43 @@
        </div>
 
      </div>
-   {{/if}}
+     {{/if}}
 
   </div>
 
-  <hr aria-hidden="true">
+  <hr class="divider divider-border-dark" aria-hidden="true">
 
-  <div class="grid-row">
+  <div aria-labelledby="offences">
 
-    <div class="column-two-thirds">
+    <h2 class="heading-large" id="offences">Offence 1</h2>
 
-      <section aria-labelledby="offences">
+    {{#with offence}}
+    <section aria-labelledby="offence">
 
-        <h2 class="bold-large" id="offences">Offence</h2>
+      <div class="grid-row">
 
-        {{#each offences.offence}}
-        <section aria-labelledby="offence{{id}}">
+        <div class="column-two-thirds">
 
-          <h3 class="heading-medium" id="offence{{id}}">{{#if shownumber}}{{id}}. {{/if}}{{{title}}}</h3>
+          <h3 class="bold-medium" id="offence">{{{title}}}</h3>
 
-          <p class="font-xsmall">On <time datetime="{{date-iso}}">{{date}}</time></p>
+          <p class="font-xsmall">On <time datetime="2014-06-10">10/06/2014</time> At grosvenor place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not immediately on boarding pay the fare to the Driver for the journey you intended to take.</p>
 
-          <p><strong class="tag">{{{plea}}}</strong>{{#if ../cancel-withdrawal}}<strong class="tag">Pending withdrawal</strong>{{/if}}</p>
+          <p><strong class="status-label">{{{plea}}}</strong> {{#if ../cancel-withdrawal}}<strong class="status-label">Pending withdrawal</strong>{{/if}}</p>
 
           <div class="tabs tabs-horizontal">
 
             <div class="tabs-header">
 
               <ul class="list">
-                <li><a href="#offence{{id}}-details">Details</a></li>
-                <li><a href="#offence{{id}}-decision">Decision</a></li>
+                <li><a href="#offence-details">Details</a></li>
+                <li><a href="#offence-decision">Decision</a></li>
               </ul>
 
             </div>
 
             <div class="tabs-content">
 
-              <section id="offence{{id}}-details">
+              <section id="offence-details">
 
                 {{#if statement-of-facts}}
                   <h3 class="heading-medium">Statement of facts</h3>
@@ -185,102 +197,194 @@
 
               </section>
 
-              <section id="offence{{id}}-decision">
+              <section id="offence-decision">
 
                 <h3 class="heading-medium">Court decision</h3>
 
                 {{#is ../court-decision 1}}
-                  <table class="table">
+                  <table class="table table-decision">
                     <tbody>
                       <tr>
-                        <td>Verdict</td>
+                        <th>Verdict</th>
                         <td>Guilty plea accepted</td>
                       </tr>
                       <tr>
-                        <td>Fine</td>
+                        <th>Fine</th>
                         <td>&pound;100</td>
                       </tr>
                       <tr>
-                        <td>Compensation</td>
+                        <th>Compensation</th>
                         <td>&pound;3.50</td>
                       </tr>
                       <tr>
-                        <td>Costs</td>
+                        <th>Costs</th>
                         <td>&pound;30</td>
                       </tr>
                       <tr>
-                        <td>Victim surcharge</td>
+                        <th>Victim surcharge</th>
                         <td>&pound;10</td>
                       </tr>
                       <tr>
-                        <td>Guilty plea taken into account?</td>
+                        <th>Guilty plea taken into account?</th>
                         <td>Yes</td>
+                      </tr>
+                      <tr>
+                        <th rowspan="2">Decision made</th>
+                        <td><time datetime="2016-09-01">1 September 2016</time></td>
+                      </tr>
+                      <tr>
+                        <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
                       </tr>
                     </tbody>
                   </table>
+                  <!--table class="table table-decision">
+                    <tbody>
+                      <tr>
+                        <td>Result</td>
+                        <td>Dismissed</td>
+                      </tr>
+                      <tr>
+                        <th rowspan="3">Decision made</th>
+                      </tr>
+                      <tr>
+                        <td><time datetime="2016-09-01">1 September 2016</time></td>
+                      </tr>
+                      <tr>
+                        <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
+                      </tr>
+                    </tbody>
+                  </table-->
+                  <!--table class="table table-decision">
+                    <tbody>
+                      <tr>
+                        <td rowspan="2">Result</td>
+                        <td>Withdrawn</td>
+                      </tr>
+                      <tr>
+                        <td>Reason <br> <span class="text-secondary">Submitted in error</span></td>
+                      </tr>
+                      <tr>
+                        <th rowspan="3">Decision made</th>
+                      </tr>
+                      <tr>
+                        <td><time datetime="2016-09-01">1 September 2016</time></td>
+                      </tr>
+                      <tr>
+                        <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
+                      </tr>
+                    </tbody>
+                  </table-->
                 {{/is}}
 
                 {{#is ../court-decision 2}}
-                  <table class="table">
+                  <table class="table table-decision">
                     <tbody>
                       <tr>
-                        <td>Verdict</td>
+                        <th>Verdict</th>
                         <td>Guilty plea accepted</td>
                       </tr>
                       <tr>
-                        <td>Fine</td>
-                        <td>&pound;100</td>
+                        <th>Fine</th>
+                        <td>&pound;143.50</td>
                       </tr>
                       <tr>
-                        <td rowspan="2" valign="top">Compensation</td>
+                        <th rowspan="2">Compensation</th>
                         <td>&pound;0</td>
                       </tr>
                       <tr>
                         <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
                       </tr>
                       <tr>
-                        <td rowspan="2" valign="top">Costs</td>
+                        <th rowspan="2">Costs</th>
                         <td>&pound;0</td>
                       </tr>
                       <tr>
                         <td>Reason for no costs <br> <span class="text-secondary">Limited means of the defendant</span></td>
                       </tr>
                       <tr>
-                        <td rowspan="2" valign="top">Victim surcharge (reduced)</td>
+                        <th rowspan="2">Victim surcharge</th>
                         <td>&pound;0</td>
                       </tr>
                       <tr>
-                        <td>Reason for reduction <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                        <td>Reason for reducing or removing victim surcharge <br> <span class="text-secondary">Limited means of the defendant</span></td>
                       </tr>
                       <tr>
-                        <td>Guilty plea taken into account</td>
+                        <th>Guilty plea taken into account</th>
                         <td>Yes</td>
+                      </tr>
+                      <tr>
+                        <th rowspan="2">Decision made</th>
+                        <td><time datetime="2016-09-01">1 September 2016</time></td>
+                      </tr>
+                      <tr>
+                        <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
                       </tr>
                     </tbody>
                   </table>
                 {{/is}}
 
                 {{#is ../court-decision 3}}
-                  <table class="table">
+                  <table class="table table-decision">
                     <tbody>
                       <tr>
                         <td>Verdict</td>
                         <td>Guilty plea accepted</td>
                       </tr>
                       <tr>
-                        <td>Conditional discharge</td>
-                        <td>6 months</td>
+                        <td>Result</td>
+                        <td>Conditional discharge for 6 months</td>
                       </tr>
                       <tr>
-                        <td rowspan="2" valign="top">Compensation</td>
-                        <td>&pound;0</td>
+                        <td>Compensation</td>
+                        <td>&pound;100</td>
                       </tr>
                       <tr>
-                        <td>Reason for no compensation <br> <span class="text-secondary">Limited means of the defendant</span></td>
+                        <td>Costs</td>
+                        <td>&pound;3.50</td>
+                      </tr>
+                      <tr>
+                        <td>Victim surcharge</td>
+                        <td>&pound;10</td>
+                      </tr>
+                      <tr>
+                        <th rowspan="3">Decision made</th>
+                      </tr>
+                      <tr>
+                        <td><time datetime="2016-09-01">1 September 2016</time></td>
+                      </tr>
+                      <tr>
+                        <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
                       </tr>
                     </tbody>
                   </table>
                 {{/is}}
+
+                <details>
+
+                  <summary><span class="summary">Payment and collection</span></summary>
+
+                  <div class="panel panel-border-narrow">
+
+                    <h3 class="heading-medium">Payment and collection</h3>
+
+                    <dl class="meta meta-inline meta-small">
+                      <dt>Collection order made</dt>
+                      <dd>Yes</dd>
+                      <dt>Total to pay</dt>
+                      <dd>&pound;113.50</dd>
+                      <dt>Payment method</dt>
+                      <dd>Direct to court</dd>
+                      <!--dt>Lump sum only</dt>
+                      <dd>&pound;143.50 to be paid within 14 days</dd-->
+                      <!--dt>Lump sum plus instalments</dt>
+                      <dd>A lump sum of &pound;23.50 to be paid, followed by &pound;20 paid monthly starting <time datetime="2016-12-30">30 December 2016</time></dd-->
+                      <dt>Instalments only</dt>
+                      <dd>&pound;18.91 to be paid monthly starting 1 December 2016</dd>
+                    </dl>
+
+                  </div>
+
+                </details>
 
               </section>
 
@@ -288,12 +392,12 @@
 
           </div>
 
-        </section>
-        {{/each}}
+        </div>
 
-      </section>
+      </div>
 
-    </div>
+    </section>
+    {{/with}}
 
   </div>
 

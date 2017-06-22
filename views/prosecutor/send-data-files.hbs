@@ -26,7 +26,7 @@
       </div>
       {{/error}}
 
-      <form class="form" method="post"{{#if error}}action="/prosecutor/data-files-confirmation"{{/if}} novalidate>
+      <form class="form" method="post" novalidate>
 
         <div class="form-group{{#error}}{{#unless header}} error{{/unless}}{{/error}}"{{#error}}{{#unless header}} id="error-header"{{/unless}}{{/error}}>
           <label for="header">

@@ -357,8 +357,7 @@ var search = [
       ]
     },
     "court-decision": 3,
-    "decision-ready": false,
-    "withdraw": true
+    "decision-ready": false
   },
 
   {
@@ -392,7 +391,7 @@ var search = [
     "cost": "",
     "compensation": "",
     "case-details": {
-      "status": 'Ready for <abbr title="Single Justice Procedure">SJP</abbr> decision',
+      "status": 'No plea received',
       "prosecutor": "Transport for London",
       "charge-date": "21 January 2016",
       "charge-date-datetime": "2016-01-21",
@@ -445,7 +444,8 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "withdraw": true
+    "withdraw": true,
+    "locked-case": true
   },
 
   {
@@ -621,8 +621,7 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "missing-sjp": true,
-    "cancel-withdrawal": true
+    "missing-sjp": true
   },
 
   {
@@ -712,7 +711,8 @@ var search = [
       ]
     },
     "decision-ready": false,
-    "missing-sjp": true
+    "missing-sjp": true,
+    "withdraw": true
   },
 
   {
@@ -726,7 +726,7 @@ var search = [
       "gender":     "Male",
       "urn":        "2056137",
       "address": {
-        "address1": "22 Spilman Street",
+        "address1": "6 Spilman Street",
         "address2": "",
         "town":     "Grantley",
         "postcode": "HG4 2ET"
