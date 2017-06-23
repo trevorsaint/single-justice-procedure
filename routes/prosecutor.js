@@ -14,7 +14,8 @@ const apptitle = 'Criminal Justice Services online';
 // use
 router.use(function(req, res, next) {
 
-  sWithdrawOffence = req.session.withdrawOffence;
+  sWithdrawOffence       = req.session.withdrawOffence;
+  sCancelWithdrawOffence = req.session.cancelWithdrawOffence;
 
   next();
 
@@ -86,6 +87,7 @@ router.route('/prosecutor/case-details/:id')
     section2_name: 'Search for a case',
     search: entry,
     sWithdrawOffence: sWithdrawOffence,
+    sCancelWithdrawOffence: sCancelWithdrawOffence,
     breadcrumb: true
   });
 });
@@ -155,28 +157,7 @@ router.route('/prosecutor/send-other-documents')
     breadcrumb: true
   });
 }).post(function(req, res) {
-
-  // validate
-  req.checkBody('documents', 'Select file').notEmpty();
-
-  // check the validation object for errors
-  var errors = req.validationErrors();
-  if (errors) {
-    res.render('prosecutor/send-other-documents', {
-      baseurl: baseurl,
-      apptitle: apptitle,
-      doctitle: 'Upload SJP notices and other documents',
-      pagetitle: 'Upload SJP notices and other documents',
-      section: 'home',
-      section_name: 'Home',
-      breadcrumb: true,
-      errors: errors
-    });
-    return;
-  } else {
-    res.redirect('/prosecutor/documents-confirmation');
-  }
-
+  res.redirect('/prosecutor/documents-confirmation');
 });
 
 
@@ -209,6 +190,7 @@ router.route('/prosecutor/check-document-uploads/report/success/:id')
     breadcrumb: true
   });
 });
+
 
 router.route('/prosecutor/check-document-uploads/report/errors/:id')
 .get(function(req, res) {
@@ -336,69 +318,8 @@ router.route('/prosecutor/withdraw-offence/:id')
   });
 }).post(function(req, res) {
   sWithdrawOffence = req.session.withdrawOffence = true;
-  res.redirect('/prosecutor/withdraw-offence-confirmation/' + req.params.id);
-});
-
-
-router.route('/prosecutor/withdraw-offence-confirmation/:id')
-.get(function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
-  res.render('prosecutor/withdraw-offence-confirmation', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    doctitle: 'Withdraw offence confirmation',
-    pagetitle: 'Withdraw offence confirmation',
-    section: 'home',
-    section_name: 'Home',
-    search: entry,
-    breadcrumb: true
-  });
-});
-
-
-router.route('/prosecutor/documents-confirmation')
-.get(function(req, res) {
-  res.render('prosecutor/documents-confirmation', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    doctitle: 'Confirmation',
-    pagetitle: 'Confirmation',
-    section: 'home',
-    section_name: 'Home',
-    breadcrumb: true
-  });
-});
-
-
-router.route('/prosecutor/case-details-cancel-withdraw/:id')
-.get(function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
-  res.render('prosecutor/case-details-cancel-withdraw', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    doctitle: 'Cancel withdrawal',
-    pagetitle: 'Cancel withdrawal',
-    section: 'home',
-    section_name: 'Home',
-    search: entry,
-    breadcrumb: true
-  });
-});
-
-
-router.route('/prosecutor/withdraw-all-offences/:id')
-.get(function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
-  res.render('prosecutor/withdraw-all-offences', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    doctitle: 'Withdraw all offences',
-    pagetitle: 'Withdraw all offences',
-    section: 'home',
-    section_name: 'Home',
-    search: entry,
-    breadcrumb: true
-  });
+  sCancelWithdrawOffence = req.session.cancelWithdrawOffence = null;
+  res.redirect('/prosecutor/case-details/' + req.params.id);
 });
 
 
@@ -417,21 +338,20 @@ router.route('/prosecutor/cancel-withdrawal-request/:id')
   });
 }).post(function(req, res) {
   sWithdrawOffence = req.session.withdrawOffence = null;
-  res.redirect('/prosecutor/cancel-withdrawal-request-confirmation/' + req.params.id);
+  sCancelWithdrawOffence = req.session.cancelWithdrawOffence = true;
+  res.redirect('/prosecutor/case-details/' + req.params.id);
 });
 
 
-router.route('/prosecutor/cancel-withdrawal-request-confirmation/:id')
+router.route('/prosecutor/documents-confirmation')
 .get(function(req, res) {
-  var entry = dataEngine.getSearchEntry(req.params.id);
-  res.render('prosecutor/cancel-withdrawal-request-confirmation', {
+  res.render('prosecutor/documents-confirmation', {
     baseurl: baseurl,
     apptitle: apptitle,
-    doctitle: 'Cancel withdrawal request confirmation',
-    pagetitle: 'Cancel withdrawal request confirmation',
+    doctitle: 'Confirmation',
+    pagetitle: 'Confirmation',
     section: 'home',
     section_name: 'Home',
-    search: entry,
     breadcrumb: true
   });
 });

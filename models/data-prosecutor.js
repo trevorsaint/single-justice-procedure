@@ -178,14 +178,14 @@ var search = [
           "file-path": "#"
         },
         {
-          "title": "Plea document",
+          "title": "Plea",
           "file-type": "PDF",
           "file-size": "376KB",
           "file-pages": "10 pages",
           "file-path": "#"
         },
         {
-          "title": "Statement of income and outgoings (MC100)",
+          "title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "514KB",
           "file-pages": "6 pages",
@@ -262,7 +262,7 @@ var search = [
           "file-path": "#"
         },
         {
-          "title": "Statement of income and outgoings (MC100)",
+          "title": "Income and outgoings",
           "file-type": "PDF",
           "file-size": "514KB",
           "file-pages": "6 pages",
@@ -276,7 +276,7 @@ var search = [
           "file-path": "#"
         },
         {
-          "title": "Plea document",
+          "title": "Plea",
           "file-type": "PDF",
           "file-size": "376KB",
           "file-pages": "10 pages",

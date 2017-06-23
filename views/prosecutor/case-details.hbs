@@ -4,6 +4,7 @@
 
     {{>prosecutor/persist-info}}
 
+
     {{#if locked-case}}
     <div class="banner banner-warning" role="alert">
       <i class="icon icon-banner-warning" role="presentation" aria-hidden="true"></i>
@@ -14,22 +15,24 @@
     {{/if}}
 
 
-
+    {{#if ../sCancelWithdrawOffence}}
     <div class="banner banner-confirmation" role="alert">
       <i class="icon icon-banner-confirmation" role="presentation" aria-hidden="true"></i>
       <div class="banner-message">
         <p>Withdrawal request cancelled</p>
       </div>
     </div>
+    {{/if}}
 
 
-
+    {{#if ../sWithdrawOffence}}
     <div class="banner banner-confirmation" role="alert">
       <i class="icon icon-banner-confirmation" role="presentation" aria-hidden="true"></i>
       <div class="banner-message">
         <p>Your request has been sent and will be dealt with by a legal adviser</p>
       </div>
     </div>
+    {{/if}}
 
 
 
@@ -130,29 +133,33 @@
 
       </div>
 
-      {{#if withdraw}}
-       <div class="column-third">
+      {{#unless locked-case}}
 
-         <div class="related">
+        {{#if withdraw}}
+         <div class="column-third">
 
-           <div class="related-section">
+           <div class="related">
 
-             <h2 class="related-heading">Case options</h2>
+             <div class="related-section">
 
-             <ul class="related-links">
-               {{#if ../sWithdrawOffence}}
-                <li><a href="/prosecutor/cancel-withdrawal-request/{{id}}">Cancel withdrawal request</a></li>
-               {{else}}
-                <li><a href="/prosecutor/withdraw-offence/{{id}}">Withdraw offence</a></li>
-               {{/if}}
-             </ul>
+               <h2 class="related-heading">Case options</h2>
+
+               <ul class="related-links">
+                 {{#if ../sWithdrawOffence}}
+                  <li><a href="/prosecutor/cancel-withdrawal-request/{{id}}">Cancel withdrawal request</a></li>
+                 {{else}}
+                  <li><a href="/prosecutor/withdraw-offence/{{id}}">Withdraw offence</a></li>
+                 {{/if}}
+               </ul>
+
+             </div>
 
            </div>
 
          </div>
+         {{/if}}
 
-       </div>
-       {{/if}}
+       {{/unless}}
 
     </div>
 
