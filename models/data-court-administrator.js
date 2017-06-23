@@ -126,7 +126,7 @@ var search = [
     "hearing": "2015-11-18",
     "case-details": {
       "case-number": "9012467",
-      "status": "Completed &ndash; decision sent to defendant",
+      "status": "Completed",
       "prosecutor": "Transport for London",
       "informant": "Trevor Saint",
       "charge-date": "2016-01-21",
@@ -285,7 +285,7 @@ var search = [
       "phone": "078 1825 3550"
     },
     "case-details": {
-      "status": "Completed &ndash; decision sent to defendant",
+      "status": "Completed",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-07-13",
@@ -393,7 +393,7 @@ var search = [
       "phone": "079 5115 9062"
     },
     "case-details": {
-      "status": "Ready for <abbr title=\"Single Justice Procedure\">SJP</abbr> decision",
+      "status": "Plea received &ndash; awaiting decision",
       "prosecutor": "Transport for London",
       "charge-date": "2016-01-21",
       "notice-served": "2015-09-04",

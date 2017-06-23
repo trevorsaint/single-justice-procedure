@@ -21,51 +21,17 @@ var search = [
       "mobile":     "",
       "national-insurance-number": ""
     },
-    "notice-served": "2015-04-30",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "230",
-    "compensation": "3.40",
     "case-details": {
-      "status": "Completed &ndash; decision sent to defendant",
+      "status": "Completed",
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-04-30",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-04-30"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
-      "plea": "Pleaded guilty",
-      "court-decision": {
-        "verdict": "Guilty plea accepted",
-        "fine": "100",
-        "compentation": "3.50",
-        "costs": "30",
-        "victim-surcharge": "10",
-        "guilty-plea-taken-into-account": "Yes"
-      }
-    },
-    "employment": {
-      "status": "Employed",
-      "employer-name": "Infigo Media",
-      "employer-address": {
-        "address1": "5 Moorhens",
-        "address2": "",
-        "town": "Fleet",
-        "postcode": "GU51 5BU"
-      },
-      "employer-phone": "",
-      "pay": {
-        "duration": "Fortnightly",
-        "amount": "12000"
-      },
-      "receiving-benfits": "No",
+      "plea": "Pleaded guilty"
     },
     "files": {
       "file": [
@@ -142,15 +108,7 @@ var search = [
     "decision": false,
     "court-decision": 1,
     "decision-ready": false,
-    "report-error": 1,
-    "collection": {
-      "order-made": "Yes",
-      "amount-due": "347.12",
-      "payment-method": "Direct to Court",
-      "lump-sum-amount": "347.12",
-      "pay-by-date": "24 July 2015",
-      "notice-sent": "28 July 2015"
-    }
+    "report-error": 1
   },
 
   {
@@ -174,33 +132,17 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "ZK 89 01 41 A"
     },
-    "notice-served": "2015-09-18",
-    "hearing": "18 Nov 2015",
-    "verdict": "Guilty",
-    "decision": "Adjourned",
-    "cost": "",
-    "compensation": "",
     "case-details": {
-      "status": 'Completed &ndash; decision sent to defendant',
+      "status": 'Completed',
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-09-18",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-09-18"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
-    },
-    "employment": {
-      "status": "Unemployed",
-      "since-date": "(since 15 July 2016)",
-      "since-date-iso": "",
-      "receiving-benfits": "Yes"
     },
     "files": {
       "file": [
@@ -277,31 +219,17 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "GK 69 85 94 D"
     },
-    "notice-served": "2015-07-13",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "130",
-    "compensation": "8.40",
     "case-details": {
       "status": "Decision made",
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-07-13",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-07-13"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty",
-    },
-    "employment": {
-      "status": "",
-      "receiving-benfits": ""
     },
     "files": {
       "file": [
@@ -381,35 +309,18 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "ZK 71 11 43 D"
     },
-    "email": "",
-    "phone": "",
-    "national-insurance-number": "",
-    "notice-served": "2015-09-04",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Withdrawn",
-    "cost": "",
-    "compensation": "",
     "case-details": {
       "status": 'No plea received',
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-09-04",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-09-04"
     },
     "offence": {
       "id": 1,
       "title": "Passenger used ticket issued for another person",
       "date": "18 January 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "I picked up my partner&rsquo;s ticket instead of my own when I left my house.",
       "plea": "Pleaded guilty"
-    },
-    "employment": {
-      "status": "",
-      "receiving-benfits": ""
     },
     "files": {
       "file": [
@@ -469,32 +380,18 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "TK 60 97 18 A"
     },
-    "notice-served": "2015-09-18",
-    "hearing": "18 Nov 2015",
-    "verdict": "Guilty",
-    "decision": "Adjourned",
-    "cost": "",
-    "compensation": "",
     "case-details": {
       "status": "No plea received",
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-09-18",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-09-18"
     },
     "offence": {
       "id": 1,
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
-    },
-    "employment": {
-      "status": "",
-      "receiving-benfits": ""
     },
     "files": {
       "file": [
@@ -555,31 +452,17 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "NY 80 08 89 A"
     },
-    "notice-served": "2015-01-14",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "130",
-    "compensation": "8.40",
     "case-details": {
       "status": "Pending offence withdrawal",
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-01-14",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-01-14"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "No plea received"
-    },
-    "employment": {
-      "status": "",
-      "receiving-benfits": ""
     },
     "files": {
       "file": [
@@ -645,31 +528,17 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "HS 12 20 51 D"
     },
-    "notice-served": "2015-09-18",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "230",
-    "compensation": "3.40",
     "case-details": {
       "status": "No plea received",
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-09-18",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-09-18"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
-    },
-    "employment": {
-      "status": "",
-      "receiving-benfits": ""
     },
     "files": {
       "file": [
@@ -736,31 +605,17 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "MJ 82 16 61 A"
     },
-    "notice-served": "2015-09-18",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "230",
-    "compensation": "3.40",
     "case-details": {
       "status": "No plea received",
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-09-18",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-09-18"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
-    },
-    "employment": {
-      "status": "",
-      "receiving-benfits": ""
     },
     "files": {
       "file": [
@@ -813,31 +668,17 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "LC 59 17 17 B"
     },
-    "notice-served": "2015-01-14",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "130",
-    "compensation": "8.40",
     "case-details": {
       "status": "No plea received",
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-01-14",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-01-14"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
-    },
-    "employment": {
-      "status": "",
-      "receiving-benfits": ""
     },
     "files": {
       "document": [
@@ -904,31 +745,17 @@ var search = [
       "mobile":     "",
       "national-insurance-number": "LN 56 80 72 B"
     },
-    "notice-served": "2015-01-14",
-    "hearing": "",
-    "verdict": "Guilty",
-    "decision": "Fine",
-    "cost": "230",
-    "compensation": "3.40",
     "case-details": {
       "status": "No plea received",
       "prosecutor": "Transport for London",
-      "charge-date": "21 January 2016",
-      "charge-date-datetime": "2016-01-21",
-      "notice-served": "2015-01-14",
-      "notice-served-datetime": "2016-02-02",
+      "notice-served": "2015-01-14"
     },
     "offence": {
       "title": "Passenger used ticket issued for another person",
       "date": "1 February 2016",
-      "date-iso": "2016-02-01",
       "statement-of-facts": 'I, Inspector Morse, was suspicious as the defendant kept moving seats away from me. When asked for a ticket he replied &ldquo;I don&rsquo;t have one as I am not really on this train, you&rsquo;re seeing an illusion&rdquo;. I had no choice but to issue him with a ticket.',
       "mitigation": "",
       "plea": "Pleaded guilty"
-    },
-    "employment": {
-      "status": "",
-      "receiving-benfits": ""
     },
     "files": {
       "document": [

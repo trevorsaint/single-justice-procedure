@@ -74,7 +74,7 @@
             <dl class="meta meta-inline meta-boldterms">
               <dt>Case status</dt>
               <dd>
-              {{#is status 'Completed &ndash; decision sent to defendant'}}
+              {{#is status 'Completed'}}
                 {{#if ../../sCaseNumber}}
                   Reopened <time datetime="{{moment ../../sDateOrder format="YYYY-MM-DD"}}">{{moment ../../sDateOrder format="D MMMM YYYY"}}</time><br>
                   Reopened case number: {{../../sCaseNumber}} <br>
@@ -137,7 +137,7 @@
                   {{#if email}}
                     {{email}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/personal-details/{{../id}}/#email">Add email</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/personal-details/{{../id}}/#email">Add email</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
@@ -150,7 +150,7 @@
                   {{#if phone}}
                     {{phone}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/personal-details/{{../id}}/#phone">Add home telephone</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/personal-details/{{../id}}/#phone">Add home telephone</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
@@ -163,14 +163,14 @@
                   {{#if mobile}}
                     {{mobile}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/personal-details/{{../id}}/#mobile">Add mobile</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/personal-details/{{../id}}/#mobile">Add mobile</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
 
             </dl>
 
-            {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
+            {{#isnt ../case-details.status 'Completed'}}
             <p><a class="font-small" href="/court-administrator/personal-details/{{../id}}/">Change personal details</a></p>
             {{/isnt}}
 
@@ -192,7 +192,7 @@
                   {{#if ../national-insurance-number}}
                     {{../national-insurance-number}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#national-insurance">Add National Insurance number</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#national-insurance">Add National Insurance number</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
@@ -205,7 +205,7 @@
                   {{#if pay.frequency}}
                     {{pay.frequency}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#pay-frequency">Add frequency</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#pay-frequency">Add frequency</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
@@ -218,7 +218,7 @@
                   {{#if status}}
                     {{status}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employed">Add employment status</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employed">Add employment status</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
@@ -233,7 +233,7 @@
                     {{#if ../employer-name}}
                       {{../employer-name}}
                     {{else}}
-                      {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-name">Add employer name</a>{{/is}}
+                      {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-name">Add employer name</a>{{/is}}
                     {{/if}}
                   {{/if}}
                 </dd>
@@ -246,7 +246,7 @@
                     {{#if employer-telephone}}
                       {{employer-telephone}}
                     {{else}}
-                      {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-telephone">Add employer telephone</a>{{/is}}
+                      {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-telephone">Add employer telephone</a>{{/is}}
                     {{/if}}
                   {{/if}}
                 </dd>
@@ -265,7 +265,7 @@
                       {{#if employer-address.town}}{{employer-address.town}}{{/if}}
                       {{#if employer-address.postcode}}{{employer-address.postcode}}{{/if}}
                     {{else}}
-                      {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-address-1">Add employer address</a>{{/is}}
+                      {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-address-1">Add employer address</a>{{/is}}
                     {{/if}}
                   {{/if}}
                 </dd>
@@ -278,7 +278,7 @@
                     {{#if pay.amount}}
                         &pound;{{pay.amount}}
                     {{else}}
-                      {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#pay-amount">Add income</a>{{/is}}
+                      {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#pay-amount">Add income</a>{{/is}}
                     {{/if}}
                   {{/if}}
                 </dd>
@@ -293,14 +293,14 @@
                   {{#if receiving-benefits}}
                     {{receiving-benefits}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed &ndash; decision sent to defendant'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#receiving-benefits-yes">Add benefits information</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#receiving-benefits-yes">Add benefits information</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
 
             </dl>
 
-            {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
+            {{#isnt ../case-details.status 'Completed'}}
             <p><a class="font-small" href="/court-administrator/employment-and-income/{{../id}}/">Change employment and income</a></p>
             {{/isnt}}
 
@@ -366,7 +366,7 @@
 
         {{#if related-documents.document}}
 
-          {{#isnt case-details.status 'Completed &ndash; decision sent to defendant'}}
+          {{#isnt case-details.status 'Completed'}}
           <div class="related-section">
             <h3 class="related-heading">Postal replies</h3>
             <ul class="related-links">
@@ -440,7 +440,7 @@
 
                 </section>
 
-                {{#isnt ../case-details.status 'Completed &ndash; decision sent to defendant'}}
+                {{#isnt ../case-details.status 'Completed'}}
                 <section id="offence-plea">
 
                   <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
