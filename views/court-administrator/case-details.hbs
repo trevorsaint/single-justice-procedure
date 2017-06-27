@@ -350,19 +350,15 @@
 
       <div class="related">
 
+        {{#contains case-details.status 'Completed'}}
         <div class="related-section">
-
           <h3 class="related-heading">Case options</h3>
           <ul class="related-links">
-          {{#contains case-details.status 'Completed'}}
             {{#isnt ../sReopenedCase 'Yes'}}<li><a href="/court-administrator/mark-case-as-reopened/{{id}}/">Mark case as reopened</a></li>{{/isnt}}
             <li><a href="/court-administrator/extract-of-court-record/{{id}}/">Extract of court record</a></li>
-          {{else}}
-            <li><a href="/">Send case to court hearing</a></li>
-          {{/contains}}
           </ul>
-
         </div>
+        {{/contains}}
 
         {{#if related-documents.document}}
 
