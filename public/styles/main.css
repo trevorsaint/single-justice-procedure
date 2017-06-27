@@ -3679,6 +3679,15 @@ fieldset.inline ~ .panel:last-child {
   margin-bottom: 15px;
 }
 
+.heading-xlarge {
+  margin-bottom: 0.46875em;
+}
+@media (min-width: 641px) {
+  .heading-xlarge {
+    margin-bottom: 0.625em;
+  }
+}
+
 .check-answers {
   position: relative;
   margin-bottom: 2.10526em;

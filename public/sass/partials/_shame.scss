@@ -13,3 +13,15 @@ fieldset.inline ~ .panel {
   }
 
 }
+
+
+// Headings (GDS override)
+
+.heading-xlarge {
+  margin-bottom: em(15, 32);
+
+  @include media(tablet) {
+    margin-bottom: em(30, 48);
+  }
+
+}
