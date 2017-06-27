@@ -23,21 +23,6 @@ router.use(function(req, res, next) {
 
 
 // routes
-router.route('/prosecutor')
-.get(function(req, res) {
-  res.render('prosecutor/index', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    doctitle: 'Sign in',
-    pagetitle: 'Sign in',
-    breadcrumb: false
-  });
-})
-.post(function(req, res) {
-  res.redirect('/prosecutor/home');
-});
-
-
 router.route('/prosecutor/home')
 .get(function(req, res) {
   res.render('prosecutor/home', {
@@ -73,7 +58,7 @@ router.route('/prosecutor/search-for-a-case')
 });
 
 
-router.route('/prosecutor/case-details/:id')
+router.route('/prosecutor/case-details/:id?')
 .get(function(req, res) {
   var entry = dataEngine.getSearchEntry(req.params.id);
   res.render('prosecutor/case-details', {
@@ -88,7 +73,8 @@ router.route('/prosecutor/case-details/:id')
     search: entry,
     sWithdrawOffence: sWithdrawOffence,
     sCancelWithdrawOffence: sCancelWithdrawOffence,
-    breadcrumb: true
+    breadcrumb: true,
+    query: req.query.q
   });
 });
 
@@ -319,7 +305,7 @@ router.route('/prosecutor/withdraw-offence/:id')
 }).post(function(req, res) {
   sWithdrawOffence = req.session.withdrawOffence = true;
   sCancelWithdrawOffence = req.session.cancelWithdrawOffence = null;
-  res.redirect('/prosecutor/case-details/' + req.params.id);
+  res.redirect('/prosecutor/case-details/' + req.params.id + '?q=withdraw');
 });
 
 
@@ -339,7 +325,7 @@ router.route('/prosecutor/cancel-withdrawal-request/:id')
 }).post(function(req, res) {
   sWithdrawOffence = req.session.withdrawOffence = null;
   sCancelWithdrawOffence = req.session.cancelWithdrawOffence = true;
-  res.redirect('/prosecutor/case-details/' + req.params.id);
+  res.redirect('/prosecutor/case-details/' + req.params.id + '?q=cancel');
 });
 
 
