@@ -76,10 +76,10 @@
               <dd>
               {{#is status 'Completed'}}
                 {{#if ../../sCaseNumber}}
-                  Reopened <time datetime="{{moment ../../sDateOrder format="YYYY-MM-DD"}}">{{moment ../../sDateOrder format="D MMMM YYYY"}}</time><br>
-                  Reopened case number: {{../../sCaseNumber}} <br>
+                  Reopened <br>
+                  Libra case number: {{../../sCaseNumber}} <br>
                   Reason: {{../../sReasonForReopening}} <br>
-                  <a href="/court-administrator/change-reopened-case-status/{{../id}}">Change<span class="visually-hidden"> reopened case status</span></a>
+                  <a href="/court-administrator/change-reopened-case-status/{{../id}}">Change<span class="visually-hidden"> reopened case status</span></a> &nbsp;&nbsp; <a href="/court-administrator/undo-case-reopening/{{../id}}">Undo <span class="visually-hidden">case reopening</span></a>
                 {{else}}
                   {{{status}}}
                 {{/if}}

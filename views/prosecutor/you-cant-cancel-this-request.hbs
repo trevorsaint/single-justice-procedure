@@ -1,0 +1,28 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+  {{>prosecutor/persist-info}}
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+      <div class="notice mb-l">
+        <i class="icon icon-important">
+          <span class="visually-hidden">Warning</span>
+        </i>
+        <strong class="bold-small">
+          You can&rsquo;t cancel this request, as a legal adviser has just started dealing with it. Contact the court, if you need to discuss this case.
+        </strong>
+      </div>
+
+      <p><a class="button" href="/prosecutor/case-details/{{id}}/">Back to case</a></p>
+
+    </div>
+
+  </div>
+
+{{/with}}

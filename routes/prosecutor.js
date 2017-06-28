@@ -329,6 +329,26 @@ router.route('/prosecutor/cancel-withdrawal-request/:id')
 });
 
 
+router.route('/prosecutor/you-cant-cancel-this-request/:id')
+.get(function(req, res) {
+  var entry = dataEngine.getSearchEntry(req.params.id);
+  res.render('prosecutor/you-cant-cancel-this-request', {
+    baseurl: baseurl,
+    apptitle: apptitle,
+    doctitle: 'You can’t cancel this request',
+    pagetitle: 'You can’t cancel this request',
+    section: 'home',
+    section_name: 'Home',
+    section2: 'case-details/' + req.params.id,
+    section2_name: 'Case details',
+    search: entry,
+    breadcrumb: true
+  });
+}).post(function(req, res) {
+  res.redirect('/prosecutor/case-details/' + req.params.id);
+});
+
+
 router.route('/prosecutor/documents-confirmation')
 .get(function(req, res) {
   res.render('prosecutor/documents-confirmation', {

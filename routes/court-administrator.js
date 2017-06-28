@@ -70,10 +70,6 @@ router.use(function(req, res, next) {
 
   // reopen case
   sCaseNumber         = req.session.caseNumber;
-  sDateOrder          = req.session.dateOrder;
-  sDateOrderDay       = req.session.dateOrderDay;
-  sDateOrderMonth     = req.session.dateOrderMonth;
-  sDateOrderYear      = req.session.dateOrderYear;
   sReasonForReopening = req.session.reasonForReopening;
   sRevertCase         = req.session.revertCase = req.body.revertCase;
 
@@ -176,8 +172,8 @@ router.route('/court-administrator/case-details/:id/')
       pagetitle: 'Case details',
       section: 'home',
       section_name: 'Home',
-      //section2: 'search-for-a-case',
-      //section2_name: 'Search for a case',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
       search:entry,
       breadcrumb: true,
       sFirstname: sFirstname,
@@ -214,7 +210,6 @@ router.route('/court-administrator/case-details/:id/')
       sOtherDocument: sOtherDocument,
       sHasSaved: sHasSaved,
       sCaseNumber: sCaseNumber,
-      sDateOrder: req.session.dateOrder = req.session.dateOrderYear + '-' + zeroFill(req.session.dateOrderMonth) + '-' + zeroFill(req.session.dateOrderMonth),
       sReasonForReopening: sReasonForReopening,
       sReopenedCase: sReopenedCase
     });
@@ -256,6 +251,10 @@ router.route('/court-administrator/personal-details/:id/')
       pagetitle: 'Personal details',
       section: 'home',
       section_name: 'Home',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sTitle: sTitle,
@@ -298,8 +297,10 @@ router.route('/court-administrator/employment-and-income/:id/')
       pagetitle: 'Add employment and income',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sNationalInsurance: sNationalInsurance,
@@ -344,6 +345,10 @@ router.route('/court-administrator/upload-documents/:id/')
       pagetitle: 'Upload documents',
       section: 'home',
       section_name: 'Home',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sPleaDocument: sPleaDocument,
@@ -383,6 +388,10 @@ router.route('/court-administrator/postal/add-plea/:id/')
       pagetitle: 'Add plea',
       section: 'home',
       section_name: 'Home',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sMakeDecision: sMakeDecision,
@@ -434,8 +443,10 @@ router.route('/court-administrator/postal/personal-details/:id/')
       pagetitle: 'Personal details',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sTitle: sTitle,
@@ -485,8 +496,10 @@ router.route('/court-administrator/postal/employment-and-income/:id/')
       pagetitle: 'Add employment and income',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sNationalInsurance: sNationalInsurance,
@@ -540,8 +553,10 @@ router.route('/court-administrator/postal/upload-documents/:id/')
       pagetitle: 'Upload documents',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       search: entry
     });
@@ -564,8 +579,10 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
       pagetitle: 'Check your answers',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sMakeDecision: sMakeDecision,
@@ -611,8 +628,10 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
         pagetitle: 'Extract of court record',
         section: 'home',
         section_name: 'Home',
-        //section2: 'case-details/' + req.params.id,
-        //section2_name: 'Case details',
+        section2: 'search-for-a-case',
+        section2_name: 'Search for a case',
+        section3: 'case-details/' + req.params.id,
+        section3_name: 'Case details',
         breadcrumb: true,
         search: entry,
         sMakeDecision: sMakeDecision,
@@ -677,20 +696,18 @@ router.route('/court-administrator/mark-case-as-reopened/:id/')
       pagetitle: 'Mark case as reopened',
       section: 'home',
       section_name: 'Home',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       search: entry,
-      sDateOrderDay: sDateOrderDay,
-      sDateOrderMonth: sDateOrderMonth,
-      sDateOrderYear: sDateOrderYear,
       sCaseNumber: sCaseNumber,
       sReasonForReopening: sReasonForReopening
     });
   })
   .post(function(req, res, next) {
     sReopenedCase = req.session.reopenedCase = 'Yes';
-    sDateOrderDay = req.session.dateOrderDay = req.body.dateOrderDay;
-    sDateOrderMonth = req.session.dateOrderMonth = req.body.dateOrderMonth;
-    sDateOrderYear = req.session.dateOrderYear = req.body.dateOrderYear;
     sCaseNumber = req.session.caseNumber = req.body.caseNumber;
     sReasonForReopening = req.session.reasonForReopening = req.body.reasonForReopening;
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
@@ -707,41 +724,43 @@ router.route('/court-administrator/change-reopened-case-status/:id/')
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
-      doctitle: 'Change reopened case status',
-      pagetitle: 'Change reopened case status',
+      doctitle: 'Change reopened case details',
+      pagetitle: 'Change reopened case details',
       section: 'home',
       section_name: 'Home',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       search: entry,
-      sDateOrderDay: sDateOrderDay,
-      sDateOrderMonth: sDateOrderMonth,
-      sDateOrderYear: sDateOrderYear,
       sCaseNumber: sCaseNumber,
       sReasonForReopening: sReasonForReopening
     });
   })
   .post(function(req, res, next) {
     sReopenedCase = req.session.reopenedCase = 'Yes';
-    sDateOrderDay = req.session.dateOrderDay = req.body.dateOrderDay;
-    sDateOrderMonth = req.session.dateOrderMonth = req.body.dateOrderMonth;
-    sDateOrderYear = req.session.dateOrderYear = req.body.dateOrderYear;
     sCaseNumber   = req.session.caseNumber = req.body.caseNumber;
     sReasonForReopening = req.session.reasonForReopening = req.body.reasonForReopening;
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
 
-router.route('/court-administrator/revert-case-status-to-completed/:id/')
+router.route('/court-administrator/undo-case-reopening/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/revert-case-status-to-completed', {
+    res.render('court-administrator/undo-case-reopening', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
-      doctitle: 'Revert case status to completed',
-      pagetitle: 'Revert case status to completed',
+      doctitle: 'Undo case reopening',
+      pagetitle: 'Undo case reopening',
       section: 'home',
       section_name: 'Home',
+      section2: 'search-for-a-case',
+      section2_name: 'Search for a case',
+      section3: 'case-details/' + req.params.id,
+      section3_name: 'Case details',
       breadcrumb: true,
       sRevertCase: sRevertCase,
       search: entry
@@ -753,16 +772,10 @@ router.route('/court-administrator/revert-case-status-to-completed/:id/')
 
     if (sRevertCase === 'Yes') {
       req.session.reopenedCase = null;
-      req.session.dateOrderDay = null;
-      req.session.dateOrderMonth = null;
-      req.session.dateOrderYear = null;
       req.session.caseNumber = null;
       req.session.reasonForReopening = null;
     } else {
       sReopenedCase = req.session.reopenedCase = 'Yes';
-      sDateOrderDay = req.session.dateOrderDay;
-      sDateOrderMonth = req.session.dateOrderMonth;
-      sDateOrderYear = req.session.dateOrderYear;
       sCaseNumber = req.session.caseNumber;
       sReasonForReopening = req.session.reasonForReopening;
     }
