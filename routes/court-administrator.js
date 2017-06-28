@@ -31,6 +31,7 @@ router.use(function(req, res, next) {
   sMobile    = req.session.mobile;
   sAddress1  = req.session.address1;
   sAddress2  = req.session.address2;
+  sAddress3  = req.session.address3;
   sTown      = req.session.town;
   sPostcode  = req.session.postcode;
 
@@ -184,6 +185,7 @@ router.route('/court-administrator/case-details/:id/')
       sMobile: sMobile,
       sAddress1: sAddress1,
       sAddress2: sAddress2,
+      sAddress3: sAddress3,
       sTown: sTown,
       sPostcode: sPostcode,
       sNationalInsurance: sNationalInsurance,
@@ -266,6 +268,7 @@ router.route('/court-administrator/personal-details/:id/')
       sMobile: sMobile,
       sAddress1: sAddress1,
       sAddress2: sAddress2,
+      sAddress3: sAddress3,
       sTown: sTown,
       sPostcode: sPostcode
     });
@@ -280,6 +283,7 @@ router.route('/court-administrator/personal-details/:id/')
     sMobile = req.session.mobile = req.body.mobile;
     sAddress1 = req.session.address1 = req.body.address1;
     sAddress2 = req.session.address2 = req.body.address2;
+    sAddress3 = req.session.address3 = req.body.address3;
     sTown = req.session.town = req.body.town;
     sPostcode = req.session.postcode = req.body.postcode;
     sCaseActiveTab = req.session.caseActiveTab = 'Personal details';
@@ -458,6 +462,7 @@ router.route('/court-administrator/postal/personal-details/:id/')
       sMobile: sMobile,
       sAddress1: sAddress1,
       sAddress2: sAddress2,
+      sAddress3: sAddress3,
       sTown: sTown,
       sPostcode: sPostcode
     });
@@ -472,6 +477,7 @@ router.route('/court-administrator/postal/personal-details/:id/')
     sMobile = req.session.mobile = req.body.mobile;
     sAddress1 = req.session.address1 = req.body.address1;
     sAddress2 = req.session.address2 = req.body.address2;
+    sAddress3 = req.session.address3 = req.body.address3;
     sTown = req.session.town = req.body.town;
     sPostcode = req.session.postcode = req.body.postcode;
 
@@ -597,6 +603,7 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
       sMobile: sMobile,
       sAddress1: sAddress1,
       sAddress2: sAddress2,
+      sAddress3: sAddress3,
       sTown: sTown,
       sPostcode: sPostcode,
       sNationalInsurance: sNationalInsurance,
@@ -644,6 +651,7 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
         sMobile: sMobile,
         sAddress1: sAddress1,
         sAddress2: sAddress2,
+        sAddress3: sAddress3,
         sTown: sTown,
         sPostcode: sPostcode,
         sNationalInsurance: sNationalInsurance,
