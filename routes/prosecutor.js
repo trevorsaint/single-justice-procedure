@@ -335,8 +335,8 @@ router.route('/prosecutor/you-cant-cancel-this-request/:id')
   res.render('prosecutor/you-cant-cancel-this-request', {
     baseurl: baseurl,
     apptitle: apptitle,
-    doctitle: 'You can’t cancel this request',
-    pagetitle: 'You can’t cancel this request',
+    doctitle: 'You can’t cancel this withdrawal request',
+    pagetitle: 'You can’t cancel this withdrawal request',
     section: 'home',
     section_name: 'Home',
     section2: 'case-details/' + req.params.id,
