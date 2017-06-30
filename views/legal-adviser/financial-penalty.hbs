@@ -19,10 +19,6 @@
 
           <h4 class="heading-medium" id="fine-and-compensation">Check fine and compensation</h4>
 
-          {{!-- {{#if offence.weekly-income}}
-            <p>Defendant&rsquo;s weekly income: <b>&pound;{{offence.weekly-income}}</b>{{#if offence.weekly-income-assumed}} (assumed){{/if}}</p>
-          {{/if}} --}}
-
           <div class="form-group">
 
             <fieldset class="inline">
@@ -248,13 +244,13 @@
 
           </div>
 
-          <p>These have been calculated taking into account:</p>
+          <p>Fine has been calculated taking into account:</p>
 
           <ul class="list list-bullet">
             {{#if offence.weekly-income}}
             <li>income <b>&pound;{{offence.weekly-income}}</b> weekly{{#if offence.weekly-income-assumed}} (assumed){{/if}}</li>
             {{/if}}
-            <li>guilty plea discount</li>
+            <li>guilty plea</li>
           </ul>
 
         </div>
