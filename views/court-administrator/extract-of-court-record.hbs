@@ -2,146 +2,101 @@
 
 {{#with search}}
 
+<div class="grid-row">
 
-<h1 class="heading-xlarge">
-  {{#and ../sFirstname ../sLastname}}
-    {{../sFirstname}} {{uppercase ../sLastname}}
-  {{else}}
-    {{personal-details.firstname}} {{uppercase personal-details.lastname}}
-  {{/and}}
-</h1>
+  <div class="column-two-thirds">
 
+    <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
-<section aria-labelledby="personal-details">
+    <p class="bold-medium">Recorded on 16 August 2016</p>
 
-  <h2 class="heading-medium" id="personal-details">Personal details</h2>
-
-  <dl class="meta meta-inline">
-
-    <dt>Date of birth</dt>
-    <dd>
-      {{#if ../sDob}}
-        <time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMMM YYYY"}}</time>
+    <h2 class="heading-medium">
+      {{#and ../sFirstname ../sLastname}}
+        {{../sFirstname}} <span class="text-uppercase">{{../sLastname}}</span>
       {{else}}
-        <time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMMM YYYY"}}</time>
-      {{/if}}
-    </dd>
+        {{personal-details.firstname}} <span class="text-uppercase">{{personal-details.lastname}}</span>
+      {{/and}}
+    </h2>
 
-    <dt>Address</dt>
-    <dd>
-      {{#if ../sAddress1}}{{../sAddress1}}<br>{{else}}{{personal-details.address.address1}}<br>{{/if}}
-      {{#if ../sAddress2}}{{../sAddress2}}<br>{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}<br>{{/if}}{{/if}}
-      {{#if ../sTown}}{{../sTown}}<br>{{else}}{{personal-details.address.town}}<br>{{/if}}
-      {{#if ../sPostcode}}{{uppercase ../sPostcode}}{{else}}{{uppercase personal-details.address.postcode}}{{/if}}
-    </dd>
+    <p class="mb-xl">
+      {{#if ../sDob}}<time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="DD MMM YYYY"}}</time>{{else}}<time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="DD MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
+      {{#if ../sAddress1}}{{../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
+      {{#if ../sAddress2}}{{../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
+      {{#if ../sAddress3}}{{../sAddress3}},{{else}}{{#if personal-details.address.address3}}{{personal-details.address.address3}}, {{/if}}{{/if}}
+      {{#if ../sTown}}{{../sTown}}{{else}}{{personal-details.address.town}}{{/if}}
+      {{#if ../sPostcode}}<span class="text-uppercase">{{../sPostcode}}</span>{{else}}<span class="text-uppercase">{{personal-details.address.postcode}}</span>{{/if}}
+    </p>
 
-    <dt>Gender</dt>
-    <dd>{{personal-details.gender}}</dd>
+    <hr class="divider" aria-hidden="true">
 
-  </dl>
+    <h3 class="heading-medium">Case details</h3>
 
-</section>
+    <dl class="meta meta-inline">
+      <dt>Case reference</dt>
+      <dd>TFL 9012467</dd>
+      <dt>Prosecutor</dt>
+      <dd>Transport for London</dd>
+      <dt>Prosecutor</dt>
+      <dd>Guilty plea accepted &ndash; 12 August 2016</dd>
+    </dl>
 
+    <hr class="divider" aria-hidden="true">
 
-<hr class="divider divider-border-dark" aria-hidden="true">
+    <h4 class="heading-medium">Passenger used ticket issued for another person</h4>
 
+    <p>On 13 September 2016 at between Colchester and Clacton On Sea stations, not being in a designated compulsory ticket area, entered a train for the purpose of travelling
+      without having with you a valid ticket entitling you to travel.</p>
 
-{{#with case-details}}
-<section aria-labelledby="case-details">
+    <p>Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20
+      of the Transport Act 2000, as on 13 September 2016 at between Colchester and Clacton On Sea stations, the to pay a surcharge to fund victim services of &pound;30.00 defendant,
+      not being in a designated complusory ticket area, entered a train for the purpose of travelling without having with you a valid ticket entitling you to travel.</p>
 
-  <h2 class="heading-medium" id="case-details">Case details</h2>
+    <hr class="divider" aria-hidden="true">
 
-  <dl class="meta meta-inline">
-    <dt>Case number</dt>
-    <dd>{{case-number}}</dd>
-    <dt>Prosecutor</dt>
-    <dd>{{prosecutor}}</dd>
-  </dl>
+    <h4 class="heading-medium">Court decision</h4>
 
-</section>
-{{/with}}
+    <dl class="meta meta-inline">
+      <dt>Fined</dt>
+      <dd>&pound;250</dd>
+      <dt>To pay compensation of</dt>
+      <dd>&pound;125</dd>
+      <dt>To pay costs of</dt>
+      <dd>&pound;200</dd>
+      <dt>To pay victim surcharge of</dt>
+      <dd>&pound;175</dd>
+      <dt>Defendant&rsquo;s guilty plea</dt>
+      <dd>Taken into account when imposing sentence</dd>
+      <dt>Total to pay</dt>
+      <dd>&pound;143.50</dd>
+    </dl>
 
+    <hr class="divider" aria-hidden="true">
 
-<hr class="divider divider-border-dark" aria-hidden="true">
+    <h4 class="heading-medium">Payment and collection</h4>
 
+    <dl class="meta meta-inline">
+      <dt>Collection order made</dt>
+      <dd>Pay direct to court</dd>
+      <dt>Payment terms</dt>
+      <dd>To be paid as a lump sum in 28 days</dd>
+    </dl>
 
-{{#with offence}}
-<section aria-labelledby="offence">
+    <hr class="divider" aria-hidden="true">
 
-  <div class="text">
+    <ul class="button-actions">
+      <li><button class="button" type="button">Print copy</button></li>
+      <li><button class="button" type="button">Print certified copy</button></li>
+    </ul>
 
-    <h2 class="heading-large" id="offence">Offence</h2>
-
-    <h3 class="bold-medium">{{title}}</h3>
-
-    <p class="font-xsmall">On <time datetime="{{moment date format="YYYY-MM-DD"}}">{{moment date format="D MMMM YYYY"}}</time> At grosvenor place SW1 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not immediately on boarding pay the fare to the Driver for the journey you intended to take.</p>
-
-    <p><strong class="status-label">{{{plea}}}</strong></p>
+    <p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
 
   </div>
 
-  <section aria-labelledby="decision">
+  <div class="column-third">
+    <h2 class="heading-medium text-secondary">Convicting court</h2>
+    <p><b>South West London <br> Magistrates&rsquo; Court</b><br>123 The Street<br>London<br>SW1 2SX</p>
+  </div>
 
-    <h2 class="heading-medium" id="decision">Court decision</h2>
-
-    <table class="table table-decision">
-      <tbody>
-        <tr>
-          <th>Verdict</th>
-          <td>Proved <abbr title="Single Justice Procedure">SJP</abbr></td>
-        </tr>
-        <tr>
-          <th>Fined</th>
-          <td>&pound;150</td>
-        </tr>
-        <tr>
-          <th>To pay compensation of</th>
-          <td>&pound;100</td>
-        </tr>
-        <tr>
-          <th>To pay costs of</th>
-          <td>&pound;3.50</td>
-        </tr>
-        <tr>
-          <th>To pay victim surcharge of</th>
-          <td>&pound;10</td>
-        </tr>
-        <tr>
-          <th rowspan="2">Decision made</th>
-          <td><time datetime="2016-09-01">1 September 2016</time></td>
-        </tr>
-        <tr>
-          <td>Joe Bloggs and Peter Smith <br> <span class="text-secondary">Lavender Hill Magistrates&rsquo; Court</span></td>
-        </tr>
-      </tbody>
-    </table>
-
-  </section>
-
-  <section class="mb-xl" aria-labelledby="payment-and-collection">
-
-    <h3 class="heading-medium" id="payment-and-collection">Payment and collection</h3>
-
-    <table class="table table-decision">
-      <tbody>
-        <tr>
-          <th>Collection order made</th>
-          <td>Direct to court</td>
-        </tr>
-        <tr>
-          <th>Payment terms</th>
-          <td>&pound;263.50 to be paid as a lump sum in 28 days</td>
-        </tr>
-      </tbody>
-    </table>
-
-  </section>
-
-</section>
-{{/with}}
-
-<p><a class="button" href="#" role="button">Print</a></p>
-
-<p><a href="/court-administrator/case-details/{{id}}/">Back</a></p>
+</div>
 
 {{/with}}
