@@ -1,0 +1,99 @@
+{{>breadcrumb}}
+
+{{#with search}}
+
+{{>court-administrator/persist-info}}
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <h1 class="heading-xlarge">{{../pagetitle}}</h1>
+
+    <form class="form" method="post" novalidate>
+
+      <div class="form-group">
+        <label for="national-insurance">
+          <span class="form-label-bold">National Insurance number</span>
+          <span class="form-hint" id="national-insurance-hint">For example, VO 12 34 56 D</span>
+        </label>
+        <input class="form-control form-control-3-4" id="national-insurance" name="nationalInsurance" type="text" aria-describedby="national-insurance-hint"{{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{national-insurance-number}}"{{/if}}>
+      </div>
+
+      <div class="form-group">
+
+        <fieldset class="inline">
+
+          <legend>
+            <span class="form-label-bold">Frequency of income and outgoings</span>
+            <span class="form-hint">Check the form to see what the defendant has ticked</span>
+          </legend>
+
+          <div class="multiple-choice">
+            <input id="pay-frequency-weekly" name="payFrequency" type="radio" value="Weekly"{{#if ../sPayFrequency}}{{#contains ../sPayFrequency "Weekly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.pay.frequency "Weekly"}} checked="checked"{{/contains}}{{/if}}>
+            <label for="pay-frequency-weekly">Weekly</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="pay-frequency-fortnightly" name="payFrequency" type="radio" value="Fortnightly"{{#if ../sPayFrequency}}{{#contains ../sPayFrequency "Fortnightly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.pay.frequency "Fortnightly"}} checked="checked"{{/contains}}{{/if}}>
+            <label for="pay-frequency-fortnightly">Fortnightly</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="pay-frequency-monthly" name="payFrequency" type="radio" value="Monthly"{{#if ../sPayFrequency}}{{#contains ../sPayFrequency "Monthly"}} checked="checked"{{/contains}}{{else}}{{#contains employment.pay.frequency "Monthly"}} checked="checked"{{/contains}}{{/if}}>
+            <label for="pay-frequency-monthly">Monthly</label>
+          </div>
+
+        </fieldset>
+
+      </div>
+
+      <div class="form-group">
+        <label for="pay-amount">
+          <span class="form-label-bold">Net income</span>
+        </label>
+        <div class="form-currency">
+          <input class="form-control form-control-1-4" id="pay-amount" name="payAmount" type="text"{{#if ../sPayAmount}} value="{{../sPayAmount}}"{{else}} value="{{employment.pay.amount}}"{{/if}}>
+        </div>
+      </div>
+
+      <div class="form-group form-group-last">
+
+        <fieldset class="inline">
+
+          <legend>
+            <span class="form-label-bold">Claiming Jobseeker’s Allowance, Employment Support Allowance, Universal Credit or Income Support?</span>
+          </legend>
+
+          <div class="multiple-choice">
+            <input id="receiving-benefits-yes" name="receivingBenefits" type="radio" value="Yes"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Yes"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "Yes"}} checked="checked"{{/contains}}{{/if}}>
+            <label for="receiving-benefits-yes">Yes<span class="visually-hidden"> is receiving benefits</span></label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="receiving-benefits-no" name="receivingBenefits" type="radio" value="No"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "No"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "No"}} checked="checked"{{/contains}}{{/if}}>
+            <label for="receiving-benefits-no">No<span class="visually-hidden"> is not receiving benefits</span></label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="receiving-benefits-unknown" name="receivingBenefits" type="radio" value="Don’t know"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Don’t know"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits ""}} checked="checked"{{/contains}}{{/if}}>
+            <label for="receiving-benefits-unknown">Don&rsquo;t know<span class="visually-hidden"> if receiving benefits</span></label>
+          </div>
+
+        </fieldset>
+
+      </div>
+
+      <div class="form-group form-group-related">
+        <button class="button" type="submit">Save</button>
+      </div>
+
+      <p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
+
+    </form>
+
+  </div>
+
+</div>
+
+{{/with}}

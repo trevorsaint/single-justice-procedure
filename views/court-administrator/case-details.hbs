@@ -45,7 +45,7 @@
       {{/and}}
       </h1>
 
-      <p class="mb-xl">
+      <p class="mb-l">
         {{#if ../sDob}}<time datetime="{{moment ../sDob format="YYYY-MM-DD"}}">{{moment ../sDob format="D MMM YYYY"}}</time>{{else}}<time datetime="{{moment personal-details.dob format="YYYY-MM-DD"}}">{{moment personal-details.dob format="D MMM YYYY"}}</time> ({{personal-details.age}} years old){{/if}}<br>
         {{#if ../sAddress1}}{{../sAddress1}},{{else}}{{personal-details.address.address1}},{{/if}}
         {{#if ../sAddress2}}{{../sAddress2}},{{else}}{{#if personal-details.address.address2}}{{personal-details.address.address2}}, {{/if}}{{/if}}
@@ -54,13 +54,19 @@
         {{#if ../sPostcode}}<span class="text-uppercase">{{../sPostcode}}</span>{{else}}<span class="text-uppercase">{{personal-details.address.postcode}}</span>{{/if}}
       </p>
 
+      {{#if related-documents.document}}
+      {{#isnt case-details.status 'Completed'}}
+      <p class="mb-l"><a class="button" href="/court-administrator/postal/add-plea/{{id}}" role="button">Add all details from postal reply</a></p>
+      {{/isnt}}
+      {{/if}}
+
       <div class="tabs tabs-horizontal">
 
         <div class="tabs-header">
           <ul class="list">
             <li{{#is ../sCaseActiveTab "Case details"}} class="is-active"{{/is}}><a href="#case-details">Case details</a></li>
             <li{{#is ../sCaseActiveTab "Personal details"}} class="is-active"{{/is}}><a href="#personal-details">Personal details</a></li>
-            <li{{#is ../sCaseActiveTab "Employment and income"}} class="is-active"{{/is}}><a href="#employment-and-income">Income</a></li>
+            <li{{#is ../sCaseActiveTab "Income"}} class="is-active"{{/is}}><a href="#income">Income</a></li>
             <li{{#is ../sCaseActiveTab "Documents"}} class="is-active"{{/is}}><a href="#documents">Documents</a></li>
           </ul>
         </div>
@@ -180,9 +186,9 @@
           {{/with}}
 
           {{#with employment}}
-          <section id="employment-and-income">
+          <section id="income">
 
-            <h2 class="heading-medium">Employment and income</h2>
+            <h2 class="heading-medium">Income</h2>
 
             <dl class="meta meta-inline meta-boldterms">
 
@@ -194,100 +200,25 @@
                   {{#if ../national-insurance-number}}
                     {{../national-insurance-number}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#national-insurance">Add National Insurance number</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/income/{{../id}}/#national-insurance">Add National Insurance number</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
 
-              <dt>Income and outgoings</dt>
+              <dt>Net income (converted to weekly)</dt>
               <dd>
-                {{#if ../../sPayFrequency}}
-                  {{../../sPayFrequency}}
+                {{#if ../../sPayAmount}}
+                  &pound;{{../../sPayAmountConverted}}
                 {{else}}
-                  {{#if pay.frequency}}
-                    {{pay.frequency}}
+                  {{#if pay.amount}}
+                      &pound;{{pay.amount}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#pay-frequency">Add frequency</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/income/{{../id}}/#pay-amount">Add net income</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
 
-              <dt>Employment status</dt>
-              <dd>
-                {{#if ../../sEmployment}}
-                  {{../../sEmployment}}
-                {{else}}
-                  {{#if status}}
-                    {{status}}
-                  {{else}}
-                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employed">Add employment status</a>{{/is}}
-                  {{/if}}
-                {{/if}}
-              </dd>
-
-              {{#compare ../../sEmployment "===" "Employed"}}
-
-                <dt>Employer name</dt>
-                <dd>
-                  {{#if ../../sEmployerName}}
-                    {{../../sEmployerName}}
-                  {{else}}
-                    {{#if ../employer-name}}
-                      {{../employer-name}}
-                    {{else}}
-                      {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-name">Add employer name</a>{{/is}}
-                    {{/if}}
-                  {{/if}}
-                </dd>
-
-                <dt>Employer telephone</dt>
-                <dd>
-                  {{#if ../../sEmployerTelephone}}
-                    {{../../sEmployerTelephone}}
-                  {{else}}
-                    {{#if employer-telephone}}
-                      {{employer-telephone}}
-                    {{else}}
-                      {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-telephone">Add employer telephone</a>{{/is}}
-                    {{/if}}
-                  {{/if}}
-                </dd>
-
-                <dt>Employer address</dt>
-                <dd>
-                  {{#if ../../sEmployerAddress1}}
-                    {{#if ../../sEmployerAddress1}}{{../../sEmployerAddress1}} <br>{{/if}}
-                    {{#if ../../sEmployerAddress2}}{{../../sEmployerAddress2}} <br>{{/if}}
-                    {{#if ../../sEmployerTown}}{{../../sEmployerTown}}<br> {{/if}}
-                    {{#if ../../sEmployerPostcode}}{{../../sEmployerPostcode}}{{/if}}
-                  {{else}}
-                    {{#if employer-address1}}
-                      {{#if employer-address.address1}}{{employer-address.address1}}, <br>{{/if}}
-                      {{#if employer-address.address2}}{{employer-address.address2}}, <br>{{/if}}
-                      {{#if employer-address.town}}{{employer-address.town}}{{/if}}
-                      {{#if employer-address.postcode}}{{employer-address.postcode}}{{/if}}
-                    {{else}}
-                      {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#employer-address-1">Add employer address</a>{{/is}}
-                    {{/if}}
-                  {{/if}}
-                </dd>
-
-                <dt>Net pay (take home pay)</dt>
-                <dd>
-                  {{#if ../../sPayAmount}}
-                    &pound;{{../../sPayAmount}}
-                  {{else}}
-                    {{#if pay.amount}}
-                        &pound;{{pay.amount}}
-                    {{else}}
-                      {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#pay-amount">Add income</a>{{/is}}
-                    {{/if}}
-                  {{/if}}
-                </dd>
-
-              {{/compare}}
-
-              <dt>Receiving benefits?</dt>
+              <dt>Claiming <Abbr title="Job Seekers Allowance">JSA</abbr>, <abbr title="Employment and Support Allowance">ESA</abbr>, Universal Credit or Income Support?</dt>
               <dd>
                 {{#if ../../sReceivingBenefits}}
                   {{../../sReceivingBenefits}}
@@ -295,7 +226,7 @@
                   {{#if receiving-benefits}}
                     {{receiving-benefits}}
                   {{else}}
-                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/employment-and-income/{{../id}}/#receiving-benefits-yes">Add benefits information</a>{{/is}}
+                    {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/income/{{../id}}/#receiving-benefits-yes">Add benefits information</a>{{/is}}
                   {{/if}}
                 {{/if}}
               </dd>
@@ -303,7 +234,7 @@
             </dl>
 
             {{#isnt ../case-details.status 'Completed'}}
-            <p><a class="font-small" href="/court-administrator/employment-and-income/{{../id}}/">Change employment and income</a></p>
+            <p><a class="font-small" href="/court-administrator/income/{{../id}}/">Change income</a></p>
             {{/isnt}}
 
           </section>
@@ -348,11 +279,11 @@
 
     </div>
 
+    {{#contains case-details.status 'Completed'}}
     <div class="column-third">
 
       <div class="related">
 
-        {{#contains case-details.status 'Completed'}}
         <div class="related-section">
           <h3 class="related-heading">Case options</h3>
           <ul class="related-links">
@@ -360,24 +291,11 @@
             <li><a href="/court-administrator/extract-of-court-record/{{id}}/">Extract of court record</a></li>
           </ul>
         </div>
-        {{/contains}}
-
-        {{#if related-documents.document}}
-
-          {{#isnt case-details.status 'Completed'}}
-          <div class="related-section">
-            <h3 class="related-heading">Postal replies</h3>
-            <ul class="related-links">
-              <li><a href="/court-administrator/postal/add-plea/{{id}}">Add all details from postal reply</a></li>
-            </ul>
-          </div>
-          {{/isnt}}
-
-        {{/if}}
 
       </div>
 
     </div>
+    {{/contains}}
 
   </div>
 
@@ -388,7 +306,7 @@
     <h2 class="heading-large" id="offences">Offence 1</h2>
 
     {{#with offence}}
-    <section aria-labelledby="offence">
+    <div aria-labelledby="offence">
 
       <div class="grid-row">
 
@@ -427,12 +345,12 @@
                 <section id="offence-details">
 
                   {{#if statement-of-facts}}
-                    <h3 class="heading-medium">Statement of facts</h3>
+                    <h4 class="heading-medium">Statement of facts</h4>
                     <p class="text">{{{statement-of-facts}}}</p>
                   {{/if}}
 
                   {{#if mitigation}}
-                    <h3 class="heading-medium">Mitigation</h3>
+                    <h4 class="heading-medium">Mitigation</h4>
                     <p class="text">{{{mitigation}}}</p>
                   {{/if}}
 
@@ -780,12 +698,12 @@
           {{else}}
 
             {{#if statement-of-facts}}
-              <h3 class="heading-medium">Statement of facts</h3>
+              <h4 class="heading-medium">Statement of facts</h4>
               <p class="text">{{{statement-of-facts}}}</p>
             {{/if}}
 
             {{#if mitigation}}
-              <h3 class="heading-medium">Mitigation</h3>
+              <h4 class="heading-medium">Mitigation</h4>
               <p class="text">{{{mitigation}}}</p>
             {{/if}}
 
@@ -795,7 +713,7 @@
 
       </div>
 
-    </section>
+    </div>
     {{/with}}
 
   </div>

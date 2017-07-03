@@ -2993,14 +2993,13 @@ HTML Usage
 @media (min-width: 641px) {
   .meta-inline dt, .meta-inline dd {
     float: left;
+    width: 50%;
   }
   .meta-inline dt {
+    box-sizing: border-box;
     clear: both;
     margin-bottom: 1.05263em;
-    width: 40%;
-  }
-  .meta-inline dd {
-    width: 60%;
+    padding-right: 1.05263em;
   }
 }
 .meta-wide {

@@ -578,6 +578,16 @@ if ($('.filters').length > 0) {
 
 
 
+ // Focus on form field (Hash)
+$(window).load(function () {
+
+	var hash = location.hash;
+
+	$(hash).focus()
+
+})
+
+
  // document ready
  (function($) {
 
