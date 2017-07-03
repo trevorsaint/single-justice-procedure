@@ -319,6 +319,7 @@
           <p>
             <strong class="status-label">
               {{#if ../../sMakeDecision}}
+                {{#contains ../../sMakeDecision "No plea received"}}No plea received{{/contains}}
                 {{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}Pleaded guilty &ndash; court hearing requested{{/contains}}
                 {{#contains ../../sMakeDecision "Pleaded guilty SJP"}}Pleaded guilty SJP{{/contains}}
                 {{#contains ../../sMakeDecision "Pleaded not guilty"}}Pleaded not guilty{{/contains}}
@@ -374,17 +375,21 @@
                           <label for="no-plea-received">No plea received</label>
                         </div>
 
+
                         <div class="multiple-choice">
-                          <input id="guilty-no-court" name="makeDecision" type="radio" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
+                          <input id="guilty-no-court" name="makeDecision" type="radio" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
                           <label for="guilty-no-court">Guilty &ndash; I don&rsquo;t want to come to court</label>
                         </div>
 
+
                         <div class="multiple-choice" data-target="guilty-interpreter">
-                          <input id="guilty-court" name="makeDecision" type="radio" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
+                          <input id="guilty-court" name="makeDecision" type="radio" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
                           <label for="guilty-court">Guilty &ndash; I want to come to court</label>
                         </div>
 
-                        <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded guilty SJP"}} js-hidden{{/isnt}}" id="guilty-interpreter">
+
+
+                        <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded guilty court hearing requested"}} js-hidden{{/isnt}}" id="guilty-interpreter">
 
                           <fieldset class="inline">
 
@@ -393,12 +398,12 @@
                             </legend>
 
                             <div class="multiple-choice" data-target="guilty-interpreter-language">
-                              <input id="guilty-interpreter-yes" name="guiltyInterpreter" type="radio" value="Yes"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sNeedInterpreter "Yes"}} checked="checked"{{/contains}}{{/contains}}>
+                              <input id="guilty-interpreter-yes" name="guiltyInterpreter" type="radio" value="Yes"{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}{{#contains ../../sNeedInterpreter "Yes"}} checked="checked"{{/contains}}{{/contains}}>
                               <label for="guilty-interpreter-yes">Yes</label>
                             </div>
 
                             <div class="multiple-choice">
-                              <input id="guilty-interpreter-no" name="guiltyInterpreter" type="radio" value="No"{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{#contains ../../sNeedInterpreter "No"}} checked="checked"{{/contains}}{{/contains}}>
+                              <input id="guilty-interpreter-no" name="guiltyInterpreter" type="radio" value="No"{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}{{#contains ../../sNeedInterpreter "No"}} checked="checked"{{/contains}}{{/contains}}>
                               <label for="guilty-interpreter-no">No</label>
                             </div>
 
@@ -411,7 +416,7 @@
                                 <span class="form-label">Which language?</span>
                                 <span class="form-hint" id="guilty-language-hint">You can include sign language</span>
                               </label>
-                              <input class="form-control" id="guilty-language" name="guiltyInterpreterLanguage" type="text" value="{{#contains ../../sMakeDecision "Pleaded guilty SJP"}}{{../../sInterpreterLanguage}}{{/contains}}" aria-describedby="guilty-language-hint">
+                              <input class="form-control" id="guilty-language" name="guiltyInterpreterLanguage" type="text" value="{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}}{{../../sInterpreterLanguage}}{{/contains}}" aria-describedby="guilty-language-hint">
                             </div>
 
                           </div>

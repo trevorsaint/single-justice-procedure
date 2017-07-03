@@ -180,7 +180,7 @@ router.route('/court-administrator/case-details/:id/')
   .post(function(req, res, next) {
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
 
-    if (sMakeDecision === 'Pleaded guilty SJP') {
+    if (sMakeDecision === 'Pleaded guilty court hearing requested') {
 
       sNeedInterpreter = req.session.needInterpreter = req.body.guiltyInterpreter;
       sInterpreterLanguage = req.session.interpreterLanguage = req.body.guiltyInterpreterLanguage;
