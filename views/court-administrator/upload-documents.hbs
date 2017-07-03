@@ -13,7 +13,7 @@
     <div class="form-group">
 
       <label for="plea-document">
-        <span class="form-label-bold">Select plea document</span>
+        <span class="form-label-bold">Select plea document (optional)</span>
         <span class="visually-hidden">PDF or Word document</span>
       </label>
 
@@ -25,7 +25,7 @@
     <div class="form-group">
 
       <label for="statement-of-income">
-        <span class="form-label-bold">Select statement of income and outgoings</span>
+        <span class="form-label-bold">Select statement of income and outgoings (optional)</span>
         <span class="form-hint">For example, MC100</span>
         <span class="visually-hidden">PDF or Word document</span>
       </label>
@@ -39,7 +39,7 @@
     <div class="form-group">
 
       <label for="other-documents">
-        <span class="form-label-bold">Select other document</span>
+        <span class="form-label-bold">Select other document (optional)</span>
         <span class="form-hint">For example, a bank statement, email or a copy of a travelcard</span>
         <span class="visually-hidden">PDF or Word document</span>
       </label>
@@ -64,7 +64,7 @@
       <button class="button" type="submit">Upload</button>
     </div>
 
-    <p><a href="/court-administrator/case-details/{{id}}">Done &ndash; go back to case</a></p>
+    <p><a href="/court-administrator/case-details/{{id}}">Done and back to case</a></p>
 
   </form>
 
@@ -92,6 +92,9 @@
       </tbody>
     </table>
   </div>
+  {{else}}
+  <h2 class="heading-medium">Uploaded</h2>
+  <p>No documents uploaded</p>
   {{/if}}
 
 {{/with}}

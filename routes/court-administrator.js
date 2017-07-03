@@ -505,10 +505,7 @@ router.route('/court-administrator/postal/upload-documents/:id/')
     });
   })
   .post(function(req, res, next) {
-    sPleaDocument = req.session.pleaDocument = req.body.pleaDocument;
-    sStatementIncome = req.session.statementIncome = req.body.statementIncome;
-    sOtherDocument = req.session.otherDocument = req.body.otherDocument;
-    res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
+    //res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
   });
 
 router.route('/court-administrator/postal/check-your-answers/:id/')
