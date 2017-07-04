@@ -578,14 +578,19 @@ if ($('.filters').length > 0) {
 
 
 
- // Focus on form field (Hash)
+// Focus on form field (Hash)
 $(window).load(function () {
 
-	var hash = location.hash;
+	var input  = location.hash;
+	var label = $(input).closest('.form-group');
 
-	$(hash).focus()
+	$('html, body').animate({
+    scrollTop: parseInt(label.offset().top)
+  }, 400, function() {
+		$(input).focus();
+	});
 
-})
+});
 
 
  // document ready
