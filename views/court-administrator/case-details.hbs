@@ -375,19 +375,15 @@
                           <label for="no-plea-received">No plea received</label>
                         </div>
 
-
                         <div class="multiple-choice">
                           <input id="guilty-no-court" name="makeDecision" type="radio" value="Pleaded guilty SJP"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty SJP"}} checked="checked"{{/contains}}{{/if}}>
                           <label for="guilty-no-court">Guilty &ndash; I don&rsquo;t want to come to court</label>
                         </div>
 
-
                         <div class="multiple-choice" data-target="guilty-interpreter">
                           <input id="guilty-court" name="makeDecision" type="radio" value="Pleaded guilty court hearing requested"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "Pleaded guilty court hearing requested"}} checked="checked"{{/contains}}{{/if}}>
                           <label for="guilty-court">Guilty &ndash; I want to come to court</label>
                         </div>
-
-
 
                         <div class="panel panel-border-narrow{{#isnt ../../sMakeDecision "Pleaded guilty court hearing requested"}} js-hidden{{/isnt}}" id="guilty-interpreter">
 

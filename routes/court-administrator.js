@@ -361,7 +361,7 @@ router.route('/court-administrator/postal/add-plea/:id/')
 
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
 
-    if (sMakeDecision === 'Pleaded guilty SJP') {
+    if (sMakeDecision === 'Pleaded guilty court hearing requested') {
 
       sNeedInterpreter = req.session.needInterpreter = req.body.guiltyInterpreter;
       sInterpreterLanguage = req.session.interpreterLanguage = req.body.guiltyInterpreterLanguage;
@@ -469,11 +469,20 @@ router.route('/court-administrator/postal/income/:id/')
   })
   .post(function(req, res, next) {
     sNationalInsurance = req.session.nationalInsurance = req.body.nationalInsurance;
-    sFrequencyIncome = req.session.frequencyIncome = req.body.frequencyIncome;
-    sNetPay = req.session.netPay = req.body.netPay;
-    sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sPayFrequency = req.session.payFrequency = req.body.payFrequency;
+
     sPayAmount = req.session.payAmount = req.body.payAmount;
+    sPayAmountConverted = req.session.payAmountConverted;
+
+    if (sPayFrequency === 'Fortnightly') {
+      sPayAmountConverted = req.session.payAmountConverted = (req.body.payAmount / 2);
+    } else if (sPayFrequency === 'Monthly') {
+      sPayAmountConverted = req.session.payAmountConverted = (req.body.payAmount / 4);
+    } else {
+      sPayAmountConverted = req.session.payAmountConverted = req.body.payAmount;
+    }
+
+    sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
 
     // has the user come from check your answers
     if (!req.query.change) {
