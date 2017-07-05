@@ -53,6 +53,18 @@ router.all('/cookies', function(req, res) {
   });
 });
 
+router.all('/privacy-policy', function(req, res) {
+  res.render('privacy-policy', {
+    baseurl: baseurl,
+    apptitle: apptitle,
+    ispublic: false,
+    issigned: false,
+    doctitle: 'Privacy policy',
+    pagetitle: 'Privacy policy',
+    breadcrumb: false,
+  });
+});
+
 router.all('/your-account', function(req, res) {
   res.render('your-account', {
     baseurl: baseurl,
