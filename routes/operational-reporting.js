@@ -51,6 +51,8 @@ router.route('/' + baseurl + '/sjp-online-performance-data')
       pagetitle: '<abbr title="Single Justice Procedure">SJP</abbr> online performance data',
       section: 'home',
       section_name: 'Home',
+      section2: 'find-sjp-online-performance-data',
+      section2_name: 'Find SJP online performance data',
       breadcrumb: true
     });
   });
@@ -79,6 +81,8 @@ router.route('/' + baseurl + '/cases-older-than-21-days-without-an-sjp-notice')
       pagetitle: 'Cases older than 21 days without an <abbr title="Single Justice Procedure">SJP</abbr> notice',
       section: 'home',
       section_name: 'Home',
+      section2: 'number-of-cases-pending-decision',
+      section2_name: 'Number of cases pending decision',
       breadcrumb: true
     });
   });
