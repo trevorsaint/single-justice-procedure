@@ -1,4 +1,5 @@
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after,
+.form-group:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
@@ -23,19 +24,22 @@
   margin: 0 -15px;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after,
+.form-group:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after,
+.form-group:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after,
+.form-group:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
@@ -60,13 +64,15 @@
   margin: 0 -15px;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after,
+.form-group:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after,
+.form-group:after, .breadcrumbs ol:after, .header-wrapper:after, .footer-wrapper:after {
   content: "";
   display: block;
   clear: both;
@@ -613,15 +619,21 @@ main {
   }
 }
 
-p {
+p,
+.body-text {
   margin-top: 0.3125em;
   margin-bottom: 1.25em;
 }
 @media (min-width: 641px) {
-  p {
+  p,
+  .body-text {
     margin-top: 0.26316em;
     margin-bottom: 1.05263em;
   }
+}
+
+.body-text {
+  display: block;
 }
 
 .lede {
@@ -820,7 +832,7 @@ hr {
   -moz-box-shadow: 0 2px 0 #003618;
   box-shadow: 0 2px 0 #003618;
 }
-.button:link, .button:hover, .button:focus, .button:visited {
+.button:link, .button:link:focus, .button:hover, .button:focus, .button:visited {
   color: #fff;
 }
 .button:before {
@@ -1223,7 +1235,6 @@ table td {
   line-height: 1.25;
   padding: 0.63158em 1.05263em 0.47368em 0;
   text-align: left;
-  color: #0b0c0c;
   border-bottom: 1px solid #bfc1c3;
 }
 @media (min-width: 641px) {
@@ -1236,11 +1247,18 @@ table td {
 table th {
   font-weight: 700;
 }
+table td:last-child,
+table th:last-child {
+  padding-right: 0;
+}
 table .numeric {
   text-align: right;
 }
 table td.numeric {
   font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
+}
+table caption {
+  text-align: left;
 }
 
 .table-font-xsmall th {
@@ -1336,11 +1354,12 @@ details .arrow {
 }
 
 .form-group .panel-border-narrow:last-child {
-  margin-top: 10px;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
-.inline .panel-border-narrow {
+.inline .panel-border-narrow,
+.inline .panel-border-narrow:last-child {
   margin-top: 10px;
   margin-bottom: 0;
 }
@@ -1349,16 +1368,22 @@ fieldset {
   width: 100%;
 }
 
+legend {
+  overflow: hidden;
+}
+
 textarea {
   display: block;
 }
 
-.form-section {
+.form-section,
+.form-group {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  float: left;
-  width: 100%;
+}
+
+.form-section {
   margin-bottom: 30px;
 }
 @media (min-width: 641px) {
@@ -1368,11 +1393,6 @@ textarea {
 }
 
 .form-group {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  float: left;
-  width: 100%;
   margin-bottom: 15px;
 }
 @media (min-width: 641px) {
@@ -1431,7 +1451,7 @@ textarea {
 
 .form-block {
   float: left;
-  width: 100%;
+  clear: left;
   margin-top: -5px;
   margin-bottom: 5px;
 }
@@ -1496,6 +1516,11 @@ input.form-control,
 textarea.form-control {
   -webkit-appearance: none;
   border-radius: 0;
+}
+
+textarea.form-control {
+  opacity: 1;
+  background-image: none;
 }
 
 .form-control-3-4 {
@@ -2055,7 +2080,7 @@ CSS Usage
   -moz-box-shadow: 0 2px 0 #b5babe;
   box-shadow: 0 2px 0 #b5babe;
 }
-.button-secondary:link, .button-secondary:hover, .button-secondary:focus, .button-secondary:visited {
+.button-secondary:link, .button-secondary:link:focus, .button-secondary:hover, .button-secondary:focus, .button-secondary:visited {
   color: #0b0c0c;
 }
 .button-secondary:before {

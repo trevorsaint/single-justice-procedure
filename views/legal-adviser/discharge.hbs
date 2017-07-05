@@ -69,7 +69,7 @@
 
           </div>
 
-          <div class="form-group">
+          <div class="form-group form-group-last">
             <label for="compensation"><span class="form-label">Compensation</span></label>
             <div class="form-currency">
               <input class="form-control form-control-1-4" id="compensation" name="compensation" type="text" value="{{#if ../sCompensation}}{{../sCompensation}}{{else}}3.50{{/if}}">
@@ -126,7 +126,7 @@
 
           </div>
 
-          <div class="form-group form-group-last">
+          <div class="form-group">
 
             <div class="multiple-choice">
               <input id="collection-order" name="collectionOrderConfirmed" type="checkbox"{{#if ../sCollectionOrderConfirmed}}{{#contains ../sCollectionOrderConfirmed "true"}} checked="checked"{{/contains}}{{else}}{{#contains offence.collection-order-confirmed "true"}} checked="checked"{{/contains}}{{/if}}>
