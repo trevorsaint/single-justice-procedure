@@ -23,7 +23,7 @@
               <td>{{time}}</td>
               <td>{{filename}}</td>
               <td>{{{status}}}</td>
-              <td>{{#if url}}<a href="/prosecutor/{{url}}">View report</a>{{else}}&ndash;{{/if}}</td>
+              <td>{{#if url}}<a href="/prosecutor/{{url}}">View report</a>{{else}}<abbr title="No report available">&mdash;</abbr>{{/if}}</td>
             </tr>
           {{/if}}
         {{/each}}
