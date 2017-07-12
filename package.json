@@ -1,7 +1,7 @@
 {
   "name": "single-justice-procedure",
   "description": "A service for Ministry of Justice",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": "true",
   "main": "app.js",
   "keywords": [
@@ -17,7 +17,7 @@
     "email": "hello@trevorsaint.com"
   },
   "engines": {
-    "node": ">=6.0"
+    "node": ">=7.10.1"
   },
   "dependencies": {
     "body-parser": "*",
