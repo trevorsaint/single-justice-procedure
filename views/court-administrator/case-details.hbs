@@ -234,7 +234,7 @@
               <dt>Claiming <Abbr title="Job Seekers Allowance">JSA</abbr>, <abbr title="Employment and Support Allowance">ESA</abbr>, Universal Credit or Income Support?</dt>
               <dd>
                 {{#if ../../sReceivingBenefits}}
-                  {{../../sReceivingBenefits}}
+                  {{#is ../../sReceivingBenefits 'Don’t know'}}<a href="/court-administrator/income/{{../id}}/#receiving-benefits-yes">Add benefits information</a>{{else}}{{../../sReceivingBenefits}}{{/is}}
                 {{else}}
                   {{#if receiving-benefits}}
                     {{receiving-benefits}}

@@ -269,6 +269,7 @@ router.route('/court-administrator/income/:id/')
       breadcrumb: true,
       search: entry,
       sNationalInsurance: sNationalInsurance,
+      sReceivingBenefits: sReceivingBenefits,
       sPayFrequency: sPayFrequency,
       sPayAmount: sPayAmount
     });
