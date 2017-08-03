@@ -231,6 +231,43 @@
                 {{/if}}
               </dd>
 
+              <dt>Employment status</dt>
+              <dd>
+
+                {{#or ../../sEmploymentStatusEmployed ../../sEmploymentStatusSelfEmployed ../../sEmploymentStatusOther}}
+
+                  {{#contains ../../sEmploymentStatus "Employed"}}
+
+                    <p>{{../../sEmploymentStatus}}</p>
+
+                    {{#if ../../sEmployeeNumber}}<p><b>Employee number</b>: {{../../sEmployeeNumber}}</p>{{/if}}
+
+                    <p>
+                      <b>Employer</b><br>
+                      {{#if ../../sEmployerName}}{{../../sEmployerName}}<br>{{/if}}
+                      {{#if ../../sEmployerAddressLine1}}{{../../sEmployerAddressLine1}}<br>{{/if}}
+                      {{#if ../../sEmployerAddressLine2}}{{../../sEmployerAddressLine2}}<br>{{/if}}
+                      {{#if ../../sEmployerAddressLine3}}{{../../sEmployerAddressLine3}}<br>{{/if}}
+                      {{#if ../../sEmployerTownOrCity}}{{../../sEmployerTownOrCity}}<br>{{/if}}
+                      {{#if ../../sEmployerPostcode}}{{../../sEmployerPostcode}}{{/if}}
+                    </p>
+
+                    {{#if ../../sEmployerTelephone}}<b>Telephone</b>: {{../../sEmployerTelephone}}{{/if}}
+
+                  {{else}}
+
+                    {{../../sEmploymentStatus}}
+
+                  {{/contains}}
+
+                {{else}}
+
+                  {{#is ../case-details.status 'Completed'}}&ndash;{{else}}<a href="/court-administrator/income/{{../id}}/#employment-status">Add employment status</a>{{/is}}
+
+                {{/or}}
+
+              </dd>
+
               <dt>Claiming <Abbr title="Job Seekers Allowance">JSA</abbr>, <abbr title="Employment and Support Allowance">ESA</abbr>, Universal Credit or Income Support?</dt>
               <dd>
                 {{#if ../../sReceivingBenefits}}

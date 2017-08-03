@@ -13,6 +13,10 @@ $module: 'meta';
   dd {
     margin-bottom: em(20);
 
+    *:first-child {
+      margin-top: 0;
+    }
+
     // may contain document downloads
     .document {
       margin-top: em(20);

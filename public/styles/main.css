@@ -3006,6 +3006,9 @@ HTML Usage
 .meta dd {
   margin-bottom: 1.05263em;
 }
+.meta dd *:first-child {
+  margin-top: 0;
+}
 .meta dd .document {
   margin-top: 1.05263em;
 }

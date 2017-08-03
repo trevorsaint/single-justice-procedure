@@ -14,10 +14,10 @@
 
       <div class="form-group">
         <label for="national-insurance">
-          <span class="form-label-bold">National Insurance number</span>
-          <span class="form-hint" id="national-insurance-hint">For example, VO 12 34 56 D</span>
+          <span class="form-label-bold">National Insurance number (optional)</span>
+          <span class="form-hint">For example, VO 12 34 56 D</span>
         </label>
-        <input class="form-control form-control-3-4" id="national-insurance" name="nationalInsurance" type="text" aria-describedby="national-insurance-hint"{{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{national-insurance-number}}"{{/if}}>
+        <input class="form-control form-control-3-4" id="national-insurance" name="nationalInsurance" type="text" {{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{national-insurance-number}}"{{/if}}>
       </div>
 
       <div class="form-group">
@@ -55,6 +55,87 @@
         <div class="form-currency">
           <input class="form-control form-control-1-4" id="pay-amount" name="payAmount" type="text"{{#if ../sPayAmount}} value="{{../sPayAmount}}"{{else}} value="{{employment.pay.amount}}"{{/if}}>
         </div>
+      </div>
+
+      <div class="form-group">
+
+        <fieldset>
+
+          <legend>
+            <span class="form-label-bold">Employment status</span>
+          </legend>
+
+          <div class="multiple-choice" data-target="employed">
+            <input id="employment-status-employed" name="employmentStatusEmployed" type="checkbox" value="Employed"{{#if ../sEmploymentStatusEmployed}}{{#contains ../sEmploymentStatusEmployed "Employed"}} checked="checked"{{/contains}}{{/if}}>
+            <label for="employment-status-employed">Employed</label>
+          </div>
+
+          <div class="panel panel-border-narrow js-hidden" id="employed">
+
+            <div class="form-group">
+
+              <fieldset>
+
+                <legend class="heading-medium">Employment details</legend>
+
+                <div class="form-group">
+                  <label class="form-label" for="employee-number">Employee number (optional)</label>
+                  <input class="form-control" id="employee-number" name="employeeNumber" type="text"{{#if ../sEmployeeNumber}} value="{{../sEmployeeNumber}}"{{/if}}>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="employer-name">Employer name</label>
+                  <input class="form-control form-control-3-4" id="employer-name" name="employerName" type="text"{{#if ../sEmployerName}} value="{{../sEmployerName}}"{{/if}}>
+                </div>
+
+                <div class="form-group form-group-compound">
+                  <label class="form-label" for="employer-address-line-1">Building and street</label>
+                  <input class="form-control form-control-3-4" id="employer-address-line-1" name="employerAddressLine1" type="text"{{#if ../sEmployerAddressLine1}} value="{{../sEmployerAddressLine1}}"{{/if}}>
+                </div>
+
+                <div class="form-group form-group-compound">
+                  <label class="visually-hidden" for="employer-address-line-2">Building and street address line 2</label>
+                  <input class="form-control form-control-3-4" id="employer-address-line-2" name="employerAddressLine2" type="text"{{#if ../sEmployerAddressLine2}} value="{{../sEmployerAddressLine2}}"{{/if}}>
+                </div>
+
+                <div class="form-group">
+                  <label class="visually-hidden" for="employer-address-line-3">Building and street address line 3</label>
+                  <input class="form-control form-control-3-4" id="employer-address-line-3" name="employerAddressLine3" type="text"{{#if ../sEmployerAddressLine3}} value="{{../sEmployerAddressLine3}}"{{/if}}>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="employer-town-or-city">Town or city</label>
+                  <input class="form-control" id="employer-town-or-city" name="employerTownOrCity" type="text"{{#if ../sEmployerTownOrCity}} value="{{../sEmployerTownOrCity}}"{{/if}}>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="employer-postcode">Postcode</label>
+                  <input class="form-control form-control-1-4" id="employer-postcode" name="employerPostcode" type="text"{{#if ../sEmployerPostcode}} value="{{../sEmployerPostcode}}"{{/if}}>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="employer-telephone">Employer telephone (optional)</label>
+                  <input class="form-control" id="employer-telephone" name="employerTelephone" type="tel"{{#if ../sEmployerTelephone}} value="{{../sEmployerTelephone}}"{{/if}}>
+                </div>
+
+              </fieldset>
+
+            </div>
+
+          </div>
+
+          <div class="multiple-choice">
+            <input id="employment-self-employed" name="employmentStatusSelfEmployed" type="checkbox" value="Self employed" {{#if ../sEmploymentStatusSelfEmployed}}{{#contains ../sEmploymentStatusSelfEmployed "Self employed"}} checked="checked"{{/contains}}{{/if}}>
+            <label for="employment-self-employed">Self&ndash;employed</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="employment-status-other" name="employmentStatusOther" type="checkbox" value="Other" {{#if ../sEmploymentStatusOther}}{{#contains ../sEmploymentStatusOther "Other"}} checked="checked"{{/contains}}{{/if}}>
+            <label for="employment-status-other">Other (for example, retired, student)</label>
+          </div>
+
+        </fieldset>
+
       </div>
 
       <div class="form-group">

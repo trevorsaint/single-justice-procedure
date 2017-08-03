@@ -39,6 +39,25 @@ router.use(function(req, res, next) {
   sPayAmount    = req.session.payAmount;
   sPayAmountConverted = req.session.payAmountConverted;
 
+
+  // Employment status
+
+  sEmploymentStatusEmployed = req.session.employmentStatusEmployed;
+  sEmploymentStatusSelfEmployed = req.session.employmentStatusSelfEmployed;
+  sEmploymentStatusOther = req.session.employmentStatusOther;
+  sEmploymentStatus = req.session.employmentStatus;
+
+  sEmployeeNumber = req.session.employeeNumber;
+  sEmployerName = req.session.employerName;
+  sEmployerAddressLine1 = req.session.employerAddressLine1;
+  sEmployerAddressLine2 = req.session.employerAddressLine2;
+  sEmployerAddressLine3 = req.session.employerAddressLine3;
+  sEmployerTownOrCity = req.session.employerTownOrCity;
+  sEmployerPostcode = req.session.employerPostcode;
+
+  sEmployerTelephone = req.session.employerTelephone;
+
+
   sReceivingBenefits = req.session.receivingBenefits;
 
   sMakeDecision        = req.session.makeDecision;
@@ -174,7 +193,19 @@ router.route('/court-administrator/case-details/:id/')
       sHasSaved: sHasSaved,
       sCaseNumber: sCaseNumber,
       sReasonForReopening: sReasonForReopening,
-      sReopenedCase: sReopenedCase
+      sReopenedCase: sReopenedCase,
+      sEmploymentStatusEmployed,
+      sEmployeeNumber,
+      sEmployerName,
+      sEmployerAddressLine1,
+      sEmployerAddressLine2,
+      sEmployerAddressLine3,
+      sEmployerTownOrCity,
+      sEmployerPostcode,
+      sEmploymentStatusSelfEmployed,
+      sEmploymentStatusOther,
+      sEmploymentStatus,
+      sEmployerTelephone
     });
   })
   .post(function(req, res, next) {
@@ -271,7 +302,22 @@ router.route('/court-administrator/income/:id/')
       sNationalInsurance: sNationalInsurance,
       sReceivingBenefits: sReceivingBenefits,
       sPayFrequency: sPayFrequency,
-      sPayAmount: sPayAmount
+      sPayAmount: sPayAmount,
+
+      sEmploymentStatus,
+      sEmploymentStatusEmployed,
+      sEmployeeNumber,
+      sEmployerName,
+      sEmployerAddressLine1,
+      sEmployerAddressLine2,
+      sEmployerAddressLine3,
+      sEmployerTownOrCity,
+      sEmployerPostcode,
+
+      sEmploymentStatusSelfEmployed,
+      sEmploymentStatusOther,
+
+      sEmployerTelephone
     });
   })
   .post(function(req, res, next) {
@@ -288,6 +334,65 @@ router.route('/court-administrator/income/:id/')
     } else {
       sPayAmountConverted = req.session.payAmountConverted = req.body.payAmount;
     }
+
+
+    sEmploymentStatusEmployed = req.session.employmentStatusEmployed = req.body.employmentStatusEmployed;
+    sEmploymentStatusSelfEmployed = req.session.employmentStatusSelfEmployed = req.body.employmentStatusSelfEmployed;
+    sEmploymentStatusOther = req.session.employmentStatusOther = req.body.employmentStatusOther;
+
+    // Employment status
+    if (sEmploymentStatusEmployed && sEmploymentStatusSelfEmployed && sEmploymentStatusOther) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Employed, self-employed and other"
+
+    } else if (sEmploymentStatusEmployed && sEmploymentStatusSelfEmployed) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Employed and self-employed"
+
+    } else if (sEmploymentStatusEmployed && sEmploymentStatusOther) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Employed and other"
+
+    } else if (sEmploymentStatusSelfEmployed && sEmploymentStatusOther) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Self-employed and other"
+
+    } else if (sEmploymentStatusEmployed) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Employed"
+
+    } else if (sEmploymentStatusSelfEmployed) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Self-employed"
+
+    } else if (sEmploymentStatusOther) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Other"
+
+    }
+
+
+    if (sEmploymentStatusEmployed === 'Employed') {
+      sEmployeeNumber = req.session.employeeNumber = req.body.employeeNumber;
+      sEmployerName = req.session.employerName = req.body.employerName;
+      sEmployerAddressLine1 = req.session.employerAddressLine1 = req.body.employerAddressLine1;
+      sEmployerAddressLine2 = req.session.employerAddressLine2 = req.body.employerAddressLine2;
+      sEmployerAddressLine3 = req.session.employerAddressLine3 = req.body.employerAddressLine3;
+      sEmployerTownOrCity = req.session.employerTownOrCity = req.body.employerTownOrCity;
+      sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
+    } else {
+
+      // reset session
+      req.session.employeeNumber = null;
+      req.session.employerName = null;
+      req.session.employerAddressLine1 = null;
+      req.session.employerAddressLine2 = null;
+      req.session.employerAddressLine3 = null;
+      req.session.employerTownOrCity = null;
+      req.session.employerPostcode = null;
+    }
+
+    sEmployerTelephone = req.session.employerTelephone = req.body.employerTelephone;
 
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sCaseActiveTab = req.session.caseActiveTab = 'Income';
@@ -331,7 +436,7 @@ router.route('/court-administrator/upload-documents/:id/')
 
     }
 
-    //res.redirect('/court-administrator/upload-documents/' + req.params.id + '/?saved=true');
+    // res.redirect('/court-administrator/upload-documents/' + req.params.id + '/?saved=true');
     res.redirect('/court-administrator/upload-documents/' + req.params.id);
 
   });
