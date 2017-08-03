@@ -242,6 +242,7 @@
 
                     {{#if ../../sEmployeeNumber}}<p><b>Employee number</b>: {{../../sEmployeeNumber}}</p>{{/if}}
 
+                    {{#or ../../sEmployerName ../../sEmployerAddressLine1 ../../sEmployerTownOrCity ../../sEmployerPostcode}}
                     <p>
                       <b>Employer</b><br>
                       {{#if ../../sEmployerName}}{{../../sEmployerName}}<br>{{/if}}
@@ -251,8 +252,9 @@
                       {{#if ../../sEmployerTownOrCity}}{{../../sEmployerTownOrCity}}<br>{{/if}}
                       {{#if ../../sEmployerPostcode}}{{../../sEmployerPostcode}}{{/if}}
                     </p>
+                    {{/or}}
 
-                    {{#if ../../sEmployerTelephone}}<b>Telephone</b>: {{../../sEmployerTelephone}}{{/if}}
+                    {{#if ../../sEmployerTelephone}}<p><b>Telephone</b>: {{../../sEmployerTelephone}}</p>{{/if}}
 
                   {{else}}
 
