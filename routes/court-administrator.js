@@ -61,6 +61,7 @@ router.use(function(req, res, next) {
   sReceivingBenefits = req.session.receivingBenefits;
 
   sMakeDecision        = req.session.makeDecision;
+  sMakeDecisionConfirm = req.session.makeDecisionConfirm;
   sNeedInterpreter     = req.session.needInterpreter;
   sInterpreterLanguage = req.session.interpreterLanguage;
 
@@ -182,6 +183,7 @@ router.route('/court-administrator/case-details/:id/')
       sPayAmountConverted: sPayAmountConverted,
       sReceivingBenefits: sReceivingBenefits,
       sMakeDecision: sMakeDecision,
+      sMakeDecisionConfirm: sMakeDecisionConfirm,
       sNeedInterpreter: sNeedInterpreter,
       sInterpreterLanguage: sInterpreterLanguage,
       sCaseActiveTab: sCaseActiveTab,
@@ -210,6 +212,7 @@ router.route('/court-administrator/case-details/:id/')
   })
   .post(function(req, res, next) {
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
+    sMakeDecisionConfirm = req.session.makeDecisionConfirm = req.body.makeDecisionConfirm;
 
     if (sMakeDecision === 'Pleaded guilty court hearing requested') {
 

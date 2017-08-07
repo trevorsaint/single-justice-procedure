@@ -593,21 +593,54 @@ $(window).load(function () {
 });
 
 
- // document ready
- (function($) {
+// make decision
+function makeDecision() {
 
-   //fileUpload();
-   //fileUploadFocus();
+  if ($('#form-make-decision').length > 0) {
 
- 	 otherDocuments();
+		var form = $('#form-make-decision');
+		var button = form.find('.button');
+		var checkbox = $('#make-decision-confirm');
 
-   changeCosts();
-   changeSurcharge();
-   collectionOrder();
+		// on init check state
+		checkState();
 
-   $("#fine-a, #fine-b, #fine-c").changeFine();
-   $("#compensation-a, #compensation-b, #compensation-c").changeCompensation();
+		// on change
+		checkbox.change(function() {
+			checkState();
+		});
 
-   $(".js-text").shorten();
+		function checkState() {
 
- })(jQuery);
+			if (checkbox.prop('checked')) {
+				button.removeAttr('disabled').removeAttr('aria-disabled');
+			} else {
+				button.attr('disabled', 'disabled').attr('aria-disabled', true);
+			}
+
+		};
+
+  }
+
+}
+
+
+// document ready
+(function($) {
+
+	//fileUpload();
+	//fileUploadFocus();
+
+	otherDocuments();
+
+	changeCosts();
+	changeSurcharge();
+	collectionOrder();
+	makeDecision();
+
+	$("#fine-a, #fine-b, #fine-c").changeFine();
+	$("#compensation-a, #compensation-b, #compensation-c").changeCompensation();
+
+	$(".js-text").shorten();
+
+})(jQuery);

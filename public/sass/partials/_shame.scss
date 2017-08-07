@@ -16,12 +16,24 @@ fieldset.inline ~ .panel {
 
 
 // Headings (GDS override)
-
 .heading-xlarge {
   margin-bottom: em(15, 32);
 
   @include media(tablet) {
     margin-bottom: em(30, 48);
+  }
+
+}
+
+
+// Notice (GDS override)
+.notice {
+  padding-top: 5px;
+  margin-bottom: 20px;
+
+  .icon {
+    margin-top: 0;
+    top: 0;
   }
 
 }

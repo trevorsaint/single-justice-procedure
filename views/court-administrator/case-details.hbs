@@ -414,13 +414,18 @@
 
                   <h3 class="heading-medium">Select defendant&rsquo;s plea</h3>
 
-                  <form class="form" method="post" novalidate>
+                  <form class="form" id="form-make-decision" method="post" novalidate>
 
-                    <fieldset>
+                    <div class="notice">
+                      <i class="icon icon-important"><span class="visually-hidden">Warning</span></i>
+                      <strong class="bold-small">Adding or changing a plea will make the case ready for decision and you may not be able to make further changes. If you have other details to enter on this case, do this first.</strong>
+                    </div>
 
-                      <legend class="visually-hidden">Select defendant&rsquo;s plea</legend>
+                    <div class="form-group">
 
-                      <div class="form-group">
+                      <fieldset>
+
+                        <legend class="visually-hidden">Select defendant&rsquo;s plea</legend>
 
                         <div class="multiple-choice">
                           <input id="no-plea-received" name="makeDecision" type="radio" value="No plea received"{{#if ../../sMakeDecision}}{{#contains ../../sMakeDecision ""}} checked="checked"{{/contains}}{{else}}{{#contains ../case-details.status "No plea received"}} checked="checked"{{/contains}}{{/if}}>
@@ -510,13 +515,21 @@
 
                         </div>
 
+                      </fieldset>
+
+                    </div>
+
+                    <div class="form-group">
+
+                      <div class="multiple-choice">
+                        <input id="make-decision-confirm" name="makeDecisionConfirm" type="checkbox" value="Confirm"{{#if ../../sMakeDecisionConfirm}} checked="checked"{{/if}}>
+                        <label for="make-decision-confirm">Confirm all other details entered and you&rsquo;re ready to submit this plea</label>
                       </div>
 
-                      <div class="form-group form-group-related">
-                        <button class="button" type="submit">Save</button>
-                      </div>
+                    </div>
 
-                    </fieldset>
+                    <!-- ARIA (aria-disabled) for older screen readers -->
+                    <button class="button" type="submit" disabled="disabled" aria-disabled="true">Save</button>
 
                   </form>
 

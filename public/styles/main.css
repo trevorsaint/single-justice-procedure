@@ -3718,6 +3718,15 @@ fieldset.inline ~ .panel:last-child {
   }
 }
 
+.notice {
+  padding-top: 5px;
+  margin-bottom: 20px;
+}
+.notice .icon {
+  margin-top: 0;
+  top: 0;
+}
+
 .check-answers {
   position: relative;
   margin-bottom: 2.10526em;
