@@ -598,18 +598,20 @@ function makeDecision() {
 
   if ($('#form-make-decision').length > 0) {
 
+		// variables
 		var form = $('#form-make-decision');
 		var button = form.find('.button');
-		var checkbox = $('#make-decision-confirm');
+		var checkbox = form.find('input:checkbox[name=makeDecisionConfirm]');
 
-		// on init check state
+		// check state
 		checkState();
 
-		// on change
+		// on checkbox change
 		checkbox.change(function() {
 			checkState();
 		});
 
+		// check state
 		function checkState() {
 
 			if (checkbox.prop('checked')) {
