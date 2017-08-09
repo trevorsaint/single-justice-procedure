@@ -83,6 +83,7 @@ router.use(function(req, res, next) {
 
 });
 
+
 router.route('/court-administrator')
   .get(function(req, res, next) {
     res.render('court-administrator/index', {
@@ -98,6 +99,7 @@ router.route('/court-administrator')
   .post(function(req, res, next) {
     res.redirect('/court-administrator/home');
   });
+
 
 router.route('/court-administrator/home/')
   .get(function(req, res, next) {
@@ -120,6 +122,7 @@ router.route('/court-administrator/home/')
     res.redirect('/court-administrator/search-for-a-case/');
   });
 
+
 router.route('/court-administrator/search-for-a-case/')
   .get(function(req, res, next) {
     res.render('court-administrator/search-for-a-case', {
@@ -135,6 +138,7 @@ router.route('/court-administrator/search-for-a-case/')
     });
   });
 
+
 router.route('/court-administrator/print-list-of-cases-awaiting-decision/')
   .get(function(req, res, next) {
     res.render('court-administrator/print-list-of-cases-awaiting-decision', {
@@ -149,6 +153,7 @@ router.route('/court-administrator/print-list-of-cases-awaiting-decision/')
       breadcrumb: true
     });
   });
+
 
 router.route('/court-administrator/case-details/:id/')
   .get(function(req, res, next) {
@@ -237,6 +242,7 @@ router.route('/court-administrator/case-details/:id/')
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
+
 router.route('/court-administrator/personal-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
@@ -285,6 +291,7 @@ router.route('/court-administrator/personal-details/:id/')
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
+
 router.route('/court-administrator/income/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
@@ -306,21 +313,18 @@ router.route('/court-administrator/income/:id/')
       sReceivingBenefits: sReceivingBenefits,
       sPayFrequency: sPayFrequency,
       sPayAmount: sPayAmount,
-
-      sEmploymentStatus,
-      sEmploymentStatusEmployed,
-      sEmployeeNumber,
-      sEmployerName,
-      sEmployerAddressLine1,
-      sEmployerAddressLine2,
-      sEmployerAddressLine3,
-      sEmployerTownOrCity,
-      sEmployerPostcode,
-
-      sEmploymentStatusSelfEmployed,
-      sEmploymentStatusOther,
-
-      sEmployerTelephone
+      sEmploymentStatus: sEmploymentStatus,
+      sEmploymentStatusEmployed: sEmploymentStatusEmployed,
+      sEmployeeNumber: sEmployeeNumber,
+      sEmployerName: sEmployerName,
+      sEmployerAddressLine1: sEmployerAddressLine1,
+      sEmployerAddressLine2: sEmployerAddressLine2,
+      sEmployerAddressLine3: sEmployerAddressLine3,
+      sEmployerTownOrCity: sEmployerTownOrCity,
+      sEmployerPostcode: sEmployerPostcode,
+      sEmploymentStatusSelfEmployed: sEmploymentStatusSelfEmployed,
+      sEmploymentStatusOther: sEmploymentStatusOther,
+      sEmployerTelephone: sEmployerTelephone
     });
   })
   .post(function(req, res, next) {
@@ -337,7 +341,6 @@ router.route('/court-administrator/income/:id/')
     } else {
       sPayAmountConverted = req.session.payAmountConverted = req.body.payAmount;
     }
-
 
     sEmploymentStatusEmployed = req.session.employmentStatusEmployed = req.body.employmentStatusEmployed;
     sEmploymentStatusSelfEmployed = req.session.employmentStatusSelfEmployed = req.body.employmentStatusSelfEmployed;
@@ -374,7 +377,6 @@ router.route('/court-administrator/income/:id/')
 
     }
 
-
     if (sEmploymentStatusEmployed === 'Employed') {
       sEmployeeNumber = req.session.employeeNumber = req.body.employeeNumber;
       sEmployerName = req.session.employerName = req.body.employerName;
@@ -401,6 +403,7 @@ router.route('/court-administrator/income/:id/')
     sCaseActiveTab = req.session.caseActiveTab = 'Income';
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
+
 
 router.route('/court-administrator/upload-documents/:id/')
   .get(function(req, res, next) {
@@ -430,13 +433,9 @@ router.route('/court-administrator/upload-documents/:id/')
     sOtherDocuments = req.session.otherDocuments = req.body.otherDocuments;
 
     if (sPleaDocument === '' && sStatementIncome === '' && sOtherDocuments === '') {
-
       sError = req.session.error = true;
-
     } else {
-
       sError = req.session.error = null;
-
     }
 
     // res.redirect('/court-administrator/upload-documents/' + req.params.id + '/?saved=true');
@@ -444,15 +443,19 @@ router.route('/court-administrator/upload-documents/:id/')
 
   });
 
-router.route('/court-administrator/postal/add-plea/:id/')
+
+
+
+// postal route
+router.route('/court-administrator/postal/upload-documents/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/postal/add-plea', {
+    res.render('court-administrator/postal/upload-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
-      doctitle: 'Add or change plea',
-      pagetitle: 'Add or change plea',
+      doctitle: 'Upload documents',
+      pagetitle: 'Upload documents',
       section: 'home',
       section_name: 'Home',
       section2: 'search-for-a-case',
@@ -460,44 +463,10 @@ router.route('/court-administrator/postal/add-plea/:id/')
       section3: 'case-details/' + req.params.id,
       section3_name: 'Case details',
       breadcrumb: true,
-      search: entry,
-      sMakeDecision: sMakeDecision,
-      sNeedInterpreter: sNeedInterpreter,
-      sInterpreterLanguage: sInterpreterLanguage
+      search: entry
     });
-  })
-  .post(function(req, res, next) {
-
-    sMakeDecision = req.session.makeDecision = req.body.makeDecision;
-
-    if (sMakeDecision === 'Pleaded guilty court hearing requested') {
-
-      sNeedInterpreter = req.session.needInterpreter = req.body.guiltyInterpreter;
-      sInterpreterLanguage = req.session.interpreterLanguage = req.body.guiltyInterpreterLanguage;
-
-    } else if (sMakeDecision === 'Pleaded not guilty') {
-
-      sNeedInterpreter = req.session.needInterpreter = req.body.notGuiltyInterpreter;
-      sInterpreterLanguage = req.session.interpreterLanguage = req.body.notGuiltyInterpreterLanguage;
-
-    } else {
-
-      // reset session
-      req.session.needInterpreter = null;
-      req.session.interpreterLanguage = null;
-
-    }
-
-    // has the user come from check your answers
-    if (!req.query.change) {
-      sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
-      res.redirect('/court-administrator/postal/personal-details/' + req.params.id);
-    }
-    else {
-      res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
-    }
-
   });
+
 
 router.route('/court-administrator/postal/personal-details/:id/')
   .get(function(req, res, next) {
@@ -554,6 +523,7 @@ router.route('/court-administrator/postal/personal-details/:id/')
 
   });
 
+
 router.route('/court-administrator/postal/income/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
@@ -573,7 +543,19 @@ router.route('/court-administrator/postal/income/:id/')
       search: entry,
       sNationalInsurance: sNationalInsurance,
       sPayFrequency: sPayFrequency,
-      sPayAmount: sPayAmount
+      sPayAmount: sPayAmount,
+      sEmploymentStatus: sEmploymentStatus,
+      sEmploymentStatusEmployed: sEmploymentStatusEmployed,
+      sEmployeeNumber: sEmployeeNumber,
+      sEmployerName: sEmployerName,
+      sEmployerAddressLine1: sEmployerAddressLine1,
+      sEmployerAddressLine2: sEmployerAddressLine2,
+      sEmployerAddressLine3: sEmployerAddressLine3,
+      sEmployerTownOrCity: sEmployerTownOrCity,
+      sEmployerPostcode: sEmployerPostcode,
+      sEmploymentStatusSelfEmployed: sEmploymentStatusSelfEmployed,
+      sEmploymentStatusOther: sEmploymentStatusOther,
+      sEmployerTelephone: sEmployerTelephone
     });
   })
   .post(function(req, res, next) {
@@ -591,11 +573,67 @@ router.route('/court-administrator/postal/income/:id/')
       sPayAmountConverted = req.session.payAmountConverted = req.body.payAmount;
     }
 
+    sEmploymentStatusEmployed = req.session.employmentStatusEmployed = req.body.employmentStatusEmployed;
+    sEmploymentStatusSelfEmployed = req.session.employmentStatusSelfEmployed = req.body.employmentStatusSelfEmployed;
+    sEmploymentStatusOther = req.session.employmentStatusOther = req.body.employmentStatusOther;
+
+    // Employment status
+    if (sEmploymentStatusEmployed && sEmploymentStatusSelfEmployed && sEmploymentStatusOther) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Employed, self-employed and other"
+
+    } else if (sEmploymentStatusEmployed && sEmploymentStatusSelfEmployed) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Employed and self-employed"
+
+    } else if (sEmploymentStatusEmployed && sEmploymentStatusOther) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Employed and other"
+
+    } else if (sEmploymentStatusSelfEmployed && sEmploymentStatusOther) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Self-employed and other"
+
+    } else if (sEmploymentStatusEmployed) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Employed"
+
+    } else if (sEmploymentStatusSelfEmployed) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Self-employed"
+
+    } else if (sEmploymentStatusOther) {
+
+      sEmploymentStatus = req.session.employmentStatus = "Other"
+
+    }
+
+    if (sEmploymentStatusEmployed === 'Employed') {
+      sEmployeeNumber = req.session.employeeNumber = req.body.employeeNumber;
+      sEmployerName = req.session.employerName = req.body.employerName;
+      sEmployerAddressLine1 = req.session.employerAddressLine1 = req.body.employerAddressLine1;
+      sEmployerAddressLine2 = req.session.employerAddressLine2 = req.body.employerAddressLine2;
+      sEmployerAddressLine3 = req.session.employerAddressLine3 = req.body.employerAddressLine3;
+      sEmployerTownOrCity = req.session.employerTownOrCity = req.body.employerTownOrCity;
+      sEmployerPostcode = req.session.employerPostcode = req.body.employerPostcode;
+    } else {
+
+      // reset session
+      req.session.employeeNumber = null;
+      req.session.employerName = null;
+      req.session.employerAddressLine1 = null;
+      req.session.employerAddressLine2 = null;
+      req.session.employerAddressLine3 = null;
+      req.session.employerTownOrCity = null;
+      req.session.employerPostcode = null;
+    }
+
+    sEmployerTelephone = req.session.employerTelephone = req.body.employerTelephone;
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
 
     // has the user come from check your answers
     if (!req.query.change) {
-      res.redirect('/court-administrator/postal/upload-documents/' + req.params.id);
+      res.redirect('/court-administrator/postal/add-plea/' + req.params.id);
     }
     else {
       res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
@@ -603,15 +641,16 @@ router.route('/court-administrator/postal/income/:id/')
 
   });
 
-router.route('/court-administrator/postal/upload-documents/:id/')
+
+router.route('/court-administrator/postal/add-plea/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/postal/upload-documents', {
+    res.render('court-administrator/postal/add-plea', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
-      doctitle: 'Upload documents',
-      pagetitle: 'Upload documents',
+      doctitle: 'Add or change plea',
+      pagetitle: 'Add or change plea',
       section: 'home',
       section_name: 'Home',
       section2: 'search-for-a-case',
@@ -619,12 +658,48 @@ router.route('/court-administrator/postal/upload-documents/:id/')
       section3: 'case-details/' + req.params.id,
       section3_name: 'Case details',
       breadcrumb: true,
-      search: entry
+      search: entry,
+      sMakeDecision: sMakeDecision,
+      sNeedInterpreter: sNeedInterpreter,
+      sInterpreterLanguage: sInterpreterLanguage
     });
   })
   .post(function(req, res, next) {
-    //res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
+
+    sMakeDecision = req.session.makeDecision = req.body.makeDecision;
+    sMakeDecisionConfirm = req.session.makeDecisionConfirm = req.body.makeDecisionConfirm;
+
+    if (sMakeDecision === 'Pleaded guilty court hearing requested') {
+
+      sNeedInterpreter = req.session.needInterpreter = req.body.guiltyInterpreter;
+      sInterpreterLanguage = req.session.interpreterLanguage = req.body.guiltyInterpreterLanguage;
+
+    } else if (sMakeDecision === 'Pleaded not guilty') {
+
+      sNeedInterpreter = req.session.needInterpreter = req.body.notGuiltyInterpreter;
+      sInterpreterLanguage = req.session.interpreterLanguage = req.body.notGuiltyInterpreterLanguage;
+
+    } else {
+
+      // reset session
+      req.session.needInterpreter = null;
+      req.session.interpreterLanguage = null;
+
+    }
+
+    // has the user come from check your answers
+    if (!req.query.change) {
+      sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
+      res.redirect('/court-administrator/case-details/' + req.params.id);
+    }
+    else {
+      res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
+    }
+
   });
+
+
+
 
 router.route('/court-administrator/postal/check-your-answers/:id/')
   .get(function(req, res, next) {
@@ -668,6 +743,7 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
+
 router.route('/court-administrator/extract-of-court-record/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
@@ -708,6 +784,7 @@ router.route('/court-administrator/extract-of-court-record/:id/')
     //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
+
 router.route('/court-administrator/create-register-for-the-media/')
   .get(function(req, res, next) {
     res.render('court-administrator/create-register-for-the-media', {
@@ -725,6 +802,7 @@ router.route('/court-administrator/create-register-for-the-media/')
   .post(function(req, res, next) {
     //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
+
 
 router.route('/court-administrator/mark-case-as-reopened/:id/')
   .get(function(req, res, next) {
@@ -754,6 +832,7 @@ router.route('/court-administrator/mark-case-as-reopened/:id/')
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
 
+
 router.route('/court-administrator/change-reopened-case-status/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
@@ -781,6 +860,7 @@ router.route('/court-administrator/change-reopened-case-status/:id/')
     sReasonForReopening = req.session.reasonForReopening = req.body.reasonForReopening;
     res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
+
 
 router.route('/court-administrator/undo-case-reopening/:id/')
   .get(function(req, res, next) {
@@ -820,6 +900,7 @@ router.route('/court-administrator/undo-case-reopening/:id/')
 
   });
 
+
 router.get('/court-administrator/*', function(req, res, next) {
   res.render('404', {
     baseurl: baseurl,
@@ -832,5 +913,6 @@ router.get('/court-administrator/*', function(req, res, next) {
     breadcrumb: true
   });
 });
+
 
 module.exports = router

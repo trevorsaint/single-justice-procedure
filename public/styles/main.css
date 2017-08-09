@@ -3718,6 +3718,15 @@ fieldset.inline ~ .panel:last-child {
   }
 }
 
+.heading-medium {
+  margin-top: 0.5em;
+}
+@media (min-width: 641px) {
+  .heading-medium {
+    margin-top: 0.83333em;
+  }
+}
+
 .notice {
   padding-top: 5px;
   margin-bottom: 20px;
@@ -3725,6 +3734,10 @@ fieldset.inline ~ .panel:last-child {
 .notice .icon {
   margin-top: 0;
   top: 0;
+}
+
+:focus {
+  outline: 0;
 }
 
 .check-answers {

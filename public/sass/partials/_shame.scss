@@ -25,6 +25,15 @@ fieldset.inline ~ .panel {
 
 }
 
+.heading-medium {
+  margin-top: em(10, 20);
+
+  @include media(tablet) {
+    margin-top: em(20, 24);
+  }
+
+}
+
 
 // Notice (GDS override)
 .notice {
@@ -36,4 +45,10 @@ fieldset.inline ~ .panel {
     top: 0;
   }
 
+}
+
+
+// focus styles defined elsewhere
+:focus {
+  outline: 0;
 }

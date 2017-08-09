@@ -64,8 +64,6 @@
       <button class="button" type="submit">Upload</button>
     </div>
 
-    <p><a href="/court-administrator/case-details/{{id}}">Done and back to case</a></p>
-
   </form>
 
   {{#if related-documents.document}}
@@ -96,5 +94,9 @@
   <h2 class="heading-medium">Uploaded</h2>
   <p>No documents uploaded</p>
   {{/if}}
+
+  <p class="mt-xl"><a class="button" href="/court-administrator/postal/personal-details/{{id}}" role="button">Save and continue</a></p>
+
+  <a href="/court-administrator/case-details/{{id}}">Cancel</a>
 
 {{/with}}
