@@ -660,6 +660,7 @@ router.route('/court-administrator/postal/add-plea/:id/')
       breadcrumb: true,
       search: entry,
       sMakeDecision: sMakeDecision,
+      sMakeDecisionConfirm: sMakeDecisionConfirm, 
       sNeedInterpreter: sNeedInterpreter,
       sInterpreterLanguage: sInterpreterLanguage
     });
