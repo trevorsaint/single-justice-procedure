@@ -197,9 +197,23 @@
 
               <div class="form-group">
 
-                <div class="multiple-choice">
-                  <input id="decision-financial-penalty" name="makeDecision" type="radio" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}>
-                  <label for="decision-financial-penalty">Financial penalty</label>
+                <div class="multiple-choice" data-target="proved-sjp">
+                  <input id="decision-proved-sjp" name="makeDecision" type="radio" value="Proved SJP"{{#contains ../../sMakeDecision "Proved SJP"}} checked="checked"{{/contains}}>
+                  <label for="decision-proved-sjp">Proved SJP</label>
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="proved-sjp">
+
+                  <div class="multiple-choice">
+                    <input id="decision-financial-penalty" name="makeDecisionProvedSJP" type="radio" value="Financial penalty"{{#contains ../../sMakeDecision "Proved SJP"}}{{#contains ../../sMakeDecisionProvedSJP "Financial penalty"}} checked="checked"{{/contains}}{{/contains}}>
+                    <label for="decision-financial-penalty">Financial penalty</label>
+                  </div>
+
+                  <div class="multiple-choice">
+                    <input id="decision-discharge" name="makeDecisionProvedSJP" type="radio" value="Discharge"{{#contains ../../sMakeDecision "Proved SJP"}}{{#contains ../../sMakeDecisionProvedSJP "Discharge"}} checked="checked"{{/contains}}{{/contains}}>
+                    <label for="decision-discharge">Discharge</label>
+                  </div>
+
                 </div>
 
                 <div class="multiple-choice">
@@ -210,11 +224,6 @@
                 <div class="multiple-choice">
                   <input id="decision-withdraw" name="makeDecision" type="radio" value="Withdraw"{{#contains ../../sMakeDecision "Withdraw"}} checked="checked"{{/contains}}>
                   <label for="decision-withdraw">Withdraw</label>
-                </div>
-
-                <div class="multiple-choice">
-                  <input id="decision-discharge" name="makeDecision" type="radio" value="Discharge"{{#contains ../../sMakeDecision "Discharge"}} checked="checked"{{/contains}}>
-                  <label for="decision-discharge">Discharge</label>
                 </div>
 
                 <div class="multiple-choice">

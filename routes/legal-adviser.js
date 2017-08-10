@@ -25,6 +25,7 @@ router.use(function(req, res, next) {
 
   // offence
   sMakeDecision = req.session.makeDecision;
+  sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP;
   sPaymentMethod = req.session.paymentMethod;
   sFineBandApplied = req.session.fineBandApplied;
   sCollectionOrderConfirmed = req.session.collectionOrderConfirmed;
@@ -225,31 +226,43 @@ router.route('/legal-adviser/case-details/:id/')
       sNationalInsuranceNumber: sNationalInsuranceNumber,
       sHasSaved: sHasSaved,
       sMakeDecision: sMakeDecision,
+      sMakeDecisionProvedSJP: sMakeDecisionProvedSJP,
       sActiveTab: sActiveTab,
       sBack: sBack
     });
   }).post(function(req, res, next) {
 
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
+    sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = req.body.makeDecisionProvedSJP;
 
-    if (sMakeDecision === "Financial penalty") {
 
-      res.redirect('/legal-adviser/financial-penalty/' + req.params.id);
+    if (sMakeDecision === "Proved SJP") {
+
+
+      if (sMakeDecisionProvedSJP === "Financial penalty") {
+
+        res.redirect('/legal-adviser/financial-penalty/' + req.params.id);
+
+      } else if (sMakeDecisionProvedSJP === "Discharge") {
+
+        res.redirect('/legal-adviser/discharge/' + req.params.id);
+
+      }
+
 
     } else if (sMakeDecision === "Refer for court hearing") {
 
+      sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
       res.redirect('/legal-adviser/refer-for-court-hearing/' + req.params.id);
-
-    } else if (sMakeDecision === "Discharge") {
-
-      res.redirect('/legal-adviser/discharge/' + req.params.id);
 
     } else if (sMakeDecision === "Withdraw") {
 
+      sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
       res.redirect('/legal-adviser/withdraw/' + req.params.id);
 
     } else if (sMakeDecision === "Dismiss") {
 
+      sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
       res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
 
     }
@@ -283,6 +296,7 @@ router.route('/legal-adviser/case-details-idea/:id/')
       sNationalInsuranceNumber: sNationalInsuranceNumber,
       sHasSaved: sHasSaved,
       sMakeDecision: sMakeDecision,
+      sMakeDecisionProvedSJP: sMakeDecisionProvedSJP,
       sActiveTab: sActiveTab,
       sBack: sBack
     });
@@ -327,6 +341,7 @@ router.route('/legal-adviser/refer-for-court-hearing/:id')
       section: 'home',
       section_name: 'Home',
       sMakeDecision: sMakeDecision,
+      sMakeDecisionProvedSJP: sMakeDecisionProvedSJP,
 
       sCourtLocation: sCourtLocation,
       sCourtRoom: sCourtRoom,
@@ -376,6 +391,7 @@ router.route('/legal-adviser/discharge/:id')
       section: 'home',
       section_name: 'Home',
       sMakeDecision: sMakeDecision,
+      sMakeDecisionProvedSJP: sMakeDecisionProvedSJP,
       sTypeOfDischarge: sTypeOfDischarge,
       sCompensation: sCompensation,
       sDurationAmount: sDurationAmount,
@@ -415,6 +431,7 @@ router.route('/legal-adviser/withdraw/:id')
       section: 'home',
       section_name: 'Home',
       sMakeDecision: sMakeDecision,
+      sMakeDecisionProvedSJP: sMakeDecisionProvedSJP,
       search: entry,
       breadcrumb: true,
     });
@@ -437,6 +454,7 @@ router.route('/legal-adviser/financial-penalty/:id')
       //section2: 'case-details/' + req.params.id,
       //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
+      sMakeDecisionProvedSJP: sMakeDecisionProvedSJP,
       search: entry,
       breadcrumb: true,
       sBack: sBack,
@@ -793,6 +811,7 @@ router.route('/legal-adviser/check-your-decisions/:id')
         breadcrumb: true,
         sNationalInsuranceNumber: sNationalInsuranceNumber,
         sMakeDecision: sMakeDecision,
+        sMakeDecisionProvedSJP: sMakeDecisionProvedSJP,
         sPaymentMethod: sPaymentMethod,
         sFineBandApplied: sFineBandApplied,
         sFineA: sFineA,

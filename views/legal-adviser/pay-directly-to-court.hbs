@@ -18,13 +18,13 @@
 
       <form class="form" method="post" novalidate>
 
-        <h2 class="heading-medium">Select why you didn&rsquo;t deduct from benefits or attach to earnings</h2>
-
         <div class="form-group">
 
           <fieldset>
 
-            <legend class="visually-hidden">Select why you didn&rsquo;t deduct from benefits or attach to earnings</legend>
+            <legend>
+              <h2 class="heading-medium">Select why you didn&rsquo;t deduct from benefits or attach to earnings</h2>
+            </legend>
 
             <div class="multiple-choice">
               <input id="reason-no-information" name="reasonForNotDeductFromBenefitsOrAttachToEarnings" type="radio" value="No information from the defendant"
@@ -57,13 +57,13 @@
 
         </div>
 
-        <h2 class="heading-medium">How should defendant pay the court?</h2>
-
-        <div class="form-group form-group-last">
+        <div class="form-group">
 
           <fieldset>
 
-            <legend class="visually-hidden">How should defendant pay the court?</legend>
+            <legend>
+              <h2 class="heading-medium">How should defendant pay the court?</h2>
+            </legend>
 
             <div class="multiple-choice">
               <input id="defendant-pay-14-days" name="defendantPay" type="radio" value="Lump sum within 14 days"
@@ -268,7 +268,7 @@
           <button class="button" type="submit">Save and continue</button>
         </div>
 
-        <p><a href="{{../sBack}}">Back</a></p>
+        <a href="{{../sBack}}">Back</a>
 
       </form>
 

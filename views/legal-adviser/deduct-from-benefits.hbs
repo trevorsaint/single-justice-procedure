@@ -18,23 +18,35 @@
 
       <form class="form" method="post" novalidate>
 
-        <h2 class="heading-medium">Defendant&rsquo;s details</h2>
-
-        <div class="form-group">
-          <label for="national-insurance-number">
-            <span class="form-label">National Insurance number</span>
-            <span class="form-hint" id="national-insurance-number-hint">For example, VO 12 34 56 D</span>
-          </label>
-          <input class="form-control" id="national-insurance-number" name="nationalInsuranceNumber" type="text" value="{{#if ../sNationalInsuranceNumber}}{{../sNationalInsuranceNumber}}{{else}}{{employment.national-insurance-number}}{{/if}}" aria-describedby="national-insurance-number-hint">
-        </div>
-
-        <h2 class="heading-medium">Reason for deducting from benefits</h2>
 
         <div class="form-group">
 
           <fieldset>
 
-            <legend class="visually-hidden">Reason for deducting from benefits</legend>
+            <legend>
+              <h2 class="heading-medium">Defendant&rsquo;s details</h2>
+            </legend>
+
+            <div class="form-group">
+              <label for="national-insurance-number">
+                <span class="form-label">National Insurance number</span>
+                <span class="form-hint" id="national-insurance-number-hint">For example, VO 12 34 56 D</span>
+              </label>
+              <input class="form-control" id="national-insurance-number" name="nationalInsuranceNumber" type="text" value="{{#if ../sNationalInsuranceNumber}}{{../sNationalInsuranceNumber}}{{else}}{{employment.national-insurance-number}}{{/if}}" aria-describedby="national-insurance-number-hint">
+            </div>
+
+          </fieldset>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <fieldset>
+
+            <legend>
+              <h2 class="heading-medium">Reason for deducting from benefits</h2>
+            </legend>
 
             <div class="multiple-choice">
               <input id="compensation-ordered" name="reasonForDeductingFromBenefits" type="radio" value="Compensation ordered"
@@ -72,13 +84,14 @@
 
         </div>
 
-        <h2 class="heading-medium">Set reserve terms</h2>
 
         <div class="form-group">
 
           <fieldset>
 
-            <legend class="visually-hidden">Set reserve terms</legend>
+            <legend>
+              <h2 class="heading-medium">Set reserve terms</h2>
+            </legend>
 
             <div class="multiple-choice">
               <input id="reserve-terms-pay-14-days" name="reserveTerms" type="radio" value="Lump sum within 14 days"
@@ -279,11 +292,14 @@
 
         </div>
 
+
         <div class="form-group form-group-related">
           <button class="button" type="submit">Save and continue</button>
         </div>
 
-        <p><a href="{{../sBack}}">Back</a><p>
+
+        <a href="{{../sBack}}">Back</a>
+
 
       </form>
 

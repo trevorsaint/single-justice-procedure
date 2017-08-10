@@ -25,7 +25,13 @@
         </tr>
         <tr>
           <th>Result</th>
-          <td>{{../sMakeDecision}}</td>
+          <td>
+            {{#contains ../sMakeDecision "Proved SJP"}}
+              {{../sMakeDecisionProvedSJP}}
+            {{else}}
+              {{../sMakeDecision}}
+            {{/contains}}
+          </td>
         </tr>
       </tbody>
     </table>
@@ -35,7 +41,7 @@
   </div>
 
 
-  {{#contains ../sMakeDecision "Financial penalty"}}
+  {{#contains ../sMakeDecisionProvedSJP "Financial penalty"}}
   <div class="check-answers" aria-labelledby="outcome">
 
     <h2 class="heading-medium" id="outcome">Outcome</h2>
@@ -97,7 +103,7 @@
   {{/contains}}
 
 
-  {{#contains ../sMakeDecision "Discharge"}}
+  {{#contains ../sMakeDecisionProvedSJP "Discharge"}}
   <div class="check-answers" aria-labelledby="outcome">
 
     <h2 class="heading-medium" id="outcome">Outcome</h2>
@@ -127,7 +133,7 @@
   {{/contains}}
 
 
-  {{#is ../sMakeDecision "Financial penalty"}}
+  {{#is ../sMakeDecisionProvedSJP "Financial penalty"}}
   <div class="check-answers" aria-labelledby="costs-and-surcharge">
 
     <h2 class="heading-medium" id="costs-and-surcharge">Costs and surcharge</h2>
@@ -159,7 +165,7 @@
   {{/is}}
 
 
-  {{#is ../sMakeDecision "Discharge"}}
+  {{#is ../sMakeDecisionProvedSJP "Discharge"}}
   <div class="check-answers" aria-labelledby="costs-and-surcharge">
 
     <h2 class="heading-medium" id="costs-and-surcharge">Costs and surcharge</h2>
@@ -191,7 +197,7 @@
   {{/is}}
 
 
-  {{#is ../sMakeDecision "Financial penalty"}}
+  {{#is ../sMakeDecisionProvedSJP "Financial penalty"}}
   <div class="check-answers" aria-labelledby="payment">
 
     <h2 class="heading-medium" id="payment">Payment</h2>
@@ -348,7 +354,7 @@
   {{/is}}
 
 
-  {{#is ../sMakeDecision "Discharge"}}
+  {{#is ../sMakeDecisionProvedSJP "Discharge"}}
   <div class="check-answers" aria-labelledby="payment">
 
     <h2 class="heading-medium" id="payment">Payment</h2>
@@ -568,7 +574,7 @@
         <button class="button" type="submit">Confirm and submit</button>
       </div>
 
-      <p><a href="{{../sBack}}">Back</a></p>
+      <a href="{{../sBack}}">Back</a>
 
     </form>
 

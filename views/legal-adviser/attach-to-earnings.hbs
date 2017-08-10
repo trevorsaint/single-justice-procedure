@@ -18,64 +18,76 @@
 
       <form class="form" method="post" novalidate>
 
-        <h2 class="heading-medium">Employer details</h2>
 
-        <div class="form-group">
-          <label for="employee-number">
-            <span class="form-label">Employee number (optional)</span>
-          </label>
-          <input class="form-control form-control-2-3" id="employee-number" name="employeeNumber" type="text" value="{{uppercase employment.employee-number}}">
-        </div>
-
-        <div class="form-group">
-          <label for="employer-name">
-            <span class="form-label">Employer name</span>
-          </label>
-          <input class="form-control form-control-2-3" id="employer-name" name="employerName" type="text" value="{{employment.employer-name}}">
-        </div>
-
-        <div class="form-group form-group-compound">
-          <label for="employer-address1">
-            <span class="form-label">Address</span>
-          </label>
-          <input class="form-control form-control-2-3" id="employer-address1" name="employerAddress1" type="text" value="{{employment.employer-address.address1}}">
-        </div>
-
-        <div class="form-group form-group-compound">
-          <label class="visually-hidden" for="employer-address2">
-            <span class="form-label">Address line 2</span>
-          </label>
-          <input class="form-control form-control-2-3" id="employer-address2" name="employerAddress2" type="text" value="{{employment.employer-address.address2}}">
-        </div>
-
-        <div class="form-group">
-          <label class="visually-hidden" for="employer-address3">
-            <span class="form-label">Address line 3</span>
-          </label>
-          <input class="form-control form-control-2-3" id="employer-address3" name="employerAddress3" type="text" value="{{employment.employer-address.address3}}">
-        </div>
-
-        <div class="form-group">
-          <label for="employer-town">
-            <span class="form-label">Town or City</span>
-          </label>
-          <input class="form-control" id="employer-town" name="employerTown" type="text" value="{{employment.employer-address.town}}">
-        </div>
-
-        <div class="form-group">
-          <label for="employer-postcode">
-            <span class="form-label">Postcode</span>
-          </label>
-          <input class="form-control form-control-1-4" id="employer-postcode" name="employerPostcode" type="text" value="{{uppercase employment.employer-address.postcode}}">
-        </div>
-
-        <h2 class="heading-medium">Reason for attaching to earnings</h2>
-
-        <div class="form-group">
+        <div class="form-group form-group-related">
 
           <fieldset>
 
-            <legend class="visually-hidden">Reason for attaching to earnings</legend>
+            <legend>
+              <h2 class="heading-medium">Employer details</h2>
+            </legend>
+
+            <div class="form-group">
+              <label for="employee-number">
+                <span class="form-label">Employee number (optional)</span>
+              </label>
+              <input class="form-control form-control-2-3" id="employee-number" name="employeeNumber" type="text" value="{{uppercase employment.employee-number}}">
+            </div>
+
+            <div class="form-group">
+              <label for="employer-name">
+                <span class="form-label">Employer name</span>
+              </label>
+              <input class="form-control form-control-2-3" id="employer-name" name="employerName" type="text" value="{{employment.employer-name}}">
+            </div>
+
+            <div class="form-group form-group-compound">
+              <label for="employer-address1">
+                <span class="form-label">Address</span>
+              </label>
+              <input class="form-control form-control-2-3" id="employer-address1" name="employerAddress1" type="text" value="{{employment.employer-address.address1}}">
+            </div>
+
+            <div class="form-group form-group-compound">
+              <label class="visually-hidden" for="employer-address2">
+                <span class="form-label">Address line 2</span>
+              </label>
+              <input class="form-control form-control-2-3" id="employer-address2" name="employerAddress2" type="text" value="{{employment.employer-address.address2}}">
+            </div>
+
+            <div class="form-group">
+              <label class="visually-hidden" for="employer-address3">
+                <span class="form-label">Address line 3</span>
+              </label>
+              <input class="form-control form-control-2-3" id="employer-address3" name="employerAddress3" type="text" value="{{employment.employer-address.address3}}">
+            </div>
+
+            <div class="form-group">
+              <label for="employer-town">
+                <span class="form-label">Town or City</span>
+              </label>
+              <input class="form-control" id="employer-town" name="employerTown" type="text" value="{{employment.employer-address.town}}">
+            </div>
+
+            <div class="form-group">
+              <label for="employer-postcode">
+                <span class="form-label">Postcode</span>
+              </label>
+              <input class="form-control form-control-1-4" id="employer-postcode" name="employerPostcode" type="text" value="{{uppercase employment.employer-address.postcode}}">
+            </div>
+
+          </fieldset>
+
+        </div>
+
+
+        <div class="form-group form-group-related">
+
+          <fieldset>
+
+            <legend>
+              <h2 class="heading-medium">Reason for attaching to earnings</h2>
+            </legend>
 
             <div class="multiple-choice">
               <input id="compensation-ordered" name="reasonForAttachingToEarnings" type="radio" value="Compensation ordered" checked="checked">
@@ -98,13 +110,14 @@
 
         </div>
 
-        <h2 class="heading-medium">Set reserve terms</h2>
 
-        <div class="form-group form-group-last">
+        <div class="form-group">
 
           <fieldset>
 
-            <legend class="visually-hidden">Set reserve terms</legend>
+            <legend>
+              <h2 class="heading-medium">Set reserve terms</h2>
+            </legend>
 
             <div class="multiple-choice">
               <input id="reserve-terms-pay-14-days" name="reserveTerms" type="radio" value="Lump sum within 14 days"
@@ -305,11 +318,14 @@
 
         </div>
 
+
         <div class="form-group form-group-related">
           <button class="button" type="submit">Save and continue</button>
         </div>
 
-        <p><a href="{{../sBack}}">Cancel</a><p>
+
+        <a href="{{../sBack}}">Cancel</a>
+
 
       </form>
 
