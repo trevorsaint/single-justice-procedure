@@ -238,7 +238,6 @@ router.route('/legal-adviser/case-details/:id/')
 
     if (sMakeDecision === "Proved SJP") {
 
-
       if (sMakeDecisionProvedSJP === "Financial penalty") {
 
         res.redirect('/legal-adviser/financial-penalty/' + req.params.id);
@@ -249,6 +248,15 @@ router.route('/legal-adviser/case-details/:id/')
 
       }
 
+    } else if (sMakeDecision === "Discharge") {
+
+      sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
+      res.redirect('/legal-adviser/discharge/' + req.params.id);
+
+    } else if (sMakeDecision === "Financial penalty") {
+
+      sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
+      res.redirect('/legal-adviser/financial-penalty/' + req.params.id);
 
     } else if (sMakeDecision === "Refer for court hearing") {
 

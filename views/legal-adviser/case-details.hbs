@@ -187,15 +187,17 @@
 
         <div class="column-third">
 
-          <h4 class="heading-small" id="decision">Make a decision</h4>
-
           <form class="form" method="post" novalidate>
 
             <fieldset>
 
-              <legend class="visually-hidden">Make a decision</legend>
+              <legend>
+                <h4 class="heading-small" id="decision">Make a decision</h4>
+              </legend>
 
               <div class="form-group">
+
+                {{#contains plea "No plea received"}}
 
                 <div class="multiple-choice" data-target="proved-sjp">
                   <input id="decision-proved-sjp" name="makeDecision" type="radio" value="Proved SJP"{{#contains ../../sMakeDecision "Proved SJP"}} checked="checked"{{/contains}}>
@@ -215,6 +217,20 @@
                   </div>
 
                 </div>
+
+                {{else}}
+
+                <div class="multiple-choice">
+                  <input id="decision-financial-penalty" name="makeDecision" type="radio" value="Financial penalty"{{#contains ../../sMakeDecision "Financial penalty"}} checked="checked"{{/contains}}>
+                  <label for="decision-financial-penalty">Financial penalty</label>
+                </div>
+
+                <div class="multiple-choice">
+                  <input id="decision-discharge" name="makeDecision" type="radio" value="Discharge"{{#contains ../../sMakeDecision "Discharge"}} checked="checked"{{/contains}}>
+                  <label for="decision-discharge">Discharge</label>
+                </div>
+
+                {{/contains}}
 
                 <div class="multiple-choice">
                   <input id="decision-refer" name="makeDecision" type="radio" value="Refer for court hearing"{{#contains ../../sMakeDecision "Refer for court hearing"}} checked="checked"{{/contains}}>

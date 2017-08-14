@@ -41,6 +41,7 @@
   </div>
 
 
+
   {{#contains ../sMakeDecisionProvedSJP "Financial penalty"}}
   <div class="check-answers" aria-labelledby="outcome">
 
@@ -102,6 +103,69 @@
   </div>
   {{/contains}}
 
+  {{#contains ../sMakeDecision "Financial penalty"}}
+  <div class="check-answers" aria-labelledby="outcome">
+
+    <h2 class="heading-medium" id="outcome">Outcome</h2>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Defendant&rsquo;s weekly income</th>
+          <td>&pound;{{offence.weekly-income}}{{#if offence.weekly-income-assumed}} (assumed){{/if}}</td>
+        </tr>
+        <tr>
+          <th>Fine band applied</th>
+          <td>{{../sFineBandApplied}}</td>
+        </tr>
+        <tr>
+          <th>Fine</th>
+          <td>
+            {{#if ../sFineA}}
+              &pound;{{../sFineA}}
+            {{else if ../sFineB}}
+              &pound;{{../sFineB}}
+            {{else if ../sFineC}}
+              &pound;{{../sFineC}}
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Compensation</th>
+          <td>
+            {{#if ../sCompensationA}}
+              &pound;{{../sCompensationA}}
+            {{else if ../sCompensationB}}
+              &pound;{{../sCompensationB}}
+            {{else if ../sCompensationC}}
+              &pound;{{../sCompensationC}}
+            {{/if}}
+          </td>
+        </tr>
+        {{#or ../sReasonForNoCompensationA ../sReasonForNoCompensationB ../sReasonForNoCompensationC}}
+        <tr>
+          <th>Reason for no compensation</th>
+          <td>
+            {{#if ../sReasonForNoCompensationA}}
+              {{../sReasonForNoCompensationA}}
+            {{else if ../sReasonForNoCompensationB}}
+              {{../sReasonForNoCompensationB}}
+            {{else if ../sReasonForNoCompensationC}}
+              {{../sReasonForNoCompensationC}}
+            {{/if}}
+          </td>
+        </tr>
+        {{/or}}
+      </tbody>
+    </table>
+
+    <p class="check-answers-action"><a href="{{../baseurl}}financial-penalty/{{id}}/?change=true">Change<span class="visually-hidden"> &ldquo;Outcome&rdquo;.</span></a></p>
+
+  </div>
+  {{/contains}}
+
+
+
 
   {{#contains ../sMakeDecisionProvedSJP "Discharge"}}
   <div class="check-answers" aria-labelledby="outcome">
@@ -131,6 +195,37 @@
 
   </div>
   {{/contains}}
+
+  {{#contains ../sMakeDecision "Discharge"}}
+  <div class="check-answers" aria-labelledby="outcome">
+
+    <h2 class="heading-medium" id="outcome">Outcome</h2>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Type of discharge</th>
+          <td>{{../sTypeOfDischarge}}</td>
+        </tr>
+        {{#contains ../sTypeOfDischarge "Conditional"}}
+        <tr>
+          <th>Length of conditional discharge</th>
+          <td>{{../sDurationAmount}} {{../sDurationTimeSpan}}</td>
+        </tr>
+        {{/contains}}
+        <tr>
+          <th>Compensation</th>
+          <td>&pound;{{../sCompensation}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="check-answers-action"><a href="{{../baseurl}}discharge/{{id}}/?change=true">Change<span class="visually-hidden"> &ldquo;Outcome&rdquo;.</span></a></p>
+
+  </div>
+  {{/contains}}
+
+
 
 
   {{#is ../sMakeDecisionProvedSJP "Financial penalty"}}
@@ -164,6 +259,38 @@
   </div>
   {{/is}}
 
+  {{#is ../sMakeDecision "Financial penalty"}}
+  <div class="check-answers" aria-labelledby="costs-and-surcharge">
+
+    <h2 class="heading-medium" id="costs-and-surcharge">Costs and surcharge</h2>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Costs</th>
+          <td>&pound;{{../sCost}}</td>
+        </tr>
+        <tr>
+          <th>Victim surcharge</th>
+          <td>&pound;{{../sSurcharge}}</td>
+        </tr>
+        <tr>
+          <th>Collection order issued</th>
+          <td>
+            {{#if ../sCollectionOrderConfirmed}}
+              {{#contains ../sCollectionOrderConfirmed "true"}}Yes{{else}}No{{/contains}}
+            {{/if}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="check-answers-action"><a href="{{../baseurl}}financial-penalty/{{id}}/?change=true">Change<span class="visually-hidden"> &ldquo;Costs and surcharge&rdquo;.</span></a></p>
+
+  </div>
+  {{/is}}
+
+
 
   {{#is ../sMakeDecisionProvedSJP "Discharge"}}
   <div class="check-answers" aria-labelledby="costs-and-surcharge">
@@ -195,6 +322,38 @@
 
   </div>
   {{/is}}
+
+  {{#is ../sMakeDecision "Discharge"}}
+  <div class="check-answers" aria-labelledby="costs-and-surcharge">
+
+    <h2 class="heading-medium" id="costs-and-surcharge">Costs and surcharge</h2>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Costs</th>
+          <td>&pound;{{../sCost}}</td>
+        </tr>
+        <tr>
+          <th>Victim surcharge</th>
+          <td>&pound;{{../sSurcharge}}</td>
+        </tr>
+        <tr>
+          <th>Collection order issued</th>
+          <td>
+            {{#if ../sCollectionOrderConfirmed}}
+              {{#contains ../sCollectionOrderConfirmed "true"}}Yes{{else}}No{{/contains}}
+            {{/if}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="check-answers-action"><a href="{{../baseurl}}discharge/{{id}}/?change=true">Change<span class="visually-hidden"> &ldquo;Costs and surcharge&rdquo;.</span></a></p>
+
+  </div>
+  {{/is}}
+
 
 
   {{#is ../sMakeDecisionProvedSJP "Financial penalty"}}
@@ -353,6 +512,163 @@
   </div>
   {{/is}}
 
+  {{#is ../sMakeDecision "Financial penalty"}}
+  <div class="check-answers" aria-labelledby="payment">
+
+    <h2 class="heading-medium" id="payment">Payment</h2>
+
+    <table class="table">
+      {{#is ../sPaymentMethod "Pay directly to court"}}
+      <tbody>
+        <tr>
+          <th>Total</th>
+          <td>&pound;{{../sTotalToPay}}</td>
+        </tr>
+        <tr>
+          <th>Payment method</th>
+          <td>{{../sPaymentMethod}}</td>
+        </tr>
+        <tr>
+          <th>Reason you didn&rsquo;t deduct from benefits?</th>
+          <td>{{../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}</td>
+        </tr>
+        <tr>
+          <th>How should defendant pay the court?</th>
+          <td>{{../sDefendantPay}}</td>
+        </tr>
+        {{#is ../sDefendantPay "Lump sum plus instalments"}}
+        <tr>
+          <th>Lump sum amount</th>
+          <td>&pound;{{../sLumpSumAmount}}</td>
+        </tr>
+        <tr>
+          <th>Instalments</th>
+          <td>&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on ({{moment ../sLumpSumInstalmentStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+        {{#is ../sDefendantPay "Instalments only"}}
+        <tr>
+          <th>Instalments</th>
+          <td>&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on ({{moment ../sInstalmentOnlyStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+      </tbody>
+      {{/is}}
+      {{#is ../sPaymentMethod "Deduct from benefits"}}
+      <tbody>
+        <tr>
+          <th>Payment method</th>
+          <td>{{../sPaymentMethod}}</td>
+        </tr>
+        <tr>
+          <th>National Insurance number</th>
+          <td>
+            {{#if ../sNationalInsuranceNumber}}
+              {{../sNationalInsuranceNumber}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Reason for deducting from benefits</th>
+          <td>{{../sReasonForDeductingFromBenefits}}</td>
+        </tr>
+        <tr>
+          <th>Reserve terms</th>
+          <td>{{../sReserveTerms}}</td>
+        </tr>
+        {{#is ../sReserveTerms "Lump sum plus instalments"}}
+        <tr>
+          <th>Amount to be paid</th>
+          <td>&pound;{{../sLumpSumAmount}}</td>
+        </tr>
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on ({{moment ../sLumpSumInstalmentStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+        {{#is ../sReserveTerms "Instalments only"}}
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on ({{moment ../sInstalmentOnlyStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+      </tbody>
+      {{/is}}
+      {{#is ../sPaymentMethod "Attach to earnings"}}
+      <tbody>
+        <tr>
+          <th>Payment method</th>
+          <td>{{../sPaymentMethod}}</td>
+        </tr>
+        <tr>
+          <th>Employee number</th>
+          <td>
+            {{#if ../sEmployeeNumber}}
+              {{../sEmployeeNumber}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Employer name</th>
+          <td>
+            {{#if ../sEmployerName}}
+              {{../sEmployerName}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Employer address</th>
+          <td>
+            {{#if ../sEmployerAddress1}}
+              {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
+              {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
+              {{#if ../sEmployerTown}}{{../sEmployerTown}} <br> {{/if}}
+              {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Reason for attaching to earnings</th>
+          <td>{{../sReasonForAttachingToEarnings}}</td>
+        </tr>
+        <tr>
+          <th>Reserve terms</th>
+          <td>{{../sReserveTerms}}</td>
+        </tr>
+        {{#is ../sReserveTerms "Lump sum plus instalments"}}
+        <tr>
+          <th>Amount to be paid</th>
+          <td>&pound;{{../sLumpSumAmount}}</td>
+        </tr>
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on ({{moment ../sLumpSumInstalmentStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+        {{#is ../sReserveTerms "Instalments only"}}
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on ({{moment ../sInstalmentOnlyStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+      </tbody>
+      {{/is}}
+    </table>
+
+    <p class="check-answers-action"><a href="{{../baseurl}}payment-method/{{id}}/?change=true">Change<span class="visually-hidden"> &ldquo;Payment&rdquo;.</span></a></p>
+
+  </div>
+  {{/is}}
+
+
 
   {{#is ../sMakeDecisionProvedSJP "Discharge"}}
   <div class="check-answers" aria-labelledby="payment">
@@ -505,6 +821,159 @@
 
   </div>
   {{/is}}
+
+  {{#is ../sMakeDecision "Discharge"}}
+  <div class="check-answers" aria-labelledby="payment">
+
+    <h2 class="heading-medium" id="payment">Payment</h2>
+
+    <table class="table">
+      {{#is ../sPaymentMethod "Pay directly to court"}}
+      <tbody>
+        <tr>
+          <th>Payment method</th>
+          <td>{{../sPaymentMethod}}</td>
+        </tr>
+        <tr>
+          <th>Reason you didn&rsquo;t deduct from benefits or attach to earnings?</th>
+          <td>{{../sReasonForNotDeductFromBenefitsOrAttachToEarnings}}</td>
+        </tr>
+        <tr>
+          <th>How should defendant pay the court?</th>
+          <td>{{../sDefendantPay}}</td>
+        </tr>
+        {{#is ../sDefendantPay "Lump sum plus instalments"}}
+        <tr>
+          <th>Amount to be paid</th>
+          <td>&pound;{{../sLumpSumAmount}}</td>
+        </tr>
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on ({{moment ../sLumpSumInstalmentStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+        {{#is ../sDefendantPay "Instalments only"}}
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on ({{moment ../sInstalmentOnlyStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+      </tbody>
+      {{/is}}
+      {{#is ../sPaymentMethod "Deduct from benefits"}}
+      <tbody>
+        <tr>
+          <th>Payment method</th>
+          <td>{{../sPaymentMethod}}</td>
+        </tr>
+        <tr>
+          <th>National Insurance number</th>
+          <td>
+            {{#if ../sNationalInsuranceNumber}}
+              {{../sNationalInsuranceNumber}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Reason for deducting from benefits</th>
+          <td>{{../sReasonForDeductingFromBenefits}}</td>
+        </tr>
+        <tr>
+          <th>Reserve terms</th>
+          <td>{{../sReserveTerms}}</td>
+        </tr>
+        {{#is ../sReserveTerms "Lump sum plus instalments"}}
+        <tr>
+          <th>Amount to be paid</th>
+          <td>&pound;{{../sLumpSumAmount}}</td>
+        </tr>
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on ({{moment ../sLumpSumInstalmentStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+        {{#is ../sReserveTerms "Instalments only"}}
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on ({{moment ../sInstalmentOnlyStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+      </tbody>
+      {{/is}}
+      {{#is ../sPaymentMethod "Attach to earnings"}}
+      <tbody>
+        <tr>
+          <th>Payment method</th>
+          <td>{{../sPaymentMethod}}</td>
+        </tr>
+        <tr>
+          <th>Employee number</th>
+          <td>
+            {{#if ../sEmployeeNumber}}
+              {{../sEmployeeNumber}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Employer name</th>
+          <td>
+            {{#if ../sEmployerName}}
+              {{../sEmployerName}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Employer address</th>
+          <td>
+            {{#if ../sEmployerAddress1}}
+              {{#if ../sEmployerAddress1}}{{../sEmployerAddress1}} <br>{{/if}}
+              {{#if ../sEmployerAddress2}}{{../sEmployerAddress2}} <br>{{/if}}
+              {{#if ../sEmployerTown}}{{../sEmployerTown}} <br> {{/if}}
+              {{#if ../sEmployerPostcode}}{{../sEmployerPostcode}}{{/if}}
+            {{else}}
+              &ndash;
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
+          <th>Reason for attaching to earnings</th>
+          <td>{{../sReasonForAttachingToEarnings}}</td>
+        </tr>
+        <tr>
+          <th>Reserve terms</th>
+          <td>{{../sReserveTerms}}</td>
+        </tr>
+        {{#is ../sReserveTerms "Lump sum plus instalments"}}
+        <tr>
+          <th>Amount to be paid</th>
+          <td>&pound;{{../sLumpSumAmount}}</td>
+        </tr>
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sLumpSumInstalmentAmount}} ({{../sLumpSumInstalmentMade}}) starting on ({{moment ../sLumpSumInstalmentStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+        {{#is ../sReserveTerms "Instalments only"}}
+        <tr>
+          <th>Instalment amount</th>
+          <td>&pound;{{../sInstalmentOnlyAmount}} ({{../sInstalmentOnlyMade}}) starting on ({{moment ../sInstalmentOnlyStartDate format="D MMMM YYYY"}})</td>
+        </tr>
+        {{/is}}
+      </tbody>
+      {{/is}}
+    </table>
+
+    <p class="check-answers-action"><a href="{{../baseurl}}payment-method/{{id}}/?change=true">Change<span class="visually-hidden"> &ldquo;Payment&rdquo;.</span></a></p>
+
+  </div>
+  {{/is}}
+
 
 
   {{#is ../sMakeDecision "Refer for court hearing"}}
