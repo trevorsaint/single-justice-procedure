@@ -71,17 +71,6 @@ app.use((req, res, next) => {
 })
 
 
-// Routing
-app.use(require("./app/routes"))
-app.use(require("./app/routes/court-administrator"))
-app.use(require("./app/routes/prosecutor"))
-app.use(require("./app/routes/legal-adviser"))
-app.use(require("./app/routes/legal-adviser-pia"))
-app.use(require("./app/routes/court-administrator-pia"))
-app.use(require("./app/routes/operational-reporting"))
-app.use(require("./app/routes/single-justice-procedure-transparency"))
-
-
 // App listen
 app.listen(port)
 console.log("App started on port " + port)
