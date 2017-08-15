@@ -110,7 +110,7 @@
             <label for="town">
               <span class="form-label">Town or city</span>
             </label>
-            <input class="form-control form-control-2-4" type="text" id="town" name="town"{{#if ../sTown}} value="{{../sTown}}"{{else}} value="{{personal-details.address.town}}"{{/if}}>
+            <input class="form-control form-control-2-4" id="town" name="town" type="text"{{#if ../sTown}} value="{{../sTown}}"{{else}} value="{{personal-details.address.town}}"{{/if}}>
           </div>
 
           <div class="form-group">
@@ -161,7 +161,7 @@
         <button class="button" type="submit">Continue</button>
       </div>
 
-      <a href="/court-administrator/case-details/{{id}}">Cancel</a>
+      <a href="/{{../baseurl}}/case-details/{{id}}">Cancel</a>
 
     </form>
 

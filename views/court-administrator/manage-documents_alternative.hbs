@@ -42,14 +42,14 @@
               <span class="form-hint">For example, an email or a copy of a travelcard</span>
             </legend>
             <div class="form-group form-group-last">
-              <input class="form-control-file" type="file" id="other-documents" name="otherDocuments">
+              <input class="form-control-file" id="other-documents" name="otherDocuments" type="file">
               <label class="button button-secondary" for="other-documents">Browse&hellip;</label>
             </div>
           </fieldset>
 
           <div class="form-group form-group-actions">
             <button class="button" type="submit">Upload</button>
-            <p><a href="/court-administrator/case-details/{{id}}">Done &ndash; go back to case</a></p>
+            <a href="/{{../baseurl}}/case-details/{{id}}">Done &ndash; go back to case</a>
           </div>
 
         </form>

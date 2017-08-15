@@ -339,8 +339,8 @@
         <div class="related-section">
           <h3 class="related-heading">Case options</h3>
           <ul class="related-links">
-            {{#isnt ../sReopenedCase 'Yes'}}<li><a href="/court-administrator/mark-case-as-reopened/{{id}}/">Mark case as reopened</a></li>{{/isnt}}
-            <li><a href="/court-administrator/extract-of-court-record/{{id}}/">Extract of court record</a></li>
+            {{#isnt ../sReopenedCase 'Yes'}}<li><a href="/{{../baseurl}}/mark-case-as-reopened/{{id}}/">Mark case as reopened</a></li>{{/isnt}}
+            <li><a href="/{{../baseurl}}/extract-of-court-record/{{id}}/">Extract of court record</a></li>
           </ul>
         </div>
 

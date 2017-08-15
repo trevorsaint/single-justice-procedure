@@ -18,14 +18,14 @@
 
             <legend>
               <span class="form-label-bold">Date case was officially reopened in court</span>
-              <span class="form-hint" id="date-order-hint">For example, 31 3 2016</span>
+              <span class="form-hint">For example, 31 3 2016</span>
             </legend>
 
             <div class="form-date">
 
               <div class="form-group form-group-day">
                 <label class="form-label" for="date-order-day">Day</label>
-                <input class="form-control" type="number" id="date-order-day" aria-describedby="date-order-hint">
+                <input class="form-control" type="number" id="date-order-day">
               </div>
 
               <div class="form-group form-group-month">
@@ -48,14 +48,14 @@
           <label for="libra-account-number">
             <span class="form-label-bold">New Libra case number</span>
           </label>
-          <input class="form-control form-control-1-2" type="text" id="libra-account-number" name="libraAccountNumber">
+          <input class="form-control form-control-1-2" id="libra-account-number" name="libraAccountNumber" type="text">
         </div>
 
         <div class="form-group form-group-related">
           <button class="button" type="submit">Save</button>
         </div>
 
-        <p><a href="/court-administrator/case-details/{{id}}/">Cancel</a></p>
+        <a href="/{{../baseurl}}/case-details/{{id}}/">Cancel</a>
 
       </form>
 

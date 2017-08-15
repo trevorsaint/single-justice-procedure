@@ -1,27 +1,33 @@
-var express = require('express');
-var router = express.Router();
+// dependencies
+const express = require('express');
+const router = express.Router();
 
 
 // datastore
-var dataEngine = require('../models/data-legal-advisers');
+const dataEngine = require('../models/data-legal-advisers');
 
-// Date fixer (add leading zero)
+
+// baseurl and apptitle
+const baseurl  = 'legal-adviser';
+const apptitle = 'Criminal Justice Services online';
+
+
+// date fixer (add leading zero)
 function zeroFill(i) {
   return (i < 10 ? '0' : '') + i
 }
 
+
 // routes
 router.use(function(req, res, next) {
 
-  // base
-  baseurl = '/legal-adviser/';
-  apptitle = 'Criminal Justice Services online';
 
   // general
   id = req.params.id;
   sHasSaved = req.query.saved;
   sActiveTab = req.session.activeTab;
   sBack = req.header('Referer') || '/';
+
 
   // offence
   sMakeDecision = req.session.makeDecision;
@@ -42,6 +48,7 @@ router.use(function(req, res, next) {
   sSurcharge = req.session.surcharge;
   sTotalToPay = req.session.totalToPay;
 
+
   // personal details
   sTitle = req.session.title;
   sFirstname = req.session.firstname;
@@ -55,15 +62,18 @@ router.use(function(req, res, next) {
   sTown = req.session.town;
   sPostcode = req.session.postcode;
 
+
   // discharge
   sTypeOfDischarge = req.session.typeOfDischarge;
   sCompensation = req.session.compensation;
   sDurationAmount = req.session.durationAmount;
   sDurationTimeSpan = req.session.durationTimeSpan;
 
+
   // pay directly to court
   sReasonForNotDeductFromBenefitsOrAttachToEarnings = req.session.reasonForNotDeductFromBenefitsOrAttachToEarnings;
   sDefendantPay = req.session.defendantPay;
+
 
   // deduct from benefits
   sNationalInsuranceNumber = req.session.nationalInsuranceNumber;
@@ -86,6 +96,7 @@ router.use(function(req, res, next) {
   sInstalmentOnlyStartDateYear = req.session.instalmentOnlyStartDateYear;
   sInstalmentOnlyStartDate = req.session.instalmentOnlyStartDate;
 
+
   // attach to earnings
   sEmployeeNumber = req.session.employeeNumber;
   sEmployerName = req.session.employerName;
@@ -96,6 +107,7 @@ router.use(function(req, res, next) {
   sEmployerAddress3 = req.session.employerAddress3;
   sEmployerTown = req.session.employerTown;
   sEmployerPostcode = req.session.employerPostcode;
+
 
   // refer for court hearing
   sCourtLocation = req.session.courtLocation;
@@ -118,16 +130,16 @@ router.use(function(req, res, next) {
 });
 
 
-// remove session data and redirect user to sign-in page
-router.get('/legal-adviser/end-session', function(req, res, next) {
-  req.session.destroy();
-  res.redirect('/legal-adviser/home');
-});
-
-
-router.route('/legal-adviser/')
+router.route('/' + baseurl + '/end-session')
   .get(function(req, res, next) {
-    res.render('legal-adviser/index', {
+    req.session.destroy();
+    res.redirect('/' + baseurl + '/home');
+  });
+
+
+router.route('/' + baseurl + '/')
+  .get(function(req, res, next) {
+    res.render(baseurl + '/index', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -137,14 +149,15 @@ router.route('/legal-adviser/')
       breadcrumb: false,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
-    res.redirect('/legal-adviser/home/');
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/home/');
+  });
 
 
-router.route('/legal-adviser/home/')
+router.route('/' + baseurl + '/home/')
   .get(function(req, res, next) {
-    res.render('legal-adviser/home', {
+    res.render(baseurl + '/home', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -159,14 +172,15 @@ router.route('/legal-adviser/home/')
       globalHeaderBar: false,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
-    res.redirect('/legal-adviser/search-for-a-case/');
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/search-for-a-case/');
+  });
 
 
-router.route('/legal-adviser/search-for-a-case/')
+router.route('/' + baseurl + '/search-for-a-case/')
   .all(function(req, res, next) {
-    res.render('legal-adviser/search-for-a-case', {
+    res.render(baseurl + '/search-for-a-case', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -176,13 +190,13 @@ router.route('/legal-adviser/search-for-a-case/')
       section_name: 'Home',
       breadcrumb: true,
       searches: dataEngine.getSearchEntries()
+    });
   });
-});
 
 
-router.route('/legal-adviser/start-a-new-sjp-session/')
+router.route('/' + baseurl + '/start-a-new-sjp-session/')
   .get(function(req, res, next) {
-    res.render('legal-adviser/start-a-new-sjp-session', {
+    res.render(baseurl + '/start-a-new-sjp-session', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -195,14 +209,14 @@ router.route('/legal-adviser/start-a-new-sjp-session/')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/legal-adviser/case-details/1/');
-});
+    res.redirect('/' + baseurl + '/case-details/1/');
+  });
 
 
-router.route('/legal-adviser/case-details/:id/')
+router.route('/' + baseurl + '/case-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/case-details', {
+    res.render(baseurl + '/case-details', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -230,7 +244,8 @@ router.route('/legal-adviser/case-details/:id/')
       sActiveTab: sActiveTab,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
 
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
     sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = req.body.makeDecisionProvedSJP;
@@ -240,48 +255,48 @@ router.route('/legal-adviser/case-details/:id/')
 
       if (sMakeDecisionProvedSJP === "Financial penalty") {
 
-        res.redirect('/legal-adviser/financial-penalty/' + req.params.id);
+        res.redirect('/' + baseurl + '/financial-penalty/' + req.params.id);
 
       } else if (sMakeDecisionProvedSJP === "Discharge") {
 
-        res.redirect('/legal-adviser/discharge/' + req.params.id);
+        res.redirect('/' + baseurl + '/discharge/' + req.params.id);
 
       }
 
     } else if (sMakeDecision === "Discharge") {
 
       sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
-      res.redirect('/legal-adviser/discharge/' + req.params.id);
+      res.redirect('/' + baseurl + '/discharge/' + req.params.id);
 
     } else if (sMakeDecision === "Financial penalty") {
 
       sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
-      res.redirect('/legal-adviser/financial-penalty/' + req.params.id);
+      res.redirect('/' + baseurl + '/financial-penalty/' + req.params.id);
 
     } else if (sMakeDecision === "Refer for court hearing") {
 
       sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
-      res.redirect('/legal-adviser/refer-for-court-hearing/' + req.params.id);
+      res.redirect('/' + baseurl + '/refer-for-court-hearing/' + req.params.id);
 
     } else if (sMakeDecision === "Withdraw") {
 
       sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
-      res.redirect('/legal-adviser/withdraw/' + req.params.id);
+      res.redirect('/' + baseurl + '/withdraw/' + req.params.id);
 
     } else if (sMakeDecision === "Dismiss") {
 
       sMakeDecisionProvedSJP = req.session.makeDecisionProvedSJP = null;
-      res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+      res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
 
     }
 
-});
+  });
 
 
-router.route('/legal-adviser/case-details-idea/:id/')
+router.route('/' + baseurl + '/case-details-idea/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/case-details-idea', {
+    res.render(baseurl + '/case-details-idea', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -308,39 +323,40 @@ router.route('/legal-adviser/case-details-idea/:id/')
       sActiveTab: sActiveTab,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
 
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
 
     if (sMakeDecision === "Financial penalty") {
 
-      res.redirect('/legal-adviser/financial-penalty/' + req.params.id);
+      res.redirect('/' + baseurl + '/financial-penalty/' + req.params.id);
 
     } else if (sMakeDecision === "Refer for court hearing") {
 
-      res.redirect('/legal-adviser/refer-for-court-hearing/' + req.params.id);
+      res.redirect('/' + baseurl + '/refer-for-court-hearing/' + req.params.id);
 
     } else if (sMakeDecision === "Discharge") {
 
-      res.redirect('/legal-adviser/discharge/' + req.params.id);
+      res.redirect('/' + baseurl + '/discharge/' + req.params.id);
 
     } else if (sMakeDecision === "Withdraw") {
 
-      res.redirect('/legal-adviser/withdraw/' + req.params.id);
+      res.redirect('/' + baseurl + '/withdraw/' + req.params.id);
 
     } else if (sMakeDecision === "Dismiss") {
 
-      res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+      res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
 
     }
 
-});
+  });
 
 
-router.route('/legal-adviser/refer-for-court-hearing/:id')
+router.route('/' + baseurl + '/refer-for-court-hearing/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/refer-for-court-hearing', {
+    res.render(baseurl + '/refer-for-court-hearing', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -350,7 +366,6 @@ router.route('/legal-adviser/refer-for-court-hearing/:id')
       section_name: 'Home',
       sMakeDecision: sMakeDecision,
       sMakeDecisionProvedSJP: sMakeDecisionProvedSJP,
-
       sCourtLocation: sCourtLocation,
       sCourtRoom: sCourtRoom,
       sReasonForReferring: sReasonForReferring,
@@ -365,7 +380,8 @@ router.route('/legal-adviser/refer-for-court-hearing/:id')
       search: entry,
       breadcrumb: true,
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
 
     sCourtLocation = req.session.courtLocation = req.body.courtLocation;
     sCourtRoom = req.session.courtRoom = req.body.courtRoom;
@@ -382,15 +398,15 @@ router.route('/legal-adviser/refer-for-court-hearing/:id')
     sEquivocalPlea = req.session.equivocalPlea = req.body.equivocalPlea;
     sCaseManagementHearing = req.session.caseManagementHearing = req.body.caseManagementHearing;
 
-    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
 
-});
+  });
 
 
-router.route('/legal-adviser/discharge/:id')
+router.route('/' + baseurl + '/discharge/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/discharge', {
+    res.render(baseurl + '/discharge', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -422,15 +438,15 @@ router.route('/legal-adviser/discharge/:id')
     sCollectionOrderConfirmed = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed ? "true" : "false";
     sTotalToPay = req.session.totalToPay = (Number(sCompensation) + Number(sCost) + Number(sSurcharge)).toFixed(2);
 
-    res.redirect('/legal-adviser/payment-method/' + req.params.id);
+    res.redirect('/' + baseurl + '/payment-method/' + req.params.id);
 
-});
+  });
 
 
-router.route('/legal-adviser/withdraw/:id')
+router.route('/' + baseurl + '/withdraw/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/withdraw', {
+    res.render(baseurl + '/withdraw', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -443,15 +459,16 @@ router.route('/legal-adviser/withdraw/:id')
       search: entry,
       breadcrumb: true,
     });
-  }).post(function(req, res, next) {
-    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
+  });
 
 
-router.route('/legal-adviser/financial-penalty/:id')
+router.route('/' + baseurl + '/financial-penalty/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/financial-penalty', {
+    res.render(baseurl + '/financial-penalty', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -459,8 +476,6 @@ router.route('/legal-adviser/financial-penalty/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
       sMakeDecisionProvedSJP: sMakeDecisionProvedSJP,
       search: entry,
@@ -481,7 +496,8 @@ router.route('/legal-adviser/financial-penalty/:id')
       sSurcharge: sSurcharge,
       sTotalToPay: sTotalToPay
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sFineBandApplied = req.session.fineBandApplied = req.body.fineBandApplied;
     sCost = req.session.cost = req.body.cost;
     sSurcharge = req.session.surcharge = req.body.surcharge;
@@ -533,19 +549,19 @@ router.route('/legal-adviser/financial-penalty/:id')
 
     // has the user come from check your answers
     if (!req.query.change) {
-      res.redirect('/legal-adviser/payment-method/' + req.params.id);
+      res.redirect('/' + baseurl + '/payment-method/' + req.params.id);
     }
     else {
-      res.redirect('/legal-adviser/check-your-decisions/' + req.params.id + '#fine-and-compensation');
+      res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id + '#fine-and-compensation');
     }
 
-});
+  });
 
 
-router.route('/legal-adviser/payment-method/:id')
+router.route('/' + baseurl + '/payment-method/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/payment-method', {
+    res.render(baseurl + '/payment-method', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -553,39 +569,38 @@ router.route('/legal-adviser/payment-method/:id')
       pagetitle: 'Payment method',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sPaymentMethod: sPaymentMethod,
       sTotalToPay: sTotalToPay,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
 
     sPaymentMethod = req.session.paymentMethod = req.body.paymentMethod;
 
     if (sPaymentMethod === "Pay directly to court") {
 
-      res.redirect('/legal-adviser/pay-directly-to-court/' + req.params.id);
+      res.redirect('/' + baseurl + '/pay-directly-to-court/' + req.params.id);
 
     } else if (sPaymentMethod === "Deduct from benefits") {
 
-      res.redirect('/legal-adviser/deduct-from-benefits/' + req.params.id);
+      res.redirect('/' + baseurl + '/deduct-from-benefits/' + req.params.id);
 
     } else {
 
-      res.redirect('/legal-adviser/attach-to-earnings/' + req.params.id);
+      res.redirect('/' + baseurl + '/attach-to-earnings/' + req.params.id);
 
     }
 
-});
+  });
 
 
-router.route('/legal-adviser/pay-directly-to-court/:id')
+router.route('/' + baseurl + '/pay-directly-to-court/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/pay-directly-to-court', {
+    res.render(baseurl + '/pay-directly-to-court', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -613,7 +628,8 @@ router.route('/legal-adviser/pay-directly-to-court/:id')
       sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
       sTotalToPay: sTotalToPay
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sDefendantPay = req.session.defendantPay = req.body.defendantPay;
     sReasonForNotDeductFromBenefitsOrAttachToEarnings = req.session.reasonForNotDeductFromBenefitsOrAttachToEarnings = req.body.reasonForNotDeductFromBenefitsOrAttachToEarnings;
 
@@ -640,15 +656,15 @@ router.route('/legal-adviser/pay-directly-to-court/:id')
 
     }
 
-    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
 
-});
+  });
 
 
-router.route('/legal-adviser/attach-to-earnings/:id')
+router.route('/' + baseurl + '/attach-to-earnings/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/attach-to-earnings', {
+    res.render(baseurl + '/attach-to-earnings', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -656,8 +672,6 @@ router.route('/legal-adviser/attach-to-earnings/:id')
       pagetitle: 'Attach to earnings',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sBack: sBack,
@@ -686,7 +700,8 @@ router.route('/legal-adviser/attach-to-earnings/:id')
       sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
       sTotalToPay: sTotalToPay
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sEmployeeNumber = req.session.employeeNumber = req.body.employeeNumber;
     sEmployerName = req.session.employerName = req.body.employerName;
     sEmployerAddress1 = req.session.employerAddress1 = req.body.employerAddress1;
@@ -720,15 +735,15 @@ router.route('/legal-adviser/attach-to-earnings/:id')
 
     }
 
-    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
 
-});
+  });
 
 
-router.route('/legal-adviser/deduct-from-benefits/:id')
+router.route('/' + baseurl + '/deduct-from-benefits/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/deduct-from-benefits', {
+    res.render(baseurl + '/deduct-from-benefits', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -736,8 +751,6 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
       pagetitle: 'Deduct from benefits',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sReasonForDeductingFromBenefits: sReasonForDeductingFromBenefits,
@@ -761,7 +774,8 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
       sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
       sTotalToPay: sTotalToPay
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sNationalInsuranceNumber = req.session.nationalInsuranceNumber = req.body.nationalInsuranceNumber;
     sReasonForDeductingFromBenefits = req.session.reasonForDeductingFromBenefits = req.body.reasonForDeductingFromBenefits;
     sReserveTerms = req.session.reserveTerms = req.body.reserveTerms;
@@ -789,12 +803,12 @@ router.route('/legal-adviser/deduct-from-benefits/:id')
 
     }
 
-    res.redirect('/legal-adviser/check-your-decisions/' + req.params.id);
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
 
-});
+  });
 
 
-router.route('/legal-adviser/check-your-decisions/:id')
+router.route('/' + baseurl + '/check-your-decisions/:id')
   .get(function(req, res, next) {
 
     entry = dataEngine.getSearchEntry(req.params.id);
@@ -803,11 +817,11 @@ router.route('/legal-adviser/check-your-decisions/:id')
     // prevent access unless a decision has been made
     if (sMakeDecision === undefined) {
 
-      res.redirect('/legal-adviser/case-details/' + req.params.id);
+      res.redirect('/' + baseurl + '/case-details/' + req.params.id);
 
     } else {
 
-      res.render('legal-adviser/check-your-decisions', {
+      res.render(baseurl + '/check-your-decisions', {
         baseurl: baseurl,
         apptitle: apptitle,
         ispublic: false,
@@ -888,12 +902,13 @@ router.route('/legal-adviser/check-your-decisions/:id')
 
     }
 
-  }).post(function(req, res, next) {
-    res.redirect('/legal-adviser/confirmation/' + req.params.id);
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/confirmation/' + req.params.id);
+  });
 
 
-router.route('/legal-adviser/confirmation/:id/')
+router.route('/' + baseurl + '/confirmation/:id/')
   .get(function(req, res, next) {
 
     req.session.destroy();
@@ -908,7 +923,7 @@ router.route('/legal-adviser/confirmation/:id/')
       url = "session-complete";
     }
 
-    res.render('legal-adviser/confirmation', {
+    res.render(baseurl + '/confirmation', {
       id: id,
       url: url,
       baseurl: baseurl,
@@ -920,25 +935,25 @@ router.route('/legal-adviser/confirmation/:id/')
       breadcrumb: false
     });
 
-});
+  });
 
 
-router.route('/legal-adviser/session-complete/')
+router.route('/' + baseurl + '/session-complete/')
   .get(function(req, res, next) {
-    res.render('legal-adviser/session-complete', {
+    res.render(baseurl + '/session-complete', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
       doctitle: 'Session complete',
       pagetitle: 'Session complete',
       breadcrumb: false
+    });
   });
-});
 
 
-router.route('/legal-adviser/no-cases-to-review/')
+router.route('/' + baseurl + '/no-cases-to-review/')
   .get(function(req, res, next) {
-    res.render('legal-adviser/no-cases-to-review', {
+    res.render(baseurl + '/no-cases-to-review', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -948,13 +963,13 @@ router.route('/legal-adviser/no-cases-to-review/')
       section_name: 'Home',
       breadcrumb: true
     });
-});
+  });
 
 
-router.route('/legal-adviser/personal-details/:id/')
+router.route('/' + baseurl + '/personal-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('legal-adviser/personal-details', {
+    res.render(baseurl + '/personal-details', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -962,8 +977,6 @@ router.route('/legal-adviser/personal-details/:id/')
       pagetitle: 'Personal details',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sTitle: sTitle,
@@ -979,7 +992,8 @@ router.route('/legal-adviser/personal-details/:id/')
       sPostcode: sPostcode,
       sActiveTab: sActiveTab
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
       sTitle = req.session.title = req.body.title;
       sFirstname = req.session.firstname = req.body.firstname;
       sLastname = req.session.lastname = req.body.lastname;
@@ -992,23 +1006,24 @@ router.route('/legal-adviser/personal-details/:id/')
       sTown = req.session.town = req.body.town;
       sPostcode = req.session.postcode = req.body.postcode;
       sActiveTab = req.session.activeTab = 'Personal details';
-      res.redirect('/legal-adviser/case-details/' + req.params.id + '/?saved=true');
-});
+      res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
+    });
 
 
-router.get('/legal-adviser/*', function(req, res, next) {
-  res.render('404', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    ispublic: false,
-    doctitle: 'Page not found',
-    pagetitle: 'Page not found',
-    section: 'home',
-    section_name: 'Home',
-    breadcrumb: true,
-    sBack: sBack
+router.route('/' + baseurl + '/*')
+  .get(function(req, res, next) {
+    res.render('404', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      ispublic: false,
+      doctitle: 'Page not found',
+      pagetitle: 'Page not found',
+      section: 'home',
+      section_name: 'Home',
+      breadcrumb: true,
+      sBack: sBack
+    });
   });
-});
 
 
 module.exports = router

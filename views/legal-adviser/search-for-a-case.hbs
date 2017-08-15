@@ -46,7 +46,7 @@
   <tbody>
   {{#each searches}}
     <tr>
-      <th scope="row"><a href="{{../baseurl}}case-details/{{id}}/"><span class="text-uppercase">{{personal-details.lastname}}</span> {{personal-details.firstname}}</a></th>
+      <th scope="row"><a href="/{{../baseurl}}/case-details/{{id}}/"><span class="text-uppercase">{{personal-details.lastname}}</span> {{personal-details.firstname}}</a></th>
       <td>{{personal-details.urn}}</td>
       <td>{{moment personal-details.dob format="D MMM YYYY"}}</td>
       <td>{{{case-details.status}}}</td>

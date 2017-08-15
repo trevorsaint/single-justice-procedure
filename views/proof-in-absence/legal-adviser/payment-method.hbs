@@ -18,13 +18,13 @@
 
       <form class="form" method="post" novalidate>
 
-        <h2 class="heading-medium" id="collection-payment">Select option</h2>
-
         <div class="form-group form-group-last">
 
           <fieldset>
 
-            <legend class="visually-hidden">Select option</legend>
+            <legend>
+              <h2 class="heading-medium" id="collection-payment">Select option</h2>
+            </legend>
 
             <div class="multiple-choice">
               <input id="pay-direct-to-court" name="paymentMethod" type="radio" value="Pay direct to court"
@@ -39,12 +39,12 @@
             <p class="form-block">or</p>
 
             <div class="multiple-choice">
-              <input id="deduct-from-benefits" name="paymentMethod" type="radio" value="Deduct from benefits" disabled>
+              <input id="deduct-from-benefits" name="paymentMethod" type="radio" value="Deduct from benefits" disabled="disabled">
               <label for="deduct-from-benefits">Deduct from benefits</label>
             </div>
 
             <div class="multiple-choice">
-              <input id="attach-to-earnings" name="paymentMethod" type="radio" value="Attach to earnings" disabled>
+              <input id="attach-to-earnings" name="paymentMethod" type="radio" value="Attach to earnings" disabled="disabled">
               <label for="attach-to-earnings">Attach to earnings</label>
             </div>
 
@@ -56,7 +56,7 @@
           <button class="button" type="submit">Save and continue</button>
         </div>
 
-        <p><a href="{{../sBack}}">Back</a><p>
+        <a href="{{../sBack}}">Back</a>
 
       </form>
 

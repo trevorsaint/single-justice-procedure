@@ -16,7 +16,7 @@
             <span class="form-label">Enter case reference number or defendant&rsquo;s last name</span>
           </label>
 
-          <input class="form-control form-control-wide" id="search" name="search" type="search"><button class="form-search-button" type="submit" disabled>Search</button>
+          <input class="form-control form-control-wide" id="search" name="search" type="search"><button class="form-search-button" type="submit" disabled="disabled">Search</button>
 
         </div>
 
@@ -46,7 +46,7 @@
   <tbody>
   {{#each searches}}
     <tr>
-      <th scope="row"><a href="{{../baseurl}}case-details/{{id}}/"><span class="text-uppercase">{{personal-details.lastname}}</span> {{personal-details.firstname}}</a></th>
+      <th scope="row"><a href="/{{../baseurl}}/case-details/{{id}}/"><span class="text-uppercase">{{personal-details.lastname}}</span> {{personal-details.firstname}}</a></th>
       <td>{{personal-details.urn}}</td>
       <td>{{moment personal-details.dob format="D MMM YYYY"}}</td>
       <td>{{{case-details.status}}}</td>

@@ -271,7 +271,7 @@
             </label>
 
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="cost" name="cost" value="{{#if ../sCost}}{{../sCost}}{{else}}125{{/if}}">
+              <input class="form-control form-control-1-4" id="cost" name="cost" type="text" value="{{#if ../sCost}}{{../sCost}}{{else}}125{{/if}}">
             </div>
 
             <div class="panel panel-border-narrow js-hidden" id="costs-reason">
@@ -291,7 +291,7 @@
               <span class="form-label">Victim surcharge</span>
             </label>
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="surcharge" name="surcharge" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30{{/if}}">
+              <input class="form-control form-control-1-4" id="surcharge" name="surcharge" type="text" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30{{/if}}">
             </div>
 
             <div class="panel panel-border-narrow js-hidden" id="surcharge-reason">
@@ -350,7 +350,7 @@
           <button class="button" type="submit">Save and continue</button>
         </div>
 
-        <p><a href="/proof-in-absence/legal-adviser/case-details/{{id}}">Back</a></p>
+        <a href="/{{../baseurl}}/case-details/{{id}}">Back</a>
 
       </form>
 

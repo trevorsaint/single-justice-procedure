@@ -5,7 +5,7 @@
   <h3 class="heading-medium">3 files found</h3>
 
   <table class="table table-font-xsmall">
-    <caption class="visuallyhidden">Document file uploads</caption>
+    <caption class="visually-hidden">Document file uploads</caption>
     <thead>
       <tr>
         <th scope="col">Date uploaded</th>
@@ -23,7 +23,7 @@
               <td>{{time}}</td>
               <td>{{filename}}</td>
               <td>{{{status}}}</td>
-              <td>{{#if url}}<a href="/prosecutor/{{url}}">View report</a>{{else}}<abbr title="No report available">&mdash;</abbr>{{/if}}</td>
+              <td>{{#if url}}<a href="/{{../../baseurl}}/{{url}}">View report</a>{{else}}<abbr title="No report available">&mdash;</abbr>{{/if}}</td>
             </tr>
           {{/if}}
         {{/each}}

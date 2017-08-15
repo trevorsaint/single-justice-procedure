@@ -25,13 +25,8 @@ fieldset.inline ~ .panel {
 
 }
 
-.heading-medium {
-  margin-top: em(10, 20);
-
-  @include media(tablet) {
-    margin-top: em(20, 24);
-  }
-
+legend *:first-child {
+  margin-top: 0;
 }
 
 

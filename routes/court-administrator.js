@@ -1,20 +1,26 @@
-var express = require('express');
-var router = express.Router();
+// dependencies
+const express = require('express');
+const router = express.Router();
+
 
 // datastore
-var dataEngine = require('../models/data-court-administrator');
+const dataEngine = require('../models/data-court-administrator');
 var entry;
+
+
+// baseurl and apptitle
+const baseurl  = 'court-administrator';
+const apptitle = 'Criminal Justice Services online';
+
 
 // date fixer (add leading zero)
 function zeroFill(i) {
   return (i < 10 ? '0' : '') + i
 }
 
+
 // routes
 router.use(function(req, res, next) {
-
-  baseurl  = '/court-administrator/';
-  apptitle = 'Criminal Justice Services online';
 
   sHasSaved     = req.query.saved;
   sReopenedCase = req.session.reopenedCase;
@@ -84,9 +90,9 @@ router.use(function(req, res, next) {
 });
 
 
-router.route('/court-administrator')
+router.route('/' + baseurl + '/')
   .get(function(req, res, next) {
-    res.render('court-administrator/index', {
+    res.render(baseurl + '/index', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -97,13 +103,13 @@ router.route('/court-administrator')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/court-administrator/home');
+    res.redirect('/' + baseurl + '/home');
   });
 
 
-router.route('/court-administrator/home/')
+router.route('/' + baseurl + '/home/')
   .get(function(req, res, next) {
-    res.render('court-administrator/home', {
+    res.render(baseurl + '/home', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -119,13 +125,13 @@ router.route('/court-administrator/home/')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/court-administrator/search-for-a-case/');
+    res.redirect('/' + baseurl + '/search-for-a-case/');
   });
 
 
-router.route('/court-administrator/search-for-a-case/')
+router.route('/' + baseurl + '/search-for-a-case/')
   .get(function(req, res, next) {
-    res.render('court-administrator/search-for-a-case', {
+    res.render(baseurl + '/search-for-a-case', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -139,9 +145,9 @@ router.route('/court-administrator/search-for-a-case/')
   });
 
 
-router.route('/court-administrator/print-list-of-cases-awaiting-decision/')
+router.route('/' + baseurl + '/print-list-of-cases-awaiting-decision/')
   .get(function(req, res, next) {
-    res.render('court-administrator/print-list-of-cases-awaiting-decision', {
+    res.render(baseurl + '/print-list-of-cases-awaiting-decision', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -155,10 +161,10 @@ router.route('/court-administrator/print-list-of-cases-awaiting-decision/')
   });
 
 
-router.route('/court-administrator/case-details/:id/')
+router.route('/' + baseurl + '/case-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/case-details', {
+    res.render(baseurl + '/case-details', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -239,14 +245,14 @@ router.route('/court-administrator/case-details/:id/')
 
     req.session.caseActiveTab = null;
     sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
-    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
 
 
-router.route('/court-administrator/personal-details/:id/')
+router.route('/' + baseurl + '/personal-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/personal-details', {
+    res.render(baseurl + '/personal-details', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -288,14 +294,14 @@ router.route('/court-administrator/personal-details/:id/')
     sTown = req.session.town = req.body.town;
     sPostcode = req.session.postcode = req.body.postcode;
     sCaseActiveTab = req.session.caseActiveTab = 'Personal details';
-    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
 
 
-router.route('/court-administrator/income/:id/')
+router.route('/' + baseurl + '/income/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/income', {
+    res.render(baseurl + '/income', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -401,14 +407,14 @@ router.route('/court-administrator/income/:id/')
 
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
     sCaseActiveTab = req.session.caseActiveTab = 'Income';
-    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
 
 
-router.route('/court-administrator/upload-documents/:id/')
+router.route('/' + baseurl + '/upload-documents/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/upload-documents', {
+    res.render(baseurl + '/upload-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -439,18 +445,15 @@ router.route('/court-administrator/upload-documents/:id/')
     }
 
     // res.redirect('/court-administrator/upload-documents/' + req.params.id + '/?saved=true');
-    res.redirect('/court-administrator/upload-documents/' + req.params.id);
+    res.redirect('/' + baseurl + '/upload-documents/' + req.params.id);
 
   });
 
 
-
-
-// postal route
-router.route('/court-administrator/postal/upload-documents/:id/')
+router.route('/' + baseurl + '/postal/upload-documents/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/postal/upload-documents', {
+    res.render(baseurl + '/postal/upload-documents', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -468,10 +471,10 @@ router.route('/court-administrator/postal/upload-documents/:id/')
   });
 
 
-router.route('/court-administrator/postal/personal-details/:id/')
+router.route('/' + baseurl + '/postal/personal-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/postal/personal-details', {
+    res.render(baseurl + '/postal/personal-details', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -515,19 +518,19 @@ router.route('/court-administrator/postal/personal-details/:id/')
 
     // has the user come from check your answers
     if (!req.query.change) {
-      res.redirect('/court-administrator/postal/income/' + req.params.id);
+      res.redirect('/' + baseurl + '/postal/income/' + req.params.id);
     }
     else {
-      res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
+      res.redirect('/' + baseurl + '/postal/check-your-answers/' + req.params.id);
     }
 
   });
 
 
-router.route('/court-administrator/postal/income/:id/')
+router.route('/' + baseurl + '/postal/income/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/postal/income', {
+    res.render(baseurl + '/postal/income', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -633,19 +636,19 @@ router.route('/court-administrator/postal/income/:id/')
 
     // has the user come from check your answers
     if (!req.query.change) {
-      res.redirect('/court-administrator/postal/add-plea/' + req.params.id);
+      res.redirect('/' + baseurl + '/postal/add-plea/' + req.params.id);
     }
     else {
-      res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
+      res.redirect('/' + baseurl + '/postal/check-your-answers/' + req.params.id);
     }
 
   });
 
 
-router.route('/court-administrator/postal/add-plea/:id/')
+router.route('/' + baseurl + '/postal/add-plea/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/postal/add-plea', {
+    res.render(baseurl + '/postal/add-plea', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -660,7 +663,7 @@ router.route('/court-administrator/postal/add-plea/:id/')
       breadcrumb: true,
       search: entry,
       sMakeDecision: sMakeDecision,
-      sMakeDecisionConfirm: sMakeDecisionConfirm, 
+      sMakeDecisionConfirm: sMakeDecisionConfirm,
       sNeedInterpreter: sNeedInterpreter,
       sInterpreterLanguage: sInterpreterLanguage
     });
@@ -691,21 +694,19 @@ router.route('/court-administrator/postal/add-plea/:id/')
     // has the user come from check your answers
     if (!req.query.change) {
       sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
-      res.redirect('/court-administrator/case-details/' + req.params.id);
+      res.redirect('/' + baseurl + '/case-details/' + req.params.id);
     }
     else {
-      res.redirect('/court-administrator/postal/check-your-answers/' + req.params.id);
+      res.redirect('/' + baseurl + '/postal/check-your-answers/' + req.params.id);
     }
 
   });
 
 
-
-
-router.route('/court-administrator/postal/check-your-answers/:id/')
+router.route('/' + baseurl + '/postal/check-your-answers/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/postal/check-your-answers', {
+    res.render(baseurl + '/postal/check-your-answers', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -741,14 +742,14 @@ router.route('/court-administrator/postal/check-your-answers/:id/')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
 
 
-router.route('/court-administrator/extract-of-court-record/:id/')
+router.route('/' + baseurl + '/extract-of-court-record/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/extract-of-court-record', {
+    res.render(baseurl + '/extract-of-court-record', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -786,9 +787,9 @@ router.route('/court-administrator/extract-of-court-record/:id/')
   });
 
 
-router.route('/court-administrator/create-register-for-the-media/')
+router.route('/' + baseurl + '/create-register-for-the-media/')
   .get(function(req, res, next) {
-    res.render('court-administrator/create-register-for-the-media', {
+    res.render(baseurl + '/create-register-for-the-media', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -805,10 +806,10 @@ router.route('/court-administrator/create-register-for-the-media/')
   });
 
 
-router.route('/court-administrator/mark-case-as-reopened/:id/')
+router.route('/' + baseurl + '/mark-case-as-reopened/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/mark-case-as-reopened', {
+    res.render(baseurl + '/mark-case-as-reopened', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -830,14 +831,14 @@ router.route('/court-administrator/mark-case-as-reopened/:id/')
     sReopenedCase = req.session.reopenedCase = 'Yes';
     sCaseNumber = req.session.caseNumber = req.body.caseNumber;
     sReasonForReopening = req.session.reasonForReopening = req.body.reasonForReopening;
-    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
 
 
-router.route('/court-administrator/change-reopened-case-status/:id/')
+router.route('/' + baseurl + '/change-reopened-case-status/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/change-reopened-case-status', {
+    res.render(baseurl + '/change-reopened-case-status', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -859,14 +860,14 @@ router.route('/court-administrator/change-reopened-case-status/:id/')
     sReopenedCase = req.session.reopenedCase = 'Yes';
     sCaseNumber   = req.session.caseNumber = req.body.caseNumber;
     sReasonForReopening = req.session.reasonForReopening = req.body.reasonForReopening;
-    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
 
 
-router.route('/court-administrator/undo-case-reopening/:id/')
+router.route('/' + baseurl + '/undo-case-reopening/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('court-administrator/undo-case-reopening', {
+    res.render(baseurl + '/undo-case-reopening', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -897,23 +898,24 @@ router.route('/court-administrator/undo-case-reopening/:id/')
       sReasonForReopening = req.session.reasonForReopening;
     }
 
-    res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
 
   });
 
 
-router.get('/court-administrator/*', function(req, res, next) {
-  res.render('404', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    ispublic: false,
-    doctitle: 'Page not found',
-    pagetitle: 'Page not found',
-    section: 'home',
-    section_name: 'Home',
-    breadcrumb: true
+router.route('/' + baseurl + '/*')
+  .get(function(req, res, next) {
+    res.render('404', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      ispublic: false,
+      doctitle: 'Page not found',
+      pagetitle: 'Page not found',
+      section: 'home',
+      section_name: 'Home',
+      breadcrumb: true
+    });
   });
-});
 
 
 module.exports = router

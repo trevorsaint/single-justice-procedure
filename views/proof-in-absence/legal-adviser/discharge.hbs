@@ -83,7 +83,7 @@
           <div class="form-group">
             <label for="compensation"><span class="form-label">Compensation</span></label>
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="compensation" name="compensation" value="{{#if ../sCompensation}}{{../sCompensation}}{{else}}3.50{{/if}}">
+              <input class="form-control form-control-1-4" id="compensation" name="compensation" type="text" value="{{#if ../sCompensation}}{{../sCompensation}}{{else}}3.50{{/if}}">
             </div>
           </div>
 
@@ -102,7 +102,7 @@
             </label>
 
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="cost" name="cost" value="{{#if ../sCost}}{{../sCost}}{{else}}125.00{{/if}}">
+              <input class="form-control form-control-1-4" id="cost" name="cost" type="text" value="{{#if ../sCost}}{{../sCost}}{{else}}125.00{{/if}}">
             </div>
 
             <div class="panel panel-border-narrow js-hidden" id="costs-reason">
@@ -123,7 +123,7 @@
             </label>
 
             <div class="form-currency">
-              <input class="form-control form-control-1-4" type="text" id="surcharge" name="surcharge" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30.00{{/if}}">
+              <input class="form-control form-control-1-4" id="surcharge" name="surcharge" type="text" value="{{#if ../sSurcharge}}{{../sSurcharge}}{{else}}30.00{{/if}}">
             </div>
 
             <div class="panel panel-border-narrow js-hidden" id="surcharge-reason">
@@ -182,7 +182,7 @@
           <button class="button" type="submit">Save and continue</button>
         </div>
 
-        <p><a href="/proof-in-absence/legal-adviser/case-details/{{id}}">Back</a></p>
+        <a href="/{{../baseurl}}/case-details/{{id}}">Back</a>
 
       </form>
 

@@ -16,14 +16,14 @@
 
           <legend>
             <span class="form-label">From</span>
-            <span class="form-hint" id="from-hint">For example, 10 3 2016</span>
+            <span class="form-hint">For example, 10 3 2016</span>
           </legend>
 
           <div class="form-date">
 
             <div class="form-group form-group-day">
               <label class="form-label" for="from-day">Day</label>
-              <input class="form-control" id="from-day" name="fromDay" type="number" value="{{sFromDay}}" aria-describedby="from-hint">
+              <input class="form-control" id="from-day" name="fromDay" type="number" value="{{sFromDay}}">
             </div>
 
             <div class="form-group form-group-month">
@@ -48,14 +48,14 @@
 
           <legend>
             <span class="form-label">To</span>
-            <span class="form-hint" id="to-hint">For example, 10 3 2016</span>
+            <span class="form-hint">For example, 10 3 2016</span>
           </legend>
 
           <div class="form-date">
 
             <div class="form-group form-group-day">
               <label class="form-label" for="to-day">Day</label>
-              <input class="form-control" id="to-day" name="toDay" type="number" value="{{sToDay}}" aria-describedby="to-hint">
+              <input class="form-control" id="to-day" name="toDay" type="number" value="{{sToDay}}">
             </div>
 
             <div class="form-group form-group-month">
@@ -78,7 +78,7 @@
         <button class="button" type="submit">Create</button>
       </div>
 
-      <p><a href="{{baseurl}}home/">Cancel</a></p>
+      <p><a href="/{{baseurl}}/home/">Cancel</a></p>
 
     </form>
 
@@ -92,7 +92,7 @@
         <button class="button button-secondary" type="submit">Download register in spreadsheet</button>
       </div>
 
-      <p><a href="{{baseurl}}create-register-for-the-media">Reset<span class="visually-hidden"> search for cases by date decision made</span></a></p>
+      <p><a href="/{{baseurl}}/create-register-for-the-media">Reset<span class="visually-hidden"> search for cases by date decision made</span></a></p>
 
       {{else}}
 
@@ -100,7 +100,7 @@
         <p>0 cases found</p>
       </div>
 
-      <p><a href="{{baseurl}}create-register-for-the-media">Reset<span class="visually-hidden"> search for cases by date decision made</span></a></p>
+      <p><a href="/{{baseurl}}/create-register-for-the-media">Reset<span class="visually-hidden"> search for cases by date decision made</span></a></p>
 
       {{/contains}}
 

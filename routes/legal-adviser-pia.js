@@ -1,17 +1,18 @@
-var express = require('express');
-var router  = express.Router();
+const express = require('express');
+const router = express.Router();
 
 
 // datastore
-var dataEngine = require('../models/data-legal-advisers-pia');
+const dataEngine = require('../models/data-legal-advisers-pia');
+
+
+// baseurl and apptitle
+const baseurl  = 'proof-in-absence/legal-adviser';
+const apptitle = 'Criminal Justice Services online';
 
 
 // routes
 router.use(function(req, res, next) {
-
-  // base
-  baseurl = '/proof-in-absence/legal-adviser/';
-  apptitle = 'Criminal Justice Services online';
 
   // general
   id = req.params.id;
@@ -96,16 +97,16 @@ router.use(function(req, res, next) {
 });
 
 
-// remove session data and redirect user to sign-in page
-router.get('/proof-in-absence/legal-adviser/end-session', function(req, res, next) {
-  req.session.destroy();
-  res.redirect('/proof-in-absence/legal-adviser/home');
-});
-
-
-router.route('/proof-in-absence/legal-adviser/')
+router.route('/' + baseurl + '/end-session')
   .get(function(req, res, next) {
-    res.render('proof-in-absence/legal-adviser/index', {
+    req.session.destroy();
+    res.redirect(baseurl + '/home');
+  });
+
+
+router.route('/' + baseurl + '/')
+  .get(function(req, res, next) {
+    res.render(baseurl + '/index', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -115,14 +116,15 @@ router.route('/proof-in-absence/legal-adviser/')
       breadcrumb: false,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
-    res.redirect('/proof-in-absence/legal-adviser/home/');
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/home/');
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/home/')
+router.route('/' + baseurl + '/home/')
   .get(function(req, res, next) {
-    res.render('proof-in-absence/legal-adviser/home', {
+    res.render(baseurl + '/home', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -138,14 +140,15 @@ router.route('/proof-in-absence/legal-adviser/home/')
       globalHeaderBar: false,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
-    res.redirect('/proof-in-absence/legal-adviser/search-for-a-case/');
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/search-for-a-case/');
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/search-for-a-case/')
+router.route('/' + baseurl + '/search-for-a-case/')
   .all(function(req, res, next) {
-    res.render('proof-in-absence/legal-adviser/search-for-a-case', {
+    res.render(baseurl + '/search-for-a-case', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -156,13 +159,13 @@ router.route('/proof-in-absence/legal-adviser/search-for-a-case/')
       section_name: 'Home',
       breadcrumb: true,
       searches: dataEngine.getSearchEntries()
+    });
   });
-});
 
 
-router.route('/proof-in-absence/legal-adviser/start-a-new-sjp-session/')
+router.route('/' + baseurl + '/start-a-new-sjp-session/')
   .get(function(req, res, next) {
-    res.render('proof-in-absence/legal-adviser/start-a-new-sjp-session', {
+    res.render(baseurl + '/start-a-new-sjp-session', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -176,14 +179,14 @@ router.route('/proof-in-absence/legal-adviser/start-a-new-sjp-session/')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/proof-in-absence/legal-adviser/case-details/1/');
-});
+    res.redirect('/' + baseurl + '/case-details/1/');
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/case-details/:id/')
+router.route('/' + baseurl + '/case-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/case-details', {
+    res.render(baseurl + '/case-details', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -210,43 +213,44 @@ router.route('/proof-in-absence/legal-adviser/case-details/:id/')
       sActiveTab: sActiveTab,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
 
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
 
     if (sMakeDecision === "Financial penalty") {
 
-      res.redirect('/proof-in-absence/legal-adviser/financial-penalty/' + req.params.id);
+      res.redirect('/' + baseurl + '/financial-penalty/' + req.params.id);
 
     } else if (sMakeDecision === "Refer for court hearing") {
 
-      res.redirect('/proof-in-absence/legal-adviser/refer-for-court-hearing/' + req.params.id);
+      res.redirect('/' + baseurl + '/refer-for-court-hearing/' + req.params.id);
 
     } else if (sMakeDecision === "Discharge") {
 
-      res.redirect('/proof-in-absence/legal-adviser/discharge/' + req.params.id);
+      res.redirect('/' + baseurl + '/discharge/' + req.params.id);
 
     } else if (sMakeDecision === "Withdraw offence") {
 
-      res.redirect('/proof-in-absence/legal-adviser/withdraw/' + req.params.id);
+      res.redirect('/' + baseurl + '/withdraw/' + req.params.id);
 
     } else if (sMakeDecision === "Dismiss") {
 
-      res.redirect('/proof-in-absence/legal-adviser/dismiss/' + req.params.id);
+      res.redirect('/' + baseurl + '/dismiss/' + req.params.id);
 
     } else if (sMakeDecision === "Refer for future SJP session") {
 
-      res.redirect('/proof-in-absence/legal-adviser/refer-for-future-sjp-session/' + req.params.id);
+      res.redirect('/' + baseurl + '/refer-for-future-sjp-session/' + req.params.id);
 
     }
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/case-details-error/:id/')
+router.route('/' + baseurl + '/case-details-error/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/case-details-error', {
+    res.render(baseurl + '/case-details-error', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -273,43 +277,44 @@ router.route('/proof-in-absence/legal-adviser/case-details-error/:id/')
       sActiveTab: sActiveTab,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
 
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
 
     if (sMakeDecision === "Financial penalty") {
 
-      res.redirect('/proof-in-absence/legal-adviser/financial-penalty/' + req.params.id);
+      res.redirect('/' + baseurl + '/financial-penalty/' + req.params.id);
 
     } else if (sMakeDecision === "Refer for court hearing") {
 
-      res.redirect('/proof-in-absence/legal-adviser/refer-for-court-hearing/' + req.params.id);
+      res.redirect('/' + baseurl + '/refer-for-court-hearing/' + req.params.id);
 
     } else if (sMakeDecision === "Discharge") {
 
-      res.redirect('/proof-in-absence/legal-adviser/discharge/' + req.params.id);
+      res.redirect('/' + baseurl + '/discharge/' + req.params.id);
 
     } else if (sMakeDecision === "Withdraw offence") {
 
-      res.redirect('/proof-in-absence/legal-adviser/withdraw/' + req.params.id);
+      res.redirect('/' + baseurl + '/withdraw/' + req.params.id);
 
     } else if (sMakeDecision === "Dismiss") {
 
-      res.redirect('/proof-in-absence/legal-adviser/dismiss/' + req.params.id);
+      res.redirect('/' + baseurl + '/dismiss/' + req.params.id);
 
     } else if (sMakeDecision === "Refer for future SJP session") {
 
-      res.redirect('/proof-in-absence/legal-adviser/refer-for-future-sjp-session/' + req.params.id);
+      res.redirect('/' + baseurl + '/refer-for-future-sjp-session/' + req.params.id);
 
     }
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/case-details-idea/:id/')
+router.route('/' + baseurl + '/case-details-idea/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/case-details-idea', {
+    res.render(baseurl + '/case-details-idea', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -336,39 +341,40 @@ router.route('/proof-in-absence/legal-adviser/case-details-idea/:id/')
       sActiveTab: sActiveTab,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
 
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
 
     if (sMakeDecision === "Financial penalty") {
 
-      res.redirect('/proof-in-absence/legal-adviser/financial-penalty/' + req.params.id);
+      res.redirect('/' + baseurl + '/financial-penalty/' + req.params.id);
 
     } else if (sMakeDecision === "Refer for court hearing") {
 
-      res.redirect('/proof-in-absence/legal-adviser/refer-for-court-hearing/' + req.params.id);
+      res.redirect('/' + baseurl + '/refer-for-court-hearing/' + req.params.id);
 
     } else if (sMakeDecision === "Discharge") {
 
-      res.redirect('/proof-in-absence/legal-adviser/discharge/' + req.params.id);
+      res.redirect('/' + baseurl + '/discharge/' + req.params.id);
 
     } else if (sMakeDecision === "Withdraw offence") {
 
-      res.redirect('/proof-in-absence/legal-adviser/withdraw/' + req.params.id);
+      res.redirect('/' + baseurl + '/withdraw/' + req.params.id);
 
     } else if (sMakeDecision === "Dismiss") {
 
-      res.redirect('/proof-in-absence/legal-adviser/dismiss/' + req.params.id);
+      res.redirect('/' + baseurl + '/dismiss/' + req.params.id);
 
     }
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/refer-for-court-hearing/:id')
+router.route('/' + baseurl + '/refer-for-court-hearing/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/refer-for-court-hearing', {
+    res.render(baseurl + '/refer-for-court-hearing', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -377,21 +383,20 @@ router.route('/proof-in-absence/legal-adviser/refer-for-court-hearing/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
       search:entry,
       breadcrumb: true,
     });
-  }).post(function(req, res, next) {
-    res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id);
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/discharge/:id')
+router.route('/' + baseurl + '/discharge/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/discharge', {
+    res.render(baseurl + '/legal-adviser/discharge', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -399,8 +404,6 @@ router.route('/proof-in-absence/legal-adviser/discharge/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
       sTypeOfDischarge: sTypeOfDischarge,
       sCompensation: sCompensation,
@@ -425,15 +428,15 @@ router.route('/proof-in-absence/legal-adviser/discharge/:id')
     sCollectionOrderConfirmed = req.session.collectionOrderConfirmed = req.body.collectionOrderConfirmed ? "true" : "false";
     sTotalToPay = req.session.totalToPay = (Number(sCompensation) + Number(sCost) + Number(sSurcharge)).toFixed(2);
 
-    res.redirect('/proof-in-absence/legal-adviser/payment-method/' + req.params.id);
+    res.redirect('/' + baseurl + '/payment-method/' + req.params.id);
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/withdraw/:id')
+router.route('/' + baseurl + '/withdraw/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/withdraw', {
+    res.render(baseurl + '/withdraw', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -443,21 +446,20 @@ router.route('/proof-in-absence/legal-adviser/withdraw/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
       search: entry,
       breadcrumb: true,
     });
-  }).post(function(req, res, next) {
-    res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id);
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/dismiss/:id')
+router.route('/' + baseurl + '/dismiss/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/dismiss', {
+    res.render(baseurl + '/dismiss', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -466,21 +468,20 @@ router.route('/proof-in-absence/legal-adviser/dismiss/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
       search: entry,
       breadcrumb: true,
     });
-  }).post(function(req, res, next) {
-    res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id);
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/refer-for-future-sjp-session/:id')
+router.route('/' + baseurl + '/refer-for-future-sjp-session/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/refer-for-future-sjp-session', {
+    res.render(baseurl + '/refer-for-future-sjp-session', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -489,21 +490,20 @@ router.route('/proof-in-absence/legal-adviser/refer-for-future-sjp-session/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
       search: entry,
       breadcrumb: true,
     });
-  }).post(function(req, res, next) {
-    res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id);
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/financial-penalty/:id')
+router.route('/' + baseurl + '/financial-penalty/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/financial-penalty', {
+    res.render(baseurl + '/financial-penalty', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -512,8 +512,6 @@ router.route('/proof-in-absence/legal-adviser/financial-penalty/:id')
       pagetitle: 'Confirm outcome',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       sMakeDecision: sMakeDecision,
       search: entry,
       breadcrumb: true,
@@ -533,7 +531,8 @@ router.route('/proof-in-absence/legal-adviser/financial-penalty/:id')
       sSurcharge: sSurcharge,
       sTotalToPay: sTotalToPay
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sFineBandApplied = req.session.fineBandApplied = req.body.fineBandApplied;
     sCost = req.session.cost = req.body.cost;
     sSurcharge = req.session.surcharge = req.body.surcharge;
@@ -585,19 +584,19 @@ router.route('/proof-in-absence/legal-adviser/financial-penalty/:id')
 
     // has the user come from check your answers
     if (!req.query.change) {
-      res.redirect('/proof-in-absence/legal-adviser/payment-method/' + req.params.id);
+      res.redirect('/' + baseurl + '/payment-method/' + req.params.id);
     }
     else {
-      res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id + '#fine-and-compensation');
+      res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id + '#fine-and-compensation');
     }
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/payment-method/:id')
+router.route('/' + baseurl + '/payment-method/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/payment-method', {
+    res.render(baseurl + '/payment-method', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -606,32 +605,31 @@ router.route('/proof-in-absence/legal-adviser/payment-method/:id')
       pagetitle: 'Payment method',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sPaymentMethod: sPaymentMethod,
       sTotalToPay: sTotalToPay,
       sBack: sBack
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sPaymentMethod = req.session.paymentMethod = req.body.paymentMethod;
 
     if (sPaymentMethod === "Pay direct to court") {
-      res.redirect('/proof-in-absence/legal-adviser/pay-direct-to-court/' + req.params.id);
+      res.redirect('/' + baseurl + '/pay-direct-to-court/' + req.params.id);
     } else if (sPaymentMethod === "Deduct from benefits") {
-      res.redirect('/proof-in-absence/legal-adviser/deduct-from-benefits/' + req.params.id);
+      res.redirect('/' + baseurl + '/deduct-from-benefits/' + req.params.id);
     } else {
-      res.redirect('/proof-in-absence/legal-adviser/attach-to-earnings/' + req.params.id);
+      res.redirect('/' + baseurl + '/attach-to-earnings/' + req.params.id);
     }
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/pay-direct-to-court/:id')
+router.route('/' + baseurl + '/pay-direct-to-court/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/pay-direct-to-court', {
+    res.render(baseurl + '/pay-direct-to-court', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -640,8 +638,6 @@ router.route('/proof-in-absence/legal-adviser/pay-direct-to-court/:id')
       pagetitle: 'Pay direct to court',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sPaymentMethod: sPaymentMethod,
@@ -662,7 +658,8 @@ router.route('/proof-in-absence/legal-adviser/pay-direct-to-court/:id')
       sInstalmentOnlyStartDateYear: sInstalmentOnlyStartDateYear,
       sTotalToPay: sTotalToPay
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sDefendantPay = req.session.defendantPay = req.body.defendantPay;
     sReasonForNotDeductFromBenefitsOrAttachToEarnings = req.session.reasonForNotDeductFromBenefitsOrAttachToEarnings = req.body.reasonForNotDeductFromBenefitsOrAttachToEarnings;
 
@@ -689,15 +686,15 @@ router.route('/proof-in-absence/legal-adviser/pay-direct-to-court/:id')
 
     }
 
-    res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id);
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/attach-to-earnings/:id')
+router.route('/' + baseurl + '/attach-to-earnings/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/attach-to-earnings', {
+    res.render(baseurl + '/attach-to-earnings', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -706,8 +703,6 @@ router.route('/proof-in-absence/legal-adviser/attach-to-earnings/:id')
       pagetitle: 'Attach to earnings',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sBack: sBack,
@@ -735,7 +730,8 @@ router.route('/proof-in-absence/legal-adviser/attach-to-earnings/:id')
       sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
       sTotalToPay: sTotalToPay
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sEmployeeNumber = req.session.employeeNumber = req.body.employeeNumber;
     sEmployerName = req.session.employerName = req.body.employerName;
     sEmployerAddress1 = req.session.employerAddress1 = req.body.employerAddress1;
@@ -768,15 +764,15 @@ router.route('/proof-in-absence/legal-adviser/attach-to-earnings/:id')
 
     }
 
-    res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id);
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/deduct-from-benefits/:id')
+router.route('/' + baseurl + '/deduct-from-benefits/:id')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/deduct-from-benefits', {
+    res.render(baseurl + '/deduct-from-benefits', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -785,8 +781,6 @@ router.route('/proof-in-absence/legal-adviser/deduct-from-benefits/:id')
       pagetitle: 'Deduct from benefits',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sReasonForDeductingFromBenefits: sReasonForDeductingFromBenefits,
@@ -810,7 +804,8 @@ router.route('/proof-in-absence/legal-adviser/deduct-from-benefits/:id')
       sInstalmentOnlyStartDate: sInstalmentOnlyStartDate,
       sTotalToPay: sTotalToPay
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sNationalInsuranceNumber = req.session.nationalInsuranceNumber = req.body.nationalInsuranceNumber;
     sReasonForDeductingFromBenefits = req.session.reasonForDeductingFromBenefits = req.body.reasonForDeductingFromBenefits;
     sReserveTerms = req.session.reserveTerms = req.body.reserveTerms;
@@ -838,12 +833,12 @@ router.route('/proof-in-absence/legal-adviser/deduct-from-benefits/:id')
 
     }
 
-    res.redirect('/proof-in-absence/legal-adviser/check-your-decisions/' + req.params.id);
+    res.redirect('/' + baseurl + '/check-your-decisions/' + req.params.id);
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/check-your-decisions/:id')
+router.route('/' + baseurl + '/check-your-decisions/:id')
   .get(function(req, res, next) {
 
     entry = dataEngine.getSearchEntry(req.params.id);
@@ -852,11 +847,11 @@ router.route('/proof-in-absence/legal-adviser/check-your-decisions/:id')
     // prevent access unless a decision has been made
     if (sMakeDecision === undefined) {
 
-      res.redirect('/proof-in-absence/legal-adviser/case-details/' + req.params.id);
+      res.redirect('/' + baseurl + '/case-details/' + req.params.id);
 
     } else {
 
-      res.render('proof-in-absence/legal-adviser/check-your-decisions', {
+      res.render(baseurl + '/check-your-decisions', {
         baseurl: baseurl,
         apptitle: apptitle,
         ispublic: false,
@@ -919,12 +914,13 @@ router.route('/proof-in-absence/legal-adviser/check-your-decisions/:id')
 
     }
 
-  }).post(function(req, res, next) {
-    res.redirect('/proof-in-absence/legal-adviser/confirmation/' + req.params.id);
-});
+  })
+  .post(function(req, res, next) {
+    res.redirect('/' + baseurl + '/confirmation/' + req.params.id);
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/confirmation/:id/')
+router.route('/' + baseurl + '/confirmation/:id/')
   .get(function(req, res, next) {
 
     req.session.destroy();
@@ -939,7 +935,7 @@ router.route('/proof-in-absence/legal-adviser/confirmation/:id/')
       url = "session-complete";
     }
 
-    res.render('proof-in-absence/legal-adviser/confirmation', {
+    res.render(baseurl + '/confirmation', {
       id: id,
       url: url,
       baseurl: baseurl,
@@ -952,12 +948,12 @@ router.route('/proof-in-absence/legal-adviser/confirmation/:id/')
       breadcrumb: false
     });
 
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/session-complete/')
+router.route('/' + baseurl + '/session-complete/')
   .get(function(req, res, next) {
-    res.render('proof-in-absence/legal-adviser/session-complete', {
+    res.render(baseurl + '/session-complete', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -965,13 +961,13 @@ router.route('/proof-in-absence/legal-adviser/session-complete/')
       doctitle: 'Session complete',
       pagetitle: 'Session complete',
       breadcrumb: false
+    });
   });
-});
 
 
-router.route('/proof-in-absence/legal-adviser/no-cases-to-review/')
+router.route('/' + baseurl + '/no-cases-to-review/')
   .get(function(req, res, next) {
-    res.render('proof-in-absence/legal-adviser/no-cases-to-review', {
+    res.render(baseurl + '/no-cases-to-review', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -982,13 +978,13 @@ router.route('/proof-in-absence/legal-adviser/no-cases-to-review/')
       section_name: 'Home',
       breadcrumb: true
     });
-});
+  });
 
 
-router.route('/proof-in-absence/legal-adviser/personal-details/:id/')
+router.route('/' + baseurl + '/personal-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/legal-adviser/personal-details', {
+    res.render(baseurl + '/personal-details', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -997,8 +993,6 @@ router.route('/proof-in-absence/legal-adviser/personal-details/:id/')
       pagetitle: 'Personal details',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       search: entry,
       breadcrumb: true,
       sTitle: sTitle,
@@ -1014,7 +1008,8 @@ router.route('/proof-in-absence/legal-adviser/personal-details/:id/')
       sPostcode: sPostcode,
       sActiveTab: sActiveTab
     });
-  }).post(function(req, res, next) {
+  })
+  .post(function(req, res, next) {
     sTitle = req.session.title = req.body.title;
     sFirstname = req.session.firstname = req.body.firstname;
     sLastname = req.session.lastname = req.body.lastname;
@@ -1027,24 +1022,25 @@ router.route('/proof-in-absence/legal-adviser/personal-details/:id/')
     sTown = req.session.town = req.body.town;
     sPostcode = req.session.postcode = req.body.postcode;
     sActiveTab = req.session.activeTab = 'Personal details';
-    res.redirect('/proof-in-absence/legal-adviser/case-details/' + req.params.id + '/?saved=true');
-});
-
-
-router.get('/proof-in-absence/legal-adviser/*', function(req, res, next) {
-  res.render('404', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    ispublic: false,
-    issigned: true,
-    doctitle: 'Page not found',
-    pagetitle: 'Page not found',
-    section: 'home',
-    section_name: 'Home',
-    breadcrumb: true,
-    sBack: sBack
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
-});
+
+
+router.route('/' + baseurl + '/*')
+  .get(function(req, res, next) {
+    res.render('404', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      ispublic: false,
+      issigned: true,
+      doctitle: 'Page not found',
+      pagetitle: 'Page not found',
+      section: 'home',
+      section_name: 'Home',
+      breadcrumb: true,
+      sBack: sBack
+    });
+  });
 
 
 module.exports = router

@@ -1,96 +1,113 @@
-var express = require('express');
-var router = express.Router();
+// dependencies
+const express = require('express');
+const router = express.Router();
+
 
 // datastore
-var dataEngine = require('../models/data-court-administrator-pia');
+const dataEngine = require('../models/data-court-administrator-pia');
 var entry;
 
-// Date fixer (add leading zero)
+
+// baseurl and apptitle
+const baseurl  = 'proof-in-absence/court-administrator';
+const apptitle = 'Criminal Justice Services online';
+
+
+// date fixer (add leading zero)
 function zeroFill(i) {
   return (i < 10 ? '0' : '') + i
 }
 
+
 // routes
 router.use(function(req, res, next) {
 
-  // base
-  baseurl            = '/proof-in-absence/court-administrator/';
-  apptitle           = 'Criminal Justice Services online';
 
   // general
-  sHasSaved          = req.query.saved;
-  sReopenedCase      = req.session.reopenedCase;
-  sCases             = req.query.cases;
+  sHasSaved = req.query.saved;
+  sReopenedCase = req.session.reopenedCase;
+  sCases = req.query.cases;
+
 
   // personal details
-  sTitle             = req.session.title;
-  sFirstname         = req.session.firstname;
-  sLastname          = req.session.lastname;
-  sDob               = req.session.dob;
-  sEmail             = req.session.email;
-  sPhone             = req.session.phone;
-  sMobile            = req.session.mobile;
-  sAddress1          = req.session.address1;
-  sAddress2          = req.session.address2;
-  sTown              = req.session.town;
-  sPostcode          = req.session.postcode;
+  sTitle = req.session.title;
+  sFirstname = req.session.firstname;
+  sLastname = req.session.lastname;
+  sDob = req.session.dob;
+  sEmail = req.session.email;
+  sPhone = req.session.phone;
+  sMobile = req.session.mobile;
+  sAddress1 = req.session.address1;
+  sAddress2 = req.session.address2;
+  sTown = req.session.town;
+  sPostcode = req.session.postcode;
+
 
   // employment details
   sNationalInsurance = req.session.nationalInsurance;
-  sFrequencyIncome   = req.session.frequencyIncome;
-  sEmployment        = req.session.employment;
-  sEmployerName      = req.session.employerName;
-  sEmployerAddress1  = req.session.employerAddress1;
-  sEmployerAddress2  = req.session.employerAddress2;
-  sEmployerTown      = req.session.employerTown;
-  sEmployerPostcode  = req.session.employerPostcode;
+  sFrequencyIncome = req.session.frequencyIncome;
+  sEmployment = req.session.employment;
+  sEmployerName = req.session.employerName;
+  sEmployerAddress1 = req.session.employerAddress1;
+  sEmployerAddress2 = req.session.employerAddress2;
+  sEmployerTown = req.session.employerTown;
+  sEmployerPostcode = req.session.employerPostcode;
   sEmployerTelephone = req.session.employerTelephone;
+
 
   // pay
   sPayFrequency = req.session.payFrequency;
   sPayAmount = req.session.payAmount;
 
+
   // benefits
   sReceivingBenefits = req.session.receivingBenefits;
 
+
   // plea
-  sMakeDecision        = req.session.makeDecision;
-  sGuiltyCourtRemove   = req.session.guiltyCourtRemove;
+  sMakeDecision = req.session.makeDecision;
+  sGuiltyCourtRemove = req.session.guiltyCourtRemove;
   sGuiltyNoCourtRemove = req.session.guiltyNoCourtRemove;
-  sNotGuiltyRemove     = req.session.notGuiltyRemove;
+  sNotGuiltyRemove = req.session.notGuiltyRemove;
+
 
   // other
-  sCaseActiveTab    = req.session.caseActiveTab;
+  sCaseActiveTab = req.session.caseActiveTab;
   sOffenceActiveTab = req.session.offenceActiveTab;
 
+
   // documents
-  sDocumentNotice  = req.session.documentNotice;
-  sPleaDocument    = req.session.pleaDocument;
+  sDocumentNotice = req.session.documentNotice;
+  sPleaDocument = req.session.pleaDocument;
   sStatementIncome = req.session.statementIncome;
-  sOtherDocument   = req.session.otherDocument;
+  sOtherDocument = req.session.otherDocument;
+
 
   // reopen case
   sLibraAccountNumber = req.session.libraAccountNumber;
 
+
   // from and to date
   sFromDay   = req.session.fromDateDay;
   sFromMonth = req.session.fromDateMonth;
-  sFromYear  = req.session.fromDateYear;
-  sFrom      = req.session.fromDate;
+  sFromYear = req.session.fromDateYear;
+  sFrom = req.session.fromDate;
 
-  sToDay     = req.session.toDateDay;
-  sToMonth   = req.session.toDateMonth;
-  sToYear    = req.session.toDateYear;
-  sTo        = req.session.toDate;
+  sToDay = req.session.toDateDay;
+  sToMonth = req.session.toDateMonth;
+  sToYear = req.session.toDateYear;
+  sTo = req.session.toDate;
+
 
   next();
 
+
 });
 
-// general routes
-router.route('/proof-in-absence/court-administrator')
+
+router.route('/' + baseurl + '/court-administrator/')
   .get(function(req, res, next) {
-    res.render('proof-in-absence/court-administrator/index', {
+    res.render(baseurl + '/court-administrator/index', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -101,12 +118,13 @@ router.route('/proof-in-absence/court-administrator')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/proof-in-absence/court-administrator/home');
+    res.redirect('/' + baseurl + '/home');
   });
 
-router.route('/proof-in-absence/court-administrator/home/')
+
+router.route('/' + baseurl + '/home/')
   .get(function(req, res, next) {
-    res.render('proof-in-absence/court-administrator/home', {
+    res.render(baseurl + '/home', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -122,12 +140,13 @@ router.route('/proof-in-absence/court-administrator/home/')
     });
   })
   .post(function(req, res, next) {
-    res.redirect('/proof-in-absence/court-administrator/search-for-a-case/');
+    res.redirect('/' + baseurl + '/search-for-a-case/');
   });
 
-router.route('/proof-in-absence/court-administrator/search-for-a-case/')
+
+router.route('/' + baseurl + '/search-for-a-case/')
   .all(function(req, res, next) {
-    res.render('proof-in-absence/court-administrator/search-for-a-case', {
+    res.render(baseurl + '/search-for-a-case', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -140,9 +159,10 @@ router.route('/proof-in-absence/court-administrator/search-for-a-case/')
     });
   });
 
-router.route('/proof-in-absence/court-administrator/court-list/')
+
+router.route('/' + baseurl + '/court-list/')
   .all(function(req, res, next) {
-    res.render('proof-in-absence/court-administrator/court-list', {
+    res.render(baseurl + '/court-list', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -156,11 +176,9 @@ router.route('/proof-in-absence/court-administrator/court-list/')
   });
 
 
-
-router.route('/proof-in-absence/court-administrator/find-and-print-orders/')
-
+router.route('/' + baseurl + '/find-and-print-orders/')
   .get(function(req, res, next) {
-    res.render('proof-in-absence/court-administrator/find-and-print-orders/index', {
+    res.render(baseurl + '/find-and-print-orders/index', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -182,29 +200,30 @@ router.route('/proof-in-absence/court-administrator/find-and-print-orders/')
   .post(function(req, res, next) {
 
     // from
-    sFromDay   = req.session.fromDateDay   = req.body.fromDay;
+    sFromDay = req.session.fromDateDay = req.body.fromDay;
     sFromMonth = req.session.fromDateMonth = req.body.fromMonth;
-    sFromYear  = req.session.fromDateYear  = req.body.fromYear;
-    sFrom      = req.session.fromDate      = sFromYear + '-' + sFromMonth + '-' + sFromDay;
+    sFromYear = req.session.fromDateYear = req.body.fromYear;
+    sFrom = req.session.fromDate = sFromYear + '-' + sFromMonth + '-' + sFromDay;
 
     // to
-    sToDay     = req.session.toDateDay     = req.body.toDay;
-    sToMonth   = req.session.toDateMonth   = req.body.toMonth;
-    sToYear    = req.session.toDateYear    = req.body.toYear;
-    sTo        = req.session.toDate        = sToYear + '-' + sToMonth + '-' + sToDay;
+    sToDay = req.session.toDateDay = req.body.toDay;
+    sToMonth = req.session.toDateMonth = req.body.toMonth;
+    sToYear = req.session.toDateYear = req.body.toYear;
+    sTo = req.session.toDate = sToYear + '-' + sToMonth + '-' + sToDay;
 
     // for demonstration purposes
     if (sFrom === '2016-3-10' && sTo === '2016-3-10') {
-      res.redirect('/proof-in-absence/court-administrator/find-and-print-orders/results');
+      res.redirect('/' + baseurl + '/find-and-print-orders/results');
     } else {
-      res.redirect('/proof-in-absence/court-administrator/find-and-print-orders/?cases=0');
+      res.redirect(baseurl + '/find-and-print-orders/?cases=0');
     }
 
   });
 
-router.route('/proof-in-absence/court-administrator/find-and-print-orders/results')
+
+router.route('/' + baseurl + '/find-and-print-orders/results/')
   .all(function(req, res, next) {
-    res.render('proof-in-absence/court-administrator/find-and-print-orders/results', {
+    res.render(baseurl + '/find-and-print-orders/results', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -212,8 +231,6 @@ router.route('/proof-in-absence/court-administrator/find-and-print-orders/result
       pagetitle: 'Find and print orders',
       section: 'home',
       section_name: 'Home',
-      //section2: 'find-and-print-orders',
-      //section2_name: 'Find and print orders',
       breadcrumb: true,
       sFrom: sFrom,
       sTo: sTo,
@@ -222,10 +239,10 @@ router.route('/proof-in-absence/court-administrator/find-and-print-orders/result
   });
 
 
-router.route('/proof-in-absence/court-administrator/case-details/:id/')
+router.route('/' + baseurl + '/case-details/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/court-administrator/case-details', {
+    res.render(baseurl + '/case-details', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -233,8 +250,6 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
       pagetitle: 'Case details',
       section: 'home',
       section_name: 'Home',
-      //section2: 'search-for-a-case',
-      //section2_name: 'Search for a case',
       search:entry,
       breadcrumb: true,
       sFirstname: sFirstname,
@@ -278,9 +293,9 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
 
     sMakeDecision = req.session.makeDecision = req.body.makeDecision;
 
-    sGuiltyCourtRemove   = req.session.guiltyCourtRemove = req.body.guiltyCourtRemove;
+    sGuiltyCourtRemove = req.session.guiltyCourtRemove = req.body.guiltyCourtRemove;
     sGuiltyNoCourtRemove = req.session.guiltyNoCourtRemove = req.body.guiltyNoCourtRemove;
-    sNotGuiltyRemove     = req.session.notGuiltyRemove = req.body.notGuiltyRemove;
+    sNotGuiltyRemove = req.session.notGuiltyRemove = req.body.notGuiltyRemove;
 
     if (sMakeDecision === 'Pleaded guilty SJP' && sGuiltyCourtRemove === 'Yes') {
 
@@ -307,11 +322,11 @@ router.route('/proof-in-absence/court-administrator/case-details/:id/')
 
     sCaseActiveTab = req.session.caseActiveTab = null;
     sOffenceActiveTab = req.session.offenceActiveTab = 'Add or change plea';
-    res.redirect('/proof-in-absence/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
 
-router.route('/proof-in-absence/court-administrator/create-register-for-the-media/')
 
+router.route('/' + baseurl + '/create-register-for-the-media/')
   .get(function(req, res, next) {
 
     // kill session (reset values)
@@ -319,7 +334,7 @@ router.route('/proof-in-absence/court-administrator/create-register-for-the-medi
       req.session.destroy();
     }
 
-    res.render('proof-in-absence/court-administrator/create-register-for-the-media', {
+    res.render(baseurl + '/create-register-for-the-media', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -341,31 +356,32 @@ router.route('/proof-in-absence/court-administrator/create-register-for-the-medi
   .post(function(req, res, next) {
 
     // from
-    sFromDay   = req.session.fromDateDay   = req.body.fromDay;
+    sFromDay = req.session.fromDateDay = req.body.fromDay;
     sFromMonth = req.session.fromDateMonth = req.body.fromMonth;
-    sFromYear  = req.session.fromDateYear  = req.body.fromYear;
-    sFrom      = req.session.fromDate      = sFromYear + '-' + sFromMonth + '-' + sFromDay;
+    sFromYear = req.session.fromDateYear = req.body.fromYear;
+    sFrom = req.session.fromDate = sFromYear + '-' + sFromMonth + '-' + sFromDay;
 
     // to
-    sToDay     = req.session.toDateDay   = req.body.toDay;
-    sToMonth   = req.session.toDateMonth = req.body.toMonth;
-    sToYear    = req.session.toDateYear  = req.body.toYear;
-    sTo        = req.session.toDate      = sToYear + '-' + sToMonth + '-' + sToDay;
+    sToDay = req.session.toDateDay = req.body.toDay;
+    sToMonth = req.session.toDateMonth = req.body.toMonth;
+    sToYear = req.session.toDateYear = req.body.toYear;
+    sTo = req.session.toDate = sToYear + '-' + sToMonth + '-' + sToDay;
 
-    // for demonstration purposes
+    // for demo purposes
     if (sFrom === '2016-3-10' && sTo === '2016-3-10') {
-      res.redirect('/proof-in-absence/court-administrator/create-register-for-the-media/?cases=216');
+      res.redirect('/' + baseurl + '/create-register-for-the-media/?cases=216');
     } else {
-      req.session.destroy(); // kill session (reset values)
-      res.redirect('/proof-in-absence/court-administrator/create-register-for-the-media/');
+      req.session.destroy();
+      res.redirect('/' + baseurl + '/create-register-for-the-media/');
     }
 
   });
 
-router.route('/proof-in-absence/court-administrator/reopen-case/:id/')
+
+router.route('/' + baseurl + '/reopen-case/:id/')
   .get(function(req, res, next) {
     entry = dataEngine.getSearchEntry(req.params.id);
-    res.render('proof-in-absence/court-administrator/reopen-case', {
+    res.render(baseurl + '/reopen-case', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
@@ -373,8 +389,6 @@ router.route('/proof-in-absence/court-administrator/reopen-case/:id/')
       pagetitle: 'Log case as reopened on Libra',
       section: 'home',
       section_name: 'Home',
-      //section2: 'case-details/' + req.params.id,
-      //section2_name: 'Case details',
       breadcrumb: true,
       search: entry,
       sLibraAccountNumber: sLibraAccountNumber
@@ -383,20 +397,23 @@ router.route('/proof-in-absence/court-administrator/reopen-case/:id/')
   .post(function(req, res, next) {
     sReopenedCase = req.session.reopenedCase = 'Yes';
     sLibraAccountNumber = req.session.libraAccountNumber = req.body.libraAccountNumber;
-    res.redirect('/proof-in-absence/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
 
-router.get('/proof-in-absence/court-administrator/*', function(req, res, next) {
-  res.render('404', {
-    baseurl: baseurl,
-    apptitle: apptitle,
-    ispublic: false,
-    doctitle: 'Page not found',
-    pagetitle: 'Page not found',
-    section: 'home',
-    section_name: 'Home',
-    breadcrumb: true
-  });
-});
+
+router.get('/' + baseurl + '/*')
+  .get(function(req, res, next) {
+    res.render('404', {
+        baseurl: baseurl,
+        apptitle: apptitle,
+        ispublic: false,
+        doctitle: 'Page not found',
+        pagetitle: 'Page not found',
+        section: 'home',
+        section_name: 'Home',
+        breadcrumb: true
+      });
+    });
+
 
 module.exports = router

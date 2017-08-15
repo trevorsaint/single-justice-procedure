@@ -1,13 +1,16 @@
-var express = require('express');
-var router = express.Router();
+// dependencies
+const express = require('express');
+const router = express.Router();
+
 
 // baseurl and apptitle
-var baseurl  = '/';
-var apptitle = 'Criminal Justice Services online';
+const baseurl  = '/';
+const apptitle = 'Criminal Justice Services online';
+
 
 // routes
-router.all('/', function(req, res) {
-  req.session.destroy(); // kill all sessions to begin with
+router.all('/', function(req, res, next) {
+  req.session.destroy();
   res.render('index', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -18,8 +21,9 @@ router.all('/', function(req, res) {
   });
 });
 
-router.all('/select-user-type', function(req, res) {
-  req.session.destroy(); // kill all sessions to begin with
+
+router.all('/select-user-type', function(req, res, next) {
+  req.session.destroy();
   res.render('select-user-type', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -30,7 +34,8 @@ router.all('/select-user-type', function(req, res) {
   });
 });
 
-router.all('/terms-and-conditions', function(req, res) {
+
+router.all('/terms-and-conditions', function(req, res, next) {
   res.render('terms-and-conditions', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -41,7 +46,8 @@ router.all('/terms-and-conditions', function(req, res) {
   });
 });
 
-router.all('/cookies', function(req, res) {
+
+router.all('/cookies', function(req, res, next) {
   res.render('cookies', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -53,7 +59,8 @@ router.all('/cookies', function(req, res) {
   });
 });
 
-router.all('/privacy-policy', function(req, res) {
+
+router.all('/privacy-policy', function(req, res, next) {
   res.render('privacy-policy', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -65,7 +72,8 @@ router.all('/privacy-policy', function(req, res) {
   });
 });
 
-router.all('/your-account', function(req, res) {
+
+router.all('/your-account', function(req, res, next) {
   res.render('your-account', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -76,7 +84,8 @@ router.all('/your-account', function(req, res) {
   });
 });
 
-router.all('/technical-problems', function(req, res) {
+
+router.all('/technical-problems', function(req, res, next) {
   res.render('technical-problems', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -87,7 +96,8 @@ router.all('/technical-problems', function(req, res) {
   });
 });
 
-router.all('/comments', function(req, res) {
+
+router.all('/comments', function(req, res, next) {
   res.render('comments', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -98,7 +108,8 @@ router.all('/comments', function(req, res) {
   });
 });
 
-router.all('/forgotten-your-password', function(req, res) {
+
+router.all('/forgotten-your-password', function(req, res, next) {
   res.render('forgotten-your-password', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -106,16 +117,6 @@ router.all('/forgotten-your-password', function(req, res) {
     issigned: false,
     doctitle: 'Forgotten your password',
     pagetitle: 'Forgotten your password'
-  });
-});
-
-// Only for testing purposes
-router.get('/test', function(req, res) {
-  res.render('test', {
-    baseurl:   baseurl,
-    apptitle:  apptitle,
-    doctitle:  'Test',
-    pagetitle: 'Test'
   });
 });
 
