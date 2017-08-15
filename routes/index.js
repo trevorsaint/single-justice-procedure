@@ -9,7 +9,7 @@ const apptitle = 'Criminal Justice Services online';
 
 
 // routes
-router.all('/', function(req, res, next) {
+router.all(baseurl, function(req, res, next) {
   req.session.destroy();
   res.render('index', {
     baseurl: baseurl,
@@ -22,7 +22,7 @@ router.all('/', function(req, res, next) {
 });
 
 
-router.all('/select-user-type', function(req, res, next) {
+router.all(baseurl + 'select-user-type', function(req, res, next) {
   req.session.destroy();
   res.render('select-user-type', {
     baseurl: baseurl,
@@ -35,7 +35,7 @@ router.all('/select-user-type', function(req, res, next) {
 });
 
 
-router.all('/terms-and-conditions', function(req, res, next) {
+router.all(baseurl + 'terms-and-conditions', function(req, res, next) {
   res.render('terms-and-conditions', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -47,7 +47,7 @@ router.all('/terms-and-conditions', function(req, res, next) {
 });
 
 
-router.all('/cookies', function(req, res, next) {
+router.all(baseurl + 'cookies', function(req, res, next) {
   res.render('cookies', {
     baseurl: baseurl,
     apptitle: apptitle,
@@ -109,7 +109,7 @@ router.all('/comments', function(req, res, next) {
 });
 
 
-router.all('/forgotten-your-password', function(req, res, next) {
+router.all(baseurl + 'forgotten-your-password', function(req, res, next) {
   res.render('forgotten-your-password', {
     baseurl: baseurl,
     apptitle: apptitle,
