@@ -31,7 +31,7 @@ app.use(session({
 }));
 
 
-//Helpers
+// Helpers
 const helpers = require("handlebars-helpers")();
 
 
