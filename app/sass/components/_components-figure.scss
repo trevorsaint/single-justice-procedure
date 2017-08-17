@@ -1,0 +1,26 @@
+/* Figures */
+
+$module: "figure";
+
+.#{$module} {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+}
+
+/*
+
+HTML Usage
+
+<figure>
+
+  <img src="">
+
+</figure>
+
+*/

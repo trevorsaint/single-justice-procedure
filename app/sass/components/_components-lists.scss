@@ -1,0 +1,24 @@
+/* Lists */
+
+$module: "list";
+
+.#{$module} {
+
+
+  &-inline {
+
+    li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+  }
+
+
+  &-file {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+
+}

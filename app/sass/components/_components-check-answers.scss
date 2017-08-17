@@ -1,0 +1,25 @@
+/* Check answers */
+
+$module: "check-answers";
+
+.#{$module} {
+  position: relative;
+  margin-bottom: em(40);
+
+  th {
+    font-weight: 400;
+    width: 40%;
+  }
+
+  th,
+  td {
+    vertical-align: top;
+  }
+
+  &-action {
+    font-weight: 700;
+    margin: 0;
+    position: absolute; right: 0; top: 0;
+  }
+
+}

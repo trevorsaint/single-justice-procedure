@@ -1,0 +1,64 @@
+/* Description lists */
+
+$module: "description";
+
+.#{$module} {
+
+  dt {font-weight: bold;}
+  dd {margin-bottom: em(10);}
+
+  @include media(tablet) {
+
+    dt {
+      box-sizing: border-box;
+      float: left;
+      margin-bottom: em(10);
+      padding-right: em(20);
+      width: 40%;
+    }
+
+    dd {overflow: hidden;}
+
+  }
+
+  &-meta {
+    @include core-16;
+
+    dt {
+      font-weight: normal;
+      float: left;
+      margin-bottom: em(5, 16);
+      min-width: 120px;
+      padding-right: 10px;
+      width: auto;
+
+      &:after {
+        content: ":";
+      }
+
+    }
+
+    dd {
+      margin-bottom: em(5, 16);
+      overflow: hidden;
+    }
+
+  }
+
+}
+
+/*
+
+HTML Usage
+
+<dl class="description">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+<dl class="description description-meta">
+  <dt>Heading</dt>
+  <dd>Content</dd>
+</dl>
+
+*/

@@ -1,0 +1,31 @@
+/* Links */
+
+$module: "link";
+
+.#{$module} {
+
+  &-with-icon {
+    display: inline-block;
+    overflow: hidden; // prevents shift when has focus
+
+    .icon {
+      margin-right: 10px;
+      vertical-align: middle;
+
+      @include media(mobile) {
+        display: none;
+      }
+
+    }
+
+  }
+
+}
+
+/*
+
+HTML Usage
+
+<a class="link link-with-icon" href="#"><i class="icon icon-file-download" role="presentation" aria-hidden="true"></i>View and print</a>
+
+*/

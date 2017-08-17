@@ -1,0 +1,54 @@
+/* Filters */
+
+$module: "filters";
+
+.#{$module} {
+
+  &-menu {
+    margin-bottom: 60px;
+  }
+
+  &-label {
+    @include core-19;
+    color: $secondary-text-colour;
+  }
+
+  &-buttons {
+    display: inline;
+  }
+
+  &-link {
+    @include core-19;
+    background: transparent;
+    border: 0 none;
+    color: $link-colour;
+    cursor: pointer;
+    margin-left: em(10);
+    padding: 0;
+    text-decoration: underline;
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+    &:hover {
+      color: $link-hover-colour;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $focus-colour;
+      outline: 3px solid $focus-colour;
+      overflow: hidden;
+    }
+
+    &.is-selected {
+      color: $black;
+      cursor: default;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+  }
+
+}

@@ -1,15 +1,17 @@
-// Imports
-// ==========================================================================
-
 // Path to assets for use with the file-url function
 // in the govuk frontend toolkit's url-helpers partial
 $path: "/public/images/";
 
+
 // Import all the govuk-elements partials listed in _govuk-elements.scss
 @import "govuk-elements";
 
-// SJP styles
-@import "modules/manifest";
-@import "partials/manifest";
-@import "blocks/manifest";
+
+// Import all ministry of justice styles (ITCSS - https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture)
+@import "settings/manifest";
+@import "tools/manifest";
+@import "generic/manifest";
 @import "elements/manifest";
+@import "objects/manifest";
+@import "components/manifest";
+@import "trumps/manifest";

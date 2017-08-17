@@ -1,0 +1,35 @@
+/* Example */
+
+$module: "example";
+
+.#{$module} {
+  border: em(1) solid $grey-2;
+  margin-top: em(15);
+  margin-bottom: em(20);
+  padding: em(30);
+  position: relative;
+
+  &:before {
+    @include core-14;
+    background: $grey-2;
+    color: white;
+    content: "Example";
+    padding: em(10);
+    position: absolute; top: 0; right: 0;
+    text-transform: uppercase;
+  }
+
+}
+
+
+/*
+
+HTML Usage
+
+<div class="examle">
+
+  ... content
+
+</div>
+
+*/

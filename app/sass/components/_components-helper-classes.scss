@@ -1,0 +1,110 @@
+/* Helper classes */
+
+// Margin top
+$module: "mt";
+
+.#{$module} {
+
+  &-xs  {
+    margin-top: 5px;
+  }
+
+  &-s   {
+    margin-top: 10px;
+    @include media(tablet) {margin-top: 10px;}
+  }
+
+  &-m  {
+    margin-top: 15px;
+    @include media(tablet) {margin-top: 20px;}
+  }
+
+  &-l   {
+    margin-top: 20px;
+    @include media(tablet) {margin-top: 30px;}
+  }
+
+  &-xl  {
+    margin-top: 30px;
+    @include media(tablet) {margin-top: 45px;}
+  }
+
+  &-xxl {
+    margin-top: 45px;
+    @include media(tablet) {margin-top: 60px;}
+  }
+
+}
+
+
+// Margin bottom
+$module: "mb";
+
+.#{$module} {
+
+  &-xs  {
+    margin-bottom: 5px;
+  }
+
+  &-s   {
+    margin-bottom: 10px;
+    @include media(tablet) {margin-bottom: 10px;}
+  }
+
+  &-m  {
+    margin-bottom: 15px;
+    @include media(tablet) {margin-bottom: 20px;}
+  }
+
+  &-l   {
+    margin-bottom: 20px;
+    @include media(tablet) {margin-bottom: 30px;}
+  }
+
+  &-xl  {
+    margin-bottom: 30px;
+    @include media(tablet) {margin-bottom: 45px;}
+  }
+
+  &-xxl {
+    margin-bottom: 45px;
+    @include media(tablet) {margin-bottom: 60px;}
+  }
+
+}
+
+
+// Text alignment
+$module: "text";
+
+.#{$module} {
+
+  &-left {
+    text-align: left;
+  }
+
+  &-right {
+    text-align: right;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+}
+
+
+// Flush
+$module: "flush";
+
+.#{$module} {
+
+  &-top {
+    margin-top: 0;
+  }
+
+  &-bottom {
+    margin-bottom: 0;
+  }
+
+}
