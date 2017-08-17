@@ -6,7 +6,7 @@ $module: "link";
 
   &-with-icon {
     display: inline-block;
-    overflow: hidden; // prevents shift when has focus
+    overflow: hidden; // Prevents shift when has focus
 
     .icon {
       margin-right: 10px;

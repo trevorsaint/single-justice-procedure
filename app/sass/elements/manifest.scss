@@ -2,6 +2,18 @@
 Elements – styling for bare HTML elements (like H1, A, etc.). These come with default styling from the browser so we can redefine them here
 */
 
+
+html,
+body {
+  overflow-x: hidden; // Prevent scrollbars on x-axis
+}
+
+
 b {
   font-weight: 700;
+}
+
+
+hr {
+  clear: both; // Needs to be added to GOV.UK
 }

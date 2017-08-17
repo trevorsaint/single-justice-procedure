@@ -64,7 +64,6 @@ $module: "persist-info";
     vertical-align: middle;
   }
 
-  // tablet and up
   @include media(desktop) {
 
     &-content {

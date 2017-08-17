@@ -99,7 +99,9 @@ $module: "pagination";
   &-prev {
     float: left;
 
-    a {padding-left: 32px;}
+    a {
+      padding-left: 32px;
+    }
 
     .#{$module}-label {
 

@@ -4,7 +4,7 @@ $module: "tabs";
 
 .#{$module} {
 
-  // shared tab properties
+  // Shared tab properties
   [role="tabpanel"] {
 
     &[aria-hidden="true"] {
@@ -49,7 +49,6 @@ $module: "tabs";
 
   @include media(tablet) {
 
-    // tabs horizontal only styles
     &-horizontal {
 
       [role="tab"] {
@@ -83,7 +82,6 @@ $module: "tabs";
 
     }
 
-    // tabs vertical only styles
     &-vertical {
 
       [role="presentation"] {
