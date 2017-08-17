@@ -1,0 +1,3 @@
+app/javascripts/govuk/*.js
+app/javascripts/vendor/*.js
+app/javascripts/application.js

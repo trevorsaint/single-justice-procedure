@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+
+  <title>{{doctitle}} &ndash; {{apptitle}}</title>
+
+  <!--[if gt IE 8]><!--><link href="{{asset_path}}stylesheets/govuk-template.css" media="screen" rel="stylesheet"><!--<![endif]-->
+  <!--[if IE 6]><link href="{{asset_path}}stylesheets/govuk-template-ie6.css" media="screen" rel="stylesheet"><![endif]-->
+  <!--[if IE 7]><link href="{{asset_path}}stylesheets/govuk-template-ie7.css" media="screen" rel="stylesheet"><![endif]-->
+  <!--[if IE 8]><link href="{{asset_path}}stylesheets/govuk-template-ie8.css" media="screen" rel="stylesheet"><![endif]-->
+  <link href="{{asset_path}}stylesheets/govuk-template-print.css" media="print" rel="stylesheet">
+
+  <!--[if IE 8]><link href="{{asset_path}}stylesheets/fonts-ie8.css" media="all" rel="stylesheet"><![endif]-->
+  <!--[if gte IE 9]><!--><link href="{{asset_path}}stylesheets/fonts.css" media="all" rel="stylesheet"><!--<![endif]-->
+  <!--[if lt IE 9]><script src="{{asset_path}}javascripts/ie.js"></script><![endif]-->
+
+  <link rel="shortcut icon" href="{{asset_path}}images/favicon.ico" type="image/x-icon">
+
+  <link rel="mask-icon" href="{{asset_path}}images/gov.uk_logotype_crown.svg" color="#0b0c0c">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{asset_path}}images/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="{{asset_path}}images/apple-touch-icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{asset_path}}images/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" href="{{asset_path}}images/apple-touch-icon.png">
+
+  <meta name="theme-color" content="#0b0c0c">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="{{asset_path}}images/opengraph-image.png">
+
+  <link href="{{asset_path}}stylesheets/main.css" media="screen" rel="stylesheet">
+  <link href="{{asset_path}}stylesheets/print.css" media="print" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+
+  <div id="skiplink-container">
+    <div>
+      <a href="#content" class="skiplink">Skip to main content</a>
+    </div>
+  </div>
+
+  <div id="global-cookie-message">
+    <p>GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies">Find out more about cookies</a></p>
+  </div>
+
+
+  {{>header}}
+
+
+  {{#isnt globalHeaderBar false}}<div id="global-header-bar"></div>{{/isnt}}
