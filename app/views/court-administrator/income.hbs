@@ -10,11 +10,15 @@
 
     <h1 class="heading-xlarge">{{../pagetitle}}</h1>
 
+    <p>You don&rsquo;t need to enter all details from the means form.</p>
+
+    <p>Enter only the following, if available.</p>
+
     <form class="form" method="post" novalidate>
 
       <div class="form-group">
         <label for="national-insurance">
-          <span class="form-label-bold">National Insurance number (optional)</span>
+          <span class="form-label-bold">National Insurance number</span>
           <span class="form-hint">For example, VO 12 34 56 D</span>
         </label>
         <input class="form-control form-control-3-4" id="national-insurance" name="nationalInsurance" type="text"{{#if ../sNationalInsurance}} value="{{../sNationalInsurance}}"{{else}} value="{{national-insurance-number}}"{{/if}}>
@@ -143,10 +147,10 @@
         <fieldset class="inline">
 
           <legend>
-            <span class="form-label-bold">Claiming Jobseeker’s Allowance, Employment Support Allowance, Universal Credit or Income Support?</span>
+            <span class="form-label-bold">Is the defendant claiming benefits?</span>
           </legend>
 
-          <div class="multiple-choice">
+          <div class="multiple-choice" data-target="receiving-benefits">
             <input id="receiving-benefits-yes" name="receivingBenefits" type="radio" value="Yes"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Yes"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits "Yes"}} checked="checked"{{/contains}}{{/if}}>
             <label for="receiving-benefits-yes">Yes<span class="visually-hidden"> is receiving benefits</span></label>
           </div>
@@ -159,6 +163,15 @@
           <div class="multiple-choice">
             <input id="receiving-benefits-unknown" name="receivingBenefits" type="radio" value="Don’t know"{{#if ../sReceivingBenefits}}{{#contains ../sReceivingBenefits "Don’t know"}} checked="checked"{{/contains}}{{else}}{{#contains employment.receiving-benefits ""}} checked="checked"{{/contains}}{{/if}}>
             <label for="receiving-benefits-unknown">Don&rsquo;t know<span class="visually-hidden"> if receiving benefits</span></label>
+          </div>
+
+          <div class="panel panel-border-narrow js-hidden" id="receiving-benefits">
+
+            <div class="form-group">
+              <label for="benefits">Enter benefits</label>
+              <textarea class="form-control form-control-3-4" id="benefits" name="benefits" rows="2"></textarea>
+            </div>
+
           </div>
 
         </fieldset>

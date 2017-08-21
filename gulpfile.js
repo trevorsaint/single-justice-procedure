@@ -52,7 +52,7 @@ gulp.task('develop', [
 gulp.task('watch', () => {
   runsequence(
     'watch:sass',
-    'watch:handlebars',
+    //'watch:handlebars',
     'watch:images',
     'watch:javascripts'
   )
