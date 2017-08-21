@@ -65,6 +65,7 @@ router.use(function(req, res, next) {
 
 
   sReceivingBenefits = req.session.receivingBenefits;
+  sBenefits = req.session.benefits;
 
   sMakeDecision        = req.session.makeDecision;
   sMakeDecisionConfirm = req.session.makeDecisionConfirm;
@@ -193,6 +194,7 @@ router.route('/' + baseurl + '/case-details/:id/')
       sPayAmount: sPayAmount,
       sPayAmountConverted: sPayAmountConverted,
       sReceivingBenefits: sReceivingBenefits,
+      sBenefits: sBenefits,
       sMakeDecision: sMakeDecision,
       sMakeDecisionConfirm: sMakeDecisionConfirm,
       sNeedInterpreter: sNeedInterpreter,
@@ -317,6 +319,7 @@ router.route('/' + baseurl + '/income/:id/')
       search: entry,
       sNationalInsurance: sNationalInsurance,
       sReceivingBenefits: sReceivingBenefits,
+      sBenefits: sBenefits,
       sPayFrequency: sPayFrequency,
       sPayAmount: sPayAmount,
       sEmploymentStatus: sEmploymentStatus,
@@ -406,6 +409,12 @@ router.route('/' + baseurl + '/income/:id/')
     sEmployerTelephone = req.session.employerTelephone = req.body.employerTelephone;
 
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
+    sBenefits = req.session.benefits = req.body.benefits;
+
+    if (sReceivingBenefits !== 'Yes') {
+      req.session.benefits = null; // reset if not 'Yes'
+    }
+
     sCaseActiveTab = req.session.caseActiveTab = 'Income';
     res.redirect('/' + baseurl + '/case-details/' + req.params.id + '/?saved=true');
   });
@@ -633,6 +642,7 @@ router.route('/' + baseurl + '/postal/income/:id/')
 
     sEmployerTelephone = req.session.employerTelephone = req.body.employerTelephone;
     sReceivingBenefits = req.session.receivingBenefits = req.body.receivingBenefits;
+    sBenefits = req.session.benefits = req.body.benefits;
 
     // has the user come from check your answers
     if (!req.query.change) {
@@ -738,7 +748,8 @@ router.route('/' + baseurl + '/postal/check-your-answers/:id/')
       sNationalInsurance: sNationalInsurance,
       sPayFrequency: sPayFrequency,
       sPayAmount: sPayAmount,
-      sReceivingBenefits: sReceivingBenefits
+      sReceivingBenefits: sReceivingBenefits,
+      sBenefits: sBenefits
     });
   })
   .post(function(req, res, next) {
@@ -779,7 +790,8 @@ router.route('/' + baseurl + '/extract-of-court-record/:id/')
       sNationalInsurance: sNationalInsurance,
       sPayFrequency: sPayFrequency,
       sPayAmount: sPayAmount,
-      sReceivingBenefits: sReceivingBenefits
+      sReceivingBenefits: sReceivingBenefits,
+      sBenefits: sBenefits
     });
   })
   .post(function(req, res, next) {
