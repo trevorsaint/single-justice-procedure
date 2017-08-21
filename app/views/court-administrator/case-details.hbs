@@ -274,7 +274,12 @@
               <dd>
                 {{#if ../../sReceivingBenefits}}
                   {{#is ../../sReceivingBenefits 'Don’t know'}}<a href="/court-administrator/income/{{../id}}/#receiving-benefits-yes">Add benefits</a>{{else}}
-                    {{#is ../../sReceivingBenefits 'Yes'}}{{../../sBenefits}}{{else}}{{../../sReceivingBenefits}}{{/is}}
+                    {{#is ../../sReceivingBenefits 'Yes'}}
+                      {{../../sReceivingBenefits}}
+                      <p>{{../../sBenefits}}</p>
+                    {{else}}
+                      {{../../sReceivingBenefits}}
+                    {{/is}}
                   {{/is}}
                 {{else}}
                   {{#if receiving-benefits}}
