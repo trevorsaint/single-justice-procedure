@@ -102,6 +102,14 @@ var search = [
           "file-path": "#"
         }
       ]
+    },
+    "tasks": {
+      "interpreter": {
+        "requested": true,
+        "language": "French"
+      },
+      "date-of-hearing": "2017-06-19",
+      "completed": false
     }
   },
 
@@ -263,6 +271,14 @@ var search = [
           "file-path": "#"
         }
       ]
+    },
+    "tasks": {
+      "interpreter": {
+        "requested": true,
+        "language": "German"
+      },
+      "date-of-hearing": "2017-06-19",
+      "completed": false
     }
   },
 
@@ -371,6 +387,14 @@ var search = [
           "file-path": "#",
         }
       ]
+    },
+    "tasks": {
+      "interpreter": {
+        "requested": "",
+        "language": ""
+      },
+      "date-of-hearing": "2017-06-28",
+      "completed": false
     }
   },
 
@@ -477,6 +501,14 @@ var search = [
           "file-path": "#",
         }
       ]
+    },
+    "tasks": {
+      "interpreter": {
+        "requested": "",
+        "language": ""
+      },
+      "date-of-hearing": "2017-06-28",
+      "completed": false
     }
   },
 
@@ -546,6 +578,14 @@ var search = [
     },
     "related-documents": {
       "document": []
+    },
+    "tasks": {
+      "interpreter": {
+        "requested": "",
+        "language": ""
+      },
+      "date-of-hearing": "2017-07-06",
+      "completed": false
     }
   },
 
@@ -651,6 +691,14 @@ var search = [
           "file-path": "#"
         }
       ]
+    },
+    "tasks": {
+      "interpreter": {
+        "requested": true,
+        "language": "Italian"
+      },
+      "date-of-hearing": "2017-07-11",
+      "completed": false
     }
   },
 

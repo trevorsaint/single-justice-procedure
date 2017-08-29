@@ -1,0 +1,143 @@
+{{>breadcrumb}}
+
+<div class="grid-row">
+
+  <div class="column-two-thirds">
+
+    <h1 class="heading-xlarge">{{pagetitle}}</h1>
+
+    <div class="panel panel-border-wide" role="note" aria-label="Information">
+
+      <p>Complete the following tasks for each defendant:</p>
+
+      <ul class="list list-number">
+        <li>Put case details in Libra &ndash; use latest intructions from your team leader</li>
+        <li>Print and send summons from Libra</li>
+        <li>Book interpreter in xyz (if needed)</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<form class="form mt-l" method="post">
+
+  <div class="form-group">
+
+    <table class="table table-font-xsmall">
+
+      <caption class="visually-hidden">Tasks for cases referred to court</caption>
+
+      <thead>
+        <tr>
+          <th scope="col">Defendant name</th>
+          <th scope="col"><abbr title="Unique Reference Number">URN</abbr></th>
+          <th scope="col">Interpreter requested</th>
+          <th scope="col">Date of hearing</th>
+          <th scope="col">All tasks done?</th>
+        </tr>
+      </thead>
+
+
+      <body>
+        {{#each searches}}
+          {{#if tasks}}
+          <tr>
+            <th scope="row"><a href="/{{../baseurl}}/case-details/{{id}}/"><span class="text-uppercase">{{personal-details.lastname}}</span> {{personal-details.firstname}}</a></th>
+            <td>{{personal-details.urn}}</td>
+            <td>{{#if tasks.interpreter.requested}}{{tasks.interpreter.language}}{{else}}<abbr title="No interpreter requested">&mdash;</abbr>{{/if}}</td>
+            <td>{{moment tasks.date-of-hearing format="D MMM YYYY"}}</td>
+            <td>
+              <div class="multiple-choice">
+                <input id="tasks-completed-1" name="tasks-completed" type="checkbox" value="Yes">
+                <label for="tasks-completed-1"><span class="visually-hidden">Have you completed all tasks for {{personal-details.lastname}} {{personal-details.firstname}}?</span></label>
+              </div>
+            </td>
+          </tr>
+          {{/if}}
+        {{/each}}
+      </body>
+
+
+      <!--tbody>
+        <tr>
+          <td>1</td>
+          <th scope="row"><a href="#"><span class="text-uppercase">Smith</span> Billy</a></th>
+          <td>9012466</td>
+          <td>French</td>
+          <td><time datetime="2017-06-19T00:00">19 Jun 2017</time></td>
+          <td>
+            <div class="multiple-choice">
+              <input id="tasks-completed-1" name="tasks-completed" type="checkbox" value="Tasks completed for Smith Billy">
+              <label for="tasks-completed-1"><span class="visually-hidden">Tasks completed for Smith Billy</span></label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <th scope="row"><a href="#"><span class="text-uppercase">Chant</span> Jack</a></th>
+          <td>9012467</td>
+          <td>German</td>
+          <td><time datetime="2017-06-19T00:00">19 Jun 2017</time></td>
+          <td>
+            <div class="multiple-choice">
+              <input id="tasks-completed-2" name="tasks-completed" type="checkbox" value="Tasks completed for Chant Jack">
+              <label for="tasks-completed-2"><span class="visually-hidden">Tasks completed for Chant Jack</span></label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <th scope="row"><a href="#"><span class="text-uppercase">Clark</span> Stuart</a></th>
+          <td>9012462</td>
+          <td><abbr title="No interpreter requested">&mdash;</abbr></td>
+          <td><time datetime="2017-06-28T00:00">28 Jun 2017</time></td>
+          <td>
+            <div class="multiple-choice">
+              <input id="tasks-completed-3" name="tasks-completed" type="checkbox" value="Tasks completed for Clark Stuart">
+              <label for="tasks-completed-3"><span class="visually-hidden">Tasks completed for Clark Stuart</span></label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <th scope="row"><a href="#"><span class="text-uppercase">Federhen</span> Genevieve</a></th>
+          <td>2053688</td>
+          <td><abbr title="No interpreter requested">&mdash;</abbr></td>
+          <td><time datetime="2017-07-06T00:00">6 Jul 2017</time></td>
+          <td>
+            <div class="multiple-choice">
+              <input id="tasks-completed-4" name="tasks-completed" type="checkbox" value="Tasks completed for Federhen Genevieve">
+              <label for="tasks-completed-4"><span class="visually-hidden">Tasks completed for Federhen Genevieve</span></label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <th scope="row"><a href="#"><span class="text-uppercase">Francis</span> John</a></th>
+          <td>2056139</td>
+          <td>Italian</td>
+          <td><time datetime="2017-07-11T00:00">11 Jul 2017</time></td>
+          <td>
+            <div class="multiple-choice">
+              <input id="tasks-completed-5" name="tasks-completed" type="checkbox" value="Tasks completed for Francis John">
+              <label for="tasks-completed-5"><span class="visually-hidden">Tasks completed for Francis John</span></label>
+            </div>
+          </td>
+        </tr>
+      </tbody-->
+
+    </table>
+
+  </div>
+
+  <div class="form-group form-group-related">
+    <button class="button" type="submit">Done</button>
+  </div>
+
+  <p><a href="#">Cancel</a></p>
+
+</form>

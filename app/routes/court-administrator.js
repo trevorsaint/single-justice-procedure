@@ -799,6 +799,8 @@ router.route('/' + baseurl + '/extract-of-court-record/:id/')
   });
 
 
+
+
 router.route('/' + baseurl + '/create-register-for-the-media/')
   .get(function(req, res, next) {
     res.render(baseurl + '/create-register-for-the-media', {
@@ -812,10 +814,31 @@ router.route('/' + baseurl + '/create-register-for-the-media/')
       breadcrumb: true,
       searches: dataEngine.getSearchEntries()
     });
+  });
+
+
+
+
+
+router.route('/' + baseurl + '/case-actions/')
+  .get(function(req, res, next) {
+    res.render(baseurl + '/case-actions', {
+      baseurl: baseurl,
+      apptitle: apptitle,
+      ispublic: false,
+      doctitle: 'Get 6 cases ready for a hearing',
+      pagetitle: 'Get 6 cases ready for a hearing',
+      section: 'home',
+      section_name: 'Home',
+      breadcrumb: true,
+      searches: dataEngine.getSearchEntries()
+    });
   })
   .post(function(req, res, next) {
     //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
   });
+
+
 
 
 router.route('/' + baseurl + '/mark-case-as-reopened/:id/')
