@@ -835,7 +835,7 @@ router.route('/' + baseurl + '/case-actions/')
     });
   })
   .post(function(req, res, next) {
-    //res.redirect('/court-administrator/case-details/' + req.params.id + '/?saved=true');
+    res.redirect('/court-administrator/home/?saved=true');
   });
 
 
