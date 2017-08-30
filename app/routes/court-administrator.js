@@ -820,14 +820,14 @@ router.route('/' + baseurl + '/create-register-for-the-media/')
 
 
 
-router.route('/' + baseurl + '/case-actions/')
+router.route('/' + baseurl + '/get-cases-ready-for-a-hearing/')
   .get(function(req, res, next) {
-    res.render(baseurl + '/case-actions', {
+    res.render(baseurl + '/get-cases-ready-for-a-hearing', {
       baseurl: baseurl,
       apptitle: apptitle,
       ispublic: false,
-      doctitle: 'Get 6 cases ready for a hearing',
-      pagetitle: 'Get 6 cases ready for a hearing',
+      doctitle: 'Get cases ready for a hearing',
+      pagetitle: 'Get cases ready for a hearing',
       section: 'home',
       section_name: 'Home',
       breadcrumb: true,
